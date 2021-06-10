@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Crear fichero de logs en bash"
+title: "Solucionar error i915 en GNU/Debian"
 author: Victor
 date: 2021-06-09
 category: [linux]
