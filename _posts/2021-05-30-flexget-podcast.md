@@ -3,7 +3,7 @@ layout: post
 title: "Descargar Podcast a traves de Flexget"
 author: Victor
 date: 2021-05-30
-category: [docker],[raspberry]
+category: [docker,raspberry]
 ---
 
 Gracias que tengo docker puedo usar la imagen que he creado de [Flexget](https://flexget.com), una aplicación que a traves de un fichero yaml, permite descargar lo que quieras incluidos podcast.

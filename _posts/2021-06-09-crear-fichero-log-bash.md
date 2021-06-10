@@ -3,7 +3,7 @@ layout: post
 title: "Crear fichero de logs en bash"
 author: Victor
 date: 2021-06-09
-category: [linux],[bash]
+category: [linux,bash]
 ---
 
 A veces tienes la necesidad de crear un fichero de log para saber cuando se ejecuta un proceso en un script que puedes haber creado, aqui pongo el que yo uso.

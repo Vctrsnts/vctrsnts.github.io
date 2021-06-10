@@ -3,7 +3,7 @@ layout: post
 title: "Raspberry Pi. Instalando Jessie-Lite"
 author: Victor
 date: 2016-04-02
-category: [raspberry],[raspbian]
+category: [raspberry,raspbian]
 ---
 
 Como dije en el anterior capitulo, despues de recibir mi nuevo juguete:

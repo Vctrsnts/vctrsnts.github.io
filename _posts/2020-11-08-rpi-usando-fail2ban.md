@@ -3,7 +3,7 @@ layout: post
 title: "Raspberry Pi. Instalar y configurar fail2ban"
 author: Victor
 date: 2020-11-08
-category: [raspberry],[raspbian]
+category: [raspberry,raspbian]
 ---
 
 Siguiendo con mis capitulos con respecto a la configuración y uso de mi RPI4 ( cambio explicado en otro [articulo](./rpi-cambiando-equipo) ), pues ahora pasamos a añadir una protección más y que en todos los sitios donde explican su configuración, se preguntan, porque no esta instalada por defecto en todos los sistemas GNU/Linux.

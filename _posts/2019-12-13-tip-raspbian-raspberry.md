@@ -3,7 +3,7 @@ layout: post
 title: "TIP Sobre Raspbian / Raspberry"
 author: Victor
 date: 2019-12-13
-category: [raspberry],[raspbian]
+category: [raspberry,raspbian]
 ---
 
 A continuación pongo unos cuantos TIPS más con respecto a Raspbian, mayormente para que no se me olviden para más adelanta ;)

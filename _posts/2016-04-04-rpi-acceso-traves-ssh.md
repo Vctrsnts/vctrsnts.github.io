@@ -3,7 +3,7 @@ layout: post
 title: "Raspberry Pi. Acceso a traves de ssh"
 author: Victor
 date: 2016-04-04
-category: [raspberry],[raspbian],[ssl]
+category: [raspberry,raspbian,ssl]
 ---
 
 Una vez que ya tenemos nuestra Raspberry en marcha y funcionando ahora viene la parte divertida, como acceder a ella desde el exterior. En mi caso desde otra ubicación y además con un poco de seguridad para que nadie pueda acceder a ella.

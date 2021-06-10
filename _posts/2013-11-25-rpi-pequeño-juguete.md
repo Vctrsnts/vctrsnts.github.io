@@ -3,7 +3,7 @@ layout: post
 title: "Raspberry Pi. Mi pequeño nuevo juguete…"
 author: Victor
 date: 2013-11-25
-category: [raspberry],[raspbian]
+category: [raspberry,raspbian]
 ---
 
 ![](https://raw.githubusercontent.com/vctrsnts/vctrsnts.github.io/master/static/img/_posts/raspberrypi.jpg)

@@ -3,7 +3,7 @@ layout: post
 title: "Copiar un archivo a varios directores"
 author: Victor
 date: 2020-08-30
-category: [linux],[bash]
+category: [linux,bash]
 ---
 
 A veces tengo que copiar un fichero ( normalmente una caratula para la musica ) a varios directorios. Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.

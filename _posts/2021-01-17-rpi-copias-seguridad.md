@@ -3,7 +3,7 @@ layout: post
 title: "Raspberry Pi. Haciendo copias de seguridad"
 author: Victor
 date: 2021-01-07
-category: [docker],[raspberry]
+category: [docker,raspberry]
 ---
 
 Otro capitulo más con respecto a la configuración de de mi RPI4, en este caso es las copias de seguridad de la información más importante.

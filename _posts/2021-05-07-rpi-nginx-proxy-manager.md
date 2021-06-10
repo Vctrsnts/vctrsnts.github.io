@@ -3,7 +3,7 @@ layout: post
 title: "Usando Nginx-Proxy-Manager en la Raspberry"
 author: Victor
 date: 2021-05-07
-category: [docker],[raspberry]
+category: [docker,raspberry]
 ---
 
 

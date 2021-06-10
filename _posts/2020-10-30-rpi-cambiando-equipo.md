@@ -3,7 +3,7 @@ layout: post
 title: "Raspberry Pi. Cambiando el equipo"
 author: Victor
 date: 2020-10-30
-category: [raspberry],[raspbian]
+category: [raspberry,raspbian]
 ---
 
 Ante la noticia de que iban a sacar una nueva [Raspberry Pi](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/?resellerType=home) con varias mejores ( más vale tarde que nunca que ya hablaremos más adelante ) y pense si ya era hora de cambiar mi Raspberry Pi 3b por la nueva versión.

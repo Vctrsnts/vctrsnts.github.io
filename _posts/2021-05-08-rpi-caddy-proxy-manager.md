@@ -3,7 +3,7 @@ layout: post
 title: "Usando Caddy como Proxy Inverso"
 author: Victor
 date: 2021-05-08
-category: [docker],[raspberry]
+category: [docker,raspberry]
 ---
 
 Cómo cuarta opción, he estado probando Caddy tras la recomendación de Germán .

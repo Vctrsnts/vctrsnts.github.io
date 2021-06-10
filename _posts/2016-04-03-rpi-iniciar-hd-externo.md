@@ -3,7 +3,7 @@ layout: post
 title: "Raspberry Pi. Iniciar desde un HD externo"
 author: Victor
 date: 2016-04-03
-category: [raspberry],[raspbian]
+category: [raspberry,raspbian]
 ---
 
 Después de haber configurado la red, ahora pasare a explicar como extraer la información de la raiz ( `/` ) de la SD para pasarla a un HD externo y así alargar la vida de nuestra SD.

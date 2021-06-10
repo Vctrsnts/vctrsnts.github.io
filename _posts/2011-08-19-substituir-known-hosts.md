@@ -3,10 +3,11 @@ layout: post
 title: "Sustituir una clave antigua de known_hosts"
 author: Victor
 date: 2011-08-19
-category: [linux],[ssl]
+category: [linux,ssl]
 ---
 
 Es posible que más de una vez nos hayamos encontrado con un mensaje similar a éste (siento decirlo, pero a mi me a pasado muchas veces):
+
 ```
 usuari@maquina:~> ssh servidor-ssh
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

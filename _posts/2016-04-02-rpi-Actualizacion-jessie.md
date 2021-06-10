@@ -3,7 +3,7 @@ layout: post
 title: "Raspberry Pi. Actualización a Jessie"
 author: Victor
 date: 2016-04-02
-category: [raspberry],[raspbian]
+category: [raspberry,raspbian]
 ---
 
 Tal como habia explicado en el anterior capitulo, después de tener mi RPI con Whezzy y viendo que habian sacado una nueva versión [Jessie-Lite](https://www.raspberrypi.org/downloads/raspbian) de Raspbian decidi realizar una **full-upgrade** para actualizar el sistema.

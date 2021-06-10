@@ -3,7 +3,7 @@ layout: post
 title: "Raspberry Pi. Externalizando copias de seguridad"
 author: Victor
 date: 2021-01-18
-category: [docker],[raspberry]
+category: [docker,raspberry]
 ---
 
 Este articulo es una continuación al que hice hace un par de dias con respecto a realizar copias de seguridad en mi RPI4 con **RSNAPSHOT**.

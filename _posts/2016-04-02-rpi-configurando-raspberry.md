@@ -3,7 +3,7 @@ layout: post
 title: "Raspberry Pi. Configurando la Raspberry"
 author: Victor
 date: 2016-04-02
-category: [raspberry],[raspbian]
+category: [raspberry,raspbian]
 ---
 
 Después de la instalación viene la configuración y en mi caso hice lo siguiente.

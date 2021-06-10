@@ -3,7 +3,7 @@ layout: post
 title: "Raspberry Pi. Funcionamiento de la RPI"
 author: Victor
 date: 2016-04-02
-category: [raspberry],[raspbian]
+category: [raspberry,raspbian]
 ---
 
 De nuevo en la brecha. Después de tanto tiempo si publicar nada, aqui vuelvo.

@@ -3,7 +3,7 @@ layout: post
 title: "Deshabilitar tarjeta NVIDIA Optimus en GNU/Debian Linux"
 author: Victor
 date: 2012-11-11
-category: [linux],[server]
+category: [linux,server]
 ---
 
 Después de mucho buscar al final, pude encontrar un sitio ( <a title="El Blog De Pedro Bonilla" href="http://pedrobonilla.blogspot.com.es/2011/11/deshabilitar-tarjeta-nvidia-en-sistema.html" target="_blank">aqui</a> ) donde te explicaba como desactivar la tarjeta grafica Nvidia de mi portatil Dell XPS 15. Estaba ya cansado de escuchar el ventilador funcionando todo el rato por culpa de una tarjeta grafica que no utilizaba. Así que lo pongo a continuación porque así se difunde más facilmente y lo guardo para mi como apuntes...

@@ -3,7 +3,7 @@ layout: post
 title: "Comprimir / Descomprimir un fichero"
 author: Victor
 date: 2010-11-05
-category: [linux],[bash]
+category: [linux,bash]
 ---
 
 Aqui va una cosa, que supongo que como a mi, a veces nos olvidamos de como se hace. Comprimir y descomprimir un fichero en **GNU/Linux Debian**.

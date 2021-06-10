@@ -3,7 +3,7 @@ layout: post
 title: "Raspberry Pi. Configurar la red"
 author: Victor
 date: 2016-04-03
-category: [raspberry],[raspbian]
+category: [raspberry,raspbian]
 ---
 
 Ahora que ya tenemos configurado y funcionando nuestra Raspberry, ahora le toca el turno a la red ( en mi caso, quiero ip fija ).
