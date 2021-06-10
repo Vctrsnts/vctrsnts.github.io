@@ -4,6 +4,7 @@ title: "Ya tenemos KDE4"
 author: Victor
 date: 2009-06-09
 category: [linux]
+image: screenshot_001.jpg
 ---
 
 Pues si, después de una instalación no tan traumatica como me esperaba, ya hemos instalado KDE 4.2 ( a continuación un screen de mi PC ).
