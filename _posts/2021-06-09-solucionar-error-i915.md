@@ -16,7 +16,7 @@ La solución que todo el mundo me decia era eliminar el paquete del driver de *x
 
 Al final di con la solución en el foro de [exDebian.org](https://exdebian.org/foro/como-solucionar-drmi965irqhandler-i915-error-cpu-pipe-fifo-underrun-solucionado).
 
-Lo que tienes que hacer es crear ( en mi caso, me funciona ) un el siguiente fichero ``` ``` con el siguiente contenido:
+Lo que tienes que hacer es crear ( en mi caso, me funciona ) es lo siguiente:
 ```
 ls etc/X11/
 ```
