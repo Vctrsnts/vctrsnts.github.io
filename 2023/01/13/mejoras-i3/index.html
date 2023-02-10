@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-us" class="h-100">
+  <head>
+    <title>
+      Mejoras en mi escritorio ( i3-wm ) – Si lo hacez, hazlo bien – Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The page supports both dark and light color schemes, and the page author prefers / default is light. -->
+    <meta name="color-scheme" content="dark light" />
+    <!-- Stylesheet that includes Bootstrap dark mode & custom stylesheet -->
+    <link
+      rel="stylesheet"
+      href="/assets/css/styles.css"
+    />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <!-- Meta Theme Color is also supported on Safari and Chrome -->
+    <meta
+      name="theme-color"
+      content="#eeeeee"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#111111"
+      media="(prefers-color-scheme: light)"
+    />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Mejoras en mi escritorio ( i3-wm ) | Si lo hacez, hazlo bien</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Mejoras en mi escritorio ( i3-wm )" />
+<meta name="author" content="Vctrsnts ( fork andrew-park )" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Después de mucho tiempo usando i3-wm, estaba constantemente, cambiando de wallpaper (seguramente ha más de uno le pasa ), pense que habria alguna manera de hacer que cada X tiempo, el wallpaper que estoy utilizando cambiara automaticamente, de los que tengo en el directorio donde los guardo." />
+<meta property="og:description" content="Después de mucho tiempo usando i3-wm, estaba constantemente, cambiando de wallpaper (seguramente ha más de uno le pasa ), pense que habria alguna manera de hacer que cada X tiempo, el wallpaper que estoy utilizando cambiara automaticamente, de los que tengo en el directorio donde los guardo." />
+<link rel="canonical" href="https://vctrsnts.github.io/2023/01/13/mejoras-i3/" />
+<meta property="og:url" content="https://vctrsnts.github.io/2023/01/13/mejoras-i3/" />
+<meta property="og:site_name" content="Si lo hacez, hazlo bien" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-13T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Mejoras en mi escritorio ( i3-wm )" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Vctrsnts ( fork andrew-park )"},"dateModified":"2023-01-13T00:00:00+00:00","datePublished":"2023-01-13T00:00:00+00:00","description":"Después de mucho tiempo usando i3-wm, estaba constantemente, cambiando de wallpaper (seguramente ha más de uno le pasa ), pense que habria alguna manera de hacer que cada X tiempo, el wallpaper que estoy utilizando cambiara automaticamente, de los que tengo en el directorio donde los guardo.","headline":"Mejoras en mi escritorio ( i3-wm )","mainEntityOfPage":{"@type":"WebPage","@id":"https://vctrsnts.github.io/2023/01/13/mejoras-i3/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://vctrsnts.github.io/assets/images/logo_light.png"},"name":"Vctrsnts ( fork andrew-park )"},"url":"https://vctrsnts.github.io/2023/01/13/mejoras-i3/"}</script>
+<!-- End Jekyll SEO tag -->
+ <link type="application/atom+xml" rel="alternate" href="https://vctrsnts.github.io/feed.xml" title="Si lo hacez, hazlo bien" /></head>
+  <body class="d-flex flex-column h-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand p-0" href="/">
+    
+    <img src="/assets/images/logo_light.png" alt="light avatar" width="30" class="d-inline-block align-top m-0 light-avatar">
+    <img src="/assets/images/logo_dark.png" alt="dark avatar" width="30" class="d-inline-block align-top m-0 dark-avatar">
+    
+      Si lo hacez, hazlo bien</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        
+          <li class="nav-item">
+            <a href="/"  class="nav-link" >Home</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/tags/"  class="nav-link" >Tags</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/about/"  class="nav-link" >About</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      <div class="body"><div class="post">
+  <h1>Mejoras en mi escritorio ( i3-wm )</h1>
+  <span class="fs-4 text-muted">Jan 13, 23</span>
+  <div class="mt-4">
+    <p>Después de mucho tiempo usando i3-wm, estaba constantemente, cambiando de wallpaper (seguramente ha más de uno le pasa ), pense que habria alguna manera de hacer que cada X tiempo, el wallpaper que estoy utilizando cambiara automaticamente, de los que tengo en el directorio donde los guardo.</p>
+
+<p>Así que me puse a la busqueda de como se puede hacer.</p>
+
+<!--more-->
+
+<p>Encontre unas cuantas maneras de hacer lo que yo queria :</p>
+<ul>
+  <li>Primer <a href="https://forum.codeselfstudy.com/t/desktop-background-switcher-for-i3wm/1044">script</a></li>
+  <li>Segundo <a href="https://github.com/levinit/i3wm-config/blob/master/i3/wallpaper.sh">script</a></li>
+</ul>
+
+<p>Yo me quede con la idea del segundo script, aunque le añadi la posibilidad de enviar notificaciones al escritorio de los cambios de fondos de pantalla a través del <code class="language-plaintext highlighter-rouge">notify-send</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/bash</span>
+<span class="nb">shopt</span> <span class="nt">-s</span> nullglob
+
+<span class="k">if</span> <span class="o">[[</span> <span class="nt">-z</span> <span class="si">$(</span>which feh<span class="si">)</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"wallpaper err: Can not found command feh."</span> <span class="o">&gt;</span> ~/i3wm-wallpaper.err
+    <span class="nb">exit </span>127
+<span class="k">fi</span>
+<span class="c"># DIRECTORI ON ESTAN ELS FONTS DE PANTALLA</span>
+<span class="nv">path</span><span class="o">=</span>~/.config/wallpapers
+<span class="c"># TEMPS / INTERVAL ENTRE ELS CANVIS DE FONS DE PANTALLA</span>
+<span class="nv">interval</span><span class="o">=</span>59m
+<span class="c"># INICI DE L'SCRIPT</span>
+<span class="nb">cd</span> <span class="nv">$path</span>
+<span class="c"># INICIEM EL BUCLE DE L'SCRIPT</span>
+<span class="k">while </span><span class="nb">true
+</span><span class="k">do
+	</span><span class="nv">files</span><span class="o">=()</span>
+
+	<span class="k">for </span>i <span class="k">in</span> <span class="k">*</span>.jpg <span class="k">*</span>.png<span class="p">;</span>
+	<span class="k">do</span>
+	     <span class="o">[[</span> <span class="nt">-f</span> <span class="nv">$i</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> files+<span class="o">=(</span><span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span><span class="o">)</span>
+	<span class="k">done
+	</span><span class="nv">range</span><span class="o">=</span><span class="k">${#</span><span class="nv">files</span><span class="p">[@]</span><span class="k">}</span>
+
+	<span class="nv">CURRENT_WALLPAPER</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">files</span><span class="p">[RANDOM % range]</span><span class="k">}</span><span class="s2">"</span>
+
+	<span class="nv">CURRENT_IMAGE</span><span class="o">=</span><span class="nv">$path</span><span class="s2">"/"</span><span class="nv">$CURRENT_WALLPAPER</span>
+
+	<span class="o">((</span>range<span class="o">))</span> <span class="o">&amp;&amp;</span> feh <span class="nt">--bg-scale</span> <span class="nv">$CURRENT_WALLPAPER</span>
+	<span class="c">#</span>
+	<span class="c"># ENVIEM LA NOTIFICACIÓ AL SISTEMA, PERQUE ES VEGI PER PANTALLA</span>
+	<span class="c">#</span>
+	notify-send <span class="nt">-i</span> <span class="s2">"</span><span class="nv">$CURRENT_IMAGE</span><span class="s2">"</span> <span class="s1">'Desktop Changed'</span> <span class="si">$(</span><span class="nb">basename</span> <span class="nt">--</span> <span class="s2">"</span><span class="nv">$CURRENT_WALLPAPER</span><span class="s2">"</span><span class="si">)</span>
+
+	<span class="nb">sleep</span> <span class="nv">$interval</span>
+<span class="k">done</span>
+</code></pre></div></div>
+<p>El script en esencia es muy simple. Lo unico que hace, es poner en un <code class="language-plaintext highlighter-rouge">array</code> todos los archivos del directorio que le indicas donde estaran las imagenes ( wallpapers ) para que cada X minutos ( <code class="language-plaintext highlighter-rouge">interval</code> ) que le hayas configurado haga el cambio de fondo de pantalla y que te notifique ( <code class="language-plaintext highlighter-rouge">notify-send</code> ) de dicho cambio, se necesita el paquete <strong>libnotify-bin</strong> para que te avise del cambio.</p>
+
+<p>Lo unico que queda, es configurar el fichero de configuración de <code class="language-plaintext highlighter-rouge">i3-wm</code> para que :</p>
+<ul>
+  <li>Haga la carga inicial del wallpaper</li>
+  <li>Inicie el script del cambio de wallpaper, que a su vez, tomara el control y que cada X tiempo ( segun tengas configurado ) ira realizando el cambio de fondo de pantalla.</li>
+</ul>
+
+<p>Para que funcione, tienes que añadir lo siguiente en el fichero de configuración:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># PARA VISUALIZAR EL FONDO DE PANTALLA</span>
+exec_always <span class="nt">--no-startup-id</span> feh <span class="nt">--bg-scale</span> <span class="nt">--no-fehbg</span> ~/.config/wallpapers/Wallpaper_10.jpg
+<span class="c"># AQUI ES CONFIGURA EL CANVI AUTOMATIC DEL WALLPAPER</span>
+<span class="nb">exec</span> <span class="nt">--no-startup-id</span>  ~/.config/i3/scripts/wallpaper.sh &amp;
+</code></pre></div></div>
+
+<p>La otra modificación que he realizado, ha sido la de que en la barra de <code class="language-plaintext highlighter-rouge">i3-wm</code> ( <code class="language-plaintext highlighter-rouge">i3block</code> ) me informe de los paquetes que se tienen que actualizar, era una información que me gustaba tener y después de mucho buscar, encontré el <a href="https://github.com/vivien/i3blocks-contrib">comando / instrucción</a> que me daba lo que necesitada.</p>
+
+<p>Lo primero, necesitas el script <code class="language-plaintext highlighter-rouge">apt-upgrades</code> y descargarlo en algún sitio desde donde puedas tener acceso. En mi caso, lo he dejado en el directorio del <code class="language-plaintext highlighter-rouge">i3-wm/script</code>, que es donde tengo todos los scripts que uso para <code class="language-plaintext highlighter-rouge">i3-wm</code>.</p>
+
+<p>El script en cuestión ( tener en cuenta que depende de <strong>aptitude</strong> ) hace lo siguiente :</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
+<span class="c">#</span>
+<span class="c"># Copyright (C) 2015 James Murphy</span>
+<span class="c"># Licensed under the terms of the GNU GPL v2 only.</span>
+<span class="c">#</span>
+<span class="c"># i3blocks blocklet script to display pending system upgrades</span>
+
+<span class="c"># FontAwesome refresh symbol, change if you do not want to install FontAwesome</span>
+<span class="c">#PENDING_SYMBOL=${PENDING_SYMBOL:-"\uf021 "}</span>
+<span class="nv">PENDING_SYMBOL</span><span class="o">=</span><span class="k">${</span><span class="nv">PENDING_SYMBOL</span><span class="k">:-</span><span class="s2">""</span><span class="k">}</span>
+
+<span class="c"># By default, show both the symbol and the numbers</span>
+<span class="nv">SYMBOL_ONLY</span><span class="o">=</span><span class="k">${</span><span class="nv">SYMBOL_ONLY</span><span class="k">:-</span><span class="nv">0</span><span class="k">}</span>
+
+<span class="c"># By default, show something when no upgrades are pending</span>
+<span class="nv">ALWAYS_PRINT</span><span class="o">=</span><span class="k">${</span><span class="nv">ALWAYS_PRINT</span><span class="k">:-</span><span class="nv">1</span><span class="k">}</span>
+
+<span class="c"># Colors for when there is/isn't a pending upgrade</span>
+<span class="nv">PENDING_COLOR</span><span class="o">=</span><span class="k">${</span><span class="nv">PENDING_COLOR</span><span class="k">:-</span><span class="s2">"#FF0000"</span><span class="k">}</span>
+<span class="nv">NONPENDING_COLOR</span><span class="o">=</span><span class="k">${</span><span class="nv">NONPENDING_COLOR</span><span class="k">:-</span><span class="s2">"#FFFFFF"</span><span class="k">}</span>
+
+<span class="k">while </span><span class="nb">getopts </span>s:oc:n:Nh opt<span class="p">;</span> <span class="k">do
+    case</span> <span class="s2">"</span><span class="nv">$opt</span><span class="s2">"</span> <span class="k">in
+        </span>s<span class="p">)</span> <span class="nv">PENDING_SYMBOL</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPTARG</span><span class="s2">"</span> <span class="p">;;</span>
+        o<span class="p">)</span> <span class="nv">SYMBOL_ONLY</span><span class="o">=</span>1 <span class="p">;;</span>
+        c<span class="p">)</span> <span class="nv">PENDING_COLOR</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPTARG</span><span class="s2">"</span> <span class="p">;;</span>
+        n<span class="p">)</span> <span class="nv">NONPENDING_COLOR</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPTARG</span><span class="s2">"</span> <span class="p">;;</span>
+        N<span class="p">)</span> <span class="nv">ALWAYS_PRINT</span><span class="o">=</span>0 <span class="p">;;</span>
+        h<span class="p">)</span> <span class="nb">printf</span> <span class="se">\</span>
+<span class="s2">"Usage: apt-upgrades [-s pending_symbol] [-o] [-c pending_color] [-N|-n nonpending_color] [-h]
+Options:
+-s</span><span class="se">\t</span><span class="s2">Specify a refresh symbol. Default: </span><span class="se">\"\\\\</span><span class="s2">uf021 </span><span class="se">\"</span><span class="s2">
+-o</span><span class="se">\t</span><span class="s2">Show refresh symbol only, but no numbers.
+-c</span><span class="se">\t</span><span class="s2">Color when upgrade is pending. Default:  #00FF00
+-n</span><span class="se">\t</span><span class="s2">Color when no upgrade is pending. Default: #FFFFFF
+-N</span><span class="se">\t</span><span class="s2">Only display text if upgrade is pending (supercedes -n)
+-h</span><span class="se">\t</span><span class="s2">Show this help text</span><span class="se">\n</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">exit </span>0<span class="p">;;</span>
+    <span class="k">esac</span>
+<span class="k">done
+
+</span><span class="nb">read </span>upgraded new removed held &lt; &lt;<span class="o">(</span>
+aptitude full-upgrade <span class="nt">--simulate</span> <span class="nt">--assume-yes</span> |<span class="se">\</span>
+    <span class="nb">grep</span> <span class="nt">-m1</span> <span class="s1">'^[0-9]\+ packages upgraded,'</span> |<span class="se">\</span>
+    <span class="nb">tr</span> <span class="nt">-cd</span> <span class="s1">'0-9 '</span> |<span class="se">\</span>
+    <span class="nb">tr</span> <span class="s1">' '</span> <span class="s1">'\n'</span> |<span class="se">\</span>
+    <span class="nb">grep</span> <span class="s1">'[0-9]\+'</span> |<span class="se">\</span>
+    xargs <span class="nb">echo</span><span class="o">)</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$upgraded</span> <span class="o">!=</span> 0 <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv">$new</span> <span class="o">!=</span> 0 <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv">$removed</span> <span class="o">!=</span> 0 <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv">$held</span> <span class="o">!=</span> 0 <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">color</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PENDING_COLOR</span><span class="s2">"</span>
+    <span class="k">if</span> <span class="o">[[</span> <span class="nv">$SYMBOL_ONLY</span> <span class="o">==</span> 1 <span class="o">]]</span><span class="p">;</span> <span class="k">then
+        </span><span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$PENDING_SYMBOL</span><span class="s2">"</span>
+        <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$PENDING_SYMBOL</span><span class="s2">"</span>
+    <span class="k">else
+        </span><span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$PENDING_SYMBOL$upgraded</span><span class="s2">/</span><span class="nv">$new</span><span class="s2">/</span><span class="nv">$removed</span><span class="s2">/</span><span class="nv">$held</span><span class="s2">"</span>
+        <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$PENDING_SYMBOL$upgraded</span><span class="s2">/</span><span class="nv">$new</span><span class="s2">/</span><span class="nv">$removed</span><span class="s2">/</span><span class="nv">$held</span><span class="s2">"</span>
+    <span class="k">fi
+    </span><span class="nb">echo</span> <span class="nv">$color</span>
+<span class="k">elif</span> <span class="o">[[</span> <span class="nv">$ALWAYS_PRINT</span> <span class="o">==</span> 1 <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">color</span><span class="o">=</span><span class="s2">"</span><span class="nv">$NONPENDING_COLOR</span><span class="s2">"</span>
+    <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$PENDING_SYMBOL$upgraded</span><span class="s2">/</span><span class="nv">$new</span><span class="s2">/</span><span class="nv">$removed</span><span class="s2">/</span><span class="nv">$held</span><span class="s2">"</span>
+    <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$PENDING_SYMBOL$upgraded</span><span class="s2">/</span><span class="nv">$new</span><span class="s2">/</span><span class="nv">$removed</span><span class="s2">/</span><span class="nv">$held</span><span class="s2">"</span>
+    <span class="nb">echo</span> <span class="nv">$color</span>
+<span class="k">fi</span>
+</code></pre></div></div>
+<p>Una vez tengas el script, vamos a la configuración del archivo de <code class="language-plaintext highlighter-rouge">i3block.conf</code>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>apt_upgrades]
+<span class="nb">command</span><span class="o">=</span>/home/usuari/.config/i3/scripts/apt-upgrades
+<span class="c"># l'script s'executara cada dia ( el valor es refereix a minuts )</span>
+<span class="nv">interval</span><span class="o">=</span>1440
+<span class="nv">signal</span><span class="o">=</span>1
+<span class="nv">label</span><span class="o">=</span>
+</code></pre></div></div>
+<p>Cuando ya tenemos configurado toda la parte del usuario, solamente nos queda configurar la parte de <strong>root</strong> ( que es el encargado de realizar el <code class="language-plaintext highlighter-rouge">aptitude update</code> para actualizar los paquetes y que a su vez, hace que el script obtenga los paquetes a actualizar.</p>
+
+<p>Para eso, tenemos que hacer lo siguiente ( a través de <code class="language-plaintext highlighter-rouge">sudo</code>, en mi caso ):</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>obtenim acces a nivell de root
+<span class="gp">usuari@debian:~#</span><span class="nb">sudo</span> <span class="nt">-i</span>
+</code></pre></div></div>
+<p>Una vez, tenemos acceso a la consola de <code class="language-plaintext highlighter-rouge">root</code> pasamos a configurar el <code class="language-plaintext highlighter-rouge">cron</code> que lo puedes hacer de la siguiente manera para evitar al maximo cualquier error posible:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">usuari@debian:~#</span>crontab <span class="nt">-e</span>
+</code></pre></div></div>
+<p>Y ahora pasamos a la creación de nuestro cron:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@daily aptitude update
+</code></pre></div></div>
+<p>Y con este sencillo script obtenemos la siguiente información:</p>
+<ul>
+  <li>Los paquetes a actualizar.</li>
+  <li>Los nuevos paquetes que se van a instalar.</li>
+  <li>Los paquetes que se van a eliminar.</li>
+  <li>Los paquetes que no se actualizar.</li>
+</ul>
+
+<p>Todo esto, claro esta, siempre que realices la actualización.</p>
+
+<p>En pantalla quedaría de la siguiente manera <img src="/assets/images/apt-upgrades.png" alt="image" /></p>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://forum.codeselfstudy.com/t/desktop-background-switcher-for-i3wm/1044">Primera versión del script</a></li>
+  <li><a href="https://github.com/levinit/i3wm-config/blob/master/i3/wallpaper.sh">Segunda versión del script</a></li>
+  <li><a href="https://github.com/levinit/i3wm-config/blob/master/i3/config">Modificación en el config</a></li>
+  <li><a href="https://github.com/vivien/i3blocks-contrib">apt-upgrades</a></li>
+</ul>
+
+  </div>
+</div>
+</div>
+    </div>
+    <footer class="footer mt-auto py-3">
+  <div class="container footer-container">  
+<a
+  class="footer-icon-links"
+  href="https://www.twitter.com/Vctrsnts1" target="_blank"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-twitter footer-icons"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+    /></svg
+></a>
+  
+<a
+  class="footer-icon-links"
+  href="https://github.com/Vctrsnts" target="_blank"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-github footer-icons"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+    /></svg
+></a>
+  
+<a
+    class="footer-icon-links"
+    href="https://mastodon.online/@vsantos" target="_blank"
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-mastodon footer-icons"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M 15.659 9.592 C 15.424 10.72 13.553 11.956 11.404 12.195 C 10.283 12.32 9.18 12.434 8.003 12.384 C 6.079 12.302 4.56 11.956 4.56 11.956 C 4.56 12.13 4.572 12.297 4.595 12.452 C 4.845 14.224 6.478 14.33 8.025 14.379 C 9.586 14.429 10.976 14.02 10.976 14.02 L 11.04 15.337 C 11.04 15.337 9.948 15.884 8.003 15.984 C 6.93 16.039 5.598 15.959 4.047 15.576 C 0.683 14.746 0.104 11.4 0.015 8.006 C -0.012 6.998 0.005 6.048 0.005 5.253 C 0.005 1.782 2.443 0.765 2.443 0.765 C 3.672 0.238 5.782 0.017 7.975 0 L 8.029 0 C 10.221 0.017 12.332 0.238 13.561 0.765 C 13.561 0.765 15.999 1.782 15.999 5.253 C 15.999 5.253 16.03 7.814 15.659 9.592 Z M 13.124 5.522 L 13.124 9.725 L 11.339 9.725 L 11.339 5.646 C 11.339 4.786 10.951 4.35 10.175 4.35 C 9.317 4.35 8.887 4.867 8.887 5.891 L 8.887 8.124 L 7.113 8.124 L 7.113 5.891 C 7.113 4.867 6.683 4.35 5.825 4.35 C 5.049 4.35 4.661 4.786 4.661 5.646 L 4.661 9.725 L 2.876 9.725 L 2.876 5.522 C 2.876 4.663 3.111 3.981 3.582 3.476 C 4.067 2.971 4.703 2.712 5.493 2.712 C 6.406 2.712 7.098 3.039 7.555 3.695 L 8 4.39 L 8.445 3.695 C 8.902 3.039 9.594 2.712 10.507 2.712 C 11.297 2.712 11.933 2.971 12.418 3.476 C 12.889 3.981 13.124 4.663 13.124 5.522 Z"
+      /></svg
+></a>
+ 
+<a class="footer-icon-links" href="/feed.xml"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-rss footer-icons"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+    />
+    <path
+      d="M5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-3-8.5a1 1 0 0 1 1-1c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1-1-1zm0 4a1 1 0 0 1 1-1 6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1-1-1z"
+    /></svg
+></a>
+
+</div>
+</footer>
+
+    <!-- JS for Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

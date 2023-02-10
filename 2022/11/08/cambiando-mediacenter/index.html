@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-us" class="h-100">
+  <head>
+    <title>
+      Mi nuevo mediacenter - Thinkpad m700 – Si lo hacez, hazlo bien – Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The page supports both dark and light color schemes, and the page author prefers / default is light. -->
+    <meta name="color-scheme" content="dark light" />
+    <!-- Stylesheet that includes Bootstrap dark mode & custom stylesheet -->
+    <link
+      rel="stylesheet"
+      href="/assets/css/styles.css"
+    />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <!-- Meta Theme Color is also supported on Safari and Chrome -->
+    <meta
+      name="theme-color"
+      content="#eeeeee"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#111111"
+      media="(prefers-color-scheme: light)"
+    />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Mi nuevo mediacenter - Thinkpad m700 | Si lo hacez, hazlo bien</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Mi nuevo mediacenter - Thinkpad m700" />
+<meta name="author" content="Vctrsnts ( fork andrew-park )" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Como ya mencione en al articulo que hablaba sobre el cambio de servidor Mi nuevo servidor, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar." />
+<meta property="og:description" content="Como ya mencione en al articulo que hablaba sobre el cambio de servidor Mi nuevo servidor, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar." />
+<link rel="canonical" href="https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter/" />
+<meta property="og:url" content="https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter/" />
+<meta property="og:site_name" content="Si lo hacez, hazlo bien" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-08T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Mi nuevo mediacenter - Thinkpad m700" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Vctrsnts ( fork andrew-park )"},"dateModified":"2022-11-08T00:00:00+00:00","datePublished":"2022-11-08T00:00:00+00:00","description":"Como ya mencione en al articulo que hablaba sobre el cambio de servidor Mi nuevo servidor, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar.","headline":"Mi nuevo mediacenter - Thinkpad m700","mainEntityOfPage":{"@type":"WebPage","@id":"https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://vctrsnts.github.io/assets/images/logo_light.png"},"name":"Vctrsnts ( fork andrew-park )"},"url":"https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter/"}</script>
+<!-- End Jekyll SEO tag -->
+ <link type="application/atom+xml" rel="alternate" href="https://vctrsnts.github.io/feed.xml" title="Si lo hacez, hazlo bien" /></head>
+  <body class="d-flex flex-column h-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand p-0" href="/">
+    
+    <img src="/assets/images/logo_light.png" alt="light avatar" width="30" class="d-inline-block align-top m-0 light-avatar">
+    <img src="/assets/images/logo_dark.png" alt="dark avatar" width="30" class="d-inline-block align-top m-0 dark-avatar">
+    
+      Si lo hacez, hazlo bien</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        
+          <li class="nav-item">
+            <a href="/"  class="nav-link" >Home</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/tags/"  class="nav-link" >Tags</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/about/"  class="nav-link" >About</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      <div class="body"><div class="post">
+  <h1>Mi nuevo mediacenter - Thinkpad m700</h1>
+  <span class="fs-4 text-muted">Nov 08, 22</span>
+  <div class="mt-4">
+    <p>Como ya mencione en al articulo que hablaba sobre el cambio de servidor <a href="/2022/05/26/nuevo-servidor/">Mi nuevo servidor</a>, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar.</p>
+
+<!--more-->
+
+<p>Asi que decidi cambiar la antigua RPI3 donde empezaba ya a tener problemas con los nuevos codecs con que venian las peliculas ( HEVC 10b-AC3 ) y cambiarla por la RPI4 con soporte para estos nuevos 
+codecs y que no usaba por haberla sustituido por el Dell.</p>
+
+<p>Me puse manos a la obra con ello, pero ya os digo que me decepciono un monton la RPI4.</p>
+
+<p>Lo primero fue bajarme la imagen compatible de Libreelec para mi RPI4 y su posterior instalación. Todo esto conectado a un monitor que tengo en casa para estas pruebas / instalaciones.</p>
+
+<p>No tuve ningun problema la la hora de la instalación y de la configuración ( Wifi, pluguins, conexión a SAMBA, etc… ) todo perfecto. Luego lo conecto al TV que tengo en el salon con un conversor 
+de HDMI a micro-HDMI y no funcionaba. No se veia nada, todo en negro. Aqui es donde pienso que no he hecho bien la instalación / configuración, que no lee correctamente la resolución, o sea las 
+cosas más normales que te puedas imaginar.</p>
+
+<p>Busque información por inet, pregunte a uno de los canales de Telegram donde estoy que tratan sobre las RPI4 como mediacenter, etc… y todos me decian, que tenia que forzar la resolución a traves 
+del fichero <strong>config.txt</strong>. Todo sin obtener ningun resultado.</p>
+
+<p>Al final me canse de trastear con la RPI4, y eso que habia hecho miles de instalaciones pensado que hay es donde residia el problema. Al final ya me quedo claro, que el problema no era la 
+instalación, sino el conversor de HDMI a micro-HDMI que no funcionaba correctamente. Asi que el siguiente paso, fue comprar un cable de HDMI a micro-HDMI.</p>
+
+<p>Una vez que me llego el cable correcto, vuelta a hacer una nueva instalación conectando la RPI4 al monitor de pruebas. Todo funcionaba a las mil maravillas, la WIFI excelente, la imagen perfecta, hay 
+es donde me dije, pues ya esta todo en marcha y listo para volver a funcionar. Hay infeliz de mi!!!</p>
+
+<p>Me llevo la RPI4 al TV del comedor y la conecto y no me lo podria creer, todo funcionaba perfectamente. Pues ya esta, lo vuelvo a tener todo en perfecto estado y en marcha hasta que puse a usar
+la RPI4 con la WIFI y aqui es donde se me cayo el mundo encima.</p>
+
+<p>No me lo podia creer, la WIFI no funcionaba ni a patadas, la pelicula se quedaba congelada y no se veia nada!!! yo tirandome de los pelos porque no entendia nada, si hasta hace 5 minutos todo 
+funcionaba correctamente y ahora de golpe y porrazo no funciona nada. Volvemos a estar como en el principio.</p>
+
+<p>A partir de aqui todo fueron problemas. Pero vamos a explicar todo lo sucedido paso a paso.</p>
+
+<p>Lo primero fue copiar la imagen de Libreelec en el SSD e iniciamos la instalación / configuración de Libreelec. Todo funciona perfectamente hasta llegar a la configuración de la <code class="language-plaintext highlighter-rouge">WIFI</code> (y esto si 
+que es para mear y no echar gota).</p>
+
+<p>Despues de buscar información como un loco, veo que hay un error (validado y reportado) en el diseño de la Raspberry que es, cuando usas la WIFI esta se <code class="language-plaintext highlighter-rouge">acopla</code> a la señal del cable HDMI y hace 
+que se anule la señal WIFI. Para solucionar este problema se puede hacer de 3 maneras:</p>
+<ul>
+  <li><strong>Solución dificil</strong>, cambiar de canal en el que emite tu router por otro diferente para que no se acople a la señal del cable HDMI.</li>
+  <li><strong>Solución facil</strong>, desactivar la WIFI de la Raspberry y usar un conector USB-WIFI</li>
+  <li><strong>Solución ideal</strong>, esperar a que Raspberry saque un nuevo firmware que solucione este problema. Se comenta que hasta finales de año no estara disponible.</li>
+</ul>
+
+<p>En mi caso, lo que hice fue escoger la solución facil, me compre un usb-wifi y volvi de nuevo a configurar la RPI4B, esperando, por fin, poder usarla como HTC.</p>
+
+<p>Volvemos a reiniciar la configuración de la WIFI sin ningun problema, esta vez, ya tenemos la RPI4B conectada a la WIFI, pero parece ser que entre el SSD conectado a traves de USB, el mando a 
+distancia conectado a traves de USB y el USB de la WIFI, la Raspberry no podia manejar correctamente toda la <code class="language-plaintext highlighter-rouge">información</code> que recibia.</p>
+
+<p>Para que os hagais una idea, la RPI3B funcionaba mejor que la RPI4B y eso que esta ultima (siempre lo añado a todos mis Libreelec) habia creado el fichero <strong>advancedsettings.xml</strong> donde le añado lo 
+siguiente:</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="p">&lt;</span>advancedsettings <span class="k">version</span><span class="p">=</span><span class="s2">"1.0"</span><span class="p">&gt;</span>
+     <span class="p">&lt;</span>cache<span class="p">&gt;</span>
+       <span class="p">&lt;</span>buffermode<span class="p">&gt;</span><span class="m">4</span><span class="p">&lt;</span>/buffermode<span class="p">&gt;</span>
+       <span class="p">&lt;</span>memorysize<span class="p">&gt;</span><span class="m">0</span><span class="p">&lt;</span>/memorysize<span class="p">&gt;</span>
+     <span class="p">&lt;</span>/cache<span class="p">&gt;</span>
+   <span class="p">&lt;</span>/advancedsettings<span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>Donde:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">buffermode</code>: le indica a Kodi que tipo de buffer que se va a usar (en mi caso, selecciono el valor <code class="language-plaintext highlighter-rouge">4</code> para el tratamiento de ficheros a traves de samba, nfs).</li>
+  <li><code class="language-plaintext highlighter-rouge">memorysize</code>: le indica a Kodi que de que manera va a usar la RAM (en mi caso, selecciono el valor <code class="language-plaintext highlighter-rouge">0</code> para que de preferencia al SSD/HDD en vez de a la RAM).</li>
+</ul>
+
+<p>De esta manera se consigue que mientras se visualiza la pelicula / serie, se descargue más fichero y no tener problemas a la hora de visualización.</p>
+
+<p>Pero en mi caso, esto no pasa, para que os hagais una idea de como funciona, que habia veces (da igual que versión de mkv fuera, 264, 265) que Kodi se quedaba colgado, incluso usando un SSD.</p>
+
+<p>Al final, cansado de ver que era imposible usar la RPI4B, empeza a investigar y a preguntar en un canal de Telegram sobre usar la Raspberry como HTC y se llego a la conclusión de que era el USB que 
+se colapsaba y en cambio esto mismo (en la RPI3B) no pasa, porque como por defecto, uso la WIFI que ya lleva incorpada, pues…</p>
+
+<p>Y asi estamos, usando la RPI4B como HTC, desilusionado ante el mal funcionamiento de lo que tendria que ser la mejor Raspeberry hasta el momento.</p>
+
+<p>Por eso digo, que maldita el dia que se me ocurrio cambiar mi RPI3 ( se que era un cambio necesario, la tecnologia siempre esta en constante evolución y más los codecs para ver las peliculas son los 
+que mandan ) a la RPI4, y ahora la tengo tirada en casa sin usar, por culpa de este problema, aunque ;) podria haberla vendido y sacarme una pasta, porque tal como estan las RPI4, ganaria pasta 
+seguro, pero me da pena venderla, porque nunca se sabe cuando te va hacer falta una.</p>
+
+<p>Asi que despues ( de nuevo, pregunte en otro canal de Telegram ) me aconsejaron que lo mejor y que para ahorrarme futuros problemas, que lo mejor es tener un PC conectado a la TV del comedor y me 
+ahorro todos los problemas derivados con los codecs y el soporte de estos, porque en un PC normal y corriente tiene más recorrido que la RPI4.</p>
+
+<p>Y fue lo que hice, volvi a mi canal favorito de Thinkpads de Telegram y pregunte si alguno le sobrava algun Tiny. Y ten por seguro que siempre hay alguien que le sobra un Tiny.</p>
+
+<p>Como todo en este mundo, es mutable y ante la posibilidad de conseguir a buen precio un <a href="https://icecat.biz/es/p/lenovo/10mr0047us/thinkcentre-pcs-workstations-m710q-36768136.html">Lenovo ThinkCenter M710q</a>,
+ asi que me lance de cabeza por el.</p>
+
+<p><img src="/assets/images/lenovo-m710q.jpg" alt="imatge" /></p>
+
+<p>Y ya me veis, de tener 2 RPI ( RPI4 con 4Gb como servidor y una RPI3 como mediacenter ) a tener un Tiny Lenovo m700 con 8Gb y un i5-6500 como mediacenter y un Dell Optiplex 3050 con 8Gb y un i5-7500 
+como servidor.</p>
+
+<p>Por eso digo, que a veces no hay mal que por bien no venga.</p>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://libreelec.tv">Libreelec</a></li>
+  <li><a href="https://www.adslzone.net/2019/11/28/problemas-wifi-raspberry-pi-4/]">RPI4B pierde cobertura Wifi</a></li>
+  <li><a href="https://www.enricozini.org/blog/2019/himblick/raspberry-pi-4-loses-wifi-at-2560x1440-screen-resolution/">Raspberry Pi 4 WiFi stops working at 2560x1440 screen resolution</a></li>
+  <li><a href="https://kodi.wiki/view/Advancedsettings.xml">Cambiar el funcionamiento de la cache en Kodi</a></li>
+</ul>
+
+  </div>
+</div>
+</div>
+    </div>
+    <footer class="footer mt-auto py-3">
+  <div class="container footer-container">  
+<a
+  class="footer-icon-links"
+  href="https://www.twitter.com/Vctrsnts1" target="_blank"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-twitter footer-icons"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+    /></svg
+></a>
+  
+<a
+  class="footer-icon-links"
+  href="https://github.com/Vctrsnts" target="_blank"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-github footer-icons"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+    /></svg
+></a>
+  
+<a
+    class="footer-icon-links"
+    href="https://mastodon.online/@vsantos" target="_blank"
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-mastodon footer-icons"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M 15.659 9.592 C 15.424 10.72 13.553 11.956 11.404 12.195 C 10.283 12.32 9.18 12.434 8.003 12.384 C 6.079 12.302 4.56 11.956 4.56 11.956 C 4.56 12.13 4.572 12.297 4.595 12.452 C 4.845 14.224 6.478 14.33 8.025 14.379 C 9.586 14.429 10.976 14.02 10.976 14.02 L 11.04 15.337 C 11.04 15.337 9.948 15.884 8.003 15.984 C 6.93 16.039 5.598 15.959 4.047 15.576 C 0.683 14.746 0.104 11.4 0.015 8.006 C -0.012 6.998 0.005 6.048 0.005 5.253 C 0.005 1.782 2.443 0.765 2.443 0.765 C 3.672 0.238 5.782 0.017 7.975 0 L 8.029 0 C 10.221 0.017 12.332 0.238 13.561 0.765 C 13.561 0.765 15.999 1.782 15.999 5.253 C 15.999 5.253 16.03 7.814 15.659 9.592 Z M 13.124 5.522 L 13.124 9.725 L 11.339 9.725 L 11.339 5.646 C 11.339 4.786 10.951 4.35 10.175 4.35 C 9.317 4.35 8.887 4.867 8.887 5.891 L 8.887 8.124 L 7.113 8.124 L 7.113 5.891 C 7.113 4.867 6.683 4.35 5.825 4.35 C 5.049 4.35 4.661 4.786 4.661 5.646 L 4.661 9.725 L 2.876 9.725 L 2.876 5.522 C 2.876 4.663 3.111 3.981 3.582 3.476 C 4.067 2.971 4.703 2.712 5.493 2.712 C 6.406 2.712 7.098 3.039 7.555 3.695 L 8 4.39 L 8.445 3.695 C 8.902 3.039 9.594 2.712 10.507 2.712 C 11.297 2.712 11.933 2.971 12.418 3.476 C 12.889 3.981 13.124 4.663 13.124 5.522 Z"
+      /></svg
+></a>
+ 
+<a class="footer-icon-links" href="/feed.xml"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-rss footer-icons"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+    />
+    <path
+      d="M5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-3-8.5a1 1 0 0 1 1-1c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1-1-1zm0 4a1 1 0 0 1 1-1 6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1-1-1z"
+    /></svg
+></a>
+
+</div>
+</footer>
+
+    <!-- JS for Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

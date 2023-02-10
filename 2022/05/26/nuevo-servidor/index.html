@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-us" class="h-100">
+  <head>
+    <title>
+      Mi nuevo servidor – Si lo hacez, hazlo bien – Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The page supports both dark and light color schemes, and the page author prefers / default is light. -->
+    <meta name="color-scheme" content="dark light" />
+    <!-- Stylesheet that includes Bootstrap dark mode & custom stylesheet -->
+    <link
+      rel="stylesheet"
+      href="/assets/css/styles.css"
+    />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <!-- Meta Theme Color is also supported on Safari and Chrome -->
+    <meta
+      name="theme-color"
+      content="#eeeeee"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#111111"
+      media="(prefers-color-scheme: light)"
+    />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Mi nuevo servidor | Si lo hacez, hazlo bien</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Mi nuevo servidor" />
+<meta name="author" content="Vctrsnts ( fork andrew-park )" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Se que llevo mucho tiempo si publicar nada, pero he estado liado haciendos cambios en el servidor ( RPI4 )." />
+<meta property="og:description" content="Se que llevo mucho tiempo si publicar nada, pero he estado liado haciendos cambios en el servidor ( RPI4 )." />
+<link rel="canonical" href="https://vctrsnts.github.io/2022/05/26/nuevo-servidor/" />
+<meta property="og:url" content="https://vctrsnts.github.io/2022/05/26/nuevo-servidor/" />
+<meta property="og:site_name" content="Si lo hacez, hazlo bien" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-05-26T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Mi nuevo servidor" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Vctrsnts ( fork andrew-park )"},"dateModified":"2022-05-26T00:00:00+00:00","datePublished":"2022-05-26T00:00:00+00:00","description":"Se que llevo mucho tiempo si publicar nada, pero he estado liado haciendos cambios en el servidor ( RPI4 ).","headline":"Mi nuevo servidor","mainEntityOfPage":{"@type":"WebPage","@id":"https://vctrsnts.github.io/2022/05/26/nuevo-servidor/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://vctrsnts.github.io/assets/images/logo_light.png"},"name":"Vctrsnts ( fork andrew-park )"},"url":"https://vctrsnts.github.io/2022/05/26/nuevo-servidor/"}</script>
+<!-- End Jekyll SEO tag -->
+ <link type="application/atom+xml" rel="alternate" href="https://vctrsnts.github.io/feed.xml" title="Si lo hacez, hazlo bien" /></head>
+  <body class="d-flex flex-column h-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand p-0" href="/">
+    
+    <img src="/assets/images/logo_light.png" alt="light avatar" width="30" class="d-inline-block align-top m-0 light-avatar">
+    <img src="/assets/images/logo_dark.png" alt="dark avatar" width="30" class="d-inline-block align-top m-0 dark-avatar">
+    
+      Si lo hacez, hazlo bien</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        
+          <li class="nav-item">
+            <a href="/"  class="nav-link" >Home</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/tags/"  class="nav-link" >Tags</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/about/"  class="nav-link" >About</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      <div class="body"><div class="post">
+  <h1>Mi nuevo servidor</h1>
+  <span class="fs-4 text-muted">May 26, 22</span>
+  <div class="mt-4">
+    <p>Se que llevo mucho tiempo si publicar nada, pero he estado liado haciendos cambios en el servidor ( RPI4 ).</p>
+
+<p>Como sabeis, antes tenia una Raspberry Pi 4 de 4Gb, pero para algunas cosas, se me quedaba pillado y pense que podia usarla como mediacenter, y cambiar la RPI3 que tenia por esta.</p>
+
+<!--more-->
+
+<p>Como estoy en el grupo de Telegram de Thinkpads ( unos frikis de cuidado ) pues a un compañero del canal, que tenia un Dell a la venta, se lo compre. Y como siempre, cuando me llego, me senti como un 
+niño con zapatos nuevos.</p>
+
+<p>Asi que me lie la manta a la cabeza y el cambio lo hice a lo bestia, ya que hago un cambio, porque no la lio, y ahora tengo un Dell Optiplex 3050 con 8Gb con un i5-7500. O sea un maquinon que no me lo
+ voy a acabar nunca.</p>
+
+<p><img src="/assets/images/dell_3050.png" alt="imatge" /></p>
+
+<p>Y junto con el Dell y algunas cosas que tenia en casa pues me he montado lo siguiente :</p>
+<ul>
+  <li>SDD crucial de 250Gb para el Sistema Operativo</li>
+  <li>GNU/Debian stable para no tener ningun problema ( cuando es un servidor, prefiero la estabilidad a la novedad )</li>
+  <li>El HDD externo de 8Tb ( Western Digital ) que tenia conectado a la RPI4 que se lo he contectado al servidor</li>
+</ul>
+
+<p>Ahora solo queda hacer el cambio de la RPI4B que tenia haciendo las funciones de servidor y poner el Tiny y de paso, aprovechar (aqui no nada se tira), la RPI4 y ponerla en substitución de la RPI3B 
+que tengo ahora.</p>
+
+<p>Nos pusimos a ello junto mi inseparable <code class="language-plaintext highlighter-rouge">GNU/Debian</code>, en versión STABLE (no quiero jugar a ser dios con UNSTABLE en un servidor) y previa actualización del HDD por un SSD Crucial de 250Gb nos 
+pusimos con la instalación.</p>
+
+<p>La instalación no cambia en GNU/Debian, sin ningun problema, aunque tuve dudas de que manera particionar el SSD para sacarle el maximo rendimiento. Después de pensar lo deje de la siguiente manera 
+(seguramente hay otra mejor, pero no se me ha ocurrido):</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="sr">/dev/</span>sdb1    /       <span class="m">200</span>Gb
+   <span class="sr">/dev/</span>sdb2    swap    <span class="m">4</span>Gb
+   <span class="sr">/dev/</span>sdb5    /home   <span class="m">40</span>Gb
+</code></pre></div></div>
+
+<p>Se que en un PC con 8Gb de RAM, poner swap no tiene ningun sentido, pero, nunca se sabe…</p>
+
+<p>Llegados a este punto y sin ningun problema a la hora de la instalación, añadi todo lo que tenia en la RPI4B al Tiny (que no era poco):</p>
+<ul>
+  <li><a href="">Nginx Proxy Manager</a></li>
+  <li><a href="">Navidrome</a></li>
+  <li><a href="">Duckdns</a></li>
+  <li><a href="">Flexget</a></li>
+  <li><a href="">Transmission</a></li>
+  <li><a href="https://hub.docker.com/r/ngosang/amule">aMule</a></li>
+  <li><a href="">Jackett</a></li>
+  <li><a href="">Samba</a></li>
+</ul>
+
+<hr />
+<p><strong>Nota:</strong>: <a href="https://www.github.com/Vctrsnts/dot_file">aqui</a> podreis encontrar los ficheros de configuración que estoy usando.</p>
+
+<hr />
+
+<p>Más unos cosas nuevas que he ido aprendiendo por el camino ( y todo a traves de Docker ):</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Pi-Hole</code>: Bloquear toda la publicidad cuando navegas por cualquier sitio.</li>
+  <li><code class="language-plaintext highlighter-rouge">Wireguard</code>: VPN para poder acceder a tu servidor desde cualquier sitio.</li>
+  <li><code class="language-plaintext highlighter-rouge">Jellyfin</code>: Queria una especie de biblioteca para saber que tengo (peliculas y series) pero sin necesidad de tener que conectar el HTC. Se que a lo mejor es excesivo, pero no he encontrado nada 
+parecido a lo que quiero,
+  aunque sigo investigando a ver si encuentro algo igual pero más liviano (no necesito todo lo que lleva consigo jellyfin).</li>
+  <li><code class="language-plaintext highlighter-rouge">Jekyll</code>: Servidor jekyll (GitHub) para crear tu propio blog en local y luego transformar los archivos <code class="language-plaintext highlighter-rouge">markdown</code> en paginas html y subir a GitHub.</li>
+</ul>
+
+<p>Como no puede ser de otra manera, ya esta todo funcionando y sin ningun problema. No esperaba menos de <code class="language-plaintext highlighter-rouge">GNU/Debian</code> y menos siendo <code class="language-plaintext highlighter-rouge">STABLE</code>.</p>
+
+<p>Por eso digo, que tengo servidor para rato y que nunca me lo acabare. A parte de que quiero probar nuevas cosas que voy viendo en los blogs que sigo :</p>
+<ul>
+  <li><a href="https://atareao.es">Atareado</a></li>
+  <li><a href="https://ugeek.github.io">uGeek</a></li>
+  <li><a href="https://elblogdelazaro.org/">El Blog de Lázaro</a></li>
+</ul>
+
+<p>Que sorpresas nos esperan con este nuevo servidor??</p>
+
+<p>Como ya he dicho antes, aprovechando que teniamos a la RPI4B libre, hemos substituido el antiguo mediacenter ( RPI3B ) por esta más nueva, porque como todo en la informatica, todo avanza, pero esto lo
+ explicare en otro <a href="/2022/11/08/cambiando-mediacenter/">articulo</a> que estoy preparando ( y ya os digo que no son buenas noticias ).</p>
+
+<hr />
+<p><strong>Nota:</strong>
+ Después de estos meses de uso, no me puedo quejar, porque el servidor es una maquinon en toda regla, pero ante el aumento de la luz y que a veces, pienso que lo estoy infrautilizando, que no le saco todo el partido y toda la potencia que el Dell me puede dar, me esta rondando por la cabeza, que no se si me he excedido utilizando este servidor. Que a lo mejor, con la RPI4 tendria más que suficiente, para todo lo que tiene que hacer, que aun es poco, pero es la duda que tengo, no se si el Dell esta desaprovechado y derrochando el dinero y en cambio, si pongo la RPI4, no se quedara colgada por todas las cosas que quiero hacer ante la limitación evidente de la Raspberry. Es una cosa que quiero estudiar a fondo, preguntar, ver mirar, etc… y sacar conclusiones.</p>
+
+<hr />
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=qc8mkWtwY9c">Configurar y usar Pi-Hole - PeladoNerd</a></li>
+  <li><a href="https://www.youtube.com/watch?v=G_Pv9XEzfUY">Configurar y usar Wireguard - PeladoNerd</a></li>
+</ul>
+
+  </div>
+</div>
+</div>
+    </div>
+    <footer class="footer mt-auto py-3">
+  <div class="container footer-container">  
+<a
+  class="footer-icon-links"
+  href="https://www.twitter.com/Vctrsnts1" target="_blank"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-twitter footer-icons"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+    /></svg
+></a>
+  
+<a
+  class="footer-icon-links"
+  href="https://github.com/Vctrsnts" target="_blank"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-github footer-icons"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+    /></svg
+></a>
+  
+<a
+    class="footer-icon-links"
+    href="https://mastodon.online/@vsantos" target="_blank"
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-mastodon footer-icons"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M 15.659 9.592 C 15.424 10.72 13.553 11.956 11.404 12.195 C 10.283 12.32 9.18 12.434 8.003 12.384 C 6.079 12.302 4.56 11.956 4.56 11.956 C 4.56 12.13 4.572 12.297 4.595 12.452 C 4.845 14.224 6.478 14.33 8.025 14.379 C 9.586 14.429 10.976 14.02 10.976 14.02 L 11.04 15.337 C 11.04 15.337 9.948 15.884 8.003 15.984 C 6.93 16.039 5.598 15.959 4.047 15.576 C 0.683 14.746 0.104 11.4 0.015 8.006 C -0.012 6.998 0.005 6.048 0.005 5.253 C 0.005 1.782 2.443 0.765 2.443 0.765 C 3.672 0.238 5.782 0.017 7.975 0 L 8.029 0 C 10.221 0.017 12.332 0.238 13.561 0.765 C 13.561 0.765 15.999 1.782 15.999 5.253 C 15.999 5.253 16.03 7.814 15.659 9.592 Z M 13.124 5.522 L 13.124 9.725 L 11.339 9.725 L 11.339 5.646 C 11.339 4.786 10.951 4.35 10.175 4.35 C 9.317 4.35 8.887 4.867 8.887 5.891 L 8.887 8.124 L 7.113 8.124 L 7.113 5.891 C 7.113 4.867 6.683 4.35 5.825 4.35 C 5.049 4.35 4.661 4.786 4.661 5.646 L 4.661 9.725 L 2.876 9.725 L 2.876 5.522 C 2.876 4.663 3.111 3.981 3.582 3.476 C 4.067 2.971 4.703 2.712 5.493 2.712 C 6.406 2.712 7.098 3.039 7.555 3.695 L 8 4.39 L 8.445 3.695 C 8.902 3.039 9.594 2.712 10.507 2.712 C 11.297 2.712 11.933 2.971 12.418 3.476 C 12.889 3.981 13.124 4.663 13.124 5.522 Z"
+      /></svg
+></a>
+ 
+<a class="footer-icon-links" href="/feed.xml"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-rss footer-icons"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+    />
+    <path
+      d="M5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-3-8.5a1 1 0 0 1 1-1c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1-1-1zm0 4a1 1 0 0 1 1-1 6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1-1-1z"
+    /></svg
+></a>
+
+</div>
+</footer>
+
+    <!-- JS for Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2023-02-10T22:30:41+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo hacez, hazlo bien</title><subtitle>Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.</subtitle><author><name>Vctrsnts ( fork andrew-park )</name></author><entry><title type="html">Usando Watchtower</title><link href="https://vctrsnts.github.io/2023/01/25/usando-watchtower/" rel="alternate" type="text/html" title="Usando Watchtower" /><published>2023-01-25T00:00:00+00:00</published><updated>2023-01-25T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/01/25/usando-watchtower</id><content type="html" xml:base="https://vctrsnts.github.io/2023/01/25/usando-watchtower/">&lt;p&gt;Si quieres echarle la culpa tendreis que mirar a &lt;a href=&quot;https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html&quot;&gt;Angel de uGeek&lt;/a&gt;, a &lt;a href=&quot;https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente&quot;&gt;Lorenzo de Atareao.es&lt;/a&gt; y por ultimo a &lt;a href=&quot;https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker&quot;&gt;ElBlogdeLazaro&lt;/a&gt; y a que es el culpable de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación &lt;strong&gt;watchtower&lt;/strong&gt; ellos tienen la culpa :D&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;No voy a explicar que hace esta aplicación, porque si leeis los articulos que uGeek o Lorenzo o Lazaro, estaran mejor explicadas, pero en pocas palabras, te mantiene actualizado todos los contenedores de docker, siempre que le actives el &lt;strong&gt;label&lt;/strong&gt; para que &lt;strong&gt;watchtower&lt;/strong&gt; la tenga en cuenta.&lt;/p&gt;
+
+&lt;p&gt;Eso si, hay que tener en cuenta que si no piensas bien que contenedores quieres que te actualize puedes liar un caos en tu servidor que puede ser de ordago.&lt;/p&gt;
+
+&lt;p&gt;Un ejemplo de este caos (yo de momento no tengo activada su auto-actualizació) es el proxy inverso (caddy), porque imaginate que se actualiza, pero da un error y ya no puedes acceder a tus servicios desde el exterior. Por eso, en mi caso pienso bien que contenedores quiero que se actualizen automaticamente.&lt;/p&gt;
+
+&lt;p&gt;Eso si, os voy a poner mi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker-compose.yml&lt;/code&gt; que uso para la instalación de &lt;strong&gt;watchtower&lt;/strong&gt;. Tener en cuenta que es una recopilación de todos los ficheros de configuración que he visto para su instalación.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_LABEL_ENABLE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_CLEANUP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_INCLUDE_RESTARTING&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_INCLUDE_STOPPED&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_REVIVE_STOPPED&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;
+      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_NO_RESTART&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;
+      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_TIMEOUT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;30s&quot;&lt;/span&gt;
+      &lt;span class=&quot;c&quot;&gt;# AQUESTA OPCIÓ LA TINC DESACTIVADA, PERQUE TINC DUBTES DE QUE FUNCIONI CORRECTAMENT, ENCARA QUE EL LOG DONAR CONSTANCIA DE QUE SI&lt;/span&gt;
+      &lt;span class=&quot;c&quot;&gt;#- WATCHTOWER_SCHEDULE=0 0 4 * * *&lt;/span&gt;
+      &lt;span class=&quot;c&quot;&gt;# L&apos;HE SUBSTITUIT PER AQUESTA&lt;/span&gt;
+      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_POLL_INTERVAL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;86400
+      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_NOTIFICATION_URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;telegram://673744845:AAFem9-pg8gGETRhzKkcfTNDuQH5QdA2DTI@telegram/?channels&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;148859946
+      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_NOTIFICATIONS_HOSTNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;dasReich
+      &lt;span class=&quot;c&quot;&gt;#WATCHTOWER_NOTIFICATIONS: gotify&lt;/span&gt;
+      &lt;span class=&quot;c&quot;&gt;#WATCHTOWER_NOTIFICATION_GOTIFY_URL: https://gotify.tuservidor.es&lt;/span&gt;
+      &lt;span class=&quot;c&quot;&gt;#WATCHTOWER_NOTIFICATION_GOTIFY_TOKEN: AAAAAAAAAAAAAAA&lt;/span&gt;
+      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_DEBUG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+      - &lt;span class=&quot;nv&quot;&gt;TZ&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Europe/Madrid
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Al principio, &lt;strong&gt;watchtower&lt;/strong&gt; no me funcionaba correctamente, en pocas palabras no funcionaba ni hacia nada.&lt;/p&gt;
+
+&lt;p&gt;Así que me toco investigar que podia ser y al final después de mucho buscar, vi que me faltaba informar de en que red iba a trabajar el contenedor. Esto se configura de la siguiente manera:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  network_mode: bridge
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tambien hay que tener en cuenta, que para informar a &lt;strong&gt;watchtower&lt;/strong&gt; de los contenedores que queremos que vigile por si tiene alguna actualización es de la siguiente manera (tener en cuenta, que tiene que estar en todos los contenedores que queremos sean controlados):&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; labels:
+   - com.centurylinklabs.watchtower.enable&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;true&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Y en teoria ya tendria que funcionar. Al principio no parece que funcionaba y estaba con la mosca detras de la oreja, porque no me actualizada nada. Asi que le puse que se ejecutara cada minuto y al final, a partir de que configure correctamente la red empezo a funcionar, me actualizo un par de contenedores y asi quedo.&lt;/p&gt;
+
+&lt;p&gt;Se actualizo y desde entonces, no ha vuelto a actualizar ningún contenedor más. Y es la duda que tengo, no se si es porque no hay ninguna actualización o porque no esta funcionando correctamente.&lt;/p&gt;
+
+&lt;p&gt;Seguire observando si funciona correctamente.&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente/&quot;&gt;Atareao.es - Watchtower&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker&quot;&gt;ElBlogdeLazaro - Watchtower, 1 parte&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://elblogdelazaro.org/posts/2022-10-17-actualiza-automaticamente-tus-contenedores-docker-ii/https://elblogdelazaro.org/posts/2022-10-17-actualiza-automaticamente-tus-contenedores-docker-ii/https://elblogdelazaro.org/posts/2022-10-17-actualiza-automaticamente-tus-contenedores-docker-ii&quot;&gt;ElBlogdeLazaro - Watchtower, 2 parte&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html&quot;&gt;uGeek - Watchtower&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="docker" /><category term="linux" /><summary type="html">Si quieres echarle la culpa tendreis que mirar a Angel de uGeek, a Lorenzo de Atareao.es y por ultimo a ElBlogdeLazaro y a que es el culpable de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación watchtower ellos tienen la culpa :D</summary></entry><entry><title type="html">Mis nuevos juguetes</title><link href="https://vctrsnts.github.io/2023/01/23/mis-nuevos-juguestes/" rel="alternate" type="text/html" title="Mis nuevos juguetes" /><published>2023-01-23T00:00:00+00:00</published><updated>2023-01-23T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/01/23/mis-nuevos-juguestes</id><content type="html" xml:base="https://vctrsnts.github.io/2023/01/23/mis-nuevos-juguestes/">&lt;p&gt;A través de este &lt;a href=&quot;https://podcastlinux.com/posts/podcastlinux/129-Podcast-Linux&quot;&gt;podcast&lt;/a&gt; que escuche hace algún tiempo, siempre me quedo el gusanito de tener uno, y eso que estoy muy contento con mi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Lenovo Ideapad Y700&lt;/code&gt;, pero siempre me quedo eso clavado…&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;A parte de que también me apunte a este canal de &lt;a href=&quot;https://t.me/Thinkpad_es&quot;&gt;Thinkpads&lt;/a&gt; de telegram y eso ya fue lo definitivo. Te tengo que avisar de que si a mi me llaman friki, los que forman parte de este canal lo son a un nivel que no te lo puedes imaginar, para que veíais que nivel tienen, hay miembros de este canal que tienen casi todos los modelos de Thinkpads habidos y por haber solo por el mero hecho de tenerlos :-o Algunos si que los utilizan, pero no todos.&lt;/p&gt;
+
+&lt;p&gt;Y ya me veis a leyendo todo lo que van diciendo y con unas ganas cada vez más grandes de tener uno, aunque solo fuera para tenerlo. Y aquí es donde empezó todo…&lt;/p&gt;
+
+&lt;p&gt;Pregunte, cual era el modelo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;más famoso, el más llamativo o el más iconico&lt;/code&gt; de los que había disponibles y me dijeron que si lo que te gusta es cacharrear, el mejor era el &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Thinkpad T440p&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/t440p.jpg&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Y ahí me tenéis, comprando a un compañero del canal un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;T440p&lt;/code&gt; con las siguientes características:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;CPU: i7 4700mq&lt;/li&gt;
+  &lt;li&gt;RAM: 16Gb ( 2x8Gb )&lt;/li&gt;
+  &lt;li&gt;SSD 256Gb&lt;/li&gt;
+  &lt;li&gt;El panel no le funciona&lt;/li&gt;
+  &lt;li&gt;Con el cargador&lt;/li&gt;
+  &lt;li&gt;Sin batería&lt;/li&gt;
+  &lt;li&gt;Y le faltaba una tecla.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;La pantalla estaba rota y sin batería, pero como hay tanto material para este portátil, pues no había problema y a el que me fui.&lt;/p&gt;
+
+&lt;p&gt;Cuando me llego, la sensación fue impresionante, unos acabados, no se, un todo. Lo conecte a un monitor y funcionaba perfectamente y con identificativo logo de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Thinkpad&lt;/code&gt; al inicio.&lt;/p&gt;
+
+&lt;p&gt;Ahora solamente faltaba solucionar el problema de la pantalla, donde pensaba que sería lo más difícil. Pero la realidad fue otra. Es muy fácil cambiar cualquier cosa en este portátil. Para que os hagáis una idea, nada más llegar, le desmonte el SSD, la CPU ( para su limpieza y nueva pasta térmica, limpieza del ventilador, limpieza del teclado.&lt;/p&gt;
+
+&lt;p&gt;Este ordenador parece un mecano. Se puede desmontar todo, pero todo.&lt;/p&gt;
+
+&lt;p&gt;Con respecto al panel que no me funcionaba, volví a pedir ayuda en el canal y me aconsejaron que ya que lo tenía, podía hacerle un par más de modificaciones que son:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://es.aliexpress.com/i/4001063911066.html&quot;&gt;Panel T440p&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://es.aliexpress.com/item/32717498840.html&quot;&gt;Panel táctil T440p&lt;/a&gt; aunque a la hora de su instalación, con Windows hay muchos problemas, porque no coge el driver correctamente, pero como le iba a instalar GNU/Linux, pues no me preocupaba.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cuando me llego todo el material, como digo, el portátil, se puede desmontar fácilmente, le substitui la pantalla sin ningún problema y eso que al principio te da un poco de respeto, pero cuando ves que la construcción del equipo está hecha para que todo sea fácil de cambiar y substituir pues, el nerviosismo desaparece.&lt;/p&gt;
+
+&lt;p&gt;Después de todo está substitución, ya tenía un nuevo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Thinkpad T440p&lt;/code&gt; como nuevo ( aun me falta la batería ), pero como iba a estar conectado a la corriente, pues, aunque me gustaría conseguir una bateria para tener el modelo completo…&lt;/p&gt;
+
+&lt;p&gt;Además, en el canal, un compañero que había comprado un teclado para este modelo, porque tenía un par de teclas rotas en su portatil y como le sobraban el resto, pues le pedí si me podia facilitar la que me faltaba a mi, y no hubo ningún problema y además, como ya he comentado antes, todo en este portátil es fácilmente desmontable, incluidas las teclas y el teclado.&lt;/p&gt;
+
+&lt;p&gt;Y si buscas información de este modelo, mucha gente aun lo usa, 2023, porque es muy versátil y se le pueden hacer muchas modificaciones. Una de ellas y la que me ha dejado más sorprendido ha sido la que se puede ver &lt;a href=&quot;https://www.youtube.com/watch?v=2SWw_Tx_iwM&quot;&gt;aquí&lt;/a&gt; donde le ponen una &lt;strong&gt;CPU&lt;/strong&gt; que con solo ver las especificaciones te tira para atras. También he visto gente, que ha llegado a decir que le había puesto un &lt;em&gt;Xeon&lt;/em&gt; a este portátil, cambio de la BIOS por una BIOS libre ( &lt;a href=&quot;https://www.youtube.com/watch?v=pqjsM18pKCE&quot;&gt;Coreboot&lt;/a&gt; ), o se la &lt;a href=&quot;https://www.youtube.com/watch?v=ce7kqUEccUM&quot;&gt;modifican&lt;/a&gt;, para &lt;strong&gt;liberarla&lt;/strong&gt; y que puedan usar diferente hardware ( sobre todo tarjetas Wi-Fi ), que por defecto estan bloqueadas.&lt;/p&gt;
+
+&lt;p&gt;Lo que yo digo, lo que no se puede hacer con este portatil, es que no se puede. No lo intentes porque a lo mejor lo estropeas.&lt;/p&gt;
+
+&lt;p&gt;Y hasta aquí hemos llegado con mi nuevo juguete… &lt;strong&gt;o no!!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Pues será que no, porque como dicen en el canal, cuando empiezas ya no puedes parar y esto es lo que me paso. Y más cuando dicen que el modelo que va a tener más &lt;em&gt;hype&lt;/em&gt; estos próximos años, será el &lt;strong&gt;T480&lt;/strong&gt;, porque según parece, la garantía que tienen está a punto de finalizar y por esa misma cuestión, las empresas van a hacer el cambio y el mercado se satura. Y doy fe de ello &lt;strong&gt;in-situ&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pero está vez, en el canal no había nadie que le sobrara este modelo y me fui a revisar &lt;a href=&quot;https://www.ebay.es&quot;&gt;eBay&lt;/a&gt; donde hay un mundo con respecto a los Thinkpads. Así que pregunte y me aconsejaron un par de vendedores que tienen modelos a buen precio ( pero en subasta, que como sabes ) el portátil o lo puedes conseguir o muy barato o muy caro.&lt;/p&gt;
+
+&lt;p&gt;Al final, pude conseguir uno a buen precio con las siguientes características:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;CPU: i5 8350U&lt;/li&gt;
+  &lt;li&gt;RAM: 8Gb ( 1x8 )&lt;/li&gt;
+  &lt;li&gt;M2.SSD: 256Gb&lt;/li&gt;
+  &lt;li&gt;Con el cargado&lt;/li&gt;
+  &lt;li&gt;Sin batería&lt;/li&gt;
+  &lt;li&gt;Panel táctil, pero con algunos problemas de funcionamiento&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Y de nuevo, a la espera de mi nuevo juguete ( que está vez y gracias a UPS Parcel, que empresa :( ) llego una semana más tarde, pero ya lo tenía. Y tuve la misma sensación que cuando recibi el T440p. Una sensación de como un niño con zapatos nuevos y de vuelta a las modificaciones.&lt;/p&gt;
+
+&lt;p&gt;En el canal me aconsejaron la primera y más básica, el cambio de &lt;a href=&quot;https://es.aliexpress.com/item/4001153042037.html&quot;&gt;panel&lt;/a&gt; por uno que es muy aconsejado en &lt;a href=&quot;https://www.reddit.com/r/thinkpad/comments/9wfq9p/thinkpad_t480s_fhd_to_qhd_upgrade_log_applies_to/?utm_source=share&amp;amp;utm_medium=android_app&amp;amp;utm_name=androidcss&amp;amp;utm_term=1&amp;amp;utm_content=share_button&quot;&gt;reddit&lt;/a&gt; porque reduce el consumo de energía de la batería con la mejora que ello conlleva. Y además si tu quieres, este modelo ( siempre que hagas las modificaciones pertinentes, panel y cable ) se le puede poner una pantalla de &lt;em&gt;2K&lt;/em&gt;, pero eso gastaría mucha batería y visualmente, no se vería ninguna mejora apreciable.&lt;/p&gt;
+
+&lt;p&gt;A parte del panel, también le cambio las siguientes piezas ( no es tan modificable como el T440p ) pero…&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://a.aliexpress.com/_EuR0Zu1&quot;&gt;Cable para el nuevo panel&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://a.aliexpress.com/_EHFew6h&quot;&gt;Cable para el nuevo SSD&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;El nuevo cable para el &lt;strong&gt;SSD&lt;/strong&gt; lo he hecho, porque había comprado uno nuevo que lo quería utilizar en el portátil y el &lt;em&gt;M.2&lt;/em&gt; lo quería hacer servir para el servidor y utilizarlo para las copias de seguridad de este ( que ya explicare en otro articulo ).&lt;/p&gt;
+
+&lt;p&gt;Después de todo lo que le he hecho ( que también me ha resultado muy fácil de cambiar ) y eso que dicen que es uno de los últimos que tiene está facilidad, porque los nuevos no la tienen, tengo un &lt;strong&gt;Thinkpad T480&lt;/strong&gt; nuevecito a falta de una batería y un teclado en castellaño, aunque esto ultimo no es muy importante, porque si le conectas un teclado externo, ya no usaras el teclado del portátil.&lt;/p&gt;
+
+&lt;p&gt;Y aquí estamos con mis nuevos juguetes, aunque este ultimo ( T480 ) estoy pensando en usarlo cuando se me muera el Lenovo Y700 que tengo últimamente y tenerlo con un dock:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/dock-lenovo.jpg&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Para así tenerlo con una pantalla mínimamente grande o algo parecido al setup que nos muestra &lt;strong&gt;Lorenzo&lt;/strong&gt; de &lt;a href=&quot;https://atareao.es/podcast/sobre-mi-setup-o-configuracion-de-escritorio&quot;&gt;atareao.es&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/setup.jpg&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pero todo esto son planes de futuro que dios dirá…&lt;/p&gt;
+
+&lt;p&gt;Y hasta aquí la historia de los 2 nuevos juguetes que han llegado a casa. Espero que no me se me crucen los cables y compre uno más, porque sino me veo durmiendo en la calle.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Nota:&lt;/strong&gt;
+Quereis un consejo, no escucheis ningun podcast de los que segueis que hable del cambio de equipo. Porque sino os empezaran a surgir ideas contrarias a las que, en un principio, habiais tomado. Hacerme caso. Porque yo ya tenia la idea de cambiar ( cuando se me muera el portatil que tengo ahora ) por el &lt;strong&gt;T480&lt;/strong&gt; que he conseguido junto con un dock y va &lt;a href=&quot;https://atareao.es/podcast/slimbook-one-con-amd-ryzen-9/&quot;&gt;Lorenzo - Atareao.es&lt;/a&gt; y me suelta que se ha cambio el portatil que tenia por un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Slimbook One&lt;/code&gt;, en pocas palabras, un Tiny y solo falta escuchar eso y los motivos por lo que lo ha hecho, muy logicos todos ellos, para empezar mis dudas si la decisión que tenia pensado hacer es la correcta o mejor ir a por un Tiny acoplado a un monitor, menos espació si que ocuparia y menos enchufes necesitaria. Gracias &lt;strong&gt;Lorenzo&lt;/strong&gt;. :(&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://podcastlinux.com/posts/podcastlinux/129-Podcast-Linux&quot;&gt;Linux Podcast&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://t.me/Thinkpad_es&quot;&gt;Canal Telegram&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/@WolfgangsChannel&quot;&gt;Canal Youtube T440p&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://atareao.es/podcast/sobre-mi-setup-o-configuracion-de-escritorio/&quot;&gt;Imagen de Setup&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=ce7kqUEccUM&quot;&gt;Quitanto Wi-Fi Whitelist&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=pqjsM18pKCE&quot;&gt;Instalar Coreboot&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="linux" /><category term="thinkpad" /><summary type="html">A través de este podcast que escuche hace algún tiempo, siempre me quedo el gusanito de tener uno, y eso que estoy muy contento con mi Lenovo Ideapad Y700, pero siempre me quedo eso clavado…</summary></entry><entry><title type="html">Mejoras en mi escritorio ( i3-wm )</title><link href="https://vctrsnts.github.io/2023/01/13/mejoras-i3/" rel="alternate" type="text/html" title="Mejoras en mi escritorio ( i3-wm )" /><published>2023-01-13T00:00:00+00:00</published><updated>2023-01-13T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/01/13/mejoras-i3</id><content type="html" xml:base="https://vctrsnts.github.io/2023/01/13/mejoras-i3/">&lt;p&gt;Después de mucho tiempo usando i3-wm, estaba constantemente, cambiando de wallpaper (seguramente ha más de uno le pasa ), pense que habria alguna manera de hacer que cada X tiempo, el wallpaper que estoy utilizando cambiara automaticamente, de los que tengo en el directorio donde los guardo.&lt;/p&gt;
+
+&lt;p&gt;Así que me puse a la busqueda de como se puede hacer.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Encontre unas cuantas maneras de hacer lo que yo queria :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Primer &lt;a href=&quot;https://forum.codeselfstudy.com/t/desktop-background-switcher-for-i3wm/1044&quot;&gt;script&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Segundo &lt;a href=&quot;https://github.com/levinit/i3wm-config/blob/master/i3/wallpaper.sh&quot;&gt;script&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Yo me quede con la idea del segundo script, aunque le añadi la posibilidad de enviar notificaciones al escritorio de los cambios de fondos de pantalla a través del &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notify-send&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/bash&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;shopt&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; nullglob
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-z&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;which feh&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;wallpaper err: Can not found command feh.&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ~/i3wm-wallpaper.err
+    &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;127
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# DIRECTORI ON ESTAN ELS FONTS DE PANTALLA&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~/.config/wallpapers
+&lt;span class=&quot;c&quot;&gt;# TEMPS / INTERVAL ENTRE ELS CANVIS DE FONS DE PANTALLA&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;59m
+&lt;span class=&quot;c&quot;&gt;# INICI DE L&apos;SCRIPT&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$path&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# INICIEM EL BUCLE DE L&apos;SCRIPT&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;do
+	&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=()&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;i &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.jpg &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.png&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+	     &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; files+&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;done
+	&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${#&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[@]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;nv&quot;&gt;CURRENT_WALLPAPER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[RANDOM % range]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+
+	&lt;span class=&quot;nv&quot;&gt;CURRENT_IMAGE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$path&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$CURRENT_WALLPAPER&lt;/span&gt;
+
+	&lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;range&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; feh &lt;span class=&quot;nt&quot;&gt;--bg-scale&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$CURRENT_WALLPAPER&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;# ENVIEM LA NOTIFICACIÓ AL SISTEMA, PERQUE ES VEGI PER PANTALLA&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+	notify-send &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$CURRENT_IMAGE&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Desktop Changed&apos;&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;basename&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$CURRENT_WALLPAPER&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+
+	&lt;span class=&quot;nb&quot;&gt;sleep&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$interval&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;El script en esencia es muy simple. Lo unico que hace, es poner en un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;array&lt;/code&gt; todos los archivos del directorio que le indicas donde estaran las imagenes ( wallpapers ) para que cada X minutos ( &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;interval&lt;/code&gt; ) que le hayas configurado haga el cambio de fondo de pantalla y que te notifique ( &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notify-send&lt;/code&gt; ) de dicho cambio, se necesita el paquete &lt;strong&gt;libnotify-bin&lt;/strong&gt; para que te avise del cambio.&lt;/p&gt;
+
+&lt;p&gt;Lo unico que queda, es configurar el fichero de configuración de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i3-wm&lt;/code&gt; para que :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Haga la carga inicial del wallpaper&lt;/li&gt;
+  &lt;li&gt;Inicie el script del cambio de wallpaper, que a su vez, tomara el control y que cada X tiempo ( segun tengas configurado ) ira realizando el cambio de fondo de pantalla.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Para que funcione, tienes que añadir lo siguiente en el fichero de configuración:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# PARA VISUALIZAR EL FONDO DE PANTALLA&lt;/span&gt;
+exec_always &lt;span class=&quot;nt&quot;&gt;--no-startup-id&lt;/span&gt; feh &lt;span class=&quot;nt&quot;&gt;--bg-scale&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-fehbg&lt;/span&gt; ~/.config/wallpapers/Wallpaper_10.jpg
+&lt;span class=&quot;c&quot;&gt;# AQUI ES CONFIGURA EL CANVI AUTOMATIC DEL WALLPAPER&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-startup-id&lt;/span&gt;  ~/.config/i3/scripts/wallpaper.sh &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;La otra modificación que he realizado, ha sido la de que en la barra de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i3-wm&lt;/code&gt; ( &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i3block&lt;/code&gt; ) me informe de los paquetes que se tienen que actualizar, era una información que me gustaba tener y después de mucho buscar, encontré el &lt;a href=&quot;https://github.com/vivien/i3blocks-contrib&quot;&gt;comando / instrucción&lt;/a&gt; que me daba lo que necesitada.&lt;/p&gt;
+
+&lt;p&gt;Lo primero, necesitas el script &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt-upgrades&lt;/code&gt; y descargarlo en algún sitio desde donde puedas tener acceso. En mi caso, lo he dejado en el directorio del &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i3-wm/script&lt;/code&gt;, que es donde tengo todos los scripts que uso para &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i3-wm&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;El script en cuestión ( tener en cuenta que depende de &lt;strong&gt;aptitude&lt;/strong&gt; ) hace lo siguiente :&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Copyright (C) 2015 James Murphy&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Licensed under the terms of the GNU GPL v2 only.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# i3blocks blocklet script to display pending system upgrades&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# FontAwesome refresh symbol, change if you do not want to install FontAwesome&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#PENDING_SYMBOL=${PENDING_SYMBOL:-&quot;\uf021 &quot;}&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;PENDING_SYMBOL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PENDING_SYMBOL&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# By default, show both the symbol and the numbers&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;SYMBOL_ONLY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;SYMBOL_ONLY&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# By default, show something when no upgrades are pending&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;ALWAYS_PRINT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ALWAYS_PRINT&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Colors for when there is/isn&apos;t a pending upgrade&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;PENDING_COLOR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PENDING_COLOR&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#FF0000&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;NONPENDING_COLOR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;NONPENDING_COLOR&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#FFFFFF&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;while &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;getopts &lt;/span&gt;s:oc:n:Nh opt&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do
+    case&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$opt&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in
+        &lt;/span&gt;s&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;PENDING_SYMBOL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$OPTARG&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+        o&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;SYMBOL_ONLY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1 &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+        c&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;PENDING_COLOR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$OPTARG&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+        n&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;NONPENDING_COLOR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$OPTARG&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+        N&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ALWAYS_PRINT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0 &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+        h&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;Usage: apt-upgrades [-s pending_symbol] [-o] [-c pending_color] [-N|-n nonpending_color] [-h]
+Options:
+-s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Specify a refresh symbol. Default: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;\\\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;uf021 &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
+-o&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Show refresh symbol only, but no numbers.
+-c&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Color when upgrade is pending. Default:  #00FF00
+-n&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Color when no upgrade is pending. Default: #FFFFFF
+-N&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Only display text if upgrade is pending (supercedes -n)
+-h&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Show this help text&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0&lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;esac&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done
+
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;upgraded new removed held &amp;lt; &amp;lt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+aptitude full-upgrade &lt;span class=&quot;nt&quot;&gt;--simulate&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--assume-yes&lt;/span&gt; |&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-m1&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;^[0-9]\+ packages upgraded,&apos;&lt;/span&gt; |&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;tr&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-cd&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;0-9 &apos;&lt;/span&gt; |&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;tr&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos; &apos;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;\n&apos;&lt;/span&gt; |&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;[0-9]\+&apos;&lt;/span&gt; |&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    xargs &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$upgraded&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$new&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$removed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$held&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PENDING_COLOR&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$SYMBOL_ONLY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 1 &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+        &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PENDING_SYMBOL&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PENDING_SYMBOL&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else
+        &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PENDING_SYMBOL$upgraded&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$new&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$removed&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$held&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PENDING_SYMBOL$upgraded&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$new&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$removed&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$held&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fi
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$color&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ALWAYS_PRINT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 1 &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$NONPENDING_COLOR&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PENDING_SYMBOL$upgraded&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$new&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$removed&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$held&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PENDING_SYMBOL$upgraded&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$new&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$removed&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$held&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$color&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Una vez tengas el script, vamos a la configuración del archivo de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i3block.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;apt_upgrades]
+&lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/usuari/.config/i3/scripts/apt-upgrades
+&lt;span class=&quot;c&quot;&gt;# l&apos;script s&apos;executara cada dia ( el valor es refereix a minuts )&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1440
+&lt;span class=&quot;nv&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;span class=&quot;nv&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Cuando ya tenemos configurado toda la parte del usuario, solamente nos queda configurar la parte de &lt;strong&gt;root&lt;/strong&gt; ( que es el encargado de realizar el &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aptitude update&lt;/code&gt; para actualizar los paquetes y que a su vez, hace que el script obtenga los paquetes a actualizar.&lt;/p&gt;
+
+&lt;p&gt;Para eso, tenemos que hacer lo siguiente ( a través de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo&lt;/code&gt;, en mi caso ):&lt;/p&gt;
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;obtenim acces a nivell de root
+&lt;span class=&quot;gp&quot;&gt;usuari@debian:~#&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Una vez, tenemos acceso a la consola de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; pasamos a configurar el &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cron&lt;/code&gt; que lo puedes hacer de la siguiente manera para evitar al maximo cualquier error posible:&lt;/p&gt;
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;usuari@debian:~#&lt;/span&gt;crontab &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Y ahora pasamos a la creación de nuestro cron:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@daily aptitude update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Y con este sencillo script obtenemos la siguiente información:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Los paquetes a actualizar.&lt;/li&gt;
+  &lt;li&gt;Los nuevos paquetes que se van a instalar.&lt;/li&gt;
+  &lt;li&gt;Los paquetes que se van a eliminar.&lt;/li&gt;
+  &lt;li&gt;Los paquetes que no se actualizar.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Todo esto, claro esta, siempre que realices la actualización.&lt;/p&gt;
+
+&lt;p&gt;En pantalla quedaría de la siguiente manera &lt;img src=&quot;/assets/images/apt-upgrades.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://forum.codeselfstudy.com/t/desktop-background-switcher-for-i3wm/1044&quot;&gt;Primera versión del script&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/levinit/i3wm-config/blob/master/i3/wallpaper.sh&quot;&gt;Segunda versión del script&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/levinit/i3wm-config/blob/master/i3/config&quot;&gt;Modificación en el config&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/vivien/i3blocks-contrib&quot;&gt;apt-upgrades&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Vctrsnts ( fork andrew-park )</name></author><category term="linux" /><summary type="html">Después de mucho tiempo usando i3-wm, estaba constantemente, cambiando de wallpaper (seguramente ha más de uno le pasa ), pense que habria alguna manera de hacer que cada X tiempo, el wallpaper que estoy utilizando cambiara automaticamente, de los que tengo en el directorio donde los guardo.</summary></entry><entry><title type="html">Funcionamiento extraño con mi portatil ( Ideapad Y700 - 17ISK )</title><link href="https://vctrsnts.github.io/2023/01/12/problemas-Y700-17ISK/" rel="alternate" type="text/html" title="Funcionamiento extraño con mi portatil ( Ideapad Y700 - 17ISK )" /><published>2023-01-12T00:00:00+00:00</published><updated>2023-01-12T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/01/12/problemas-Y700-17ISK</id><content type="html" xml:base="https://vctrsnts.github.io/2023/01/12/problemas-Y700-17ISK/">&lt;p&gt;Desde hace un par de dias, no se si desde que actualize la BIOS al portatil ( Lenovo Ideapad Y700 17ISK, versión &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CDCN54WW&lt;/code&gt; ), y me ha pasado una cosa muy extraña. El teclado en el momento de iniciarse el sistema ha dejado de funcionar.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Así de repente, el teclado ha dejado de funcionar, sin razón aparente, pero también con un funcionamiento raro, porque las teclas de función ( F1, etc… ) si que funcionaban o hacer un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl+alt+sup&lt;/code&gt; también funcionaba.&lt;/p&gt;
+
+&lt;p&gt;También podía acceder a la BIOS ( en mi caso con &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;F2&lt;/code&gt; ), pero luego no podía desplazarme por las diferentes secciones de la BIOS ni tampoco seleccionar en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GRUB&lt;/code&gt; el otro sistema operativo que uso ( Windows 10 ). Pero lo más extraño ( si es que puede haber algo extraño en todo esto ) es que una vez que se cargaba el sistema operativo ( tanto GNU/Linux como Windows ) el teclado funcionaba correctamente y sin ningún problema.&lt;/p&gt;
+
+&lt;p&gt;Buscando por internet, lo único que encontraba, eran mensajes que hacían referencia a que una de las ultimas actualizaciones de la BIOS había producido este fallo, aunque también habían otros mensajes que decían, que el problema venia motivado por la &lt;a href=&quot;https://forums.lenovo.com/t5/Serie-Z/Fallos-en-el-teclado-y-touchpad-Ideapad-700-15ISK/m-p/3656873&quot;&gt;batería&lt;/a&gt;, pero no tenia sentido, porque nunca había tenido anteriormente este problema hasta la actualización de la BIOS a la ultima versión. Así que lo único que, en mi caso, podía motivar este funcionamiento incorrecto del teclado, era la actualización de la BIOS.&lt;/p&gt;
+
+&lt;p&gt;Después de buscar versiones anteriores de la BIOS de mi portatil, Lenovo no lo pone nada fácil para encontrar los archivos, encontré una versión anterior a la que tenia instalada ( CDCN53WW ).&lt;/p&gt;
+
+&lt;p&gt;Lo único que me faltaba era poder acceder a Windows, pero también era extraño, con un teclado USB podía desplazarme por la BIOS y seleccionar el otro SO que tengo instalado. Inicie el &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;downgrade&lt;/code&gt; de mi versión de BIOS a una anterior.&lt;/p&gt;
+
+&lt;p&gt;Y parece que el problema se ha solucionado, porque de momento, no he vuelto a tener ningun problema con el teclado, puedo seleccionar correctamente el Sistema Operativo al que quiero acceder, así como puedo moverme por los diferentes apartados de la BIOS.&lt;/p&gt;
+
+&lt;p&gt;No se, una cosa muy extraña que me ha pasado, y no se si es un mensaje subliminal del portatil de que esta llegando a las ultimas.&lt;/p&gt;
+
+&lt;p&gt;Espero que no sea así, porque lo he tenido durante muchos años con un resultado excelente, pero no me gustaría perderlo, aunque si llega el día que tenga que deshacerme de el, tengo un par de substitutos en la recamara ( que de eso tengo que hacer otro articulo ).&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://forums.lenovo.com/t5/Serie-Z/Fallos-en-el-teclado-y-touchpad-Ideapad-700-15ISK/m-p/3656873&quot;&gt;Foro Lenovo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="hardware" /><summary type="html">Desde hace un par de dias, no se si desde que actualize la BIOS al portatil ( Lenovo Ideapad Y700 17ISK, versión CDCN54WW ), y me ha pasado una cosa muy extraña. El teclado en el momento de iniciarse el sistema ha dejado de funcionar.</summary></entry><entry><title type="html">Creando tu propi Spotify privado - Annexo</title><link href="https://vctrsnts.github.io/2022/12/31/rpi-spotity/" rel="alternate" type="text/html" title="Creando tu propi Spotify privado - Annexo" /><published>2022-12-31T00:00:00+00:00</published><updated>2022-12-31T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2022/12/31/rpi-spotity</id><content type="html" xml:base="https://vctrsnts.github.io/2022/12/31/rpi-spotity/">&lt;p&gt;Tal como explique en este articulo &lt;a href=&quot;/2021/05/08/rpi-spotify/&quot;&gt;Creando tu propio servidor de music&lt;/a&gt; cuando tienes un servidor en tu casa, empiezas a tener ideas locas de que podrias hacer con el.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Pero después de mucho probar (siguiente la estela de uGeek) creo que llegas al mismo punto (pero más lento). Si ya venia usando (en mi caso) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jellyfin&lt;/code&gt; que te permite tambien tener ordenado y listado toda la musica, porque no usarlo tambien y asi substituir &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gonic&lt;/code&gt; o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Navidrome&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Y es lo que he hecho, a parte de añadir un plugin nuevo siguiendo el consejo de uGeek y asi poder cambiar el &lt;a href=&quot;https://ugeek.github.io/blog/post/2020-11-15-jellyfin-skin-manager-repositorio-para-cambiar-el-tema-de-tu-jellyfin.html&quot;&gt;tema&lt;/a&gt; al que más te guste y tambien puede añadir el plugin de &lt;a href=&quot;https://ugeek.github.io/blog/post/2021-08-09-lista-de-repositorios-de-jellyfin-.html&quot;&gt;LastFm&lt;/a&gt; para que asi, tener más información sobre la musica que estas escuchando, que no consigo que funcione correctamente y tampoco hay mucha información en inet para saber el motivo.&lt;/p&gt;
+
+&lt;p&gt;A parte, como es mi caso, escucho la musica en el movil y tenia que buscar una nueva aplicación para ello, y como no, siempre uGeek viene en mi ayuda, &lt;a href=&quot;https://ugeek.github.io/post/2022-12-23-notas-manjaro-jellyfin-podcast--.html&quot;&gt;aqui&lt;/a&gt; te aconseja una nueva aplicación (que la verdad que tiene muy buena pinta) para asi conectar con el servidor de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jellyfin&lt;/code&gt; y poder escuchar tu  musica sin ningun problema.&lt;/p&gt;
+
+&lt;p&gt;Asi mismo, tambien escucho musica en mi portatil personal a traves de &lt;a href=&quot;https://ugeek.github.io/blog/post/2021-12-29-sonixd-player-para-jellyfin-y-subsonic.html&quot;&gt;Sonixd&lt;/a&gt;, que es una aplicación (en mi caso, como no esta nativa en GNU/Debian, la uso como appImage) y que ya venia usando de antes del cambio, porque funcionaba correctamente con &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gonic&lt;/code&gt; y cuando vi que tambien se podia usar con &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jellyfin&lt;/code&gt; pues fue un punto más a favor del cambio, y lo más fuerte, es que luego, veo que uGeek tambien tiene un articulo explicando un poco el funcionamiento de esta aplicación.&lt;/p&gt;
+
+&lt;p&gt;Asi que de momento, estoy en este punto, he quitado el servidor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gonic&lt;/code&gt; que venia usando y ahora estoy con &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jellyfin&lt;/code&gt; para todo. Casi como si fuera una navaja suiza.&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ugeek.github.io/blog/post/2020-11-15-jellyfin-skin-manager-repositorio-para-cambiar-el-tema-de-tu-jellyfin.html&quot;&gt;Jellyfin como servidor de musica&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ugeek.github.io/blog/post/2021-08-09-lista-de-repositorios-de-jellyfin-.html&quot;&gt;Añadir repositorios a Jellyfin&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ugeek.github.io/post/2022-12-23-notas-manjaro-jellyfin-podcast--.html&quot;&gt;Boum&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ugeek.github.io/blog/post/2021-12-29-sonixd-player-para-jellyfin-y-subsonic.html&quot;&gt;Sonixd&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="docker" /><category term="linux" /><summary type="html">Tal como explique en este articulo Creando tu propio servidor de music cuando tienes un servidor en tu casa, empiezas a tener ideas locas de que podrias hacer con el.</summary></entry><entry><title type="html">Volviendo a Caddy desde Nginx Proxy Manager</title><link href="https://vctrsnts.github.io/2022/12/25/rpi-caddy-proxy-manager/" rel="alternate" type="text/html" title="Volviendo a Caddy desde Nginx Proxy Manager" /><published>2022-12-25T00:00:00+00:00</published><updated>2022-12-25T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2022/12/25/rpi-caddy-proxy-manager</id><content type="html" xml:base="https://vctrsnts.github.io/2022/12/25/rpi-caddy-proxy-manager/">&lt;p&gt;Como ya sabreis, &lt;a href=&quot;/2021/05/07/rpi-nginx-proxy-manager/&quot;&gt;anteriormente&lt;/a&gt; usaba &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nginx Proxy Manager&lt;/code&gt; porque habia tenido muchos problemas con &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Caddy&lt;/code&gt;, no se de donde venian estos problemas, si de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Caddy&lt;/code&gt; o de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;duckdns.org&lt;/code&gt;, asi que hice el cambio a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm&lt;/code&gt; para los amigos.&lt;/p&gt;
+
+&lt;p&gt;Y aqui vuevlo a estar de nuevo.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Hice el cambio, pero habia una cosa que no me acababa de gustar, el tener la URL de mis servicios, no se como llamarlos, no &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bonitos&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;no oficiales&lt;/code&gt;?&lt;/p&gt;
+
+&lt;p&gt;Cuando me refiero a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;URL no bonitas&lt;/code&gt;, me refiero al tipo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://music-miservidor.duckdns,.org&lt;/code&gt;, como que no quedan muy legales, porque me gustan más, las de toda la vida &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://music.miservidor.duckdns.org&lt;/code&gt; que son las normalizadas.&lt;/p&gt;
+
+&lt;p&gt;Pero todo cambio, cuando vi un nuevo &lt;a href=&quot;https://ugeek.github.io/blog/post/2022-12-23-caddy-crear-usuario-y-contrasena.html&quot;&gt;articulo&lt;/a&gt; de uGeek, donde comentaba, que se podian crear usuarios y passwords en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Caddy&lt;/code&gt; decidi volver a probar a ver si esta vez tenia más suerte.&lt;/p&gt;
+
+&lt;p&gt;Asi que me puse al lio, volvi a poner la configuración recomendada de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Caddy&lt;/code&gt; en mi servidor de Docker y a ver si esta vez teniamos más suerte:&lt;/p&gt;
+
+&lt;p&gt;Y parece que si que tenemos suerte, porque de momento todo esta funcionando correctamente y encima con el certificado de &lt;a href=&quot;https://letsencrypt.org/es/&quot;&gt;Let’s Encrypt&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Esperemos que esta vez dure más mi aventura con &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Caddy&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ugeek.github.io/blog/post/2021-02-19-proxy-inverso-con-caddy.html&quot;&gt;Usando Caddy&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ugeek.github.io/blog/post/2022-12-23-caddy-crear-usuario-y-contrasena.html&quot;&gt;Usuarios en Caddy&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://letsencrypt.org/es/&quot;&gt;Let’s Encrypt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="docker" /><category term="linux" /><summary type="html">Como ya sabreis, anteriormente usaba Nginx Proxy Manager porque habia tenido muchos problemas con Caddy, no se de donde venian estos problemas, si de Caddy o de duckdns.org, asi que hice el cambio a npm para los amigos.</summary></entry><entry><title type="html">Cambiando de editor. Neovim</title><link href="https://vctrsnts.github.io/2022/12/19/cambiando_de_editor_neovim/" rel="alternate" type="text/html" title="Cambiando de editor. Neovim" /><published>2022-12-19T00:00:00+00:00</published><updated>2022-12-19T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2022/12/19/cambiando_de_editor_neovim</id><content type="html" xml:base="https://vctrsnts.github.io/2022/12/19/cambiando_de_editor_neovim/">&lt;p&gt;Cansado un poco de tener que siempre usar editores faciles ( estilo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mousepad&lt;/code&gt; ) o que dejaban de tener soporte ( &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Atom&lt;/code&gt; ) y que además no me hacian la vida facil para integrarse con GitHub, intente buscar un nuevo editor que lo tuviera todo y mirando los videos de &lt;a href=&quot;https://atareao.es&quot;&gt;Atareao&lt;/a&gt; me fije en que tenia una guia de instalación y de uso de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Neovim&lt;/code&gt;, clonico de Vim, y me puse con ello.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Porque una de mis ilusiones, era saber utilizar y poder sacarle todo el partido a Vim, pero por falta de tiempo o ganas, nunca me habia puesto, pero gracias a los videos de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Atareao&lt;/code&gt; me entro el gusanillo y …&lt;/p&gt;
+
+&lt;p&gt;Para empezar, &lt;a href=&quot;htpps://atareao.es&quot;&gt;Lorenzo&lt;/a&gt; tiene una excelente guia para iniciarse y usarlo donde todo esta muy bien explicado ( aunque aun tengo algunas dudas para aclarar ), pero para un uso sencillo y sin muchas complicaciones tienes más que suficiente, si quieres más, ahi es donde tu, tienes que ponerte a investigar con más intensidad.&lt;/p&gt;
+
+&lt;p&gt;Para que te hagas una idea, todo lo podeis leer a partir del articulo de &lt;a href=&quot;/2022/11/14/publicar-feed-mastodon/&quot;&gt;Publicar feed en Mastodon&lt;/a&gt; todo lo estoy escribiendo con &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Neovim&lt;/code&gt; y me parece que me voy a quedar en el, porque tal como lo tengo, y eso, que aun tengo algunas cosas que pulir, me parece perfecto la funcionalidad que tiene.&lt;/p&gt;
+
+&lt;p&gt;Yo no voy a explicar todos los pasos que tienes que hacer para instalarlo y su posterior configuración, porque eso mirando los videos de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;atareao.es&lt;/code&gt; lo puede hacer tu solo, pero lo que si que voy a poner, son mis ficheros de configuración que estoy utilizando actualmente ( aunque tambien los podeis encontrar en mis dot_files ), que a lo mejor te pueden servir de ayuda.&lt;/p&gt;
+
+&lt;p&gt;La estructura de ficheros para la configuración de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Neovim&lt;/code&gt; es de la siguiente manera:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;nvim
+    &lt;ul&gt;
+      &lt;li&gt;lua
+        &lt;ul&gt;
+          &lt;li&gt;plugins –&amp;gt; Donde tenemos las configuraciones de todos los plugins que usamos
+            &lt;ul&gt;
+              &lt;li&gt;packer.lua –&amp;gt; Fichero donde se definen los plugins que se van a cargar ( de donde los tiene que conseguir ) asi como la configuración que van a tener&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;settings.lua –&amp;gt; Opciones de configuración general de neovim&lt;/li&gt;
+          &lt;li&gt;keymaps.lua –&amp;gt; Configuración de las opciones de teclado de neovim&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;spell –&amp;gt; Donde tenemos todos los archivos de idiomas que usamos&lt;/li&gt;
+      &lt;li&gt;templates –&amp;gt; los templates / plantillas que usamos&lt;/li&gt;
+      &lt;li&gt;init.lua –&amp;gt; Fichero de inicio de neovim junto con los plugins que se van a utilizar:w&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-lua highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;o&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Fichero&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lua&lt;/span&gt;
+   &lt;span class=&quot;cm&quot;&gt;--[[
+   ██╗███╗   ██╗██╗████████╗██╗     ██╗   ██╗ █████╗
+   ██║████╗  ██║██║╚══██╔══╝██║     ██║   ██║██╔══██╗
+   ██║██╔██╗ ██║██║   ██║   ██║     ██║   ██║███████║
+   ██║██║╚██╗██║██║   ██║   ██║     ██║   ██║██╔══██║
+   ██║██║ ╚████║██║   ██║██╗███████╗╚██████╔╝██║  ██║
+   ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
+   Neovim init file
+   Version: 0.8.1 - 2022/11/14
+   Maintainer: Vctrsnts
+   Website: https://vctrsnts.github.io
+   Referencia: https://github.com/brainfucksec/neovim-lua
+   --]]&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Import Lua Modules&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;settings&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                                   &lt;span class=&quot;c1&quot;&gt;-- Fitxer dels Settings&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;keymaps&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;			                              &lt;span class=&quot;c1&quot;&gt;-- Fitxer de la configuració del teclat&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Comença la carrega de plugins&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;plugins/packer&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;		                          &lt;span class=&quot;c1&quot;&gt;-- Gestor de Plugins&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;plugins/autosave&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                           &lt;span class=&quot;c1&quot;&gt;-- Plugin per a realitzar el AutoSave&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;plugins/ayu&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;			                          &lt;span class=&quot;c1&quot;&gt;-- Color Theme&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;plugins/neo-tree&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                           &lt;span class=&quot;c1&quot;&gt;-- filebrowser&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;plugins/feline&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                             &lt;span class=&quot;c1&quot;&gt;-- statusline&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-lua highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;o&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Fichero&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;settings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lua&lt;/span&gt;
+   &lt;span class=&quot;cm&quot;&gt;--[[
+   FITXER SETTINGS.LUA
+   --]]&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Neovim API Aliases&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cmd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmd&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nvim_exec&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Configuració General&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mapleader&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;;&apos;&lt;/span&gt;					                            &lt;span class=&quot;c1&quot;&gt;-- Canviar leader a coma&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;swapfile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;					                        &lt;span class=&quot;c1&quot;&gt;-- No fe servir swapfile&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Neovim UI&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;					                            &lt;span class=&quot;c1&quot;&gt;-- Es visualitzar els numeros de les linias&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;relativenumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;				                      &lt;span class=&quot;c1&quot;&gt;-- Es visualitzar el numero relatiu de la linia&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foldmethod&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;marker&apos;&lt;/span&gt;				                      &lt;span class=&quot;c1&quot;&gt;-- Activada folding (default &apos;foldmarker&apos;)&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitright&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;					                        &lt;span class=&quot;c1&quot;&gt;-- vertical split to the right&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitbelow&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;					                        &lt;span class=&quot;c1&quot;&gt;-- horizontal split to the bottom&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linebreak&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;					                        &lt;span class=&quot;c1&quot;&gt;-- wrap on word boundary&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;colorcolumn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;80&apos;&lt;/span&gt;					                      &lt;span class=&quot;c1&quot;&gt;-- Es visualitzar la linia que marca els 80 caracters&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;termguicolors&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; 
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;guifont&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Fira Code&quot;&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;neovide_cursor_vfx_mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;railgun&quot;&lt;/span&gt;
+ 
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listchars&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»&apos;&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;---------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Corrector ortografic per llenguatge&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;---------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;[[
+ 	  augroup markdownSpell
+ 		  autocmd!
+ 		  autocmd FileType mardown setlocal spell Spelllang=es
+ 		  autocmd BufRead,BufNewFile *.md setlocal spell spelllang=es
+ 	  augroup END
+   ]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;---------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Tabs, indent&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;---------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expandtab&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;					                        &lt;span class=&quot;c1&quot;&gt;-- use spaces instead of tabs&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shiftwidth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;					                          &lt;span class=&quot;c1&quot;&gt;-- shift 2 spaces when tab&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tabstop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;						                            &lt;span class=&quot;c1&quot;&gt;-- 1 tab == 2 spaces&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;smartindent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;					                      &lt;span class=&quot;c1&quot;&gt;-- autoindent new lines&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;---------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Memory, CPU&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;---------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hidden&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;                                     &lt;span class=&quot;c1&quot;&gt;-- enable background buffers&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lazyredraw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;                                 &lt;span class=&quot;c1&quot;&gt;-- faster scrolling&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;synmaxcol&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;                                  &lt;span class=&quot;c1&quot;&gt;-- max column for syntax highlight&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-lua highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;o&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Fichero&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;keymaps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lua&lt;/span&gt;
+   &lt;span class=&quot;cm&quot;&gt;--[[
+   FITXER KEYMAPS.LUA
+   --]]&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- VARIABLES / ALIASES&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nvim_set_keymap&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default_opts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;noremap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;silent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cmd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmd&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Applications &amp;amp; Plugins shortcuts:&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;--&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- nvim-tree&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;--&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;n&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&amp;lt;C-n&amp;gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;:Neotree toggle&amp;lt;CR&amp;gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default_opts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;-- open/close&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-lua highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;o&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Fichero&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;packer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lua&lt;/span&gt;
+   &lt;span class=&quot;cm&quot;&gt;--[[
+    FITXER PACKER.LUA
+    S&apos;ENCARREGA DE TOTA LA CONFIGURACIÓ / CARREGA DE PLUGINS
+
+    Plugin manager: packer.nvim
+    https://github.com/wbthomason/packer.nvim
+
+    For information about installed plugins see the README
+    neovim-lua/README.md
+    https://github.com/brainfucksec/neovim-lua#readme
+  --]]&lt;/span&gt;
+
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;data&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;/site/pack/packer/start/packer.nvim&apos;&lt;/span&gt;
+ 
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;glob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;install_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;packer_bootstrap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;git&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;clone&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;--depth&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;1&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;https://github.com/wbthomason/packer.nvim&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;packer&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;startup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- My plugins here&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- use &apos;foo1/bar1.nvim&apos;&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- use &apos;foo2/bar2.nvim&apos;&lt;/span&gt;
+
+     &lt;span class=&quot;c1&quot;&gt;-- Automatically set up your configuration after cloning packer.nvim&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- Put this at the end after all plugins&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;wbthomason/packer.nvim&apos;&lt;/span&gt;
+   
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- colorschemes&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Shatur/neovim-ayu&apos;&lt;/span&gt;
+ 
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- Activem Icones&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;kyazdani42/nvim-web-devicons&apos;&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;adelarsq/vim-devicons-emoji&apos;&lt;/span&gt;
+ 
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- Activem Explorer / Navegador de directoris&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;s1&quot;&gt;&apos;nvim-neo-tree/neo-tree.nvim&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;branch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;v2.x&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;requires&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;nvim-lua/plenary.nvim&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;kyazdani42/nvim-web-devicons&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;-- not strictly required, but recommended&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;MunifTanjim/nui.nvim&quot;&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- Activem Status Line&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Iron-E/nvim-highlite&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;s1&quot;&gt;&apos;feline-nvim/feline.nvim&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;requires&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s1&quot;&gt;&apos;nvim-web-devicons&apos;&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- Activem el AutoSave&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Pocco81/auto-save.nvim&quot;&lt;/span&gt;
+ 
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- Final del fitxer de configuració de plugins&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;packer_bootstrap&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+       &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;packer&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Pues, ya has podido comprobar como lo tengo yo configurado y a pleno rendimiento, pero tal como he dicho al principio, aun falta por pulir algunas cosas.&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=SoDjVPr5_Go&amp;amp;list=PL3lTiK2rXrUEL52KOZcTBsoLMndfFBV2Q&quot;&gt;Guia sobre Neovim - Atareao.es&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="linux" /><summary type="html">Cansado un poco de tener que siempre usar editores faciles ( estilo mousepad ) o que dejaban de tener soporte ( Atom ) y que además no me hacian la vida facil para integrarse con GitHub, intente buscar un nuevo editor que lo tuviera todo y mirando los videos de Atareao me fije en que tenia una guia de instalación y de uso de Neovim, clonico de Vim, y me puse con ello.</summary></entry><entry><title type="html">Script para actualizar tu GitHub</title><link href="https://vctrsnts.github.io/2022/11/22/script-update-git/" rel="alternate" type="text/html" title="Script para actualizar tu GitHub" /><published>2022-11-22T00:00:00+00:00</published><updated>2022-11-22T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2022/11/22/script-update-git</id><content type="html" xml:base="https://vctrsnts.github.io/2022/11/22/script-update-git/">&lt;p&gt;Buscando maneras de facilitarme el trabajo con &lt;a href=&quot;https://www.github.com&quot;&gt;GitHub&lt;/a&gt; que es donde tengo alojada mi web ( más bien son mis projectos, apuntes y cosas por es estilo ) porque para subir cualquier cosa a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GitHub&lt;/code&gt; era una tocada de huevos en mi caso.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Así que me puse a buscar algun script para ayudarme a realizar las actualizaciones de mis repositorios en Git, y después de mucho buscar, al final lo encontre.&lt;/p&gt;
+
+&lt;p&gt;Es el siguiente que pongo a continuación&lt;/p&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   #&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/bin/&lt;/span&gt;bash
+ 
+   # Actualitzar rapidament &lt;span class=&quot;k&quot;&gt;el&lt;/span&gt; teu repositori de Git
+   # &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;CC&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2011&lt;/span&gt; Alfonso Saavedra &lt;span class=&quot;s2&quot;&gt;&quot;Son Link&quot;&lt;/span&gt;
+   # http&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;sonlinkblog&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;blogspot&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;com&lt;/span&gt;
+   # Bajo licencia GNU/GPL
+ 
+   # up2Git&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;ficheros&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+ 
+   # Comprovem &lt;span class=&quot;k&quot;&gt;si&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;el&lt;/span&gt; directori &lt;span class=&quot;k&quot;&gt;en&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;el&lt;/span&gt; que estem&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; es un repositori de Git
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;.git&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;; then
+     echo &lt;span class=&quot;s1&quot;&gt;&apos;Aquest directori no conte un repositori de Git&apos;&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-1&lt;/span&gt;
+   fi
+ 
+   # Ara validem &lt;span class=&quot;k&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;l&lt;/span&gt;&apos;&lt;span class=&quot;k&quot;&gt;hi&lt;/span&gt; hem passat algun parametre
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; $# &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;; then
+     echo &lt;span class=&quot;s2&quot;&gt;&quot;Up2Git: ¡Error! No l&apos;hi has passat cap parametre&quot;&lt;/span&gt;
+     echo &lt;span class=&quot;s2&quot;&gt;&quot;up2Git fitxer_1 fitxer_2 ... fitxer_N&quot;&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-1&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+     # Revisem els parametres per validar &lt;span class=&quot;k&quot;&gt;si&lt;/span&gt; son fitxers &lt;span class=&quot;k&quot;&gt;o&lt;/span&gt; directori
+     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; $*; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+       &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;e&lt;/span&gt; $&lt;span class=&quot;k&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;; then
+         echo &lt;span class=&quot;s2&quot;&gt;&quot;Up2Git: L&apos;arxiu o directori $file no existeix&quot;&lt;/span&gt;
+         &lt;span class=&quot;k&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-1&lt;/span&gt;
+       fi
+     done
+     
+     # Si hem arribat fins aqui&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; informem &lt;span class=&quot;k&quot;&gt;a&lt;/span&gt; Git dels arxius &lt;span class=&quot;k&quot;&gt;a&lt;/span&gt; pujar
+     git &lt;span class=&quot;nb&quot;&gt;add&lt;/span&gt; $*
+     
+     # Aixo ens demana &lt;span class=&quot;k&quot;&gt;el&lt;/span&gt; missatge del commit
+     echo &lt;span class=&quot;s2&quot;&gt;&quot;Informi del missatge del commit:&quot;&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;read&lt;/span&gt; TXT
+     git commit &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;$TXT&quot;&lt;/span&gt;
+ 
+     # &lt;span class=&quot;k&quot;&gt;i&lt;/span&gt; finalitzem pujant els arxius
+     git push origin master
+ 
+   fi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Para usarlo, en mi caso, lo hago de la siguiente manera :&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   usuari@debian:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bash up2Git.sh &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;El script es de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Alfonso Saavedra&lt;/code&gt; a el todo mi agradecimiento, por facilitarme el tener mis repositorios de GitHub actualizados.&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://sonlinkblog.blogspot.com&quot;&gt;Son Link&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gist.github.com/son-link/890903&quot;&gt;Script&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Vctrsnts ( fork andrew-park )</name></author><category term="linux" /><summary type="html">Buscando maneras de facilitarme el trabajo con GitHub que es donde tengo alojada mi web ( más bien son mis projectos, apuntes y cosas por es estilo ) porque para subir cualquier cosa a GitHub era una tocada de huevos en mi caso.</summary></entry><entry><title type="html">Publicar feed en Mastodon / Twitter</title><link href="https://vctrsnts.github.io/2022/11/14/publicar-feed-mastodon/" rel="alternate" type="text/html" title="Publicar feed en Mastodon / Twitter" /><published>2022-11-14T00:00:00+00:00</published><updated>2022-11-14T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2022/11/14/publicar-feed-mastodon</id><content type="html" xml:base="https://vctrsnts.github.io/2022/11/14/publicar-feed-mastodon/">&lt;p&gt;Descubri a traves del &lt;a href=&quot;https://elblogdelazaro.org&quot;&gt;Blog de Lazaro&lt;/a&gt;, que si tienes cuenta en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Mastodon&lt;/code&gt;, quien no tiene cuenta ahora tal como van las cosas en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Twitter&lt;/code&gt;,  que puedes enviar de forma aleatoria alguno de los articulos que tienes publicados en tu web.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Asi que después de leer su articulo y ver si yo podia hacer lo mismo, me lie la manta a la cabeza y al lio.&lt;/p&gt;
+
+&lt;p&gt;Lo primero, es tener una cuenta y después tienes que crear un aplicación en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Mastodon&lt;/code&gt; de igual forma que se puede crear en Twitter ( explicación más adelante ).&lt;/p&gt;
+
+&lt;p&gt;Aprovechando que en el servidor ya tengo Python instalado, hare que se ejecute en el mismo servidor. Eso si, también tienes que instalar:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   usuari@debian:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--user&lt;/span&gt; feddparser mastodon
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Para que Python pueda realizar el tratamiento del fichero &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xml&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Una vez que ya tienes la aplicación creada, tienes que crear un fichero en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Python&lt;/code&gt; que tiene que tener la siguiente estructura:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env python
+&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# -*- coding: utf-8 -*-
+&lt;/span&gt; 
+   &lt;span class=&quot;c1&quot;&gt;# el fitxer original es de Carlos M. ( https://elblogdelazaro.org )
+&lt;/span&gt; 
+   &lt;span class=&quot;c1&quot;&gt;# Tens que tindre instalats les llibreries feedparser, Mastodon
+&lt;/span&gt; 
+   &lt;span class=&quot;c1&quot;&gt;# Realitzem la crida als moduls de Python
+&lt;/span&gt;   &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;feedparser&lt;/span&gt;
+   &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;random&lt;/span&gt;
+   &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;mastodon&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Mastodon&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;# Reallitzem la crida a les claus del Diccionari
+&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;CUSTOMER_KEY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;xxxxxxxxxxxxxxx&apos;&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;CUSTOMER_SECRET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;xxxxxxxxxxxxxxxxx&apos;&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;ACCESS_TOKEN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;xxxxxxxxxxxx&apos;&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;ACCESS_TOKEN_SECRET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;xxxxxxxxxxxxxxxxxxx&apos;&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;# Informem de l&apos;adreça del feed
+&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;feed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;tu dirección web hacia el feed.xml&apos;&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;# Descodifiquem el feed ( arxiu XML )
+&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;feedparser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;feed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;# Obtenim la longitud del feed i aleatoriament seleccionem un article
+&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;feedlen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;entries&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;feedlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;# Iniciem l&apos;API de Mastodon, i escribim l&apos;estat
+&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;status_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;entries&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;title&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;entries&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;link&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;articulo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Recordando artículos publicados:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;status_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+   &lt;span class=&quot;c1&quot;&gt;# Token y url de la Instancia
+&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;mastodon&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Mastodon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;access_token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;XXXXXXXXXXXXXXXXXXXXXXX&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;api_base_url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;https://mastodon.online/&apos;&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;# Publiquem a Mastodon
+&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;mastodon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status_post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;articulo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Lo que tienes que tener en cuenta, es informar correctamente de:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;CUSTOMER_KEY&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CUSTOMER_SECRET&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;ACCESS_TOKEN&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;ACCESS_TOKEN_SECRET&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;feed&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Una vez, tengas el fichero creado, si quieres hacer pruebas, tienes que hacerlo de la siguiente manera :&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   usuari@debian:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python3 nombreDelArchivo.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Entonces, si no has tenido ningun problema, a tu cuenta de Mastodon te llegara un articulo aleatorio de tu web.&lt;/p&gt;
+
+&lt;p&gt;Después de hacer las pruebas que creas oportunas, solo te quedara configurar el cron, para que se ejecute cuando tu quieras.&lt;/p&gt;
+
+&lt;p&gt;Yo lo tengo a que lo haga una vez a la semana, pero me estoy replanteando cambiarlo a que lo haga 3 veces por semana, porque a veces, añado articulos, que a lo mejor cuestan mucho a que salgan. Se que hay otro script, que lo que hace es publicar los ultimos articulos creados. Pero eso lo tengo que estudiar.&lt;/p&gt;
+
+&lt;p&gt;También tengo en cuenta, que si lo hago 3 veces a la semana (publicar toot) creare muchos mensajes, pero lo que también se puede hacer, es configurar Mastodon, para que elimine todos los toot con más de 6 meses de antigüedad (o menos).&lt;/p&gt;
+
+&lt;p&gt;Para la configuración del &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CRON&lt;/code&gt; lo tengo de la siguiente manera:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   @weekly /usr/bin/python3 /home/tu_usuario/lugar_donde_tengas_el_script/botMastodonPythonRss.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;En el caso de que lo quisieras hacer funcionar en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Twitter&lt;/code&gt; tienes que tener en cuenta las siguientes modificaciones al archivo de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Python&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;c1&quot;&gt;# En vez de usar la libreria &quot;Mastodon&quot; de Python, tienes que usar &quot;Twython&quot;
+&lt;/span&gt;   &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;twython&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Twython&lt;/span&gt;
+
+   &lt;span class=&quot;n&quot;&gt;api&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Twython&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CONSUMER_KEY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CONSUMER_SECRET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ACCESS_KEY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ACCESS_SECRET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Y luego, solamente tienes que añadir la siguiente linea para publicar el articulo en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Twitter&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;update_status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;articulo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Espero que te sirva tanto como me ha servido a mi. Y eso si, no se te olvide darle las gracias a &lt;a href=&quot;http://elblogdelazaro.org&quot;&gt;Carlos M&lt;/a&gt; por el increible articulo en que me he basado yo.&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://elblogdelazaro.org/posts/2021-08-16-bot-en-python-para-publicar-un-feed-de-forma-aleatorios-en-twitter-y-mastodom/&quot;&gt;Script de Python&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="linux" /><summary type="html">Descubri a traves del Blog de Lazaro, que si tienes cuenta en Mastodon, quien no tiene cuenta ahora tal como van las cosas en Twitter, que puedes enviar de forma aleatoria alguno de los articulos que tienes publicados en tu web.</summary></entry><entry><title type="html">Mi nuevo mediacenter - Thinkpad m700</title><link href="https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter/" rel="alternate" type="text/html" title="Mi nuevo mediacenter - Thinkpad m700" /><published>2022-11-08T00:00:00+00:00</published><updated>2022-11-08T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter</id><content type="html" xml:base="https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter/">&lt;p&gt;Como ya mencione en al articulo que hablaba sobre el cambio de servidor &lt;a href=&quot;/2022/05/26/nuevo-servidor/&quot;&gt;Mi nuevo servidor&lt;/a&gt;, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Asi que decidi cambiar la antigua RPI3 donde empezaba ya a tener problemas con los nuevos codecs con que venian las peliculas ( HEVC 10b-AC3 ) y cambiarla por la RPI4 con soporte para estos nuevos 
+codecs y que no usaba por haberla sustituido por el Dell.&lt;/p&gt;
+
+&lt;p&gt;Me puse manos a la obra con ello, pero ya os digo que me decepciono un monton la RPI4.&lt;/p&gt;
+
+&lt;p&gt;Lo primero fue bajarme la imagen compatible de Libreelec para mi RPI4 y su posterior instalación. Todo esto conectado a un monitor que tengo en casa para estas pruebas / instalaciones.&lt;/p&gt;
+
+&lt;p&gt;No tuve ningun problema la la hora de la instalación y de la configuración ( Wifi, pluguins, conexión a SAMBA, etc… ) todo perfecto. Luego lo conecto al TV que tengo en el salon con un conversor 
+de HDMI a micro-HDMI y no funcionaba. No se veia nada, todo en negro. Aqui es donde pienso que no he hecho bien la instalación / configuración, que no lee correctamente la resolución, o sea las 
+cosas más normales que te puedas imaginar.&lt;/p&gt;
+
+&lt;p&gt;Busque información por inet, pregunte a uno de los canales de Telegram donde estoy que tratan sobre las RPI4 como mediacenter, etc… y todos me decian, que tenia que forzar la resolución a traves 
+del fichero &lt;strong&gt;config.txt&lt;/strong&gt;. Todo sin obtener ningun resultado.&lt;/p&gt;
+
+&lt;p&gt;Al final me canse de trastear con la RPI4, y eso que habia hecho miles de instalaciones pensado que hay es donde residia el problema. Al final ya me quedo claro, que el problema no era la 
+instalación, sino el conversor de HDMI a micro-HDMI que no funcionaba correctamente. Asi que el siguiente paso, fue comprar un cable de HDMI a micro-HDMI.&lt;/p&gt;
+
+&lt;p&gt;Una vez que me llego el cable correcto, vuelta a hacer una nueva instalación conectando la RPI4 al monitor de pruebas. Todo funcionaba a las mil maravillas, la WIFI excelente, la imagen perfecta, hay 
+es donde me dije, pues ya esta todo en marcha y listo para volver a funcionar. Hay infeliz de mi!!!&lt;/p&gt;
+
+&lt;p&gt;Me llevo la RPI4 al TV del comedor y la conecto y no me lo podria creer, todo funcionaba perfectamente. Pues ya esta, lo vuelvo a tener todo en perfecto estado y en marcha hasta que puse a usar
+la RPI4 con la WIFI y aqui es donde se me cayo el mundo encima.&lt;/p&gt;
+
+&lt;p&gt;No me lo podia creer, la WIFI no funcionaba ni a patadas, la pelicula se quedaba congelada y no se veia nada!!! yo tirandome de los pelos porque no entendia nada, si hasta hace 5 minutos todo 
+funcionaba correctamente y ahora de golpe y porrazo no funciona nada. Volvemos a estar como en el principio.&lt;/p&gt;
+
+&lt;p&gt;A partir de aqui todo fueron problemas. Pero vamos a explicar todo lo sucedido paso a paso.&lt;/p&gt;
+
+&lt;p&gt;Lo primero fue copiar la imagen de Libreelec en el SSD e iniciamos la instalación / configuración de Libreelec. Todo funciona perfectamente hasta llegar a la configuración de la &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WIFI&lt;/code&gt; (y esto si 
+que es para mear y no echar gota).&lt;/p&gt;
+
+&lt;p&gt;Despues de buscar información como un loco, veo que hay un error (validado y reportado) en el diseño de la Raspberry que es, cuando usas la WIFI esta se &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;acopla&lt;/code&gt; a la señal del cable HDMI y hace 
+que se anule la señal WIFI. Para solucionar este problema se puede hacer de 3 maneras:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Solución dificil&lt;/strong&gt;, cambiar de canal en el que emite tu router por otro diferente para que no se acople a la señal del cable HDMI.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Solución facil&lt;/strong&gt;, desactivar la WIFI de la Raspberry y usar un conector USB-WIFI&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Solución ideal&lt;/strong&gt;, esperar a que Raspberry saque un nuevo firmware que solucione este problema. Se comenta que hasta finales de año no estara disponible.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;En mi caso, lo que hice fue escoger la solución facil, me compre un usb-wifi y volvi de nuevo a configurar la RPI4B, esperando, por fin, poder usarla como HTC.&lt;/p&gt;
+
+&lt;p&gt;Volvemos a reiniciar la configuración de la WIFI sin ningun problema, esta vez, ya tenemos la RPI4B conectada a la WIFI, pero parece ser que entre el SSD conectado a traves de USB, el mando a 
+distancia conectado a traves de USB y el USB de la WIFI, la Raspberry no podia manejar correctamente toda la &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;información&lt;/code&gt; que recibia.&lt;/p&gt;
+
+&lt;p&gt;Para que os hagais una idea, la RPI3B funcionaba mejor que la RPI4B y eso que esta ultima (siempre lo añado a todos mis Libreelec) habia creado el fichero &lt;strong&gt;advancedsettings.xml&lt;/strong&gt; donde le añado lo 
+siguiente:&lt;/p&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;advancedsettings &lt;span class=&quot;k&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;cache&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;buffermode&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;/buffermode&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;memorysize&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;/memorysize&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;/cache&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;/advancedsettings&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Donde:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;buffermode&lt;/code&gt;: le indica a Kodi que tipo de buffer que se va a usar (en mi caso, selecciono el valor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt; para el tratamiento de ficheros a traves de samba, nfs).&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;memorysize&lt;/code&gt;: le indica a Kodi que de que manera va a usar la RAM (en mi caso, selecciono el valor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt; para que de preferencia al SSD/HDD en vez de a la RAM).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;De esta manera se consigue que mientras se visualiza la pelicula / serie, se descargue más fichero y no tener problemas a la hora de visualización.&lt;/p&gt;
+
+&lt;p&gt;Pero en mi caso, esto no pasa, para que os hagais una idea de como funciona, que habia veces (da igual que versión de mkv fuera, 264, 265) que Kodi se quedaba colgado, incluso usando un SSD.&lt;/p&gt;
+
+&lt;p&gt;Al final, cansado de ver que era imposible usar la RPI4B, empeza a investigar y a preguntar en un canal de Telegram sobre usar la Raspberry como HTC y se llego a la conclusión de que era el USB que 
+se colapsaba y en cambio esto mismo (en la RPI3B) no pasa, porque como por defecto, uso la WIFI que ya lleva incorpada, pues…&lt;/p&gt;
+
+&lt;p&gt;Y asi estamos, usando la RPI4B como HTC, desilusionado ante el mal funcionamiento de lo que tendria que ser la mejor Raspeberry hasta el momento.&lt;/p&gt;
+
+&lt;p&gt;Por eso digo, que maldita el dia que se me ocurrio cambiar mi RPI3 ( se que era un cambio necesario, la tecnologia siempre esta en constante evolución y más los codecs para ver las peliculas son los 
+que mandan ) a la RPI4, y ahora la tengo tirada en casa sin usar, por culpa de este problema, aunque ;) podria haberla vendido y sacarme una pasta, porque tal como estan las RPI4, ganaria pasta 
+seguro, pero me da pena venderla, porque nunca se sabe cuando te va hacer falta una.&lt;/p&gt;
+
+&lt;p&gt;Asi que despues ( de nuevo, pregunte en otro canal de Telegram ) me aconsejaron que lo mejor y que para ahorrarme futuros problemas, que lo mejor es tener un PC conectado a la TV del comedor y me 
+ahorro todos los problemas derivados con los codecs y el soporte de estos, porque en un PC normal y corriente tiene más recorrido que la RPI4.&lt;/p&gt;
+
+&lt;p&gt;Y fue lo que hice, volvi a mi canal favorito de Thinkpads de Telegram y pregunte si alguno le sobrava algun Tiny. Y ten por seguro que siempre hay alguien que le sobra un Tiny.&lt;/p&gt;
+
+&lt;p&gt;Como todo en este mundo, es mutable y ante la posibilidad de conseguir a buen precio un &lt;a href=&quot;https://icecat.biz/es/p/lenovo/10mr0047us/thinkcentre-pcs-workstations-m710q-36768136.html&quot;&gt;Lenovo ThinkCenter M710q&lt;/a&gt;,
+ asi que me lance de cabeza por el.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/lenovo-m710q.jpg&quot; alt=&quot;imatge&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Y ya me veis, de tener 2 RPI ( RPI4 con 4Gb como servidor y una RPI3 como mediacenter ) a tener un Tiny Lenovo m700 con 8Gb y un i5-6500 como mediacenter y un Dell Optiplex 3050 con 8Gb y un i5-7500 
+como servidor.&lt;/p&gt;
+
+&lt;p&gt;Por eso digo, que a veces no hay mal que por bien no venga.&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://libreelec.tv&quot;&gt;Libreelec&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.adslzone.net/2019/11/28/problemas-wifi-raspberry-pi-4/]&quot;&gt;RPI4B pierde cobertura Wifi&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.enricozini.org/blog/2019/himblick/raspberry-pi-4-loses-wifi-at-2560x1440-screen-resolution/&quot;&gt;Raspberry Pi 4 WiFi stops working at 2560x1440 screen resolution&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kodi.wiki/view/Advancedsettings.xml&quot;&gt;Cambiar el funcionamiento de la cache en Kodi&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Vctrsnts ( fork andrew-park )</name></author><category term="libreelec" /><category term="raspberryPi" /><category term="thinkpad" /><summary type="html">Como ya mencione en al articulo que hablaba sobre el cambio de servidor Mi nuevo servidor, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar.</summary></entry></feed>

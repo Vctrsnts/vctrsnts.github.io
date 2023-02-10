@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en-us" class="h-100">
+  <head>
+    <title>
+      Cambiar GNU/Linux Debian por FreeBSD? – Si lo hacez, hazlo bien – Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The page supports both dark and light color schemes, and the page author prefers / default is light. -->
+    <meta name="color-scheme" content="dark light" />
+    <!-- Stylesheet that includes Bootstrap dark mode & custom stylesheet -->
+    <link
+      rel="stylesheet"
+      href="/assets/css/styles.css"
+    />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <!-- Meta Theme Color is also supported on Safari and Chrome -->
+    <meta
+      name="theme-color"
+      content="#eeeeee"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#111111"
+      media="(prefers-color-scheme: light)"
+    />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Cambiar GNU/Linux Debian por FreeBSD? | Si lo hacez, hazlo bien</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Cambiar GNU/Linux Debian por FreeBSD?" />
+<meta name="author" content="Vctrsnts ( fork andrew-park )" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Antes de nada, decir que esto no es una critica a FreeBSD ni una guerra de cual es mejor (porque de eso, si buscas en cualquier foro de FreeBSD o de GNU/Linux encontraras muchas y mejores)." />
+<meta property="og:description" content="Antes de nada, decir que esto no es una critica a FreeBSD ni una guerra de cual es mejor (porque de eso, si buscas en cualquier foro de FreeBSD o de GNU/Linux encontraras muchas y mejores)." />
+<link rel="canonical" href="https://vctrsnts.github.io/2016/08/20/cambiar-linux-freebsd/" />
+<meta property="og:url" content="https://vctrsnts.github.io/2016/08/20/cambiar-linux-freebsd/" />
+<meta property="og:site_name" content="Si lo hacez, hazlo bien" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-08-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Cambiar GNU/Linux Debian por FreeBSD?" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Vctrsnts ( fork andrew-park )"},"dateModified":"2016-08-20T00:00:00+00:00","datePublished":"2016-08-20T00:00:00+00:00","description":"Antes de nada, decir que esto no es una critica a FreeBSD ni una guerra de cual es mejor (porque de eso, si buscas en cualquier foro de FreeBSD o de GNU/Linux encontraras muchas y mejores).","headline":"Cambiar GNU/Linux Debian por FreeBSD?","mainEntityOfPage":{"@type":"WebPage","@id":"https://vctrsnts.github.io/2016/08/20/cambiar-linux-freebsd/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://vctrsnts.github.io/assets/images/logo_light.png"},"name":"Vctrsnts ( fork andrew-park )"},"url":"https://vctrsnts.github.io/2016/08/20/cambiar-linux-freebsd/"}</script>
+<!-- End Jekyll SEO tag -->
+ <link type="application/atom+xml" rel="alternate" href="https://vctrsnts.github.io/feed.xml" title="Si lo hacez, hazlo bien" /></head>
+  <body class="d-flex flex-column h-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand p-0" href="/">
+    
+    <img src="/assets/images/logo_light.png" alt="light avatar" width="30" class="d-inline-block align-top m-0 light-avatar">
+    <img src="/assets/images/logo_dark.png" alt="dark avatar" width="30" class="d-inline-block align-top m-0 dark-avatar">
+    
+      Si lo hacez, hazlo bien</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        
+          <li class="nav-item">
+            <a href="/"  class="nav-link" >Home</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/tags/"  class="nav-link" >Tags</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/about/"  class="nav-link" >About</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      <div class="body"><div class="post">
+  <h1>Cambiar GNU/Linux Debian por FreeBSD?</h1>
+  <span class="fs-4 text-muted">Aug 20, 16</span>
+  <div class="mt-4">
+    <blockquote>
+  <p>Antes de nada, decir que esto no es una critica a <a href="https://www.freebsd.org">FreeBSD</a> ni una guerra de cual es mejor (porque de eso, si buscas en cualquier foro de FreeBSD o de GNU/Linux encontraras 
+muchas y mejores).</p>
+</blockquote>
+
+<blockquote>
+  <p>Sino que es mi opinion personal como usuario desde hace muchos años de Debian GNU/Linux (empece con <strong>Potato</strong>) con respecto a la transición de <a href="http://www.debian.org/index.es.html">GNU/Linux Debian</a> 
+a <a href="https://www.freebsd.org">FreeBSD</a>.</p>
+</blockquote>
+
+<p>Después de hacer esta aclaración, ya podemos empezar… ;)</p>
+
+<!--more-->
+
+<p>Todo esto, viene a raiz del pesimo modo (en mi opinion) en que se ha llevado a cabo la implementación de <a href="https://es.wikipedia.org/wiki/Systemd">Systemd</a> en <strong>Debian GNU/Linux</strong>. A raiz de este cambio, 
+estuve buscando alternativas, pero todas las versión de Linux ya tienen implementado <strong>Systemd</strong> en su interior y la unica alternativa que quedaba era <strong>FreeBSD</strong>. Y desde hace un par de meses, 
+vengo haciendo pruebas en mi <strong>Dell XPS</strong> (junto con un HDD de 250GB) con <strong>FreeBSD</strong> y a continuación explico mi opinion personal con respecto a su instalación y uso (que conste que esto, lo estoy 
+escribiendo desde <strong>Debian GNU/Linux</strong>).</p>
+
+<blockquote>
+  <p>Repito, es mi opinión personal</p>
+</blockquote>
+
+<h3 id="1-instalación">1. Instalación</h3>
+
+<p>Es como se realizaba hace un par de años en Debian GNU/Linux, asi que no es muy complicada. Lo unico que veo es la falta de <strong>UTF</strong>, a parte de esto, una instalación muy facil y sencilla. Y eso, que 
+yo no use, todo el HDD como unica partición, sino que hice las siguientes (constumbre de Debian GNU/Linux):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   /		5Gb
+   /tmp		5Gb
+   /usr		24Gb
+   /usr/home	190Gb
+   /var		5Gb
+   swap		3.5Gb
+</code></pre></div></div>
+
+<h3 id="2-paquetes">2. Paquetes</h3>
+
+<p>Luego esta todo el tema de la instalación de paquetes, en mi opinión, ahora con <code class="language-plaintext highlighter-rouge">pkg</code> han echo un gran paso en su usabilidad, aunque aun estan los ports (un tema que me trae de cabeza y que nunca he 
+logrado entender), a parte de que en mi portatil, no puedo usarlos, porque por cuestiones de temperatura no podia hacerlo</p>
+
+<h3 id="3-configuració-sistema">3. Configuració sistema</h3>
+
+<p>La configuración del sistema es facil, en principio, si no tienes nada raro, toda esta ya se ha realizado en la instalación.</p>
+
+<h3 id="4temperatura-del-sistema">4.Temperatura del sistema</h3>
+
+<p>La temperatura, este es otro tema que me ha traido de cabeza, porque todo el rato, el ventilador estaba funcionando (eso si, la tecnologia <strong>Optimus</strong>, no ayuda mucho). Para que os hagais una idea:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   |   Uso   | GNU/Debian | FreeBSD |
+   | <span class="nt">-------</span> | <span class="nt">----------</span> | <span class="nt">-------</span> |
+   | Normal  |    54º     |   65º   | 
+   | Intenso |    65º     |   85º   |
+</code></pre></div></div>
+
+<p>En cambio, después de unas <a href="https://forums.freebsd.org/threads/57176">modificaciones</a> en la configuración del sistema que me aconsejaron en el <a href="https://forums.freebsd.org">Forum de FreeBSD</a> (que seria
+ de mi sin ellos), he conseguido tener las mismas temperaturas que tenia en Debian GNU/Linux en FreeBSD :D</p>
+
+<h3 id="5-xorg-slim-xfce">5. Xorg, Slim, Xfce</h3>
+
+<p>Desde hace mucho tiempo que uso Xfce, no necesito más y encima consume pocos recursos. Además estan en FreeBSD, que más se puede pedir.</p>
+
+<p>La instalación, como dije antes a traves de pkg es muy facil, sin ningun problema, aunque tengo que decir que para la configuración de Xorg (Optimus, ayudando) en un poco diferente a como lo pinta en 
+el HandBook y como te lo intentan vender en el Foro.</p>
+
+<p>Porque digo esto, segun el <a href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x-config.html">Handbook</a>(5.4.8) ya no es necesario crear el fichero <code class="language-plaintext highlighter-rouge">xorg.conf</code> para que todo funcione 
+correctamente, pero en mi caso, no se si por culpa de <strong>Optimus</strong> o que, si no tenia el fichero <code class="language-plaintext highlighter-rouge">xorg.conf</code>, <code class="language-plaintext highlighter-rouge">startx</code> no me funcionaban. Después de mucho preguntar en el foro de FreeBSD, creo que al 
+final, me creyeron cuando dije que sin fichero no me funcionaba.</p>
+
+<p>Después activar <strong>Slim</strong> junto con <strong>DBUS</strong> y <strong>HAL</strong> ya tenia mi <strong>Xfce</strong> funcionando y en perfecto estado.</p>
+
+<h3 id="6-aplicaciones-varias">6. Aplicaciones varias</h3>
+
+<p>Ahora mismo, en Debian GNU/Linux uso las siguientes aplicaciones, todas muy basicas:</p>
+<ul>
+  <li>Firefox.</li>
+  <li>VirtualBox</li>
+  <li>Clementine</li>
+  <li>Xpdf</li>
+  <li>Filezilla</li>
+  <li>Claws Mail</li>
+  <li>Chromium</li>
+  <li>Wicd</li>
+  <li>Xfburn</li>
+  <li>Mplayer</li>
+  <li>Calibre</li>
+</ul>
+
+<p>Yo creo que todas estas aplicaciones estan todas portadas a FreeBSD, a excepción de Wicd, que me recomendaron como alternativa usar <a href="http://opal.com/freebsd/ports/net-mgmt/wifimgr">wifimgr</a>.</p>
+
+<h3 id="7-hardware-externo">7. Hardware externo</h3>
+
+<p>Porque tengo una sección sobre el <strong>Hardware</strong>, porque lo unico que me quedaba por probar es todo el tema de los USB (pendrive, ebook) no uso nada más.</p>
+
+<p>Y aqui es donde viene el problema, <strong>FreeBSD</strong> no tiene portado el paquete <code class="language-plaintext highlighter-rouge">xfce-volman</code>, asi que tienes que tirar de <a href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/usb-disks.html">Handbook</a>.</p>
+
+<p>Parezco un poco repetitivo, pero en la documentación te lo ponen como que es muy facil, pero realmente no es asi. Tienes que modificar más de un fichero, que si no te lo explican (no viene en la 
+documentación) no logras que funcione. Pero gracias a un usuario del foro de FreeBSD, consegui que funcionara, pero de aquella manera. Me explico.</p>
+
+<p>Conectaba un pendrive (marca Toshiba), <strong>Xfce</strong> me lo detectaba correctamente, clicaba en el y todo correcto, podia trabajar con el correctamente. Lo desmontaba y todo perfecto.</p>
+
+<p>El problema venia con otro pendrive (marca Sandisk), lo conectaba, lo intentaba montar y ahi es donde tenia el problema. No me lo detectaba. Al final, me aparecia un mensaje indicando <code class="language-plaintext highlighter-rouge">Dispositivo 
+Desconocido</code>. Y lo más raro de todo es que si extraia el pendrive, el sistema se reiniciaba solo…. :o</p>
+
+<h3 id="8-documentación">8. Documentación</h3>
+
+<p>Cuando me refiero a la documentación, no estoy diciendo que sea mala, desordenada ni nada por es estilo. Yo solamente la comparo con la documentación que hay con respecto a Debian GNU/Linux y con toda
+ la documentación existente de GNU/Linux.</p>
+
+<p>Se puede decir que la documentación como tal de <strong>GNU/Linux</strong> no existe, son miles de paginas desperdigadas por todo internet, en cambio la documentación que hay sobre <strong>FreeBSD</strong>, sabes que esta en 
+un unico sitio y todo bien puesto.</p>
+
+<p>A mi modo de ver, es una ventaja y un inconveniente y ahora explico el motivo de porque digo esto.</p>
+
+<p>Cuando digo que es una ventaja, es correcto, solamente un grupo de personas, crean, controlan y modifican la documentación y no hay miles de documentos desperdigados.</p>
+
+<p>Y el inconveniente es que toda la documentación ha sido realizada a traves de una maquina virtual de VirtualBox (se puede ver si revisas un poco el HandBook)</p>
+
+<p><img src="/assets/images/bsdinstall-part-guided-disk.png" alt="imatge" /></p>
+
+<p>Y esto para mi es un inconveniente, porque la documentación se basa en una maquina standart que muy poca gente dispone (ni yo mismo) y cuando vas a buscar ayuda en esta documentación con respecto a 
+cualquier problema que no hayan contemplado, pues te vas a volver loco, Pendrive, configuración <code class="language-plaintext highlighter-rouge">Xorg</code>, etc.. No hay información sobre que hacer con respecto a estos problemas que ellos nunca se han
+encontrado / contemplado, porque en una maquina virtual, esos problemas no se pueden dar.</p>
+
+<p>Si, tienes el foro pero dependiendo como hagas la pregunta y lo experimentado que seas en el tema FreeBSD a lo mejor no te responden (que conste que eso nunca ha sido mi caso), pero si que me ha 
+pasado que en la lista oficial en castellano que estoy suscripto, envie primero mis dudas con respecto a FreeBSD (las mismas que envie al foro) y aun estoy esperando. Que conste que no es una critica,
+ pero…</p>
+
+<p>Asi mismo, con respecto a la documentació de a GNU/Linux, yo la veo más util que la documentació de FreeBSD, porque es documentación que la ha realizado la gente sobre sus propias instalaciones en 
+sus propias maquinas, maquinas reales, y esto es positivo, porque seguramente más gente se ha encontrado el problema de Optimus, es un ejemplo, pero seguro que habras otros casos,  y ellos explican la
+ solucion que han tomado con respecto a este problema. Puede que a ti te sirva o no, pero es un punto de partida que puedes tomar.</p>
+
+<p>En cambio, esto, en FreeBSD no lo veo, porque como la documentación solamente esta controlada por el grupo de FreeBSD, pues…</p>
+
+<h3 id="9-conclusión">9. Conclusión</h3>
+
+<p>Esta es la opinión que he sacado despues de las pruebas que he realizado a FreeBSD, a mi modo de ver, aun quedan algunas cosas por pulir.</p>
+
+<p>Cuando digo a pulir digo a facilitar la vida a los usuarios que quieren usar este sistema. Ejemplo claro <code class="language-plaintext highlighter-rouge">PKG</code>. Y digo esto, porque seguramente más gente que antes estaba contenta con las diferentes 
+distribuciones de GNU/Linux, al ver el camino que ha tomado <strong>Systemd</strong>, estaran pensado lo mismo que yo y estaran sopesando la idea de pasar a FreeBSD y pueden haber pequeñas cosas que les puedan 
+echar atras.</p>
+
+<p>Si tenemos <strong>PCBSD</strong>, pero es lo mismo que digo con respecto a Ubuntu y Debian GNU/Linux. Porque vas a usar un sucedanio, si tienes el original.</p>
+
+<p>Esto no quiere decir que vaya a desistir de él. Me gustaria realizar la migración a FreeBSD y poder abrir una nueva etapa de mi vida, tal como hice con Debian GNU/Linux.</p>
+
+<p>Esto lo digo con pena, porque veo que Debian GNU/Linux no ha sabido tratar el tema de <code class="language-plaintext highlighter-rouge">Systemd</code> como era de esperar respecto a la filosofia que ellos representan…</p>
+
+  </div>
+</div>
+</div>
+    </div>
+    <footer class="footer mt-auto py-3">
+  <div class="container footer-container">  
+<a
+  class="footer-icon-links"
+  href="https://www.twitter.com/Vctrsnts1" target="_blank"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-twitter footer-icons"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+    /></svg
+></a>
+  
+<a
+  class="footer-icon-links"
+  href="https://github.com/Vctrsnts" target="_blank"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-github footer-icons"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+    /></svg
+></a>
+  
+<a
+    class="footer-icon-links"
+    href="https://mastodon.online/@vsantos" target="_blank"
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-mastodon footer-icons"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M 15.659 9.592 C 15.424 10.72 13.553 11.956 11.404 12.195 C 10.283 12.32 9.18 12.434 8.003 12.384 C 6.079 12.302 4.56 11.956 4.56 11.956 C 4.56 12.13 4.572 12.297 4.595 12.452 C 4.845 14.224 6.478 14.33 8.025 14.379 C 9.586 14.429 10.976 14.02 10.976 14.02 L 11.04 15.337 C 11.04 15.337 9.948 15.884 8.003 15.984 C 6.93 16.039 5.598 15.959 4.047 15.576 C 0.683 14.746 0.104 11.4 0.015 8.006 C -0.012 6.998 0.005 6.048 0.005 5.253 C 0.005 1.782 2.443 0.765 2.443 0.765 C 3.672 0.238 5.782 0.017 7.975 0 L 8.029 0 C 10.221 0.017 12.332 0.238 13.561 0.765 C 13.561 0.765 15.999 1.782 15.999 5.253 C 15.999 5.253 16.03 7.814 15.659 9.592 Z M 13.124 5.522 L 13.124 9.725 L 11.339 9.725 L 11.339 5.646 C 11.339 4.786 10.951 4.35 10.175 4.35 C 9.317 4.35 8.887 4.867 8.887 5.891 L 8.887 8.124 L 7.113 8.124 L 7.113 5.891 C 7.113 4.867 6.683 4.35 5.825 4.35 C 5.049 4.35 4.661 4.786 4.661 5.646 L 4.661 9.725 L 2.876 9.725 L 2.876 5.522 C 2.876 4.663 3.111 3.981 3.582 3.476 C 4.067 2.971 4.703 2.712 5.493 2.712 C 6.406 2.712 7.098 3.039 7.555 3.695 L 8 4.39 L 8.445 3.695 C 8.902 3.039 9.594 2.712 10.507 2.712 C 11.297 2.712 11.933 2.971 12.418 3.476 C 12.889 3.981 13.124 4.663 13.124 5.522 Z"
+      /></svg
+></a>
+ 
+<a class="footer-icon-links" href="/feed.xml"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-rss footer-icons"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+    />
+    <path
+      d="M5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-3-8.5a1 1 0 0 1 1-1c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1-1-1zm0 4a1 1 0 0 1 1-1 6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1-1-1z"
+    /></svg
+></a>
+
+</div>
+</footer>
+
+    <!-- JS for Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

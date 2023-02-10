@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-us" class="h-100">
+  <head>
+    <title>
+      Descargar Podcast a traves de Flexget – Si lo hacez, hazlo bien – Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The page supports both dark and light color schemes, and the page author prefers / default is light. -->
+    <meta name="color-scheme" content="dark light" />
+    <!-- Stylesheet that includes Bootstrap dark mode & custom stylesheet -->
+    <link
+      rel="stylesheet"
+      href="/assets/css/styles.css"
+    />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <!-- Meta Theme Color is also supported on Safari and Chrome -->
+    <meta
+      name="theme-color"
+      content="#eeeeee"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#111111"
+      media="(prefers-color-scheme: light)"
+    />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Descargar Podcast a traves de Flexget | Si lo hacez, hazlo bien</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Descargar Podcast a traves de Flexget" />
+<meta name="author" content="Vctrsnts ( fork andrew-park )" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Gracias que tengo docker puedo usar la imagen que he creado de Flexget, una aplicación que a traves de un fichero yaml, permite descargar lo que quieras incluidos podcast." />
+<meta property="og:description" content="Gracias que tengo docker puedo usar la imagen que he creado de Flexget, una aplicación que a traves de un fichero yaml, permite descargar lo que quieras incluidos podcast." />
+<link rel="canonical" href="https://vctrsnts.github.io/2021/05/30/flexget-podcast/" />
+<meta property="og:url" content="https://vctrsnts.github.io/2021/05/30/flexget-podcast/" />
+<meta property="og:site_name" content="Si lo hacez, hazlo bien" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-05-30T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Descargar Podcast a traves de Flexget" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Vctrsnts ( fork andrew-park )"},"dateModified":"2021-05-30T00:00:00+00:00","datePublished":"2021-05-30T00:00:00+00:00","description":"Gracias que tengo docker puedo usar la imagen que he creado de Flexget, una aplicación que a traves de un fichero yaml, permite descargar lo que quieras incluidos podcast.","headline":"Descargar Podcast a traves de Flexget","mainEntityOfPage":{"@type":"WebPage","@id":"https://vctrsnts.github.io/2021/05/30/flexget-podcast/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://vctrsnts.github.io/assets/images/logo_light.png"},"name":"Vctrsnts ( fork andrew-park )"},"url":"https://vctrsnts.github.io/2021/05/30/flexget-podcast/"}</script>
+<!-- End Jekyll SEO tag -->
+ <link type="application/atom+xml" rel="alternate" href="https://vctrsnts.github.io/feed.xml" title="Si lo hacez, hazlo bien" /></head>
+  <body class="d-flex flex-column h-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand p-0" href="/">
+    
+    <img src="/assets/images/logo_light.png" alt="light avatar" width="30" class="d-inline-block align-top m-0 light-avatar">
+    <img src="/assets/images/logo_dark.png" alt="dark avatar" width="30" class="d-inline-block align-top m-0 dark-avatar">
+    
+      Si lo hacez, hazlo bien</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        
+          <li class="nav-item">
+            <a href="/"  class="nav-link" >Home</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/tags/"  class="nav-link" >Tags</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/about/"  class="nav-link" >About</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      <div class="body"><div class="post">
+  <h1>Descargar Podcast a traves de Flexget</h1>
+  <span class="fs-4 text-muted">May 30, 21</span>
+  <div class="mt-4">
+    <p>Gracias que tengo docker puedo usar la imagen que he creado de <a href="https://flexget.com">Flexget</a>, una aplicación que a traves de un fichero <strong>yaml</strong>, permite descargar lo que quieras incluidos podcast.</p>
+
+<p>En principio me gustan los que tengas que ver con la tecnologia y sobre todo lo que tenga que ver con GNU/Linux. Pero a parte de estos tambien tengo un podcast de historia que me encanta mucho y cuando me acuerdo lo escucho. Este podcast se llama <a href="https://www.ccma.cat/catradio/en-guardia">En Guàrdia</a>.</p>
+
+<p>Y buscando información al final consegui averiguar que a traves de <strong>Flexget</strong> se pueden descargar Podcast asi que me puse a ello y gracias a un script para dicho proposito ya puedo descargar los podcast de este programa sin preocuparme.</p>
+
+<!--more-->
+
+<p>Este script esta compuesto por 2 secciones. Estas secciones son el <strong>template</strong>, que consiste en una plantilla con los filtros que se tiene que tener en cuenta a la hora de descargar los podcast.</p>
+
+<p>Una vez definido el <strong>template</strong>, pasamos a definir la tarea <strong>task</strong> donde en base al <strong>template</strong> se encargara de descargar los podcast.</p>
+
+<p>La primera parte del script <strong>template</strong> esta compuesto por los siguientes filtros (en mi caso):</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="na">templates</span><span class="pi">:</span>
+     <span class="na">podcast</span><span class="pi">:</span>
+       <span class="na">accept_all</span><span class="pi">:</span> <span class="s">yes</span>
+       <span class="c1"># PER A QUE SOLAMENT DESCARREGUI ELS 5 ULTIMS PODCAST</span>
+       <span class="na">limit_new</span><span class="pi">:</span> <span class="m">5</span>
+       <span class="c1"># COM VOLEN QUE ES DIGUI EL FITXER DESCARREGAT</span>
+       <span class="c1"># ABANS I DESPRÉS DE LA CONFIGURACIÓ DEL NOM PORTA DOBLES COMETES</span>
+       <span class="na">set</span><span class="pi">:</span>
+         <span class="na">filename</span><span class="pi">:</span> <span class="c1"># NOM AMB QUE ES DESCARREGARA EL FITXER MP3</span>
+</code></pre></div></div>
+
+<p>Y ahora vamos a poner el script que se encarga de descargar (en base al <strong>template</strong>) los podcast:</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   #
+   # DESCARREGA DE PODCAST
+   #
+   tasks<span class="p">:</span>
+     # PODCAST EN GUARDIA
+     podCastEnGuardia<span class="p">:</span>
+       template<span class="p">:</span> podcast
+       # RSS <span class="p">(</span>XML<span class="p">)</span> del programa
+       rss<span class="p">:</span> https<span class="p">:</span><span class="sr">//</span>dinamics<span class="p">.</span>ccma<span class="p">.</span><span class="k">cat</span><span class="sr">/public/</span>podcast<span class="sr">/catradio/</span>xml<span class="sr">/4/</span><span class="m">4</span>/podprograma944<span class="p">.</span>xml
+       # DIRECTORI DE DESCARREGA
+       download<span class="p">:</span> <span class="sr">/media/</span>podcast
+</code></pre></div></div>
+
+<p>Por ultimo podriamos poner el <strong>calendario</strong> de ejecución de este script, en mi caso, le indico que todas las tareas <strong>tasks</strong> que empiezen por <strong>podCast</strong> se ejecuten una vez al dia:</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   #
+   # CALENDARI EXECUCIÓ DE LES TASQUES
+   #
+   schedules<span class="p">:</span>
+     # DESCARREGA PODCAST
+     <span class="p">-</span> tasks<span class="p">:</span> <span class="p">[</span><span class="s1">'podCast*'</span><span class="p">]</span>
+       interval<span class="p">:</span>
+         days<span class="p">:</span> <span class="m">1</span>
+</code></pre></div></div>
+
+<p>Este script tiene que estar en el fichero <strong>config.yml</strong> de flexget. Lo que se puede hacer antes, es probar que todo funciona correctamente a traves de la instrucción (dentro de docker):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@debian:~<span class="nv">$ </span>flexget <span class="nt">--test</span> execute <span class="nt">--task</span> podCastEnGuardia <span class="nt">--dump</span>
+</code></pre></div></div>
+
+<p>Y ahora solamente nos queda disfrutar.</p>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://forums.unraid.net/topic/46910-simple-podcast-downloader-script/">Script para descargar podcast con flexget</a></li>
+</ul>
+
+  </div>
+</div>
+</div>
+    </div>
+    <footer class="footer mt-auto py-3">
+  <div class="container footer-container">  
+<a
+  class="footer-icon-links"
+  href="https://www.twitter.com/Vctrsnts1" target="_blank"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-twitter footer-icons"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+    /></svg
+></a>
+  
+<a
+  class="footer-icon-links"
+  href="https://github.com/Vctrsnts" target="_blank"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-github footer-icons"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+    /></svg
+></a>
+  
+<a
+    class="footer-icon-links"
+    href="https://mastodon.online/@vsantos" target="_blank"
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-mastodon footer-icons"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M 15.659 9.592 C 15.424 10.72 13.553 11.956 11.404 12.195 C 10.283 12.32 9.18 12.434 8.003 12.384 C 6.079 12.302 4.56 11.956 4.56 11.956 C 4.56 12.13 4.572 12.297 4.595 12.452 C 4.845 14.224 6.478 14.33 8.025 14.379 C 9.586 14.429 10.976 14.02 10.976 14.02 L 11.04 15.337 C 11.04 15.337 9.948 15.884 8.003 15.984 C 6.93 16.039 5.598 15.959 4.047 15.576 C 0.683 14.746 0.104 11.4 0.015 8.006 C -0.012 6.998 0.005 6.048 0.005 5.253 C 0.005 1.782 2.443 0.765 2.443 0.765 C 3.672 0.238 5.782 0.017 7.975 0 L 8.029 0 C 10.221 0.017 12.332 0.238 13.561 0.765 C 13.561 0.765 15.999 1.782 15.999 5.253 C 15.999 5.253 16.03 7.814 15.659 9.592 Z M 13.124 5.522 L 13.124 9.725 L 11.339 9.725 L 11.339 5.646 C 11.339 4.786 10.951 4.35 10.175 4.35 C 9.317 4.35 8.887 4.867 8.887 5.891 L 8.887 8.124 L 7.113 8.124 L 7.113 5.891 C 7.113 4.867 6.683 4.35 5.825 4.35 C 5.049 4.35 4.661 4.786 4.661 5.646 L 4.661 9.725 L 2.876 9.725 L 2.876 5.522 C 2.876 4.663 3.111 3.981 3.582 3.476 C 4.067 2.971 4.703 2.712 5.493 2.712 C 6.406 2.712 7.098 3.039 7.555 3.695 L 8 4.39 L 8.445 3.695 C 8.902 3.039 9.594 2.712 10.507 2.712 C 11.297 2.712 11.933 2.971 12.418 3.476 C 12.889 3.981 13.124 4.663 13.124 5.522 Z"
+      /></svg
+></a>
+ 
+<a class="footer-icon-links" href="/feed.xml"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-rss footer-icons"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+    />
+    <path
+      d="M5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-3-8.5a1 1 0 0 1 1-1c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1-1-1zm0 4a1 1 0 0 1 1-1 6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1-1-1z"
+    /></svg
+></a>
+
+</div>
+</footer>
+
+    <!-- JS for Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
