@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2023-02-13T20:58:17+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo hacez, hazlo bien</title><subtitle>Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.</subtitle><author><name>Vctrsnts ( fork andrew-park )</name></author><entry><title type="html">Usando Watchtower</title><link href="https://vctrsnts.github.io/2023/01/25/usando-watchtower/" rel="alternate" type="text/html" title="Usando Watchtower" /><published>2023-01-25T00:00:00+00:00</published><updated>2023-01-25T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/01/25/usando-watchtower</id><content type="html" xml:base="https://vctrsnts.github.io/2023/01/25/usando-watchtower/">&lt;p&gt;Si quieres echarle la culpa tendreis que mirar a &lt;a href=&quot;https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html&quot;&gt;Angel de uGeek&lt;/a&gt;, a &lt;a href=&quot;https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente&quot;&gt;Lorenzo de Atareao.es&lt;/a&gt; y por ultimo a &lt;a href=&quot;https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker&quot;&gt;ElBlogdeLazaro&lt;/a&gt; y a que es el culpable de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación &lt;strong&gt;watchtower&lt;/strong&gt; ellos tienen la culpa :D&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2023-02-13T22:42:18+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo hacez, hazlo bien</title><subtitle>Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.</subtitle><author><name>Vctrsnts ( fork andrew-park )</name></author><entry><title type="html">Mastodon, Jekyll y Github. Una combinación perfecta.</title><link href="https://vctrsnts.github.io/2023/02/13/jekyll-muy-configurable/" rel="alternate" type="text/html" title="Mastodon, Jekyll y Github. Una combinación perfecta." /><published>2023-02-13T00:00:00+00:00</published><updated>2023-02-13T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/02/13/jekyll-muy-configurable</id><content type="html" xml:base="https://vctrsnts.github.io/2023/02/13/jekyll-muy-configurable/">&lt;p&gt;Desde que di el salto de &lt;strong&gt;wordpress&lt;/strong&gt; a &lt;strong&gt;Github&lt;/strong&gt;, lo más logico si mi profesion, pasion hace referencia a la tecnologia, Tambien influyo que con &lt;strong&gt;wordpress&lt;/strong&gt; empezaba a tener muchos problemas con a creación y gestión del blog.&lt;/p&gt;
+
+&lt;!--more---&gt;
+
+&lt;p&gt;Todo empezo a mediados del 2021 cuando cada vez tenia más problemas a la hora de crear articulos y subirlos a &lt;strong&gt;wordpress&lt;/strong&gt;, aunque ahora le estoy dado otro &lt;a href=&quot;https://vsantos.wordpress.com&quot;&gt;uso&lt;/a&gt;, asi que me puse a investigar y la mayoria de personas a las que sigo, lo tienen alojado en &lt;strong&gt;Github&lt;/strong&gt; o &lt;strong&gt;Gitlab&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Investigue que diferencia habia entre los dos, pero no encontre ninguna a nivel de uso personal, asi que lance la moneda al aire y salio &lt;strong&gt;Github&lt;/strong&gt;, podria haber salido &lt;strong&gt;Gitlab&lt;/strong&gt;, y me puse a ello. Después de investigar me cree mi repositorio.&lt;/p&gt;
+
+&lt;p&gt;Al principio me costo mucho entender como funciona &lt;strong&gt;Github&lt;/strong&gt;, para que os hagais una idea, me las tuve y desee paraa crear mi primer repositorio, ha sido un pasito hacia adelante y dos hacia atras, si lo reconozco, no he leido la documentación del funcionamiento y uso de &lt;strong&gt;Github&lt;/strong&gt;, pero bueno, creo que asi he aprendido mucho más. Porque he tenido que aprender a lo bestia y descubrir las cosas que te puede ofrecer &lt;strong&gt;Github&lt;/strong&gt; poco a poco. Y no me ha parecido mal.&lt;/p&gt;
+
+&lt;p&gt;Mis progresos han sido lentos, porque todo lo que hacia era la primera vez, e iba más a prueba y error y volver a repetir hasta que entendia lo que pasaba. Después de tener mi repositorio &lt;strong&gt;personal&lt;/strong&gt;, fue tener en mi repositorio todos los ficheros del tema que iba a usar e ir subiendo o creando los ficheros &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;markdown&lt;/code&gt; y ponerlos en donde indicaba la documentación del tema si entender bien que pasaba.&lt;/p&gt;
+
+&lt;p&gt;Después entendi lo que hacia &lt;strong&gt;Github&lt;/strong&gt;, que era &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;compilar&lt;/code&gt; (si se le puede decir asi) los archivos &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;markdown&lt;/code&gt; y generar automaticamente el fichero &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;html&lt;/code&gt;, segui investigando a ver si eso se podia hacer en local y resulto que si que se podia hacer, pero claro, para hacer eso, necesitabas tener un servidor &lt;strong&gt;Jekyll&lt;/strong&gt; para que se realizase la compilación y solamente tener que subir los ficheros &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;compilados&lt;/code&gt; y tener en mi poder, el codigo fuente del blog.&lt;/p&gt;
+
+&lt;p&gt;Y sigo pensando que no me equivoque, porque gracias a ello, aprendi como crear un docker (mi primer docker). Era un &lt;a href=&quot;https://hub.docker.com/r/vctrsnts/jekyll-git&quot;&gt;docker&lt;/a&gt; que tiene un servidor jekyll para poder realizar las compilaciones de los &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;markdown&lt;/code&gt;. Tambien tengo que decir que no funciona muy bien, pero bueno, como primera experiencia en crear un docker, no me fue mal, porque entiendi mejor como funcionan los docker.&lt;/p&gt;
+
+&lt;p&gt;Cuando vi que la cosa no funcionaba correctamente, la idea era interesante, pero el resultado no era muy satisfactorio, me puse a buscar un docker ya creado y que fuera mejor que el mio. Y di con el. Su autor es &lt;a href=&quot;https://github.com/BretFisher/jekyll-serve&quot;&gt;bretfisher&lt;/a&gt;, tengo que informar que es un poco lioso de usar, porque tiene 2 contenedores:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hub.docker.com/r/bretfisher/jekyll&quot;&gt;Jekyll&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/BretFisher/jekyll-serve&quot;&gt;Jekyll-serve&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;El unico que te tiene que importar es es el contenedor que hacer de &lt;strong&gt;jekyll-serve&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;La configuración que tengo para usar la imagen de docker es la siguiente:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;na&quot;&gt;jekyll&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bretfisher/jekyll-serve&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;container_name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyll&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# port d&apos;access a traves de la web&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;4000:4000&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# on esta el codi font del blog&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;../blog:/site&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Cuando ya tenia este contenedor en marcha, ya pude empezar con la creación de mis articulos y es aqui, después de esta pequeña historia, donde explico la idea principal de este articulo. Unir &lt;strong&gt;Jekyll&lt;/strong&gt;, &lt;strong&gt;Mastodon&lt;/strong&gt; y &lt;strong&gt;Github&lt;/strong&gt; y todo lo que me podia ofrecer este ultimo y una de estas posibilidades es la de publicar mis articulos a traves de un &lt;a href=&quot;/2022/11/14/publicar-feed-mastodon/&quot;&gt;bot&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pero lo que echaba de menos, porque no se veia ninguna imagen en la publicación en &lt;strong&gt;Mastodon&lt;/strong&gt;, cuando a los toots de &lt;a href=&quot;https://mastodon.online/@elblogdelazaro@mastodon.social&quot;&gt;elBlogdeLazaro&lt;/a&gt;, que sigo y que me ha dado el punto de inicio por donde empezar, se podia visualizar una imagen, o mejor dicho, el logo de su web.&lt;/p&gt;
+
+&lt;p&gt;Yo queria hacer lo mismo, pero no encontraba ninguna información donde se explicase como se tenia que hacer o como configurar &lt;strong&gt;Mastodon&lt;/strong&gt;, después descubri que las modificaciones necesarias las tenia que hacer en los archivos de mi blog, y gracias a una pista que, como ya he dicho, me dio &lt;em&gt;Carlos. M&lt;/em&gt; conseguir descubrir como hacerlo.&lt;/p&gt;
+
+&lt;p&gt;La pista fue (&lt;em&gt;Lazaro&lt;/em&gt; usa Hugo, otra alternativa a Jekyll), me comento, que en su caso, esto es automatico y que a traves de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:EXPORT_hugo_custom_front_matter+: :image /images/......&lt;/code&gt; es la manera que se muestra el logo en las publicaciones de &lt;strong&gt;Mastodon&lt;/strong&gt;, pero ya era algo.&lt;/p&gt;
+
+&lt;p&gt;Me puse a buscar todo lo referente a la pista que me habia dado y que se podia hacer en &lt;strong&gt;Hugo&lt;/strong&gt; y al final la encontre en esta &lt;a href=&quot;https://sherblog.pro/compartiendo-contenido-de-hugo-en-mastodon&quot;&gt;pagina&lt;/a&gt;, encontre la gran pista que me llevaria hacia mi objetivo.&lt;/p&gt;
+
+&lt;p&gt;Todo consiste, en que &lt;strong&gt;Mastodon&lt;/strong&gt; utiliza &lt;strong&gt;OpenGraph&lt;/strong&gt; para todo el tratamiento de las publicaciones (seguramente es más complicado que esto), pero en mi caso me dio la pista definitiva que necesitaba. Lo que tenia que hacer, es buscar como poner en mi blog una imagen del tipo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;og:image&lt;/code&gt; en la pantilla. La solución la encontre en la siguiente &lt;a href=&quot;https://gist.github.com/davidensinger/5431869&quot;&gt;pagina&lt;/a&gt;, donde se puede ver, el codigo necesario para usar &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imagenes og&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;site.url/assets/img/posts/page.image&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;property&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;og:image&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Gracias a este codigo y después de modificarlo para poderlo usar en mi plantilla, la modificación la he hecho en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts/default.html&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;lightavatar&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;site.lightavatar | relative_url&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;property&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;og:image&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;site.darkavatar | relative_url&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;property&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;og:image&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;endif&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Consegui hacer lo que yo queria, porque ahora, a falta de más pruebas, he conseguido que cada vez, que se envia una publicación a &lt;strong&gt;Mastodon&lt;/strong&gt; a traves del &lt;strong&gt;bot automatico&lt;/strong&gt; se puede ver el logo de mi pagina web. Un logo simple, pero es el que más me gusta, porque mezcla mis 2 grandes pasiones.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Egipto y GNU/Linux&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gist.github.com/davidensinger/5431869&quot;&gt;Opciones og:image&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/57493239/opengraph-link-previews-in-jekyll&quot;&gt;Opengraph link previews in Jekyll&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://brianbunke.com/blog/2017/09/06/twitter-cards-on-jekyll&quot;&gt;Twitter Cards on Jekyll&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://sherblog.pro/compartiendo-contenido-de-hugo-en-mastodon&quot;&gt;Compartiendo contenido de Hugo en Mastodon&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="docker" /><category term="blog" /><summary type="html">Desde que di el salto de wordpress a Github, lo más logico si mi profesion, pasion hace referencia a la tecnologia, Tambien influyo que con wordpress empezaba a tener muchos problemas con a creación y gestión del blog.</summary></entry><entry><title type="html">Usando Watchtower</title><link href="https://vctrsnts.github.io/2023/01/25/usando-watchtower/" rel="alternate" type="text/html" title="Usando Watchtower" /><published>2023-01-25T00:00:00+00:00</published><updated>2023-01-25T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/01/25/usando-watchtower</id><content type="html" xml:base="https://vctrsnts.github.io/2023/01/25/usando-watchtower/">&lt;p&gt;Si quieres echarle la culpa tendreis que mirar a &lt;a href=&quot;https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html&quot;&gt;Angel de uGeek&lt;/a&gt;, a &lt;a href=&quot;https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente&quot;&gt;Lorenzo de Atareao.es&lt;/a&gt; y por ultimo a &lt;a href=&quot;https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker&quot;&gt;ElBlogdeLazaro&lt;/a&gt; y a que es el culpable de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación &lt;strong&gt;watchtower&lt;/strong&gt; ellos tienen la culpa :D&lt;/p&gt;
 
 &lt;!--more--&gt;
 
@@ -806,103 +874,4 @@ fi
 &lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://elblogdelazaro.org/posts/2021-08-16-bot-en-python-para-publicar-un-feed-de-forma-aleatorios-en-twitter-y-mastodom/&quot;&gt;Script de Python&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="linux" /><summary type="html">Descubri a traves del Blog de Lazaro, que si tienes cuenta en Mastodon, quien no tiene cuenta ahora tal como van las cosas en Twitter, que puedes enviar de forma aleatoria alguno de los articulos que tienes publicados en tu web.</summary></entry><entry><title type="html">Mi nuevo mediacenter - Thinkpad m700</title><link href="https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter/" rel="alternate" type="text/html" title="Mi nuevo mediacenter - Thinkpad m700" /><published>2022-11-08T00:00:00+00:00</published><updated>2022-11-08T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter</id><content type="html" xml:base="https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter/">&lt;p&gt;Como ya mencione en al articulo que hablaba sobre el cambio de servidor &lt;a href=&quot;/2022/05/26/nuevo-servidor/&quot;&gt;Mi nuevo servidor&lt;/a&gt;, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;Asi que decidi cambiar la antigua RPI3 donde empezaba ya a tener problemas con los nuevos codecs con que venian las peliculas ( HEVC 10b-AC3 ) y cambiarla por la RPI4 con soporte para estos nuevos 
-codecs y que no usaba por haberla sustituido por el Dell.&lt;/p&gt;
-
-&lt;p&gt;Me puse manos a la obra con ello, pero ya os digo que me decepciono un monton la RPI4.&lt;/p&gt;
-
-&lt;p&gt;Lo primero fue bajarme la imagen compatible de Libreelec para mi RPI4 y su posterior instalación. Todo esto conectado a un monitor que tengo en casa para estas pruebas / instalaciones.&lt;/p&gt;
-
-&lt;p&gt;No tuve ningun problema la la hora de la instalación y de la configuración ( Wifi, pluguins, conexión a SAMBA, etc… ) todo perfecto. Luego lo conecto al TV que tengo en el salon con un conversor 
-de HDMI a micro-HDMI y no funcionaba. No se veia nada, todo en negro. Aqui es donde pienso que no he hecho bien la instalación / configuración, que no lee correctamente la resolución, o sea las 
-cosas más normales que te puedas imaginar.&lt;/p&gt;
-
-&lt;p&gt;Busque información por inet, pregunte a uno de los canales de Telegram donde estoy que tratan sobre las RPI4 como mediacenter, etc… y todos me decian, que tenia que forzar la resolución a traves 
-del fichero &lt;strong&gt;config.txt&lt;/strong&gt;. Todo sin obtener ningun resultado.&lt;/p&gt;
-
-&lt;p&gt;Al final me canse de trastear con la RPI4, y eso que habia hecho miles de instalaciones pensado que hay es donde residia el problema. Al final ya me quedo claro, que el problema no era la 
-instalación, sino el conversor de HDMI a micro-HDMI que no funcionaba correctamente. Asi que el siguiente paso, fue comprar un cable de HDMI a micro-HDMI.&lt;/p&gt;
-
-&lt;p&gt;Una vez que me llego el cable correcto, vuelta a hacer una nueva instalación conectando la RPI4 al monitor de pruebas. Todo funcionaba a las mil maravillas, la WIFI excelente, la imagen perfecta, hay 
-es donde me dije, pues ya esta todo en marcha y listo para volver a funcionar. Hay infeliz de mi!!!&lt;/p&gt;
-
-&lt;p&gt;Me llevo la RPI4 al TV del comedor y la conecto y no me lo podria creer, todo funcionaba perfectamente. Pues ya esta, lo vuelvo a tener todo en perfecto estado y en marcha hasta que puse a usar
-la RPI4 con la WIFI y aqui es donde se me cayo el mundo encima.&lt;/p&gt;
-
-&lt;p&gt;No me lo podia creer, la WIFI no funcionaba ni a patadas, la pelicula se quedaba congelada y no se veia nada!!! yo tirandome de los pelos porque no entendia nada, si hasta hace 5 minutos todo 
-funcionaba correctamente y ahora de golpe y porrazo no funciona nada. Volvemos a estar como en el principio.&lt;/p&gt;
-
-&lt;p&gt;A partir de aqui todo fueron problemas. Pero vamos a explicar todo lo sucedido paso a paso.&lt;/p&gt;
-
-&lt;p&gt;Lo primero fue copiar la imagen de Libreelec en el SSD e iniciamos la instalación / configuración de Libreelec. Todo funciona perfectamente hasta llegar a la configuración de la &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WIFI&lt;/code&gt; (y esto si 
-que es para mear y no echar gota).&lt;/p&gt;
-
-&lt;p&gt;Despues de buscar información como un loco, veo que hay un error (validado y reportado) en el diseño de la Raspberry que es, cuando usas la WIFI esta se &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;acopla&lt;/code&gt; a la señal del cable HDMI y hace 
-que se anule la señal WIFI. Para solucionar este problema se puede hacer de 3 maneras:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Solución dificil&lt;/strong&gt;, cambiar de canal en el que emite tu router por otro diferente para que no se acople a la señal del cable HDMI.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Solución facil&lt;/strong&gt;, desactivar la WIFI de la Raspberry y usar un conector USB-WIFI&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Solución ideal&lt;/strong&gt;, esperar a que Raspberry saque un nuevo firmware que solucione este problema. Se comenta que hasta finales de año no estara disponible.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;En mi caso, lo que hice fue escoger la solución facil, me compre un usb-wifi y volvi de nuevo a configurar la RPI4B, esperando, por fin, poder usarla como HTC.&lt;/p&gt;
-
-&lt;p&gt;Volvemos a reiniciar la configuración de la WIFI sin ningun problema, esta vez, ya tenemos la RPI4B conectada a la WIFI, pero parece ser que entre el SSD conectado a traves de USB, el mando a 
-distancia conectado a traves de USB y el USB de la WIFI, la Raspberry no podia manejar correctamente toda la &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;información&lt;/code&gt; que recibia.&lt;/p&gt;
-
-&lt;p&gt;Para que os hagais una idea, la RPI3B funcionaba mejor que la RPI4B y eso que esta ultima (siempre lo añado a todos mis Libreelec) habia creado el fichero &lt;strong&gt;advancedsettings.xml&lt;/strong&gt; donde le añado lo 
-siguiente:&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;advancedsettings&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-     &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-       &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;buffermode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/buffermode&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;memorysize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/memorysize&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/cache&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/advancedsettings&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Donde:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;buffermode&lt;/code&gt;: le indica a Kodi que tipo de buffer que se va a usar (en mi caso, selecciono el valor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt; para el tratamiento de ficheros a traves de samba, nfs).&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;memorysize&lt;/code&gt;: le indica a Kodi que de que manera va a usar la RAM (en mi caso, selecciono el valor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt; para que de preferencia al SSD/HDD en vez de a la RAM).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;De esta manera se consigue que mientras se visualiza la pelicula / serie, se descargue más fichero y no tener problemas a la hora de visualización.&lt;/p&gt;
-
-&lt;p&gt;Pero en mi caso, esto no pasa, para que os hagais una idea de como funciona, que habia veces (da igual que versión de mkv fuera, 264, 265) que Kodi se quedaba colgado, incluso usando un SSD.&lt;/p&gt;
-
-&lt;p&gt;Al final, cansado de ver que era imposible usar la RPI4B, empeza a investigar y a preguntar en un canal de Telegram sobre usar la Raspberry como HTC y se llego a la conclusión de que era el USB que 
-se colapsaba y en cambio esto mismo (en la RPI3B) no pasa, porque como por defecto, uso la WIFI que ya lleva incorpada, pues…&lt;/p&gt;
-
-&lt;p&gt;Y asi estamos, usando la RPI4B como HTC, desilusionado ante el mal funcionamiento de lo que tendria que ser la mejor Raspeberry hasta el momento.&lt;/p&gt;
-
-&lt;p&gt;Por eso digo, que maldita el dia que se me ocurrio cambiar mi RPI3 ( se que era un cambio necesario, la tecnologia siempre esta en constante evolución y más los codecs para ver las peliculas son los 
-que mandan ) a la RPI4, y ahora la tengo tirada en casa sin usar, por culpa de este problema, aunque ;) podria haberla vendido y sacarme una pasta, porque tal como estan las RPI4, ganaria pasta 
-seguro, pero me da pena venderla, porque nunca se sabe cuando te va hacer falta una.&lt;/p&gt;
-
-&lt;p&gt;Asi que despues ( de nuevo, pregunte en otro canal de Telegram ) me aconsejaron que lo mejor y que para ahorrarme futuros problemas, que lo mejor es tener un PC conectado a la TV del comedor y me 
-ahorro todos los problemas derivados con los codecs y el soporte de estos, porque en un PC normal y corriente tiene más recorrido que la RPI4.&lt;/p&gt;
-
-&lt;p&gt;Y fue lo que hice, volvi a mi canal favorito de Thinkpads de Telegram y pregunte si alguno le sobrava algun Tiny. Y ten por seguro que siempre hay alguien que le sobra un Tiny.&lt;/p&gt;
-
-&lt;p&gt;Como todo en este mundo, es mutable y ante la posibilidad de conseguir a buen precio un &lt;a href=&quot;https://icecat.biz/es/p/lenovo/10mr0047us/thinkcentre-pcs-workstations-m710q-36768136.html&quot;&gt;Lenovo ThinkCenter M710q&lt;/a&gt;,
- asi que me lance de cabeza por el.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/lenovo-m710q.jpg&quot; alt=&quot;imatge&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Y ya me veis, de tener 2 RPI ( RPI4 con 4Gb como servidor y una RPI3 como mediacenter ) a tener un Tiny Lenovo m700 con 8Gb y un i5-6500 como mediacenter y un Dell Optiplex 3050 con 8Gb y un i5-7500 
-como servidor.&lt;/p&gt;
-
-&lt;p&gt;Por eso digo, que a veces no hay mal que por bien no venga.&lt;/p&gt;
-
-&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://libreelec.tv&quot;&gt;Libreelec&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.adslzone.net/2019/11/28/problemas-wifi-raspberry-pi-4/]&quot;&gt;RPI4B pierde cobertura Wifi&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.enricozini.org/blog/2019/himblick/raspberry-pi-4-loses-wifi-at-2560x1440-screen-resolution/&quot;&gt;Raspberry Pi 4 WiFi stops working at 2560x1440 screen resolution&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://kodi.wiki/view/Advancedsettings.xml&quot;&gt;Cambiar el funcionamiento de la cache en Kodi&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Vctrsnts ( fork andrew-park )</name></author><category term="libreelec" /><category term="raspberryPi" /><category term="thinkpad" /><summary type="html">Como ya mencione en al articulo que hablaba sobre el cambio de servidor Mi nuevo servidor, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="linux" /><summary type="html">Descubri a traves del Blog de Lazaro, que si tienes cuenta en Mastodon, quien no tiene cuenta ahora tal como van las cosas en Twitter, que puedes enviar de forma aleatoria alguno de los articulos que tienes publicados en tu web.</summary></entry></feed>
