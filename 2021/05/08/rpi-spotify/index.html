@@ -107,26 +107,26 @@ en cara a <strong>Gonic</strong>, pero a este ultimo le falta algo que no se que
 
 <p>Como todo en docker, solamente se tiene que añadir en tu fichero <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> la configuración necesaria para instalar <strong>navidrome</strong> que en mi caso es la siguiente:</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="na">navidrome</span><span class="pi">:</span>
-     <span class="na">image</span><span class="pi">:</span> <span class="s">deluan/navidrome:latest</span>
-     <span class="na">container_name</span><span class="pi">:</span> <span class="s">navidrome</span>
-     <span class="na">user</span><span class="pi">:</span> <span class="s">1000:1000</span> 
-     <span class="na">ports</span><span class="pi">:</span>
-       <span class="pi">-</span> <span class="s2">"</span><span class="s">4533:4533"</span>
-     <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
-     <span class="na">environment</span><span class="pi">:</span>
-       <span class="na">ND_TRANSCODINGCACHESIZE</span><span class="pi">:</span> <span class="s">100MB</span>
-       <span class="na">ND_SCANSCHEDULE</span><span class="pi">:</span> <span class="s2">"</span><span class="s">@every</span><span class="nv"> </span><span class="s">1h"</span>
-       <span class="na">ND_SESSIONTIMEOUT</span><span class="pi">:</span> <span class="s">24h</span>
-       <span class="na">ND_LASTFM_ENABLED</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span>
-       <span class="na">ND_LASTFM_APIKEY</span><span class="pi">:</span> <span class="s2">"</span><span class="s">API</span><span class="nv"> </span><span class="s">DE</span><span class="nv"> </span><span class="s">LASTFM"</span>
-       <span class="na">ND_LASTFM_SECRET</span><span class="pi">:</span> <span class="s2">"</span><span class="s">API</span><span class="nv"> </span><span class="s">DE</span><span class="nv"> </span><span class="s">LASTFM"</span>
-       <span class="na">ND_LASTFM_LANGUAGE</span><span class="pi">:</span> <span class="s2">"</span><span class="s">es"</span>
-       <span class="na">ND_SPOTIFY_ID</span><span class="pi">:</span> <span class="s2">"</span><span class="s">API</span><span class="nv"> </span><span class="s">DE</span><span class="nv"> </span><span class="s">SPOTIFY"</span>
-       <span class="na">ND_SPOTIFY_SECRET</span><span class="pi">:</span> <span class="s2">"</span><span class="s">API</span><span class="nv"> </span><span class="s">DE</span><span class="nv"> </span><span class="s">SPOTIFY"</span>
-     <span class="na">volumes</span><span class="pi">:</span>
-       <span class="pi">-</span> <span class="s">${STORAGE}/config/navidrome:/data</span>
-       <span class="pi">-</span> <span class="s">${MEDIA}/audio/Music:/music:ro</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">navidrome</span><span class="p">:</span>
+     <span class="nx">image</span><span class="p">:</span> <span class="nx">deluan</span><span class="o">/</span><span class="nx">navidrome</span><span class="p">:</span><span class="nx">latest</span>
+     <span class="nx">container_name</span><span class="p">:</span> <span class="nx">navidrome</span>
+     <span class="nx">user</span><span class="p">:</span> <span class="mi">1000</span><span class="p">:</span><span class="mi">1000</span> 
+     <span class="nx">ports</span><span class="p">:</span>
+       <span class="o">-</span> <span class="dl">"</span><span class="s2">4533:4533</span><span class="dl">"</span>
+     <span class="nx">restart</span><span class="p">:</span> <span class="nx">unless</span><span class="o">-</span><span class="nx">stopped</span>
+     <span class="nx">environment</span><span class="p">:</span>
+       <span class="nx">ND_TRANSCODINGCACHESIZE</span><span class="p">:</span> <span class="mi">100</span><span class="nx">MB</span>
+       <span class="nx">ND_SCANSCHEDULE</span><span class="p">:</span> <span class="dl">"</span><span class="s2">@every 1h</span><span class="dl">"</span>
+       <span class="nx">ND_SESSIONTIMEOUT</span><span class="p">:</span> <span class="mi">24</span><span class="nx">h</span>
+       <span class="nx">ND_LASTFM_ENABLED</span><span class="p">:</span> <span class="dl">"</span><span class="s2">true</span><span class="dl">"</span>
+       <span class="nx">ND_LASTFM_APIKEY</span><span class="p">:</span> <span class="dl">"</span><span class="s2">API DE LASTFM</span><span class="dl">"</span>
+       <span class="nx">ND_LASTFM_SECRET</span><span class="p">:</span> <span class="dl">"</span><span class="s2">API DE LASTFM</span><span class="dl">"</span>
+       <span class="nx">ND_LASTFM_LANGUAGE</span><span class="p">:</span> <span class="dl">"</span><span class="s2">es</span><span class="dl">"</span>
+       <span class="nx">ND_SPOTIFY_ID</span><span class="p">:</span> <span class="dl">"</span><span class="s2">API DE SPOTIFY</span><span class="dl">"</span>
+       <span class="nx">ND_SPOTIFY_SECRET</span><span class="p">:</span> <span class="dl">"</span><span class="s2">API DE SPOTIFY</span><span class="dl">"</span>
+     <span class="nx">volumes</span><span class="p">:</span>
+       <span class="o">-</span> <span class="nx">$</span><span class="p">{</span><span class="nx">STORAGE</span><span class="p">}</span><span class="sr">/config/</span><span class="nx">navidrome</span><span class="p">:</span><span class="o">/</span><span class="nx">data</span>
+       <span class="o">-</span> <span class="nx">$</span><span class="p">{</span><span class="nx">MEDIA</span><span class="p">}</span><span class="sr">/audio/</span><span class="nx">Music</span><span class="p">:</span><span class="o">/</span><span class="nx">music</span><span class="p">:</span><span class="nx">ro</span>
 </code></pre></div></div>
 
 <p>Yo he puesto las opciones de configuración que uso o las que más me interesan que son:</p>
@@ -138,7 +138,7 @@ en cara a <strong>Gonic</strong>, pero a este ultimo le falta algo que no se que
 
 <p>Y ahora solamente queda levantar el contenedor:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:/# docker-compose up <span class="nt">-d</span> navidrome
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">/</span><span class="err">#</span> <span class="nx">docker</span><span class="o">-</span><span class="nx">compose</span> <span class="nx">up</span> <span class="o">-</span><span class="nx">d</span> <span class="nx">navidrome</span>
 </code></pre></div></div>
 
 <p>Y aqui es cuando se hace la magia. A lo mejor tarda un poco en estar disponible, porque esta escaneando toda la musica que tienes, pero cuando digo tardar, son un par de segundos. Porque lo escanea todo

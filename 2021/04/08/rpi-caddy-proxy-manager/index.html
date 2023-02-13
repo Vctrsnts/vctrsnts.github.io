@@ -133,19 +133,19 @@ decidir buscar otra alternativa más facil.</p>
 
 <p>Recuerda que para generar los certificados de Let’s Encrypt, Caddy necesita tener abiertos los puertos 80 y 443.</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3.7"</span>
-   <span class="na">services</span><span class="pi">:</span>
-     <span class="na">caddy</span><span class="pi">:</span>
-       <span class="na">image</span><span class="pi">:</span> <span class="s">caddy</span>
-       <span class="na">ports</span><span class="pi">:</span>
-         <span class="pi">-</span> <span class="s2">"</span><span class="s">80:80"</span>
-         <span class="pi">-</span> <span class="s2">"</span><span class="s">443:443"</span>
-       <span class="na">volumes</span><span class="pi">:</span>
-         <span class="pi">-</span> <span class="s">./Caddyfile:/etc/caddy/Caddyfile:ro</span>
-         <span class="pi">-</span> <span class="s">./data/caddy/data:/data</span>
-         <span class="pi">-</span> <span class="s">./data/caddy/config:/config</span>
-       <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
-       <span class="na">container_name</span><span class="pi">:</span> <span class="s">caddy</span>  
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">version</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3.7</span><span class="dl">"</span>
+   <span class="nx">services</span><span class="p">:</span>
+     <span class="nx">caddy</span><span class="p">:</span>
+       <span class="nx">image</span><span class="p">:</span> <span class="nx">caddy</span>
+       <span class="nx">ports</span><span class="p">:</span>
+         <span class="o">-</span> <span class="dl">"</span><span class="s2">80:80</span><span class="dl">"</span>
+         <span class="o">-</span> <span class="dl">"</span><span class="s2">443:443</span><span class="dl">"</span>
+       <span class="nx">volumes</span><span class="p">:</span>
+         <span class="o">-</span> <span class="p">.</span><span class="o">/</span><span class="nx">Caddyfile</span><span class="p">:</span><span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">caddy</span><span class="o">/</span><span class="nx">Caddyfile</span><span class="p">:</span><span class="nx">ro</span>
+         <span class="o">-</span> <span class="p">.</span><span class="o">/</span><span class="nx">data</span><span class="o">/</span><span class="nx">caddy</span><span class="o">/</span><span class="nx">data</span><span class="p">:</span><span class="o">/</span><span class="nx">data</span>
+         <span class="o">-</span> <span class="p">.</span><span class="o">/</span><span class="nx">data</span><span class="o">/</span><span class="nx">caddy</span><span class="o">/</span><span class="nx">config</span><span class="p">:</span><span class="o">/</span><span class="nx">config</span>
+       <span class="nx">restart</span><span class="p">:</span> <span class="nx">unless</span><span class="o">-</span><span class="nx">stopped</span>
+       <span class="nx">container_name</span><span class="p">:</span> <span class="nx">caddy</span>  
 </code></pre></div></div>
 
 <p>Creamos el archivo <code class="language-plaintext highlighter-rouge">Caddyfile</code>, donde irá la configuración de nuestro proxy inverso.</p>
@@ -155,8 +155,8 @@ decidir buscar otra alternativa más facil.</p>
 
 <p>Caddy se encargará de exponer este servicio a la red generando el certificado con Let’s Encrypt, que en mi caso, como ya he dicho, es mi Spotify privado y asi no tener que depender de nadie.</p>
 
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   music<span class="p">.</span>midominio<span class="p">.</span>duckdns<span class="p">.</span>org <span class="p">{</span>
-                                  reverse_proxy http<span class="p">:</span><span class="sr">//</span><span class="m">192</span><span class="p">.</span><span class="m">168</span><span class="p">.</span><span class="m">1</span><span class="p">.</span><span class="m">100</span><span class="p">:</span><span class="m">4533</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">music</span><span class="p">.</span><span class="nx">midominio</span><span class="p">.</span><span class="nx">duckdns</span><span class="p">.</span><span class="nx">org</span> <span class="p">{</span>
+                                  <span class="nx">reverse_proxy</span> <span class="nx">http</span><span class="p">:</span><span class="c1">//192.168.1.100:4533</span>
    <span class="p">}</span>
 </code></pre></div></div>
 

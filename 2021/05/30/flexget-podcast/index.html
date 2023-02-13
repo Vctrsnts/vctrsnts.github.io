@@ -95,47 +95,47 @@
 
 <p>La primera parte del script <strong>template</strong> esta compuesto por los siguientes filtros (en mi caso):</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="na">templates</span><span class="pi">:</span>
-     <span class="na">podcast</span><span class="pi">:</span>
-       <span class="na">accept_all</span><span class="pi">:</span> <span class="s">yes</span>
-       <span class="c1"># PER A QUE SOLAMENT DESCARREGUI ELS 5 ULTIMS PODCAST</span>
-       <span class="na">limit_new</span><span class="pi">:</span> <span class="m">5</span>
-       <span class="c1"># COM VOLEN QUE ES DIGUI EL FITXER DESCARREGAT</span>
-       <span class="c1"># ABANS I DESPRÉS DE LA CONFIGURACIÓ DEL NOM PORTA DOBLES COMETES</span>
-       <span class="na">set</span><span class="pi">:</span>
-         <span class="na">filename</span><span class="pi">:</span> <span class="c1"># NOM AMB QUE ES DESCARREGARA EL FITXER MP3</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">templates</span><span class="p">:</span>
+     <span class="nx">podcast</span><span class="p">:</span>
+       <span class="nx">accept_all</span><span class="p">:</span> <span class="nx">yes</span>
+       <span class="err">#</span> <span class="nx">PER</span> <span class="nx">A</span> <span class="nx">QUE</span> <span class="nx">SOLAMENT</span> <span class="nx">DESCARREGUI</span> <span class="nx">ELS</span> <span class="mi">5</span> <span class="nx">ULTIMS</span> <span class="nx">PODCAST</span>
+       <span class="nx">limit_new</span><span class="p">:</span> <span class="mi">5</span>
+       <span class="err">#</span> <span class="nx">COM</span> <span class="nx">VOLEN</span> <span class="nx">QUE</span> <span class="nx">ES</span> <span class="nx">DIGUI</span> <span class="nx">EL</span> <span class="nx">FITXER</span> <span class="nx">DESCARREGAT</span>
+       <span class="err">#</span> <span class="nx">ABANS</span> <span class="nx">I</span> <span class="nx">DESPRÉS</span> <span class="nx">DE</span> <span class="nx">LA</span> <span class="nx">CONFIGURACIÓ</span> <span class="nx">DEL</span> <span class="nx">NOM</span> <span class="nx">PORTA</span> <span class="nx">DOBLES</span> <span class="nx">COMETES</span>
+       <span class="kd">set</span><span class="p">:</span>
+         <span class="nx">filename</span><span class="p">:</span> <span class="err">#</span> <span class="nx">NOM</span> <span class="nx">AMB</span> <span class="nx">QUE</span> <span class="nx">ES</span> <span class="nx">DESCARREGARA</span> <span class="nx">EL</span> <span class="nx">FITXER</span> <span class="nx">MP3</span>
 </code></pre></div></div>
 
 <p>Y ahora vamos a poner el script que se encarga de descargar (en base al <strong>template</strong>) los podcast:</p>
 
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   #
-   # DESCARREGA DE PODCAST
-   #
-   tasks<span class="p">:</span>
-     # PODCAST EN GUARDIA
-     podCastEnGuardia<span class="p">:</span>
-       template<span class="p">:</span> podcast
-       # RSS <span class="p">(</span>XML<span class="p">)</span> del programa
-       rss<span class="p">:</span> https<span class="p">:</span><span class="sr">//</span>dinamics<span class="p">.</span>ccma<span class="p">.</span><span class="k">cat</span><span class="sr">/public/</span>podcast<span class="sr">/catradio/</span>xml<span class="sr">/4/</span><span class="m">4</span>/podprograma944<span class="p">.</span>xml
-       # DIRECTORI DE DESCARREGA
-       download<span class="p">:</span> <span class="sr">/media/</span>podcast
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">#</span>
+   <span class="err">#</span> <span class="nx">DESCARREGA</span> <span class="nx">DE</span> <span class="nx">PODCAST</span>
+   <span class="err">#</span>
+   <span class="nx">tasks</span><span class="p">:</span>
+     <span class="err">#</span> <span class="nx">PODCAST</span> <span class="nx">EN</span> <span class="nx">GUARDIA</span>
+     <span class="nx">podCastEnGuardia</span><span class="p">:</span>
+       <span class="nx">template</span><span class="p">:</span> <span class="nx">podcast</span>
+       <span class="err">#</span> <span class="nx">RSS</span> <span class="p">(</span><span class="nx">XML</span><span class="p">)</span> <span class="nx">del</span> <span class="nx">programa</span>
+       <span class="nx">rss</span><span class="p">:</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//dinamics.ccma.cat/public/podcast/catradio/xml/4/4/podprograma944.xml</span>
+       <span class="err">#</span> <span class="nx">DIRECTORI</span> <span class="nx">DE</span> <span class="nx">DESCARREGA</span>
+       <span class="nx">download</span><span class="p">:</span> <span class="o">/</span><span class="nx">media</span><span class="o">/</span><span class="nx">podcast</span>
 </code></pre></div></div>
 
 <p>Por ultimo podriamos poner el <strong>calendario</strong> de ejecución de este script, en mi caso, le indico que todas las tareas <strong>tasks</strong> que empiezen por <strong>podCast</strong> se ejecuten una vez al dia:</p>
 
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   #
-   # CALENDARI EXECUCIÓ DE LES TASQUES
-   #
-   schedules<span class="p">:</span>
-     # DESCARREGA PODCAST
-     <span class="p">-</span> tasks<span class="p">:</span> <span class="p">[</span><span class="s1">'podCast*'</span><span class="p">]</span>
-       interval<span class="p">:</span>
-         days<span class="p">:</span> <span class="m">1</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">#</span>
+   <span class="err">#</span> <span class="nx">CALENDARI</span> <span class="nx">EXECUCIÓ</span> <span class="nx">DE</span> <span class="nx">LES</span> <span class="nx">TASQUES</span>
+   <span class="err">#</span>
+   <span class="nx">schedules</span><span class="p">:</span>
+     <span class="err">#</span> <span class="nx">DESCARREGA</span> <span class="nx">PODCAST</span>
+     <span class="o">-</span> <span class="nx">tasks</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">podCast*</span><span class="dl">'</span><span class="p">]</span>
+       <span class="nx">interval</span><span class="p">:</span>
+         <span class="nx">days</span><span class="p">:</span> <span class="mi">1</span>
 </code></pre></div></div>
 
 <p>Este script tiene que estar en el fichero <strong>config.yml</strong> de flexget. Lo que se puede hacer antes, es probar que todo funciona correctamente a traves de la instrucción (dentro de docker):</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@debian:~<span class="nv">$ </span>flexget <span class="nt">--test</span> execute <span class="nt">--task</span> podCastEnGuardia <span class="nt">--dump</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">flexget</span> <span class="o">--</span><span class="nx">test</span> <span class="nx">execute</span> <span class="o">--</span><span class="nx">task</span> <span class="nx">podCastEnGuardia</span> <span class="o">--</span><span class="nx">dump</span>
 </code></pre></div></div>
 
 <p>Y ahora solamente nos queda disfrutar.</p>

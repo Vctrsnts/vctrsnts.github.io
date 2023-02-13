@@ -88,37 +88,37 @@ comunes de compresión / descompresión</p>
 
 <p>Lo primero es editar nuestro fichero <code class="language-plaintext highlighter-rouge">.basrch</code> y hacerle las siguientes modificacions :</p>
 
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   ### EXTRACCIÓ DE FITXERS
-   # usage<span class="p">:</span> <span class="k">ex</span> <span class="p">&lt;</span><span class="k">file</span><span class="p">&gt;</span>
-   <span class="k">ex</span> <span class="p">()</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">###</span> <span class="nx">EXTRACCIÓ</span> <span class="nx">DE</span> <span class="nx">FITXERS</span>
+   <span class="err">#</span> <span class="nx">usage</span><span class="p">:</span> <span class="nx">ex</span> <span class="o">&lt;</span><span class="nx">file</span><span class="o">&gt;</span>
+   <span class="nx">ex</span> <span class="p">()</span>
    <span class="p">{</span>
-     <span class="k">if</span> <span class="p">[</span> <span class="p">-</span><span class="k">f</span> $<span class="m">1</span> <span class="p">]</span> ; then
-       case $<span class="m">1</span> <span class="k">in</span>
-         *<span class="p">.</span>tar<span class="p">.</span>bz2<span class="p">)</span>   tar xjf $<span class="m">1</span>   ;;
-         *<span class="p">.</span>tar<span class="p">.</span>gz<span class="p">)</span>    tar xzf $<span class="m">1</span>   ;;
-         *<span class="p">.</span>bz2<span class="p">)</span>       bunzip2 $<span class="m">1</span>   ;;
-         *<span class="p">.</span>rar<span class="p">)</span>       unrar <span class="k">x</span> $<span class="m">1</span>   ;;
-         *<span class="p">.</span>gz<span class="p">)</span>        gunzip $<span class="m">1</span>    ;;
-         *<span class="p">.</span>tar<span class="p">)</span>       tar xf $<span class="m">1</span>    ;;
-         *<span class="p">.</span>tbz2<span class="p">)</span>      tar xjf $<span class="m">1</span>   ;;
-         *<span class="p">.</span>tgz<span class="p">)</span>       tar xzf $<span class="m">1</span>   ;;
-         *<span class="p">.</span>zip<span class="p">)</span>       unzip $<span class="m">1</span>     ;;
-         *<span class="p">.</span>Z<span class="p">)</span>         uncompress $<span class="m">1</span>;;
-         *<span class="p">.</span><span class="m">7</span>z<span class="p">)</span>        <span class="m">7</span>z <span class="k">x</span> $<span class="m">1</span>      ;;
-         *<span class="p">.</span>deb<span class="p">)</span>       <span class="k">ar</span> <span class="k">x</span> $<span class="m">1</span>      ;;
-         *<span class="p">.</span>tar<span class="p">.</span>xz<span class="p">)</span>    tar xf $<span class="m">1</span>    ;;
-         *<span class="p">.</span>tar<span class="p">.</span>zst<span class="p">)</span>   unzstd $<span class="m">1</span>    ;;
-         *<span class="p">)</span>           echo <span class="s2">"'$1' no es pot extreure via ex()"</span> ;;
-       esac
+     <span class="k">if</span> <span class="p">[</span> <span class="o">-</span><span class="nx">f</span> <span class="nx">$1</span> <span class="p">]</span> <span class="p">;</span> <span class="nx">then</span>
+       <span class="k">case</span> <span class="nx">$1</span> <span class="k">in</span>
+         <span class="o">*</span><span class="p">.</span><span class="nx">tar</span><span class="p">.</span><span class="nx">bz2</span><span class="p">)</span>   <span class="nx">tar</span> <span class="nx">xjf</span> <span class="nx">$1</span>   <span class="p">;;</span>
+         <span class="o">*</span><span class="p">.</span><span class="nx">tar</span><span class="p">.</span><span class="nx">gz</span><span class="p">)</span>    <span class="nx">tar</span> <span class="nx">xzf</span> <span class="nx">$1</span>   <span class="p">;;</span>
+         <span class="o">*</span><span class="p">.</span><span class="nx">bz2</span><span class="p">)</span>       <span class="nx">bunzip2</span> <span class="nx">$1</span>   <span class="p">;;</span>
+         <span class="o">*</span><span class="p">.</span><span class="nx">rar</span><span class="p">)</span>       <span class="nx">unrar</span> <span class="nx">x</span> <span class="nx">$1</span>   <span class="p">;;</span>
+         <span class="o">*</span><span class="p">.</span><span class="nx">gz</span><span class="p">)</span>        <span class="nx">gunzip</span> <span class="nx">$1</span>    <span class="p">;;</span>
+         <span class="o">*</span><span class="p">.</span><span class="nx">tar</span><span class="p">)</span>       <span class="nx">tar</span> <span class="nx">xf</span> <span class="nx">$1</span>    <span class="p">;;</span>
+         <span class="o">*</span><span class="p">.</span><span class="nx">tbz2</span><span class="p">)</span>      <span class="nx">tar</span> <span class="nx">xjf</span> <span class="nx">$1</span>   <span class="p">;;</span>
+         <span class="o">*</span><span class="p">.</span><span class="nx">tgz</span><span class="p">)</span>       <span class="nx">tar</span> <span class="nx">xzf</span> <span class="nx">$1</span>   <span class="p">;;</span>
+         <span class="o">*</span><span class="p">.</span><span class="nx">zip</span><span class="p">)</span>       <span class="nx">unzip</span> <span class="nx">$1</span>     <span class="p">;;</span>
+         <span class="o">*</span><span class="p">.</span><span class="nx">Z</span><span class="p">)</span>         <span class="nx">uncompress</span> <span class="nx">$1</span><span class="p">;;</span>
+         <span class="o">*</span><span class="p">.</span><span class="mi">7</span><span class="nx">z</span><span class="p">)</span>        <span class="mi">7</span><span class="nx">z</span> <span class="nx">x</span> <span class="nx">$1</span>      <span class="p">;;</span>
+         <span class="o">*</span><span class="p">.</span><span class="nx">deb</span><span class="p">)</span>       <span class="nx">ar</span> <span class="nx">x</span> <span class="nx">$1</span>      <span class="p">;;</span>
+         <span class="o">*</span><span class="p">.</span><span class="nx">tar</span><span class="p">.</span><span class="nx">xz</span><span class="p">)</span>    <span class="nx">tar</span> <span class="nx">xf</span> <span class="nx">$1</span>    <span class="p">;;</span>
+         <span class="o">*</span><span class="p">.</span><span class="nx">tar</span><span class="p">.</span><span class="nx">zst</span><span class="p">)</span>   <span class="nx">unzstd</span> <span class="nx">$1</span>    <span class="p">;;</span>
+         <span class="o">*</span><span class="p">)</span>           <span class="nx">echo</span> <span class="dl">"</span><span class="s2">'$1' no es pot extreure via ex()</span><span class="dl">"</span> <span class="p">;;</span>
+       <span class="nx">esac</span>
      <span class="k">else</span>
-       echo <span class="s2">"'$1' no es un fitxer valid"</span>
-     fi
+       <span class="nx">echo</span> <span class="dl">"</span><span class="s2">'$1' no es un fitxer valid</span><span class="dl">"</span>
+     <span class="nx">fi</span>
    <span class="p">}</span>
 </code></pre></div></div>
 
 <p>con esto lo que conseguimos es que para descomprimir cualquier fichero lo podemos hacer de la siguiente manera :</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@debian:~<span class="nv">$ </span>ex nombre_fichero_comprimido
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">ex</span> <span class="nx">nombre_fichero_comprimido</span>
 </code></pre></div></div>
 
   </div>

@@ -96,87 +96,87 @@ momento, solo hace las copias de los ficheros que se modifican.</p>
 
 <p>Asi, que nos pusimos a ello. Lo primero fue decidir que información es la importante, luego como la vamos a estructurar (donde estara el directorio). En mi caso, la cosa quedo de la siguiente manera:</p>
 
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   ### DIRECTORIO DONDE SE ALMACENAN LAS COPIAS DE SEGURIDAD
-   <span class="sr">/mnt/</span>seguretat
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">###</span> <span class="nx">DIRECTORIO</span> <span class="nx">DONDE</span> <span class="nx">SE</span> <span class="nx">ALMACENAN</span> <span class="nx">LAS</span> <span class="nx">COPIAS</span> <span class="nx">DE</span> <span class="nx">SEGURIDAD</span>
+   <span class="o">/</span><span class="nx">mnt</span><span class="o">/</span><span class="nx">seguretat</span>
 
-   ### DIRECTORIOS DE LOS QUE QUIERO COPIAS DE SEGURIDAD
-   # <span class="k">el</span> directorio de mi usuario <span class="p">(</span>junto <span class="k">con</span> <span class="k">el</span> docker<span class="p">-</span>compose de docker<span class="p">)</span>
-   /home
-   # <span class="k">el</span> directorio donde estan las configuraciones del servidor que son importantes
-   /etc
-   # <span class="k">el</span> directorio donde tengo las configuraciones de las imagenes de docker
-   <span class="sr">/mnt/</span>config
+   <span class="err">###</span> <span class="nx">DIRECTORIOS</span> <span class="nx">DE</span> <span class="nx">LOS</span> <span class="nx">QUE</span> <span class="nx">QUIERO</span> <span class="nx">COPIAS</span> <span class="nx">DE</span> <span class="nx">SEGURIDAD</span>
+   <span class="err">#</span> <span class="nx">el</span> <span class="nx">directorio</span> <span class="nx">de</span> <span class="nx">mi</span> <span class="nx">usuario</span> <span class="p">(</span><span class="nx">junto</span> <span class="nx">con</span> <span class="nx">el</span> <span class="nx">docker</span><span class="o">-</span><span class="nx">compose</span> <span class="nx">de</span> <span class="nx">docker</span><span class="p">)</span>
+   <span class="o">/</span><span class="nx">home</span>
+   <span class="err">#</span> <span class="nx">el</span> <span class="nx">directorio</span> <span class="nx">donde</span> <span class="nx">estan</span> <span class="nx">las</span> <span class="nx">configuraciones</span> <span class="nx">del</span> <span class="nx">servidor</span> <span class="nx">que</span> <span class="nx">son</span> <span class="nx">importantes</span>
+   <span class="o">/</span><span class="nx">etc</span>
+   <span class="err">#</span> <span class="nx">el</span> <span class="nx">directorio</span> <span class="nx">donde</span> <span class="nx">tengo</span> <span class="nx">las</span> <span class="nx">configuraciones</span> <span class="nx">de</span> <span class="nx">las</span> <span class="nx">imagenes</span> <span class="nx">de</span> <span class="nx">docker</span>
+   <span class="o">/</span><span class="nx">mnt</span><span class="o">/</span><span class="nx">config</span>
 </code></pre></div></div>
 
 <p>Una vez ya tenemos decido la información a salvaguardar, pasamos a la creación del <strong>docker-compose</strong>:</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="na">rsnapshot</span><span class="pi">:</span>
-    <span class="na">image</span><span class="pi">:</span> <span class="s">ghcr.io/linuxserver/rsnapshot</span>
-     <span class="s">container_name</span><span class="pi">:</span> <span class="s">rsnapshot</span>
-     <span class="s">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
-     <span class="s">volumes</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">/mnt/config/rsnapshot:/config</span>
-      <span class="pi">-</span> <span class="s">/mnt/seguretat:/snapshots</span>
-      <span class="pi">-</span> <span class="s">/etc:/data/etc</span>
-      <span class="pi">-</span> <span class="s">/home/pi:/data/home/pi</span>
-      <span class="pi">-</span> <span class="s">/mnt/config:/data/config</span>
-     <span class="na">environment</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">PUID=1000</span>
-      <span class="pi">-</span> <span class="s">PGID=1000</span>
-      <span class="pi">-</span> <span class="s">TZ=Europe/Madrid</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">rsnapshot</span><span class="p">:</span>
+    <span class="nx">image</span><span class="p">:</span> <span class="nx">ghcr</span><span class="p">.</span><span class="nx">io</span><span class="o">/</span><span class="nx">linuxserver</span><span class="o">/</span><span class="nx">rsnapshot</span>
+     <span class="nx">container_name</span><span class="p">:</span> <span class="nx">rsnapshot</span>
+     <span class="nx">restart</span><span class="p">:</span> <span class="nx">unless</span><span class="o">-</span><span class="nx">stopped</span>
+     <span class="nx">volumes</span><span class="p">:</span>
+      <span class="o">-</span> <span class="sr">/mnt/</span><span class="nx">config</span><span class="o">/</span><span class="nx">rsnapshot</span><span class="p">:</span><span class="o">/</span><span class="nx">config</span>
+      <span class="o">-</span> <span class="sr">/mnt/</span><span class="nx">seguretat</span><span class="p">:</span><span class="o">/</span><span class="nx">snapshots</span>
+      <span class="o">-</span> <span class="sr">/etc:/</span><span class="nx">data</span><span class="o">/</span><span class="nx">etc</span>
+      <span class="o">-</span> <span class="sr">/home/</span><span class="nx">pi</span><span class="p">:</span><span class="o">/</span><span class="nx">data</span><span class="o">/</span><span class="nx">home</span><span class="o">/</span><span class="nx">pi</span>
+      <span class="o">-</span> <span class="sr">/mnt/</span><span class="nx">config</span><span class="p">:</span><span class="o">/</span><span class="nx">data</span><span class="o">/</span><span class="nx">config</span>
+     <span class="nx">environment</span><span class="p">:</span>
+      <span class="o">-</span> <span class="nx">PUID</span><span class="o">=</span><span class="mi">1000</span>
+      <span class="o">-</span> <span class="nx">PGID</span><span class="o">=</span><span class="mi">1000</span>
+      <span class="o">-</span> <span class="nx">TZ</span><span class="o">=</span><span class="nx">Europe</span><span class="o">/</span><span class="nx">Madrid</span>
 </code></pre></div></div>
 
 <p>Después de crear el docker, solamente nos quedar ejecutar la magica instruccion que nos lo pondra en marcha todo:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker-compose up <span class="nt">-d</span> rsnapshot
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span><span class="o">-</span><span class="nx">compose</span> <span class="nx">up</span> <span class="o">-</span><span class="nx">d</span> <span class="nx">rsnapshot</span>
 </code></pre></div></div>
 
 <p>Ahora nos queda la ultima parte, que es configurar los ficheros de configuración de rsnapshot. En mi caso lo hago dentro del mismo docker. Es posible que se pudiera hacer a traves de los ficheros de 
 configuración que estan en el host del docker, pero prefiero acceder para hacer la configuración. Que en mi caso estan en <code class="language-plaintext highlighter-rouge">/mnt/config/rsnapshot</code> y a configuración la
  tengo de la siguiente manera:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span><span class="nb">cd </span>dockerCompose
-   usuari@raspberry:~/dockerCompose <span class="nv">$ </span>docker-compose <span class="nb">exec </span>rsnapshot sh
-</code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">cd</span> <span class="nx">dockerCompose</span>
+   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="sr">/dockerCompose $ docker-compose exec rsnapshot s</span><span class="err">h
+</span></code></pre></div></div>
 
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   ### EDITO LOS FICHEROS RSNAPSHOT<span class="p">.</span>CONF DE LA SIGUIENTE MANERA
-   # DIRECTORIO QUE CONTIENE LAS COPIAS <span class="p">(</span>QUE LO HABRAS CONFIGURADO EN EL
-   # DOCKER<span class="p">-</span>COMPOSE<span class="p">)</span>
-   rsnapshpot_root   /snapshots
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">###</span> <span class="nx">EDITO</span> <span class="nx">LOS</span> <span class="nx">FICHEROS</span> <span class="nx">RSNAPSHOT</span><span class="p">.</span><span class="nx">CONF</span> <span class="nx">DE</span> <span class="nx">LA</span> <span class="nx">SIGUIENTE</span> <span class="nx">MANERA</span>
+   <span class="err">#</span> <span class="nx">DIRECTORIO</span> <span class="nx">QUE</span> <span class="nx">CONTIENE</span> <span class="nx">LAS</span> <span class="nx">COPIAS</span> <span class="p">(</span><span class="nx">QUE</span> <span class="nx">LO</span> <span class="nx">HABRAS</span> <span class="nx">CONFIGURADO</span> <span class="nx">EN</span> <span class="nx">EL</span>
+   <span class="err">#</span> <span class="nx">DOCKER</span><span class="o">-</span><span class="nx">COMPOSE</span><span class="p">)</span>
+   <span class="nx">rsnapshpot_root</span>   <span class="o">/</span><span class="nx">snapshots</span>
 
-   ### SON LOS INTERVALOS QUE SE SALVAN
-   # SE MANTIENEN <span class="m">7</span> COPIAS DIARIAS
-   retain    daily   <span class="m">7</span>
-   # SE MANTIENEN <span class="m">4</span> COPIAS SEMANALES
-   retain    weekly  <span class="m">4</span>
-   # SE MANTIENEN <span class="m">3</span> COPIAS MENSUALES
-   retain    monthly <span class="m">3</span>
+   <span class="err">###</span> <span class="nx">SON</span> <span class="nx">LOS</span> <span class="nx">INTERVALOS</span> <span class="nx">QUE</span> <span class="nx">SE</span> <span class="nx">SALVAN</span>
+   <span class="err">#</span> <span class="nx">SE</span> <span class="nx">MANTIENEN</span> <span class="mi">7</span> <span class="nx">COPIAS</span> <span class="nx">DIARIAS</span>
+   <span class="nx">retain</span>    <span class="nx">daily</span>   <span class="mi">7</span>
+   <span class="err">#</span> <span class="nx">SE</span> <span class="nx">MANTIENEN</span> <span class="mi">4</span> <span class="nx">COPIAS</span> <span class="nx">SEMANALES</span>
+   <span class="nx">retain</span>    <span class="nx">weekly</span>  <span class="mi">4</span>
+   <span class="err">#</span> <span class="nx">SE</span> <span class="nx">MANTIENEN</span> <span class="mi">3</span> <span class="nx">COPIAS</span> <span class="nx">MENSUALES</span>
+   <span class="nx">retain</span>    <span class="nx">monthly</span> <span class="mi">3</span>
   
-   # FICHERO DE LOGS
+   <span class="err">#</span> <span class="nx">FICHERO</span> <span class="nx">DE</span> <span class="nx">LOGS</span>
   
-   logfile   <span class="sr">/config/</span>rsnapshot<span class="p">.</span><span class="nb">log</span>
-   # DIRECTORIO A COPIAR <span class="p">-</span> EN MI CASO<span class="p">,</span> DENTRO DE DATA<span class="p">,</span> TENGO LOS DIRECTORIOS
-   # A SALVAGUARDAR
-   <span class="nb">backup</span>    <span class="sr">/data/</span>    localhost/
+   <span class="nx">logfile</span>   <span class="o">/</span><span class="nx">config</span><span class="o">/</span><span class="nx">rsnapshot</span><span class="p">.</span><span class="nx">log</span>
+   <span class="err">#</span> <span class="nx">DIRECTORIO</span> <span class="nx">A</span> <span class="nx">COPIAR</span> <span class="o">-</span> <span class="nx">EN</span> <span class="nx">MI</span> <span class="nx">CASO</span><span class="p">,</span> <span class="nx">DENTRO</span> <span class="nx">DE</span> <span class="nx">DATA</span><span class="p">,</span> <span class="nx">TENGO</span> <span class="nx">LOS</span> <span class="nx">DIRECTORIOS</span>
+   <span class="err">#</span> <span class="nx">A</span> <span class="nx">SALVAGUARDAR</span>
+   <span class="nx">backup</span>    <span class="o">/</span><span class="nx">data</span><span class="o">/</span>    <span class="nx">localhost</span><span class="o">/</span>
 </code></pre></div></div>
 
 <p>El siguiente fichero que hay que configurar, es el de cron (propio de rsnapshot), que se encarga de ejecutar las copias:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="c"># AUN SIGO DENTRO DEL CONTAINER</span>
-   <span class="nb">cd </span>crontabs
-   vi root
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">#</span> <span class="nx">AUN</span> <span class="nx">SIGO</span> <span class="nx">DENTRO</span> <span class="nx">DEL</span> <span class="nx">CONTAINER</span>
+   <span class="nx">cd</span> <span class="nx">crontabs</span>
+   <span class="nx">vi</span> <span class="nx">root</span>
 </code></pre></div></div>
 
 <p>Y ahora modificamos el archivo</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="c"># AHORA PASAMOS A LA EDICIÓN DEL FICHERO</span>
-   <span class="c"># min   hour    day   month   weekday   command</span>
-   <span class="c"># SE EJECUTA CADA DIA A LAS 2 DE LA MAÑANA</span>
-   0       2       <span class="k">*</span>     <span class="k">*</span>       <span class="k">*</span>         rsnapshot daily
-   <span class="c"># SE EJECUTA CADA LUNES (WEEKDAY - 1) A LAS 4 DE LA MAÑANA</span>
-   0       4       <span class="k">*</span>     <span class="k">*</span>       1         rsnapshot weekly
-   <span class="c"># SE EJECUTA CADA DIA 1 DE CADA MES A LAS 6 DE LA MAÑANA</span>
-   0       6       1     <span class="k">*</span>       <span class="k">*</span>         rsnapshot monthly
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">#</span> <span class="nx">AHORA</span> <span class="nx">PASAMOS</span> <span class="nx">A</span> <span class="nx">LA</span> <span class="nx">EDICIÓN</span> <span class="nx">DEL</span> <span class="nx">FICHERO</span>
+   <span class="err">#</span> <span class="nx">min</span>   <span class="nx">hour</span>    <span class="nx">day</span>   <span class="nx">month</span>   <span class="nx">weekday</span>   <span class="nx">command</span>
+   <span class="err">#</span> <span class="nx">SE</span> <span class="nx">EJECUTA</span> <span class="nx">CADA</span> <span class="nx">DIA</span> <span class="nx">A</span> <span class="nx">LAS</span> <span class="mi">2</span> <span class="nx">DE</span> <span class="nx">LA</span> <span class="nx">MAÑANA</span>
+   <span class="mi">0</span>       <span class="mi">2</span>       <span class="o">*</span>     <span class="o">*</span>       <span class="o">*</span>         <span class="nx">rsnapshot</span> <span class="nx">daily</span>
+   <span class="err">#</span> <span class="nx">SE</span> <span class="nx">EJECUTA</span> <span class="nx">CADA</span> <span class="nx">LUNES</span> <span class="p">(</span><span class="nx">WEEKDAY</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="nx">A</span> <span class="nx">LAS</span> <span class="mi">4</span> <span class="nx">DE</span> <span class="nx">LA</span> <span class="nx">MAÑANA</span>
+   <span class="mi">0</span>       <span class="mi">4</span>       <span class="o">*</span>     <span class="o">*</span>       <span class="mi">1</span>         <span class="nx">rsnapshot</span> <span class="nx">weekly</span>
+   <span class="err">#</span> <span class="nx">SE</span> <span class="nx">EJECUTA</span> <span class="nx">CADA</span> <span class="nx">DIA</span> <span class="mi">1</span> <span class="nx">DE</span> <span class="nx">CADA</span> <span class="nx">MES</span> <span class="nx">A</span> <span class="nx">LAS</span> <span class="mi">6</span> <span class="nx">DE</span> <span class="nx">LA</span> <span class="nx">MAÑANA</span>
+   <span class="mi">0</span>       <span class="mi">6</span>       <span class="mi">1</span>     <span class="o">*</span>       <span class="o">*</span>         <span class="nx">rsnapshot</span> <span class="nx">monthly</span>
 </code></pre></div></div>
 
 <p>Y con esto, ya tenemos configurado <strong>rsnapshot</strong>, ahora solamente hay que dejarlo que funcione y listo.</p>

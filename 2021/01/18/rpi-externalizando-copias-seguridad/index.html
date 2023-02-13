@@ -96,32 +96,32 @@ dicho directorio, los copia automaticamente en nuestra cuenta de <strong>Mega</s
 
 <p>Lo que necesitamos primero es hacer nuestro <strong>docker-compose</strong> de la siguiente manera:</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="na">megacmd</span><span class="pi">:</span>
-     <span class="na">image</span><span class="pi">:</span> <span class="s">melsonlai/docker-megacmd:arm</span>
-     <span class="na">container_name</span><span class="pi">:</span> <span class="s">megacmd</span>
-     <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
-     <span class="na">environment</span><span class="pi">:</span>
-       <span class="pi">-</span> <span class="s">PUID=1000</span>
-       <span class="pi">-</span> <span class="s">PGID=1000</span>
-     <span class="na">volumes</span><span class="pi">:</span>
-       <span class="c1"># DIRECTORIO DONDE ESTA LA CONFIGURACIÓN DE MEGA</span>
-       <span class="pi">-</span> <span class="s">/mnt/config/megacmd:/home/d_user</span>
-       <span class="c1"># DIRECTORIO DONDE ESTA LAS COPIAS DE SEGURIDAD DE RSNAPSHOT Y QUE QUEREMOS</span>
-       <span class="c1"># COPIAR EN MEGA</span>
-       <span class="pi">-</span> <span class="s">/mnt/seguretat:/mnt/sync</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">megacmd</span><span class="p">:</span>
+     <span class="nx">image</span><span class="p">:</span> <span class="nx">melsonlai</span><span class="o">/</span><span class="nx">docker</span><span class="o">-</span><span class="nx">megacmd</span><span class="p">:</span><span class="nx">arm</span>
+     <span class="nx">container_name</span><span class="p">:</span> <span class="nx">megacmd</span>
+     <span class="nx">restart</span><span class="p">:</span> <span class="nx">unless</span><span class="o">-</span><span class="nx">stopped</span>
+     <span class="nx">environment</span><span class="p">:</span>
+       <span class="o">-</span> <span class="nx">PUID</span><span class="o">=</span><span class="mi">1000</span>
+       <span class="o">-</span> <span class="nx">PGID</span><span class="o">=</span><span class="mi">1000</span>
+     <span class="nx">volumes</span><span class="p">:</span>
+       <span class="err">#</span> <span class="nx">DIRECTORIO</span> <span class="nx">DONDE</span> <span class="nx">ESTA</span> <span class="nx">LA</span> <span class="nx">CONFIGURACIÓN</span> <span class="nx">DE</span> <span class="nx">MEGA</span>
+       <span class="o">-</span> <span class="sr">/mnt/</span><span class="nx">config</span><span class="o">/</span><span class="nx">megacmd</span><span class="p">:</span><span class="o">/</span><span class="nx">home</span><span class="o">/</span><span class="nx">d_user</span>
+       <span class="err">#</span> <span class="nx">DIRECTORIO</span> <span class="nx">DONDE</span> <span class="nx">ESTA</span> <span class="nx">LAS</span> <span class="nx">COPIAS</span> <span class="nx">DE</span> <span class="nx">SEGURIDAD</span> <span class="nx">DE</span> <span class="nx">RSNAPSHOT</span> <span class="nx">Y</span> <span class="nx">QUE</span> <span class="nx">QUEREMOS</span>
+       <span class="err">#</span> <span class="nx">COPIAR</span> <span class="nx">EN</span> <span class="nx">MEGA</span>
+       <span class="o">-</span> <span class="sr">/mnt/</span><span class="nx">seguretat</span><span class="p">:</span><span class="o">/</span><span class="nx">mnt</span><span class="o">/</span><span class="nx">sync</span>
 </code></pre></div></div>
 
 <p>Una vez tenemos nuestro fichero <strong>docker-compose</strong>, solamente nos queda usar nuestro comando favorito <code class="language-plaintext highlighter-rouge">docker-compose up -d megacmd</code></p>
 
 <p>Cuando se ha finalizado la descarga de la imagen, tenemos que ejecutar el siguiente comando para entrar en el container y finalizar la configuración del sistema:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker <span class="nb">exec</span> <span class="nt">-it</span> megacmd su - d_user
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">exec</span> <span class="o">-</span><span class="nx">it</span> <span class="nx">megacmd</span> <span class="nx">su</span> <span class="o">-</span> <span class="nx">d_user</span>
 
-   ~<span class="nv">$ </span>mega-login &lt;account-email&gt; &lt;password&gt;
-   ~<span class="nv">$ </span>mega-sync &lt;localpath&gt; &lt;dstremotepath&gt;
+   <span class="o">~</span><span class="nx">$</span> <span class="nx">mega</span><span class="o">-</span><span class="nx">login</span> <span class="o">&lt;</span><span class="nx">account</span><span class="o">-</span><span class="nx">email</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">password</span><span class="o">&gt;</span>
+   <span class="o">~</span><span class="nx">$</span> <span class="nx">mega</span><span class="o">-</span><span class="nx">sync</span> <span class="o">&lt;</span><span class="nx">localpath</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">dstremotepath</span><span class="o">&gt;</span>
 
-   <span class="c"># EN MI CASO, ESTA INSTRUCCIÓN SERIA LA SIGUIENTE</span>
-   ~<span class="nv">$ </span>mega-sync /mnt/sync /backup
+   <span class="err">#</span> <span class="nx">EN</span> <span class="nx">MI</span> <span class="nx">CASO</span><span class="p">,</span> <span class="nx">ESTA</span> <span class="nx">INSTRUCCIÓN</span> <span class="nx">SERIA</span> <span class="nx">LA</span> <span class="nx">SIGUIENTE</span>
+   <span class="o">~</span><span class="nx">$</span> <span class="nx">mega</span><span class="o">-</span><span class="nx">sync</span> <span class="o">/</span><span class="nx">mnt</span><span class="o">/</span><span class="nx">sync</span> <span class="o">/</span><span class="nx">backup</span>
 </code></pre></div></div>
 
 <p>Y con esta se da por finalizada la configuración de <strong>MegaCmd</strong> que automaticamente sincronizara el contenido del directorio <code class="language-plaintext highlighter-rouge">/mnt/seguretat</code> con el directorio que 

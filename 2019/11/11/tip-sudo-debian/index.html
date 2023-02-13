@@ -89,7 +89,7 @@
 
 <p>Para instalar y configurar sudo, los pasos (los que yo utilizo) son los siguientes:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   root@debian:~# apt-get <span class="nb">install sudo</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">apt</span><span class="o">-</span><span class="kd">get</span> <span class="nx">install</span> <span class="nx">sudo</span>
 </code></pre></div></div>
 
 <p>Una vez se ha instalado, ejecutamos: <code class="language-plaintext highlighter-rouge">visudo</code></p>
@@ -97,12 +97,12 @@
 <p>Esta instrucción se usa, para que en caso de trabajar con este fichero más de una persona, no se pierda la información de las modificacions que va haciendo cada usuario, por eso es recomendable, 
 aunque tambien se puede hacer editando el fichero:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   root@debian:~#vi /etc/sudoers
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="err">#</span><span class="nx">vi</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">sudoers</span>
 </code></pre></div></div>
 
 <p>La definición de este fichero es la siguiente</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   nombre_usuario nombre_equipo <span class="o">=</span> <span class="o">(</span>usuario:grupo<span class="o">)</span> comando_restringir
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">nombre_usuario</span> <span class="nx">nombre_equipo</span> <span class="o">=</span> <span class="p">(</span><span class="nx">usuario</span><span class="p">:</span><span class="nx">grupo</span><span class="p">)</span> <span class="nx">comando_restringir</span>
 </code></pre></div></div>
 
 <ul>
@@ -131,14 +131,14 @@ aunque tambien se puede hacer editando el fichero:</p>
 
 <p>Para bloquear al usuario root ejecutamos la siguiente instrucción</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nb">sudo </span>usermod <span class="nt">--lock</span> <span class="nt">--expiredate</span> 1979-01-01 root
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">sudo</span> <span class="nx">usermod</span> <span class="o">--</span><span class="nx">lock</span> <span class="o">--</span><span class="nx">expiredate</span> <span class="mi">1979</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="nx">root</span>
 </code></pre></div></div>
 
 <p>Una vez ejecutado este comando, el usuario <code class="language-plaintext highlighter-rouge">root</code> queda desactivado y todas las instrucciones se realizan a traves de sudo.</p>
 
 <p>En el caso de querer reactivar al usuario <code class="language-plaintext highlighter-rouge">root</code>, tan solo tendriamos que ejecutar el siguiente comando</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nb">sudo </span>usermod <span class="nt">--unlock</span> <span class="nt">--expiredate</span> 99999 root
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">sudo</span> <span class="nx">usermod</span> <span class="o">--</span><span class="nx">unlock</span> <span class="o">--</span><span class="nx">expiredate</span> <span class="mi">99999</span> <span class="nx">root</span>
 </code></pre></div></div>
 
 <p>Y el primer TIP ya esta listo.</p>

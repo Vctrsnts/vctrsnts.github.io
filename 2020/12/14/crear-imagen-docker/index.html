@@ -91,44 +91,44 @@ etc…).</p>
 
 <p>Un ejemplo de fichero <code class="language-plaintext highlighter-rouge">Dockerfile</code> puede ser este que utilice para crear la imagen de flexget :</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="s">FROM alpine:3.11</span>
-   <span class="s">LABEL maintainer "wiserain"</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">FROM</span> <span class="nx">alpine</span><span class="p">:</span><span class="mf">3.11</span>
+   <span class="nx">LABEL</span> <span class="nx">maintainer</span> <span class="dl">"</span><span class="s2">wiserain</span><span class="dl">"</span>
 
-   <span class="s">RUN \</span>
-     <span class="s">echo "**** install frolvlad/alpine-python3 ****" &amp;&amp; \</span>
-     <span class="s">apk add --no-cache python3 &amp;&amp; \</span>
-     <span class="s">python3 -m ensurepip &amp;&amp; \</span>
-     <span class="s">rm -r /usr/lib/python*/ensurepip &amp;&amp; \</span>
-     <span class="s">pip3 install --no-cache --upgrade pip setuptools wheel &amp;&amp; \</span>
-     <span class="s">if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip; fi &amp;&amp; \</span>
-     <span class="s">echo "**** install dependencies for plugin</span><span class="pi">:</span> <span class="s">telegram ****" &amp;&amp; \</span>
-     <span class="s">apk add --no-cache py3-cryptography &amp;&amp; \</span>
-     <span class="s">pip install --upgrade PySocks &amp;&amp; \</span>
-     <span class="s">pip install --upgrade python-telegram-bot &amp;&amp; \</span>
-     <span class="s">echo "**** install dependencies for plugin</span><span class="pi">:</span> <span class="s">cfscraper ****" &amp;&amp; \</span>
-     <span class="s">pip install --upgrade cloudscraper &amp;&amp; \</span>
-     <span class="s">apk del --purge --no-cache build-deps &amp;&amp; \</span>
-     <span class="s">echo "**** install dependencies for plugin</span><span class="pi">:</span> <span class="s">convert_magnet ****" &amp;&amp; \</span>
-     <span class="s">apk add --no-cache boost-python3 libstdc++ &amp;&amp; \</span>
-     <span class="s">echo "**** install dependencies for plugin</span><span class="pi">:</span> <span class="s">misc ****" &amp;&amp; \</span>
-     <span class="s">pip install --upgrade \</span>
-       <span class="s">transmissionrpc \</span>
-       <span class="s">irc_bot &amp;&amp; \</span>
-     <span class="s">echo "**** install dependencies for plugin</span><span class="pi">:</span> <span class="s">rar ****" &amp;&amp; \</span>
-     <span class="s">apk add --no-cache unrar &amp;&amp; \</span>
-     <span class="s">pip install --upgrade rarfile &amp;&amp; \</span>
-     <span class="s">echo "**** install flexget ****" &amp;&amp; \</span>
-     <span class="s">pip install --upgrade --force-reinstall flexget &amp;&amp; \</span>
-     <span class="s"># add default volumes</span>
-     <span class="s">VOLUME /config /data</span>
-     <span class="s">WORKDIR /config</span>
+   <span class="nx">RUN</span> <span class="o">\</span>
+     <span class="nx">echo</span> <span class="dl">"</span><span class="s2">**** install frolvlad/alpine-python3 ****</span><span class="dl">"</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">apk</span> <span class="nx">add</span> <span class="o">--</span><span class="nx">no</span><span class="o">-</span><span class="nx">cache</span> <span class="nx">python3</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">python3</span> <span class="o">-</span><span class="nx">m</span> <span class="nx">ensurepip</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">rm</span> <span class="o">-</span><span class="nx">r</span> <span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">lib</span><span class="o">/</span><span class="nx">python</span><span class="o">*</span><span class="sr">/ensurepip &amp;&amp; </span><span class="err">\
+</span>     <span class="nx">pip3</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">no</span><span class="o">-</span><span class="nx">cache</span> <span class="o">--</span><span class="nx">upgrade</span> <span class="nx">pip</span> <span class="nx">setuptools</span> <span class="nx">wheel</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="k">if</span> <span class="p">[</span> <span class="o">!</span> <span class="o">-</span><span class="nx">e</span> <span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">bin</span><span class="o">/</span><span class="nx">pip</span> <span class="p">];</span> <span class="nx">then</span> <span class="nx">ln</span> <span class="o">-</span><span class="nx">s</span> <span class="nx">pip3</span> <span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">bin</span><span class="o">/</span><span class="nx">pip</span><span class="p">;</span> <span class="nx">fi</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">echo</span> <span class="dl">"</span><span class="s2">**** install dependencies for plugin: telegram ****</span><span class="dl">"</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">apk</span> <span class="nx">add</span> <span class="o">--</span><span class="nx">no</span><span class="o">-</span><span class="nx">cache</span> <span class="nx">py3</span><span class="o">-</span><span class="nx">cryptography</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">pip</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">upgrade</span> <span class="nx">PySocks</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">pip</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">upgrade</span> <span class="nx">python</span><span class="o">-</span><span class="nx">telegram</span><span class="o">-</span><span class="nx">bot</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">echo</span> <span class="dl">"</span><span class="s2">**** install dependencies for plugin: cfscraper ****</span><span class="dl">"</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">pip</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">upgrade</span> <span class="nx">cloudscraper</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">apk</span> <span class="nx">del</span> <span class="o">--</span><span class="nx">purge</span> <span class="o">--</span><span class="nx">no</span><span class="o">-</span><span class="nx">cache</span> <span class="nx">build</span><span class="o">-</span><span class="nx">deps</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">echo</span> <span class="dl">"</span><span class="s2">**** install dependencies for plugin: convert_magnet ****</span><span class="dl">"</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">apk</span> <span class="nx">add</span> <span class="o">--</span><span class="nx">no</span><span class="o">-</span><span class="nx">cache</span> <span class="nx">boost</span><span class="o">-</span><span class="nx">python3</span> <span class="nx">libstdc</span><span class="o">++</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">echo</span> <span class="dl">"</span><span class="s2">**** install dependencies for plugin: misc ****</span><span class="dl">"</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">pip</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">upgrade</span> <span class="o">\</span>
+       <span class="nx">transmissionrpc</span> <span class="o">\</span>
+       <span class="nx">irc_bot</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">echo</span> <span class="dl">"</span><span class="s2">**** install dependencies for plugin: rar ****</span><span class="dl">"</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">apk</span> <span class="nx">add</span> <span class="o">--</span><span class="nx">no</span><span class="o">-</span><span class="nx">cache</span> <span class="nx">unrar</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">pip</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">upgrade</span> <span class="nx">rarfile</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">echo</span> <span class="dl">"</span><span class="s2">**** install flexget ****</span><span class="dl">"</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="nx">pip</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">upgrade</span> <span class="o">--</span><span class="nx">force</span><span class="o">-</span><span class="nx">reinstall</span> <span class="nx">flexget</span> <span class="o">&amp;&amp;</span> <span class="o">\</span>
+     <span class="err">#</span> <span class="nx">add</span> <span class="k">default</span> <span class="nx">volumes</span>
+     <span class="nx">VOLUME</span> <span class="o">/</span><span class="nx">config</span> <span class="o">/</span><span class="nx">data</span>
+     <span class="nx">WORKDIR</span> <span class="o">/</span><span class="nx">config</span>
  
-     <span class="s"># expose port for flexget webui</span>
-     <span class="s">EXPOSE 3539 3539/tcp</span>
+     <span class="err">#</span> <span class="nx">expose</span> <span class="nx">port</span> <span class="k">for</span> <span class="nx">flexget</span> <span class="nx">webui</span>
+     <span class="nx">EXPOSE</span> <span class="mi">3539</span> <span class="mi">3539</span><span class="o">/</span><span class="nx">tcp</span>
  
-     <span class="s"># run init.sh to set uid, gid, permissions and to launch flexget</span>
-     <span class="s">RUN chmod +x /scripts/init.sh</span>
-     <span class="s">CMD ["/scripts/init.sh"]</span>
+     <span class="err">#</span> <span class="nx">run</span> <span class="nx">init</span><span class="p">.</span><span class="nx">sh</span> <span class="nx">to</span> <span class="kd">set</span> <span class="nx">uid</span><span class="p">,</span> <span class="nx">gid</span><span class="p">,</span> <span class="nx">permissions</span> <span class="nx">and</span> <span class="nx">to</span> <span class="nx">launch</span> <span class="nx">flexget</span>
+     <span class="nx">RUN</span> <span class="nx">chmod</span> <span class="o">+</span><span class="nx">x</span> <span class="o">/</span><span class="nx">scripts</span><span class="o">/</span><span class="nx">init</span><span class="p">.</span><span class="nx">sh</span>
+     <span class="nx">CMD</span> <span class="p">[</span><span class="dl">"</span><span class="s2">/scripts/init.sh</span><span class="dl">"</span><span class="p">]</span>
 </code></pre></div></div>
 
 <p>Como se puede ver, en este caso, la base de mi imagen es <code class="language-plaintext highlighter-rouge">alpine:3.11</code> y se basa en una imagen ya creada por wiserain. Lo que yo hice fue quitar un par de cosas que no necesitaba y añadir otras porque
@@ -143,17 +143,17 @@ etc…).</p>
 <p>Para crear la imagen en si y luego subirla, lo primero es crear dicha imagen. Esto se hace a traves del siguiente comando (lo mejor es ejecutar esta imagen dentro del directorio donde tenemos el 
 <code class="language-plaintext highlighter-rouge">Dockerfile</code>):</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@debian:~<span class="nv">$ </span>docker build <span class="nt">-t</span> usuario/nombre_imagen:version <span class="nb">.</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">build</span> <span class="o">-</span><span class="nx">t</span> <span class="nx">usuario</span><span class="o">/</span><span class="nx">nombre_imagen</span><span class="p">:</span><span class="nx">version</span> <span class="p">.</span>
 </code></pre></div></div>
 
 <p>Con esto ya hemos creado la imagen, ahora tenemos que subir la imagen, pero antes tenemos que hacer login en nuestra cuenta de <code class="language-plaintext highlighter-rouge">dockerhub</code>:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@debian:~<span class="nv">$ </span>docker login
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">login</span>
 </code></pre></div></div>
 
 <p>Una vez ya tenemos acceso procedemos a subir la imagen :</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@debian:~<span class="nv">$ </span>docker push usuario/nombre_imagen:latest
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">push</span> <span class="nx">usuario</span><span class="o">/</span><span class="nx">nombre_imagen</span><span class="p">:</span><span class="nx">latest</span>
 </code></pre></div></div>
 
 <p>Y ya tenemos  nuestra imagen de docker creada y subida en dockerhub.</p>

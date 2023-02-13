@@ -90,14 +90,14 @@
 
 <p>Lo primero es acceder a la consola y ejecutamos el siguiente comando:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@debian:~<span class="nv">$ </span><span class="nb">sudo mkdir</span> /media/cdrom
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">mkdir</span> <span class="o">/</span><span class="nx">media</span><span class="o">/</span><span class="nx">cdrom</span>
 </code></pre></div></div>
 
 <p>Estamos creando el directorio donde vamos a montar la imagen <strong>ISO</strong>, en mi caso, como ya tengo este directorio me puedo saltar este paso.</p>
 
 <p>Ahora pasamos a montar la imagen directamente:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@debian:~<span class="nv">$ </span><span class="nb">sudo </span>mount <span class="nt">-o</span> loop <span class="nt">-t</span> iso9660 /ruta_imagen.iso /media/cdrom
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">mount</span> <span class="o">-</span><span class="nx">o</span> <span class="nx">loop</span> <span class="o">-</span><span class="nx">t</span> <span class="nx">iso9660</span> <span class="o">/</span><span class="nx">ruta_imagen</span><span class="p">.</span><span class="nx">iso</span> <span class="o">/</span><span class="nx">media</span><span class="o">/</span><span class="nx">cdrom</span>
 </code></pre></div></div>
 
 <p>Vamos a explicar un poco que significa cada parametro:</p>
@@ -111,7 +111,7 @@ fisico, ya que la imagen ISO no es un dispositivo real con una lista en el direc
 
 <p>Para finalizar, nos quedara desmontar la imagen <strong>ISO</strong> de la misma manera como se haria con un dispositivo fisico:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@debian:~<span class="nv">$ </span><span class="nb">sudo </span>umount /media/cdrom
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">umount</span> <span class="o">/</span><span class="nx">media</span><span class="o">/</span><span class="nx">cdrom</span>
 </code></pre></div></div>
 
 <h4 id="referencia">Referencia</h4>

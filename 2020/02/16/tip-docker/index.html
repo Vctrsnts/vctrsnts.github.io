@@ -92,7 +92,7 @@
 <p>En el caso de que lleguemos al punto de tener nuestro sistema hecho un desastre, hay un comando en <strong>Docker</strong> que sirve para limpiar imágenes, contenedores, volúmenes y dispositivos de red, que no 
 estén asociadas a ningún contenedor.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker system prune
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">system</span> <span class="nx">prune</span>
 </code></pre></div></div>
 
 <p>Si le añadimos el <code class="language-plaintext highlighter-rouge">flag -a</code> al final, borraremos también:</p>
@@ -101,7 +101,7 @@ estén asociadas a ningún contenedor.</p>
   <li>Todas las imágenes que no se estén usando en ese momento.</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker system prune <span class="nt">-a</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">system</span> <span class="nx">prune</span> <span class="o">-</span><span class="nx">a</span>
 </code></pre></div></div>
 
 <h2 id="borrar-imágenes-de-docker">BORRAR IMÁGENES DE DOCKER</h2>
@@ -114,7 +114,7 @@ estén asociadas a ningún contenedor.</p>
 
 <p>Una vez localizada la imagen que queremos borrar, utilizaremos su <code class="language-plaintext highlighter-rouge">ID</code> para borrarla:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker rmi
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">rmi</span>
 </code></pre></div></div>
 
 <h3 id="borrar-imágenes-colgadas-dangling-images">Borrar imágenes “colgadas” (dangling images)</h3>
@@ -122,19 +122,19 @@ estén asociadas a ningún contenedor.</p>
 <p>Las imágenes colgadas son las capas de imágenes que no se están utilizando en ningún contenedor, tanto que estén en funcionamiento como que estén parados. Estas imágenes pueden ser borradas en la gran
  mayoría de las veces. Podemos ver estas imágenes con el comando:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker images <span class="nt">-f</span> <span class="nv">dangling</span><span class="o">=</span><span class="nb">true</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">images</span> <span class="o">-</span><span class="nx">f</span> <span class="nx">dangling</span><span class="o">=</span><span class="kc">true</span>
 </code></pre></div></div>
 
 <p>Y para borrarlas:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker images purge
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">images</span> <span class="nx">purge</span>
 </code></pre></div></div>
 
 <h3 id="borrar-todas-las-imágenes">Borrar todas las imágenes</h3>
 
 <p>Si queremos borrar todas las imágenes, podemos ejecutar:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker rmi <span class="si">$(</span>docker images <span class="nt">-a</span> <span class="nt">-q</span><span class="si">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">rmi</span> <span class="nx">$</span><span class="p">(</span><span class="nx">docker</span> <span class="nx">images</span> <span class="o">-</span><span class="nx">a</span> <span class="o">-</span><span class="nx">q</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h2 id="borrar-contenedores-docker">BORRAR CONTENEDORES DOCKER</h2>
@@ -142,36 +142,36 @@ estén asociadas a ningún contenedor.</p>
 <h3 id="borrar-contenedores">Borrar Contenedores</h3>
 <p>Primero debemos localizar los contenedores que queremos borrar, para ello ejecutaremos el comando:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker ps <span class="nt">-a</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">ps</span> <span class="o">-</span><span class="nx">a</span>
 </code></pre></div></div>
 
 <p>Y para borrarlos:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker <span class="nb">rm</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">rm</span>
 </code></pre></div></div>
 
 <p>Si no quieres que un contenedor se quede ahí una vez parado, puedes lanzar el proceso con el <code class="language-plaintext highlighter-rouge">flag -rm</code>:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker run <span class="nt">-rm</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">run</span> <span class="o">-</span><span class="nx">rm</span>
 </code></pre></div></div>
 
 <h3 id="borrar-contenedores-mediante-filtros">Borrar contenedores mediante filtros</h3>
 
 <p>Podemos usar filtros para seleccionar contenedores, por ejemplo:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker ps <span class="nt">-a</span> <span class="nt">-s</span> <span class="nv">status</span><span class="o">=</span>exited <span class="nt">-f</span> <span class="nv">status</span><span class="o">=</span>created
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">ps</span> <span class="o">-</span><span class="nx">a</span> <span class="o">-</span><span class="nx">s</span> <span class="nx">status</span><span class="o">=</span><span class="nx">exited</span> <span class="o">-</span><span class="nx">f</span> <span class="nx">status</span><span class="o">=</span><span class="nx">created</span>
 </code></pre></div></div>
 
 <p>Y combinándolos con los comandos anteriores, sirve para borrarlos:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker <span class="nb">rm</span> <span class="si">$(</span>docker ps <span class="nt">-a</span> <span class="nt">-f</span> <span class="nv">status</span><span class="o">=</span>exited <span class="nt">-f</span> <span class="nv">status</span><span class="o">=</span>created <span class="nt">-q</span><span class="si">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">rm</span> <span class="nx">$</span><span class="p">(</span><span class="nx">docker</span> <span class="nx">ps</span> <span class="o">-</span><span class="nx">a</span> <span class="o">-</span><span class="nx">f</span> <span class="nx">status</span><span class="o">=</span><span class="nx">exited</span> <span class="o">-</span><span class="nx">f</span> <span class="nx">status</span><span class="o">=</span><span class="nx">created</span> <span class="o">-</span><span class="nx">q</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h3 id="parar-y-borrar-todos-los-contenedores-docker">Parar y borrar todos los contenedores Docker</h3>
 
 <p>También podemos parar y borrar todos los contenedores con un solo comando:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker <span class="nb">rm</span> <span class="si">$(</span>docker ps <span class="nt">-a</span> <span class="nt">-q</span><span class="si">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">rm</span> <span class="nx">$</span><span class="p">(</span><span class="nx">docker</span> <span class="nx">ps</span> <span class="o">-</span><span class="nx">a</span> <span class="o">-</span><span class="nx">q</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h2 id="borrando-volúmenes-de-docker">BORRANDO VOLÚMENES DE DOCKER</h2>
@@ -180,29 +180,29 @@ estén asociadas a ningún contenedor.</p>
 
 <p>Para ver los volúmenes que tenemos en el sistema, podemos usar el comando:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker volume <span class="nb">ls</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">volume</span> <span class="nx">ls</span>
 </code></pre></div></div>
 
 <p>Cuando localizamos el volumen, lo podemos borrar con:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker volume <span class="nb">rm</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">volume</span> <span class="nx">rm</span>
 </code></pre></div></div>
 
 <h3 id="borrar-volúmenes-colgados-dangling-volume">Borrar volúmenes colgados (dangling volume)</h3>
 
 <p>Los volumenes colgados son aquellos que no estan conectados a ningun contenedor. Ten en cuenta que es posible que haya volumenes en ese estado que no tengas que ser borrados. Para verlos utilizaremos:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker volume <span class="nb">ls</span> <span class="nt">-f</span> <span class="nv">dangling</span><span class="o">=</span><span class="nb">true</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">volume</span> <span class="nx">ls</span> <span class="o">-</span><span class="nx">f</span> <span class="nx">dangling</span><span class="o">=</span><span class="kc">true</span>
 </code></pre></div></div>
 
 <p>Localizaremos los que queremos borrar y lo haremos con el mismo comando del punto anterior:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker volume <span class="nb">rm</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">volume</span> <span class="nx">rm</span>
 </code></pre></div></div>
 
 <p>Si queremos borrar todos los dangling volumes, ejecutaremos:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>docker volume prune
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span> <span class="nx">volume</span> <span class="nx">prune</span>
 </code></pre></div></div>
 
 <h4 id="referencia">Referencia</h4>

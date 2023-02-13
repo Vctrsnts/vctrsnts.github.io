@@ -91,16 +91,16 @@ seguridad para que nadie pueda acceder a ella (recordar que esto se tiene que ha
 <p>Lo primero es tener instalado el paquete <code class="language-plaintext highlighter-rouge">openssh-server</code>, luego, procedemos a generar nuestras claves publicas para realizar la connexión con la Raspberry. Este procedimento se realiza a traves de la
  instruccion <code class="language-plaintext highlighter-rouge">ssh-keygen</code> como se muestra a continuación:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> rsa
-   Generating public/private rsa key pair.
-   Enter file <span class="k">in </span>which to save the key <span class="o">(</span>/home/tuUsuario/.ssh/id_rsa<span class="o">)</span>:
-   Enter passphrase <span class="o">(</span>empty <span class="k">for </span>no passphrase<span class="o">)</span>:
-   Enter same passphrase again:
-   Your identification has been saved <span class="k">in</span> /home/tuUsuario/.ssh/id_rsa.
-   Your public key has been saved <span class="k">in</span> /home/tuUsuario/.ssh/id_rsa.pub.
-   The key fingerprint is:
-   be:11:15:e3:6a:dc:a6:a6:7e:e9:6c:7b:9f:30:28:40 root@poe
-   The key<span class="s1">'s randomart image is:
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">ssh</span><span class="o">-</span><span class="nx">keygen</span> <span class="o">-</span><span class="nx">t</span> <span class="nx">rsa</span>
+   <span class="nx">Generating</span> <span class="kr">public</span><span class="o">/</span><span class="kr">private</span> <span class="nx">rsa</span> <span class="nx">key</span> <span class="nx">pair</span><span class="p">.</span>
+   <span class="nx">Enter</span> <span class="nx">file</span> <span class="k">in</span> <span class="nx">which</span> <span class="nx">to</span> <span class="nx">save</span> <span class="nx">the</span> <span class="nx">key</span> <span class="p">(</span><span class="sr">/home/</span><span class="nx">tuUsuario</span><span class="o">/</span><span class="p">.</span><span class="nx">ssh</span><span class="o">/</span><span class="nx">id_rsa</span><span class="p">):</span>
+   <span class="nx">Enter</span> <span class="nx">passphrase</span> <span class="p">(</span><span class="nx">empty</span> <span class="k">for</span> <span class="nx">no</span> <span class="nx">passphrase</span><span class="p">):</span>
+   <span class="nx">Enter</span> <span class="nx">same</span> <span class="nx">passphrase</span> <span class="nx">again</span><span class="p">:</span>
+   <span class="nx">Your</span> <span class="nx">identification</span> <span class="nx">has</span> <span class="nx">been</span> <span class="nx">saved</span> <span class="k">in</span> <span class="sr">/home/</span><span class="nx">tuUsuario</span><span class="o">/</span><span class="p">.</span><span class="nx">ssh</span><span class="o">/</span><span class="nx">id_rsa</span><span class="p">.</span>
+   <span class="nx">Your</span> <span class="kr">public</span> <span class="nx">key</span> <span class="nx">has</span> <span class="nx">been</span> <span class="nx">saved</span> <span class="k">in</span> <span class="sr">/home/</span><span class="nx">tuUsuario</span><span class="o">/</span><span class="p">.</span><span class="nx">ssh</span><span class="o">/</span><span class="nx">id_rsa</span><span class="p">.</span><span class="nx">pub</span><span class="p">.</span>
+   <span class="nx">The</span> <span class="nx">key</span> <span class="nx">fingerprint</span> <span class="nx">is</span><span class="p">:</span>
+   <span class="nx">be</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">15</span><span class="p">:</span><span class="nx">e3</span><span class="p">:</span><span class="mi">6</span><span class="nx">a</span><span class="p">:</span><span class="nx">dc</span><span class="p">:</span><span class="nx">a6</span><span class="p">:</span><span class="nx">a6</span><span class="p">:</span><span class="mi">7</span><span class="nx">e</span><span class="p">:</span><span class="nx">e9</span><span class="p">:</span><span class="mi">6</span><span class="nx">c</span><span class="p">:</span><span class="mi">7</span><span class="nx">b</span><span class="p">:</span><span class="mi">9</span><span class="nx">f</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">40</span> <span class="nx">root</span><span class="p">@</span><span class="nd">poe</span>
+   <span class="nx">The</span> <span class="nx">key</span><span class="dl">'</span><span class="s1">s randomart image is:
    +--[ RSA 2048]----+
    | o |
    | . o |
@@ -116,39 +116,39 @@ seguridad para que nadie pueda acceder a ella (recordar que esto se tiene que ha
 
 <p>Ahora, pasamos a copiar esta clave publica a nuestro Raspberry con la instrucción <code class="language-plaintext highlighter-rouge">ssh-copy-id</code> como se muestra a continuación:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>ssh-copy-id <span class="nt">-i</span> .ssh/id_rsa.pub tuUsuario@ipRaspberry
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">ssh</span><span class="o">-</span><span class="nx">copy</span><span class="o">-</span><span class="nx">id</span> <span class="o">-</span><span class="nx">i</span> <span class="p">.</span><span class="nx">ssh</span><span class="o">/</span><span class="nx">id_rsa</span><span class="p">.</span><span class="nx">pub</span> <span class="nx">tuUsuario</span><span class="p">@</span><span class="nd">ipRaspberry</span>
 </code></pre></div></div>
 
 <p>Con esta instrucción, lo que se hace es copiar nuestra clave publica en la Raspberry.</p>
 
 <p>Ahora solamente faltaria realizar la connexión a traves de ssh para ver el resultado:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>ssh <span class="nt">-l</span> tuUsuario <span class="nt">-p</span> tuPuerto ipRaspberry
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">ssh</span> <span class="o">-</span><span class="nx">l</span> <span class="nx">tuUsuario</span> <span class="o">-</span><span class="nx">p</span> <span class="nx">tuPuerto</span> <span class="nx">ipRaspberry</span>
 </code></pre></div></div>
 
 <p>Asi mismo, para obtener un poco más de seguridad, yo lo he echo, es configurar de la siguiente manera el fichero:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   root@raspberry:~# vi /etc/ssh/sshd_config
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">vi</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">ssh</span><span class="o">/</span><span class="nx">sshd_config</span>
 </code></pre></div></div>
 
 <p>Y modificaremos las siguientes opciones:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="c"># Desactivar la opción de acceso a traves de password</span>
-   PasswordAuthetication no
-   <span class="c"># Desactivar la opción de acceso a traves de root</span>
-   PermitRootLogin       no
-   <span class="c"># Acceso a traves de una llave publica</span>
-   PubkeyAuthenticacion  <span class="nb">yes</span>
-   <span class="c"># Se aconseja cambiar el puerto de acceso del servicio ssh</span>
-   Port 2222
-   <span class="c"># Cantidad de segundos que la pantalla de login estara disponible</span>
-   LoginGraceTime 60
-   <span class="c"># No permitimos contraseñas vacias o en blanco</span>
-   PermitEmptyPasswords no
-   <span class="c"># Numero maximo de errores permitidos al hacer login</span>
-   MaxAuthTries 3
-   <span class="c"># Numero maximo de conexiones simultaneas por IP</span>
-   MaxStartups 2
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">#</span> <span class="nx">Desactivar</span> <span class="nx">la</span> <span class="nx">opción</span> <span class="nx">de</span> <span class="nx">acceso</span> <span class="nx">a</span> <span class="nx">traves</span> <span class="nx">de</span> <span class="nx">password</span>
+   <span class="nx">PasswordAuthetication</span> <span class="nx">no</span>
+   <span class="err">#</span> <span class="nx">Desactivar</span> <span class="nx">la</span> <span class="nx">opción</span> <span class="nx">de</span> <span class="nx">acceso</span> <span class="nx">a</span> <span class="nx">traves</span> <span class="nx">de</span> <span class="nx">root</span>
+   <span class="nx">PermitRootLogin</span>       <span class="nx">no</span>
+   <span class="err">#</span> <span class="nx">Acceso</span> <span class="nx">a</span> <span class="nx">traves</span> <span class="nx">de</span> <span class="nx">una</span> <span class="nx">llave</span> <span class="nx">publica</span>
+   <span class="nx">PubkeyAuthenticacion</span>  <span class="nx">yes</span>
+   <span class="err">#</span> <span class="nx">Se</span> <span class="nx">aconseja</span> <span class="nx">cambiar</span> <span class="nx">el</span> <span class="nx">puerto</span> <span class="nx">de</span> <span class="nx">acceso</span> <span class="nx">del</span> <span class="nx">servicio</span> <span class="nx">ssh</span>
+   <span class="nx">Port</span> <span class="mi">2222</span>
+   <span class="err">#</span> <span class="nx">Cantidad</span> <span class="nx">de</span> <span class="nx">segundos</span> <span class="nx">que</span> <span class="nx">la</span> <span class="nx">pantalla</span> <span class="nx">de</span> <span class="nx">login</span> <span class="nx">estara</span> <span class="nx">disponible</span>
+   <span class="nx">LoginGraceTime</span> <span class="mi">60</span>
+   <span class="err">#</span> <span class="nx">No</span> <span class="nx">permitimos</span> <span class="nx">contraseñas</span> <span class="nx">vacias</span> <span class="nx">o</span> <span class="nx">en</span> <span class="nx">blanco</span>
+   <span class="nx">PermitEmptyPasswords</span> <span class="nx">no</span>
+   <span class="err">#</span> <span class="nx">Numero</span> <span class="nx">maximo</span> <span class="nx">de</span> <span class="nx">errores</span> <span class="nx">permitidos</span> <span class="nx">al</span> <span class="nx">hacer</span> <span class="nx">login</span>
+   <span class="nx">MaxAuthTries</span> <span class="mi">3</span>
+   <span class="err">#</span> <span class="nx">Numero</span> <span class="nx">maximo</span> <span class="nx">de</span> <span class="nx">conexiones</span> <span class="nx">simultaneas</span> <span class="nx">por</span> <span class="nx">IP</span>
+   <span class="nx">MaxStartups</span> <span class="mi">2</span>
 </code></pre></div></div>
 <hr />
 <p><strong>Nota</strong>:
@@ -166,7 +166,7 @@ Antes de realizar este procedimiento, es aconsejable borrar las claves que tenem
 
 <p>Es preferible realizar la segunda opción de la siguiente manera:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>ssh-keygen <span class="nt">-f</span> <span class="s2">"/home/tuUsuario/.ssh/know_host"</span> <span class="nt">-R</span> ipRaspberryerry
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">ssh</span><span class="o">-</span><span class="nx">keygen</span> <span class="o">-</span><span class="nx">f</span> <span class="dl">"</span><span class="s2">/home/tuUsuario/.ssh/know_host</span><span class="dl">"</span> <span class="o">-</span><span class="nx">R</span> <span class="nx">ipRaspberryerry</span>
 </code></pre></div></div>
 
 <p>Con esto conseguimos borrar la clave de la Raspberry que tenemos en nuestro PC.</p>

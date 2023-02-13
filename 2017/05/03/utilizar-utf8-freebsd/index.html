@@ -91,44 +91,44 @@ facilmente configurable.</p>
 <p>Para determinar el locale apropiado para nuestro lenguaje y localización es posible utilizar la herramienta <code class="language-plaintext highlighter-rouge">locale</code>, para obtener más información de su funcionamiento, con un simple <code class="language-plaintext highlighter-rouge">man locale</code> 
 accedemos a su manual:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   locale <span class="nt">-a</span> | <span class="nb">grep</span> <span class="nt">-i</span> utf
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">locale</span> <span class="o">-</span><span class="nx">a</span> <span class="o">|</span> <span class="nx">grep</span> <span class="o">-</span><span class="nx">i</span> <span class="nx">utf</span>
 </code></pre></div></div>
 
 <p>Mi <strong>FreeBSD 11.0</strong> posee soporte para las siguientes configuraciones regionales (no las pongo todas, pongo la primera, la que voy a utilizar y la ultima):</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@freebsd:~% locale <span class="nt">-a</span> | <span class="nb">grep</span> <span class="nt">-i</span> utf
-   af_ZA.UTF-8
-   ..
-   ..
-   es_ES.UTF-8
-   ..
-   ..
-   zh_TW.UTF-8
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~%</span> <span class="nx">locale</span> <span class="o">-</span><span class="nx">a</span> <span class="o">|</span> <span class="nx">grep</span> <span class="o">-</span><span class="nx">i</span> <span class="nx">utf</span>
+   <span class="nx">af_ZA</span><span class="p">.</span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span>
+   <span class="p">..</span>
+   <span class="p">..</span>
+   <span class="nx">es_ES</span><span class="p">.</span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span>
+   <span class="p">..</span>
+   <span class="p">..</span>
+   <span class="nx">zh_TW</span><span class="p">.</span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span>
 </code></pre></div></div>
 
 <p>En mi caso, voy a utilizar <code class="language-plaintext highlighter-rouge">es_ES.UTF-8</code>.</p>
 
 <p>Para determinar cual es la configuración regional actual, ejecutar simplemente <code class="language-plaintext highlighter-rouge">locale</code>:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@freebsd:~% locale
-   <span class="nv">LANG</span><span class="o">=</span>
-   <span class="nv">LC_CTYPE</span><span class="o">=</span><span class="s2">"C"</span>
-   <span class="nv">LC_COLLATE</span><span class="o">=</span><span class="s2">"C"</span>
-   <span class="nv">LC_TIME</span><span class="o">=</span><span class="s2">"C"</span>
-   <span class="nv">LC_NUMERIC</span><span class="o">=</span><span class="s2">"C"</span>
-   <span class="nv">LC_MONETARY</span><span class="o">=</span><span class="s2">"C"</span>
-   <span class="nv">LC_MESSAGES</span><span class="o">=</span><span class="s2">"C"</span>
-   <span class="nv">LC_ALL</span><span class="o">=</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~%</span> <span class="nx">locale</span>
+   <span class="nx">LANG</span><span class="o">=</span>
+   <span class="nx">LC_CTYPE</span><span class="o">=</span><span class="dl">"</span><span class="s2">C</span><span class="dl">"</span>
+   <span class="nx">LC_COLLATE</span><span class="o">=</span><span class="dl">"</span><span class="s2">C</span><span class="dl">"</span>
+   <span class="nx">LC_TIME</span><span class="o">=</span><span class="dl">"</span><span class="s2">C</span><span class="dl">"</span>
+   <span class="nx">LC_NUMERIC</span><span class="o">=</span><span class="dl">"</span><span class="s2">C</span><span class="dl">"</span>
+   <span class="nx">LC_MONETARY</span><span class="o">=</span><span class="dl">"</span><span class="s2">C</span><span class="dl">"</span>
+   <span class="nx">LC_MESSAGES</span><span class="o">=</span><span class="dl">"</span><span class="s2">C</span><span class="dl">"</span>
+   <span class="nx">LC_ALL</span><span class="o">=</span>
 </code></pre></div></div>
 
 <p>Se observa que se esta utilizando el locale <code class="language-plaintext highlighter-rouge">C/POSIC</code>, donde <code class="language-plaintext highlighter-rouge">C</code> y <code class="language-plaintext highlighter-rouge">POSIC</code> son <code class="language-plaintext highlighter-rouge">aliases</code>.</p>
 
 <p>Por lo tanto, es necesario cambiar el locale a UTF-8, para poder visualizar correctamente los tildes y eñes. Para ello, editar el archivo <code class="language-plaintext highlighter-rouge">/etc/login.conf</code>:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   root@freebsd:~# vi /etc/login.conf
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">vi</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">login</span><span class="p">.</span><span class="nx">conf</span>
 
-   :charset<span class="o">=</span>UTF-8:<span class="se">\</span>
-   :lang<span class="o">=</span>es_ES.UTF-8:
+   <span class="p">:</span><span class="nx">charset</span><span class="o">=</span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span><span class="p">:</span><span class="o">\</span>
+   <span class="p">:</span><span class="nx">lang</span><span class="o">=</span><span class="nx">es_ES</span><span class="p">.</span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span><span class="p">:</span>
 </code></pre></div></div>
 
 <blockquote>
@@ -137,31 +137,31 @@ accedemos a su manual:</p>
 
 <p>Luego es necesario ejecutar <code class="language-plaintext highlighter-rouge">cap_mkdb</code> para regenerar la base de datos de capacidades de login:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   root@freebsd:~# cap_mkdb /etc/login.conf
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">cap_mkdb</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">login</span><span class="p">.</span><span class="nx">conf</span>
 </code></pre></div></div>
 
 <p>Ahora, vamos a configurar otro fichero que hace falta:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   root@freebsd:~# vi /etc/profile
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">vi</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">profile</span>
 
-   <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8<span class="p">;</span>   <span class="nb">export </span>LANG
-   <span class="nv">CHARSET</span><span class="o">=</span>UTF-8<span class="p">;</span>  <span class="nb">export </span>CHARSET
+   <span class="nx">LANG</span><span class="o">=</span><span class="nx">en_US</span><span class="p">.</span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span><span class="p">;</span>   <span class="k">export</span> <span class="nx">LANG</span>
+   <span class="nx">CHARSET</span><span class="o">=</span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span><span class="p">;</span>  <span class="k">export</span> <span class="nx">CHARSET</span>
 </code></pre></div></div>
 
 <p>Finalmente, cerrar la sesión.</p>
 
 <p>Luego de iniciar la sesión, es posible verificar la configuración regional nuevamente:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@freebsd:~% locale
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~%</span> <span class="nx">locale</span>
   
-   <span class="nv">LANG</span><span class="o">=</span>es_ES.UTF-8
-   <span class="nv">LC_TYPE</span><span class="o">=</span><span class="s2">"es_ES.UTF-8"</span>
-   <span class="nv">LC_COLLATE</span><span class="o">=</span><span class="s2">"es_ES.UTF-8"</span>
-   <span class="nv">LC_TIME</span><span class="o">=</span><span class="s2">"es_ES.UTF-8"</span>
-   <span class="nv">LC_NUMERIC</span><span class="o">=</span><span class="s2">"es_ES.UTF-8"</span>
-   <span class="nv">LC_MONETARY</span><span class="o">=</span><span class="s2">"es_ES.UTF-8"</span>
-   <span class="nv">LC_MESSAGES</span><span class="o">=</span><span class="s2">"es_ES.UTF-8"</span>
-   <span class="nv">LC_ALL</span><span class="o">=</span>
+   <span class="nx">LANG</span><span class="o">=</span><span class="nx">es_ES</span><span class="p">.</span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span>
+   <span class="nx">LC_TYPE</span><span class="o">=</span><span class="dl">"</span><span class="s2">es_ES.UTF-8</span><span class="dl">"</span>
+   <span class="nx">LC_COLLATE</span><span class="o">=</span><span class="dl">"</span><span class="s2">es_ES.UTF-8</span><span class="dl">"</span>
+   <span class="nx">LC_TIME</span><span class="o">=</span><span class="dl">"</span><span class="s2">es_ES.UTF-8</span><span class="dl">"</span>
+   <span class="nx">LC_NUMERIC</span><span class="o">=</span><span class="dl">"</span><span class="s2">es_ES.UTF-8</span><span class="dl">"</span>
+   <span class="nx">LC_MONETARY</span><span class="o">=</span><span class="dl">"</span><span class="s2">es_ES.UTF-8</span><span class="dl">"</span>
+   <span class="nx">LC_MESSAGES</span><span class="o">=</span><span class="dl">"</span><span class="s2">es_ES.UTF-8</span><span class="dl">"</span>
+   <span class="nx">LC_ALL</span><span class="o">=</span>
 </code></pre></div></div>
 
 <p>Notar como <code class="language-plaintext highlighter-rouge">LC_COLLATE</code> se mantiene en <code class="language-plaintext highlighter-rouge">C</code>.</p>

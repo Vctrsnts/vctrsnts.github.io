@@ -104,43 +104,43 @@ sea de 1 dia (86.400 segundos).</li>
 
 <p>Lo que he leido en todos sitios con respecto a <strong>fail2ban</strong>, es que lo mejor es copiar el fichero <code class="language-plaintext highlighter-rouge">jail.conf</code> a <code class="language-plaintext highlighter-rouge">jail.local</code>.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span><span class="nb">cd</span> /etc
-   usuari@raspberry:~<span class="nv">$ </span><span class="nb">sudo cp </span>jail.conf jail.local
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">cd</span> <span class="o">/</span><span class="nx">etc</span>
+   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">cp</span> <span class="nx">jail</span><span class="p">.</span><span class="nx">conf</span> <span class="nx">jail</span><span class="p">.</span><span class="nx">local</span>
 </code></pre></div></div>
 
 <p>Una vez hecho esto, ya lo podemos editar con las opciones que más nos interesan que en mi caso son las siguiente :</p>
 
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   # descomentar <span class="k">la</span> opció<span class="k">n</span> ignoreip <span class="nb">para</span> que no tenga <span class="k">en</span> cuenta los accesos
-   # que vienen de nuestra propia <span class="k">red</span>
-   ignoreip <span class="p">=</span> <span class="m">127</span><span class="p">.</span><span class="m">0</span><span class="p">.</span><span class="m">0</span><span class="p">.</span><span class="m">1</span>/<span class="m">8</span> <span class="p">::</span><span class="m">1</span>
-   # descomentamos <span class="k">la</span> opció<span class="k">n</span> bantime <span class="k">y</span> <span class="k">en</span> mi caso he puesto <span class="m">86400</span>
-   bantime <span class="p">=</span> <span class="m">86400</span>
-   # descomentamos <span class="k">la</span> opcion fintime <span class="k">y</span> yo he dejado <span class="k">el</span> valor por defeccto
-   fintime <span class="p">=</span> <span class="m">10</span><span class="k">m</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">#</span> <span class="nx">descomentar</span> <span class="nx">la</span> <span class="nx">opción</span> <span class="nx">ignoreip</span> <span class="nx">para</span> <span class="nx">que</span> <span class="nx">no</span> <span class="nx">tenga</span> <span class="nx">en</span> <span class="nx">cuenta</span> <span class="nx">los</span> <span class="nx">accesos</span>
+   <span class="err">#</span> <span class="nx">que</span> <span class="nx">vienen</span> <span class="nx">de</span> <span class="nx">nuestra</span> <span class="nx">propia</span> <span class="nx">red</span>
+   <span class="nx">ignoreip</span> <span class="o">=</span> <span class="mf">127.0</span><span class="p">.</span><span class="mf">0.1</span><span class="o">/</span><span class="mi">8</span> <span class="p">::</span><span class="mi">1</span>
+   <span class="err">#</span> <span class="nx">descomentamos</span> <span class="nx">la</span> <span class="nx">opción</span> <span class="nx">bantime</span> <span class="nx">y</span> <span class="nx">en</span> <span class="nx">mi</span> <span class="nx">caso</span> <span class="nx">he</span> <span class="nx">puesto</span> <span class="mi">86400</span>
+   <span class="nx">bantime</span> <span class="o">=</span> <span class="mi">86400</span>
+   <span class="err">#</span> <span class="nx">descomentamos</span> <span class="nx">la</span> <span class="nx">opcion</span> <span class="nx">fintime</span> <span class="nx">y</span> <span class="nx">yo</span> <span class="nx">he</span> <span class="nx">dejado</span> <span class="nx">el</span> <span class="nx">valor</span> <span class="nx">por</span> <span class="nx">defeccto</span>
+   <span class="nx">fintime</span> <span class="o">=</span> <span class="mi">10</span><span class="nx">m</span>
 </code></pre></div></div>
 
 <p>Ahora pasamos a activar los modulos que nos interesa que en mi caso es el modulo de <code class="language-plaintext highlighter-rouge">sshd</code>. Los modulos se encuentran a partir de la opción <code class="language-plaintext highlighter-rouge">JAILS</code>.</p>
 
 <p>Se activan con la opción <code class="language-plaintext highlighter-rouge">enabled = true</code>. Y en mi caso el modulo de <code class="language-plaintext highlighter-rouge">SSHD</code> queda de la siguiente manera :</p>
 
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   enabled <span class="p">=</span> true
-   <span class="k">filter</span> <span class="p">=</span> sshd
-   # Aqui es donde ponemos los puertos <span class="k">a</span> controlar<span class="p">.</span> Si ponemos ssh<span class="p">,</span>
-   # <span class="k">se</span> monitoriza <span class="k">el</span> puerto por defecto de ssh <span class="p">(</span><span class="m">22</span><span class="p">),</span> pero
-   # tambien podemos poner otros puertos<span class="p">.</span>
-   port <span class="p">=</span> ssh<span class="p">,</span> xxxx
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">enabled</span> <span class="o">=</span> <span class="kc">true</span>
+   <span class="nx">filter</span> <span class="o">=</span> <span class="nx">sshd</span>
+   <span class="err">#</span> <span class="nx">Aqui</span> <span class="nx">es</span> <span class="nx">donde</span> <span class="nx">ponemos</span> <span class="nx">los</span> <span class="nx">puertos</span> <span class="nx">a</span> <span class="nx">controlar</span><span class="p">.</span> <span class="nx">Si</span> <span class="nx">ponemos</span> <span class="nx">ssh</span><span class="p">,</span>
+   <span class="err">#</span> <span class="nx">se</span> <span class="nx">monitoriza</span> <span class="nx">el</span> <span class="nx">puerto</span> <span class="nx">por</span> <span class="nx">defecto</span> <span class="nx">de</span> <span class="nx">ssh</span> <span class="p">(</span><span class="mi">22</span><span class="p">),</span> <span class="nx">pero</span>
+   <span class="err">#</span> <span class="nx">tambien</span> <span class="nx">podemos</span> <span class="nx">poner</span> <span class="nx">otros</span> <span class="nx">puertos</span><span class="p">.</span>
+   <span class="nx">port</span> <span class="o">=</span> <span class="nx">ssh</span><span class="p">,</span> <span class="nx">xxxx</span>
 </code></pre></div></div>
 
 <p>Si revisas los modulos disponibles, ves que hay un monto, por ejemplo <code class="language-plaintext highlighter-rouge">dropbear</code>, <code class="language-plaintext highlighter-rouge">apache</code>, <code class="language-plaintext highlighter-rouge">nginx</code>, <code class="language-plaintext highlighter-rouge">lighttpd</code> y unos cuantos más.</p>
 
 <p>De esta manera ya tenemos configurado <strong>fail2ban</strong>, ahora solamente falta activarlo :</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span><span class="nb">sudo</span> /etc/init.d/fail2ban start
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">init</span><span class="p">.</span><span class="nx">d</span><span class="o">/</span><span class="nx">fail2ban</span> <span class="nx">start</span>
 </code></pre></div></div>
 
 <p>Y disfrutar de los baneos, que puedes ver, en el fichero de los :</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span><span class="nb">sudo tail</span> <span class="nt">-f</span> /var/log/fail2ban.log
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">tail</span> <span class="o">-</span><span class="nx">f</span> <span class="o">/</span><span class="kd">var</span><span class="sr">/log/</span><span class="nx">fail2ban</span><span class="p">.</span><span class="nx">log</span>
 </code></pre></div></div>
 
 <blockquote>
@@ -149,8 +149,8 @@ sea de 1 dia (86.400 segundos).</li>
 
 <p>Asi mismo, tambien pongo el codigo necesario para poder <code class="language-plaintext highlighter-rouge">desbanear</code> nuestra ip de acceso a la raspberry (me ha pasado más de una vez), lo que se tiene que hacer es lo siguiente:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>fail2ban-client <span class="nb">set </span>sshd unbanip x.x.x.x
-   <span class="c"># Donde x.x.x.x es la ip</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">fail2ban</span><span class="o">-</span><span class="nx">client</span> <span class="kd">set</span> <span class="nx">sshd</span> <span class="nx">unbanip</span> <span class="nx">x</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">x</span>
+   <span class="err">#</span> <span class="nx">Donde</span> <span class="nx">x</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">x</span> <span class="nx">es</span> <span class="nx">la</span> <span class="nx">ip</span>
 </code></pre></div></div>
 
 <p>Ten en cuenta, que esto lo tienes que hacer desde otro PC, porque desde el que tienes acceso normalmente no te dejara acceder, si es que no le cambias la ip</p>

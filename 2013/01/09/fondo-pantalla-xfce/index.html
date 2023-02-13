@@ -93,7 +93,7 @@ programas que no utilizo, me decidi probar XFCE.</p>
   <li>Probar como quedan las imagenes con el cambio dinamico mediante el comando (desde consola).</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@debian:~<span class="nv">$ </span><span class="nb">export </span><span class="nv">DISPLAY</span><span class="o">=</span>:0<span class="p">;</span>/usr/bin/xfdesktop <span class="nt">--reload</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="k">export</span> <span class="nx">DISPLAY</span><span class="o">=</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span><span class="sr">/usr/</span><span class="nx">bin</span><span class="o">/</span><span class="nx">xfdesktop</span> <span class="o">--</span><span class="nx">reload</span>
 </code></pre></div></div>
 
 <ul>
@@ -102,7 +102,7 @@ programas que no utilizo, me decidi probar XFCE.</p>
   <li>Se crear un archivo donde agregamos lo siguiente y después lo guardamos:</li>
 </ul>
 
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   *<span class="sr">/5 * * * * export DISPLAY=:0;/</span>usr<span class="sr">/bin/</span>xfdesktop <span class="p">--</span>reload
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="o">*</span><span class="sr">/5 * * * * export DISPLAY=:0;/u</span><span class="nx">sr</span><span class="o">/</span><span class="nx">bin</span><span class="o">/</span><span class="nx">xfdesktop</span> <span class="o">--</span><span class="nx">reload</span>
 </code></pre></div></div>
 
 <ul>
@@ -110,7 +110,7 @@ programas que no utilizo, me decidi probar XFCE.</p>
   <li>Lo guardamos con nuestro editor de texto preferido y lo añadimos al cron mediante la siguiente instrucción:</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@debian:~<span class="nv">$ </span>crontab archivo_creado
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">crontab</span> <span class="nx">archivo_creado</span>
 </code></pre></div></div>
 
 <p>Y con esto, le indicamos al <code class="language-plaintext highlighter-rouge">cron</code> que cada 5 minutos reinicie el escritorio de XFCE cambiando el fondo de pantalla. Es una funcionalidad o una manera de trabajar que nunca se me hubiese ocurrido, pero 

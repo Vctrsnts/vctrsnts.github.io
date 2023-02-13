@@ -87,13 +87,13 @@
 
 <p>Acceder al sistema introduciendo el usuario y password. Los datos son los siguientes:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuario: usuari
-   password: maquina
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuario</span><span class="p">:</span> <span class="nx">pi</span>
+   <span class="nx">password</span><span class="p">:</span> <span class="nx">raspberrypi</span>
 </code></pre></div></div>
 
 <p>Una vez hemos accedido al sistema, ejecutamos la siguiente instruccion:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span><span class="nb">sudo </span>raspi-config
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">raspi</span><span class="o">-</span><span class="nx">config</span>
 </code></pre></div></div>
 
 <p>Con ello accedemos al menu de configuración inicial de la Raspberry donde podremos configurar la siguientes opciones (al lado de cada opción, viene una breve explicación de lo que hace cada una):</p>
@@ -111,14 +111,14 @@
 
 <p>Después de la configuración inicial, en mi caso, hago una actualización del <code class="language-plaintext highlighter-rouge">firmware</code> de la Raspberry mediante la siguiente instrucción:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span><span class="nb">sudo </span>rpi-update
-   <span class="c"># en caso de que visualizes el siguiente mensaje:</span>
-   usuari@raspberry:~<span class="nv">$ </span>Command not found
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">rpi</span><span class="o">-</span><span class="nx">update</span>
+   <span class="err">#</span> <span class="nx">en</span> <span class="nx">caso</span> <span class="nx">de</span> <span class="nx">que</span> <span class="nx">visualizes</span> <span class="nx">el</span> <span class="nx">siguiente</span> <span class="nx">mensaje</span><span class="p">:</span>
+   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">Command</span> <span class="nx">not</span> <span class="nx">found</span>
 </code></pre></div></div>
 
 <p>Te esta indicando que no tienes instalado este paquete, solamente tienes que instalarlo a traves de apt-get de la siguiente manera:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>rpi-update
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">apt</span><span class="o">-</span><span class="kd">get</span> <span class="nx">install</span> <span class="nx">rpi</span><span class="o">-</span><span class="nx">update</span>
 </code></pre></div></div>
 
 <p>Una vez que hemos instalado el paquete, ahora si que podemos pasar a realizar la actualitzación del firmware, kernel y modulos de nuestra Raspberry.</p>
@@ -129,7 +129,7 @@
 
 <p>Cuando el procedimiento de actualización ha finalizado, yo tengo por costumbre instalar los siguientes paquetes:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>deborphan localepurge
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">apt</span><span class="o">-</span><span class="kd">get</span> <span class="nx">install</span> <span class="nx">deborphan</span> <span class="nx">localepurge</span>
 </code></pre></div></div>
 
 <p>Para que:</p>
@@ -139,12 +139,12 @@
   <li><code class="language-plaintext highlighter-rouge">localepurge</code>: elimina los idiomas que no se estan usando en nuestro sistema</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span><span class="nb">sudo </span>apt-get purge <span class="si">$(</span>deborphan <span class="nt">--libdevel</span><span class="si">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">apt</span><span class="o">-</span><span class="kd">get</span> <span class="nx">purge</span> <span class="nx">$</span><span class="p">(</span><span class="nx">deborphan</span> <span class="o">--</span><span class="nx">libdevel</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>Una vez, realizado esta mini-limpieza, lo que hago es cambiarle el password a <strong>root</strong>, porque no me gusta usar <code class="language-plaintext highlighter-rouge">sudo</code>, esto lo hago a traves de:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span><span class="nb">sudo </span>passwd
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">passwd</span>
 </code></pre></div></div>
 
 <p>Entonces, te pedira que pongas el nuevo password de <strong>root</strong>.</p>
@@ -152,34 +152,34 @@
 <p>Después añado el usuario que voy a utilizar y borro al usuario <code class="language-plaintext highlighter-rouge">usuari</code> que viene por defecto en la instalación. Una medida más de seguridad.
 Las instrucciones para realizar esta acción son las siguientes:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>su -
-   password:
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">su</span> <span class="o">-</span>
+   <span class="nx">password</span><span class="p">:</span>
   
-   root@tumaquina:~# adduser miUsuario
-   Adding user <span class="s1">'miUsuario'</span> ...
-   Adding new group <span class="s1">'miUsuario'</span> <span class="o">(</span>1001<span class="o">)</span> ...
-   Adding new user <span class="s1">'miUsuario'</span> <span class="o">(</span>1002<span class="o">)</span> with group <span class="s1">'miUsuario'</span>
-   Creating home directory <span class="s1">'/home/miUsuario'</span>
-   Copying files from <span class="s1">'/etc/skel'</span>
-   Enter new UNIX password:
-   Retype new UNIX password:
-   passwd: password update successfully
-   Changing the user information <span class="k">for </span>miUsuario
-   Enter the new value, or press ENTER <span class="k">for </span>the default
-     Full Name <span class="o">[]</span>:
-     Rom Number <span class="o">[]</span>:
-     Work Phone <span class="o">[]</span>:
-     Home Phone <span class="o">[]</span>:
-     Oher <span class="o">[]</span>:
-   Is the information correct? <span class="o">[</span>Y/n] y
+   <span class="nx">root</span><span class="p">@</span><span class="nd">tumaquina</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">adduser</span> <span class="nx">miUsuario</span>
+   <span class="nx">Adding</span> <span class="nx">user</span> <span class="dl">'</span><span class="s1">miUsuario</span><span class="dl">'</span> <span class="p">...</span>
+   <span class="nx">Adding</span> <span class="k">new</span> <span class="nx">group</span> <span class="dl">'</span><span class="s1">miUsuario</span><span class="dl">'</span> <span class="p">(</span><span class="mi">1001</span><span class="p">)</span> <span class="p">...</span>
+   <span class="nx">Adding</span> <span class="k">new</span> <span class="nx">user</span> <span class="dl">'</span><span class="s1">miUsuario</span><span class="dl">'</span> <span class="p">(</span><span class="mi">1002</span><span class="p">)</span> <span class="kd">with</span> <span class="nx">group</span> <span class="dl">'</span><span class="s1">miUsuario</span><span class="dl">'</span>
+   <span class="nx">Creating</span> <span class="nx">home</span> <span class="nx">directory</span> <span class="dl">'</span><span class="s1">/home/miUsuario</span><span class="dl">'</span>
+   <span class="nx">Copying</span> <span class="nx">files</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">/etc/skel</span><span class="dl">'</span>
+   <span class="nx">Enter</span> <span class="k">new</span> <span class="nx">UNIX</span> <span class="nx">password</span><span class="p">:</span>
+   <span class="nx">Retype</span> <span class="k">new</span> <span class="nx">UNIX</span> <span class="nx">password</span><span class="p">:</span>
+   <span class="nx">passwd</span><span class="p">:</span> <span class="nx">password</span> <span class="nx">update</span> <span class="nx">successfully</span>
+   <span class="nx">Changing</span> <span class="nx">the</span> <span class="nx">user</span> <span class="nx">information</span> <span class="k">for</span> <span class="nx">miUsuario</span>
+   <span class="nx">Enter</span> <span class="nx">the</span> <span class="k">new</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">or</span> <span class="nx">press</span> <span class="nx">ENTER</span> <span class="k">for</span> <span class="nx">the</span> <span class="k">default</span>
+     <span class="nx">Full</span> <span class="nx">Name</span> <span class="p">[]:</span>
+     <span class="nx">Rom</span> <span class="nb">Number</span> <span class="p">[]:</span>
+     <span class="nx">Work</span> <span class="nx">Phone</span> <span class="p">[]:</span>
+     <span class="nx">Home</span> <span class="nx">Phone</span> <span class="p">[]:</span>
+     <span class="nx">Oher</span> <span class="p">[]:</span>
+   <span class="nx">Is</span> <span class="nx">the</span> <span class="nx">information</span> <span class="nx">correct</span><span class="p">?</span> <span class="p">[</span><span class="nx">Y</span><span class="o">/</span><span class="nx">n</span><span class="p">]</span> <span class="nx">y</span>
 </code></pre></div></div>
 
 <p>Una vez, que ya he creado el usuario que voy a usar a partir de ahora, paso a borrar el usuario que viene por defecto. En este caso <code class="language-plaintext highlighter-rouge">usuari</code>:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>su -
-   password:
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">su</span> <span class="o">-</span>
+   <span class="nx">password</span><span class="p">:</span>
 
-   root@raspberry:~# deluser <span class="nt">--remove-home</span> usuari
+   <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">deluser</span> <span class="o">--</span><span class="nx">remove</span><span class="o">-</span><span class="nx">home</span> <span class="nx">usuari</span>
 </code></pre></div></div>
 
 <p>Lo que hace esta instrucción, a parte de borrar al usuari <code class="language-plaintext highlighter-rouge">usuari</code>, es borrar tambien el directorio del usuario.</p>
@@ -190,15 +190,15 @@ Las instrucciones para realizar esta acción son las siguientes:</p>
 
 <p>Tambien, se pueden deshabilitar, si se crea un fichero en:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   root@raspberry:~# vi /etc/apt/apt.conf.d/10norecommends
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">vi</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">apt</span><span class="o">/</span><span class="nx">apt</span><span class="p">.</span><span class="nx">conf</span><span class="p">.</span><span class="nx">d</span><span class="o">/</span><span class="mi">10</span><span class="nx">norecommends</span>
 
-   APT::Install-Recommends <span class="s2">"false"</span><span class="p">;</span>
-   APT::Install-Suggets <span class="s2">"false"</span><span class="p">;</span>
+   <span class="nx">APT</span><span class="p">::</span><span class="nx">Install</span><span class="o">-</span><span class="nx">Recommends</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">;</span>
+   <span class="nl">APT</span><span class="p">::</span><span class="nx">Install</span><span class="o">-</span><span class="nx">Suggets</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">;</span>
 </code></pre></div></div>
 
 <p>Con estas 2 opciones, cada vez que nosotros vayamos a realizar un:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   root@raspberry:~# apt-get update <span class="o">&amp;&amp;</span> apt-get upgrade
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">apt</span><span class="o">-</span><span class="kd">get</span> <span class="nx">update</span> <span class="o">&amp;&amp;</span> <span class="nx">apt</span><span class="o">-</span><span class="kd">get</span> <span class="nx">upgrade</span>
 </code></pre></div></div>
 
 <p>Nos mostrara los paquetes recomendados y los sugeridos, pero no nos los instalara si es que no lo hacemos nosostros mismos.</p>

@@ -110,25 +110,25 @@
 
 <p>Para usarlo en Docker utilice la siguiente configuración:</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="na">npm</span><span class="pi">:</span>
-     <span class="na">image</span><span class="pi">:</span> <span class="s">jc21/nginx-proxy-manager:latest</span>
-     <span class="na">container_name</span><span class="pi">:</span> <span class="s">npm</span>
-     <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
-     <span class="na">ports</span><span class="pi">:</span>
-       <span class="pi">-</span> <span class="s1">'</span><span class="s">80:80'</span>
-       <span class="pi">-</span> <span class="s1">'</span><span class="s">81:81'</span>
-       <span class="pi">-</span> <span class="s1">'</span><span class="s">443:443'</span>
-     <span class="na">volumes</span><span class="pi">:</span>
-       <span class="pi">-</span> <span class="s">${STORAGE}/config/npm/data:/data</span>
-       <span class="pi">-</span> <span class="s">${STORAGE}/config/npm/letsencrypt:/etc/letsencrypt</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">npm</span><span class="p">:</span>
+     <span class="nx">image</span><span class="p">:</span> <span class="nx">jc21</span><span class="o">/</span><span class="nx">nginx</span><span class="o">-</span><span class="nx">proxy</span><span class="o">-</span><span class="nx">manager</span><span class="p">:</span><span class="nx">latest</span>
+     <span class="nx">container_name</span><span class="p">:</span> <span class="nx">npm</span>
+     <span class="nx">restart</span><span class="p">:</span> <span class="nx">unless</span><span class="o">-</span><span class="nx">stopped</span>
+     <span class="nx">ports</span><span class="p">:</span>
+       <span class="o">-</span> <span class="dl">'</span><span class="s1">80:80</span><span class="dl">'</span>
+       <span class="o">-</span> <span class="dl">'</span><span class="s1">81:81</span><span class="dl">'</span>
+       <span class="o">-</span> <span class="dl">'</span><span class="s1">443:443</span><span class="dl">'</span>
+     <span class="nx">volumes</span><span class="p">:</span>
+       <span class="o">-</span> <span class="nx">$</span><span class="p">{</span><span class="nx">STORAGE</span><span class="p">}</span><span class="sr">/config/</span><span class="nx">npm</span><span class="o">/</span><span class="nx">data</span><span class="p">:</span><span class="o">/</span><span class="nx">data</span>
+       <span class="o">-</span> <span class="nx">$</span><span class="p">{</span><span class="nx">STORAGE</span><span class="p">}</span><span class="sr">/config/</span><span class="nx">npm</span><span class="o">/</span><span class="nx">letsencrypt</span><span class="p">:</span><span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">letsencrypt</span>
 </code></pre></div></div>
 
 <p>Hay que tener en cuenta una cosa, en algunos sitios, te indican que tienes que tener, a parte de <strong>npm</strong>, tienes que tener un <em>gestor de BBDD</em>, pero yo he podido comprobar, y es como lo tengo actualmente, que no hace falta tener ningun gestor de BBDD (a lo mejor las nuevas versiones de npm ya lo tengan incorporado).</p>
 
 <p>Una vez, instalado, accedemos a traves (en mi caso) del puerto 81 y con las siguintes credenciales :</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   Username: admin@example.com
-   Password: changeme
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">Username</span><span class="p">:</span> <span class="nx">admin</span><span class="p">@</span><span class="nd">example</span><span class="p">.</span><span class="nx">com</span>
+   <span class="nx">Password</span><span class="p">:</span> <span class="nx">changeme</span>
 </code></pre></div></div>
 
 <p>Cuando accedemos al sistema, lo primero que hacemos es cambiar el usuario y el password de acceso y ya lo tenemos preparado para poderlo usar.</p>

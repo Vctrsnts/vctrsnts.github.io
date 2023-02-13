@@ -89,23 +89,23 @@
 
 <p>Para hacer esto, solamente se tiene que modificar un fichero :</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   root@raspberry:~# vi /boot/config.txt
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">vi</span> <span class="o">/</span><span class="nx">boot</span><span class="o">/</span><span class="nx">config</span><span class="p">.</span><span class="nx">txt</span>
 </code></pre></div></div>
 
 <p>Y luego añadimos lo siguiente :</p>
 
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   dtoverlay<span class="p">=</span>disable<span class="p">-</span>wifi
-   dtoverlay<span class="p">=</span>disable<span class="p">-</span><span class="nb">bt</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">dtoverlay</span><span class="o">=</span><span class="nx">disable</span><span class="o">-</span><span class="nx">wifi</span>
+   <span class="nx">dtoverlay</span><span class="o">=</span><span class="nx">disable</span><span class="o">-</span><span class="nx">bt</span>
 </code></pre></div></div>
 
 <h3 id="obtener-más-voltaje-en-las-salidas-de-usb">Obtener más voltaje en las salidas de USB</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   root@raspberry:~# vi /boot/config.txt
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">vi</span> <span class="o">/</span><span class="nx">boot</span><span class="o">/</span><span class="nx">config</span><span class="p">.</span><span class="nx">txt</span>
 </code></pre></div></div>
 
 <p>Y luego añadimos lo siguiente:</p>
 
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   max_usb_current<span class="p">=</span><span class="m">1</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">max_usb_current</span><span class="o">=</span><span class="mi">1</span>
 </code></pre></div></div>
 
 <h3 id="alias-ssh">Alias SSH</h3>
@@ -115,20 +115,20 @@ maquinas remotas a través de <code class="language-plaintext highlighter-rouge"
 
 <p>Esto se hace a traves del siguiente fichero:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry: ~<span class="nv">$ </span>vi .ssh/config
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span> <span class="o">~</span><span class="nx">$</span> <span class="nx">vi</span> <span class="p">.</span><span class="nx">ssh</span><span class="o">/</span><span class="nx">config</span>
 </code></pre></div></div>
 
 <p>Y añadimos lo siguiente :</p>
 
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   Host aliasMaquina
-     Hostname Ip de <span class="k">la</span> Maquina
-     <span class="nb">User</span> usuario de connexió<span class="k">n</span>
-     Port Puerto de connexió<span class="k">n</span> <span class="k">en</span> caso de no tener <span class="k">el</span> por defecto
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">Host</span> <span class="nx">aliasMaquina</span>
+     <span class="nx">Hostname</span> <span class="nx">Ip</span> <span class="nx">de</span> <span class="nx">la</span> <span class="nx">Maquina</span>
+     <span class="nx">User</span> <span class="nx">usuario</span> <span class="nx">de</span> <span class="nx">connexión</span>
+     <span class="nx">Port</span> <span class="nx">Puerto</span> <span class="nx">de</span> <span class="nx">connexión</span> <span class="nx">en</span> <span class="nx">caso</span> <span class="nx">de</span> <span class="nx">no</span> <span class="nx">tener</span> <span class="nx">el</span> <span class="nx">por</span> <span class="nx">defecto</span>
 </code></pre></div></div>
 
 <p>Con este simple fichero, tal como he dicho antes, con solo hacer :</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry: ~<span class="nv">$ </span>ssh aliasMaquina
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span> <span class="o">~</span><span class="nx">$</span> <span class="nx">ssh</span> <span class="nx">aliasMaquina</span>
 </code></pre></div></div>
 
 <p>Nos conectaremos directamente a la maquina. En mi caso, me pide el password, porque lo tengo configurado así.</p>

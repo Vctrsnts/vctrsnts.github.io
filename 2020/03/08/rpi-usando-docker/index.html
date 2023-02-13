@@ -95,31 +95,31 @@
 
 <h3 id="1-instalar-paquetes-necesarios">1. Instalar paquetes necesarios</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span><span class="nb">sudo </span>apt-get update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> apt-transport-https ca-certificates curl gnupg2 software-properties-common
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">apt</span><span class="o">-</span><span class="kd">get</span> <span class="nx">update</span> <span class="o">&amp;&amp;</span> <span class="nx">sudo</span> <span class="nx">apt</span><span class="o">-</span><span class="kd">get</span> <span class="nx">install</span> <span class="o">-</span><span class="nx">y</span> <span class="nx">apt</span><span class="o">-</span><span class="nx">transport</span><span class="o">-</span><span class="nx">https</span> <span class="nx">ca</span><span class="o">-</span><span class="nx">certificates</span> <span class="nx">curl</span> <span class="nx">gnupg2</span> <span class="nx">software</span><span class="o">-</span><span class="nx">properties</span><span class="o">-</span><span class="nx">common</span>
 </code></pre></div></div>
 
 <h3 id="2-instalar-firmas-gpg-del-repo-de-docker">2. Instalar firmas GPG del repo de Docker</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>curl <span class="nt">-fsSL</span> https://download.docker.com/linux/debian/gpg | <span class="nb">sudo </span>apt-key add -
-   usuari@raspberry:~<span class="nv">$ </span><span class="nb">sudo </span>apt-key fingerprint 0EBFCD88
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">curl</span> <span class="o">-</span><span class="nx">fsSL</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//download.docker.com/linux/debian/gpg | sudo apt-key add -</span>
+   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">apt</span><span class="o">-</span><span class="nx">key</span> <span class="nx">fingerprint</span> <span class="mi">0</span><span class="nx">EBFCD88</span>
 </code></pre></div></div>
 
 <h3 id="3-agregar-repo-de-docker">3. Agregar repo de Docker</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nb">echo</span> <span class="s2">"deb [arch=armhf] https://download.docker.com/linux/debian </span><span class="se">\</span><span class="s2">
-     </span><span class="si">$(</span>lsb_release <span class="nt">-cs</span><span class="si">)</span><span class="s2"> stable"</span> | <span class="se">\</span>
-     <span class="nb">sudo tee</span> /etc/apt/sources.list.d/docker.list
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">echo</span> <span class="dl">"</span><span class="s2">deb [arch=armhf] https://download.docker.com/linux/debian </span><span class="se">\</span><span class="s2">
+     $(lsb_release -cs) stable</span><span class="dl">"</span> <span class="o">|</span> <span class="o">\</span>
+     <span class="nx">sudo</span> <span class="nx">tee</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">apt</span><span class="o">/</span><span class="nx">sources</span><span class="p">.</span><span class="nx">list</span><span class="p">.</span><span class="nx">d</span><span class="o">/</span><span class="nx">docker</span><span class="p">.</span><span class="nx">list</span>
 </code></pre></div></div>
 
 <h3 id="4-instalar-docker">4. Instalar Docker</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span><span class="nb">sudo </span>apt-get update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> docker-ce docker-compose
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">apt</span><span class="o">-</span><span class="kd">get</span> <span class="nx">update</span> <span class="o">&amp;&amp;</span> <span class="nx">sudo</span> <span class="nx">apt</span><span class="o">-</span><span class="kd">get</span> <span class="nx">install</span> <span class="o">-</span><span class="nx">y</span> <span class="nx">docker</span><span class="o">-</span><span class="nx">ce</span> <span class="nx">docker</span><span class="o">-</span><span class="nx">compose</span>
 </code></pre></div></div>
 
 <h3 id="5-agregar-usuario-al-grupo-docker-y-desloguearse-y-volverse-a-loguear">5. Agregar usuario al grupo docker y desloguearse y volverse a loguear</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span><span class="nb">sudo sudo </span>usermod <span class="nt">-a</span> <span class="nt">-G</span> docker tuUsuario
-   <span class="c">#(logout and login)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">sudo</span> <span class="nx">usermod</span> <span class="o">-</span><span class="nx">a</span> <span class="o">-</span><span class="nx">G</span> <span class="nx">docker</span> <span class="nx">tuUsuario</span>
+   <span class="err">#</span><span class="p">(</span><span class="nx">logout</span> <span class="nx">and</span> <span class="nx">login</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h4 id="referencia">Referencia</h4>

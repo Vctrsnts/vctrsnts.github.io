@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2023-02-10T22:42:41+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo hacez, hazlo bien</title><subtitle>Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.</subtitle><author><name>Vctrsnts ( fork andrew-park )</name></author><entry><title type="html">Usando Watchtower</title><link href="https://vctrsnts.github.io/2023/01/25/usando-watchtower/" rel="alternate" type="text/html" title="Usando Watchtower" /><published>2023-01-25T00:00:00+00:00</published><updated>2023-01-25T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/01/25/usando-watchtower</id><content type="html" xml:base="https://vctrsnts.github.io/2023/01/25/usando-watchtower/">&lt;p&gt;Si quieres echarle la culpa tendreis que mirar a &lt;a href=&quot;https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html&quot;&gt;Angel de uGeek&lt;/a&gt;, a &lt;a href=&quot;https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente&quot;&gt;Lorenzo de Atareao.es&lt;/a&gt; y por ultimo a &lt;a href=&quot;https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker&quot;&gt;ElBlogdeLazaro&lt;/a&gt; y a que es el culpable de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación &lt;strong&gt;watchtower&lt;/strong&gt; ellos tienen la culpa :D&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2023-02-13T19:30:59+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo hacez, hazlo bien</title><subtitle>Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.</subtitle><author><name>Vctrsnts ( fork andrew-park )</name></author><entry><title type="html">Usando Watchtower</title><link href="https://vctrsnts.github.io/2023/01/25/usando-watchtower/" rel="alternate" type="text/html" title="Usando Watchtower" /><published>2023-01-25T00:00:00+00:00</published><updated>2023-01-25T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/01/25/usando-watchtower</id><content type="html" xml:base="https://vctrsnts.github.io/2023/01/25/usando-watchtower/">&lt;p&gt;Si quieres echarle la culpa tendreis que mirar a &lt;a href=&quot;https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html&quot;&gt;Angel de uGeek&lt;/a&gt;, a &lt;a href=&quot;https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente&quot;&gt;Lorenzo de Atareao.es&lt;/a&gt; y por ultimo a &lt;a href=&quot;https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker&quot;&gt;ElBlogdeLazaro&lt;/a&gt; y a que es el culpable de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación &lt;strong&gt;watchtower&lt;/strong&gt; ellos tienen la culpa :D&lt;/p&gt;
 
 &lt;!--more--&gt;
 
@@ -10,44 +10,44 @@
 
 &lt;p&gt;Eso si, os voy a poner mi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker-compose.yml&lt;/code&gt; que uso para la instalación de &lt;strong&gt;watchtower&lt;/strong&gt;. Tener en cuenta que es una recopilación de todos los ficheros de configuración que he visto para su instalación.&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  watchtower:
-    image: containrrr/watchtower:latest
-    container_name: watchtower
-    restart: unless-stopped
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_LABEL_ENABLE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
-      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_CLEANUP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
-      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_INCLUDE_RESTARTING&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
-      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_INCLUDE_STOPPED&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
-      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_REVIVE_STOPPED&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;
-      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_NO_RESTART&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;
-      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_TIMEOUT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;30s&quot;&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;# AQUESTA OPCIÓ LA TINC DESACTIVADA, PERQUE TINC DUBTES DE QUE FUNCIONI CORRECTAMENT, ENCARA QUE EL LOG DONAR CONSTANCIA DE QUE SI&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#- WATCHTOWER_SCHEDULE=0 0 4 * * *&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;# L&apos;HE SUBSTITUIT PER AQUESTA&lt;/span&gt;
-      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_POLL_INTERVAL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;86400
-      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_NOTIFICATION_URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;telegram://673744845:AAFem9-pg8gGETRhzKkcfTNDuQH5QdA2DTI@telegram/?channels&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;148859946
-      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_NOTIFICATIONS_HOSTNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;dasReich
-      &lt;span class=&quot;c&quot;&gt;#WATCHTOWER_NOTIFICATIONS: gotify&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#WATCHTOWER_NOTIFICATION_GOTIFY_URL: https://gotify.tuservidor.es&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#WATCHTOWER_NOTIFICATION_GOTIFY_TOKEN: AAAAAAAAAAAAAAA&lt;/span&gt;
-      - &lt;span class=&quot;nv&quot;&gt;WATCHTOWER_DEBUG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
-      - &lt;span class=&quot;nv&quot;&gt;TZ&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Europe/Madrid
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nx&quot;&gt;watchtower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;containrrr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;watchtower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latest&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;container_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;watchtower&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;restart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unless&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stopped&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/var/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/run/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sock&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;WATCHTOWER_LABEL_ENABLE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;WATCHTOWER_CLEANUP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;WATCHTOWER_INCLUDE_RESTARTING&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;WATCHTOWER_INCLUDE_STOPPED&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;WATCHTOWER_REVIVE_STOPPED&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;WATCHTOWER_NO_RESTART&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;WATCHTOWER_TIMEOUT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;30s&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AQUESTA&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OPCIÓ&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LA&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;TINC&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DESACTIVADA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PERQUE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;TINC&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DUBTES&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;QUE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FUNCIONI&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CORRECTAMENT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ENCARA&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;QUE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;EL&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DONAR&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CONSTANCIA&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;QUE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SI&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;WATCHTOWER_SCHEDULE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;HE SUBSTITUIT PER AQUESTA
+      - WATCHTOWER_POLL_INTERVAL=86400
+      - WATCHTOWER_NOTIFICATION_URL=telegram://token_telegram@telegram/?channels=id_canal
+      - WATCHTOWER_NOTIFICATIONS_HOSTNAME=nombreServidor
+      #WATCHTOWER_NOTIFICATIONS: gotify
+      #WATCHTOWER_NOTIFICATION_GOTIFY_URL: https://gotify.tuservidor.es
+      #WATCHTOWER_NOTIFICATION_GOTIFY_TOKEN: AAAAAAAAAAAAAAA
+      - WATCHTOWER_DEBUG=true
+      - TZ=Europe/Madrid
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Al principio, &lt;strong&gt;watchtower&lt;/strong&gt; no me funcionaba correctamente, en pocas palabras no funcionaba ni hacia nada.&lt;/p&gt;
 
 &lt;p&gt;Así que me toco investigar que podia ser y al final después de mucho buscar, vi que me faltaba informar de en que red iba a trabajar el contenedor. Esto se configura de la siguiente manera:&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  network_mode: bridge
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nx&quot;&gt;network_mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bridge&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Tambien hay que tener en cuenta, que para informar a &lt;strong&gt;watchtower&lt;/strong&gt; de los contenedores que queremos que vigile por si tiene alguna actualización es de la siguiente manera (tener en cuenta, que tiene que estar en todos los contenedores que queremos sean controlados):&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; labels:
-   - com.centurylinklabs.watchtower.enable&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;true&quot;&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nx&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;centurylinklabs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;watchtower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Y en teoria ya tendria que funcionar. Al principio no parece que funcionaba y estaba con la mosca detras de la oreja, porque no me actualizada nada. Asi que le puse que se ejecutara cada minuto y al final, a partir de que configure correctamente la red empezo a funcionar, me actualizo un par de contenedores y asi quedo.&lt;/p&gt;
@@ -180,42 +180,42 @@ Quereis un consejo, no escucheis ningun podcast de los que segueis que hable del
 
 &lt;p&gt;Yo me quede con la idea del segundo script, aunque le añadi la posibilidad de enviar notificaciones al escritorio de los cambios de fondos de pantalla a través del &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notify-send&lt;/code&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/bash&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;shopt&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; nullglob
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#!/usr/bin/bash
+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;shopt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nullglob&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-z&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;which feh&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;wallpaper err: Can not found command feh.&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ~/i3wm-wallpaper.err
-    &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;127
-&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# DIRECTORI ON ESTAN ELS FONTS DE PANTALLA&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~/.config/wallpapers
-&lt;span class=&quot;c&quot;&gt;# TEMPS / INTERVAL ENTRE ELS CANVIS DE FONS DE PANTALLA&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;59m
-&lt;span class=&quot;c&quot;&gt;# INICI DE L&apos;SCRIPT&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$path&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# INICIEM EL BUCLE DE L&apos;SCRIPT&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;while &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;do
-	&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;which&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;feh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]];&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;wallpaper err: Can not found command feh.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/i3wm-wallpaper.er&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;r
+&lt;/span&gt;    &lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;127&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;fi&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DIRECTORI&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ESTAN&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ELS&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FONTS&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PANTALLA&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=~&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/.config/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;wallpapers&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;TEMPS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;INTERVAL&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ENTRE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ELS&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CANVIS&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FONS&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PANTALLA&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;59&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;INICI&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;SCRIPT
+cd $path
+# INICIEM EL BUCLE DE L&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SCRIPT&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
-	&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;i &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.jpg &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.png&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-	     &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; files+&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;done
-	&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${#&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[@]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;jpg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;done&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[@]}&lt;/span&gt;
 
-	&lt;span class=&quot;nv&quot;&gt;CURRENT_WALLPAPER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[RANDOM % range]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;CURRENT_WALLPAPER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;${files[RANDOM % range]}&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
 
-	&lt;span class=&quot;nv&quot;&gt;CURRENT_IMAGE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$path&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$CURRENT_WALLPAPER&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;CURRENT_IMAGE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$path&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$CURRENT_WALLPAPER&lt;/span&gt;
 
-	&lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;range&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; feh &lt;span class=&quot;nt&quot;&gt;--bg-scale&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$CURRENT_WALLPAPER&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;# ENVIEM LA NOTIFICACIÓ AL SISTEMA, PERQUE ES VEGI PER PANTALLA&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
-	notify-send &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$CURRENT_IMAGE&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Desktop Changed&apos;&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;basename&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$CURRENT_WALLPAPER&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;feh&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scale&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$CURRENT_WALLPAPER&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ENVIEM&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LA&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NOTIFICACIÓ&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AL&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SISTEMA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PERQUE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ES&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;VEGI&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PER&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PANTALLA&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;notify&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;$CURRENT_IMAGE&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Desktop Changed&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;basename&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;$CURRENT_WALLPAPER&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-	&lt;span class=&quot;nb&quot;&gt;sleep&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$interval&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;sleep&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$interval&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;El script en esencia es muy simple. Lo unico que hace, es poner en un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;array&lt;/code&gt; todos los archivos del directorio que le indicas donde estaran las imagenes ( wallpapers ) para que cada X minutos ( &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;interval&lt;/code&gt; ) que le hayas configurado haga el cambio de fondo de pantalla y que te notifique ( &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notify-send&lt;/code&gt; ) de dicho cambio, se necesita el paquete &lt;strong&gt;libnotify-bin&lt;/strong&gt; para que te avise del cambio.&lt;/p&gt;
 
@@ -227,10 +227,10 @@ Quereis un consejo, no escucheis ningun podcast de los que segueis que hable del
 
 &lt;p&gt;Para que funcione, tienes que añadir lo siguiente en el fichero de configuración:&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# PARA VISUALIZAR EL FONDO DE PANTALLA&lt;/span&gt;
-exec_always &lt;span class=&quot;nt&quot;&gt;--no-startup-id&lt;/span&gt; feh &lt;span class=&quot;nt&quot;&gt;--bg-scale&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-fehbg&lt;/span&gt; ~/.config/wallpapers/Wallpaper_10.jpg
-&lt;span class=&quot;c&quot;&gt;# AQUI ES CONFIGURA EL CANVI AUTOMATIC DEL WALLPAPER&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-startup-id&lt;/span&gt;  ~/.config/i3/scripts/wallpaper.sh &amp;amp;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PARA&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;VISUALIZAR&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;EL&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FONDO&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PANTALLA&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;exec_always&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;no&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;startup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;feh&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scale&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;no&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fehbg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/.config/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;wallpapers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Wallpaper_10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;jpg&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AQUI&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ES&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CONFIGURA&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;EL&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CANVI&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AUTOMATIC&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DEL&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;WALLPAPER&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;no&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;startup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/.config/i&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scripts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;wallpaper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;La otra modificación que he realizado, ha sido la de que en la barra de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i3-wm&lt;/code&gt; ( &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i3block&lt;/code&gt; ) me informe de los paquetes que se tienen que actualizar, era una información que me gustaba tener y después de mucho buscar, encontré el &lt;a href=&quot;https://github.com/vivien/i3blocks-contrib&quot;&gt;comando / instrucción&lt;/a&gt; que me daba lo que necesitada.&lt;/p&gt;
@@ -238,90 +238,90 @@ exec_always &lt;span class=&quot;nt&quot;&gt;--no-startup-id&lt;/span&gt; feh &l
 &lt;p&gt;Lo primero, necesitas el script &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt-upgrades&lt;/code&gt; y descargarlo en algún sitio desde donde puedas tener acceso. En mi caso, lo he dejado en el directorio del &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i3-wm/script&lt;/code&gt;, que es donde tengo todos los scripts que uso para &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i3-wm&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;El script en cuestión ( tener en cuenta que depende de &lt;strong&gt;aptitude&lt;/strong&gt; ) hace lo siguiente :&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# Copyright (C) 2015 James Murphy&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# Licensed under the terms of the GNU GPL v2 only.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# i3blocks blocklet script to display pending system upgrades&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Copyright&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2015&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;James&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Murphy&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Licensed&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;under&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;terms&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;GNU&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;GPL&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;v2&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i3blocks&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;blocklet&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pending&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;system&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upgrades&lt;/span&gt;
 
-&lt;span class=&quot;c&quot;&gt;# FontAwesome refresh symbol, change if you do not want to install FontAwesome&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#PENDING_SYMBOL=${PENDING_SYMBOL:-&quot;\uf021 &quot;}&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;PENDING_SYMBOL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PENDING_SYMBOL&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FontAwesome&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;refresh&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;symbol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;change&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;want&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FontAwesome&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PENDING_SYMBOL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;PENDING_SYMBOL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;uf021 &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;PENDING_SYMBOL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;PENDING_SYMBOL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;c&quot;&gt;# By default, show both the symbol and the numbers&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;SYMBOL_ONLY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;SYMBOL_ONLY&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;By&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;show&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;both&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;symbol&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;numbers&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;SYMBOL_ONLY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;SYMBOL_ONLY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;c&quot;&gt;# By default, show something when no upgrades are pending&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;ALWAYS_PRINT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ALWAYS_PRINT&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;By&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;show&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;something&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;no&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upgrades&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;are&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pending&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;ALWAYS_PRINT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;ALWAYS_PRINT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;c&quot;&gt;# Colors for when there is/isn&apos;t a pending upgrade&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;PENDING_COLOR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PENDING_COLOR&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#FF0000&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;NONPENDING_COLOR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;NONPENDING_COLOR&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#FFFFFF&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Colors&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;there&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isn&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;t a pending upgrade
+PENDING_COLOR=${PENDING_COLOR:-&quot;#FF0000&quot;}
+NONPENDING_COLOR=${NONPENDING_COLOR:-&quot;#FFFFFF&quot;}
 
-&lt;span class=&quot;k&quot;&gt;while &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;getopts &lt;/span&gt;s:oc:n:Nh opt&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do
-    case&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$opt&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in
-        &lt;/span&gt;s&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;PENDING_SYMBOL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$OPTARG&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
-        o&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;SYMBOL_ONLY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1 &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
-        c&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;PENDING_COLOR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$OPTARG&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
-        n&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;NONPENDING_COLOR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$OPTARG&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
-        N&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ALWAYS_PRINT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0 &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
-        h&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;span class=&quot;s2&quot;&gt;&quot;Usage: apt-upgrades [-s pending_symbol] [-o] [-c pending_color] [-N|-n nonpending_color] [-h]
+while getopts s:oc:n:Nh opt; do
+    case &quot;$opt&quot; in
+        s) PENDING_SYMBOL=&quot;$OPTARG&quot; ;;
+        o) SYMBOL_ONLY=1 ;;
+        c) PENDING_COLOR=&quot;$OPTARG&quot; ;;
+        n) NONPENDING_COLOR=&quot;$OPTARG&quot; ;;
+        N) ALWAYS_PRINT=0 ;;
+        h) printf &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;
+&quot;Usage: apt-upgrades [-s pending_symbol] [-o] [-c pending_color] [-N|-n nonpending_color] [-h]
 Options:
--s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Specify a refresh symbol. Default: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;\\\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;uf021 &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
--o&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Show refresh symbol only, but no numbers.
--c&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Color when upgrade is pending. Default:  #00FF00
--n&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Color when no upgrade is pending. Default: #FFFFFF
--N&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Only display text if upgrade is pending (supercedes -n)
--h&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Show this help text&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0&lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;esac&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;done
+-s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Specify a refresh symbol. Default: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\\\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;uf021 &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&quot;
+-o&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Show refresh symbol only, but no numbers.
+-c&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Color when upgrade is pending. Default:  #00FF00
+-n&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Color when no upgrade is pending. Default: #FFFFFF
+-N&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Only display text if upgrade is pending (supercedes -n)
+-h&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Show this help text&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&quot; &amp;amp;&amp;amp; exit 0;;
+    esac
+done
 
-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;upgraded new removed held &amp;lt; &amp;lt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
-aptitude full-upgrade &lt;span class=&quot;nt&quot;&gt;--simulate&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--assume-yes&lt;/span&gt; |&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-m1&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;^[0-9]\+ packages upgraded,&apos;&lt;/span&gt; |&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;tr&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-cd&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;0-9 &apos;&lt;/span&gt; |&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;tr&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos; &apos;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;\n&apos;&lt;/span&gt; |&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;[0-9]\+&apos;&lt;/span&gt; |&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    xargs &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+read upgraded new removed held &amp;lt; &amp;lt;(
+aptitude full-upgrade --simulate --assume-yes |&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;
+    grep -m1 &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;packages&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upgraded&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;
+    tr -cd &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;
+    tr &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;
+    grep &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;
+    xargs echo)
 
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$upgraded&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$new&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$removed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$held&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-    &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PENDING_COLOR&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$SYMBOL_ONLY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 1 &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-        &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PENDING_SYMBOL&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PENDING_SYMBOL&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else
-        &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PENDING_SYMBOL$upgraded&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$new&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$removed&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$held&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PENDING_SYMBOL$upgraded&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$new&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$removed&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$held&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fi
-    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$color&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ALWAYS_PRINT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 1 &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-    &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$NONPENDING_COLOR&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PENDING_SYMBOL$upgraded&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$new&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$removed&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$held&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PENDING_SYMBOL$upgraded&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$new&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$removed&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$held&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$color&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+if [[ $upgraded != 0 ]] || [[ $new != 0 ]] || [[ $removed != 0 ]] || [[ $held != 0 ]]; then
+    color=&quot;$PENDING_COLOR&quot;
+    if [[ $SYMBOL_ONLY == 1 ]]; then
+        echo -e &quot;$PENDING_SYMBOL&quot;
+        echo -e &quot;$PENDING_SYMBOL&quot;
+    else
+        echo -e &quot;$PENDING_SYMBOL$upgraded/$new/$removed/$held&quot;
+        echo -e &quot;$PENDING_SYMBOL$upgraded/$new/$removed/$held&quot;
+    fi
+    echo $color
+elif [[ $ALWAYS_PRINT == 1 ]]; then
+    color=&quot;$NONPENDING_COLOR&quot;
+    echo -e &quot;$PENDING_SYMBOL$upgraded/$new/$removed/$held&quot;
+    echo -e &quot;$PENDING_SYMBOL$upgraded/$new/$removed/$held&quot;
+    echo $color
+fi
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Una vez tengas el script, vamos a la configuración del archivo de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i3block.conf&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;apt_upgrades]
-&lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/usuari/.config/i3/scripts/apt-upgrades
-&lt;span class=&quot;c&quot;&gt;# l&apos;script s&apos;executara cada dia ( el valor es refereix a minuts )&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1440
-&lt;span class=&quot;nv&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
-&lt;span class=&quot;nv&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apt_upgrades&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/home/u&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;suari&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scripts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;upgrades&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;script s&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;executara&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cada&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dia&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;valor&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;es&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;refereix&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minuts&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1440&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Cuando ya tenemos configurado toda la parte del usuario, solamente nos queda configurar la parte de &lt;strong&gt;root&lt;/strong&gt; ( que es el encargado de realizar el &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aptitude update&lt;/code&gt; para actualizar los paquetes y que a su vez, hace que el script obtenga los paquetes a actualizar.&lt;/p&gt;
 
 &lt;p&gt;Para eso, tenemos que hacer lo siguiente ( a través de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo&lt;/code&gt;, en mi caso ):&lt;/p&gt;
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;obtenim acces a nivell de root
-&lt;span class=&quot;gp&quot;&gt;usuari@debian:~#&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obtenim&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;acces&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nivell&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;root&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;usuari&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;debian&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Una vez, tenemos acceso a la consola de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; pasamos a configurar el &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cron&lt;/code&gt; que lo puedes hacer de la siguiente manera para evitar al maximo cualquier error posible:&lt;/p&gt;
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;usuari@debian:~#&lt;/span&gt;crontab &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;usuari&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;debian&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;crontab&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Y ahora pasamos a la creación de nuestro cron:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@daily aptitude update
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;daily&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;aptitude&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;update&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Y con este sencillo script obtenemos la siguiente información:&lt;/p&gt;
 &lt;ul&gt;
@@ -648,52 +648,52 @@ aptitude full-upgrade &lt;span class=&quot;nt&quot;&gt;--simulate&lt;/span&gt; &
 
 &lt;p&gt;Es el siguiente que pongo a continuación&lt;/p&gt;
 
-&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   #&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/bin/&lt;/span&gt;bash
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;   #!/bin/bash
+&lt;/span&gt; 
+   &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Actualitzar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rapidament&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;teu&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;repositori&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Git&lt;/span&gt;
+   &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2011&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Alfonso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Saavedra&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Son Link&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+   &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//sonlinkblog.blogspot.com&lt;/span&gt;
+   &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Bajo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;licencia&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;GNU&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;GPL&lt;/span&gt;
  
-   # Actualitzar rapidament &lt;span class=&quot;k&quot;&gt;el&lt;/span&gt; teu repositori de Git
-   # &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;CC&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2011&lt;/span&gt; Alfonso Saavedra &lt;span class=&quot;s2&quot;&gt;&quot;Son Link&quot;&lt;/span&gt;
-   # http&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;sonlinkblog&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;blogspot&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;com&lt;/span&gt;
-   # Bajo licencia GNU/GPL
+   &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;up2Git&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ficheros&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
  
-   # up2Git&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;ficheros&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Comprovem&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;si&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;directori&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;en&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;que&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;estem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;es&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;un&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;repositori&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Git&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.git&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;
+     &lt;span class=&quot;nx&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Aquest directori no conte un repositori de Git&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
+     &lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+   &lt;span class=&quot;nx&quot;&gt;fi&lt;/span&gt;
  
-   # Comprovem &lt;span class=&quot;k&quot;&gt;si&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;el&lt;/span&gt; directori &lt;span class=&quot;k&quot;&gt;en&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;el&lt;/span&gt; que estem&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; es un repositori de Git
-   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;.git&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;; then
-     echo &lt;span class=&quot;s1&quot;&gt;&apos;Aquest directori no conte un repositori de Git&apos;&lt;/span&gt;
-     &lt;span class=&quot;k&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-1&lt;/span&gt;
-   fi
- 
-   # Ara validem &lt;span class=&quot;k&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;l&lt;/span&gt;&apos;&lt;span class=&quot;k&quot;&gt;hi&lt;/span&gt; hem passat algun parametre
-   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; $# &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;; then
-     echo &lt;span class=&quot;s2&quot;&gt;&quot;Up2Git: ¡Error! No l&apos;hi has passat cap parametre&quot;&lt;/span&gt;
-     echo &lt;span class=&quot;s2&quot;&gt;&quot;up2Git fitxer_1 fitxer_2 ... fitxer_N&quot;&lt;/span&gt;
-     &lt;span class=&quot;k&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-1&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-     # Revisem els parametres per validar &lt;span class=&quot;k&quot;&gt;si&lt;/span&gt; son fitxers &lt;span class=&quot;k&quot;&gt;o&lt;/span&gt; directori
-     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; $*; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-       &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;e&lt;/span&gt; $&lt;span class=&quot;k&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;; then
-         echo &lt;span class=&quot;s2&quot;&gt;&quot;Up2Git: L&apos;arxiu o directori $file no existeix&quot;&lt;/span&gt;
-         &lt;span class=&quot;k&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-1&lt;/span&gt;
+   &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Ara&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;validem&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hi hem passat algun parametre
+   if [ $# == 0 ]; then
+     echo &quot;Up2Git: ¡Error! No l&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hi&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;passat&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cap&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parametre&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
+     echo &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;up2Git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fitxer_1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fitxer_2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fitxer_N&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
+     exit -1
+   else
+     # Revisem els parametres per validar si son fitxers o directori
+     for file in $*; do
+       if [ ! -e $file ]; then
+         echo &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Up2Git&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;arxiu o directori $file no existeix&quot;
+         exit -1
        fi
      done
      
-     # Si hem arribat fins aqui&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; informem &lt;span class=&quot;k&quot;&gt;a&lt;/span&gt; Git dels arxius &lt;span class=&quot;k&quot;&gt;a&lt;/span&gt; pujar
-     git &lt;span class=&quot;nb&quot;&gt;add&lt;/span&gt; $*
+     # Si hem arribat fins aqui, informem a Git dels arxius a pujar
+     git add $*
      
-     # Aixo ens demana &lt;span class=&quot;k&quot;&gt;el&lt;/span&gt; missatge del commit
-     echo &lt;span class=&quot;s2&quot;&gt;&quot;Informi del missatge del commit:&quot;&lt;/span&gt;
-     &lt;span class=&quot;k&quot;&gt;read&lt;/span&gt; TXT
-     git commit &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;$TXT&quot;&lt;/span&gt;
+     # Aixo ens demana el missatge del commit
+     echo &quot;Informi del missatge del commit:&quot;
+     read TXT
+     git commit -m &quot;$TXT&quot;
  
-     # &lt;span class=&quot;k&quot;&gt;i&lt;/span&gt; finalitzem pujant els arxius
+     # i finalitzem pujant els arxius
      git push origin master
  
    fi
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Para usarlo, en mi caso, lo hago de la siguiente manera :&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   usuari@debian:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bash up2Git.sh &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;nx&quot;&gt;usuari&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;debian&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bash&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;up2Git&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;El script es de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Alfonso Saavedra&lt;/code&gt; a el todo mi agradecimiento, por facilitarme el tener mis repositorios de GitHub actualizados.&lt;/p&gt;
@@ -712,7 +712,7 @@ aptitude full-upgrade &lt;span class=&quot;nt&quot;&gt;--simulate&lt;/span&gt; &
 
 &lt;p&gt;Aprovechando que en el servidor ya tengo Python instalado, hare que se ejecute en el mismo servidor. Eso si, también tienes que instalar:&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   usuari@debian:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--user&lt;/span&gt; feddparser mastodon
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;nx&quot;&gt;usuari&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;debian&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pip&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;feddparser&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mastodon&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Para que Python pueda realizar el tratamiento del fichero &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xml&lt;/code&gt;.&lt;/p&gt;
@@ -771,7 +771,7 @@ aptitude full-upgrade &lt;span class=&quot;nt&quot;&gt;--simulate&lt;/span&gt; &
 
 &lt;p&gt;Una vez, tengas el fichero creado, si quieres hacer pruebas, tienes que hacerlo de la siguiente manera :&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   usuari@debian:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python3 nombreDelArchivo.py
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;nx&quot;&gt;usuari&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;debian&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;python3&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nombreDelArchivo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;py&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Entonces, si no has tenido ningun problema, a tu cuenta de Mastodon te llegara un articulo aleatorio de tu web.&lt;/p&gt;
@@ -784,7 +784,7 @@ aptitude full-upgrade &lt;span class=&quot;nt&quot;&gt;--simulate&lt;/span&gt; &
 
 &lt;p&gt;Para la configuración del &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CRON&lt;/code&gt; lo tengo de la siguiente manera:&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   @weekly /usr/bin/python3 /home/tu_usuario/lugar_donde_tengas_el_script/botMastodonPythonRss.py
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;weekly&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/usr/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;python3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;home&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tu_usuario&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lugar_donde_tengas_el_script&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;botMastodonPythonRss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;py&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;En el caso de que lo quisieras hacer funcionar en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Twitter&lt;/code&gt; tienes que tener en cuenta las siguientes modificaciones al archivo de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Python&lt;/code&gt;:&lt;/p&gt;
@@ -857,13 +857,13 @@ distancia conectado a traves de USB y el USB de la WIFI, la Raspberry no podia m
 &lt;p&gt;Para que os hagais una idea, la RPI3B funcionaba mejor que la RPI4B y eso que esta ultima (siempre lo añado a todos mis Libreelec) habia creado el fichero &lt;strong&gt;advancedsettings.xml&lt;/strong&gt; donde le añado lo 
 siguiente:&lt;/p&gt;
 
-&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;advancedsettings &lt;span class=&quot;k&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-     &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;cache&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-       &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;buffermode&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;/buffermode&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-       &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;memorysize&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;/memorysize&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-     &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;/cache&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-   &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;/advancedsettings&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;advancedsettings&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+       &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;buffermode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/buffermode&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;memorysize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/memorysize&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/cache&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/advancedsettings&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Donde:&lt;/p&gt;
 &lt;ul&gt;

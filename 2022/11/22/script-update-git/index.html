@@ -89,52 +89,52 @@
 
 <p>Es el siguiente que pongo a continuación</p>
 
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   #<span class="p">!</span><span class="sr">/bin/</span>bash
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">   #!/bin/bash
+</span> 
+   <span class="err">#</span> <span class="nx">Actualitzar</span> <span class="nx">rapidament</span> <span class="nx">el</span> <span class="nx">teu</span> <span class="nx">repositori</span> <span class="nx">de</span> <span class="nx">Git</span>
+   <span class="err">#</span> <span class="p">(</span><span class="nx">CC</span><span class="p">)</span> <span class="mi">2011</span> <span class="nx">Alfonso</span> <span class="nx">Saavedra</span> <span class="dl">"</span><span class="s2">Son Link</span><span class="dl">"</span>
+   <span class="err">#</span> <span class="nx">http</span><span class="p">:</span><span class="c1">//sonlinkblog.blogspot.com</span>
+   <span class="err">#</span> <span class="nx">Bajo</span> <span class="nx">licencia</span> <span class="nx">GNU</span><span class="o">/</span><span class="nx">GPL</span>
  
-   # Actualitzar rapidament <span class="k">el</span> teu repositori de Git
-   # <span class="p">(</span>CC<span class="p">)</span> <span class="m">2011</span> Alfonso Saavedra <span class="s2">"Son Link"</span>
-   # http<span class="p">:</span><span class="sr">//</span>sonlinkblog<span class="p">.</span>blogspot<span class="p">.</span><span class="k">com</span>
-   # Bajo licencia GNU/GPL
+   <span class="err">#</span> <span class="nx">up2Git</span><span class="p">.</span><span class="nx">sh</span> <span class="o">&lt;</span><span class="nx">ficheros</span><span class="o">&gt;</span>
  
-   # up2Git<span class="p">.</span><span class="k">sh</span> <span class="p">&lt;</span>ficheros<span class="p">&gt;</span>
+   <span class="err">#</span> <span class="nx">Comprovem</span> <span class="nx">si</span> <span class="nx">el</span> <span class="nx">directori</span> <span class="nx">en</span> <span class="nx">el</span> <span class="nx">que</span> <span class="nx">estem</span><span class="p">,</span> <span class="nx">es</span> <span class="nx">un</span> <span class="nx">repositori</span> <span class="nx">de</span> <span class="nx">Git</span>
+   <span class="k">if</span> <span class="p">[</span> <span class="o">!</span> <span class="o">-</span><span class="nx">d</span> <span class="dl">'</span><span class="s1">.git</span><span class="dl">'</span> <span class="p">];</span> <span class="nx">then</span>
+     <span class="nx">echo</span> <span class="dl">'</span><span class="s1">Aquest directori no conte un repositori de Git</span><span class="dl">'</span>
+     <span class="nx">exit</span> <span class="o">-</span><span class="mi">1</span>
+   <span class="nx">fi</span>
  
-   # Comprovem <span class="k">si</span> <span class="k">el</span> directori <span class="k">en</span> <span class="k">el</span> que estem<span class="p">,</span> es un repositori de Git
-   <span class="k">if</span> <span class="p">[</span> <span class="p">!</span> <span class="p">-</span><span class="k">d</span> <span class="s1">'.git'</span> <span class="p">]</span>; then
-     echo <span class="s1">'Aquest directori no conte un repositori de Git'</span>
-     <span class="k">exit</span> <span class="m">-1</span>
-   fi
- 
-   # Ara validem <span class="k">i</span> <span class="k">l</span>'<span class="k">hi</span> hem passat algun parametre
-   <span class="k">if</span> <span class="p">[</span> $# <span class="p">==</span> <span class="m">0</span> <span class="p">]</span>; then
-     echo <span class="s2">"Up2Git: ¡Error! No l'hi has passat cap parametre"</span>
-     echo <span class="s2">"up2Git fitxer_1 fitxer_2 ... fitxer_N"</span>
-     <span class="k">exit</span> <span class="m">-1</span>
-   <span class="k">else</span>
-     # Revisem els parametres per validar <span class="k">si</span> son fitxers <span class="k">o</span> directori
-     <span class="k">for</span> <span class="k">file</span> <span class="k">in</span> $*; <span class="k">do</span>
-       <span class="k">if</span> <span class="p">[</span> <span class="p">!</span> <span class="p">-</span><span class="k">e</span> $<span class="k">file</span> <span class="p">]</span>; then
-         echo <span class="s2">"Up2Git: L'arxiu o directori $file no existeix"</span>
-         <span class="k">exit</span> <span class="m">-1</span>
+   <span class="err">#</span> <span class="nx">Ara</span> <span class="nx">validem</span> <span class="nx">i</span> <span class="nx">l</span><span class="dl">'</span><span class="s1">hi hem passat algun parametre
+   if [ $# == 0 ]; then
+     echo "Up2Git: ¡Error! No l</span><span class="dl">'</span><span class="nx">hi</span> <span class="nx">has</span> <span class="nx">passat</span> <span class="nx">cap</span> <span class="nx">parametre</span><span class="dl">"</span><span class="s2">
+     echo </span><span class="dl">"</span><span class="nx">up2Git</span> <span class="nx">fitxer_1</span> <span class="nx">fitxer_2</span> <span class="p">...</span> <span class="nx">fitxer_N</span><span class="dl">"</span><span class="s2">
+     exit -1
+   else
+     # Revisem els parametres per validar si son fitxers o directori
+     for file in $*; do
+       if [ ! -e $file ]; then
+         echo </span><span class="dl">"</span><span class="nx">Up2Git</span><span class="p">:</span> <span class="nx">L</span><span class="dl">'</span><span class="s1">arxiu o directori $file no existeix"
+         exit -1
        fi
      done
      
-     # Si hem arribat fins aqui<span class="p">,</span> informem <span class="k">a</span> Git dels arxius <span class="k">a</span> pujar
-     git <span class="nb">add</span> $*
+     # Si hem arribat fins aqui, informem a Git dels arxius a pujar
+     git add $*
      
-     # Aixo ens demana <span class="k">el</span> missatge del commit
-     echo <span class="s2">"Informi del missatge del commit:"</span>
-     <span class="k">read</span> TXT
-     git commit <span class="p">-</span><span class="k">m</span> <span class="s2">"$TXT"</span>
+     # Aixo ens demana el missatge del commit
+     echo "Informi del missatge del commit:"
+     read TXT
+     git commit -m "$TXT"
  
-     # <span class="k">i</span> finalitzem pujant els arxius
+     # i finalitzem pujant els arxius
      git push origin master
  
    fi
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <p>Para usarlo, en mi caso, lo hago de la siguiente manera :</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@debian:~<span class="nv">$ </span>bash up2Git.sh <span class="nb">.</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">bash</span> <span class="nx">up2Git</span><span class="p">.</span><span class="nx">sh</span> <span class="p">.</span>
 </code></pre></div></div>
 
 <p>El script es de <code class="language-plaintext highlighter-rouge">Alfonso Saavedra</code> a el todo mi agradecimiento, por facilitarme el tener mis repositorios de GitHub actualizados.</p>

@@ -99,12 +99,12 @@ En esta no viene ningun gestor de ventanas ni paquetes innecesarios para funcion
 
 <p>Lo primero, es insertar la tarjeta SD y realizar la instrucción <code class="language-plaintext highlighter-rouge">mount</code> para descubrir que dispositivo es nuestra SD:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>mount
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">mount</span>
 </code></pre></div></div>
 
 <p>Y obtendras un listado con todos los dispositivos conectados. En mi caso, la tarjeta SD, era:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@raspberry:~<span class="nv">$ </span>/dev/mmcblk0
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">mmcblk0</span>
 </code></pre></div></div>
 
 <p>Después de obtener esta información, solamente nos queda copiar la imagen a la SD.</p>
@@ -117,10 +117,10 @@ Hay que tener una cosa en cuenta a la hora de copiar la imagen en la SD, es que 
 
 <p>La instrucción para realizar la copia (<strong>se tiene que hacer como root</strong>) es la siguiente:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   root@raspberry:~# <span class="nb">dd </span><span class="nv">bs</span><span class="o">=</span>4M <span class="k">if</span><span class="o">=</span>2016-03-18-raspbian-jessie-lite.img <span class="nv">of</span><span class="o">=</span>/dev/mmcblk0
-   462+1 records <span class="k">in
-   </span>463+0 records out
-   1941962752 bytes <span class="o">(</span>1.9 GB<span class="o">)</span> copied, 256.996 s, 7.6 MB/s
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">dd</span> <span class="nx">bs</span><span class="o">=</span><span class="mi">4</span><span class="nx">M</span> <span class="k">if</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="nx">raspbian</span><span class="o">-</span><span class="nx">jessie</span><span class="o">-</span><span class="nx">lite</span><span class="p">.</span><span class="nx">img</span> <span class="k">of</span><span class="o">=</span><span class="sr">/dev/mm</span><span class="nx">cblk0</span>
+   <span class="mi">462</span><span class="o">+</span><span class="mi">1</span> <span class="nx">records</span> <span class="k">in</span>
+   <span class="mi">463</span><span class="o">+</span><span class="mi">0</span> <span class="nx">records</span> <span class="nx">out</span>
+   <span class="mi">1941962752</span> <span class="nx">bytes</span> <span class="p">(</span><span class="mf">1.9</span> <span class="nx">GB</span><span class="p">)</span> <span class="nx">copied</span><span class="p">,</span> <span class="mf">256.996</span> <span class="nx">s</span><span class="p">,</span> <span class="mf">7.6</span> <span class="nx">MB</span><span class="o">/</span><span class="nx">s</span>
 </code></pre></div></div>
 
 <hr />

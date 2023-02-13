@@ -95,42 +95,42 @@
 
 <p>Yo me quede con la idea del segundo script, aunque le añadi la posibilidad de enviar notificaciones al escritorio de los cambios de fondos de pantalla a través del <code class="language-plaintext highlighter-rouge">notify-send</code>.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/bash</span>
-<span class="nb">shopt</span> <span class="nt">-s</span> nullglob
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#!/usr/bin/bash
+</span><span class="nx">shopt</span> <span class="o">-</span><span class="nx">s</span> <span class="nx">nullglob</span>
 
-<span class="k">if</span> <span class="o">[[</span> <span class="nt">-z</span> <span class="si">$(</span>which feh<span class="si">)</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
-    </span><span class="nb">echo</span> <span class="s2">"wallpaper err: Can not found command feh."</span> <span class="o">&gt;</span> ~/i3wm-wallpaper.err
-    <span class="nb">exit </span>127
-<span class="k">fi</span>
-<span class="c"># DIRECTORI ON ESTAN ELS FONTS DE PANTALLA</span>
-<span class="nv">path</span><span class="o">=</span>~/.config/wallpapers
-<span class="c"># TEMPS / INTERVAL ENTRE ELS CANVIS DE FONS DE PANTALLA</span>
-<span class="nv">interval</span><span class="o">=</span>59m
-<span class="c"># INICI DE L'SCRIPT</span>
-<span class="nb">cd</span> <span class="nv">$path</span>
-<span class="c"># INICIEM EL BUCLE DE L'SCRIPT</span>
-<span class="k">while </span><span class="nb">true
-</span><span class="k">do
-	</span><span class="nv">files</span><span class="o">=()</span>
+<span class="k">if</span> <span class="p">[[</span> <span class="o">-</span><span class="nx">z</span> <span class="nx">$</span><span class="p">(</span><span class="nx">which</span> <span class="nx">feh</span><span class="p">)</span> <span class="p">]];</span> <span class="nx">then</span>
+    <span class="nx">echo</span> <span class="dl">"</span><span class="s2">wallpaper err: Can not found command feh.</span><span class="dl">"</span> <span class="o">&gt;</span> <span class="o">~</span><span class="sr">/i3wm-wallpaper.er</span><span class="err">r
+</span>    <span class="nx">exit</span> <span class="mi">127</span>
+<span class="nx">fi</span>
+<span class="err">#</span> <span class="nx">DIRECTORI</span> <span class="nx">ON</span> <span class="nx">ESTAN</span> <span class="nx">ELS</span> <span class="nx">FONTS</span> <span class="nx">DE</span> <span class="nx">PANTALLA</span>
+<span class="nx">path</span><span class="o">=~</span><span class="sr">/.config/</span><span class="nx">wallpapers</span>
+<span class="err">#</span> <span class="nx">TEMPS</span> <span class="o">/</span> <span class="nx">INTERVAL</span> <span class="nx">ENTRE</span> <span class="nx">ELS</span> <span class="nx">CANVIS</span> <span class="nx">DE</span> <span class="nx">FONS</span> <span class="nx">DE</span> <span class="nx">PANTALLA</span>
+<span class="nx">interval</span><span class="o">=</span><span class="mi">59</span><span class="nx">m</span>
+<span class="err">#</span> <span class="nx">INICI</span> <span class="nx">DE</span> <span class="nx">L</span><span class="dl">'</span><span class="s1">SCRIPT
+cd $path
+# INICIEM EL BUCLE DE L</span><span class="dl">'</span><span class="nx">SCRIPT</span>
+<span class="k">while</span> <span class="kc">true</span>
+<span class="k">do</span>
+  <span class="nx">files</span><span class="o">=</span><span class="p">()</span>
 
-	<span class="k">for </span>i <span class="k">in</span> <span class="k">*</span>.jpg <span class="k">*</span>.png<span class="p">;</span>
-	<span class="k">do</span>
-	     <span class="o">[[</span> <span class="nt">-f</span> <span class="nv">$i</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> files+<span class="o">=(</span><span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span><span class="o">)</span>
-	<span class="k">done
-	</span><span class="nv">range</span><span class="o">=</span><span class="k">${#</span><span class="nv">files</span><span class="p">[@]</span><span class="k">}</span>
+  <span class="k">for</span> <span class="nx">i</span> <span class="k">in</span> <span class="o">*</span><span class="p">.</span><span class="nx">jpg</span> <span class="o">*</span><span class="p">.</span><span class="nx">png</span><span class="p">;</span>
+  <span class="k">do</span>
+    <span class="p">[[</span> <span class="o">-</span><span class="nx">f</span> <span class="nx">$i</span> <span class="p">]]</span> <span class="o">&amp;&amp;</span> <span class="nx">files</span><span class="o">+=</span><span class="p">(</span><span class="dl">"</span><span class="s2">$i</span><span class="dl">"</span><span class="p">)</span>
+  <span class="nx">done</span>
+  <span class="nx">range</span><span class="o">=</span><span class="nx">$</span><span class="p">{</span><span class="err">#</span><span class="nx">files</span><span class="p">[@]}</span>
 
-	<span class="nv">CURRENT_WALLPAPER</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">files</span><span class="p">[RANDOM % range]</span><span class="k">}</span><span class="s2">"</span>
+  <span class="nx">CURRENT_WALLPAPER</span><span class="o">=</span><span class="dl">"</span><span class="s2">${files[RANDOM % range]}</span><span class="dl">"</span>
 
-	<span class="nv">CURRENT_IMAGE</span><span class="o">=</span><span class="nv">$path</span><span class="s2">"/"</span><span class="nv">$CURRENT_WALLPAPER</span>
+  <span class="nx">CURRENT_IMAGE</span><span class="o">=</span><span class="nx">$path</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="nx">$CURRENT_WALLPAPER</span>
 
-	<span class="o">((</span>range<span class="o">))</span> <span class="o">&amp;&amp;</span> feh <span class="nt">--bg-scale</span> <span class="nv">$CURRENT_WALLPAPER</span>
-	<span class="c">#</span>
-	<span class="c"># ENVIEM LA NOTIFICACIÓ AL SISTEMA, PERQUE ES VEGI PER PANTALLA</span>
-	<span class="c">#</span>
-	notify-send <span class="nt">-i</span> <span class="s2">"</span><span class="nv">$CURRENT_IMAGE</span><span class="s2">"</span> <span class="s1">'Desktop Changed'</span> <span class="si">$(</span><span class="nb">basename</span> <span class="nt">--</span> <span class="s2">"</span><span class="nv">$CURRENT_WALLPAPER</span><span class="s2">"</span><span class="si">)</span>
+  <span class="p">((</span><span class="nx">range</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="nx">feh</span> <span class="o">--</span><span class="nx">bg</span><span class="o">-</span><span class="nx">scale</span> <span class="nx">$CURRENT_WALLPAPER</span>
+  <span class="err">#</span>
+  <span class="err">#</span> <span class="nx">ENVIEM</span> <span class="nx">LA</span> <span class="nx">NOTIFICACIÓ</span> <span class="nx">AL</span> <span class="nx">SISTEMA</span><span class="p">,</span> <span class="nx">PERQUE</span> <span class="nx">ES</span> <span class="nx">VEGI</span> <span class="nx">PER</span> <span class="nx">PANTALLA</span>
+  <span class="err">#</span>
+  <span class="nx">notify</span><span class="o">-</span><span class="nx">send</span> <span class="o">-</span><span class="nx">i</span> <span class="dl">"</span><span class="s2">$CURRENT_IMAGE</span><span class="dl">"</span> <span class="dl">'</span><span class="s1">Desktop Changed</span><span class="dl">'</span> <span class="nx">$</span><span class="p">(</span><span class="nx">basename</span> <span class="o">--</span> <span class="dl">"</span><span class="s2">$CURRENT_WALLPAPER</span><span class="dl">"</span><span class="p">)</span>
 
-	<span class="nb">sleep</span> <span class="nv">$interval</span>
-<span class="k">done</span>
+  <span class="nx">sleep</span> <span class="nx">$interval</span>
+<span class="nx">done</span>
 </code></pre></div></div>
 <p>El script en esencia es muy simple. Lo unico que hace, es poner en un <code class="language-plaintext highlighter-rouge">array</code> todos los archivos del directorio que le indicas donde estaran las imagenes ( wallpapers ) para que cada X minutos ( <code class="language-plaintext highlighter-rouge">interval</code> ) que le hayas configurado haga el cambio de fondo de pantalla y que te notifique ( <code class="language-plaintext highlighter-rouge">notify-send</code> ) de dicho cambio, se necesita el paquete <strong>libnotify-bin</strong> para que te avise del cambio.</p>
 
@@ -142,10 +142,10 @@
 
 <p>Para que funcione, tienes que añadir lo siguiente en el fichero de configuración:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># PARA VISUALIZAR EL FONDO DE PANTALLA</span>
-exec_always <span class="nt">--no-startup-id</span> feh <span class="nt">--bg-scale</span> <span class="nt">--no-fehbg</span> ~/.config/wallpapers/Wallpaper_10.jpg
-<span class="c"># AQUI ES CONFIGURA EL CANVI AUTOMATIC DEL WALLPAPER</span>
-<span class="nb">exec</span> <span class="nt">--no-startup-id</span>  ~/.config/i3/scripts/wallpaper.sh &amp;
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="nx">PARA</span> <span class="nx">VISUALIZAR</span> <span class="nx">EL</span> <span class="nx">FONDO</span> <span class="nx">DE</span> <span class="nx">PANTALLA</span>
+<span class="nx">exec_always</span> <span class="o">--</span><span class="nx">no</span><span class="o">-</span><span class="nx">startup</span><span class="o">-</span><span class="nx">id</span> <span class="nx">feh</span> <span class="o">--</span><span class="nx">bg</span><span class="o">-</span><span class="nx">scale</span> <span class="o">--</span><span class="nx">no</span><span class="o">-</span><span class="nx">fehbg</span> <span class="o">~</span><span class="sr">/.config/</span><span class="nx">wallpapers</span><span class="o">/</span><span class="nx">Wallpaper_10</span><span class="p">.</span><span class="nx">jpg</span>
+<span class="err">#</span> <span class="nx">AQUI</span> <span class="nx">ES</span> <span class="nx">CONFIGURA</span> <span class="nx">EL</span> <span class="nx">CANVI</span> <span class="nx">AUTOMATIC</span> <span class="nx">DEL</span> <span class="nx">WALLPAPER</span>
+<span class="nx">exec</span> <span class="o">--</span><span class="nx">no</span><span class="o">-</span><span class="nx">startup</span><span class="o">-</span><span class="nx">id</span>  <span class="o">~</span><span class="sr">/.config/i</span><span class="mi">3</span><span class="o">/</span><span class="nx">scripts</span><span class="o">/</span><span class="nx">wallpaper</span><span class="p">.</span><span class="nx">sh</span> <span class="o">&amp;</span>
 </code></pre></div></div>
 
 <p>La otra modificación que he realizado, ha sido la de que en la barra de <code class="language-plaintext highlighter-rouge">i3-wm</code> ( <code class="language-plaintext highlighter-rouge">i3block</code> ) me informe de los paquetes que se tienen que actualizar, era una información que me gustaba tener y después de mucho buscar, encontré el <a href="https://github.com/vivien/i3blocks-contrib">comando / instrucción</a> que me daba lo que necesitada.</p>
@@ -153,90 +153,90 @@ exec_always <span class="nt">--no-startup-id</span> feh <span class="nt">--bg-sc
 <p>Lo primero, necesitas el script <code class="language-plaintext highlighter-rouge">apt-upgrades</code> y descargarlo en algún sitio desde donde puedas tener acceso. En mi caso, lo he dejado en el directorio del <code class="language-plaintext highlighter-rouge">i3-wm/script</code>, que es donde tengo todos los scripts que uso para <code class="language-plaintext highlighter-rouge">i3-wm</code>.</p>
 
 <p>El script en cuestión ( tener en cuenta que depende de <strong>aptitude</strong> ) hace lo siguiente :</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
-<span class="c">#</span>
-<span class="c"># Copyright (C) 2015 James Murphy</span>
-<span class="c"># Licensed under the terms of the GNU GPL v2 only.</span>
-<span class="c">#</span>
-<span class="c"># i3blocks blocklet script to display pending system upgrades</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#!/usr/bin/env bash
+</span><span class="err">#</span>
+<span class="err">#</span> <span class="nx">Copyright</span> <span class="p">(</span><span class="nx">C</span><span class="p">)</span> <span class="mi">2015</span> <span class="nx">James</span> <span class="nx">Murphy</span>
+<span class="err">#</span> <span class="nx">Licensed</span> <span class="nx">under</span> <span class="nx">the</span> <span class="nx">terms</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">GNU</span> <span class="nx">GPL</span> <span class="nx">v2</span> <span class="nx">only</span><span class="p">.</span>
+<span class="err">#</span>
+<span class="err">#</span> <span class="nx">i3blocks</span> <span class="nx">blocklet</span> <span class="nx">script</span> <span class="nx">to</span> <span class="nx">display</span> <span class="nx">pending</span> <span class="nx">system</span> <span class="nx">upgrades</span>
 
-<span class="c"># FontAwesome refresh symbol, change if you do not want to install FontAwesome</span>
-<span class="c">#PENDING_SYMBOL=${PENDING_SYMBOL:-"\uf021 "}</span>
-<span class="nv">PENDING_SYMBOL</span><span class="o">=</span><span class="k">${</span><span class="nv">PENDING_SYMBOL</span><span class="k">:-</span><span class="s2">""</span><span class="k">}</span>
+<span class="err">#</span> <span class="nx">FontAwesome</span> <span class="nx">refresh</span> <span class="nx">symbol</span><span class="p">,</span> <span class="nx">change</span> <span class="k">if</span> <span class="nx">you</span> <span class="k">do</span> <span class="nx">not</span> <span class="nx">want</span> <span class="nx">to</span> <span class="nx">install</span> <span class="nx">FontAwesome</span>
+<span class="err">#</span><span class="nx">PENDING_SYMBOL</span><span class="o">=</span><span class="nx">$</span><span class="p">{</span><span class="nl">PENDING_SYMBOL</span><span class="p">:</span><span class="o">-</span><span class="dl">"</span><span class="se">\</span><span class="s2">uf021 </span><span class="dl">"</span><span class="p">}</span>
+<span class="nx">PENDING_SYMBOL</span><span class="o">=</span><span class="nx">$</span><span class="p">{</span><span class="nl">PENDING_SYMBOL</span><span class="p">:</span><span class="o">-</span><span class="dl">""</span><span class="p">}</span>
 
-<span class="c"># By default, show both the symbol and the numbers</span>
-<span class="nv">SYMBOL_ONLY</span><span class="o">=</span><span class="k">${</span><span class="nv">SYMBOL_ONLY</span><span class="k">:-</span><span class="nv">0</span><span class="k">}</span>
+<span class="err">#</span> <span class="nx">By</span> <span class="k">default</span><span class="p">,</span> <span class="nx">show</span> <span class="nx">both</span> <span class="nx">the</span> <span class="nx">symbol</span> <span class="nx">and</span> <span class="nx">the</span> <span class="nx">numbers</span>
+<span class="nx">SYMBOL_ONLY</span><span class="o">=</span><span class="nx">$</span><span class="p">{</span><span class="nl">SYMBOL_ONLY</span><span class="p">:</span><span class="o">-</span><span class="mi">0</span><span class="p">}</span>
 
-<span class="c"># By default, show something when no upgrades are pending</span>
-<span class="nv">ALWAYS_PRINT</span><span class="o">=</span><span class="k">${</span><span class="nv">ALWAYS_PRINT</span><span class="k">:-</span><span class="nv">1</span><span class="k">}</span>
+<span class="err">#</span> <span class="nx">By</span> <span class="k">default</span><span class="p">,</span> <span class="nx">show</span> <span class="nx">something</span> <span class="nx">when</span> <span class="nx">no</span> <span class="nx">upgrades</span> <span class="nx">are</span> <span class="nx">pending</span>
+<span class="nx">ALWAYS_PRINT</span><span class="o">=</span><span class="nx">$</span><span class="p">{</span><span class="nl">ALWAYS_PRINT</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span>
 
-<span class="c"># Colors for when there is/isn't a pending upgrade</span>
-<span class="nv">PENDING_COLOR</span><span class="o">=</span><span class="k">${</span><span class="nv">PENDING_COLOR</span><span class="k">:-</span><span class="s2">"#FF0000"</span><span class="k">}</span>
-<span class="nv">NONPENDING_COLOR</span><span class="o">=</span><span class="k">${</span><span class="nv">NONPENDING_COLOR</span><span class="k">:-</span><span class="s2">"#FFFFFF"</span><span class="k">}</span>
+<span class="err">#</span> <span class="nx">Colors</span> <span class="k">for</span> <span class="nx">when</span> <span class="nx">there</span> <span class="nx">is</span><span class="o">/</span><span class="nx">isn</span><span class="dl">'</span><span class="s1">t a pending upgrade
+PENDING_COLOR=${PENDING_COLOR:-"#FF0000"}
+NONPENDING_COLOR=${NONPENDING_COLOR:-"#FFFFFF"}
 
-<span class="k">while </span><span class="nb">getopts </span>s:oc:n:Nh opt<span class="p">;</span> <span class="k">do
-    case</span> <span class="s2">"</span><span class="nv">$opt</span><span class="s2">"</span> <span class="k">in
-        </span>s<span class="p">)</span> <span class="nv">PENDING_SYMBOL</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPTARG</span><span class="s2">"</span> <span class="p">;;</span>
-        o<span class="p">)</span> <span class="nv">SYMBOL_ONLY</span><span class="o">=</span>1 <span class="p">;;</span>
-        c<span class="p">)</span> <span class="nv">PENDING_COLOR</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPTARG</span><span class="s2">"</span> <span class="p">;;</span>
-        n<span class="p">)</span> <span class="nv">NONPENDING_COLOR</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPTARG</span><span class="s2">"</span> <span class="p">;;</span>
-        N<span class="p">)</span> <span class="nv">ALWAYS_PRINT</span><span class="o">=</span>0 <span class="p">;;</span>
-        h<span class="p">)</span> <span class="nb">printf</span> <span class="se">\</span>
-<span class="s2">"Usage: apt-upgrades [-s pending_symbol] [-o] [-c pending_color] [-N|-n nonpending_color] [-h]
+while getopts s:oc:n:Nh opt; do
+    case "$opt" in
+        s) PENDING_SYMBOL="$OPTARG" ;;
+        o) SYMBOL_ONLY=1 ;;
+        c) PENDING_COLOR="$OPTARG" ;;
+        n) NONPENDING_COLOR="$OPTARG" ;;
+        N) ALWAYS_PRINT=0 ;;
+        h) printf </span><span class="se">\</span><span class="s1">
+"Usage: apt-upgrades [-s pending_symbol] [-o] [-c pending_color] [-N|-n nonpending_color] [-h]
 Options:
--s</span><span class="se">\t</span><span class="s2">Specify a refresh symbol. Default: </span><span class="se">\"\\\\</span><span class="s2">uf021 </span><span class="se">\"</span><span class="s2">
--o</span><span class="se">\t</span><span class="s2">Show refresh symbol only, but no numbers.
--c</span><span class="se">\t</span><span class="s2">Color when upgrade is pending. Default:  #00FF00
--n</span><span class="se">\t</span><span class="s2">Color when no upgrade is pending. Default: #FFFFFF
--N</span><span class="se">\t</span><span class="s2">Only display text if upgrade is pending (supercedes -n)
--h</span><span class="se">\t</span><span class="s2">Show this help text</span><span class="se">\n</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">exit </span>0<span class="p">;;</span>
-    <span class="k">esac</span>
-<span class="k">done
+-s</span><span class="se">\t</span><span class="s1">Specify a refresh symbol. Default: </span><span class="se">\</span><span class="s1">"</span><span class="se">\\\\</span><span class="s1">uf021 </span><span class="se">\</span><span class="s1">"
+-o</span><span class="se">\t</span><span class="s1">Show refresh symbol only, but no numbers.
+-c</span><span class="se">\t</span><span class="s1">Color when upgrade is pending. Default:  #00FF00
+-n</span><span class="se">\t</span><span class="s1">Color when no upgrade is pending. Default: #FFFFFF
+-N</span><span class="se">\t</span><span class="s1">Only display text if upgrade is pending (supercedes -n)
+-h</span><span class="se">\t</span><span class="s1">Show this help text</span><span class="se">\n</span><span class="s1">" &amp;&amp; exit 0;;
+    esac
+done
 
-</span><span class="nb">read </span>upgraded new removed held &lt; &lt;<span class="o">(</span>
-aptitude full-upgrade <span class="nt">--simulate</span> <span class="nt">--assume-yes</span> |<span class="se">\</span>
-    <span class="nb">grep</span> <span class="nt">-m1</span> <span class="s1">'^[0-9]\+ packages upgraded,'</span> |<span class="se">\</span>
-    <span class="nb">tr</span> <span class="nt">-cd</span> <span class="s1">'0-9 '</span> |<span class="se">\</span>
-    <span class="nb">tr</span> <span class="s1">' '</span> <span class="s1">'\n'</span> |<span class="se">\</span>
-    <span class="nb">grep</span> <span class="s1">'[0-9]\+'</span> |<span class="se">\</span>
-    xargs <span class="nb">echo</span><span class="o">)</span>
+read upgraded new removed held &lt; &lt;(
+aptitude full-upgrade --simulate --assume-yes |</span><span class="se">\</span><span class="s1">
+    grep -m1 </span><span class="dl">'</span><span class="o">^</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="err">\</span><span class="o">+</span> <span class="nx">packages</span> <span class="nx">upgraded</span><span class="p">,</span><span class="dl">'</span><span class="s1"> |</span><span class="se">\</span><span class="s1">
+    tr -cd </span><span class="dl">'</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span> <span class="dl">'</span><span class="s1"> |</span><span class="se">\</span><span class="s1">
+    tr </span><span class="dl">'</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="err">\</span><span class="nx">n</span><span class="dl">'</span><span class="s1"> |</span><span class="se">\</span><span class="s1">
+    grep </span><span class="dl">'</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="err">\</span><span class="o">+</span><span class="dl">'</span><span class="s1"> |</span><span class="se">\</span><span class="s1">
+    xargs echo)
 
-<span class="k">if</span> <span class="o">[[</span> <span class="nv">$upgraded</span> <span class="o">!=</span> 0 <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv">$new</span> <span class="o">!=</span> 0 <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv">$removed</span> <span class="o">!=</span> 0 <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv">$held</span> <span class="o">!=</span> 0 <span class="o">]]</span><span class="p">;</span> <span class="k">then
-    </span><span class="nv">color</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PENDING_COLOR</span><span class="s2">"</span>
-    <span class="k">if</span> <span class="o">[[</span> <span class="nv">$SYMBOL_ONLY</span> <span class="o">==</span> 1 <span class="o">]]</span><span class="p">;</span> <span class="k">then
-        </span><span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$PENDING_SYMBOL</span><span class="s2">"</span>
-        <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$PENDING_SYMBOL</span><span class="s2">"</span>
-    <span class="k">else
-        </span><span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$PENDING_SYMBOL$upgraded</span><span class="s2">/</span><span class="nv">$new</span><span class="s2">/</span><span class="nv">$removed</span><span class="s2">/</span><span class="nv">$held</span><span class="s2">"</span>
-        <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$PENDING_SYMBOL$upgraded</span><span class="s2">/</span><span class="nv">$new</span><span class="s2">/</span><span class="nv">$removed</span><span class="s2">/</span><span class="nv">$held</span><span class="s2">"</span>
-    <span class="k">fi
-    </span><span class="nb">echo</span> <span class="nv">$color</span>
-<span class="k">elif</span> <span class="o">[[</span> <span class="nv">$ALWAYS_PRINT</span> <span class="o">==</span> 1 <span class="o">]]</span><span class="p">;</span> <span class="k">then
-    </span><span class="nv">color</span><span class="o">=</span><span class="s2">"</span><span class="nv">$NONPENDING_COLOR</span><span class="s2">"</span>
-    <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$PENDING_SYMBOL$upgraded</span><span class="s2">/</span><span class="nv">$new</span><span class="s2">/</span><span class="nv">$removed</span><span class="s2">/</span><span class="nv">$held</span><span class="s2">"</span>
-    <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$PENDING_SYMBOL$upgraded</span><span class="s2">/</span><span class="nv">$new</span><span class="s2">/</span><span class="nv">$removed</span><span class="s2">/</span><span class="nv">$held</span><span class="s2">"</span>
-    <span class="nb">echo</span> <span class="nv">$color</span>
-<span class="k">fi</span>
-</code></pre></div></div>
+if [[ $upgraded != 0 ]] || [[ $new != 0 ]] || [[ $removed != 0 ]] || [[ $held != 0 ]]; then
+    color="$PENDING_COLOR"
+    if [[ $SYMBOL_ONLY == 1 ]]; then
+        echo -e "$PENDING_SYMBOL"
+        echo -e "$PENDING_SYMBOL"
+    else
+        echo -e "$PENDING_SYMBOL$upgraded/$new/$removed/$held"
+        echo -e "$PENDING_SYMBOL$upgraded/$new/$removed/$held"
+    fi
+    echo $color
+elif [[ $ALWAYS_PRINT == 1 ]]; then
+    color="$NONPENDING_COLOR"
+    echo -e "$PENDING_SYMBOL$upgraded/$new/$removed/$held"
+    echo -e "$PENDING_SYMBOL$upgraded/$new/$removed/$held"
+    echo $color
+fi
+</span></code></pre></div></div>
 <p>Una vez tengas el script, vamos a la configuración del archivo de <code class="language-plaintext highlighter-rouge">i3block.conf</code>:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>apt_upgrades]
-<span class="nb">command</span><span class="o">=</span>/home/usuari/.config/i3/scripts/apt-upgrades
-<span class="c"># l'script s'executara cada dia ( el valor es refereix a minuts )</span>
-<span class="nv">interval</span><span class="o">=</span>1440
-<span class="nv">signal</span><span class="o">=</span>1
-<span class="nv">label</span><span class="o">=</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nx">apt_upgrades</span><span class="p">]</span>
+<span class="nx">command</span><span class="o">=</span><span class="sr">/home/u</span><span class="nx">suari</span><span class="o">/</span><span class="p">.</span><span class="nx">config</span><span class="o">/</span><span class="nx">i3</span><span class="o">/</span><span class="nx">scripts</span><span class="o">/</span><span class="nx">apt</span><span class="o">-</span><span class="nx">upgrades</span>
+<span class="err">#</span> <span class="nx">l</span><span class="dl">'</span><span class="s1">script s</span><span class="dl">'</span><span class="nx">executara</span> <span class="nx">cada</span> <span class="nx">dia</span> <span class="p">(</span> <span class="nx">el</span> <span class="nx">valor</span> <span class="nx">es</span> <span class="nx">refereix</span> <span class="nx">a</span> <span class="nx">minuts</span> <span class="p">)</span>
+<span class="nx">interval</span><span class="o">=</span><span class="mi">1440</span>
+<span class="nx">signal</span><span class="o">=</span><span class="mi">1</span>
+<span class="nx">label</span><span class="o">=</span><span class="err"></span>
 </code></pre></div></div>
 <p>Cuando ya tenemos configurado toda la parte del usuario, solamente nos queda configurar la parte de <strong>root</strong> ( que es el encargado de realizar el <code class="language-plaintext highlighter-rouge">aptitude update</code> para actualizar los paquetes y que a su vez, hace que el script obtenga los paquetes a actualizar.</p>
 
 <p>Para eso, tenemos que hacer lo siguiente ( a través de <code class="language-plaintext highlighter-rouge">sudo</code>, en mi caso ):</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>obtenim acces a nivell de root
-<span class="gp">usuari@debian:~#</span><span class="nb">sudo</span> <span class="nt">-i</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="nx">obtenim</span> <span class="nx">acces</span> <span class="nx">a</span> <span class="nx">nivell</span> <span class="nx">de</span> <span class="nx">root</span>
+<span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="err">#</span><span class="nx">sudo</span> <span class="o">-</span><span class="nx">i</span>
 </code></pre></div></div>
 <p>Una vez, tenemos acceso a la consola de <code class="language-plaintext highlighter-rouge">root</code> pasamos a configurar el <code class="language-plaintext highlighter-rouge">cron</code> que lo puedes hacer de la siguiente manera para evitar al maximo cualquier error posible:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">usuari@debian:~#</span>crontab <span class="nt">-e</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="err">#</span><span class="nx">crontab</span> <span class="o">-</span><span class="nx">e</span>
 </code></pre></div></div>
 <p>Y ahora pasamos a la creación de nuestro cron:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@daily aptitude update
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">daily</span> <span class="nx">aptitude</span> <span class="nx">update</span>
 </code></pre></div></div>
 <p>Y con este sencillo script obtenemos la siguiente información:</p>
 <ul>

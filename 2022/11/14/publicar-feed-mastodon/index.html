@@ -91,7 +91,7 @@
 
 <p>Aprovechando que en el servidor ya tengo Python instalado, hare que se ejecute en el mismo servidor. Eso si, también tienes que instalar:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@debian:~<span class="nv">$ </span>pip <span class="nb">install</span> <span class="nt">--user</span> feddparser mastodon
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">pip</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">user</span> <span class="nx">feddparser</span> <span class="nx">mastodon</span>
 </code></pre></div></div>
 
 <p>Para que Python pueda realizar el tratamiento del fichero <code class="language-plaintext highlighter-rouge">xml</code>.</p>
@@ -150,7 +150,7 @@
 
 <p>Una vez, tengas el fichero creado, si quieres hacer pruebas, tienes que hacerlo de la siguiente manera :</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   usuari@debian:~<span class="nv">$ </span>python3 nombreDelArchivo.py
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">python3</span> <span class="nx">nombreDelArchivo</span><span class="p">.</span><span class="nx">py</span>
 </code></pre></div></div>
 
 <p>Entonces, si no has tenido ningun problema, a tu cuenta de Mastodon te llegara un articulo aleatorio de tu web.</p>
@@ -163,7 +163,7 @@
 
 <p>Para la configuración del <code class="language-plaintext highlighter-rouge">CRON</code> lo tengo de la siguiente manera:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   @weekly /usr/bin/python3 /home/tu_usuario/lugar_donde_tengas_el_script/botMastodonPythonRss.py
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="p">@</span><span class="nd">weekly</span> <span class="sr">/usr/</span><span class="nx">bin</span><span class="o">/</span><span class="nx">python3</span> <span class="o">/</span><span class="nx">home</span><span class="o">/</span><span class="nx">tu_usuario</span><span class="o">/</span><span class="nx">lugar_donde_tengas_el_script</span><span class="o">/</span><span class="nx">botMastodonPythonRss</span><span class="p">.</span><span class="nx">py</span>
 </code></pre></div></div>
 
 <p>En el caso de que lo quisieras hacer funcionar en <code class="language-plaintext highlighter-rouge">Twitter</code> tienes que tener en cuenta las siguientes modificaciones al archivo de <code class="language-plaintext highlighter-rouge">Python</code>:</p>
