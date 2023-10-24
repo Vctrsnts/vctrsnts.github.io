@@ -1,4 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2023-04-19T18:57:05+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo hacez, hazlo bien</title><subtitle>Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.</subtitle><author><name>Vctrsnts ( fork andrew-park )</name></author><entry><title type="html">Cambiando watchtower por diun y vuelta a watchtower</title><link href="https://vctrsnts.github.io/2023/02/19/actualizacion-watchtower/" rel="alternate" type="text/html" title="Cambiando watchtower por diun y vuelta a watchtower" /><published>2023-02-19T00:00:00+00:00</published><updated>2023-02-19T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/02/19/actualizacion-watchtower</id><content type="html" xml:base="https://vctrsnts.github.io/2023/02/19/actualizacion-watchtower/">&lt;p&gt;Tal como habia indicado en el post de &lt;a href=&quot;/2023/01/25/usando-watchtower/&quot;&gt;usando watchtower&lt;/a&gt; empece usar &lt;strong&gt;watchtower&lt;/strong&gt; pero con resultados muy extraños.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2023-10-24T21:38:48+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo hacez, hazlo bien</title><subtitle>Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.</subtitle><author><name>Vctrsnts ( fork andrew-park )</name></author><entry><title type="html">Donde dije digo, digo Diego</title><link href="https://vctrsnts.github.io/2023/04/29/donde-dije-digo-digo-diego/" rel="alternate" type="text/html" title="Donde dije digo, digo Diego" /><published>2023-04-29T00:00:00+00:00</published><updated>2023-04-29T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/04/29/donde-dije-digo-digo-diego</id><content type="html" xml:base="https://vctrsnts.github.io/2023/04/29/donde-dije-digo-digo-diego/">&lt;p&gt;Mucha gente pensara que me he vuelto loco al poner este titulo a este articulo y más siendo un blog de tecnologia, pero cuando llegueis hasta el final lo entendereis.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Todo empieza, si leeis este &lt;a href=&quot;/2023/02/19/actualizacion-watchtower/&quot;&gt;articulo&lt;/a&gt; donde comentaba que habia probado este &lt;strong&gt;gestor&lt;/strong&gt; de dockers para mantenerlos actualizados sin mi supervisión y que solo me avisara cuando se hubiera actualizado uno.&lt;/p&gt;
+
+&lt;p&gt;También comentaba como que resultada un poco lioso su configuración (fichero docker) y que volvia a &lt;strong&gt;diun&lt;/strong&gt; para luego volver a &lt;strong&gt;watchtower&lt;/strong&gt; para quedarme en el.&lt;/p&gt;
+
+&lt;p&gt;Pues ahora resulta, por eso el titulo de este articulo, donde dije &lt;strong&gt;watchtower&lt;/strong&gt; ahora digo &lt;strong&gt;diun&lt;/strong&gt;. Y el motivo es muy simple.&lt;/p&gt;
+
+&lt;p&gt;Y tan simple que fue, porque después una actualización, algunos de los &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dockers/containers&lt;/code&gt; que uso dejaron de funcionar. Los contenedores tenian errores, que como se actualizaron sin mi supervisión, dejaron de funcionar. Y menos mal que lo descubri pronto, porque sino, no se lo que hubiera pasado. Se que estoy exagerando un poco, mi servidor no es la NASA, pero bueno, es mi servidor.&lt;/p&gt;
+
+&lt;p&gt;Descubri que la ultima actualización no habia ido correctamente, porque normalmente recibo mensajes de las acciones que hace el docker y ese dia no recibi ninguna alerta a traves de Telegram, y aqui es donde me puse a investigar, para descubrir porque no estaba recibiendo las alertas y todo era culpa de que el container no estaba funcionando correctamente, este tenia un error que hacia que se reiniciase todo el rato con todo lo que ello provoca. Y ya me veis anulando la actualización y volviendo a la versión anterior.&lt;/p&gt;
+
+&lt;p&gt;Después de esta mala experiencia, aunque ya la sabia, porque el podcaster &lt;strong&gt;Atareao&lt;/strong&gt; la habia comentado en su articulo donde el explicaba que estaba usando &lt;strong&gt;watchtower&lt;/strong&gt;, pero yo pensaba, iluso de mi, que para los dockers tan simples que uso, no tendria que pasar nada. Pues no veas si no paso.&lt;/p&gt;
+
+&lt;p&gt;Me puse a buscar a ver que decia la gente cual era la mejor opción para substituir a &lt;strong&gt;watchtower&lt;/strong&gt;. Muchos decian que el mejor era &lt;strong&gt;diun&lt;/strong&gt; y si además, los creadores de muchas de las imagenes que uso &lt;strong&gt;linuxservers&lt;/strong&gt; te aconsejan no usar &lt;strong&gt;watchtower&lt;/strong&gt; sino que usar &lt;strong&gt;diun&lt;/strong&gt;, pues me fui a por ello.&lt;/p&gt;
+
+&lt;p&gt;La instalación es muy simple, como siempre en docker:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nx&quot;&gt;diun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crazymax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;diun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latest&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;container_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;diun&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;restart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unless&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stopped&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;hostname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nomDelTeuServidor&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;STORAGE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/config/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;diun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FITXER&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ESTA&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LA&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CONFIGURACIÓ&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AMB&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;TELEGRAM&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ELS&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MISSATGES&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;ALERTA QUE ENVIA QUANT TE DOCKER PER ACTUALIZAR
+      - ${STORAGE}/config/diun/diun.yml:/diun.yml:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - &quot;TZ=Europe/Madrid&quot;
+      - &quot;LOG_LEVEL=info&quot;
+      - &quot;LOG_JSON=false&quot;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;El problema viene luego en la configuración de las alertas, que en mi caso las recibo a traves de &lt;strong&gt;Telegram&lt;/strong&gt; aunque tienes más opciones donde recibirlas, no es complicado si sigues el manual que tienen para ello, tienes que configurar las alertas que vas a recibir (que esta todo en un fichero &lt;strong&gt;yaml&lt;/strong&gt;):&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LA&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BBDD&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DIUN&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;diun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;EL&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CRON&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DIUN&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;watch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;workers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;    &lt;span class=&quot;nx&quot;&gt;schedule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;*/1 * * * *&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;schedule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;@weekly&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;firstCheckNotif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;QUE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;QUIN&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SERVIDOR&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ES&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;POT&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DIR&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AIXI&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OBTING&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ELS&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DOCKERS&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;providers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;watchByDefault&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;watchStopped&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CONFIGURACIO&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;TELEGRAM&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DEL&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MISSATGE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;QUE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;ENVIA
+  notif:
+    telegram:
+      token: TOKEN_TELEGRAM
+      chatIDs:
+        - ID_DEL_CHAT_DE_TELEGRAM
+      templateBody: |
+        # AQUI TEORICAMENT HAURIA D&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ENVIAR&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;EL&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOGO&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DIUN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PERO&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NO&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;HO&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FA&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]()&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AQUI&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ES&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;TINC&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;EL&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PROBLEMA&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MOMENT&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NO&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;HO&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;POSSO&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PERQUE&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NO&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PORTI&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PROBLEMES&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Con esto, solamente te falta hacer un:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;usuari&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;debian&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;compose&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;up&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;diun&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Y ya lo tenemos todo funcionando. No del todo cierto, porque aun falta por indicar/señalar que contenedores quieres que &lt;strong&gt;diun&lt;/strong&gt; controle/vigile por si ha habido actualización y esto se hace añadiendo el siguiente codigo en tu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker-compose.yml&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nx&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;diun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Aunque en mi caso, no es asi. Ahora mismo lo tengo a un 80% de funcionamiento, porque segun el manual, por lo que yo he podido entender, puedes enviar imagenes, para que las alertas sean más amigables y te indiquen de que container es.&lt;/p&gt;
+
+&lt;p&gt;Pero parece ser que esto no funciona del todo correctamente, aunque se que es posible enviar imagenes a Telegram, porque en las notificaciones que tengo en &lt;a href=&quot;/2021/05/30/flexget-podcast/&quot;&gt;flexget&lt;/a&gt; lo tengo puesto y las recibo sin ningun problema, pero en cambio con &lt;strong&gt;diun&lt;/strong&gt; no funciona. Tendre que seguir investigando el motivo por el que no funciona.&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente&quot;&gt;Como actualizar imagenes docker automaticamente&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="docker" /><summary type="html">Mucha gente pensara que me he vuelto loco al poner este titulo a este articulo y más siendo un blog de tecnologia, pero cuando llegueis hasta el final lo entendereis.</summary></entry><entry><title type="html">Cambiando watchtower por diun y vuelta a watchtower</title><link href="https://vctrsnts.github.io/2023/02/19/actualizacion-watchtower/" rel="alternate" type="text/html" title="Cambiando watchtower por diun y vuelta a watchtower" /><published>2023-02-19T00:00:00+00:00</published><updated>2023-02-19T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/02/19/actualizacion-watchtower</id><content type="html" xml:base="https://vctrsnts.github.io/2023/02/19/actualizacion-watchtower/">&lt;p&gt;Tal como habia indicado en el post de &lt;a href=&quot;/2023/01/25/usando-watchtower/&quot;&gt;usando watchtower&lt;/a&gt; empece usar &lt;strong&gt;watchtower&lt;/strong&gt; pero con resultados muy extraños.&lt;/p&gt;
 
 &lt;!--more--&gt;
 
@@ -52,7 +136,7 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.marcodaleo.com/posts/watchtower-telegram&quot;&gt;Watchtower and Telegram notifications&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://razinj.dev/docker-images-and-containers-update-notifications&quot;&gt;Get Docker Images and Containers Updates Notifications&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Victor Santos</name></author><summary type="html">Tal como habia indicado en el post de usando watchtower empece usar watchtower pero con resultados muy extraños.</summary></entry><entry><title type="html">Mastodon, Jekyll y Github. Una combinación perfecta.</title><link href="https://vctrsnts.github.io/2023/02/13/jekyll-muy-configurable/" rel="alternate" type="text/html" title="Mastodon, Jekyll y Github. Una combinación perfecta." /><published>2023-02-13T00:00:00+00:00</published><updated>2023-02-13T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/02/13/jekyll-muy-configurable</id><content type="html" xml:base="https://vctrsnts.github.io/2023/02/13/jekyll-muy-configurable/">&lt;p&gt;Desde que di el salto de &lt;strong&gt;wordpress&lt;/strong&gt; a &lt;strong&gt;Github&lt;/strong&gt;, lo más logico si mi profesion, pasion hace referencia a la tecnologia, Tambien influyo que con &lt;strong&gt;wordpress&lt;/strong&gt; empezaba a tener muchos problemas con a creación y gestión del blog.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="docker" /><summary type="html">Tal como habia indicado en el post de usando watchtower empece usar watchtower pero con resultados muy extraños.</summary></entry><entry><title type="html">Mastodon, Jekyll y Github. Una combinación perfecta.</title><link href="https://vctrsnts.github.io/2023/02/13/jekyll-muy-configurable/" rel="alternate" type="text/html" title="Mastodon, Jekyll y Github. Una combinación perfecta." /><published>2023-02-13T00:00:00+00:00</published><updated>2023-02-13T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/02/13/jekyll-muy-configurable</id><content type="html" xml:base="https://vctrsnts.github.io/2023/02/13/jekyll-muy-configurable/">&lt;p&gt;Desde que di el salto de &lt;strong&gt;wordpress&lt;/strong&gt; a &lt;strong&gt;Github&lt;/strong&gt;, lo más logico, si mi profesion, pasion hace referencia a la tecnologia y que tambien influyo que &lt;strong&gt;wordpress&lt;/strong&gt; empezaba a tener muchos problemas con a creación y gestión del blog.&lt;/p&gt;
 
 &lt;!--more---&gt;
 
@@ -120,7 +204,7 @@
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/57493239/opengraph-link-previews-in-jekyll&quot;&gt;Opengraph link previews in Jekyll&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://brianbunke.com/blog/2017/09/06/twitter-cards-on-jekyll&quot;&gt;Twitter Cards on Jekyll&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://sherblog.pro/compartiendo-contenido-de-hugo-en-mastodon&quot;&gt;Compartiendo contenido de Hugo en Mastodon&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="docker" /><category term="blog" /><summary type="html">Desde que di el salto de wordpress a Github, lo más logico si mi profesion, pasion hace referencia a la tecnologia, Tambien influyo que con wordpress empezaba a tener muchos problemas con a creación y gestión del blog.</summary></entry><entry><title type="html">Usando Watchtower</title><link href="https://vctrsnts.github.io/2023/01/25/usando-watchtower/" rel="alternate" type="text/html" title="Usando Watchtower" /><published>2023-01-25T00:00:00+00:00</published><updated>2023-01-25T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/01/25/usando-watchtower</id><content type="html" xml:base="https://vctrsnts.github.io/2023/01/25/usando-watchtower/">&lt;p&gt;Si quieres echarle la culpa tendreis que mirar a &lt;a href=&quot;https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html&quot;&gt;Angel de uGeek&lt;/a&gt;, a &lt;a href=&quot;https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente&quot;&gt;Lorenzo de Atareao.es&lt;/a&gt; y por ultimo a &lt;a href=&quot;https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker&quot;&gt;ElBlogdeLazaro&lt;/a&gt; y a que es el culpable de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación &lt;strong&gt;watchtower&lt;/strong&gt; ellos tienen la culpa :D&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="docker" /><category term="blog" /><summary type="html">Desde que di el salto de wordpress a Github, lo más logico, si mi profesion, pasion hace referencia a la tecnologia y que tambien influyo que wordpress empezaba a tener muchos problemas con a creación y gestión del blog.</summary></entry><entry><title type="html">Usando Watchtower</title><link href="https://vctrsnts.github.io/2023/01/25/usando-watchtower/" rel="alternate" type="text/html" title="Usando Watchtower" /><published>2023-01-25T00:00:00+00:00</published><updated>2023-01-25T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/01/25/usando-watchtower</id><content type="html" xml:base="https://vctrsnts.github.io/2023/01/25/usando-watchtower/">&lt;p&gt;Si quieres echarle la culpa tendreis que mirar a &lt;a href=&quot;https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html&quot;&gt;Angel de uGeek&lt;/a&gt;, a &lt;a href=&quot;https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente&quot;&gt;Lorenzo de Atareao.es&lt;/a&gt; y por ultimo a &lt;a href=&quot;https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker&quot;&gt;ElBlogdeLazaro&lt;/a&gt; y a que es el culpable de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación &lt;strong&gt;watchtower&lt;/strong&gt; ellos tienen la culpa :D&lt;/p&gt;
 
 &lt;!--more--&gt;
 
@@ -762,66 +846,4 @@ fi
 &lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=SoDjVPr5_Go&amp;amp;list=PL3lTiK2rXrUEL52KOZcTBsoLMndfFBV2Q&quot;&gt;Guia sobre Neovim - Atareao.es&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="linux" /><summary type="html">Cansado un poco de tener que siempre usar editores faciles ( estilo mousepad ) o que dejaban de tener soporte ( Atom ) y que además no me hacian la vida facil para integrarse con GitHub, intente buscar un nuevo editor que lo tuviera todo y mirando los videos de Atareao me fije en que tenia una guia de instalación y de uso de Neovim, clonico de Vim, y me puse con ello.</summary></entry><entry><title type="html">Script para actualizar tu GitHub</title><link href="https://vctrsnts.github.io/2022/11/22/script-update-git/" rel="alternate" type="text/html" title="Script para actualizar tu GitHub" /><published>2022-11-22T00:00:00+00:00</published><updated>2022-11-22T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2022/11/22/script-update-git</id><content type="html" xml:base="https://vctrsnts.github.io/2022/11/22/script-update-git/">&lt;p&gt;Buscando maneras de facilitarme el trabajo con &lt;a href=&quot;https://www.github.com&quot;&gt;GitHub&lt;/a&gt; que es donde tengo alojada mi web ( más bien son mis projectos, apuntes y cosas por es estilo ) porque para subir cualquier cosa a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GitHub&lt;/code&gt; era una tocada de huevos en mi caso.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;Así que me puse a buscar algun script para ayudarme a realizar las actualizaciones de mis repositorios en Git, y después de mucho buscar, al final lo encontre.&lt;/p&gt;
-
-&lt;p&gt;Es el siguiente que pongo a continuación&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;   #!/bin/bash
-&lt;/span&gt; 
-   &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Actualitzar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rapidament&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;teu&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;repositori&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Git&lt;/span&gt;
-   &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2011&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Alfonso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Saavedra&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Son Link&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
-   &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//sonlinkblog.blogspot.com&lt;/span&gt;
-   &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Bajo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;licencia&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;GNU&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;GPL&lt;/span&gt;
- 
-   &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;up2Git&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ficheros&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
- 
-   &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Comprovem&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;si&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;directori&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;en&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;que&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;estem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;es&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;un&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;repositori&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Git&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.git&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;
-     &lt;span class=&quot;nx&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Aquest directori no conte un repositori de Git&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
-     &lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-   &lt;span class=&quot;nx&quot;&gt;fi&lt;/span&gt;
- 
-   &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Ara&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;validem&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hi hem passat algun parametre
-   if [ $# == 0 ]; then
-     echo &quot;Up2Git: ¡Error! No l&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hi&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;passat&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cap&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parametre&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-     echo &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;up2Git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fitxer_1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fitxer_2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fitxer_N&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-     exit -1
-   else
-     # Revisem els parametres per validar si son fitxers o directori
-     for file in $*; do
-       if [ ! -e $file ]; then
-         echo &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Up2Git&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;arxiu o directori $file no existeix&quot;
-         exit -1
-       fi
-     done
-     
-     # Si hem arribat fins aqui, informem a Git dels arxius a pujar
-     git add $*
-     
-     # Aixo ens demana el missatge del commit
-     echo &quot;Informi del missatge del commit:&quot;
-     read TXT
-     git commit -m &quot;$TXT&quot;
- 
-     # i finalitzem pujant els arxius
-     git push origin master
- 
-   fi
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Para usarlo, en mi caso, lo hago de la siguiente manera :&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;nx&quot;&gt;usuari&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;debian&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bash&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;up2Git&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;El script es de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Alfonso Saavedra&lt;/code&gt; a el todo mi agradecimiento, por facilitarme el tener mis repositorios de GitHub actualizados.&lt;/p&gt;
-
-&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://sonlinkblog.blogspot.com&quot;&gt;Son Link&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gist.github.com/son-link/890903&quot;&gt;Script&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Vctrsnts ( fork andrew-park )</name></author><category term="linux" /><summary type="html">Buscando maneras de facilitarme el trabajo con GitHub que es donde tengo alojada mi web ( más bien son mis projectos, apuntes y cosas por es estilo ) porque para subir cualquier cosa a GitHub era una tocada de huevos en mi caso.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="linux" /><summary type="html">Cansado un poco de tener que siempre usar editores faciles ( estilo mousepad ) o que dejaban de tener soporte ( Atom ) y que además no me hacian la vida facil para integrarse con GitHub, intente buscar un nuevo editor que lo tuviera todo y mirando los videos de Atareao me fije en que tenia una guia de instalación y de uso de Neovim, clonico de Vim, y me puse con ello.</summary></entry></feed>
