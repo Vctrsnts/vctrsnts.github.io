@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2023-11-13T16:56:49+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo hacez, hazlo bien</title><subtitle>Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.</subtitle><author><name>Vctrsnts ( fork andrew-park )</name></author><entry><title type="html">Crear RSS de los podcast que sigo</title><link href="https://vctrsnts.github.io/2023/07/23/crear-rss-podcast/" rel="alternate" type="text/html" title="Crear RSS de los podcast que sigo" /><published>2023-07-23T00:00:00+00:00</published><updated>2023-07-23T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/07/23/crear-rss-podcast</id><content type="html" xml:base="https://vctrsnts.github.io/2023/07/23/crear-rss-podcast/">&lt;p&gt;No se vosotros, pero no os habeis fijado que estos ultimos meses ha habido un auge con respecto a los podcast? No se si es porque la calidad ha subido o porque hay más, pero…&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2023-11-13T22:25:53+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo hacez, hazlo bien</title><subtitle>Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.</subtitle><author><name>Vctrsnts ( fork andrew-park )</name></author><entry><title type="html">Pc en la recamara (m910x)</title><link href="https://vctrsnts.github.io/2023/09/11/substitutos-portatil/" rel="alternate" type="text/html" title="Pc en la recamara (m910x)" /><published>2023-09-11T00:00:00+00:00</published><updated>2023-09-11T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/09/11/substitutos-portatil</id><content type="html" xml:base="https://vctrsnts.github.io/2023/09/11/substitutos-portatil/">&lt;p&gt;Como ya decia en el anterior &lt;a href=&quot;/2023/08/01/de-nuevo-cambiando-servidor/&quot;&gt;articulo&lt;/a&gt;, donde hablaba sobre el  nuevo cambio de servidor que habia hecho, el canal de &lt;a href=&quot;https://homelabs.club&quot;&gt;HomeLabs.Club&lt;/a&gt; es una mala influencia, teneis que hacerme caso y ahora lo entendereis mejor.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Muchas de las personas, después de comprar el &lt;strong&gt;m910x&lt;/strong&gt; le hacen un &lt;strong&gt;mod&lt;/strong&gt;, que consiste en sobreescribir la BIOS del &lt;strong&gt;Thinkcenter&lt;/strong&gt;. Con esta modificación de la BIOS, a parte de permitir más memoria RAM, tambien te permite añadir CPU’s de otras generaciones, para obtener más información puedes visualizar &lt;a href=&quot;https://www.youtube.com/watch?v=ZDUWrwq1PXE&quot;&gt;video&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Una vez que has realizado la modificación, entre las diferentes opciones que tienes a tu disposición, después de modificar la BIOS, es poder usar un Xeon en el Thinkcenter. Si lo has escuchado bien, un &lt;strong&gt;Xeon&lt;/strong&gt;. La unica pega es que lo compras a vendedores de China (Aliexpress), o tambien conocidos como los &lt;strong&gt;Xeon chinos&lt;/strong&gt;, (muchos seguramente vendran de Datacenters que los han cambiado por nuevas versiones) pero aun así, es un &lt;strong&gt;&lt;em&gt;Xeon&lt;/em&gt;&lt;/strong&gt;. Y es lo que hice, realize la modificación de la BIOS y compre este &lt;a href=&quot;https://es.aliexpress.com/item/1005003228035285.html&quot;&gt;Xeon&lt;/a&gt; que tiene &lt;strong&gt;6 nucleos&lt;/strong&gt; y &lt;strong&gt;12 hilos&lt;/strong&gt;. O sea una barbaridad.&lt;/p&gt;
+
+&lt;p&gt;Y ya que estabamos puestos, tambien me compre una nueva tarjeta grafica:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/P1000.jpg&quot; alt=&quot;imatge&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Si una tarjeta grafica &lt;strong&gt;Nvidia Quadro P1000&lt;/strong&gt; y que junto a esta &lt;a href=&quot;https://www.thingiverse.com/thing:6249227&quot;&gt;tapa&lt;/a&gt;, la versión que accepta un ventilador, tengo un Tiny que seguramente nunca me lo voy a acabar. Es resumen el Tiny que me espera en la recamara tiene las siguientes caracteristicas:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Thinkcenter m910x&lt;/li&gt;
+  &lt;li&gt;Intel Xeon E-2176M
+    &lt;ul&gt;
+      &lt;li&gt;Tener presente que el Xeon se calienta más que una CPU normal y se aconseja poner metal liquido entre la CPU y el headpipe (necesariamente de cobre) porque el ventilador se pone en modo reactor cuando la CPU coge temperatura&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;32Gb de memoria RAM&lt;/li&gt;
+  &lt;li&gt;Tarjeta Grafica Quadro P1000
+    &lt;ul&gt;
+      &lt;li&gt;4 salidas disponibles&lt;/li&gt;
+      &lt;li&gt;Al poner este tipo de tarjetas, se anula la opción de poner un SSD y se tiene que ir por un nvme&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/m910x.jpg&quot; alt=&quot;imatge&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A y me olvido una cosa importante, es que para este tipo de modificaciones necesitas si o si un transformador de como minimo 90w, porque sino, puedes tener problemas.&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=ZDUWrwq1PXE&quot;&gt;Mod Bios&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://es.aliexpress.com/item/1005003228035285.html&quot;&gt;Intel Xeon E-2176M&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://podcastlinux.com/posts/podcastlinux/178-Podcast-Linux&quot;&gt;Xeon y Kits Chinos&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://podcastlinux.com/posts/podcastlinux/179-Podcast-Linux&quot;&gt;Xeon Chinos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="Lenovo" /><category term="Thinkpad" /><category term="Thinkcenter" /><summary type="html">Como ya decia en el anterior articulo, donde hablaba sobre el nuevo cambio de servidor que habia hecho, el canal de HomeLabs.Club es una mala influencia, teneis que hacerme caso y ahora lo entendereis mejor.</summary></entry><entry><title type="html">De nuevo, cambiando de servidor local</title><link href="https://vctrsnts.github.io/2023/08/01/de-nuevo-cambiando-servidor/" rel="alternate" type="text/html" title="De nuevo, cambiando de servidor local" /><published>2023-08-01T00:00:00+00:00</published><updated>2023-08-01T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/08/01/de-nuevo-cambiando-servidor</id><content type="html" xml:base="https://vctrsnts.github.io/2023/08/01/de-nuevo-cambiando-servidor/">&lt;p&gt;Tal como avise en este &lt;a href=&quot;/2023/01/23/mis-nuevos-juguetes/&quot;&gt;articulo&lt;/a&gt; o en este otro &lt;a href=&quot;/2022/05/26/nuevo-servidor/&quot;&gt;articulo&lt;/a&gt;, decia de que habia cambiado de servidor y que, a parte, tenia unos juguetes nuevos. Pero quereis un consejo, alejaros de los canales de telegram, en especial de &lt;a href=&quot;https://homelabs.club&quot;&gt;este&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Que conste que estoy dentro del canal y es un grupo muy querido por mi, porque aconsejan, te ayudan en todo lo que pueden, pero son como el diablo, te llevan por el mal camino.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/lucifer.jpg&quot; alt=&quot;imatge&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Porque cuando te meten el gusanito de las compras conjuntas, de los benecifios de los &lt;strong&gt;&lt;em&gt;Thinkcenter&lt;/em&gt;&lt;/strong&gt; de Lenovo (que son increbles) ya no quieres salir y, porque no, uno más, si ocupan poco espació. Seguro que no se nota.&lt;/p&gt;
+
+&lt;p&gt;Al principio, empeze con mi antiguo &lt;a href=&quot;/2022/05/26/nuevo-servidor/&quot;&gt;servidor&lt;/a&gt; y el nuevo &lt;a href=&quot;/2022/11/08/cambiando-mediacenter/&quot;&gt;mediacenter&lt;/a&gt;, pero luego volvi a caer y me compre, fueron ellos, la culpa de es ellos y solamente de ellos:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Un Thinkcenter m910q&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Un Thinkcenter m910x&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Este Thinkcenter lleva una mejor con respecto a la versión m910x, esa mejora, es que le puede poner una tarjeta &lt;strong&gt;&lt;em&gt;pci&lt;/em&gt;&lt;/strong&gt; que permiter añadir cualquier tarjeta (ethernet, grafica, etc…) con todas las posibilidades que ello te da.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Y ya me veis, a mi, con 2 ordenadores nuevos y a ver que hacemos con ellos.&lt;/p&gt;
+
+&lt;p&gt;Lo que si tenia claro, era usar el &lt;strong&gt;m910q&lt;/strong&gt;, tiene más posibilidades de ampliación y de mejoras, usarlo como servidor local junto (insisto, son como el diablo) con un HDD de 18TB comprado en una de las compras conjuntas que se hacen a veces junto con otro más que venia utilizando de antes (12Tb). Y de nuevo a reinstalar todo el servidor.&lt;/p&gt;
+
+&lt;p&gt;Esto no es una cosa que me preocupe mucho, porque como lo tengo todo en docker junto con sus correspondientes copias de seguridad, pues al dia siguiente de ponerme, ya tenia de nuevo, el servidor en funcionamiento al 100%.&lt;/p&gt;
+
+&lt;p&gt;El antiguo servidor (Dell) lo tengo en la banqueta, por si en algun momento lo necesito.&lt;/p&gt;
+
+&lt;p&gt;Seguramente, muchos os preguntareis que voy a hacer con el m910x que tambien me compre. Pues la idea que tengo con este es mucho más heavy. Ni yo  mismo me lo habia planteado, mejor leer este &lt;a href=&quot;/2023/01/23/mis-nuevos-juguetes/&quot;&gt;articulo&lt;/a&gt; y entendereis por donde voy. Pero no es ni la mitad de lo que quiero hacer en realidad y que esta todo preparado para su proximo despliegue.&lt;/p&gt;
+
+&lt;p&gt;Pero eso lo explicare en otro articulo.&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;</content><author><name>Victor Santos</name></author><category term="Linux" /><category term="Lenovo" /><category term="Thinkcenter" /><summary type="html">Tal como avise en este articulo o en este otro articulo, decia de que habia cambiado de servidor y que, a parte, tenia unos juguetes nuevos. Pero quereis un consejo, alejaros de los canales de telegram, en especial de este.</summary></entry><entry><title type="html">Crear RSS de los podcast que sigo</title><link href="https://vctrsnts.github.io/2023/07/23/crear-rss-podcast/" rel="alternate" type="text/html" title="Crear RSS de los podcast que sigo" /><published>2023-07-23T00:00:00+00:00</published><updated>2023-07-23T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/07/23/crear-rss-podcast</id><content type="html" xml:base="https://vctrsnts.github.io/2023/07/23/crear-rss-podcast/">&lt;p&gt;No se vosotros, pero no os habeis fijado que estos ultimos meses ha habido un auge con respecto a los podcast? No se si es porque la calidad ha subido o porque hay más, pero…&lt;/p&gt;
 
 &lt;!--more--&gt;
 
@@ -350,7 +421,7 @@
   &lt;li&gt;&lt;a href=&quot;https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker&quot;&gt;ElBlogdeLazaro - Watchtower, 1 parte&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://elblogdelazaro.org/posts/2022-10-17-actualiza-automaticamente-tus-contenedores-docker-ii/https://elblogdelazaro.org/posts/2022-10-17-actualiza-automaticamente-tus-contenedores-docker-ii/https://elblogdelazaro.org/posts/2022-10-17-actualiza-automaticamente-tus-contenedores-docker-ii&quot;&gt;ElBlogdeLazaro - Watchtower, 2 parte&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html&quot;&gt;uGeek - Watchtower&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="docker" /><category term="linux" /><summary type="html">Si quieres echarle la culpa tendreis que mirar a Angel de uGeek, a Lorenzo de Atareao.es y por ultimo a ElBlogdeLazaro y a que es el culpable de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación watchtower ellos tienen la culpa :D</summary></entry><entry><title type="html">Mis nuevos juguetes</title><link href="https://vctrsnts.github.io/2023/01/23/mis-nuevos-juguestes/" rel="alternate" type="text/html" title="Mis nuevos juguetes" /><published>2023-01-23T00:00:00+00:00</published><updated>2023-01-23T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/01/23/mis-nuevos-juguestes</id><content type="html" xml:base="https://vctrsnts.github.io/2023/01/23/mis-nuevos-juguestes/">&lt;p&gt;A través de este &lt;a href=&quot;https://podcastlinux.com/posts/podcastlinux/129-Podcast-Linux&quot;&gt;podcast&lt;/a&gt; que escuche hace algún tiempo, siempre me quedo el gusanito de tener uno, y eso que estoy muy contento con mi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Lenovo Ideapad Y700&lt;/code&gt;, pero siempre me quedo eso clavado…&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="docker" /><category term="linux" /><summary type="html">Si quieres echarle la culpa tendreis que mirar a Angel de uGeek, a Lorenzo de Atareao.es y por ultimo a ElBlogdeLazaro y a que es el culpable de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación watchtower ellos tienen la culpa :D</summary></entry><entry><title type="html">Mis nuevos juguetes</title><link href="https://vctrsnts.github.io/2023/01/23/mis-nuevos-juguetes/" rel="alternate" type="text/html" title="Mis nuevos juguetes" /><published>2023-01-23T00:00:00+00:00</published><updated>2023-01-23T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/01/23/mis-nuevos-juguetes</id><content type="html" xml:base="https://vctrsnts.github.io/2023/01/23/mis-nuevos-juguetes/">&lt;p&gt;A través de este &lt;a href=&quot;https://podcastlinux.com/posts/podcastlinux/129-Podcast-Linux&quot;&gt;podcast&lt;/a&gt; que escuche hace algún tiempo, siempre me quedo el gusanito de tener uno, y eso que estoy muy contento con mi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Lenovo Ideapad Y700&lt;/code&gt;, pero siempre me quedo eso clavado…&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -1094,7 +1165,7 @@ fi
 &lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://elblogdelazaro.org/posts/2021-08-16-bot-en-python-para-publicar-un-feed-de-forma-aleatorios-en-twitter-y-mastodom/&quot;&gt;Script de Python&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="linux" /><summary type="html">Descubri a traves del Blog de Lazaro, que si tienes cuenta en Mastodon, quien no tiene cuenta ahora tal como van las cosas en Twitter, que puedes enviar de forma aleatoria alguno de los articulos que tienes publicados en tu web.</summary></entry><entry><title type="html">Mi nuevo mediacenter - Thinkpad m700</title><link href="https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter/" rel="alternate" type="text/html" title="Mi nuevo mediacenter - Thinkpad m700" /><published>2022-11-08T00:00:00+00:00</published><updated>2022-11-08T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter</id><content type="html" xml:base="https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter/">&lt;p&gt;Como ya mencione en al articulo que hablaba sobre el cambio de servidor &lt;a href=&quot;/2022/05/26/nuevo-servidor/&quot;&gt;Mi nuevo servidor&lt;/a&gt;, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="linux" /><summary type="html">Descubri a traves del Blog de Lazaro, que si tienes cuenta en Mastodon, quien no tiene cuenta ahora tal como van las cosas en Twitter, que puedes enviar de forma aleatoria alguno de los articulos que tienes publicados en tu web.</summary></entry><entry><title type="html">Mi nuevo mediacenter - Thinkpad m710q</title><link href="https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter/" rel="alternate" type="text/html" title="Mi nuevo mediacenter - Thinkpad m710q" /><published>2022-11-08T00:00:00+00:00</published><updated>2022-11-08T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter</id><content type="html" xml:base="https://vctrsnts.github.io/2022/11/08/cambiando-mediacenter/">&lt;p&gt;Como ya mencione en al articulo que hablaba sobre el cambio de servidor &lt;a href=&quot;/2022/05/26/nuevo-servidor/&quot;&gt;Mi nuevo servidor&lt;/a&gt;, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar.&lt;/p&gt;
 
 &lt;!--more--&gt;
 
