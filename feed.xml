@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2023-12-01T12:27:46+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo hacez, hazlo bien</title><subtitle>Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.</subtitle><author><name>Vctrsnts ( fork andrew-park )</name></author><entry><title type="html">Por fin. VPS para hacer pruebas</title><link href="https://vctrsnts.github.io/2023/09/24/VPS-pruebas/" rel="alternate" type="text/html" title="Por fin. VPS para hacer pruebas" /><published>2023-09-24T00:00:00+00:00</published><updated>2023-09-24T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/09/24/VPS-pruebas</id><content type="html" xml:base="https://vctrsnts.github.io/2023/09/24/VPS-pruebas/">&lt;p&gt;Hacia mucho tiempo (minimo 2 años), que habia escuchado que Oracle te daba &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gratuitamente&lt;/code&gt; la posibilidad de tener un VPS para poderlo usar, eso si, con unas ciertas limitaciones:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2023-12-04T19:52:40+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo hacez, hazlo bien</title><subtitle>Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.</subtitle><author><name>Vctrsnts ( fork andrew-park )</name></author><entry><title type="html">Por fin. VPS para hacer pruebas</title><link href="https://vctrsnts.github.io/2023/09/24/VPS-pruebas/" rel="alternate" type="text/html" title="Por fin. VPS para hacer pruebas" /><published>2023-09-24T00:00:00+00:00</published><updated>2023-09-24T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/09/24/VPS-pruebas</id><content type="html" xml:base="https://vctrsnts.github.io/2023/09/24/VPS-pruebas/">&lt;p&gt;Hacia mucho tiempo (minimo 2 años), que habia escuchado que Oracle te daba &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gratuitamente&lt;/code&gt; la posibilidad de tener un VPS para poderlo usar, eso si, con unas ciertas limitaciones:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;1 vCPUs x86 - 1Gb Ram&lt;/li&gt;
   &lt;li&gt;4 vCPUs ARM - 24Gb Ram&lt;/li&gt;
@@ -137,7 +137,165 @@
 
 &lt;p&gt;Pero eso lo explicare en otro articulo.&lt;/p&gt;
 
-&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;</content><author><name>Victor Santos</name></author><category term="Linux" /><category term="Thinkcenter" /><summary type="html">Tal como avise en este articulo o en este otro articulo, decia de que habia cambiado de servidor y que, a parte, tenia unos juguetes nuevos. Pero quereis un consejo, alejaros de los canales de telegram, en especial de este.</summary></entry><entry><title type="html">Crear RSS de los podcast que sigo</title><link href="https://vctrsnts.github.io/2023/07/23/crear-rss-podcast/" rel="alternate" type="text/html" title="Crear RSS de los podcast que sigo" /><published>2023-07-23T00:00:00+00:00</published><updated>2023-07-23T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/07/23/crear-rss-podcast</id><content type="html" xml:base="https://vctrsnts.github.io/2023/07/23/crear-rss-podcast/">&lt;p&gt;No se vosotros, pero no os habeis fijado que estos ultimos meses ha habido un auge con respecto a los podcast? No se si es porque la calidad ha subido o porque hay más, pero…&lt;/p&gt;
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;</content><author><name>Victor Santos</name></author><category term="Linux" /><category term="Thinkcenter" /><summary type="html">Tal como avise en este articulo o en este otro articulo, decia de que habia cambiado de servidor y que, a parte, tenia unos juguetes nuevos. Pero quereis un consejo, alejaros de los canales de telegram, en especial de este.</summary></entry><entry><title type="html">Como funciona esta web y su creación</title><link href="https://vctrsnts.github.io/2023/08/01/como-funciona-esta-web/" rel="alternate" type="text/html" title="Como funciona esta web y su creación" /><published>2023-08-01T00:00:00+00:00</published><updated>2023-08-01T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/08/01/como-funciona-esta-web</id><content type="html" xml:base="https://vctrsnts.github.io/2023/08/01/como-funciona-esta-web/">&lt;p&gt;Después de leer el &lt;a href=&quot;https://elblogdelazaro.org/posts/2023-05-08-como-publico-este-blog&quot;&gt;articulo&lt;/a&gt; que habia publicado &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Lazaro&lt;/code&gt; en su blog, pense, que porque no hacer lo mismo con el mio.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Eso si, tengo que indicar antes, que su articulo, es mucho mejor que el mio, porque el funcionamiento de mi pagina web es muy parecido a la suya, pero con alguna diferencias. La primera y más importante, es que yo no uso Emacs ni Org-Mode.&lt;/p&gt;
+
+&lt;p&gt;Mi web es mucho más simple, pero eso si, intentaremos seguir un poco la guia que usa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Lazaro&lt;/code&gt;, para que sea facil seguir la mia.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Hardware&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Es un poco subjetivo, en mi caso decir &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hardware&lt;/code&gt;, porque en mi caso, todo depende de 2 ordenadores. El primero es mi portatil de uso normal (personal) que es desde donde escribo los articulos gracias a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;markdown&lt;/code&gt; y esto lo hago a traves de &lt;a href=&quot;https://www.geany.org&quot;&gt;Geany&lt;/a&gt;, si ahora es cuando todos me vais a echar en cara que habia dicho en este &lt;a href=&quot;/2022/12/19/cambiando-de-editor-neovim/&quot;&gt;articulo&lt;/a&gt; que estaba usando &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nvim&lt;/code&gt; y que esta decisión, habia venido después de ver el video de &lt;a href=&quot;https://www.youtube.com/watch?v=SoDjVPr5_Go&amp;amp;list=PL3lTiK2rXrUEL52KOZcTBsoLMndfFBV2Q&quot;&gt;Atareao&lt;/a&gt; donde explicaba que habia echo el cambio de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vim&lt;/code&gt; a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;neovim&lt;/code&gt; para mejorar su productividad.&lt;/p&gt;
+
+&lt;p&gt;Y yo hice lo mismo, pero después de unos meses de usarlo, me he dado cuenta, que en mi caso, para el uso que le doy a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;neovim&lt;/code&gt;, que es solo para los articulos de mi blog, me resultaba todo más lento y esto es porque aun me falta mucho por aprender de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vim&lt;/code&gt; y de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;neovim&lt;/code&gt; y como no le voy a dar todo el uso que tendria que darle, pues la curva de aprendizaje seria muy lenta y sobretodo, tediosa porque como digo, no voy a sacarle todo el partido, por ese motivo, me he tirado a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Geany&lt;/code&gt; que es lo más parecido a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notepad++&lt;/code&gt; que era el que usaba cuando estaba programando y con el que estuve más comodo.&lt;/p&gt;
+
+&lt;p&gt;Pero no nos vayamos por las ramas y volvamos al &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hardware&lt;/code&gt;, como he dicho antes, para escribir los articulos uso mi portatil personal y que gracias a las ideas que saque del articulo de Lazaro, lo sincronizo con mi &lt;a href=&quot;/2023/08/01/de-nuevo-cambiando-servidor/&quot;&gt;servidor&lt;/a&gt; que junto con el container, docker, de Jekyll veo el resultado de como quedara todo.&lt;/p&gt;
+
+&lt;p&gt;Una vez, hechas todas las comprobaciones y validaciones, uso otro script, tambien en bash, que actualiza mi arbol del projecto de &lt;strong&gt;&lt;em&gt;GitHub&lt;/em&gt;&lt;/strong&gt; que es donde tengo alojada mi web.&lt;/p&gt;
+
+&lt;p&gt;Como veis, uso 2 ordenadores, seguramente podria usar uso solo, pero de momento, estoy comodo con este funcionamiento.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Scripts&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Como he dicho antes, tengo 2 scripts para la sincronización de los articulos con el servidor y luego otro para sincronizar con el arbol de GitHub.&lt;/p&gt;
+
+&lt;p&gt;El primero de estos scripts, el de sincronizar con el servidor funciona a traves &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rsync&lt;/code&gt; de la siguiente manera:&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;   #!/bin/bash
+&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;rsync&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;azvhP&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rsh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;ssh -pPORT&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exclude&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;draff&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DIRECTORI_ORIGEN&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;USUARI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;IP_SERVIDOR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DIRECTORI_DESTI&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Usando este script, hay que tener en cuentas unas cosas (como yo lo tengo configurado):&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;PORT&lt;/strong&gt;: Es el puerto que uses para comunicarte con el servidor, en mi caso, no uso el por defecto de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SSH&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;exclude&lt;/strong&gt;: el / los directorios que quieres excluir a la hora de sincronizar los directorios.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;DIRECTORI_ORIGEN&lt;/strong&gt;: Es el directorio donde tenemos los ficheros &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;origen&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;USUARI@IP_SERVIDOR&lt;/strong&gt;: El usuario y ip del servidor al que nos tenemos que conectar&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;DIRECTORI_DESTI&lt;/strong&gt;: Directorio de destino, es el que &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rsync&lt;/code&gt; actualizara los archivos que esten en el directorio de origen.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;El segundo script, tambien en bash, sirve para sincronizar el projecto que tengo en local con el projecto que tengo en GitHub.&lt;/p&gt;
+
+&lt;p&gt;Lo primero que hay que tener en cuenta, es que para usarlo, lo que se tiene que hacer, tal como yo lo tengo, es que el servidor tenga las claves &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SSH&lt;/code&gt; dadas de alta en GitHub para que asi, no tengas que estar insertando todo el rato el usuario y el password.&lt;/p&gt;
+
+&lt;p&gt;Si esto ya lo tienes, ahora solo falta el script:&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;  #!/bin/bash
+&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;UpToGit&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Actualiza&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;facilmente&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tu&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;repositorio&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Git&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2011&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Alfonso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Saavedra&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Son Link&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//sonlinkblog.blogspot.com&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Bajo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;licencia&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;GNU&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;GPL&lt;/span&gt;
+
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Modo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;uso&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copia&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mueve&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;este&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bin&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bin&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;desde&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;directorio&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;donde&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;se&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;encuentre&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;la&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copia&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;un&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;repo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ejecútalo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;esta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;manera&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;uptogit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ficheros&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Comprobamos&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;si&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;directorio&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;en&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;que&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;estamos&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;es&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;un&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;repositorio&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.git&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;
+	  &lt;span class=&quot;nx&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Esta carpeta no contiene un repositorio Git&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
+	  &lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;fi&lt;/span&gt;
+
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Ahora&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;comprobamos&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;si&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;se&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;le&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;paso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;algun&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parametro&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;
+	  &lt;span class=&quot;nx&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;UpToGit: ¡Error! No se le a pasado ningún parámetro&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+	  &lt;span class=&quot;nx&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;uptogit fichero1 fichero2 ... ficheroN&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+	  &lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+	  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Recorremos&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;los&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parametros&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;para&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;comprobar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;si&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;son&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ficheros&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;directorios&lt;/span&gt;
+	  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+		  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;
+			  &lt;span class=&quot;nx&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;UpToGit: El archivo o directorio $file no existe&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+			  &lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+		  &lt;span class=&quot;nx&quot;&gt;fi&lt;/span&gt;
+	  &lt;span class=&quot;nx&quot;&gt;done&lt;/span&gt;
+	
+	  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Si&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;llegamos&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hasta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;aquí&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;indicamos&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;los&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;archivos&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;subir&lt;/span&gt;
+	  &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
+	
+	  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Esto&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nos&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pedira&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mensaje&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;del&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;commit&lt;/span&gt;
+	  &lt;span class=&quot;nx&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Introduce el mensaje del commit:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+	  &lt;span class=&quot;nx&quot;&gt;read&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;TXT&lt;/span&gt;
+	  &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;commit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;$TXT&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+
+	  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Y&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;terminamos&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;subiendo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;los&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;archivos&lt;/span&gt;
+	  &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;force&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;master&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Este script, tal como he dicho antes, actualiza nuestro repositorio de GitHub. Para su uso se ejecuta de la siguiente manera:&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nx&quot;&gt;usuari&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;debian&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$sh&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;up2Git&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arxiu1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arxiu2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;etc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Donde:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arxiu1, arxiu2, etc...&lt;/code&gt;: Son los archivos que quieres sincronizar. Si pones el &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.&lt;/code&gt; estas indicando que quieres sincronizar todo el directorio.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Introduce el mensaje del commit&lt;/code&gt;: Nos esta pindiendo un mensaje para describir la acción que vamos a llevar a cabo (yo lo entiendo asi).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Y con esto, ya tenemos actualizado nuestro repositorio con GitHub.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Publicación&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Para la publicación, se puede decir, que ya se ha hecho con el segundo de los scripts que antes he puesto.&lt;/p&gt;
+
+&lt;p&gt;Lo unico que falta, es otro script, esta vez hecho en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python&lt;/code&gt;, de factoria tambien de &lt;a href=&quot;https://elblogdelazaro.org/posts/2021-08-16-bot-en-python-para-publicar-un-feed-de-forma-aleatorios-en-twitter-y-mastodom&quot;&gt;Lazaro&lt;/a&gt; que lo que hace es hacer tu toot en &lt;strong&gt;Mastodon&lt;/strong&gt; con el ultimo articulo publicado en nuestro blog.&lt;/p&gt;
+
+&lt;p&gt;En el articulo, puedes ver como se hace tanto para &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Twitter&lt;/code&gt; como para ```Mastodon&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;, pero en mi caso yo solo uso&lt;/code&gt;Mastodon``.&lt;/p&gt;
+
+&lt;p&gt;Este script es el siguiente:&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;  #!/usr/bin/env python
+&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-*-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;coding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;utf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-*-&lt;/span&gt;
+
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;que&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lee&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;feed&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rss&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;un&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;blog&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;publica&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ultimo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;articulo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;creado&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;en&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Mastodon&lt;/span&gt;
+
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Tienes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;que&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tener&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;instaladas&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;las&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;librerias&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;feedparser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Twython&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Mastodon&lt;/span&gt;
+
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Autor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Carlos&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//elblogdelazaro.org&lt;/span&gt;
+
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Llama&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;los&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;modulos&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Python&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;feedparser&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;twython&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Twython&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mastodon&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Mastodon&lt;/span&gt;
+
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Llamando&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;las&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;llaves&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;del&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Diccionario&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Twitter&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;CONSUMER_KEY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;xxxxxxxxx&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;CONSUMER_SECRET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;xxxxxxxxx&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;ACCESS_KEY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;xxxxxxxxx&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;ACCESS_SECRET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;xxxxxxxxx&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Seleccionamos&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Feed&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;feed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;ADREÇA DEL FEED&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
+
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Parseamos&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Feed&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;feedparser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;feed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Inicializa&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;la&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;API&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Twitter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;escribe&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nuevo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;estado&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;salimos&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;entries&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;es&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;último&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;articulo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;publicado&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;status_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;entries&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;entries&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;articulo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Ultimo articulo publicado:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Publica&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;en&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mastodon&lt;/span&gt;
+
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Token&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;la&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Instancia&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;mastodon&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Mastodon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;access_token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;TOKEN_MASTODON&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;api_base_url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://URL_TU_MASTODON/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;mastodon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;status_post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;articulo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Y con esto, esta explicado todo el funcionamiento desde la creación del articulo hasta la publicitación de dicho articulo en Mastodon. Seguramente, el articulo de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Lazaro&lt;/code&gt; le da mil vueltas al mio, pero…&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://elblogdelazaro.org/posts/2023-05-08-como-publico-este-blog&quot;&gt;Como publico este blog - el blob de lazaro&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.geany.org&quot;&gt;Geany&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;ttp://sonlinkblog.blogspot.com&quot;&gt;Actualiza facilmente tu repositorio de GitHub&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://elblogdelazaro.org/posts/2021-08-16-bot-en-python-para-publicar-un-feed-de-forma-aleatorios-en-twitter-y-mastodom&quot;&gt;Script para publicar el ultimo articulo en Mastodon&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="Linux" /><category term="Docker" /><summary type="html">Después de leer el articulo que habia publicado Lazaro en su blog, pense, que porque no hacer lo mismo con el mio.</summary></entry><entry><title type="html">Crear RSS de los podcast que sigo</title><link href="https://vctrsnts.github.io/2023/07/23/crear-rss-podcast/" rel="alternate" type="text/html" title="Crear RSS de los podcast que sigo" /><published>2023-07-23T00:00:00+00:00</published><updated>2023-07-23T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/07/23/crear-rss-podcast</id><content type="html" xml:base="https://vctrsnts.github.io/2023/07/23/crear-rss-podcast/">&lt;p&gt;No se vosotros, pero no os habeis fijado que estos ultimos meses ha habido un auge con respecto a los podcast? No se si es porque la calidad ha subido o porque hay más, pero…&lt;/p&gt;
 
 &lt;!--more--&gt;
 
@@ -834,7 +992,240 @@ fi
   &lt;li&gt;&lt;a href=&quot;https://ugeek.github.io/blog/post/2021-02-19-proxy-inverso-con-caddy.html&quot;&gt;Usando Caddy&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://ugeek.github.io/blog/post/2022-12-23-caddy-crear-usuario-y-contrasena.html&quot;&gt;Usuarios en Caddy&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://letsencrypt.org/es/&quot;&gt;Let’s Encrypt&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="Docker" /><category term="Linux" /><summary type="html">Como ya sabreis, anteriormente usaba Nginx Proxy Manager porque habia tenido muchos problemas con Caddy, no se de donde venian estos problemas, si de Caddy o de duckdns.org, asi que hice el cambio a npm para los amigos.</summary></entry><entry><title type="html">Cambiando de editor. Neovim</title><link href="https://vctrsnts.github.io/2022/12/19/cambiando_de_editor_neovim/" rel="alternate" type="text/html" title="Cambiando de editor. Neovim" /><published>2022-12-19T00:00:00+00:00</published><updated>2022-12-19T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2022/12/19/cambiando_de_editor_neovim</id><content type="html" xml:base="https://vctrsnts.github.io/2022/12/19/cambiando_de_editor_neovim/">&lt;p&gt;Cansado un poco de tener que siempre usar editores faciles ( estilo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mousepad&lt;/code&gt; ) o que dejaban de tener soporte ( &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Atom&lt;/code&gt; ) y que además no me hacian la vida facil para integrarse con GitHub, intente buscar un nuevo editor que lo tuviera todo y mirando los videos de &lt;a href=&quot;https://atareao.es&quot;&gt;Atareao&lt;/a&gt; me fije en que tenia una guia de instalación y de uso de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Neovim&lt;/code&gt;, clonico de Vim, y me puse con ello.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="Docker" /><category term="Linux" /><summary type="html">Como ya sabreis, anteriormente usaba Nginx Proxy Manager porque habia tenido muchos problemas con Caddy, no se de donde venian estos problemas, si de Caddy o de duckdns.org, asi que hice el cambio a npm para los amigos.</summary></entry><entry><title type="html">Cambiando de editor. Neovim</title><link href="https://vctrsnts.github.io/2022/12/19/cambiando-de-editor-neovim/" rel="alternate" type="text/html" title="Cambiando de editor. Neovim" /><published>2022-12-19T00:00:00+00:00</published><updated>2022-12-19T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2022/12/19/cambiando-de-editor-neovim</id><content type="html" xml:base="https://vctrsnts.github.io/2022/12/19/cambiando-de-editor-neovim/">&lt;p&gt;Cansado un poco de tener que siempre usar editores faciles ( estilo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mousepad&lt;/code&gt; ) o que dejaban de tener soporte ( &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Atom&lt;/code&gt; ) y que además no me hacian la vida facil para integrarse con GitHub, intente buscar un nuevo editor que lo tuviera todo y mirando los videos de &lt;a href=&quot;https://atareao.es&quot;&gt;Atareao&lt;/a&gt; me fije en que tenia una guia de instalación y de uso de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Neovim&lt;/code&gt;, clonico de Vim, y me puse con ello.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Porque una de mis ilusiones, era saber utilizar y poder sacarle todo el partido a Vim, pero por falta de tiempo o ganas, nunca me habia puesto, pero gracias a los videos de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Atareao&lt;/code&gt; me entro el gusanillo y …&lt;/p&gt;
+
+&lt;p&gt;Para empezar, &lt;a href=&quot;htpps://atareao.es&quot;&gt;Lorenzo&lt;/a&gt; tiene una excelente guia para iniciarse y usarlo donde todo esta muy bien explicado ( aunque aun tengo algunas dudas para aclarar ), pero para un uso sencillo y sin muchas complicaciones tienes más que suficiente, si quieres más, ahi es donde tu, tienes que ponerte a investigar con más intensidad.&lt;/p&gt;
+
+&lt;p&gt;Para que te hagas una idea, todo lo podeis leer a partir del articulo de &lt;a href=&quot;/2022/11/14/publicar-feed-mastodon/&quot;&gt;Publicar feed en Mastodon&lt;/a&gt; todo lo estoy escribiendo con &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Neovim&lt;/code&gt; y me parece que me voy a quedar en el, porque tal como lo tengo, y eso, que aun tengo algunas cosas que pulir, me parece perfecto la funcionalidad que tiene.&lt;/p&gt;
+
+&lt;p&gt;Yo no voy a explicar todos los pasos que tienes que hacer para instalarlo y su posterior configuración, porque eso mirando los videos de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;atareao.es&lt;/code&gt; lo puede hacer tu solo, pero lo que si que voy a poner, son mis ficheros de configuración que estoy utilizando actualmente ( aunque tambien los podeis encontrar en mis dot_files ), que a lo mejor te pueden servir de ayuda.&lt;/p&gt;
+
+&lt;p&gt;La estructura de ficheros para la configuración de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Neovim&lt;/code&gt; es de la siguiente manera:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;nvim
+    &lt;ul&gt;
+      &lt;li&gt;lua
+        &lt;ul&gt;
+          &lt;li&gt;plugins –&amp;gt; Donde tenemos las configuraciones de todos los plugins que usamos
+            &lt;ul&gt;
+              &lt;li&gt;packer.lua –&amp;gt; Fichero donde se definen los plugins que se van a cargar ( de donde los tiene que conseguir ) asi como la configuración que van a tener&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;settings.lua –&amp;gt; Opciones de configuración general de neovim&lt;/li&gt;
+          &lt;li&gt;keymaps.lua –&amp;gt; Configuración de las opciones de teclado de neovim&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;spell –&amp;gt; Donde tenemos todos los archivos de idiomas que usamos&lt;/li&gt;
+      &lt;li&gt;templates –&amp;gt; los templates / plantillas que usamos&lt;/li&gt;
+      &lt;li&gt;init.lua –&amp;gt; Fichero de inicio de neovim junto con los plugins que se van a utilizar:w&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-lua highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;o&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Fichero&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lua&lt;/span&gt;
+   &lt;span class=&quot;cm&quot;&gt;--[[
+   ██╗███╗   ██╗██╗████████╗██╗     ██╗   ██╗ █████╗
+   ██║████╗  ██║██║╚══██╔══╝██║     ██║   ██║██╔══██╗
+   ██║██╔██╗ ██║██║   ██║   ██║     ██║   ██║███████║
+   ██║██║╚██╗██║██║   ██║   ██║     ██║   ██║██╔══██║
+   ██║██║ ╚████║██║   ██║██╗███████╗╚██████╔╝██║  ██║
+   ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
+   Neovim init file
+   Version: 0.8.1 - 2022/11/14
+   Maintainer: Vctrsnts
+   Website: https://vctrsnts.github.io
+   Referencia: https://github.com/brainfucksec/neovim-lua
+   --]]&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Import Lua Modules&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;settings&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                                   &lt;span class=&quot;c1&quot;&gt;-- Fitxer dels Settings&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;keymaps&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;			                              &lt;span class=&quot;c1&quot;&gt;-- Fitxer de la configuració del teclat&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Comença la carrega de plugins&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;plugins/packer&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;		                          &lt;span class=&quot;c1&quot;&gt;-- Gestor de Plugins&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;plugins/autosave&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                           &lt;span class=&quot;c1&quot;&gt;-- Plugin per a realitzar el AutoSave&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;plugins/ayu&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;			                          &lt;span class=&quot;c1&quot;&gt;-- Color Theme&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;plugins/neo-tree&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                           &lt;span class=&quot;c1&quot;&gt;-- filebrowser&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;plugins/feline&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                             &lt;span class=&quot;c1&quot;&gt;-- statusline&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-lua highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;o&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Fichero&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;settings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lua&lt;/span&gt;
+   &lt;span class=&quot;cm&quot;&gt;--[[
+   FITXER SETTINGS.LUA
+   --]]&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Neovim API Aliases&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cmd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmd&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nvim_exec&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Configuració General&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mapleader&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;;&apos;&lt;/span&gt;					                            &lt;span class=&quot;c1&quot;&gt;-- Canviar leader a coma&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;swapfile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;					                        &lt;span class=&quot;c1&quot;&gt;-- No fe servir swapfile&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Neovim UI&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;					                            &lt;span class=&quot;c1&quot;&gt;-- Es visualitzar els numeros de les linias&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;relativenumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;				                      &lt;span class=&quot;c1&quot;&gt;-- Es visualitzar el numero relatiu de la linia&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foldmethod&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;marker&apos;&lt;/span&gt;				                      &lt;span class=&quot;c1&quot;&gt;-- Activada folding (default &apos;foldmarker&apos;)&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitright&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;					                        &lt;span class=&quot;c1&quot;&gt;-- vertical split to the right&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitbelow&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;					                        &lt;span class=&quot;c1&quot;&gt;-- horizontal split to the bottom&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linebreak&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;					                        &lt;span class=&quot;c1&quot;&gt;-- wrap on word boundary&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;colorcolumn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;80&apos;&lt;/span&gt;					                      &lt;span class=&quot;c1&quot;&gt;-- Es visualitzar la linia que marca els 80 caracters&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;termguicolors&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; 
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;guifont&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Fira Code&quot;&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;neovide_cursor_vfx_mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;railgun&quot;&lt;/span&gt;
+ 
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listchars&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»&apos;&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;---------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Corrector ortografic per llenguatge&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;---------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;[[
+ 	  augroup markdownSpell
+ 		  autocmd!
+ 		  autocmd FileType mardown setlocal spell Spelllang=es
+ 		  autocmd BufRead,BufNewFile *.md setlocal spell spelllang=es
+ 	  augroup END
+   ]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;---------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Tabs, indent&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;---------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expandtab&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;					                        &lt;span class=&quot;c1&quot;&gt;-- use spaces instead of tabs&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shiftwidth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;					                          &lt;span class=&quot;c1&quot;&gt;-- shift 2 spaces when tab&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tabstop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;						                            &lt;span class=&quot;c1&quot;&gt;-- 1 tab == 2 spaces&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;smartindent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;					                      &lt;span class=&quot;c1&quot;&gt;-- autoindent new lines&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;---------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Memory, CPU&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;---------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hidden&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;                                     &lt;span class=&quot;c1&quot;&gt;-- enable background buffers&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lazyredraw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;                                 &lt;span class=&quot;c1&quot;&gt;-- faster scrolling&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;opt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;synmaxcol&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;                                  &lt;span class=&quot;c1&quot;&gt;-- max column for syntax highlight&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-lua highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;o&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Fichero&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;keymaps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lua&lt;/span&gt;
+   &lt;span class=&quot;cm&quot;&gt;--[[
+   FITXER KEYMAPS.LUA
+   --]]&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- VARIABLES / ALIASES&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nvim_set_keymap&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default_opts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;noremap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;silent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cmd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmd&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- Applications &amp;amp; Plugins shortcuts:&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;----------------------------------------------------------------------------------------------------&lt;/span&gt;
+ 
+   &lt;span class=&quot;c1&quot;&gt;--&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;-- nvim-tree&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;--&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;n&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&amp;lt;C-n&amp;gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;:Neotree toggle&amp;lt;CR&amp;gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default_opts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;-- open/close&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-lua highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;o&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Fichero&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;packer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lua&lt;/span&gt;
+   &lt;span class=&quot;cm&quot;&gt;--[[
+    FITXER PACKER.LUA
+    S&apos;ENCARREGA DE TOTA LA CONFIGURACIÓ / CARREGA DE PLUGINS
+
+    Plugin manager: packer.nvim
+    https://github.com/wbthomason/packer.nvim
+
+    For information about installed plugins see the README
+    neovim-lua/README.md
+    https://github.com/brainfucksec/neovim-lua#readme
+  --]]&lt;/span&gt;
+
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;data&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;/site/pack/packer/start/packer.nvim&apos;&lt;/span&gt;
+ 
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;glob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;install_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;packer_bootstrap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;git&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;clone&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;--depth&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;1&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;https://github.com/wbthomason/packer.nvim&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;packer&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;startup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- My plugins here&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- use &apos;foo1/bar1.nvim&apos;&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- use &apos;foo2/bar2.nvim&apos;&lt;/span&gt;
+
+     &lt;span class=&quot;c1&quot;&gt;-- Automatically set up your configuration after cloning packer.nvim&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- Put this at the end after all plugins&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;wbthomason/packer.nvim&apos;&lt;/span&gt;
+   
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- colorschemes&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Shatur/neovim-ayu&apos;&lt;/span&gt;
+ 
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- Activem Icones&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;kyazdani42/nvim-web-devicons&apos;&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;adelarsq/vim-devicons-emoji&apos;&lt;/span&gt;
+ 
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- Activem Explorer / Navegador de directoris&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;s1&quot;&gt;&apos;nvim-neo-tree/neo-tree.nvim&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;branch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;v2.x&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;requires&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;nvim-lua/plenary.nvim&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;kyazdani42/nvim-web-devicons&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;-- not strictly required, but recommended&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;MunifTanjim/nui.nvim&quot;&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- Activem Status Line&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Iron-E/nvim-highlite&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;s1&quot;&gt;&apos;feline-nvim/feline.nvim&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;requires&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s1&quot;&gt;&apos;nvim-web-devicons&apos;&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- Activem el AutoSave&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Pocco81/auto-save.nvim&quot;&lt;/span&gt;
+ 
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-- Final del fitxer de configuració de plugins&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;-------------------------------------------------------------------------------------------------&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;packer_bootstrap&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+       &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;packer&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Pues, ya has podido comprobar como lo tengo yo configurado y a pleno rendimiento, pero tal como he dicho al principio, aun falta por pulir algunas cosas.&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=SoDjVPr5_Go&amp;amp;list=PL3lTiK2rXrUEL52KOZcTBsoLMndfFBV2Q&quot;&gt;Guia sobre Neovim - Atareao.es&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Victor Santos</name></author><category term="Linux" /><summary type="html">Cansado un poco de tener que siempre usar editores faciles ( estilo mousepad ) o que dejaban de tener soporte ( Atom ) y que además no me hacian la vida facil para integrarse con GitHub, intente buscar un nuevo editor que lo tuviera todo y mirando los videos de Atareao me fije en que tenia una guia de instalación y de uso de Neovim, clonico de Vim, y me puse con ello.</summary></entry><entry><title type="html">Cambiando de editor. Neovim</title><link href="https://vctrsnts.github.io/2022/12/19/cambiando_de_editor_neovim/" rel="alternate" type="text/html" title="Cambiando de editor. Neovim" /><published>2022-12-19T00:00:00+00:00</published><updated>2022-12-19T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2022/12/19/cambiando_de_editor_neovim</id><content type="html" xml:base="https://vctrsnts.github.io/2022/12/19/cambiando_de_editor_neovim/">&lt;p&gt;Cansado un poco de tener que siempre usar editores faciles ( estilo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mousepad&lt;/code&gt; ) o que dejaban de tener soporte ( &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Atom&lt;/code&gt; ) y que además no me hacian la vida facil para integrarse con GitHub, intente buscar un nuevo editor que lo tuviera todo y mirando los videos de &lt;a href=&quot;https://atareao.es&quot;&gt;Atareao&lt;/a&gt; me fije en que tenia una guia de instalación y de uso de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Neovim&lt;/code&gt;, clonico de Vim, y me puse con ello.&lt;/p&gt;
 
 &lt;!--more--&gt;
 
