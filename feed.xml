@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2023-12-17T16:29:33+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo hacez, hazlo bien</title><subtitle>Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.</subtitle><author><name>Vctrsnts ( fork andrew-park )</name></author><entry><title type="html">Por fin. VPS para hacer pruebas</title><link href="https://vctrsnts.github.io/2023/09/24/VPS-pruebas/" rel="alternate" type="text/html" title="Por fin. VPS para hacer pruebas" /><published>2023-09-24T00:00:00+00:00</published><updated>2023-09-24T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/09/24/VPS-pruebas</id><content type="html" xml:base="https://vctrsnts.github.io/2023/09/24/VPS-pruebas/">&lt;p&gt;Hacia mucho tiempo (minimo 2 años), que habia escuchado que Oracle te daba &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gratuitamente&lt;/code&gt; la posibilidad de tener un VPS para poderlo usar, eso si, con unas ciertas limitaciones:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-01-26T12:57:23+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo hacez, hazlo bien</title><subtitle>Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.</subtitle><author><name>Vctrsnts ( fork andrew-park )</name></author><entry><title type="html">Que nos depara este año 2024??</title><link href="https://vctrsnts.github.io/2024/01/05/que-nos-depara-2024/" rel="alternate" type="text/html" title="Que nos depara este año 2024??" /><published>2024-01-05T00:00:00+00:00</published><updated>2024-01-05T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2024/01/05/que-nos-depara-2024</id><content type="html" xml:base="https://vctrsnts.github.io/2024/01/05/que-nos-depara-2024/">&lt;p&gt;Pues ya tenemos el 2024 encima.&lt;/p&gt;
+
+&lt;p&gt;Ya os puedo decir, que este año, a nivel de salud, no ha empezado tal como me hubiera gustado, pero espero que todo se solucione con el tiempo.&lt;/p&gt;
+
+&lt;p&gt;Ahora falta saber que nos deparara tanto a nivel de soft como a nivel de hard.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Con respecto al &lt;strong&gt;hard&lt;/strong&gt;, este primer semestre me gustaria modificar el server que tengo ahora mismo. En vez de tener los HDD conectados a traves de un USB, me gustaria que se conectasen a traves de SATA.&lt;/p&gt;
+
+&lt;p&gt;Esta modificación se la quiero realizar a una Tiny M910q con un par de cables por aqui y un poco de silicona por haya :D&lt;/p&gt;
+
+&lt;p&gt;En principio suena peor de lo que es, pero la idea la he conseguido del canal de &lt;strong&gt;Homelabs.club&lt;/strong&gt; de telegram donde a quien más loco. Ya tengo todo el material para hacer la modificación, asi como unas cuantas dudas que tengo que aclarar y un soldador, que tengo, pero en estos momentos, no lo tengo disponible. Es lo que siempre pasa, cuando más necesitas una cosa, no esta disponible.&lt;/p&gt;
+
+&lt;p&gt;Me hubiera gustado hacer más otro &lt;strong&gt;correcto&lt;/strong&gt; con una placa micro-atx que tengo de un antiguo HTC, pero es que todas las cajas que veo que me irian bien, se van de presupuesto o no tengo espació donde ubicarlo.&lt;/p&gt;
+
+&lt;p&gt;Asi que de momento, a conformarse con lo que tengo que no es poco. Lo unico el bricolage que hay que hacer, que como ya he dicho, espero que los compañeros de &lt;strong&gt;HomeLabs.club&lt;/strong&gt; echen una mano para aclarar las dudas que me puedan surgir.&lt;/p&gt;
+
+&lt;p&gt;Y sobre el &lt;strong&gt;soft&lt;/strong&gt; pues haciendo pruebas de diferentes dockers que tenia ganas de probar o que aconsejan algunos de los podcasters que escucho ( uGeek, Atareao, Lazaro, etc… ), como por ejemplo:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Dockge&lt;/strong&gt;: gestionar tu fichero &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;compose.yaml&lt;/code&gt; a traves de la web&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dozzle&lt;/strong&gt;: visualizar los logs de docker a traves de la web&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Vaultwarden&lt;/strong&gt;: Para tener guardadas todas las contraseñas que utilizar. Una especie de caja fuerte.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Los 2 primeros ya los he probado, pero no les veo mucha utilidad. Para mi, me resulta más facil ir directamente a la terminal y hacerlo tu mismo, &lt;strong&gt;uGeek&lt;/strong&gt; opina lo mismo. En mi caso, estoy acostumbrado a todo lo referente a docker a hacerlo en la terminal, asi que no le veo ninguna utilidad. Pero ahi esta.&lt;/p&gt;
+
+&lt;p&gt;Con respecto a &lt;strong&gt;Vaultwarden&lt;/strong&gt; me gustaria tenerlo, porque asi, tendria en mi servidor el docker y no ( ahora uso bitwarden ) dejar la responsabilidad a una empresa. Pero claro, si lo tienes tu, tienes que estar pendiente de la seguridad y que no tengas ninguna brecha de seguridad, porque sino, se puede liar una…&lt;/p&gt;
+
+&lt;p&gt;Pero es lo que no entiendo, la gente que tiene &lt;strong&gt;Vaultwarden / Bitwarden&lt;/strong&gt; en su propio servidor, como lo tienen configurado.&lt;/p&gt;
+
+&lt;p&gt;Si no es molestia y alguien me lee, me lo podria explicar? Como sabeis, podeis contactar conmigo a traves de Mastodon&lt;/p&gt;
+
+&lt;p&gt;Pues asi se presenta este nuevo y solo llevamos 5 dias. Cuando lleve 160, no se como estare ;)&lt;/p&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ugeek.github.io/blog/post/2023-11-19-docker-dockge-gestionando-mis-docker-compose-de-forma-grafica.html&quot;&gt;Dockge&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=QP-Bl3lBVZI&quot;&gt;Dozzle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=vMzsBbrSMPA&quot;&gt;Vaultwarden&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Victor</name></author><category term="Blog" /><summary type="html">Pues ya tenemos el 2024 encima.</summary></entry><entry><title type="html">Por fin. VPS para hacer pruebas</title><link href="https://vctrsnts.github.io/2023/09/24/VPS-pruebas/" rel="alternate" type="text/html" title="Por fin. VPS para hacer pruebas" /><published>2023-09-24T00:00:00+00:00</published><updated>2023-09-24T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2023/09/24/VPS-pruebas</id><content type="html" xml:base="https://vctrsnts.github.io/2023/09/24/VPS-pruebas/">&lt;p&gt;Hacia mucho tiempo (minimo 2 años), que habia escuchado que Oracle te daba &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gratuitamente&lt;/code&gt; la posibilidad de tener un VPS para poderlo usar, eso si, con unas ciertas limitaciones:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;1 vCPUs x86 - 1Gb Ram&lt;/li&gt;
   &lt;li&gt;4 vCPUs ARM - 24Gb Ram&lt;/li&gt;
