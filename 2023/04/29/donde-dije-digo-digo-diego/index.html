@@ -107,61 +107,61 @@
 
 <p>La instalación es muy simple, como siempre en docker:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">diun</span><span class="p">:</span>
-    <span class="nx">image</span><span class="p">:</span> <span class="nx">crazymax</span><span class="o">/</span><span class="nx">diun</span><span class="p">:</span><span class="nx">latest</span>
-    <span class="nx">container_name</span><span class="p">:</span> <span class="nx">diun</span>
-    <span class="nx">restart</span><span class="p">:</span> <span class="nx">unless</span><span class="o">-</span><span class="nx">stopped</span>
-    <span class="nx">hostname</span><span class="p">:</span> <span class="nx">nomDelTeuServidor</span>
-    <span class="nx">volumes</span><span class="p">:</span>
-      <span class="o">-</span> <span class="nx">$</span><span class="p">{</span><span class="nx">STORAGE</span><span class="p">}</span><span class="sr">/config/</span><span class="nx">diun</span><span class="p">:</span><span class="o">/</span><span class="nx">data</span>
-      <span class="err">#</span> <span class="nx">FITXER</span> <span class="nx">ON</span> <span class="nx">ESTA</span> <span class="nx">LA</span> <span class="nx">CONFIGURACIÓ</span> <span class="nx">AMB</span> <span class="nx">TELEGRAM</span>
-      <span class="err">#</span> <span class="nx">I</span> <span class="nx">ELS</span> <span class="nx">MISSATGES</span> <span class="nx">D</span><span class="dl">'</span><span class="s1">ALERTA QUE ENVIA QUANT TE DOCKER PER ACTUALIZAR
-      - ${STORAGE}/config/diun/diun.yml:/diun.yml:ro
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-    environment:
-      - "TZ=Europe/Madrid"
-      - "LOG_LEVEL=info"
-      - "LOG_JSON=false"
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="n">diun:</span><span class="w">
+    </span><span class="nx">image:</span><span class="w"> </span><span class="nx">crazymax/diun:latest</span><span class="w">
+    </span><span class="n">container_name:</span><span class="w"> </span><span class="nx">diun</span><span class="w">
+    </span><span class="n">restart:</span><span class="w"> </span><span class="nx">unless-stopped</span><span class="w">
+    </span><span class="n">hostname:</span><span class="w"> </span><span class="nx">nomDelTeuServidor</span><span class="w">
+    </span><span class="n">volumes:</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nv">${STORAGE}</span><span class="nx">/config/diun:/data</span><span class="w">
+      </span><span class="c"># FITXER ON ESTA LA CONFIGURACIÓ AMB TELEGRAM</span><span class="w">
+      </span><span class="c"># I ELS MISSATGES D'ALERTA QUE ENVIA QUANT TE DOCKER PER ACTUALIZAR</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nv">${STORAGE}</span><span class="n">/config/diun/diun.yml:/diun.yml:ro</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">/var/run/docker.sock:/var/run/docker.sock:ro</span><span class="w">
+    </span><span class="n">environment:</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="s2">"TZ=Europe/Madrid"</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="s2">"LOG_LEVEL=info"</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="s2">"LOG_JSON=false"</span><span class="w">
 </span></code></pre></div></div>
 
 <p>El problema viene luego en la configuración de las alertas, que en mi caso las recibo a traves de <strong>Telegram</strong> aunque tienes más opciones donde recibirlas, no es complicado si sigues el manual que tienen para ello, tienes que configurar las alertas que vas a recibir (que esta todo en un fichero <strong>yaml</strong>):</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="err">#</span> <span class="nx">LA</span> <span class="nx">BBDD</span> <span class="nx">DE</span> <span class="nx">DIUN</span>
-  <span class="nx">db</span><span class="p">:</span>
-    <span class="nx">path</span><span class="p">:</span> <span class="nx">diun</span><span class="p">.</span><span class="nx">db</span>
-  <span class="err">#</span> <span class="nx">EL</span> <span class="nx">CRON</span> <span class="nx">DE</span> <span class="nx">DIUN</span>
-  <span class="nx">watch</span><span class="p">:</span>
-    <span class="nx">workers</span><span class="p">:</span> <span class="mi">20</span>
-<span class="err">#</span>    <span class="nx">schedule</span><span class="p">:</span> <span class="dl">"</span><span class="s2">*/1 * * * *</span><span class="dl">"</span>
-    <span class="nx">schedule</span><span class="p">:</span> <span class="dl">"</span><span class="s2">@weekly</span><span class="dl">"</span>
-    <span class="nx">firstCheckNotif</span><span class="p">:</span> <span class="kc">true</span>
-  <span class="err">#</span> <span class="nx">QUE</span> <span class="nx">QUIN</span> <span class="nx">SERVIDOR</span> <span class="p">(</span> <span class="nx">ES</span> <span class="nx">POT</span> <span class="nx">DIR</span> <span class="nx">AIXI</span> <span class="p">)</span> <span class="nx">OBTING</span> <span class="nx">ELS</span> <span class="nx">DOCKERS</span>
-  <span class="nx">providers</span><span class="p">:</span>
-    <span class="nx">docker</span><span class="p">:</span>
-      <span class="nx">watchByDefault</span><span class="p">:</span> <span class="kc">false</span>
-      <span class="nx">watchStopped</span><span class="p">:</span> <span class="kc">true</span>
-  <span class="err">#</span> <span class="nx">CONFIGURACIO</span> <span class="nx">DE</span> <span class="nx">TELEGRAM</span>
-  <span class="err">#</span> <span class="nx">I</span> <span class="nx">DEL</span> <span class="nx">MISSATGE</span> <span class="nx">QUE</span> <span class="nx">S</span><span class="dl">'</span><span class="s1">ENVIA
-  notif:
-    telegram:
-      token: TOKEN_TELEGRAM
-      chatIDs:
-        - ID_DEL_CHAT_DE_TELEGRAM
-      templateBody: |
-        # AQUI TEORICAMENT HAURIA D</span><span class="dl">'</span><span class="nx">ENVIAR</span> <span class="nx">EL</span> <span class="nx">LOGO</span> <span class="nx">DE</span> <span class="nx">DIUN</span><span class="p">,</span> <span class="nx">PERO</span> <span class="nx">NO</span> <span class="nx">HO</span> <span class="nx">FA</span>
-        <span class="p">[</span><span class="nx">Image</span><span class="p">]()</span>
-        <span class="err">#</span> <span class="nx">AQUI</span> <span class="nx">ES</span> <span class="nx">ON</span> <span class="nx">TINC</span> <span class="nx">EL</span> <span class="nx">PROBLEMA</span> <span class="nx">I</span> <span class="nx">DE</span> <span class="nx">MOMENT</span> <span class="nx">NO</span> <span class="nx">HO</span> <span class="nx">POSSO</span> <span class="nx">PERQUE</span> <span class="nx">NO</span> <span class="nx">PORTI</span> <span class="nx">A</span> <span class="nx">PROBLEMES</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c"># LA BBDD DE DIUN</span><span class="w">
+  </span><span class="n">db:</span><span class="w">
+    </span><span class="nx">path:</span><span class="w"> </span><span class="nx">diun.db</span><span class="w">
+  </span><span class="c"># EL CRON DE DIUN</span><span class="w">
+  </span><span class="n">watch:</span><span class="w">
+    </span><span class="nx">workers:</span><span class="w"> </span><span class="nx">20</span><span class="w">
+</span><span class="c">#    schedule: "*/1 * * * *"</span><span class="w">
+    </span><span class="n">schedule:</span><span class="w"> </span><span class="s2">"@weekly"</span><span class="w">
+    </span><span class="n">firstCheckNotif:</span><span class="w"> </span><span class="nx">true</span><span class="w">
+  </span><span class="c"># QUE QUIN SERVIDOR ( ES POT DIR AIXI ) OBTING ELS DOCKERS</span><span class="w">
+  </span><span class="n">providers:</span><span class="w">
+    </span><span class="nx">docker:</span><span class="w">
+      </span><span class="n">watchByDefault:</span><span class="w"> </span><span class="nx">false</span><span class="w">
+      </span><span class="n">watchStopped:</span><span class="w"> </span><span class="nx">true</span><span class="w">
+  </span><span class="c"># CONFIGURACIO DE TELEGRAM</span><span class="w">
+  </span><span class="c"># I DEL MISSATGE QUE S'ENVIA</span><span class="w">
+  </span><span class="n">notif:</span><span class="w">
+    </span><span class="nx">telegram:</span><span class="w">
+      </span><span class="n">token:</span><span class="w"> </span><span class="nx">TOKEN_TELEGRAM</span><span class="w">
+      </span><span class="n">chatIDs:</span><span class="w">
+        </span><span class="o">-</span><span class="w"> </span><span class="nx">ID_DEL_CHAT_DE_TELEGRAM</span><span class="w">
+      </span><span class="n">templateBody:</span><span class="w"> </span><span class="o">|</span><span class="w">
+        </span><span class="c"># AQUI TEORICAMENT HAURIA D'ENVIAR EL LOGO DE DIUN, PERO NO HO FA</span><span class="w">
+        </span><span class="p">[</span><span class="n">Image</span><span class="p">]()</span><span class="w">
+        </span><span class="c"># AQUI ES ON TINC EL PROBLEMA I DE MOMENT NO HO POSSO PERQUE NO PORTI A PROBLEMES</span><span class="w">
+</span></code></pre></div></div>
 <p>Con esto, solamente te falta hacer un:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">docker</span><span class="o">-</span><span class="nx">compose</span> <span class="nx">up</span> <span class="o">-</span><span class="nx">d</span> <span class="nx">diun</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="c"># docker-compose up -d diun</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Y ya lo tenemos todo funcionando. No del todo cierto, porque aun falta por indicar/señalar que contenedores quieres que <strong>diun</strong> controle/vigile por si ha habido actualización y esto se hace añadiendo el siguiente codigo en tu <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">labels</span><span class="p">:</span>
-    <span class="o">-</span> <span class="nx">diun</span><span class="p">.</span><span class="nx">enable</span><span class="o">=</span><span class="kc">true</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="n">labels:</span><span class="w">
+    </span><span class="o">-</span><span class="w"> </span><span class="nx">diun.enable</span><span class="o">=</span><span class="n">true</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Aunque en mi caso, no es asi. Ahora mismo lo tengo a un 80% de funcionamiento, porque segun el manual, por lo que yo he podido entender, puedes enviar imagenes, para que las alertas sean más amigables y te indiquen de que container es.</p>
 

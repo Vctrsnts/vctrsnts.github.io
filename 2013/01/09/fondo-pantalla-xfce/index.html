@@ -99,8 +99,8 @@ programas que no utilizo, me decidi probar XFCE.</p>
   <li>Probar como quedan las imagenes con el cambio dinamico mediante el comando (desde consola).</li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="k">export</span> <span class="nx">DISPLAY</span><span class="o">=</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span><span class="sr">/usr/</span><span class="nx">bin</span><span class="o">/</span><span class="nx">xfdesktop</span> <span class="o">--</span><span class="nx">reload</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="err">$</span><span class="w"> </span><span class="nx">export</span><span class="w"> </span><span class="nx">DISPLAY</span><span class="o">=</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span><span class="n">/usr/bin/xfdesktop</span><span class="w"> </span><span class="nt">--reload</span><span class="w">
+</span></code></pre></div></div>
 
 <ul>
   <li>Esto lo que hace es reiniciar el escritorio de XFCE, pero no vamos a estar haciendo esto cada vez que queramos cambiar el fondo de pantalla, así que …</li>
@@ -108,16 +108,16 @@ programas que no utilizo, me decidi probar XFCE.</p>
   <li>Se crear un archivo donde agregamos lo siguiente y después lo guardamos:</li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="o">*</span><span class="sr">/5 * * * * export DISPLAY=:0;/u</span><span class="nx">sr</span><span class="o">/</span><span class="nx">bin</span><span class="o">/</span><span class="nx">xfdesktop</span> <span class="o">--</span><span class="nx">reload</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="o">*</span><span class="n">/5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">export</span><span class="w"> </span><span class="nx">DISPLAY</span><span class="o">=</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span><span class="n">/usr/bin/xfdesktop</span><span class="w"> </span><span class="nt">--reload</span><span class="w">
+</span></code></pre></div></div>
 
 <ul>
   <li>Donde <code class="language-plaintext highlighter-rouge">*/5</code> dindica el numero de minutos en que se ejecutara la instrucción.</li>
   <li>Lo guardamos con nuestro editor de texto preferido y lo añadimos al cron mediante la siguiente instrucción:</li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">crontab</span> <span class="nx">archivo_creado</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="err">$</span><span class="w"> </span><span class="nx">crontab</span><span class="w"> </span><span class="nx">archivo_creado</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Y con esto, le indicamos al <code class="language-plaintext highlighter-rouge">cron</code> que cada 5 minutos reinicie el escritorio de XFCE cambiando el fondo de pantalla. Es una funcionalidad o una manera de trabajar que nunca se me hubiese ocurrido, pero 
 en esto consiste el software libre, si no lo encuentras siempre puedes hacerlo tu…</p>

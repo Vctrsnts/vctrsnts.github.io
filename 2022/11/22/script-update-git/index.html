@@ -95,53 +95,53 @@
 
 <p>Es el siguiente que pongo a continuación</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">   #!/bin/bash
-</span> 
-   <span class="err">#</span> <span class="nx">Actualitzar</span> <span class="nx">rapidament</span> <span class="nx">el</span> <span class="nx">teu</span> <span class="nx">repositori</span> <span class="nx">de</span> <span class="nx">Git</span>
-   <span class="err">#</span> <span class="p">(</span><span class="nx">CC</span><span class="p">)</span> <span class="mi">2011</span> <span class="nx">Alfonso</span> <span class="nx">Saavedra</span> <span class="dl">"</span><span class="s2">Son Link</span><span class="dl">"</span>
-   <span class="err">#</span> <span class="nx">http</span><span class="p">:</span><span class="c1">//sonlinkblog.blogspot.com</span>
-   <span class="err">#</span> <span class="nx">Bajo</span> <span class="nx">licencia</span> <span class="nx">GNU</span><span class="o">/</span><span class="nx">GPL</span>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="c">#!/bin/bash</span><span class="w">
  
-   <span class="err">#</span> <span class="nx">up2Git</span><span class="p">.</span><span class="nx">sh</span> <span class="o">&lt;</span><span class="nx">ficheros</span><span class="o">&gt;</span>
+   </span><span class="c"># Actualitzar rapidament el teu repositori de Git</span><span class="w">
+   </span><span class="c"># (CC) 2011 Alfonso Saavedra "Son Link"</span><span class="w">
+   </span><span class="c"># http://sonlinkblog.blogspot.com</span><span class="w">
+   </span><span class="c"># Bajo licencia GNU/GPL</span><span class="w">
  
-   <span class="err">#</span> <span class="nx">Comprovem</span> <span class="nx">si</span> <span class="nx">el</span> <span class="nx">directori</span> <span class="nx">en</span> <span class="nx">el</span> <span class="nx">que</span> <span class="nx">estem</span><span class="p">,</span> <span class="nx">es</span> <span class="nx">un</span> <span class="nx">repositori</span> <span class="nx">de</span> <span class="nx">Git</span>
-   <span class="k">if</span> <span class="p">[</span> <span class="o">!</span> <span class="o">-</span><span class="nx">d</span> <span class="dl">'</span><span class="s1">.git</span><span class="dl">'</span> <span class="p">];</span> <span class="nx">then</span>
-     <span class="nx">echo</span> <span class="dl">'</span><span class="s1">Aquest directori no conte un repositori de Git</span><span class="dl">'</span>
-     <span class="nx">exit</span> <span class="o">-</span><span class="mi">1</span>
-   <span class="nx">fi</span>
+   </span><span class="c"># up2Git.sh &lt;ficheros&gt;</span><span class="w">
  
-   <span class="err">#</span> <span class="nx">Ara</span> <span class="nx">validem</span> <span class="nx">i</span> <span class="nx">l</span><span class="dl">'</span><span class="s1">hi hem passat algun parametre
-   if [ $# == 0 ]; then
-     echo "Up2Git: ¡Error! No l</span><span class="dl">'</span><span class="nx">hi</span> <span class="nx">has</span> <span class="nx">passat</span> <span class="nx">cap</span> <span class="nx">parametre</span><span class="dl">"</span><span class="s2">
-     echo </span><span class="dl">"</span><span class="nx">up2Git</span> <span class="nx">fitxer_1</span> <span class="nx">fitxer_2</span> <span class="p">...</span> <span class="nx">fitxer_N</span><span class="dl">"</span><span class="s2">
-     exit -1
-   else
-     # Revisem els parametres per validar si son fitxers o directori
-     for file in $*; do
-       if [ ! -e $file ]; then
-         echo </span><span class="dl">"</span><span class="nx">Up2Git</span><span class="p">:</span> <span class="nx">L</span><span class="dl">'</span><span class="s1">arxiu o directori $file no existeix"
-         exit -1
-       fi
-     done
+   </span><span class="c"># Comprovem si el directori en el que estem, es un repositori de Git</span><span class="w">
+   </span><span class="kr">if</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="nt">-d</span><span class="w"> </span><span class="s1">'.git'</span><span class="w"> </span><span class="p">];</span><span class="w"> </span><span class="n">then</span><span class="w">
+     </span><span class="nx">echo</span><span class="w"> </span><span class="s1">'Aquest directori no conte un repositori de Git'</span><span class="w">
+     </span><span class="kr">exit</span><span class="w"> </span><span class="nt">-1</span><span class="w">
+   </span><span class="n">fi</span><span class="w">
+ 
+   </span><span class="c"># Ara validem i l'hi hem passat algun parametre</span><span class="w">
+   </span><span class="kr">if</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">$</span><span class="c"># == 0 ]; then</span><span class="w">
+     </span><span class="n">echo</span><span class="w"> </span><span class="s2">"Up2Git: ¡Error! No l'hi has passat cap parametre"</span><span class="w">
+     </span><span class="n">echo</span><span class="w"> </span><span class="s2">"up2Git fitxer_1 fitxer_2 ... fitxer_N"</span><span class="w">
+     </span><span class="n">exit</span><span class="w"> </span><span class="nt">-1</span><span class="w">
+   </span><span class="n">else</span><span class="w">
+     </span><span class="c"># Revisem els parametres per validar si son fitxers o directori</span><span class="w">
+     </span><span class="n">for</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="err">$</span><span class="o">*</span><span class="p">;</span><span class="w"> </span><span class="n">do</span><span class="w">
+       </span><span class="n">if</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="nt">-e</span><span class="w"> </span><span class="nv">$file</span><span class="w"> </span><span class="p">];</span><span class="w"> </span><span class="n">then</span><span class="w">
+         </span><span class="n">echo</span><span class="w"> </span><span class="s2">"Up2Git: L'arxiu o directori </span><span class="nv">$file</span><span class="s2"> no existeix"</span><span class="w">
+         </span><span class="n">exit</span><span class="w"> </span><span class="nt">-1</span><span class="w">
+       </span><span class="n">fi</span><span class="w">
+     </span><span class="n">done</span><span class="w">
      
-     # Si hem arribat fins aqui, informem a Git dels arxius a pujar
-     git add $*
+     </span><span class="c"># Si hem arribat fins aqui, informem a Git dels arxius a pujar</span><span class="w">
+     </span><span class="n">git</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="err">$</span><span class="o">*</span><span class="w">
      
-     # Aixo ens demana el missatge del commit
-     echo "Informi del missatge del commit:"
-     read TXT
-     git commit -m "$TXT"
+     </span><span class="c"># Aixo ens demana el missatge del commit</span><span class="w">
+     </span><span class="n">echo</span><span class="w"> </span><span class="s2">"Informi del missatge del commit:"</span><span class="w">
+     </span><span class="n">read</span><span class="w"> </span><span class="n">TXT</span><span class="w">
+     </span><span class="n">git</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="nt">-m</span><span class="w"> </span><span class="s2">"</span><span class="nv">$TXT</span><span class="s2">"</span><span class="w">
  
-     # i finalitzem pujant els arxius
-     git push origin master
+     </span><span class="c"># i finalitzem pujant els arxius</span><span class="w">
+     </span><span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">master</span><span class="w">
  
-   fi
+   </span><span class="n">fi</span><span class="w">
 </span></code></pre></div></div>
 
 <p>Para usarlo, en mi caso, lo hago de la siguiente manera :</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">bash</span> <span class="nx">up2Git</span><span class="p">.</span><span class="nx">sh</span> <span class="p">.</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="err">$</span><span class="w"> </span><span class="nx">bash</span><span class="w"> </span><span class="nx">up2Git.sh</span><span class="w"> </span><span class="o">.</span><span class="w">
+</span></code></pre></div></div>
 
 <p>El script es de <code class="language-plaintext highlighter-rouge">Alfonso Saavedra</code> a el todo mi agradecimiento, por facilitarme el tener mis repositorios de GitHub actualizados.</p>
 

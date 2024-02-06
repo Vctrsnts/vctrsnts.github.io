@@ -113,23 +113,22 @@
 
 <p>Hasta que he encontrado una pagina <a href="https://www.marcodaleo.com/posts/watchtower-telegram">web</a> con una configuración de <strong>watchtower</strong> que tenia buena pinta y la he querido probar. Que podia salir mal:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-  <span class="nx">watchtower</span><span class="p">:</span>
-    <span class="nx">image</span><span class="p">:</span> <span class="nx">containrrr</span><span class="o">/</span><span class="nx">watchtower</span>
-    <span class="nx">hostname</span><span class="p">:</span> <span class="nx">SERVER_NAME</span>
-    <span class="nx">container_name</span><span class="p">:</span> <span class="nx">watchtower</span>
-    <span class="nx">restart</span><span class="p">:</span> <span class="nx">unless</span><span class="o">-</span><span class="nx">stopped</span>
-    <span class="nx">volumes</span><span class="p">:</span>
-      <span class="o">-</span> <span class="dl">'</span><span class="s1">/var/run/docker.sock:/var/run/docker.sock</span><span class="dl">'</span>
-    <span class="nx">environment</span><span class="p">:</span>
-      <span class="o">-</span> <span class="nx">TZ</span><span class="o">=</span><span class="nx">Europe</span><span class="o">/</span><span class="nx">Andorra</span>
-      <span class="o">-</span> <span class="nx">WATCHTOWER_LIFECYCLE_HOOKS</span><span class="o">=</span><span class="nx">True</span>
-      <span class="o">-</span> <span class="nx">WATCHTOWER_NOTIFICATIONS</span><span class="o">=</span><span class="nx">shoutrrr</span>
-      <span class="o">-</span> <span class="nx">WATCHTOWER_NOTIFICATION_URL</span><span class="o">=</span><span class="nx">telegram</span><span class="p">:</span><span class="c1">//BOT_TOKEN@telegram/?channels=CHAT_ID</span>
-      <span class="o">-</span> <span class="nx">WATCHTOWER_DEBUG</span><span class="o">=</span><span class="kc">true</span>
-      <span class="o">-</span> <span class="nx">WATCHTOWER_CLEANUP</span><span class="o">=</span><span class="kc">true</span>
-      <span class="o">-</span> <span class="nx">WATCHTOWER_SCHEDULE</span><span class="o">=</span><span class="p">@</span><span class="nd">daily</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="n">watchtower:</span><span class="w">
+    </span><span class="nx">image:</span><span class="w"> </span><span class="nx">containrrr/watchtower</span><span class="w">
+    </span><span class="n">hostname:</span><span class="w"> </span><span class="nx">SERVER_NAME</span><span class="w">
+    </span><span class="n">container_name:</span><span class="w"> </span><span class="nx">watchtower</span><span class="w">
+    </span><span class="n">restart:</span><span class="w"> </span><span class="nx">unless-stopped</span><span class="w">
+    </span><span class="n">volumes:</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="s1">'/var/run/docker.sock:/var/run/docker.sock'</span><span class="w">
+    </span><span class="n">environment:</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">TZ</span><span class="o">=</span><span class="n">Europe/Andorra</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">WATCHTOWER_LIFECYCLE_HOOKS</span><span class="o">=</span><span class="n">True</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">WATCHTOWER_NOTIFICATIONS</span><span class="o">=</span><span class="n">shoutrrr</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">WATCHTOWER_NOTIFICATION_URL</span><span class="o">=</span><span class="n">telegram://BOT_TOKEN</span><span class="err">@</span><span class="nx">telegram/</span><span class="nf">?</span><span class="nx">channels</span><span class="o">=</span><span class="nx">CHAT_ID</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">WATCHTOWER_DEBUG</span><span class="o">=</span><span class="n">true</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">WATCHTOWER_CLEANUP</span><span class="o">=</span><span class="n">true</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">WATCHTOWER_SCHEDULE</span><span class="o">=</span><span class="err">@</span><span class="n">daily</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Entonces me he llevado una sorpresa, porque todo ha vuelto a funcionar. Me ha actualizado casi todos los contenedores que tenia la marca de <strong>actualizables</strong>.</p>
 

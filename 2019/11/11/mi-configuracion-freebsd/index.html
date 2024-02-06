@@ -93,67 +93,70 @@
 
 <!--more-->
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">vi</span> <span class="o">/</span><span class="nx">boot</span><span class="o">/</span><span class="nx">loader</span><span class="p">.</span><span class="nx">conf</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">freebsd:~</span><span class="c"># vi /boot/loader.conf</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">#</span> <span class="nx">CONSOLA</span>
-   <span class="nx">kern</span><span class="p">.</span><span class="nx">vty</span><span class="o">=</span><span class="nx">vt</span>
-   <span class="err">#</span> <span class="nx">Esto</span> <span class="nx">es</span> <span class="nx">una</span> <span class="nx">cosa</span> <span class="nx">que</span> <span class="nx">tengo</span> <span class="nx">que</span> <span class="nx">seguir</span> <span class="nx">investigando</span><span class="p">,</span> <span class="nx">porque</span> <span class="nx">no</span> <span class="nx">acaba</span> <span class="nx">de</span> <span class="nx">funcionar</span>
-   <span class="err">#</span> <span class="nx">correctamente</span><span class="p">.</span>
-   <span class="nx">kern</span><span class="p">.</span><span class="nx">vt</span><span class="p">.</span><span class="nx">fb</span><span class="p">.</span><span class="nx">default_mode</span><span class="o">=</span><span class="dl">"</span><span class="s2">1440x900</span><span class="dl">"</span>
-   <span class="nx">hw</span><span class="p">.</span><span class="nx">vga</span><span class="p">.</span><span class="nx">textmode</span><span class="o">=</span><span class="mi">1</span>
-   <span class="err">#</span> <span class="nx">ACPI</span> <span class="nx">IBM</span><span class="o">/</span><span class="nx">LENOVO</span>
-   <span class="nx">acpi_ibm_load</span><span class="o">=</span><span class="dl">"</span><span class="s2">YES</span><span class="dl">"</span>
-   <span class="nx">acpi_video_load</span><span class="o">=</span><span class="dl">"</span><span class="s2">YES</span><span class="dl">"</span>
-   <span class="nx">hint</span><span class="p">.</span><span class="nx">p4tcc</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="nx">disabled</span><span class="o">=</span><span class="mi">1</span>
-   <span class="nx">hint</span><span class="p">.</span><span class="nx">acpi_throttle</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="nx">disabled</span><span class="o">=</span><span class="mi">1</span>
-   <span class="err">#</span> <span class="nx">WIFI</span>
-   <span class="err">#</span> <span class="nx">LO</span> <span class="nx">TENGO</span> <span class="nx">DESACTIVADO</span><span class="p">,</span> <span class="nx">PORQUE</span> <span class="nx">NO</span> <span class="nx">LO</span> <span class="nx">USO</span><span class="p">,</span> <span class="nx">PERO</span><span class="p">...</span>
-   <span class="err">#</span><span class="nx">if_iwm_load</span><span class="o">=</span><span class="dl">"</span><span class="s2">YES</span><span class="dl">"</span>
-   <span class="err">#</span><span class="nx">iwm7265fw_load</span><span class="o">=</span><span class="dl">"</span><span class="s2">YES</span><span class="dl">"</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="c"># CONSOLA</span><span class="w">
+   </span><span class="n">kern.vty</span><span class="o">=</span><span class="n">vt</span><span class="w">
+   </span><span class="c"># Esto es una cosa que tengo que seguir investigando, porque no acaba de funcionar</span><span class="w">
+   </span><span class="c"># correctamente.</span><span class="w">
+   </span><span class="n">kern.vt.fb.default_mode</span><span class="o">=</span><span class="s2">"1440x900"</span><span class="w">
+   </span><span class="n">hw.vga.textmode</span><span class="o">=</span><span class="mi">1</span><span class="w">
+   </span><span class="c"># ACPI IBM/LENOVO</span><span class="w">
+   </span><span class="n">acpi_ibm_load</span><span class="o">=</span><span class="s2">"YES"</span><span class="w">
+   </span><span class="n">acpi_video_load</span><span class="o">=</span><span class="s2">"YES"</span><span class="w">
+   </span><span class="n">hint.p4tcc.0.disabled</span><span class="o">=</span><span class="mi">1</span><span class="w">
+   </span><span class="n">hint.acpi_throttle.0.disabled</span><span class="o">=</span><span class="mi">1</span><span class="w">
+   </span><span class="c"># WIFI</span><span class="w">
+   </span><span class="c"># LO TENGO DESACTIVADO, PORQUE NO LO USO, PERO...</span><span class="w">
+   </span><span class="c">#if_iwm_load="YES"</span><span class="w">
+   </span><span class="c">#iwm7265fw_load="YES"</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">vi</span> <span class="o">/</span><span class="nx">etc</span><span class="p">.</span><span class="nx">rc</span><span class="p">.</span><span class="nx">conf</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">freebsd:~</span><span class="c"># vi /etc.rc.conf</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">#</span> <span class="nx">ESTO</span> <span class="nx">YA</span> <span class="nx">VIENE</span> <span class="nx">POR</span> <span class="nx">DEFECTE</span> <span class="nx">DESPUES</span> <span class="nx">DE</span> <span class="nx">INSTALAR</span> <span class="nx">EL</span> <span class="nx">SISTEMA</span>
-   <span class="nx">clear_tmp_enable</span><span class="o">=</span><span class="dl">"</span><span class="s2">YES</span><span class="dl">"</span>
-   <span class="nx">sendmail_enable</span><span class="o">=</span><span class="dl">"</span><span class="s2">NONE</span><span class="dl">"</span>
-   <span class="nx">keymap</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">es.acc</span><span class="dl">"</span>
-   <span class="nx">hostname</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">miMaquina</span><span class="dl">"</span>
-   <span class="nx">ifconfig_xxx</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">inet x.x.x.x netmask 255.255.255.0</span><span class="dl">"</span>
-   <span class="nx">defaultrouter</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">x.x.x.x</span><span class="dl">"</span>
-   <span class="nx">dumpdev</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">AUTO</span><span class="dl">"</span>
-   <span class="err">#</span> <span class="nx">COSAS</span> <span class="nx">QUE</span> <span class="nx">HE</span> <span class="nx">AÑADIDO</span>
-   <span class="err">#</span> <span class="nx">NTP_DATE</span> <span class="p">(</span><span class="nx">TENGO</span> <span class="nx">QUE</span> <span class="nx">SEGUIR</span> <span class="nx">INVESTIGANDO</span> <span class="nx">PORQUE</span> <span class="nx">NO</span> <span class="nx">ME</span> <span class="nx">ACABA</span> <span class="nx">DE</span> <span class="nx">FUNCIONAR</span>
-   <span class="err">#</span> <span class="nx">CORRECTAMENTE</span><span class="p">)</span>
-   <span class="nx">ntpd_enable</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">YES</span><span class="dl">"</span>
-   <span class="err">#</span> <span class="nx">XORG</span>
-   <span class="nx">dbus_enable</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">YES</span><span class="dl">"</span>
-   <span class="nx">hald_enable</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">YES</span><span class="dl">"</span>
-   <span class="err">#</span> <span class="nx">POWERD</span>
-   <span class="nx">powerd_enable</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">YES</span><span class="dl">"</span>
-   <span class="nx">performance_cx_lowert</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Cmax</span><span class="dl">"</span>
-   <span class="nx">economy_cx_lowert</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Cmax</span><span class="dl">"</span>
-   <span class="err">#</span> <span class="nx">SSH</span> <span class="p">(</span><span class="nx">DE</span> <span class="nx">MOMENTO</span> <span class="nx">NO</span> <span class="nx">LO</span> <span class="nx">TENGO</span> <span class="nx">CONFIGURADO</span><span class="p">),</span> <span class="nx">ASI</span> <span class="nx">QUE</span><span class="p">,</span> <span class="nx">DESACTIVADO</span>
-   <span class="nx">sshd_enable</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">NO</span><span class="dl">"</span>
-   <span class="err">#</span> <span class="nx">WIFI</span> <span class="p">(</span><span class="nx">DESACTIVADO</span> <span class="nx">PORQUE</span> <span class="nx">NO</span> <span class="nx">LO</span> <span class="nx">USO</span><span class="p">)</span>
-   <span class="err">#</span><span class="nx">wlans_iwm0</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">wlan0</span><span class="dl">"</span>
-   <span class="nx">ifconfig_wlan0</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">WPA SYNCDHCP</span><span class="dl">"</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="c"># ESTO YA VIENE POR DEFECTE DESPUES DE INSTALAR EL SISTEMA</span><span class="w">
+   </span><span class="n">clear_tmp_enable</span><span class="o">=</span><span class="s2">"YES"</span><span class="w">
+   </span><span class="n">sendmail_enable</span><span class="o">=</span><span class="s2">"NONE"</span><span class="w">
+   </span><span class="n">keymap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"es.acc"</span><span class="w">
+   </span><span class="n">hostname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"miMaquina"</span><span class="w">
+   </span><span class="n">ifconfig_xxx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"inet x.x.x.x netmask 255.255.255.0"</span><span class="w">
+   </span><span class="n">defaultrouter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"x.x.x.x"</span><span class="w">
+   </span><span class="n">dumpdev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"AUTO"</span><span class="w">
+   </span><span class="c"># COSAS QUE HE AÑADIDO</span><span class="w">
+   </span><span class="c"># NTP_DATE (TENGO QUE SEGUIR INVESTIGANDO PORQUE NO ME ACABA DE FUNCIONAR</span><span class="w">
+   </span><span class="c"># CORRECTAMENTE)</span><span class="w">
+   </span><span class="n">ntpd_enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"YES"</span><span class="w">
+   </span><span class="c"># XORG</span><span class="w">
+   </span><span class="n">dbus_enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"YES"</span><span class="w">
+   </span><span class="n">hald_enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"YES"</span><span class="w">
+   </span><span class="c"># POWERD</span><span class="w">
+   </span><span class="n">powerd_enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"YES"</span><span class="w">
+   </span><span class="n">performance_cx_lowert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Cmax"</span><span class="w">
+   </span><span class="n">economy_cx_lowert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Cmax"</span><span class="w">
+   </span><span class="c"># SSH (DE MOMENTO NO LO TENGO CONFIGURADO), ASI QUE, DESACTIVADO</span><span class="w">
+   </span><span class="n">sshd_enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"NO"</span><span class="w">
+   </span><span class="c"># WIFI (DESACTIVADO PORQUE NO LO USO)</span><span class="w">
+   </span><span class="c">#wlans_iwm0 = "wlan0"</span><span class="w">
+   </span><span class="n">ifconfig_wlan0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"WPA SYNCDHCP"</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">vi</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">sysctl</span><span class="p">.</span><span class="nx">conf</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">freebsd:~</span><span class="c"># vi /etc/sysctl.conf</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">#</span> <span class="nx">Desactivamos</span> <span class="nx">el</span> <span class="nx">Speaker</span>
-   <span class="nx">hw</span><span class="p">.</span><span class="nx">syscons</span><span class="p">.</span><span class="nx">bell</span> <span class="o">=</span> <span class="mi">0</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="c"># Desactivamos el Speaker</span><span class="w">
+   </span><span class="n">hw.syscons.bell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">vi</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">fstab</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">freebsd:~</span><span class="c"># vi /etc/fstab</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">proc</span>	<span class="o">/</span><span class="nx">proc</span>	<span class="nx">procfs</span>	<span class="nx">rw</span>	<span class="mi">0</span>	<span class="mi">0</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">proc</span><span class="w">	</span><span class="nx">/proc</span><span class="w">	</span><span class="nx">procfs</span><span class="w">	</span><span class="nx">rw</span><span class="w">	</span><span class="nx">0</span><span class="w">	</span><span class="nx">0</span><span class="w">
+</span></code></pre></div></div>
+<p>Y de momento, esto es todo.</p>
+
+<h4 id="referencia">Referencia</h4>
 
   </div>
 </div>

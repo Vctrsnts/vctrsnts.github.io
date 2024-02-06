@@ -110,44 +110,44 @@ sea de 1 dia (86.400 segundos).</li>
 
 <p>Lo que he leido en todos sitios con respecto a <strong>fail2ban</strong>, es que lo mejor es copiar el fichero <code class="language-plaintext highlighter-rouge">jail.conf</code> a <code class="language-plaintext highlighter-rouge">jail.local</code>.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">cd</span> <span class="o">/</span><span class="nx">etc</span>
-   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">cp</span> <span class="nx">jail</span><span class="p">.</span><span class="nx">conf</span> <span class="nx">jail</span><span class="p">.</span><span class="nx">local</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="err">$</span><span class="w"> </span><span class="nx">cd</span><span class="w"> </span><span class="nx">/etc</span><span class="w">
+   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="err">$</span><span class="w"> </span><span class="nx">sudo</span><span class="w"> </span><span class="nx">cp</span><span class="w"> </span><span class="nx">jail.conf</span><span class="w"> </span><span class="nx">jail.local</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Una vez hecho esto, ya lo podemos editar con las opciones que más nos interesan que en mi caso son las siguiente :</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">#</span> <span class="nx">descomentar</span> <span class="nx">la</span> <span class="nx">opción</span> <span class="nx">ignoreip</span> <span class="nx">para</span> <span class="nx">que</span> <span class="nx">no</span> <span class="nx">tenga</span> <span class="nx">en</span> <span class="nx">cuenta</span> <span class="nx">los</span> <span class="nx">accesos</span>
-   <span class="err">#</span> <span class="nx">que</span> <span class="nx">vienen</span> <span class="nx">de</span> <span class="nx">nuestra</span> <span class="nx">propia</span> <span class="nx">red</span>
-   <span class="nx">ignoreip</span> <span class="o">=</span> <span class="mf">127.0</span><span class="p">.</span><span class="mf">0.1</span><span class="o">/</span><span class="mi">8</span> <span class="p">::</span><span class="mi">1</span>
-   <span class="err">#</span> <span class="nx">descomentamos</span> <span class="nx">la</span> <span class="nx">opción</span> <span class="nx">bantime</span> <span class="nx">y</span> <span class="nx">en</span> <span class="nx">mi</span> <span class="nx">caso</span> <span class="nx">he</span> <span class="nx">puesto</span> <span class="mi">86400</span>
-   <span class="nx">bantime</span> <span class="o">=</span> <span class="mi">86400</span>
-   <span class="err">#</span> <span class="nx">descomentamos</span> <span class="nx">la</span> <span class="nx">opcion</span> <span class="nx">fintime</span> <span class="nx">y</span> <span class="nx">yo</span> <span class="nx">he</span> <span class="nx">dejado</span> <span class="nx">el</span> <span class="nx">valor</span> <span class="nx">por</span> <span class="nx">defeccto</span>
-   <span class="nx">fintime</span> <span class="o">=</span> <span class="mi">10</span><span class="nx">m</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="c"># descomentar la opción ignoreip para que no tenga en cuenta los accesos</span><span class="w">
+   </span><span class="c"># que vienen de nuestra propia red</span><span class="w">
+   </span><span class="n">ignoreip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">127.0</span><span class="o">.</span><span class="nf">0</span><span class="o">.</span><span class="nf">1</span><span class="n">/8</span><span class="w"> </span><span class="p">::</span><span class="nx">1</span><span class="w">
+   </span><span class="c"># descomentamos la opción bantime y en mi caso he puesto 86400</span><span class="w">
+   </span><span class="n">bantime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+   </span><span class="c"># descomentamos la opcion fintime y yo he dejado el valor por defeccto</span><span class="w">
+   </span><span class="n">fintime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="n">m</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Ahora pasamos a activar los modulos que nos interesa que en mi caso es el modulo de <code class="language-plaintext highlighter-rouge">sshd</code>. Los modulos se encuentran a partir de la opción <code class="language-plaintext highlighter-rouge">JAILS</code>.</p>
 
 <p>Se activan con la opción <code class="language-plaintext highlighter-rouge">enabled = true</code>. Y en mi caso el modulo de <code class="language-plaintext highlighter-rouge">SSHD</code> queda de la siguiente manera :</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">enabled</span> <span class="o">=</span> <span class="kc">true</span>
-   <span class="nx">filter</span> <span class="o">=</span> <span class="nx">sshd</span>
-   <span class="err">#</span> <span class="nx">Aqui</span> <span class="nx">es</span> <span class="nx">donde</span> <span class="nx">ponemos</span> <span class="nx">los</span> <span class="nx">puertos</span> <span class="nx">a</span> <span class="nx">controlar</span><span class="p">.</span> <span class="nx">Si</span> <span class="nx">ponemos</span> <span class="nx">ssh</span><span class="p">,</span>
-   <span class="err">#</span> <span class="nx">se</span> <span class="nx">monitoriza</span> <span class="nx">el</span> <span class="nx">puerto</span> <span class="nx">por</span> <span class="nx">defecto</span> <span class="nx">de</span> <span class="nx">ssh</span> <span class="p">(</span><span class="mi">22</span><span class="p">),</span> <span class="nx">pero</span>
-   <span class="err">#</span> <span class="nx">tambien</span> <span class="nx">podemos</span> <span class="nx">poner</span> <span class="nx">otros</span> <span class="nx">puertos</span><span class="p">.</span>
-   <span class="nx">port</span> <span class="o">=</span> <span class="nx">ssh</span><span class="p">,</span> <span class="nx">xxxx</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="w">
+   </span><span class="nx">filter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sshd</span><span class="w">
+   </span><span class="c"># Aqui es donde ponemos los puertos a controlar. Si ponemos ssh,</span><span class="w">
+   </span><span class="c"># se monitoriza el puerto por defecto de ssh (22), pero</span><span class="w">
+   </span><span class="c"># tambien podemos poner otros puertos.</span><span class="w">
+   </span><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ssh</span><span class="p">,</span><span class="w"> </span><span class="nx">xxxx</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Si revisas los modulos disponibles, ves que hay un monto, por ejemplo <code class="language-plaintext highlighter-rouge">dropbear</code>, <code class="language-plaintext highlighter-rouge">apache</code>, <code class="language-plaintext highlighter-rouge">nginx</code>, <code class="language-plaintext highlighter-rouge">lighttpd</code> y unos cuantos más.</p>
 
 <p>De esta manera ya tenemos configurado <strong>fail2ban</strong>, ahora solamente falta activarlo :</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">init</span><span class="p">.</span><span class="nx">d</span><span class="o">/</span><span class="nx">fail2ban</span> <span class="nx">start</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="err">$</span><span class="w"> </span><span class="nx">sudo</span><span class="w"> </span><span class="nx">/etc/init.d/fail2ban</span><span class="w"> </span><span class="nx">start</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Y disfrutar de los baneos, que puedes ver, en el fichero de los :</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">tail</span> <span class="o">-</span><span class="nx">f</span> <span class="o">/</span><span class="kd">var</span><span class="sr">/log/</span><span class="nx">fail2ban</span><span class="p">.</span><span class="nx">log</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="err">$</span><span class="w"> </span><span class="nx">sudo</span><span class="w"> </span><span class="nx">tail</span><span class="w"> </span><span class="nt">-f</span><span class="w"> </span><span class="nx">/var/log/fail2ban.log</span><span class="w">
+</span></code></pre></div></div>
 
 <blockquote>
   <p>Que como dice un youtuber famoso <a href="https://www.youtube.com/channel/UCrBzBOMcUVV8ryyAU_c6P5g">PeladoNerd</a>, es un ejercicio muy saludable.</p>
@@ -155,9 +155,9 @@ sea de 1 dia (86.400 segundos).</li>
 
 <p>Asi mismo, tambien pongo el codigo necesario para poder <code class="language-plaintext highlighter-rouge">desbanear</code> nuestra ip de acceso a la raspberry (me ha pasado más de una vez), lo que se tiene que hacer es lo siguiente:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">fail2ban</span><span class="o">-</span><span class="nx">client</span> <span class="kd">set</span> <span class="nx">sshd</span> <span class="nx">unbanip</span> <span class="nx">x</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">x</span>
-   <span class="err">#</span> <span class="nx">Donde</span> <span class="nx">x</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">x</span> <span class="nx">es</span> <span class="nx">la</span> <span class="nx">ip</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="err">$</span><span class="w"> </span><span class="nx">fail2ban-client</span><span class="w"> </span><span class="nx">set</span><span class="w"> </span><span class="nx">sshd</span><span class="w"> </span><span class="nx">unbanip</span><span class="w"> </span><span class="nx">x.x.x.x</span><span class="w">
+   </span><span class="c"># Donde x.x.x.x es la ip</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Ten en cuenta, que esto lo tienes que hacer desde otro PC, porque desde el que tienes acceso normalmente no te dejara acceder, si es que no le cambias la ip</p>
 

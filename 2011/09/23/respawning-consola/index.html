@@ -96,13 +96,13 @@
 
 <p>Se tiene que editar el fichero <code class="language-plaintext highlighter-rouge">/etc/inittab</code> y comentaremos la linea:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">co</span><span class="p">:</span><span class="mi">2345</span><span class="p">:</span><span class="nx">respawn</span><span class="p">:</span><span class="o">/</span><span class="nx">sbin</span><span class="o">/</span><span class="nx">getty</span> <span class="nx">hvc0</span> <span class="mi">9600</span> <span class="nx">linux</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">co:2345:respawn:/sbin/getty</span><span class="w"> </span><span class="nx">hvc0</span><span class="w"> </span><span class="nx">9600</span><span class="w"> </span><span class="nx">linux</span><span class="w">
+</span></code></pre></div></div>
 
 <p>dejandola de la siguiente manera :</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">#</span><span class="nx">co</span><span class="p">:</span><span class="mi">2345</span><span class="p">:</span><span class="nx">respawn</span><span class="p">:</span><span class="o">/</span><span class="nx">sbin</span><span class="o">/</span><span class="nx">getty</span> <span class="nx">hvc0</span> <span class="mi">9600</span> <span class="nx">linux</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="c">#co:2345:respawn:/sbin/getty hvc0 9600 linux</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Bueno, espero que os sirva…</p>
 

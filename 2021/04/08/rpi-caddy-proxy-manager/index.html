@@ -139,20 +139,20 @@ decidir buscar otra alternativa más facil.</p>
 
 <p>Recuerda que para generar los certificados de Let’s Encrypt, Caddy necesita tener abiertos los puertos 80 y 443.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">version</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3.7</span><span class="dl">"</span>
-   <span class="nx">services</span><span class="p">:</span>
-     <span class="nx">caddy</span><span class="p">:</span>
-       <span class="nx">image</span><span class="p">:</span> <span class="nx">caddy</span>
-       <span class="nx">ports</span><span class="p">:</span>
-         <span class="o">-</span> <span class="dl">"</span><span class="s2">80:80</span><span class="dl">"</span>
-         <span class="o">-</span> <span class="dl">"</span><span class="s2">443:443</span><span class="dl">"</span>
-       <span class="nx">volumes</span><span class="p">:</span>
-         <span class="o">-</span> <span class="p">.</span><span class="o">/</span><span class="nx">Caddyfile</span><span class="p">:</span><span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">caddy</span><span class="o">/</span><span class="nx">Caddyfile</span><span class="p">:</span><span class="nx">ro</span>
-         <span class="o">-</span> <span class="p">.</span><span class="o">/</span><span class="nx">data</span><span class="o">/</span><span class="nx">caddy</span><span class="o">/</span><span class="nx">data</span><span class="p">:</span><span class="o">/</span><span class="nx">data</span>
-         <span class="o">-</span> <span class="p">.</span><span class="o">/</span><span class="nx">data</span><span class="o">/</span><span class="nx">caddy</span><span class="o">/</span><span class="nx">config</span><span class="p">:</span><span class="o">/</span><span class="nx">config</span>
-       <span class="nx">restart</span><span class="p">:</span> <span class="nx">unless</span><span class="o">-</span><span class="nx">stopped</span>
-       <span class="nx">container_name</span><span class="p">:</span> <span class="nx">caddy</span>  
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">version:</span><span class="w"> </span><span class="s2">"3.7"</span><span class="w">
+   </span><span class="n">services:</span><span class="w">
+     </span><span class="nx">caddy:</span><span class="w">
+       </span><span class="n">image:</span><span class="w"> </span><span class="nx">caddy</span><span class="w">
+       </span><span class="n">ports:</span><span class="w">
+         </span><span class="o">-</span><span class="w"> </span><span class="s2">"80:80"</span><span class="w">
+         </span><span class="o">-</span><span class="w"> </span><span class="s2">"443:443"</span><span class="w">
+       </span><span class="n">volumes:</span><span class="w">
+         </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="nx">/Caddyfile:/etc/caddy/Caddyfile:ro</span><span class="w">
+         </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="n">/data/caddy/data:/data</span><span class="w">
+         </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="nx">/data/caddy/config:/config</span><span class="w">
+       </span><span class="n">restart:</span><span class="w"> </span><span class="nx">unless-stopped</span><span class="w">
+       </span><span class="n">container_name:</span><span class="w"> </span><span class="nx">caddy</span><span class="w">  
+</span></code></pre></div></div>
 
 <p>Creamos el archivo <code class="language-plaintext highlighter-rouge">Caddyfile</code>, donde irá la configuración de nuestro proxy inverso.</p>
 
@@ -161,10 +161,10 @@ decidir buscar otra alternativa más facil.</p>
 
 <p>Caddy se encargará de exponer este servicio a la red generando el certificado con Let’s Encrypt, que en mi caso, como ya he dicho, es mi Spotify privado y asi no tener que depender de nadie.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">music</span><span class="p">.</span><span class="nx">midominio</span><span class="p">.</span><span class="nx">duckdns</span><span class="p">.</span><span class="nx">org</span> <span class="p">{</span>
-                                  <span class="nx">reverse_proxy</span> <span class="nx">http</span><span class="p">:</span><span class="c1">//192.168.1.100:4533</span>
-   <span class="p">}</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">music.midominio.duckdns.org</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                  </span><span class="n">reverse_proxy</span><span class="w"> </span><span class="nx">http://192.168.1.100:4533</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Asi de rapido y de sencillo tengo mi proxy inverso en funcionamiento junto con mi certificado SSL. Y lo más interesante, es que cuando llegue el momento de que el certificado vaya a caducar, el mismo
 caddy se encargara de actualizarlo.</p>

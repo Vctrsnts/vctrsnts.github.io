@@ -121,127 +121,127 @@
   </li>
 </ul>
 
-<div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="o">#</span> <span class="n">Fichero</span> <span class="n">init</span><span class="p">.</span><span class="n">lua</span>
-   <span class="cm">--[[
-   ██╗███╗   ██╗██╗████████╗██╗     ██╗   ██╗ █████╗
-   ██║████╗  ██║██║╚══██╔══╝██║     ██║   ██║██╔══██╗
-   ██║██╔██╗ ██║██║   ██║   ██║     ██║   ██║███████║
-   ██║██║╚██╗██║██║   ██║   ██║     ██║   ██║██╔══██║
-   ██║██║ ╚████║██║   ██║██╗███████╗╚██████╔╝██║  ██║
-   ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
-   Neovim init file
-   Version: 0.8.1 - 2022/11/14
-   Maintainer: Vctrsnts
-   Website: https://vctrsnts.github.io
-   Referencia: https://github.com/brainfucksec/neovim-lua
-   --]]</span>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="c"># Fichero init.lua</span><span class="w">
+   </span><span class="n">--</span><span class="p">[[</span><span class="w">
+   </span><span class="err">██╗███╗</span><span class="w">   </span><span class="err">██╗██╗████████╗██╗</span><span class="w">     </span><span class="err">██╗</span><span class="w">   </span><span class="err">██╗</span><span class="w"> </span><span class="err">█████╗</span><span class="w">
+   </span><span class="err">██║████╗</span><span class="w">  </span><span class="err">██║██║╚══██╔══╝██║</span><span class="w">     </span><span class="err">██║</span><span class="w">   </span><span class="err">██║██╔══██╗</span><span class="w">
+   </span><span class="err">██║██╔██╗</span><span class="w"> </span><span class="err">██║██║</span><span class="w">   </span><span class="err">██║</span><span class="w">   </span><span class="err">██║</span><span class="w">     </span><span class="err">██║</span><span class="w">   </span><span class="err">██║███████║</span><span class="w">
+   </span><span class="err">██║██║╚██╗██║██║</span><span class="w">   </span><span class="err">██║</span><span class="w">   </span><span class="err">██║</span><span class="w">     </span><span class="err">██║</span><span class="w">   </span><span class="err">██║██╔══██║</span><span class="w">
+   </span><span class="err">██║██║</span><span class="w"> </span><span class="err">╚████║██║</span><span class="w">   </span><span class="err">██║██╗███████╗╚██████╔╝██║</span><span class="w">  </span><span class="err">██║</span><span class="w">
+   </span><span class="err">╚═╝╚═╝</span><span class="w">  </span><span class="err">╚═══╝╚═╝</span><span class="w">   </span><span class="err">╚═╝╚═╝╚══════╝</span><span class="w"> </span><span class="err">╚═════╝</span><span class="w"> </span><span class="err">╚═╝</span><span class="w">  </span><span class="err">╚═╝</span><span class="w">
+   </span><span class="n">Neovim</span><span class="w"> </span><span class="n">init</span><span class="w"> </span><span class="n">file</span><span class="w">
+   </span><span class="n">Version</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="o">.</span><span class="nf">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2022</span><span class="n">/11/14</span><span class="w">
+   </span><span class="nx">Maintainer:</span><span class="w"> </span><span class="nx">Vctrsnts</span><span class="w">
+   </span><span class="n">Website</span><span class="p">:</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="n">//vctrsnts.github.io</span><span class="w">
+   </span><span class="nx">Referencia:</span><span class="w"> </span><span class="nx">https://github.com/brainfucksec/neovim-lua</span><span class="w">
+   </span><span class="o">--</span><span class="p">]]</span><span class="w">
  
-   <span class="c1">----------------------------------------------------------------------------------------------------</span>
-   <span class="c1">-- Import Lua Modules</span>
-   <span class="c1">----------------------------------------------------------------------------------------------------</span>
-   <span class="nb">require</span><span class="p">(</span><span class="s1">'settings'</span><span class="p">)</span>                                   <span class="c1">-- Fitxer dels Settings</span>
-   <span class="nb">require</span><span class="p">(</span><span class="s1">'keymaps'</span><span class="p">)</span>			                              <span class="c1">-- Fitxer de la configuració del teclat</span>
+   </span><span class="o">----------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="o">--</span><span class="w"> </span><span class="n">Import</span><span class="w"> </span><span class="nx">Lua</span><span class="w"> </span><span class="nx">Modules</span><span class="w">
+   </span><span class="o">----------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="n">require</span><span class="p">(</span><span class="s1">'settings'</span><span class="p">)</span><span class="w">                                   </span><span class="o">--</span><span class="w"> </span><span class="n">Fitxer</span><span class="w"> </span><span class="nx">dels</span><span class="w"> </span><span class="nx">Settings</span><span class="w">
+   </span><span class="n">require</span><span class="p">(</span><span class="s1">'keymaps'</span><span class="p">)</span><span class="w">			                              </span><span class="o">--</span><span class="w"> </span><span class="n">Fitxer</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">la</span><span class="w"> </span><span class="nx">configuraci</span><span class="err">ó</span><span class="w"> </span><span class="nx">del</span><span class="w"> </span><span class="nx">teclat</span><span class="w">
  
-   <span class="c1">----------------------------------------------------------------------------------------------------</span>
-   <span class="c1">-- Comença la carrega de plugins</span>
-   <span class="c1">----------------------------------------------------------------------------------------------------</span>
-   <span class="nb">require</span><span class="p">(</span><span class="s1">'plugins/packer'</span><span class="p">)</span>		                          <span class="c1">-- Gestor de Plugins</span>
-   <span class="nb">require</span><span class="p">(</span><span class="s1">'plugins/autosave'</span><span class="p">)</span>                           <span class="c1">-- Plugin per a realitzar el AutoSave</span>
-   <span class="nb">require</span><span class="p">(</span><span class="s1">'plugins/ayu'</span><span class="p">)</span>			                          <span class="c1">-- Color Theme</span>
-   <span class="nb">require</span><span class="p">(</span><span class="s1">'plugins/neo-tree'</span><span class="p">)</span>                           <span class="c1">-- filebrowser</span>
-   <span class="nb">require</span><span class="p">(</span><span class="s1">'plugins/feline'</span><span class="p">)</span>                             <span class="c1">-- statusline</span>
-</code></pre></div></div>
+   </span><span class="o">----------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="o">--</span><span class="w"> </span><span class="n">Comen</span><span class="err">ç</span><span class="nx">a</span><span class="w"> </span><span class="nx">la</span><span class="w"> </span><span class="nx">carrega</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">plugins</span><span class="w">
+   </span><span class="o">----------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="n">require</span><span class="p">(</span><span class="s1">'plugins/packer'</span><span class="p">)</span><span class="w">		                          </span><span class="o">--</span><span class="w"> </span><span class="n">Gestor</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">Plugins</span><span class="w">
+   </span><span class="n">require</span><span class="p">(</span><span class="s1">'plugins/autosave'</span><span class="p">)</span><span class="w">                           </span><span class="o">--</span><span class="w"> </span><span class="n">Plugin</span><span class="w"> </span><span class="nx">per</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">realitzar</span><span class="w"> </span><span class="nx">el</span><span class="w"> </span><span class="nx">AutoSave</span><span class="w">
+   </span><span class="n">require</span><span class="p">(</span><span class="s1">'plugins/ayu'</span><span class="p">)</span><span class="w">			                          </span><span class="o">--</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="nx">Theme</span><span class="w">
+   </span><span class="n">require</span><span class="p">(</span><span class="s1">'plugins/neo-tree'</span><span class="p">)</span><span class="w">                           </span><span class="o">--</span><span class="w"> </span><span class="n">filebrowser</span><span class="w">
+   </span><span class="nx">require</span><span class="p">(</span><span class="s1">'plugins/feline'</span><span class="p">)</span><span class="w">                             </span><span class="o">--</span><span class="w"> </span><span class="n">statusline</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="o">#</span> <span class="n">Fichero</span> <span class="n">settings</span><span class="p">.</span><span class="n">lua</span>
-   <span class="cm">--[[
-   FITXER SETTINGS.LUA
-   --]]</span>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="c"># Fichero settings.lua</span><span class="w">
+   </span><span class="n">--</span><span class="p">[[</span><span class="w">
+   </span><span class="n">FITXER</span><span class="w"> </span><span class="n">SETTINGS.LUA</span><span class="w">
+   </span><span class="o">--</span><span class="p">]]</span><span class="w">
  
-   <span class="c1">----------------------------------------------------------------------------------------------------</span>
-   <span class="c1">-- Neovim API Aliases</span>
-   <span class="c1">----------------------------------------------------------------------------------------------------</span>
-   <span class="kd">local</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">cmd</span>
-   <span class="kd">local</span> <span class="n">exec</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">nvim_exec</span>
-   <span class="kd">local</span> <span class="n">fn</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">fn</span>
-   <span class="kd">local</span> <span class="n">g</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">g</span>
-   <span class="kd">local</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">opt</span>
+   </span><span class="o">----------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="o">--</span><span class="w"> </span><span class="n">Neovim</span><span class="w"> </span><span class="nx">API</span><span class="w"> </span><span class="nx">Aliases</span><span class="w">
+   </span><span class="o">----------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="n">local</span><span class="w"> </span><span class="nx">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vim.cmd</span><span class="w">
+   </span><span class="nx">local</span><span class="w"> </span><span class="nx">exec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vim.api.nvim_exec</span><span class="w">
+   </span><span class="nx">local</span><span class="w"> </span><span class="nx">fn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vim.fn</span><span class="w">
+   </span><span class="nx">local</span><span class="w"> </span><span class="nx">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vim.g</span><span class="w">
+   </span><span class="nx">local</span><span class="w"> </span><span class="nx">opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vim.opt</span><span class="w">
  
-   <span class="c1">----------------------------------------------------------------------------------------------------</span>
-   <span class="c1">-- Configuració General</span>
-   <span class="c1">----------------------------------------------------------------------------------------------------</span>
-   <span class="n">g</span><span class="p">.</span><span class="n">mapleader</span> <span class="o">=</span> <span class="s1">';'</span>					                            <span class="c1">-- Canviar leader a coma</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">swapfile</span> <span class="o">=</span> <span class="kc">false</span>					                        <span class="c1">-- No fe servir swapfile</span>
+   </span><span class="o">----------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="o">--</span><span class="w"> </span><span class="n">Configuraci</span><span class="err">ó</span><span class="w"> </span><span class="nx">General</span><span class="w">
+   </span><span class="o">----------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="n">g.mapleader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">';'</span><span class="w">					                            </span><span class="o">--</span><span class="w"> </span><span class="n">Canviar</span><span class="w"> </span><span class="nx">leader</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">coma</span><span class="w">
+   </span><span class="n">opt.swapfile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">false</span><span class="w">					                        </span><span class="o">--</span><span class="w"> </span><span class="nx">No</span><span class="w"> </span><span class="nx">fe</span><span class="w"> </span><span class="nx">servir</span><span class="w"> </span><span class="nx">swapfile</span><span class="w">
  
-   <span class="c1">----------------------------------------------------------------------------------------------------</span>
-   <span class="c1">-- Neovim UI</span>
-   <span class="c1">----------------------------------------------------------------------------------------------------</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">number</span> <span class="o">=</span> <span class="kc">true</span>					                            <span class="c1">-- Es visualitzar els numeros de les linias</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">relativenumber</span> <span class="o">=</span> <span class="kc">true</span>				                      <span class="c1">-- Es visualitzar el numero relatiu de la linia</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">foldmethod</span> <span class="o">=</span> <span class="s1">'marker'</span>				                      <span class="c1">-- Activada folding (default 'foldmarker')</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">splitright</span> <span class="o">=</span> <span class="kc">true</span>					                        <span class="c1">-- vertical split to the right</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">splitbelow</span> <span class="o">=</span> <span class="kc">true</span>					                        <span class="c1">-- horizontal split to the bottom</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">linebreak</span> <span class="o">=</span> <span class="kc">true</span>					                        <span class="c1">-- wrap on word boundary</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">colorcolumn</span> <span class="o">=</span> <span class="s1">'80'</span>					                      <span class="c1">-- Es visualitzar la linia que marca els 80 caracters</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">termguicolors</span> <span class="o">=</span> <span class="kc">true</span> 
-   <span class="n">opt</span><span class="p">.</span><span class="n">guifont</span> <span class="o">=</span> <span class="s2">"Fira Code"</span>
-   <span class="n">g</span><span class="p">.</span><span class="n">neovide_cursor_vfx_mode</span> <span class="o">=</span> <span class="s2">"railgun"</span>
+   </span><span class="o">----------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="o">--</span><span class="w"> </span><span class="n">Neovim</span><span class="w"> </span><span class="nx">UI</span><span class="w">
+   </span><span class="o">----------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="n">opt.number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="w">					                            </span><span class="o">--</span><span class="w"> </span><span class="nx">Es</span><span class="w"> </span><span class="nx">visualitzar</span><span class="w"> </span><span class="nx">els</span><span class="w"> </span><span class="nx">numeros</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">les</span><span class="w"> </span><span class="nx">linias</span><span class="w">
+   </span><span class="n">opt.relativenumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="w">				                      </span><span class="o">--</span><span class="w"> </span><span class="nx">Es</span><span class="w"> </span><span class="nx">visualitzar</span><span class="w"> </span><span class="nx">el</span><span class="w"> </span><span class="nx">numero</span><span class="w"> </span><span class="nx">relatiu</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">la</span><span class="w"> </span><span class="nx">linia</span><span class="w">
+   </span><span class="n">opt.foldmethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'marker'</span><span class="w">				                      </span><span class="o">--</span><span class="w"> </span><span class="n">Activada</span><span class="w"> </span><span class="nx">folding</span><span class="w"> </span><span class="p">(</span><span class="n">default</span><span class="w"> </span><span class="s1">'foldmarker'</span><span class="p">)</span><span class="w">
+   </span><span class="n">opt.splitright</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="w">					                        </span><span class="o">--</span><span class="w"> </span><span class="nx">vertical</span><span class="w"> </span><span class="nx">split</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">right</span><span class="w">
+   </span><span class="n">opt.splitbelow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="w">					                        </span><span class="o">--</span><span class="w"> </span><span class="nx">horizontal</span><span class="w"> </span><span class="nx">split</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">bottom</span><span class="w">
+   </span><span class="n">opt.linebreak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="w">					                        </span><span class="o">--</span><span class="w"> </span><span class="nx">wrap</span><span class="w"> </span><span class="nx">on</span><span class="w"> </span><span class="nx">word</span><span class="w"> </span><span class="nx">boundary</span><span class="w">
+   </span><span class="n">opt.colorcolumn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'80'</span><span class="w">					                      </span><span class="o">--</span><span class="w"> </span><span class="n">Es</span><span class="w"> </span><span class="nx">visualitzar</span><span class="w"> </span><span class="nx">la</span><span class="w"> </span><span class="nx">linia</span><span class="w"> </span><span class="nx">que</span><span class="w"> </span><span class="nx">marca</span><span class="w"> </span><span class="nx">els</span><span class="w"> </span><span class="nx">80</span><span class="w"> </span><span class="nx">caracters</span><span class="w">
+   </span><span class="n">opt.termguicolors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="w"> 
+   </span><span class="n">opt.guifont</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Fira Code"</span><span class="w">
+   </span><span class="n">g.neovide_cursor_vfx_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"railgun"</span><span class="w">
  
-   <span class="n">opt</span><span class="p">.</span><span class="n">list</span> <span class="o">=</span> <span class="kc">true</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">listchars</span> <span class="o">=</span> <span class="s1">'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'</span>
+   </span><span class="n">opt.list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="w">
+   </span><span class="nx">opt.listchars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'</span><span class="w">
  
-   <span class="c1">---------------------------------------------------------------------------------------------------</span>
-   <span class="c1">-- Corrector ortografic per llenguatge</span>
-   <span class="c1">---------------------------------------------------------------------------------------------------</span>
-   <span class="n">exec</span> <span class="p">(</span><span class="s">[[
- 	  augroup markdownSpell
- 		  autocmd!
- 		  autocmd FileType mardown setlocal spell Spelllang=es
- 		  autocmd BufRead,BufNewFile *.md setlocal spell spelllang=es
- 	  augroup END
-   ]]</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
+   </span><span class="o">---------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="o">--</span><span class="w"> </span><span class="n">Corrector</span><span class="w"> </span><span class="nx">ortografic</span><span class="w"> </span><span class="nx">per</span><span class="w"> </span><span class="nx">llenguatge</span><span class="w">
+   </span><span class="o">---------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="n">exec</span><span class="w"> </span><span class="p">([[</span><span class="w">
+ 	  </span><span class="n">augroup</span><span class="w"> </span><span class="n">markdownSpell</span><span class="w">
+ 		  </span><span class="n">autocmd</span><span class="o">!</span><span class="w">
+ 		  </span><span class="n">autocmd</span><span class="w"> </span><span class="n">FileType</span><span class="w"> </span><span class="n">mardown</span><span class="w"> </span><span class="n">setlocal</span><span class="w"> </span><span class="n">spell</span><span class="w"> </span><span class="n">Spelllang</span><span class="o">=</span><span class="n">es</span><span class="w">
+ 		  </span><span class="n">autocmd</span><span class="w"> </span><span class="n">BufRead</span><span class="p">,</span><span class="n">BufNewFile</span><span class="w"> </span><span class="o">*.</span><span class="nf">md</span><span class="w"> </span><span class="n">setlocal</span><span class="w"> </span><span class="n">spell</span><span class="w"> </span><span class="n">spelllang</span><span class="o">=</span><span class="n">es</span><span class="w">
+ 	  </span><span class="n">augroup</span><span class="w"> </span><span class="n">END</span><span class="w">
+   </span><span class="p">]],</span><span class="w"> </span><span class="n">false</span><span class="p">)</span><span class="w">
  
-   <span class="c1">---------------------------------------------------------------------------------------------------</span>
-   <span class="c1">-- Tabs, indent</span>
-   <span class="c1">---------------------------------------------------------------------------------------------------</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">expandtab</span> <span class="o">=</span> <span class="kc">true</span>					                        <span class="c1">-- use spaces instead of tabs</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">shiftwidth</span> <span class="o">=</span> <span class="mi">2</span>					                          <span class="c1">-- shift 2 spaces when tab</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">tabstop</span> <span class="o">=</span> <span class="mi">2</span>						                            <span class="c1">-- 1 tab == 2 spaces</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">smartindent</span> <span class="o">=</span> <span class="kc">true</span>					                      <span class="c1">-- autoindent new lines</span>
+   </span><span class="o">---------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="o">--</span><span class="w"> </span><span class="n">Tabs</span><span class="p">,</span><span class="w"> </span><span class="nx">indent</span><span class="w">
+   </span><span class="o">---------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="n">opt.expandtab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="w">					                        </span><span class="o">--</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">spaces</span><span class="w"> </span><span class="nx">instead</span><span class="w"> </span><span class="nx">of</span><span class="w"> </span><span class="nx">tabs</span><span class="w">
+   </span><span class="n">opt.shiftwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w">					                          </span><span class="o">--</span><span class="w"> </span><span class="n">shift</span><span class="w"> </span><span class="nx">2</span><span class="w"> </span><span class="nx">spaces</span><span class="w"> </span><span class="nx">when</span><span class="w"> </span><span class="nx">tab</span><span class="w">
+   </span><span class="n">opt.tabstop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w">						                            </span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">tab</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">spaces</span><span class="w">
+   </span><span class="nx">opt.smartindent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="w">					                      </span><span class="o">--</span><span class="w"> </span><span class="nx">autoindent</span><span class="w"> </span><span class="nx">new</span><span class="w"> </span><span class="nx">lines</span><span class="w">
  
-   <span class="c1">---------------------------------------------------------------------------------------------------</span>
-   <span class="c1">-- Memory, CPU</span>
-   <span class="c1">---------------------------------------------------------------------------------------------------</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">true</span>                                     <span class="c1">-- enable background buffers</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">lazyredraw</span> <span class="o">=</span> <span class="kc">true</span>                                 <span class="c1">-- faster scrolling</span>
-   <span class="n">opt</span><span class="p">.</span><span class="n">synmaxcol</span> <span class="o">=</span> <span class="mi">1000</span>                                  <span class="c1">-- max column for syntax highlight</span>
-</code></pre></div></div>
+   </span><span class="o">---------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="o">--</span><span class="w"> </span><span class="n">Memory</span><span class="p">,</span><span class="w"> </span><span class="nx">CPU</span><span class="w">
+   </span><span class="o">---------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="n">opt.hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="w">                                     </span><span class="o">--</span><span class="w"> </span><span class="nx">enable</span><span class="w"> </span><span class="nx">background</span><span class="w"> </span><span class="nx">buffers</span><span class="w">
+   </span><span class="n">opt.lazyredraw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="w">                                 </span><span class="o">--</span><span class="w"> </span><span class="nx">faster</span><span class="w"> </span><span class="nx">scrolling</span><span class="w">
+   </span><span class="n">opt.synmaxcol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="w">                                  </span><span class="o">--</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="nx">column</span><span class="w"> </span><span class="nx">for</span><span class="w"> </span><span class="nx">syntax</span><span class="w"> </span><span class="nx">highlight</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="o">#</span> <span class="n">Fichero</span> <span class="n">keymaps</span><span class="p">.</span><span class="n">lua</span>
-   <span class="cm">--[[
-   FITXER KEYMAPS.LUA
-   --]]</span>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="c"># Fichero keymaps.lua</span><span class="w">
+   </span><span class="n">--</span><span class="p">[[</span><span class="w">
+   </span><span class="n">FITXER</span><span class="w"> </span><span class="n">KEYMAPS.LUA</span><span class="w">
+   </span><span class="o">--</span><span class="p">]]</span><span class="w">
  
-   <span class="c1">----------------------------------------------------------------------------------------------------</span>
-   <span class="c1">-- VARIABLES / ALIASES</span>
-   <span class="c1">----------------------------------------------------------------------------------------------------</span>
-   <span class="kd">local</span> <span class="n">map</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">nvim_set_keymap</span>
-   <span class="kd">local</span> <span class="n">default_opts</span> <span class="o">=</span> <span class="p">{</span><span class="n">noremap</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="n">silent</span> <span class="o">=</span> <span class="kc">true</span><span class="p">}</span>
-   <span class="kd">local</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">cmd</span>
+   </span><span class="o">----------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="o">--</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="nx">/</span><span class="w"> </span><span class="nx">ALIASES</span><span class="w">
+   </span><span class="o">----------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="n">local</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vim.api.nvim_set_keymap</span><span class="w">
+   </span><span class="nx">local</span><span class="w"> </span><span class="nx">default_opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">noremap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="p">,</span><span class="w"> </span><span class="nx">silent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="p">}</span><span class="w">
+   </span><span class="n">local</span><span class="w"> </span><span class="nx">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vim.cmd</span><span class="w">
  
-   <span class="c1">----------------------------------------------------------------------------------------------------</span>
-   <span class="c1">-- Applications &amp; Plugins shortcuts:</span>
-   <span class="c1">----------------------------------------------------------------------------------------------------</span>
+   </span><span class="o">----------------------------------------------------------------------------------------------------</span><span class="w">
+   </span><span class="o">--</span><span class="w"> </span><span class="n">Applications</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nx">Plugins</span><span class="w"> </span><span class="nx">shortcuts:</span><span class="w">
+   </span><span class="o">----------------------------------------------------------------------------------------------------</span><span class="w">
  
-   <span class="c1">--</span>
-   <span class="c1">-- nvim-tree</span>
-   <span class="c1">--</span>
-   <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s1">'&lt;C-n&gt;'</span><span class="p">,</span> <span class="s1">':Neotree toggle&lt;CR&gt;'</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>       <span class="c1">-- open/close</span>
-</code></pre></div></div>
+   </span><span class="o">--</span><span class="w">
+   </span><span class="o">--</span><span class="w"> </span><span class="n">nvim-tree</span><span class="w">
+   </span><span class="o">--</span><span class="w">
+   </span><span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span><span class="w"> </span><span class="s1">'&lt;C-n&gt;'</span><span class="p">,</span><span class="w"> </span><span class="s1">':Neotree toggle&lt;CR&gt;'</span><span class="p">,</span><span class="w"> </span><span class="n">default_opts</span><span class="p">)</span><span class="w">       </span><span class="o">--</span><span class="w"> </span><span class="n">open/close</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="o">#</span> <span class="n">Fichero</span> <span class="n">packer</span><span class="p">.</span><span class="n">lua</span>
-   <span class="cm">--[[
-    FITXER PACKER.LUA
-    S'ENCARREGA DE TOTA LA CONFIGURACIÓ / CARREGA DE PLUGINS
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="c"># Fichero packer.lua</span><span class="w">
+   </span><span class="n">--</span><span class="p">[[</span><span class="w">
+    </span><span class="n">FITXER</span><span class="w"> </span><span class="n">PACKER.LUA</span><span class="w">
+    </span><span class="n">S</span><span class="s1">'ENCARREGA DE TOTA LA CONFIGURACIÓ / CARREGA DE PLUGINS
 
     Plugin manager: packer.nvim
     https://github.com/wbthomason/packer.nvim
@@ -249,71 +249,71 @@
     For information about installed plugins see the README
     neovim-lua/README.md
     https://github.com/brainfucksec/neovim-lua#readme
-  --]]</span>
+  --]]
 
-   <span class="kd">local</span> <span class="n">fn</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">fn</span>
-   <span class="kd">local</span> <span class="n">install_path</span> <span class="o">=</span> <span class="n">fn</span><span class="p">.</span><span class="n">stdpath</span><span class="p">(</span><span class="s1">'data'</span><span class="p">)</span><span class="o">..</span><span class="s1">'/site/pack/packer/start/packer.nvim'</span>
+   local fn = vim.fn
+   local install_path = fn.stdpath('</span><span class="nx">data</span><span class="s1">')..'</span><span class="nx">/site/pack/packer/start/packer.nvim</span><span class="s1">'
  
-   <span class="k">if</span> <span class="n">fn</span><span class="p">.</span><span class="n">empty</span><span class="p">(</span><span class="n">fn</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="n">install_path</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">then</span>
-     <span class="n">packer_bootstrap</span> <span class="o">=</span> <span class="n">fn</span><span class="p">.</span><span class="n">system</span><span class="p">({</span><span class="s1">'git'</span><span class="p">,</span> <span class="s1">'clone'</span><span class="p">,</span> <span class="s1">'--depth'</span><span class="p">,</span> <span class="s1">'1'</span><span class="p">,</span> <span class="s1">'https://github.com/wbthomason/packer.nvim'</span><span class="p">,</span> <span class="n">install_path</span><span class="p">})</span>
-   <span class="k">end</span>
-   <span class="k">return</span> <span class="nb">require</span><span class="p">(</span><span class="s1">'packer'</span><span class="p">).</span><span class="n">startup</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">use</span><span class="p">)</span>
-     <span class="c1">-- My plugins here</span>
-     <span class="c1">-- use 'foo1/bar1.nvim'</span>
-     <span class="c1">-- use 'foo2/bar2.nvim'</span>
+   if fn.empty(fn.glob(install_path)) &gt; 0 then
+     packer_bootstrap = fn.system({'</span><span class="nx">git</span><span class="s1">', '</span><span class="nx">clone</span><span class="s1">', '</span><span class="nt">--depth</span><span class="s1">', '</span><span class="nx">1</span><span class="s1">', '</span><span class="nx">https://github.com/wbthomason/packer.nvim</span><span class="s1">', install_path})
+   end
+   return require('</span><span class="nx">packer</span><span class="s1">').startup(function(use)
+     -- My plugins here
+     -- use '</span><span class="nx">foo1/bar1.nvim</span><span class="s1">'
+     -- use '</span><span class="nx">foo2/bar2.nvim</span><span class="s1">'
 
-     <span class="c1">-- Automatically set up your configuration after cloning packer.nvim</span>
-     <span class="c1">-- Put this at the end after all plugins</span>
-     <span class="n">use</span> <span class="s1">'wbthomason/packer.nvim'</span>
+     -- Automatically set up your configuration after cloning packer.nvim
+     -- Put this at the end after all plugins
+     use '</span><span class="nx">wbthomason/packer.nvim</span><span class="s1">'
    
-     <span class="c1">-------------------------------------------------------------------------------------------------</span>
-     <span class="c1">-- colorschemes</span>
-     <span class="c1">-------------------------------------------------------------------------------------------------</span>
-     <span class="n">use</span> <span class="s1">'Shatur/neovim-ayu'</span>
+     -------------------------------------------------------------------------------------------------
+     -- colorschemes
+     -------------------------------------------------------------------------------------------------
+     use '</span><span class="nx">Shatur/neovim-ayu</span><span class="s1">'
  
-     <span class="c1">-------------------------------------------------------------------------------------------------</span>
-     <span class="c1">-- Activem Icones</span>
-     <span class="c1">-------------------------------------------------------------------------------------------------</span>
-     <span class="n">use</span> <span class="s1">'kyazdani42/nvim-web-devicons'</span>
-     <span class="n">use</span> <span class="s1">'adelarsq/vim-devicons-emoji'</span>
+     -------------------------------------------------------------------------------------------------
+     -- Activem Icones
+     -------------------------------------------------------------------------------------------------
+     use '</span><span class="nx">kyazdani42/nvim-web-devicons</span><span class="s1">'
+     use '</span><span class="nx">adelarsq/vim-devicons-emoji</span><span class="s1">'
  
-     <span class="c1">-------------------------------------------------------------------------------------------------</span>
-     <span class="c1">-- Activem Explorer / Navegador de directoris</span>
-     <span class="c1">-------------------------------------------------------------------------------------------------</span>
-     <span class="n">use</span> <span class="p">{</span>
-       <span class="s1">'nvim-neo-tree/neo-tree.nvim'</span><span class="p">,</span>
-       <span class="n">branch</span> <span class="o">=</span> <span class="s2">"v2.x"</span><span class="p">,</span>
-       <span class="n">requires</span> <span class="o">=</span> <span class="p">{</span>
-         <span class="s2">"nvim-lua/plenary.nvim"</span><span class="p">,</span>
-         <span class="s2">"kyazdani42/nvim-web-devicons"</span><span class="p">,</span> <span class="c1">-- not strictly required, but recommended</span>
-         <span class="s2">"MunifTanjim/nui.nvim"</span>
-       <span class="p">}</span>
-     <span class="p">}</span>
+     -------------------------------------------------------------------------------------------------
+     -- Activem Explorer / Navegador de directoris
+     -------------------------------------------------------------------------------------------------
+     use {
+       '</span><span class="nx">nvim-neo-tree/neo-tree.nvim</span><span class="s1">',
+       branch = "v2.x",
+       requires = {
+         "nvim-lua/plenary.nvim",
+         "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+         "MunifTanjim/nui.nvim"
+       }
+     }
  
-     <span class="c1">-------------------------------------------------------------------------------------------------</span>
-     <span class="c1">-- Activem Status Line</span>
-     <span class="c1">-------------------------------------------------------------------------------------------------</span>
-     <span class="n">use</span> <span class="p">(</span><span class="s1">'Iron-E/nvim-highlite'</span><span class="p">)</span>
-     <span class="n">use</span> <span class="p">{</span>
-       <span class="s1">'feline-nvim/feline.nvim'</span><span class="p">,</span>
-       <span class="n">requires</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">'nvim-web-devicons'</span>
-       <span class="p">},</span>
-     <span class="p">}</span>
+     -------------------------------------------------------------------------------------------------
+     -- Activem Status Line
+     -------------------------------------------------------------------------------------------------
+     use ('</span><span class="nx">Iron-E/nvim-highlite</span><span class="s1">')
+     use {
+       '</span><span class="nx">feline-nvim/feline.nvim</span><span class="s1">',
+       requires = {
+        '</span><span class="nx">nvim-web-devicons</span><span class="s1">'
+       },
+     }
  
-     <span class="c1">-------------------------------------------------------------------------------------------------</span>
-     <span class="c1">-- Activem el AutoSave</span>
-     <span class="c1">-------------------------------------------------------------------------------------------------</span>
-     <span class="n">use</span> <span class="s2">"Pocco81/auto-save.nvim"</span>
+     -------------------------------------------------------------------------------------------------
+     -- Activem el AutoSave
+     -------------------------------------------------------------------------------------------------
+     use "Pocco81/auto-save.nvim"
  
-     <span class="c1">-------------------------------------------------------------------------------------------------</span>
-     <span class="c1">-- Final del fitxer de configuració de plugins</span>
-     <span class="c1">-------------------------------------------------------------------------------------------------</span>
-     <span class="k">if</span> <span class="n">packer_bootstrap</span> <span class="k">then</span>
-       <span class="nb">require</span><span class="p">(</span><span class="s1">'packer'</span><span class="p">).</span><span class="n">sync</span><span class="p">()</span>
-     <span class="k">end</span>
-   <span class="k">end</span><span class="p">)</span>
-</code></pre></div></div>
+     -------------------------------------------------------------------------------------------------
+     -- Final del fitxer de configuració de plugins
+     -------------------------------------------------------------------------------------------------
+     if packer_bootstrap then
+       require('</span><span class="nx">packer</span><span class="s1">').sync()
+     end
+   end)
+</span></code></pre></div></div>
 
 <p>Pues, ya has podido comprobar como lo tengo yo configurado y a pleno rendimiento, pero tal como he dicho al principio, aun falta por pulir algunas cosas.</p>
 

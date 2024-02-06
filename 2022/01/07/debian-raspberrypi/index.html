@@ -122,13 +122,13 @@ siguiente manera:</p>
 
 <p>Creamos un directorio donde montaremos nuestra imagen:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">mount</span> <span class="o">-</span><span class="nx">o</span> <span class="nx">loop</span> <span class="o">/</span><span class="nx">home</span><span class="o">/</span><span class="nx">tuUsuario</span><span class="o">/</span><span class="nx">imagen_debian</span><span class="p">.</span><span class="nx">iso</span> <span class="o">/</span><span class="nx">directorio</span><span class="o">/</span><span class="nx">destino</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="err">$</span><span class="w"> </span><span class="nx">sudo</span><span class="w"> </span><span class="nx">mount</span><span class="w"> </span><span class="nt">-o</span><span class="w"> </span><span class="nx">loop</span><span class="w"> </span><span class="nx">/home/tuUsuario/imagen_debian.iso</span><span class="w"> </span><span class="nx">/directorio/destino</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Una vez montado la imagen, tenemos que copiar todo el contenido de este directorio a la primera partición, incluido el directorio <strong>.disk</strong>:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">cp</span> <span class="o">-</span><span class="nx">r</span> <span class="o">/</span><span class="nx">directorio</span><span class="o">/</span><span class="nx">destino</span> <span class="o">/</span><span class="nx">directorio</span><span class="o">/</span><span class="nx">primera_particion</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="err">$</span><span class="w"> </span><span class="nx">sudo</span><span class="w"> </span><span class="nx">cp</span><span class="w"> </span><span class="nt">-r</span><span class="w"> </span><span class="nx">/directorio/destino</span><span class="w"> </span><span class="nx">/directorio/primera_particion</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Una vez, hemos realizado esto, es lo que hice yo, porque sino, SO live (xubuntu) no me detectaba la primera partición, volvemos a nuestro GPARTED, seleccionamos la primera partición, seleccionamos los
  <strong>flags</strong> de la partición y marcamos <strong>boot</strong> y <strong>esp</strong>.</p>

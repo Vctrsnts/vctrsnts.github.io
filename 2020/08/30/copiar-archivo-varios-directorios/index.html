@@ -93,14 +93,18 @@
 
 <p>Pero buscando por internet, encontre una instrucción en <code class="language-plaintext highlighter-rouge">BASH</code> que hace lo mismo. La instrucción es la siguiente:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="k">for</span> <span class="nx">dir</span> <span class="k">in</span> <span class="o">*</span><span class="p">;</span> <span class="k">do</span> <span class="p">[</span> <span class="o">-</span><span class="nx">d</span> <span class="dl">"</span><span class="s2">$dir</span><span class="dl">"</span> <span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="nx">cp</span> <span class="o">/</span><span class="nx">path</span><span class="o">/</span><span class="nx">file</span><span class="p">.</span><span class="nx">txt</span> <span class="dl">"</span><span class="s2">$dir</span><span class="dl">"</span> <span class="p">;</span> <span class="nx">done</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="err">$</span><span class="w"> </span><span class="nx">for</span><span class="w"> </span><span class="nx">dir</span><span class="w"> </span><span class="nx">in</span><span class="w"> </span><span class="o">*</span><span class="p">;</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nt">-d</span><span class="w"> </span><span class="s2">"</span><span class="nv">$dir</span><span class="s2">"</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="nx">/path/file.txt</span><span class="w"> </span><span class="s2">"</span><span class="nv">$dir</span><span class="s2">"</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">done</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Donde:</p>
 <ul>
   <li><strong>$dir</strong>: son los directorios de destino</li>
   <li><strong>/path/file.txt</strong>: es el fichero que quiero copiar en los diferentes directorios</li>
 </ul>
+
+<p>Y hasta aqui hemos llegado. A ver si en un futuro, voy poniendo otras instrucciones que me son de utilidad y nunca se sabe, tambien os pueden servir.</p>
+
+<h4 id="referencia">Referencia</h4>
 
   </div>
 </div>

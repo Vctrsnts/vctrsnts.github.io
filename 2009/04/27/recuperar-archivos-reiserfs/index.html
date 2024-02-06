@@ -93,38 +93,38 @@
 
 <p>Como root, desmonta la partición <strong>ReiserFS</strong> para recuperar los archivos (en este caso usaremos <code class="language-plaintext highlighter-rouge">/home</code> como ejemplo):</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">/</span><span class="err">#</span> <span class="nx">umount</span> <span class="o">/</span><span class="nx">home</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">debian:/</span><span class="c"># umount /home</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Si te muestra un mensaje parecido a <code class="language-plaintext highlighter-rouge">umount: /home: device is busy</code>, significa que algo esta usando dicha partición. Tendras que pasarte a modo de usuario simple (consola) o puedes usar un cdrom live:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">/</span><span class="err">#</span> <span class="nx">init</span> <span class="mi">1</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">debian:/</span><span class="c"># init 1</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Se crea una copia de seguridad de la partición por si la cosa no sale del todo bien. Es mejor perder un archivo, que no toda la información:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">/</span><span class="err">#</span> <span class="nx">dd</span> <span class="k">if</span><span class="o">=</span><span class="sr">/dev/</span><span class="nx">hda1</span> <span class="k">of</span><span class="o">=</span><span class="nx">backup</span><span class="p">.</span><span class="nx">dd</span> <span class="nx">bs</span><span class="o">=</span><span class="mi">4096</span> <span class="nx">conv</span><span class="o">=</span><span class="nx">noerror</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">debian:/</span><span class="c"># dd if=/dev/hda1 of=backup.dd bs=4096 conv=noerror</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Recuperamos los archivos borrados pero en la particion (<em>backup.dd</em>):</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">/</span><span class="err">#</span> <span class="nx">reiserfsck</span> <span class="o">--</span><span class="nx">rebuild</span><span class="o">-</span><span class="nx">tree</span> <span class="o">--</span><span class="nx">scan</span><span class="o">-</span><span class="nx">whole</span><span class="o">-</span><span class="nx">partition</span> <span class="nx">backup</span><span class="p">.</span><span class="nx">dd</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">debian:/</span><span class="c"># reiserfsck --rebuild-tree --scan-whole-partition backup.dd</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Pasamos a crear un punto de montaje:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">/</span><span class="err">#</span> <span class="nx">mkdir</span> <span class="o">/</span><span class="nx">mnt</span><span class="o">/</span><span class="nx">recovery</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">debian:/</span><span class="c"># mkdir /mnt/recovery</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Montamos la partición virtual:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">/</span><span class="err">#</span> <span class="nx">mount</span> <span class="o">-</span><span class="nx">o</span> <span class="nx">loop</span> <span class="nx">backup</span><span class="p">.</span><span class="nx">dd</span> <span class="o">/</span><span class="nx">mnt</span><span class="o">/</span><span class="nx">recovery</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">debian:/</span><span class="c"># mount -o loop backup.dd /mnt/recovery</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Todos los archivos recuperados estaran en:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">/</span><span class="err">#</span> <span class="o">/</span><span class="nx">mnt</span><span class="o">/</span><span class="nx">recovery</span><span class="o">/</span><span class="nx">lost</span><span class="o">+</span><span class="nx">found</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">debian:/</span><span class="c"># /mnt/recovery/lost+found</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Solamente nos queda montar la partición original y copiar los archivos de hemos recuperado.</p>
 

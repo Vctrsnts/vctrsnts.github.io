@@ -93,21 +93,21 @@
 
 <p>Para realizar la configuración, ya no se hace antes, modificando el fichero :</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">network</span><span class="o">/</span><span class="nx">interfaces</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="c"># /etc/network/interfaces</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Ahora se modifica el fichero :</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">vi</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">dhcpcd</span><span class="p">.</span><span class="nx">conf</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="c"># vi /etc/dhcpcd.conf</span><span class="w">
+</span></code></pre></div></div>
 
 <p>En mi caso, como quiero que tenga ip fija, yo lo dejo configurado de esta manera :</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="kr">interface</span> <span class="nx">eth0</span>
-   <span class="kd">static</span> <span class="nx">ip_address</span> <span class="o">=</span> <span class="mf">192.168</span><span class="p">.</span><span class="mf">0.2</span><span class="o">/</span><span class="mi">24</span>
-   <span class="kd">static</span> <span class="nx">routers</span> <span class="o">=</span> <span class="mf">192.168</span><span class="p">.</span><span class="mf">0.1</span>
-   <span class="kd">static</span> <span class="nx">domain_name_servers</span> <span class="o">=</span> <span class="mf">80.58</span><span class="p">.</span><span class="mf">61.250</span> <span class="mf">80.58</span><span class="p">.</span><span class="mf">61.254</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="kr">interface</span><span class="w"> </span><span class="n">eth0</span><span class="w">
+   </span><span class="nx">static</span><span class="w"> </span><span class="nx">ip_address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">192.168</span><span class="o">.</span><span class="nf">0</span><span class="o">.</span><span class="nf">2</span><span class="n">/24</span><span class="w">
+   </span><span class="nx">static</span><span class="w"> </span><span class="nx">routers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">192.168</span><span class="o">.</span><span class="nf">0</span><span class="o">.</span><span class="nf">1</span><span class="w">
+   </span><span class="kr">static</span><span class="w"> </span><span class="n">domain_name_servers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">80.58</span><span class="o">.</span><span class="nf">61</span><span class="o">.</span><span class="nf">250</span><span class="w"> </span><span class="mf">80.58</span><span class="o">.</span><span class="nf">61</span><span class="o">.</span><span class="nf">254</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Yo estoy usando <code class="language-plaintext highlighter-rouge">vi</code>, otras personas a lo mejor usa <code class="language-plaintext highlighter-rouge">nano</code>, cuestión de gustos…</p>
 
@@ -115,9 +115,9 @@
 
 <p>Ahora solamente falta reiniciar el servicio. Hay 2 maneras, reiniciar la Raspberry o reiniciando el servicio :</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">init</span><span class="p">.</span><span class="nx">d</span><span class="o">/</span><span class="nx">networking</span> <span class="nx">stop</span>
-   <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">init</span><span class="p">.</span><span class="nx">d</span><span class="o">/</span><span class="nx">networking</span> <span class="nx">start</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="c"># /etc/init.d/networking stop</span><span class="w">
+   </span><span class="n">root</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="c"># /etc/init.d/networking start</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Listos. En el proximo capitulo, explicare como copiar la raiz del sistema <code class="language-plaintext highlighter-rouge">/</code> a un <a href="/2016/04/03/rpi-iniciar-hd-externo/">HDD</a>, para preservar la SD.</p>
 

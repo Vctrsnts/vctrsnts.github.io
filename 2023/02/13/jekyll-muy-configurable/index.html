@@ -113,16 +113,16 @@
 
 <p>La configuración que tengo para usar la imagen de docker es la siguiente:</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">jekyll</span><span class="pi">:</span>
-    <span class="na">image</span><span class="pi">:</span> <span class="s">bretfisher/jekyll-serve</span>
-    <span class="na">container_name</span><span class="pi">:</span> <span class="s">jekyll</span>
-    <span class="c1"># port d'access a traves de la web</span>
-    <span class="na">ports</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">4000:4000</span>
-    <span class="c1"># on esta el codi font del blog</span>
-    <span class="na">volumes</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">../blog:/site</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="n">jekyll:</span><span class="w">
+    </span><span class="nx">image:</span><span class="w"> </span><span class="nx">bretfisher/jekyll-serve</span><span class="w">
+    </span><span class="n">container_name:</span><span class="w"> </span><span class="nx">jekyll</span><span class="w">
+    </span><span class="c"># port d'access a traves de la web</span><span class="w">
+    </span><span class="n">ports:</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">4000:4000</span><span class="w">
+    </span><span class="c"># on esta el codi font del blog</span><span class="w">
+    </span><span class="n">volumes:</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="o">..</span><span class="nx">/blog:/site</span><span class="w">
+</span></code></pre></div></div>
 <p>Cuando ya tenia este contenedor en marcha, ya pude empezar con la creación de mis articulos y es aqui, después de esta pequeña historia, donde explico la idea principal de este articulo. Unir <strong>Jekyll</strong>, <strong>Mastodon</strong> y <strong>Github</strong> y todo lo que me podia ofrecer este ultimo y una de estas posibilidades es la de publicar mis articulos a traves de un <a href="/2022/11/14/publicar-feed-mastodon/">bot</a>.</p>
 
 <p>Pero lo que echaba de menos, porque no se veia ninguna imagen en la publicación en <strong>Mastodon</strong>, cuando a los toots de <a href="https://mastodon.online/@elblogdelazaro@mastodon.social">elBlogdeLazaro</a>, que sigo y que me ha dado el punto de inicio por donde empezar, se podia visualizar una imagen, o mejor dicho, el logo de su web.</p>
@@ -135,16 +135,16 @@
 
 <p>Todo consiste, en que <strong>Mastodon</strong> utiliza <strong>OpenGraph</strong> para todo el tratamiento de las publicaciones (seguramente es más complicado que esto), pero en mi caso me dio la pista definitiva que necesitaba. Lo que tenia que hacer, es buscar como poner en mi blog una imagen del tipo <code class="language-plaintext highlighter-rouge">og:image</code> en la pantilla. La solución la encontre en la siguiente <a href="https://gist.github.com/davidensinger/5431869">pagina</a>, donde se puede ver, el codigo necesario para usar <code class="language-plaintext highlighter-rouge">imagenes og</code>:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="o">&lt;</span><span class="n">meta</span> <span class="n">content</span><span class="o">=</span><span class="s2">"site.url/assets/img/posts/page.image"</span> <span class="n">property</span><span class="o">=</span><span class="s2">"og:image"</span><span class="o">&gt;</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">&lt;</span><span class="n">meta</span><span class="w"> </span><span class="nx">content</span><span class="o">=</span><span class="s2">"site.url/assets/img/posts/page.image"</span><span class="w"> </span><span class="n">property</span><span class="o">=</span><span class="s2">"og:image"</span><span class="err">&gt;</span><span class="w">
+</span></code></pre></div></div>
 <p>Gracias a este codigo y después de modificarlo para poderlo usar en mi plantilla, la modificación la he hecho en <code class="language-plaintext highlighter-rouge">_layouts/default.html</code>:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">site</span><span class="p">.</span><span class="nf">lightavatar</span>
-    <span class="o">&lt;</span><span class="n">meta</span> <span class="n">content</span><span class="o">=</span><span class="s2">"site.lightavatar | relative_url"</span> <span class="n">property</span><span class="o">=</span><span class="s2">"og:image"</span><span class="o">&gt;</span>
-  <span class="k">else</span>
-    <span class="o">&lt;</span><span class="n">meta</span> <span class="n">content</span><span class="o">=</span><span class="s2">"site.darkavatar | relative_url"</span> <span class="n">property</span><span class="o">=</span><span class="s2">"og:image"</span><span class="o">&gt;</span>
-  <span class="n">endif</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="n">site.lightavatar</span><span class="w">
+    </span><span class="err">&lt;</span><span class="nx">meta</span><span class="w"> </span><span class="nx">content</span><span class="o">=</span><span class="s2">"site.lightavatar | relative_url"</span><span class="w"> </span><span class="n">property</span><span class="o">=</span><span class="s2">"og:image"</span><span class="err">&gt;</span><span class="w">
+  </span><span class="kr">else</span><span class="w">
+    </span><span class="err">&lt;</span><span class="n">meta</span><span class="w"> </span><span class="nx">content</span><span class="o">=</span><span class="s2">"site.darkavatar | relative_url"</span><span class="w"> </span><span class="n">property</span><span class="o">=</span><span class="s2">"og:image"</span><span class="err">&gt;</span><span class="w">
+  </span><span class="n">endif</span><span class="w">
+</span></code></pre></div></div>
 <p>Consegui hacer lo que yo queria, porque ahora, a falta de más pruebas, he conseguido que cada vez, que se envia una publicación a <strong>Mastodon</strong> a traves del <strong>bot automatico</strong> se puede ver el logo de mi pagina web. Un logo simple, pero es el que más me gusta, porque mezcla mis 2 grandes pasiones.</p>
 
 <p><strong>Egipto y GNU/Linux</strong></p>

@@ -91,7 +91,7 @@
 
 <!--more-->
 
-<p>Eso si, tengo que indicar antes, que su articulo, es mucho mejor que el mio, porque el funcionamiento de mi pagina web es muy parecido a la suya, pero con alguna diferencias. La primera y más importante, es que yo no uso Emacs ni Org-Mode.</p>
+<p>Eso si, tengo que indicar antes, que su articulo, es mucho mejor que el mio, porque el funcionamiento de mi pagina web es muy parecido a la suya, pero con alguna diferencias. La primera y más importante, es que yo no uso <strong>Emacs</strong> ni <strong>Org-Mode</strong>.</p>
 
 <p>Mi web es mucho más simple, pero eso si, intentaremos seguir un poco la guia que usa <code class="language-plaintext highlighter-rouge">Lazaro</code>, para que sea facil seguir la mia.</p>
 
@@ -112,9 +112,9 @@
 <p>Como he dicho antes, tengo 2 scripts para la sincronización de los articulos con el servidor y luego otro para sincronizar con el arbol de GitHub.</p>
 
 <p>El primero de estos scripts, el de sincronizar con el servidor funciona a traves <code class="language-plaintext highlighter-rouge">rsync</code> de la siguiente manera:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">   #!/bin/bash
-</span>   <span class="nx">rsync</span> <span class="o">-</span><span class="nx">azvhP</span> <span class="o">--</span><span class="nx">rsh</span><span class="o">=</span><span class="dl">'</span><span class="s1">ssh -pPORT</span><span class="dl">'</span> <span class="o">--</span><span class="nx">exclude</span><span class="o">=</span><span class="dl">'</span><span class="s1">draff</span><span class="dl">'</span> <span class="nx">DIRECTORI_ORIGEN</span> <span class="nx">USUARI</span><span class="p">@</span><span class="nd">IP_SERVIDOR</span><span class="p">:</span><span class="o">/</span><span class="nx">DIRECTORI_DESTI</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="c">#!/bin/bash</span><span class="w">
+   </span><span class="n">rsync</span><span class="w"> </span><span class="nt">-azvhP</span><span class="w"> </span><span class="nt">--rsh</span><span class="o">=</span><span class="s1">'ssh -pPORT'</span><span class="w"> </span><span class="nt">--exclude</span><span class="o">=</span><span class="s1">'draff'</span><span class="w"> </span><span class="n">DIRECTORI_ORIGEN</span><span class="w"> </span><span class="nx">USUARI</span><span class="err">@</span><span class="nx">IP_SERVIDOR:/DIRECTORI_DESTI</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Usando este script, hay que tener en cuentas unas cosas (como yo lo tengo configurado):</p>
 <ul>
@@ -130,53 +130,53 @@
 <p>Lo primero que hay que tener en cuenta, es que para usarlo, lo que se tiene que hacer, tal como yo lo tengo, es que el servidor tenga las claves <code class="language-plaintext highlighter-rouge">SSH</code> dadas de alta en GitHub para que asi, no tengas que estar insertando todo el rato el usuario y el password.</p>
 
 <p>Si esto ya lo tienes, ahora solo falta el script:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">  #!/bin/bash
-</span>
-  <span class="err">#</span> <span class="nx">UpToGit</span> <span class="mf">0.1</span>
-  <span class="err">#</span> <span class="nx">Actualiza</span> <span class="nx">facilmente</span> <span class="nx">tu</span> <span class="nx">repositorio</span> <span class="nx">Git</span>
-  <span class="err">#</span> <span class="p">(</span><span class="nx">CC</span><span class="p">)</span> <span class="mi">2011</span> <span class="nx">Alfonso</span> <span class="nx">Saavedra</span> <span class="dl">"</span><span class="s2">Son Link</span><span class="dl">"</span>
-  <span class="err">#</span> <span class="nx">http</span><span class="p">:</span><span class="c1">//sonlinkblog.blogspot.com</span>
-  <span class="err">#</span> <span class="nx">Bajo</span> <span class="nx">licencia</span> <span class="nx">GNU</span><span class="o">/</span><span class="nx">GPL</span>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c">#!/bin/bash</span><span class="w">
 
-  <span class="err">#</span> <span class="nx">Modo</span> <span class="nx">de</span> <span class="nx">uso</span><span class="p">:</span> <span class="nx">copia</span> <span class="nx">o</span> <span class="nx">mueve</span> <span class="nx">este</span> <span class="nx">script</span> <span class="nx">a</span> <span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">bin</span> <span class="nx">o</span> <span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">local</span><span class="o">/</span><span class="nx">bin</span> <span class="nx">y</span> <span class="nx">desde</span> <span class="nx">el</span> <span class="nx">directorio</span> <span class="nx">donde</span> <span class="nx">se</span> <span class="nx">encuentre</span> <span class="nx">la</span> <span class="nx">copia</span> <span class="nx">de</span> <span class="nx">un</span> <span class="nx">repo</span> <span class="nx">git</span><span class="p">,</span> <span class="nx">ejecútalo</span> <span class="nx">de</span> <span class="nx">esta</span> <span class="nx">manera</span><span class="p">:</span>
-  <span class="err">#</span> <span class="nx">uptogit</span> <span class="o">&lt;</span><span class="nx">ficheros</span><span class="o">&gt;</span>
+  </span><span class="c"># UpToGit 0.1</span><span class="w">
+  </span><span class="c"># Actualiza facilmente tu repositorio Git</span><span class="w">
+  </span><span class="c"># (CC) 2011 Alfonso Saavedra "Son Link"</span><span class="w">
+  </span><span class="c"># http://sonlinkblog.blogspot.com</span><span class="w">
+  </span><span class="c"># Bajo licencia GNU/GPL</span><span class="w">
 
-  <span class="err">#</span> <span class="nx">Comprobamos</span> <span class="nx">si</span> <span class="nx">el</span> <span class="nx">directorio</span> <span class="nx">en</span> <span class="nx">el</span> <span class="nx">que</span> <span class="nx">estamos</span> <span class="nx">es</span> <span class="nx">de</span> <span class="nx">un</span> <span class="nx">repositorio</span> <span class="nx">git</span>
-  <span class="k">if</span> <span class="p">[</span> <span class="o">!</span> <span class="o">-</span><span class="nx">d</span> <span class="dl">'</span><span class="s1">.git</span><span class="dl">'</span> <span class="p">];</span> <span class="nx">then</span>
-	  <span class="nx">echo</span> <span class="dl">'</span><span class="s1">Esta carpeta no contiene un repositorio Git</span><span class="dl">'</span>
-	  <span class="nx">exit</span> <span class="o">-</span><span class="mi">1</span>
-  <span class="nx">fi</span>
+  </span><span class="c"># Modo de uso: copia o mueve este script a /usr/bin o /usr/local/bin y desde el directorio donde se encuentre la copia de un repo git, ejecútalo de esta manera:</span><span class="w">
+  </span><span class="c"># uptogit &lt;ficheros&gt;</span><span class="w">
 
-  <span class="err">#</span> <span class="nx">Ahora</span> <span class="nx">comprobamos</span> <span class="nx">si</span> <span class="nx">se</span> <span class="nx">le</span> <span class="nx">paso</span> <span class="nx">algun</span> <span class="nx">parametro</span>
-  <span class="k">if</span> <span class="p">[</span> <span class="nx">$</span><span class="err">#</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">];</span> <span class="nx">then</span>
-	  <span class="nx">echo</span> <span class="dl">"</span><span class="s2">UpToGit: ¡Error! No se le a pasado ningún parámetro</span><span class="dl">"</span>
-	  <span class="nx">echo</span> <span class="dl">"</span><span class="s2">uptogit fichero1 fichero2 ... ficheroN</span><span class="dl">"</span>
-	  <span class="nx">exit</span> <span class="o">-</span><span class="mi">1</span>
-  <span class="k">else</span>
-	  <span class="err">#</span> <span class="nx">Recorremos</span> <span class="nx">los</span> <span class="nx">parametros</span> <span class="nx">para</span> <span class="nx">comprobar</span> <span class="nx">si</span> <span class="nx">son</span> <span class="nx">ficheros</span> <span class="nx">o</span> <span class="nx">directorios</span>
-	  <span class="k">for</span> <span class="nx">file</span> <span class="k">in</span> <span class="nx">$</span><span class="o">*</span><span class="p">;</span> <span class="k">do</span>
-		  <span class="k">if</span> <span class="p">[</span> <span class="o">!</span> <span class="o">-</span><span class="nx">e</span> <span class="nx">$file</span> <span class="p">];</span> <span class="nx">then</span>
-			  <span class="nx">echo</span> <span class="dl">"</span><span class="s2">UpToGit: El archivo o directorio $file no existe</span><span class="dl">"</span>
-			  <span class="nx">exit</span> <span class="o">-</span><span class="mi">1</span>
-		  <span class="nx">fi</span>
-	  <span class="nx">done</span>
+  </span><span class="c"># Comprobamos si el directorio en el que estamos es de un repositorio git</span><span class="w">
+  </span><span class="kr">if</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="nt">-d</span><span class="w"> </span><span class="s1">'.git'</span><span class="w"> </span><span class="p">];</span><span class="w"> </span><span class="n">then</span><span class="w">
+	  </span><span class="nx">echo</span><span class="w"> </span><span class="s1">'Esta carpeta no contiene un repositorio Git'</span><span class="w">
+	  </span><span class="kr">exit</span><span class="w"> </span><span class="nt">-1</span><span class="w">
+  </span><span class="n">fi</span><span class="w">
+
+  </span><span class="c"># Ahora comprobamos si se le paso algun parametro</span><span class="w">
+  </span><span class="kr">if</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">$</span><span class="c"># == 0 ]; then</span><span class="w">
+	  </span><span class="n">echo</span><span class="w"> </span><span class="s2">"UpToGit: ¡Error! No se le a pasado ningún parámetro"</span><span class="w">
+	  </span><span class="n">echo</span><span class="w"> </span><span class="s2">"uptogit fichero1 fichero2 ... ficheroN"</span><span class="w">
+	  </span><span class="n">exit</span><span class="w"> </span><span class="nt">-1</span><span class="w">
+  </span><span class="n">else</span><span class="w">
+	  </span><span class="c"># Recorremos los parametros para comprobar si son ficheros o directorios</span><span class="w">
+	  </span><span class="n">for</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="err">$</span><span class="o">*</span><span class="p">;</span><span class="w"> </span><span class="n">do</span><span class="w">
+		  </span><span class="n">if</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="nt">-e</span><span class="w"> </span><span class="nv">$file</span><span class="w"> </span><span class="p">];</span><span class="w"> </span><span class="n">then</span><span class="w">
+			  </span><span class="n">echo</span><span class="w"> </span><span class="s2">"UpToGit: El archivo o directorio </span><span class="nv">$file</span><span class="s2"> no existe"</span><span class="w">
+			  </span><span class="n">exit</span><span class="w"> </span><span class="nt">-1</span><span class="w">
+		  </span><span class="n">fi</span><span class="w">
+	  </span><span class="n">done</span><span class="w">
 	
-	  <span class="err">#</span> <span class="nx">Si</span> <span class="nx">llegamos</span> <span class="nx">hasta</span> <span class="nx">aquí</span><span class="p">,</span> <span class="nx">indicamos</span> <span class="nx">a</span> <span class="nx">Git</span> <span class="nx">los</span> <span class="nx">archivos</span> <span class="nx">a</span> <span class="nx">subir</span>
-	  <span class="nx">git</span> <span class="nx">add</span> <span class="nx">$</span><span class="o">*</span>
+	  </span><span class="c"># Si llegamos hasta aquí, indicamos a Git los archivos a subir</span><span class="w">
+	  </span><span class="n">git</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="err">$</span><span class="o">*</span><span class="w">
 	
-	  <span class="err">#</span> <span class="nx">Esto</span> <span class="nx">nos</span> <span class="nx">pedira</span> <span class="nx">el</span> <span class="nx">mensaje</span> <span class="nx">del</span> <span class="nx">commit</span>
-	  <span class="nx">echo</span> <span class="dl">"</span><span class="s2">Introduce el mensaje del commit:</span><span class="dl">"</span>
-	  <span class="nx">read</span> <span class="nx">TXT</span>
-	  <span class="nx">git</span> <span class="nx">commit</span> <span class="o">-</span><span class="nx">m</span> <span class="dl">"</span><span class="s2">$TXT</span><span class="dl">"</span>
+	  </span><span class="c"># Esto nos pedira el mensaje del commit</span><span class="w">
+	  </span><span class="n">echo</span><span class="w"> </span><span class="s2">"Introduce el mensaje del commit:"</span><span class="w">
+	  </span><span class="n">read</span><span class="w"> </span><span class="n">TXT</span><span class="w">
+	  </span><span class="n">git</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="nt">-m</span><span class="w"> </span><span class="s2">"</span><span class="nv">$TXT</span><span class="s2">"</span><span class="w">
 
-	  <span class="err">#</span> <span class="nx">Y</span> <span class="nx">terminamos</span> <span class="nx">subiendo</span> <span class="nx">los</span> <span class="nx">archivos</span>
-	  <span class="nx">git</span> <span class="nx">push</span> <span class="o">--</span><span class="nx">force</span> <span class="nx">origin</span> <span class="nx">master</span>
+	  </span><span class="c"># Y terminamos subiendo los archivos</span><span class="w">
+	  </span><span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="nt">--force</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">master</span><span class="w">
 
-  <span class="nx">fi</span>
-</code></pre></div></div>
+  </span><span class="n">fi</span><span class="w">
+</span></code></pre></div></div>
 <p>Este script, tal como he dicho antes, actualiza nuestro repositorio de GitHub. Para su uso se ejecuta de la siguiente manera:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$sh</span> <span class="nx">up2Git</span><span class="p">.</span><span class="nx">sh</span> <span class="nx">arxiu1</span><span class="p">,</span> <span class="nx">arxiu2</span><span class="p">,</span> <span class="nx">etc</span><span class="p">...</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="nv">$sh</span><span class="w"> </span><span class="nx">up2Git.sh</span><span class="w"> </span><span class="nx">arxiu1</span><span class="p">,</span><span class="w"> </span><span class="nx">arxiu2</span><span class="p">,</span><span class="w"> </span><span class="nx">etc...</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Donde:</p>
 <ul>
@@ -192,50 +192,50 @@
 
 <p>Lo unico que falta, es otro script, esta vez hecho en <code class="language-plaintext highlighter-rouge">python</code>, de factoria tambien de <a href="https://elblogdelazaro.org/posts/2021-08-16-bot-en-python-para-publicar-un-feed-de-forma-aleatorios-en-twitter-y-mastodom">Lazaro</a> que lo que hace es hacer tu toot en <strong>Mastodon</strong> con el ultimo articulo publicado en nuestro blog.</p>
 
-<p>En el articulo, puedes ver como se hace tanto para <code class="language-plaintext highlighter-rouge">Twitter</code> como para ```Mastodon<code class="language-plaintext highlighter-rouge">, pero en mi caso yo solo uso</code>Mastodon``.</p>
+<p>En el articulo, puedes ver como se hace tanto para <code class="language-plaintext highlighter-rouge">Twitter</code> como para <code class="language-plaintext highlighter-rouge">Mastodon</code>, pero en mi caso yo solo uso <code class="language-plaintext highlighter-rouge">Mastodon</code>.</p>
 
-<p>Este script es el siguiente:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">  #!/usr/bin/env python
-</span>  <span class="err">#</span> <span class="o">-*-</span> <span class="nx">coding</span><span class="p">:</span> <span class="nx">utf</span><span class="o">-</span><span class="mi">8</span> <span class="o">-*-</span>
+<p>El script es el siguiente:</p>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c">#!/usr/bin/env python</span><span class="w">
+  </span><span class="c"># -*- coding: utf-8 -*-</span><span class="w">
 
-  <span class="err">#</span> <span class="nx">script</span> <span class="nx">que</span> <span class="nx">lee</span> <span class="nx">el</span> <span class="nx">feed</span> <span class="nx">rss</span> <span class="nx">de</span> <span class="nx">un</span> <span class="nx">blog</span> <span class="nx">y</span> <span class="nx">publica</span> <span class="nx">el</span> <span class="nx">ultimo</span> <span class="nx">articulo</span> <span class="nx">creado</span> <span class="nx">en</span> <span class="nx">Mastodon</span>
+  </span><span class="c"># script que lee el feed rss de un blog y publica el ultimo articulo creado en Mastodon</span><span class="w">
 
-  <span class="err">#</span> <span class="nx">Tienes</span> <span class="nx">que</span> <span class="nx">tener</span> <span class="nx">instaladas</span> <span class="nx">las</span> <span class="nx">librerias</span> <span class="nx">feedparser</span><span class="p">,</span> <span class="nx">Twython</span><span class="p">,</span> <span class="nx">Mastodon</span>
+  </span><span class="c"># Tienes que tener instaladas las librerias feedparser, Twython, Mastodon</span><span class="w">
 
-  <span class="err">#</span> <span class="nx">Autor</span><span class="p">:</span> <span class="nx">Carlos</span> <span class="nx">M</span><span class="p">.</span>
-  <span class="err">#</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//elblogdelazaro.org</span>
+  </span><span class="c"># Autor: Carlos M.</span><span class="w">
+  </span><span class="c"># https://elblogdelazaro.org</span><span class="w">
 
-  <span class="err">#</span> <span class="nx">Llama</span> <span class="nx">los</span> <span class="nx">modulos</span> <span class="nx">Python</span>
-  <span class="k">import</span> <span class="nx">feedparser</span>
-  <span class="k">from</span> <span class="nx">twython</span> <span class="k">import</span> <span class="nx">Twython</span>
-  <span class="k">from</span> <span class="nx">mastodon</span> <span class="k">import</span> <span class="nx">Mastodon</span>
+  </span><span class="c"># Llama los modulos Python</span><span class="w">
+  </span><span class="n">import</span><span class="w"> </span><span class="nx">feedparser</span><span class="w">
+  </span><span class="kr">from</span><span class="w"> </span><span class="n">twython</span><span class="w"> </span><span class="nx">import</span><span class="w"> </span><span class="nx">Twython</span><span class="w">
+  </span><span class="kr">from</span><span class="w"> </span><span class="n">mastodon</span><span class="w"> </span><span class="nx">import</span><span class="w"> </span><span class="nx">Mastodon</span><span class="w">
 
-  <span class="err">#</span> <span class="nx">Llamando</span> <span class="nx">a</span> <span class="nx">las</span> <span class="nx">llaves</span> <span class="nx">del</span> <span class="nx">Diccionario</span> <span class="p">(</span> <span class="nx">Twitter</span> <span class="p">)</span>
-  <span class="nx">CONSUMER_KEY</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">xxxxxxxxx</span><span class="dl">"</span>
-  <span class="nx">CONSUMER_SECRET</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">xxxxxxxxx</span><span class="dl">"</span>
-  <span class="nx">ACCESS_KEY</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">xxxxxxxxx</span><span class="dl">"</span>
-  <span class="nx">ACCESS_SECRET</span> <span class="o">=</span><span class="dl">"</span><span class="s2">xxxxxxxxx</span><span class="dl">"</span>
+  </span><span class="c"># Llamando a las llaves del Diccionario ( Twitter )</span><span class="w">
+  </span><span class="n">CONSUMER_KEY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"xxxxxxxxx"</span><span class="w">
+  </span><span class="n">CONSUMER_SECRET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"xxxxxxxxx"</span><span class="w">
+  </span><span class="n">ACCESS_KEY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"xxxxxxxxx"</span><span class="w">
+  </span><span class="n">ACCESS_SECRET</span><span class="w"> </span><span class="o">=</span><span class="s2">"xxxxxxxxx"</span><span class="w">
 
-  <span class="err">#</span> <span class="nx">Seleccionamos</span> <span class="nx">el</span> <span class="nx">Feed</span>
-  <span class="nx">feed</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">ADREÇA DEL FEED</span><span class="dl">'</span>
+  </span><span class="c"># Seleccionamos el Feed</span><span class="w">
+  </span><span class="n">feed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'ADREÇA DEL FEED'</span><span class="w">
 
-  <span class="err">#</span> <span class="nx">Parseamos</span> <span class="nx">el</span> <span class="nx">Feed</span>
-  <span class="nx">d</span> <span class="o">=</span> <span class="nx">feedparser</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">feed</span><span class="p">)</span>
+  </span><span class="c"># Parseamos el Feed</span><span class="w">
+  </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">feedparser.parse</span><span class="p">(</span><span class="n">feed</span><span class="p">)</span><span class="w">
 
-  <span class="err">#</span> <span class="nx">Inicializa</span> <span class="nx">la</span> <span class="nx">API</span> <span class="nx">de</span> <span class="nx">Twitter</span><span class="p">,</span> <span class="nx">escribe</span> <span class="nx">el</span> <span class="nx">nuevo</span> <span class="nx">estado</span> <span class="nx">y</span> <span class="nx">salimos</span> <span class="nx">d</span><span class="p">[</span><span class="dl">'</span><span class="s1">entries</span><span class="dl">'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="nx">es</span> <span class="nx">el</span> <span class="nx">último</span> <span class="nx">articulo</span> <span class="nx">publicado</span>
-  <span class="nx">status_text</span> <span class="o">=</span> <span class="nx">d</span><span class="p">[</span><span class="dl">'</span><span class="s1">entries</span><span class="dl">'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="dl">'</span><span class="s1">title</span><span class="dl">'</span><span class="p">]</span> <span class="o">+</span> <span class="dl">'</span><span class="se">\n</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">d</span><span class="p">[</span><span class="dl">'</span><span class="s1">entries</span><span class="dl">'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="dl">'</span><span class="s1">link</span><span class="dl">'</span><span class="p">]</span>
-  <span class="nx">articulo</span> <span class="o">=</span> <span class="p">(</span><span class="dl">"</span><span class="s2">Ultimo articulo publicado:</span><span class="dl">"</span> <span class="o">+</span><span class="dl">'</span><span class="se">\n</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">status_text</span><span class="p">)</span>
+  </span><span class="c"># Inicializa la API de Twitter, escribe el nuevo estado y salimos d['entries'][0] es el último articulo publicado</span><span class="w">
+  </span><span class="n">status_text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="s1">'entries'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'title'</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'\n'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="s1">'entries'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'link'</span><span class="p">]</span><span class="w">
+  </span><span class="n">articulo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s2">"Ultimo articulo publicado:"</span><span class="w"> </span><span class="o">+</span><span class="s1">'\n'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">status_text</span><span class="p">)</span><span class="w">
 
-  <span class="err">#</span> <span class="nx">Publica</span> <span class="nx">en</span> <span class="nx">mastodon</span>
+  </span><span class="c"># Publica en mastodon</span><span class="w">
 
-  <span class="err">#</span> <span class="nx">Token</span> <span class="nx">y</span> <span class="nx">url</span> <span class="nx">de</span> <span class="nx">la</span> <span class="nx">Instancia</span>
-  <span class="nx">mastodon</span> <span class="o">=</span> <span class="nx">Mastodon</span><span class="p">(</span>
-    <span class="nx">access_token</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">TOKEN_MASTODON</span><span class="dl">'</span><span class="p">,</span>
-    <span class="nx">api_base_url</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://URL_TU_MASTODON/</span><span class="dl">'</span>
-  <span class="p">)</span>
+  </span><span class="c"># Token y url de la Instancia</span><span class="w">
+  </span><span class="n">mastodon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mastodon</span><span class="p">(</span><span class="w">
+    </span><span class="n">access_token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'TOKEN_MASTODON'</span><span class="p">,</span><span class="w">
+    </span><span class="n">api_base_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'https://URL_TU_MASTODON/'</span><span class="w">
+  </span><span class="p">)</span><span class="w">
 
-  <span class="nx">mastodon</span><span class="p">.</span><span class="nx">status_post</span><span class="p">(</span><span class="nx">articulo</span><span class="p">)</span>
-</code></pre></div></div>
+  </span><span class="n">mastodon.status_post</span><span class="p">(</span><span class="n">articulo</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Y con esto, esta explicado todo el funcionamiento desde la creación del articulo hasta la publicitación de dicho articulo en Mastodon. Seguramente, el articulo de <code class="language-plaintext highlighter-rouge">Lazaro</code> le da mil vueltas al mio, pero…</p>
 

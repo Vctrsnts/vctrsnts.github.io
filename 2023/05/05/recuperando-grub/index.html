@@ -93,33 +93,33 @@
 
 <p>Las instrucciones las uso, desde <strong><em>Grub Rescue</em></strong> que es donde siempre acabo si algo me falla en el inicio del sistema y hago lo siguiente. Pero antes, mejor explicar como tengo mi sistema de archivos, para que se vea, el porque de algunas instrucciones:</p>
 
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sda1</span> <span class="o">--&gt;</span> <span class="n">partición</span> <span class="no">EFI</span>
-<span class="n">sda2</span> <span class="o">--&gt;</span> <span class="n">partición</span> <span class="n">del</span> <span class="n">sistema</span> <span class="nc">Linux</span>
-<span class="n">sda3</span> <span class="o">--&gt;</span> <span class="n">particion</span> <span class="no">HOME</span>
-<span class="n">sda5</span> <span class="o">--&gt;</span> <span class="n">partición</span> <span class="nc">Windows</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sda1</span><span class="w"> </span><span class="o">--</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">partici</span><span class="err">ó</span><span class="nx">n</span><span class="w"> </span><span class="nx">EFI</span><span class="w">
+</span><span class="n">sda2</span><span class="w"> </span><span class="o">--</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">partici</span><span class="err">ó</span><span class="nx">n</span><span class="w"> </span><span class="nx">del</span><span class="w"> </span><span class="nx">sistema</span><span class="w"> </span><span class="nx">Linux</span><span class="w">
+</span><span class="n">sda3</span><span class="w"> </span><span class="o">--</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">particion</span><span class="w"> </span><span class="nx">HOME</span><span class="w">
+</span><span class="n">sda5</span><span class="w"> </span><span class="o">--</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">partici</span><span class="err">ó</span><span class="nx">n</span><span class="w"> </span><span class="nx">Windows</span><span class="w">
+</span></code></pre></div></div>
 <p>Pues eso, que a continuación pongo las instrucciones que yo uso en mi caso, para poder recuperar el sistema (espero que os puedan servir de ayuda):</p>
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># uso gpt2, porque es donde tengo la partición del sistema de Linux</span>
-<span class="n">grub</span><span class="o">:&gt;</span> <span class="n">set</span> <span class="n">root</span><span class="o">=</span><span class="p">(</span><span class="n">hd0</span><span class="p">,</span><span class="n">gpt2</span><span class="p">)</span>
-<span class="c1"># ahora se indica donde se encuentra la imagen de Linux y donde la puede encontrar</span>
-<span class="n">grub</span><span class="o">:&gt;</span> <span class="n">linux</span> <span class="o">/</span><span class="n">vmlinuz</span> <span class="n">root</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">sda2</span>
-<span class="c1"># ahora se indica donde se encuentra la imagen de initrd</span>
-<span class="n">grub</span><span class="o">:&gt;</span> <span class="n">initrd</span> <span class="o">/</span><span class="n">initrd</span><span class="mf">.</span><span class="n">img</span>
-<span class="c1"># ahora iniciamos el sistema</span>
-<span class="n">grub</span><span class="o">:&gt;</span> <span class="n">boot</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># uso gpt2, porque es donde tengo la partición del sistema de Linux</span><span class="w">
+</span><span class="n">grub:</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">set</span><span class="w"> </span><span class="nx">root</span><span class="o">=</span><span class="p">(</span><span class="n">hd0</span><span class="p">,</span><span class="nx">gpt2</span><span class="p">)</span><span class="w">
+</span><span class="c"># ahora se indica donde se encuentra la imagen de Linux y donde la puede encontrar</span><span class="w">
+</span><span class="n">grub:</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">linux</span><span class="w"> </span><span class="nx">/vmlinuz</span><span class="w"> </span><span class="nx">root</span><span class="o">=</span><span class="n">/dev/sda2</span><span class="w">
+</span><span class="c"># ahora se indica donde se encuentra la imagen de initrd</span><span class="w">
+</span><span class="n">grub:</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">initrd</span><span class="w"> </span><span class="nx">/initrd.img</span><span class="w">
+</span><span class="c"># ahora iniciamos el sistema</span><span class="w">
+</span><span class="n">grub:</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">boot</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Una vez iniciado el sistema, solamente tenemos que acceder a la consola y volver a reconfigurar <strong><em>grub</em></strong> de la siguiente manera (en este caso lo hacemos suponiendo que tienes <strong><em>EFI</em></strong>):</p>
 
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">usuari</span><span class="o">@</span><span class="n">debian</span><span class="o">:~</span><span class="nv">$sudo</span> <span class="n">dpkg</span><span class="o">-</span><span class="n">reconfigure</span> <span class="n">grub</span><span class="o">-</span><span class="n">efi</span><span class="o">-</span><span class="n">amd64</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="nv">$sudo</span><span class="w"> </span><span class="nx">dpkg-reconfigure</span><span class="w"> </span><span class="nx">grub-efi-amd64</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Cuando haces esto, hay que tener en cuenta, que como en mi caso, si tienes otro Sistema Operativo instalado, y quieres que <strong><em>GRUB</em></strong> te lo detecte, tienes que tener esta opción desactivada:</p>
 
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">usuari</span><span class="o">@</span><span class="n">debian</span><span class="o">:~</span><span class="nv">$sudo</span> <span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="k">default</span><span class="o">/</span><span class="n">grub</span>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="nv">$sudo</span><span class="w"> </span><span class="nx">vi</span><span class="w"> </span><span class="nx">/etc/default/grub</span><span class="w">
 
-<span class="no">GRUB_DISABLE_OS_PROBER</span><span class="o">=</span><span class="kc">false</span>
-</code></pre></div></div>
+</span><span class="n">GRUB_DISABLE_OS_PROBER</span><span class="o">=</span><span class="n">false</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Con esta opción obligas a <strong><em>grub</em></strong> a detectar otros SO y me ahorre, volver a reinstalar todo mi sistema.</p>
 

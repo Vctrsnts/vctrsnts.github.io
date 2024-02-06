@@ -94,9 +94,9 @@
 <p>Pero me di cuenta, que usar tus propias imagenes de docker, o estan muy bien echas y con cada nueva versión de la original, actualizas la tuya, o puedes acabar teniendo problemas, que era lo que me pasaba, decidi que era mejor usar la versión base del creador, en este caso de <code class="language-plaintext highlighter-rouge">flexget</code>, para asi evitarme futuros problemas y tener siempre, que me interese, la ultima versión de container.</p>
 
 <p>Además, como desde las ultimas versiones, se le puede añadir un directorio <code class="language-plaintext highlighter-rouge">custom-cont-init.d</code> donde, en el caso que tu quieres, creas un fichero bash con el nombre <code class="language-plaintext highlighter-rouge">entrypoint.sh</code> con, en mi caso, las siguientes instrucciones:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">  #!/usr/bin/with-contenv bash
-</span>  <span class="nx">apk</span> <span class="nx">add</span> <span class="o">-</span><span class="nx">q</span> <span class="o">--</span><span class="nx">no</span><span class="o">-</span><span class="nx">cache</span> <span class="nx">eye3d</span> <span class="nx">mediainfo</span> <span class="nx">ffmpeg</span> <span class="nx">wget</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c">#!/usr/bin/with-contenv bash</span><span class="w">
+  </span><span class="n">apk</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="nt">-q</span><span class="w"> </span><span class="nt">--no-cache</span><span class="w"> </span><span class="nx">eye3d</span><span class="w"> </span><span class="nx">mediainfo</span><span class="w"> </span><span class="nx">ffmpeg</span><span class="w"> </span><span class="nx">wget</span><span class="w">
+</span></code></pre></div></div>
 <p>Para que una vez se cree y se ejecute por primera vez, se hara uso de este script para instalar, cada vez que lo crees de nuevo, las aplicaciones que tu quieras. En mi caso, son para el tratamiento de los podcasts que descargo. Y asi, me ahorro el tener que acordame de si esta instalado o no, cada nueva vez que creo dicho container, porque se hace automaticamente.</p>
 
 <p>Es una gran mejora, que uso en varios de los containers, donde tengo aplicaciones que uso, pero que no estan dentro del propio container de origen.</p>
@@ -104,6 +104,8 @@
 <p>Se que podria hacer una imagen especial para mi, pero entonces volveria a tener los mismo problemas que os estaba explicando al principio.</p>
 
 <p>Y para mi, no merece la pena todo el trebajo y stress que me supondria.</p>
+
+<h4 id="referencia">Referencia</h4>
 
   </div>
 </div>

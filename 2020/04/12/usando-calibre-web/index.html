@@ -96,25 +96,25 @@ ello.</p>
 
 <p>Lo primero fue bajarse la imagen correcta y construir el <code class="language-plaintext highlighter-rouge">docker-compose.yaml</code> correcto (a continuación pongo el que yo uso):</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">calibre</span><span class="p">:</span>
-     <span class="nx">image</span><span class="p">:</span> <span class="nx">linuxserver</span><span class="o">/</span><span class="nx">calibre</span><span class="o">-</span><span class="nx">web</span>
-     <span class="nx">container_name</span><span class="p">:</span> <span class="nx">calibre</span>
-     <span class="nx">restart</span><span class="p">:</span> <span class="nx">unless</span><span class="o">-</span><span class="nx">stopped</span>
-     <span class="nx">ports</span><span class="p">:</span>
-       <span class="o">-</span> <span class="mi">9393</span><span class="p">:</span><span class="mi">8083</span>
-     <span class="nx">environment</span><span class="p">:</span>
-       <span class="o">-</span> <span class="nx">PUID</span><span class="o">=</span><span class="mi">1001</span>
-       <span class="o">-</span> <span class="nx">PGID</span><span class="o">=</span><span class="mi">1001</span>
-       <span class="o">-</span> <span class="nx">TZ</span><span class="o">=</span><span class="nx">Europe</span><span class="o">/</span><span class="nx">Madrid</span>
-     <span class="nx">volumes</span><span class="p">:</span>
-       <span class="o">-</span> <span class="nx">$</span><span class="p">{</span><span class="nx">STORAGE</span><span class="p">}</span><span class="sr">/config/</span><span class="nx">calibre</span><span class="p">:</span><span class="o">/</span><span class="nx">config</span>
-       <span class="o">-</span> <span class="nx">$</span><span class="p">{</span><span class="nx">MEDIA</span><span class="p">}</span><span class="sr">/ebooks:/</span><span class="nx">books</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">calibre:</span><span class="w">
+     </span><span class="nx">image:</span><span class="w"> </span><span class="nx">linuxserver/calibre-web</span><span class="w">
+     </span><span class="n">container_name:</span><span class="w"> </span><span class="nx">calibre</span><span class="w">
+     </span><span class="n">restart:</span><span class="w"> </span><span class="nx">unless-stopped</span><span class="w">
+     </span><span class="n">ports:</span><span class="w">
+       </span><span class="o">-</span><span class="w"> </span><span class="nx">9393:8083</span><span class="w">
+     </span><span class="n">environment:</span><span class="w">
+       </span><span class="o">-</span><span class="w"> </span><span class="nx">PUID</span><span class="o">=</span><span class="mi">1001</span><span class="w">
+       </span><span class="o">-</span><span class="w"> </span><span class="n">PGID</span><span class="o">=</span><span class="mi">1001</span><span class="w">
+       </span><span class="o">-</span><span class="w"> </span><span class="n">TZ</span><span class="o">=</span><span class="n">Europe/Madrid</span><span class="w">
+     </span><span class="nx">volumes:</span><span class="w">
+       </span><span class="o">-</span><span class="w"> </span><span class="nv">${STORAGE}</span><span class="n">/config/calibre:/config</span><span class="w">
+       </span><span class="o">-</span><span class="w"> </span><span class="nv">${MEDIA}</span><span class="nx">/ebooks:/books</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Luego hay que hacer un simple:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">docker</span><span class="o">-</span><span class="nx">compose</span> <span class="nx">up</span> <span class="o">-</span><span class="nx">d</span> <span class="nx">calibre</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="err">$</span><span class="w"> </span><span class="nx">docker-compose</span><span class="w"> </span><span class="nx">up</span><span class="w"> </span><span class="nt">-d</span><span class="w"> </span><span class="nx">calibre</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Ya lo tienes funcionando sin ningún problema (aunque no es del todo cierto) porque para empezar a funcionar correctamente tienes que ponerle la librería (<em>metadata.db</em>) que venias usando hasta este 
 momento. Una vez hecho esto ya tienes tu <code class="language-plaintext highlighter-rouge">calibre-web</code> en funcionamiento.</p>
@@ -126,9 +126,9 @@ metadatos del propio libro, sino que busca la información a través de <strong>
 <strong>calibre-web</strong>. Hasta que al final, revisando los ficheros que tiene el container, dentro del <code class="language-plaintext highlighter-rouge">directorio app</code> hay unos ficheros de información (podrían estar más accesibles o estar en la 
 documentación del container) te informa que si instalas (la imagen se basa en ubuntu) el paquete <strong>lxml</strong> se puede tener acceso a los <strong>metadatas</strong> de los libros, así que me puse a ello:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">apt</span><span class="o">-</span><span class="kd">get</span> <span class="nx">update</span>
-   <span class="nx">usuari</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">apt</span><span class="o">-</span><span class="kd">get</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">no</span><span class="o">-</span><span class="nx">install</span><span class="o">-</span><span class="nx">recommends</span> <span class="nx">python3</span><span class="o">-</span><span class="nx">lxml</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="err">$</span><span class="w"> </span><span class="nx">sudo</span><span class="w"> </span><span class="nx">apt-get</span><span class="w"> </span><span class="nx">update</span><span class="w">
+   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="err">$</span><span class="w"> </span><span class="nx">sudo</span><span class="w"> </span><span class="nx">apt-get</span><span class="w"> </span><span class="nx">install</span><span class="w"> </span><span class="nt">--no-install-recommends</span><span class="w"> </span><span class="nx">python3-lxml</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Después de instalar el paquete, probé a subir un libro y ya si que funciono como yo quería, como la versión de calibre que te instalas en modo local.</p>
 

@@ -95,28 +95,28 @@
 
 <p>Lo primero que tenemos que instalar el <code class="language-plaintext highlighter-rouge">subversion</code>, para hacer esto, se hace de la siguiente manera:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">pkg</span> <span class="nx">install</span> <span class="nx">subversion</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">freebsd:~</span><span class="c"># pkg install subversion</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Una vez tenemos instalado <code class="language-plaintext highlighter-rouge">subversion</code>, lo siguiente es actualizar el sistema, lo vuelvo a repetir, yo lo hago de esta manera:</p>
 
 <p>Lo primero, es actualizar es el <strong>arbol del sistema</strong></p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">rootfreebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">svn</span> <span class="nx">checkout</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//svn.freebsd.org/base/stable/11 /usr/src</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">rootfreebsd:~</span><span class="c"># svn checkout https://svn.freebsd.org/base/stable/11 /usr/src</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Ahora pasamos a actualizar el sistema</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">svn</span> <span class="nx">update</span> <span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">src</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">freebsd:~</span><span class="c"># svn update /usr/src</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Esto tarda un rato, dependiendo de la velocidad que tengais.</p>
 
 <p>Una vez, haya finalizado la actualización, se recomienda leer el fichero <code class="language-plaintext highlighter-rouge">/usr/src/UPDATING</code> para ver las modificaciones que comporta esta actualización y a continuación:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">cd</span> <span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">src</span>
-   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">make</span> <span class="o">-</span><span class="nx">j4</span> <span class="nx">buildworld</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">freebsd:~</span><span class="c"># cd /usr/src</span><span class="w">
+   </span><span class="n">root</span><span class="err">@</span><span class="nx">freebsd:~</span><span class="c"># make -j4 buildworld</span><span class="w">
+</span></code></pre></div></div>
 
 <p>En la anterior instrucción, a mi entender, <strong>compila / construye</strong> el sistema, por eso, tomarlo con calma.</p>
 
@@ -125,31 +125,31 @@ los que teneis que encontrar el punto intermedio.</p>
 
 <p>Ahora, pasamos a:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">make</span> <span class="o">-</span><span class="nx">j4</span> <span class="nx">kernel</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">freebsd:~</span><span class="c"># make -j4 kernel</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Se aplica la misma norma que en la anterior instrucción.</p>
 
 <p>Una vez que se ha realizado la compilación del sistema y del kernel, reiniciamos el sistema</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">shutdown</span> <span class="o">-</span><span class="nx">r</span> <span class="nx">now</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">freebsd:~</span><span class="c"># shutdown -r now</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Ahora, a mi entender, actualizamos el sistema, con la siguiente instrucción :</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">cd</span> <span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">src</span>
-   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">make</span> <span class="nx">installworld</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">freebsd:~</span><span class="c"># cd /usr/src</span><span class="w">
+   </span><span class="n">root</span><span class="err">@</span><span class="nx">freebsd:~</span><span class="c"># make installworld</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Cuando finalize, hacemos lo siguiente:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">mergemarster</span> <span class="o">-</span><span class="nx">Ui</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">freebsd:~</span><span class="c"># mergemarster -Ui</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Y para finalizar, reiniciamos el sistema.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">freebsd</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">shutdown</span> <span class="o">-</span><span class="nx">r</span> <span class="nx">now</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">freebsd:~</span><span class="c"># shutdown -r now</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Y con esto, ya tenemos el sistema actualizado.</p>
 

@@ -99,8 +99,8 @@ seleccionar que servidores deseas testear por localización geográfica.</p>
 
 <p>Para poder usarlo, lo primero es instalarlo:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">aptitude</span> <span class="nx">install</span> <span class="nx">apt</span><span class="o">-</span><span class="nx">spy</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">debian:~</span><span class="c"># aptitude install apt-spy</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Ahora que ya lo tenemos… simplemente debemos usarlo:</p>
 
@@ -114,8 +114,8 @@ seleccionar que servidores deseas testear por localización geográfica.</p>
 
 <p>Como ejemplo de uso:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">apt</span><span class="o">-</span><span class="nx">spy</span> <span class="o">-</span><span class="nx">d</span> <span class="nx">unstable</span> <span class="o">-</span><span class="nx">e</span> <span class="mi">10</span> <span class="o">-</span><span class="nx">w</span> <span class="nx">nuevo_sources</span><span class="p">.</span><span class="nx">list</span> <span class="o">-</span><span class="nx">a</span> <span class="nx">Europa</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">debian:~</span><span class="c"># apt-spy -d unstable -e 10 -w nuevo_sources.list -a Europa</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Esto probará los primeros 10 mirrors para Europa de Debian GNU/Linux unstable y los escribira en el archivo nuevo_sources.list</p>
 

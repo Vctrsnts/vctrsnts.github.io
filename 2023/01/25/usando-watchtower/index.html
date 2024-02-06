@@ -99,45 +99,45 @@
 
 <p>Eso si, os voy a poner mi <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> que uso para la instalación de <strong>watchtower</strong>. Tener en cuenta que es una recopilación de todos los ficheros de configuración que he visto para su instalación.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">watchtower</span><span class="p">:</span>
-    <span class="nx">image</span><span class="p">:</span> <span class="nx">containrrr</span><span class="o">/</span><span class="nx">watchtower</span><span class="p">:</span><span class="nx">latest</span>
-    <span class="nx">container_name</span><span class="p">:</span> <span class="nx">watchtower</span>
-    <span class="nx">restart</span><span class="p">:</span> <span class="nx">unless</span><span class="o">-</span><span class="nx">stopped</span>
-    <span class="nx">volumes</span><span class="p">:</span>
-      <span class="o">-</span> <span class="sr">/var/</span><span class="nx">run</span><span class="o">/</span><span class="nx">docker</span><span class="p">.</span><span class="nx">sock</span><span class="p">:</span><span class="o">/</span><span class="kd">var</span><span class="sr">/run/</span><span class="nx">docker</span><span class="p">.</span><span class="nx">sock</span>
-    <span class="nx">environment</span><span class="p">:</span>
-      <span class="o">-</span> <span class="nx">WATCHTOWER_LABEL_ENABLE</span><span class="o">=</span><span class="kc">true</span>
-      <span class="o">-</span> <span class="nx">WATCHTOWER_CLEANUP</span><span class="o">=</span><span class="kc">true</span>
-      <span class="o">-</span> <span class="nx">WATCHTOWER_INCLUDE_RESTARTING</span><span class="o">=</span><span class="kc">true</span>
-      <span class="o">-</span> <span class="nx">WATCHTOWER_INCLUDE_STOPPED</span><span class="o">=</span><span class="kc">true</span>
-      <span class="o">-</span> <span class="nx">WATCHTOWER_REVIVE_STOPPED</span><span class="o">=</span><span class="kc">false</span>
-      <span class="o">-</span> <span class="nx">WATCHTOWER_NO_RESTART</span><span class="o">=</span><span class="kc">false</span>
-      <span class="o">-</span> <span class="nx">WATCHTOWER_TIMEOUT</span><span class="o">=</span><span class="dl">"</span><span class="s2">30s</span><span class="dl">"</span>
-      <span class="err">#</span> <span class="nx">AQUESTA</span> <span class="nx">OPCIÓ</span> <span class="nx">LA</span> <span class="nx">TINC</span> <span class="nx">DESACTIVADA</span><span class="p">,</span> <span class="nx">PERQUE</span> <span class="nx">TINC</span> <span class="nx">DUBTES</span> <span class="nx">DE</span> <span class="nx">QUE</span> <span class="nx">FUNCIONI</span> <span class="nx">CORRECTAMENT</span><span class="p">,</span> <span class="nx">ENCARA</span> <span class="nx">QUE</span> <span class="nx">EL</span> <span class="nx">LOG</span> <span class="nx">DONAR</span> <span class="nx">CONSTANCIA</span> <span class="nx">DE</span> <span class="nx">QUE</span> <span class="nx">SI</span>
-      <span class="err">#</span><span class="o">-</span> <span class="nx">WATCHTOWER_SCHEDULE</span><span class="o">=</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">4</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>
-      <span class="err">#</span> <span class="nx">L</span><span class="dl">'</span><span class="s1">HE SUBSTITUIT PER AQUESTA
-      - WATCHTOWER_POLL_INTERVAL=86400
-      - WATCHTOWER_NOTIFICATION_URL=telegram://token_telegram@telegram/?channels=id_canal
-      - WATCHTOWER_NOTIFICATIONS_HOSTNAME=nombreServidor
-      #WATCHTOWER_NOTIFICATIONS: gotify
-      #WATCHTOWER_NOTIFICATION_GOTIFY_URL: https://gotify.tuservidor.es
-      #WATCHTOWER_NOTIFICATION_GOTIFY_TOKEN: AAAAAAAAAAAAAAA
-      - WATCHTOWER_DEBUG=true
-      - TZ=Europe/Madrid
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="n">watchtower:</span><span class="w">
+    </span><span class="nx">image:</span><span class="w"> </span><span class="nx">containrrr/watchtower:latest</span><span class="w">
+    </span><span class="n">container_name:</span><span class="w"> </span><span class="nx">watchtower</span><span class="w">
+    </span><span class="n">restart:</span><span class="w"> </span><span class="nx">unless-stopped</span><span class="w">
+    </span><span class="n">volumes:</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">/var/run/docker.sock:/var/run/docker.sock</span><span class="w">
+    </span><span class="n">environment:</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">WATCHTOWER_LABEL_ENABLE</span><span class="o">=</span><span class="n">true</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">WATCHTOWER_CLEANUP</span><span class="o">=</span><span class="n">true</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">WATCHTOWER_INCLUDE_RESTARTING</span><span class="o">=</span><span class="n">true</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">WATCHTOWER_INCLUDE_STOPPED</span><span class="o">=</span><span class="n">true</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">WATCHTOWER_REVIVE_STOPPED</span><span class="o">=</span><span class="n">false</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">WATCHTOWER_NO_RESTART</span><span class="o">=</span><span class="n">false</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">WATCHTOWER_TIMEOUT</span><span class="o">=</span><span class="s2">"30s"</span><span class="w">
+      </span><span class="c"># AQUESTA OPCIÓ LA TINC DESACTIVADA, PERQUE TINC DUBTES DE QUE FUNCIONI CORRECTAMENT, ENCARA QUE EL LOG DONAR CONSTANCIA DE QUE SI</span><span class="w">
+      </span><span class="c">#- WATCHTOWER_SCHEDULE=0 0 4 * * *</span><span class="w">
+      </span><span class="c"># L'HE SUBSTITUIT PER AQUESTA</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">WATCHTOWER_POLL_INTERVAL</span><span class="o">=</span><span class="mi">86400</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">WATCHTOWER_NOTIFICATION_URL</span><span class="o">=</span><span class="n">telegram://token_telegram</span><span class="err">@</span><span class="nx">telegram/</span><span class="nf">?</span><span class="nx">channels</span><span class="o">=</span><span class="nx">id_canal</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">WATCHTOWER_NOTIFICATIONS_HOSTNAME</span><span class="o">=</span><span class="n">nombreServidor</span><span class="w">
+      </span><span class="c">#WATCHTOWER_NOTIFICATIONS: gotify</span><span class="w">
+      </span><span class="c">#WATCHTOWER_NOTIFICATION_GOTIFY_URL: https://gotify.tuservidor.es</span><span class="w">
+      </span><span class="c">#WATCHTOWER_NOTIFICATION_GOTIFY_TOKEN: AAAAAAAAAAAAAAA</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">WATCHTOWER_DEBUG</span><span class="o">=</span><span class="n">true</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="nx">TZ</span><span class="o">=</span><span class="n">Europe/Madrid</span><span class="w">
 </span></code></pre></div></div>
 
 <p>Al principio, <strong>watchtower</strong> no me funcionaba correctamente, en pocas palabras no funcionaba ni hacia nada.</p>
 
 <p>Así que me toco investigar que podia ser y al final después de mucho buscar, vi que me faltaba informar de en que red iba a trabajar el contenedor. Esto se configura de la siguiente manera:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">network_mode</span><span class="p">:</span> <span class="nx">bridge</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="n">network_mode:</span><span class="w"> </span><span class="nx">bridge</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Tambien hay que tener en cuenta, que para informar a <strong>watchtower</strong> de los contenedores que queremos que vigile por si tiene alguna actualización es de la siguiente manera (tener en cuenta, que tiene que estar en todos los contenedores que queremos sean controlados):</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">labels</span><span class="p">:</span>
-   <span class="o">-</span> <span class="nx">com</span><span class="p">.</span><span class="nx">centurylinklabs</span><span class="p">.</span><span class="nx">watchtower</span><span class="p">.</span><span class="nx">enable</span><span class="o">=</span><span class="dl">"</span><span class="s2">true</span><span class="dl">"</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="n">labels:</span><span class="w">
+   </span><span class="o">-</span><span class="w"> </span><span class="nx">com.centurylinklabs.watchtower.enable</span><span class="o">=</span><span class="s2">"true"</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Y en teoria ya tendria que funcionar. Al principio no parece que funcionaba y estaba con la mosca detras de la oreja, porque no me actualizada nada. Asi que le puse que se ejecutara cada minuto y al final, a partir de que configure correctamente la red empezo a funcionar, me actualizo un par de contenedores y asi quedo.</p>
 

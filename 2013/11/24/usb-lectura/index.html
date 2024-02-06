@@ -99,13 +99,13 @@ cuyas funciones son similares a las del comando chkdsk de Windows.</p>
 
 <p>Los tres pasos a seguir son:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">#</span> <span class="nx">instalar</span> <span class="nx">el</span> <span class="nx">paquete</span> <span class="nx">dosftool</span>
-   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span>  <span class="nx">sudo</span> <span class="nx">apt</span><span class="o">-</span><span class="kd">get</span> <span class="nx">install</span> <span class="nx">dosfstools</span>
-   <span class="err">#</span> <span class="nx">desmontar</span> <span class="nx">el</span> <span class="nx">disco</span> <span class="nx">duro</span> <span class="nx">externo</span> <span class="p">(</span> <span class="nx">o</span> <span class="nx">pendrive</span> <span class="p">)</span>
-   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">umount</span> <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">sdb1</span>
-   <span class="err">#</span> <span class="nx">verificar</span> <span class="nx">y</span> <span class="nx">reparar</span> <span class="nx">la</span> <span class="nx">partición</span>
-   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">dosfsck</span> <span class="o">-</span><span class="nx">t</span> <span class="o">-</span><span class="nx">a</span> <span class="o">-</span><span class="nx">w</span> <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">sdb1</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="c"># instalar el paquete dosftool</span><span class="w">
+   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="err">$</span><span class="w">  </span><span class="nx">sudo</span><span class="w"> </span><span class="nx">apt-get</span><span class="w"> </span><span class="nx">install</span><span class="w"> </span><span class="nx">dosfstools</span><span class="w">
+   </span><span class="c"># desmontar el disco duro externo ( o pendrive )</span><span class="w">
+   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="err">$</span><span class="w"> </span><span class="nx">sudo</span><span class="w"> </span><span class="nx">umount</span><span class="w"> </span><span class="nx">/dev/sdb1</span><span class="w">
+   </span><span class="c"># verificar y reparar la partición</span><span class="w">
+   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="err">$</span><span class="w"> </span><span class="nx">sudo</span><span class="w"> </span><span class="nx">dosfsck</span><span class="w"> </span><span class="nt">-t</span><span class="w"> </span><span class="nt">-a</span><span class="w"> </span><span class="nt">-w</span><span class="w"> </span><span class="nx">/dev/sdb1</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Con esta sencilla solución, se reparó la partición y el disco duro externo volvió a ser de lectura/escritura.</p>
 

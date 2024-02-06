@@ -93,16 +93,18 @@
 
 <p>A traves del siguiente codigo de bash, podemos crear nuestro propio fichero de logs:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">tie</span><span class="o">=</span><span class="sr">/tmp/</span><span class="nx">script_final</span><span class="p">.</span><span class="nx">log</span><span class="o">*</span>
-   <span class="err">#</span> <span class="nx">PER</span> <span class="nx">SAPIGUER</span> <span class="nx">LA</span> <span class="nx">DATA</span> <span class="nx">D</span><span class="dl">'</span><span class="s1">INICI*
-   hi=`date`*
-   # PER SAPIGUER LA DATA FINAL*
-   hf=`date`*
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">tie</span><span class="o">=</span><span class="n">/tmp/script_final.log</span><span class="o">*</span><span class="w">
+   </span><span class="c"># PER SAPIGUER LA DATA D'INICI*</span><span class="w">
+   </span><span class="n">hi</span><span class="o">=</span><span class="err">`</span><span class="n">date</span><span class="se">`*</span><span class="w">
+   </span><span class="c"># PER SAPIGUER LA DATA FINAL*</span><span class="w">
+   </span><span class="n">hf</span><span class="o">=</span><span class="err">`</span><span class="n">date</span><span class="se">`*</span><span class="w">
 
-   echo $hf" " &gt;&gt; $tie*
+   </span><span class="n">echo</span><span class="w"> </span><span class="nv">$hf</span><span class="s2">" "</span><span class="w"> </span><span class="err">&gt;&gt;</span><span class="w"> </span><span class="nv">$tie</span><span class="o">*</span><span class="w">
 </span></code></pre></div></div>
 
 <p>Y con esto ya tenemos nuestro log</p>
+
+<h4 id="referencia">Referencia</h4>
 
   </div>
 </div>

@@ -97,67 +97,67 @@
 
 <p>Antes de nada, tienes que saber en que dispositivo esta nuestra SD cuando lo insertamos en nuestro PC, para eso, haciendo un mount, se puede ver facilmente. En mi caso es el siguiente:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">mount</span>
-   <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">mmcblk0p1</span>     <span class="o">/</span><span class="nx">boot</span>
-   <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">mmcblk0p2</span>     <span class="o">/</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="c"># mount</span><span class="w">
+   </span><span class="n">/dev/mmcblk0p1</span><span class="w">     </span><span class="nx">/boot</span><span class="w">
+   </span><span class="n">/dev/mmcblk0p2</span><span class="w">     </span><span class="nx">/</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Lo que a nosotros nos interesa es copiar la segunda particion de la siguiente manera:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">dd</span> <span class="k">if</span><span class="o">=</span><span class="sr">/dev/mm</span><span class="nx">cblk0p2</span> <span class="k">of</span><span class="o">=</span><span class="sr">/home/u</span><span class="nx">suario</span><span class="o">/</span><span class="nx">backup</span><span class="p">.</span><span class="nx">img</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="n">root</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="c"># dd if=/dev/mmcblk0p2 of=/home/usuario/backup.img</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Después lo que yo hice, fue crear las particiones necesarias en el HDD externo.</p>
 
 <p>Mi particionado, quedo de la siguiente manera (recordar que ahora mismo se estan realizando estas acciones desde el nuestro PC, no desde la Raspberry, por eso pongo <code class="language-plaintext highlighter-rouge">sdb</code>):</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">sdb1</span>    <span class="o">/</span>
-   <span class="sr">/dev/</span><span class="nx">sdb2</span>    <span class="o">/</span><span class="nx">home</span>
-   <span class="err">#</span> <span class="nx">para</span> <span class="nx">amule</span><span class="o">-</span><span class="nx">daemon</span>
-   <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">sdb5</span>    <span class="o">/</span><span class="nx">media</span><span class="o">/</span><span class="nx">Incoming</span>
-   <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">sdb6</span>    <span class="o">/</span><span class="nx">media</span><span class="o">/</span><span class="nx">Temporal</span>
-   <span class="err">#</span> <span class="nx">para</span> <span class="nx">transmission</span><span class="o">-</span><span class="nx">daemon</span>
-   <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">sdb7</span>    <span class="o">/</span><span class="nx">media</span><span class="o">/</span><span class="nx">Torrents</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">/dev/sdb1</span><span class="w">    </span><span class="nx">/</span><span class="w">
+   </span><span class="n">/dev/sdb2</span><span class="w">    </span><span class="nx">/home</span><span class="w">
+   </span><span class="c"># para amule-daemon</span><span class="w">
+   </span><span class="n">/dev/sdb5</span><span class="w">    </span><span class="nx">/media/Incoming</span><span class="w">
+   </span><span class="n">/dev/sdb6</span><span class="w">    </span><span class="nx">/media/Temporal</span><span class="w">
+   </span><span class="c"># para transmission-daemon</span><span class="w">
+   </span><span class="n">/dev/sdb7</span><span class="w">    </span><span class="nx">/media/Torrents</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Una vez, tenemos creadas las particiones en nuestro HDD externo, pasamos a copiar la imagen que hemos realizado anteriormente a la raiz de HDD de la siguiente manera:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">dd</span> <span class="k">if</span><span class="o">=</span><span class="sr">/home/u</span><span class="nx">suario</span><span class="o">/</span><span class="nx">backup</span><span class="p">.</span><span class="nx">img</span> <span class="k">of</span><span class="o">=</span><span class="sr">/dev/</span><span class="nx">sdb1</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="c"># dd if=/home/usuario/backup.img of=/dev/sdb1</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Ahora viene lo importante, que es modificar un fichero de la partición <code class="language-plaintext highlighter-rouge">/boot</code> de la SD para que cuando pongamos el HDD externo conectado a la Raspberry funcione correctamente. Recordar que cuando se 
 haga esa conexión, pasara de ser <code class="language-plaintext highlighter-rouge">/dev/sdb</code> a <code class="language-plaintext highlighter-rouge">/dev/sda</code>.</p>
 
 <p>El fichero a modificar es el siguiente (previamente hemos hecho un mount de la particion <code class="language-plaintext highlighter-rouge">/boot</code>):</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">vi</span> <span class="nx">cmdline</span><span class="p">.</span><span class="nx">txt</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="c"># vi cmdline.txt</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Y modificamos lo siguiente <code class="language-plaintext highlighter-rouge">root=/dev/mmcblk0p2</code> por <code class="language-plaintext highlighter-rouge">root=/dev/sda1</code></p>
 
 <p>Otra cosa a tener en cuenta, es que si queremos que por defecto, se monten el resto de particiones que hemos creado, se tienen que incluir en el fichero <code class="language-plaintext highlighter-rouge">/etc/fstab</code> de la Raspberry. Yo lo he hecho de
  la siguiente manera:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">root</span><span class="p">@</span><span class="nd">raspberry</span><span class="p">:</span><span class="o">~</span><span class="err">#</span> <span class="nx">vi</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">fstab</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">root</span><span class="err">@</span><span class="nx">raspberry:~</span><span class="c"># vi /etc/fstab</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Visualizaremos lo siguiente:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">proc</span>            <span class="o">/</span><span class="nx">proc</span>           <span class="nx">proc</span>    <span class="nx">defaults</span>                <span class="mi">0</span>       <span class="mi">0</span>
-   <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">mmcblkp1</span>   <span class="o">/</span><span class="nx">boot</span>           <span class="nx">vfat</span>    <span class="nx">defaults</span>                <span class="mi">0</span>       <span class="mi">2</span>
-   <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">mmcblkp2</span>   <span class="o">/</span>               <span class="nx">ext4</span>    <span class="nx">defaults</span><span class="p">,</span><span class="nx">noatime</span>        <span class="mi">0</span>       <span class="mi">1</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">proc</span><span class="w">            </span><span class="nx">/proc</span><span class="w">           </span><span class="nx">proc</span><span class="w">    </span><span class="nx">defaults</span><span class="w">                </span><span class="nx">0</span><span class="w">       </span><span class="nx">0</span><span class="w">
+   </span><span class="n">/dev/mmcblkp1</span><span class="w">   </span><span class="nx">/boot</span><span class="w">           </span><span class="nx">vfat</span><span class="w">    </span><span class="nx">defaults</span><span class="w">                </span><span class="nx">0</span><span class="w">       </span><span class="nx">2</span><span class="w">
+   </span><span class="n">/dev/mmcblkp2</span><span class="w">   </span><span class="nx">/</span><span class="w">               </span><span class="nx">ext4</span><span class="w">    </span><span class="nx">defaults</span><span class="p">,</span><span class="nx">noatime</span><span class="w">        </span><span class="nx">0</span><span class="w">       </span><span class="nx">1</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Y en mi caso, lo deje de la siguiente manera:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">proc</span>            <span class="o">/</span><span class="nx">proc</span>           <span class="nx">proc</span>    <span class="nx">defaults</span>                <span class="mi">0</span>       <span class="mi">0</span>
-   <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">mmcblk0p1</span>  <span class="o">/</span><span class="nx">boot</span>           <span class="nx">vfat</span>    <span class="nx">defaults</span>                <span class="mi">0</span>       <span class="mi">2</span>
-   <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">sda1</span>       <span class="o">/</span>               <span class="nx">ext4</span>    <span class="nx">defaults</span><span class="p">,</span><span class="nx">noatime</span>        <span class="mi">0</span>       <span class="mi">1</span>
-   <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">sda2</span>       <span class="o">/</span><span class="nx">home</span>           <span class="nx">ext4</span>    <span class="nx">defaults</span>                <span class="mi">0</span>       <span class="mi">0</span>
-   <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">sda5</span>       <span class="o">/</span><span class="nx">media</span><span class="o">/</span><span class="nx">Incoming</span> <span class="nx">ext4</span>    <span class="nx">defaults</span><span class="p">,</span><span class="nx">noatime</span>        <span class="mi">0</span>       <span class="mi">0</span>
-   <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">sda6</span>       <span class="o">/</span><span class="nx">media</span><span class="o">/</span><span class="nx">Temporal</span> <span class="nx">ext4</span>    <span class="nx">defaults</span><span class="p">,</span><span class="nx">noatime</span>        <span class="mi">0</span>       <span class="mi">0</span>
-  <span class="o">/</span><span class="nx">dev</span><span class="o">/</span><span class="nx">sda7</span>       <span class="o">/</span><span class="nx">media</span><span class="o">/</span><span class="nx">Torrents</span> <span class="nx">ext4</span>    <span class="nx">defaults</span><span class="p">,</span><span class="nx">noatime</span>        <span class="mi">0</span>       <span class="mi">0</span>
-</code></pre></div></div>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="n">proc</span><span class="w">            </span><span class="nx">/proc</span><span class="w">           </span><span class="nx">proc</span><span class="w">    </span><span class="nx">defaults</span><span class="w">                </span><span class="nx">0</span><span class="w">       </span><span class="nx">0</span><span class="w">
+   </span><span class="n">/dev/mmcblk0p1</span><span class="w">  </span><span class="nx">/boot</span><span class="w">           </span><span class="nx">vfat</span><span class="w">    </span><span class="nx">defaults</span><span class="w">                </span><span class="nx">0</span><span class="w">       </span><span class="nx">2</span><span class="w">
+   </span><span class="n">/dev/sda1</span><span class="w">       </span><span class="nx">/</span><span class="w">               </span><span class="nx">ext4</span><span class="w">    </span><span class="nx">defaults</span><span class="p">,</span><span class="nx">noatime</span><span class="w">        </span><span class="nx">0</span><span class="w">       </span><span class="nx">1</span><span class="w">
+   </span><span class="n">/dev/sda2</span><span class="w">       </span><span class="nx">/home</span><span class="w">           </span><span class="nx">ext4</span><span class="w">    </span><span class="nx">defaults</span><span class="w">                </span><span class="nx">0</span><span class="w">       </span><span class="nx">0</span><span class="w">
+   </span><span class="n">/dev/sda5</span><span class="w">       </span><span class="nx">/media/Incoming</span><span class="w"> </span><span class="nx">ext4</span><span class="w">    </span><span class="nx">defaults</span><span class="p">,</span><span class="nx">noatime</span><span class="w">        </span><span class="nx">0</span><span class="w">       </span><span class="nx">0</span><span class="w">
+   </span><span class="n">/dev/sda6</span><span class="w">       </span><span class="nx">/media/Temporal</span><span class="w"> </span><span class="nx">ext4</span><span class="w">    </span><span class="nx">defaults</span><span class="p">,</span><span class="nx">noatime</span><span class="w">        </span><span class="nx">0</span><span class="w">       </span><span class="nx">0</span><span class="w">
+   </span><span class="n">/dev/sda7</span><span class="w">       </span><span class="nx">/media/Torrents</span><span class="w"> </span><span class="nx">ext4</span><span class="w">    </span><span class="nx">defaults</span><span class="p">,</span><span class="nx">noatime</span><span class="w">        </span><span class="nx">0</span><span class="w">       </span><span class="nx">0</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Ahora solamente nos quedaria poner la SD en nuestra Raspberry, conectar el HD externo y todo tendria que funcionar correctamente.</p>
 

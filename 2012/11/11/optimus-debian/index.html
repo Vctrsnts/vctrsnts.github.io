@@ -109,21 +109,21 @@ en 3D). De esta forma, se minimiza el consumo de energía.</p>
 
 <p>La solución temporal es desactivar la tarjeta NVIDIA cargando un módulo (desarrollado por la comunidad) en el kernel. Los pasos son los siguientes:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">#</span> <span class="nx">instalamos</span> <span class="nx">el</span> <span class="nx">paquete</span> <span class="nx">git</span> <span class="nx">si</span> <span class="nx">no</span> <span class="nx">lo</span> <span class="nx">tenemos</span> <span class="nx">ya</span>
-   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">apt</span><span class="o">-</span><span class="kd">get</span> <span class="nx">install</span> <span class="nx">git</span>
-   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">git</span> <span class="nx">clone</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//github.com/mkottman/acpi_call.git</span>
-   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">cd</span> <span class="nx">acpi_call</span>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="c"># instalamos el paquete git si no lo tenemos ya</span><span class="w">
+   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="err">$</span><span class="w"> </span><span class="nx">sudo</span><span class="w"> </span><span class="nx">apt-get</span><span class="w"> </span><span class="nx">install</span><span class="w"> </span><span class="nx">git</span><span class="w">
+   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="err">$</span><span class="w"> </span><span class="nx">git</span><span class="w"> </span><span class="nx">clone</span><span class="w"> </span><span class="nx">https://github.com/mkottman/acpi_call.git</span><span class="w">
+   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="err">$</span><span class="w"> </span><span class="nx">cd</span><span class="w"> </span><span class="nx">acpi_call</span><span class="w">
   
-   <span class="err">#</span> <span class="nx">ahora</span> <span class="nx">procedemos</span> <span class="nx">a</span> <span class="nx">compilar</span> <span class="nx">el</span> <span class="nx">codigo</span>
-   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">make</span>
-   <span class="err">#</span> <span class="nx">procedemos</span> <span class="nx">a</span> <span class="nx">cargar</span> <span class="nx">el</span>  <span class="nx">modulo</span> <span class="nx">en</span> <span class="nx">el</span> <span class="nx">kernel</span>
-   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">insmod</span> <span class="nx">acpi_call</span><span class="p">.</span><span class="nx">ko</span>
+   </span><span class="c"># ahora procedemos a compilar el codigo</span><span class="w">
+   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="err">$</span><span class="w"> </span><span class="nx">make</span><span class="w">
+   </span><span class="c"># procedemos a cargar el  modulo en el kernel</span><span class="w">
+   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="err">$</span><span class="w"> </span><span class="nx">sudo</span><span class="w"> </span><span class="nx">insmod</span><span class="w"> </span><span class="nx">acpi_call.ko</span><span class="w">
 
-   <span class="err">#</span> <span class="nx">damos</span> <span class="nx">permisos</span> <span class="nx">de</span> <span class="nx">ejecución</span> <span class="nx">al</span> <span class="nx">fichero</span>
-   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="nx">chmod</span> <span class="mi">755</span> <span class="nx">test_off</span><span class="p">.</span><span class="nx">sh</span>
-   <span class="err">#</span> <span class="nx">y</span> <span class="nx">desactivamos</span> <span class="nx">la</span> <span class="nx">tarjeta</span> <span class="nx">NVIDIA</span>
-   <span class="nx">usuari</span><span class="p">@</span><span class="nd">debian</span><span class="p">:</span><span class="o">~</span><span class="nx">$</span> <span class="p">.</span><span class="o">/</span><span class="nx">test_off</span><span class="p">.</span><span class="nx">sh</span>
-</code></pre></div></div>
+   </span><span class="c"># damos permisos de ejecución al fichero</span><span class="w">
+   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="err">$</span><span class="w"> </span><span class="nx">chmod</span><span class="w"> </span><span class="nx">755</span><span class="w"> </span><span class="nx">test_off.sh</span><span class="w">
+   </span><span class="c"># y desactivamos la tarjeta NVIDIA</span><span class="w">
+   </span><span class="n">usuari</span><span class="err">@</span><span class="nx">debian:~</span><span class="err">$</span><span class="w"> </span><span class="o">.</span><span class="nx">/test_off.sh</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Si aparece algún mensaje <code class="language-plaintext highlighter-rouge">works!</code>, entonces todo ha funcionado correctamente.</p>
 
