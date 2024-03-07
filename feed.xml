@@ -1,4 +1,118 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-03-07T20:27:25+01:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo hacez, hazlo bien</title><subtitle>Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.</subtitle><author><name>Vctrsnts ( fork andrew-park )</name></author><entry><title type="html">Usando HomePage. El Dashboard</title><link href="https://vctrsnts.github.io/2024/02/12/usando-homepage/" rel="alternate" type="text/html" title="Usando HomePage. El Dashboard" /><published>2024-02-12T00:00:00+01:00</published><updated>2024-02-12T00:00:00+01:00</updated><id>https://vctrsnts.github.io/2024/02/12/usando-homepage</id><content type="html" xml:base="https://vctrsnts.github.io/2024/02/12/usando-homepage/">&lt;p&gt;Despúes de escuchar el &lt;a href=&quot;https://ugeek.github.io/post/2021-05-24-homer-mi-dashboard-favorito.html&quot;&gt;podcast&lt;/a&gt; de &lt;strong&gt;uGeek&lt;/strong&gt; donde hablaba de los &lt;strong&gt;dashboard&lt;/strong&gt; y en especial del que el usaba, &lt;strong&gt;Homer&lt;/strong&gt;, me decidi a probarlo a ver que tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Asi que me decidi a instalar y probar &lt;strong&gt;Homer&lt;/strong&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-03-07T20:30:18+01:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo hacez, hazlo bien</title><subtitle>Hay 10 tipos de personas en este mundo. Las que saben binario y las que no.</subtitle><author><name>Vctrsnts ( fork andrew-park )</name></author><entry><title type="html">Cambiando a UnRAID</title><link href="https://vctrsnts.github.io/2024/03/07/cambiando-unraid/" rel="alternate" type="text/html" title="Cambiando a UnRAID" /><published>2024-03-07T00:00:00+01:00</published><updated>2024-03-07T00:00:00+01:00</updated><id>https://vctrsnts.github.io/2024/03/07/cambiando-unraid</id><content type="html" xml:base="https://vctrsnts.github.io/2024/03/07/cambiando-unraid/">&lt;p&gt;Este mes de marzo ha traido un cambio inesperado en mi servidor.&lt;/p&gt;
+
+&lt;p&gt;Lo primero de todo, vi una oferta de un Lenovo m910x (el que dispone de una ranura para puerto PCI) en Wallapop que venia completo (tarjeta grafica, SSD, RAM, transformador de 135w), o sea, una perita en dulce. Asi que me lance de cabeza a el. Y junto con los 2 HDD que ya tenia en funcionamiento ( 18Tb y otro de 12Tb ) en mi &lt;a href=&quot;/2023/08/01/de-nuevo-cambiando-servidor/&quot;&gt;antiguo servidor&lt;/a&gt; más otro que estaba en stand-by de 16Tb, y aprovechando el &lt;a href=&quot;https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x&quot;&gt;mod&lt;/a&gt; que se le puede hacer a los Tiny (sobre todo a los m910x), pense en aprovechar los 3 HDD y tener un &lt;strong&gt;peazo&lt;/strong&gt; servidor que no se lo saltase un galgo.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;La unica duda que tenia, era como sacarle partido a todo el hard que tengo a mi disposición?&lt;/p&gt;
+
+&lt;p&gt;Pero antes de pensar en sacarle provecho al hard, tenia que hacer una operación quirurgica al nuevo servidor, para aprovechar las ventajas del m910x. Y esta modificación, consiste en:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Soldar 3 cables a la placa base, para sacar la alimentación para los HDD.
+    &lt;ul&gt;
+      &lt;li&gt;Los puntos que tienes que soldar, los puedes encontrar en esta &lt;a href=&quot;https://media.printables.com/media/prints/571792/images/4573825_5c9533df-9369-43f3-adfb-a8e3ec3e6bcc/thumbs/inside/1280x960/jpeg/noard-pinout-voltages.webp&quot;&gt;image&lt;/a&gt; del mod donde indica donde se tienen que hacer las soldaduras. El problema es si no tienes mucha experiencia o ninguna, entonces la cosa se complica. Yo he tenido de recordar los 5 años que me pase soldando cuando estaba haciendo el FP. de electronica industrial, asi que…&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Encontrar todo el material necesario para poder conectar los cables SATA a la PCI del Tiny. En la web de &lt;strong&gt;homelabs.club&lt;/strong&gt; los encontraras.&lt;/li&gt;
+  &lt;li&gt;En mi caso, he ampliado la RAM del Tiny a 32Gb&lt;/li&gt;
+  &lt;li&gt;En mi caso, he cambiado la CPU que venia por defecto, &lt;strong&gt;Intel i5 - 6500T&lt;/strong&gt; por una un poco mejor &lt;strong&gt;Intel i5 - 6600T&lt;/strong&gt;.
+    &lt;ul&gt;
+      &lt;li&gt;Tengo en el almacen una &lt;strong&gt;Intel i5 - 7500T&lt;/strong&gt;, pero no se si seria mucho hablando en terminos de corriente.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Una vez realizada la parte más dificil, ahora solamente toca decidir que &lt;strong&gt;Sistema Operativo&lt;/strong&gt; ponerle. En principio queria volver a poner &lt;strong&gt;GNU/Debian&lt;/strong&gt; tal como tenia antes en mi anterior servidor. Pero en el canal de telegram de &lt;strong&gt;HomeLabs.club&lt;/strong&gt; todo el mundo comentaba las bondades de &lt;a href=&quot;https://unraid.net&quot;&gt;UnRAID&lt;/a&gt; y me decidi a probarlo a ver que tal era y si era tan bueno como decian.&lt;/p&gt;
+
+&lt;p&gt;Antes de nada, tenia que conseguir una licencia. Lo bueno que tiene &lt;strong&gt;UnRAID&lt;/strong&gt;, es que tiene una licencia de prueba de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;30 dias&lt;/code&gt;. El &lt;strong&gt;Sistema Operativo&lt;/strong&gt; tiene muy bien. Todo esta bien cuidado y bien ordenado, aunque al principio cuesta encontrar las cosas, pero eso es como todo.&lt;/p&gt;
+
+&lt;p&gt;Pero por mi experiencia, antes de nada y para que no te lleves ningun susto o te encuentres perdido, te recomiendo que le des un vistado a los siguientes videos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=00zfs3U21GY&quot;&gt;Guía de Primeros Pasos en UnRAID (parte1)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=Aq6ssRuMQVo&quot;&gt;Guía de Primeros Pasos en UnRAID (parte2)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=B5jpsmV1Mjg&quot;&gt;Guía de Primeros Pasos en UnRAID (parte3)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=GRjWusI3fj8&quot;&gt;Guía de Primeros Pasos en UnRAID (parte4)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Estos videos van muy bien, porque te pone en situación y te ayudan en la primera instalación y configuración del sistema. Es muy sencillo, pero como siempre pasa, el principio cuesta todo.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Nota:&lt;/strong&gt; Cuando llegues a la sección de configuración del Array o vayas a instalar los HDD (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PreClear&lt;/code&gt;) al sistema, y si antes ya has visto los videos, no es todo tan bonito como parece, piensa antes lo que vas a hacer, porque yo me lance al huerto con el &lt;strong&gt;PreClear&lt;/strong&gt; de un HDD de 18Tb y tarde &lt;strong&gt;90 horas&lt;/strong&gt;, se dice pronto, en tenerlo disponible para añadirlo al sistema. Pero bueno, me sirvio como aprendizaje para saber lo que es aconsejable y lo que no.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Otra cosa que tambien me aconsejaron, fue que me apuntara al canal de &lt;strong&gt;Discord de UnRAID_ES&lt;/strong&gt;, porque ya pedir ayuda, consejo, etc… siempre estan disponibles. Son mis angeles de la guardia.&lt;/p&gt;
+
+&lt;p&gt;Con todo esto, ya podia a empezar a hacer las pruebas con el sistema, probando configuraciones, plugins, dockers, etc… Y es hay, cuando en el canal de Discord, salta la noticia de que las licencias que hay en ese momento disponibles en &lt;strong&gt;UnRAID&lt;/strong&gt; van a cambiar a subscripciónes anuales. Todo el mundo, en el canal de &lt;strong&gt;Discord&lt;/strong&gt; se volvio loco,  y recomendaron, que lo mejor, era comprar ya, una licencia tal como estan ahora (de por vida) para asi, al menos quedar cubierto para lo que pueda suceder en un futuro, y viendo que el sistema me empezaba a interesar y que tenia posibilidades, pues me decidi a comprar una licencia &lt;strong&gt;basica&lt;/strong&gt;. Eso si, lo que recomiendan, es que vayas directamente a la licencia &lt;strong&gt;PRO&lt;/strong&gt; porque con eso te &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aseguras&lt;/code&gt; de que no tengas problemas en un futuro, a parte de que puedes conectar dispositivos (entendemos como HDD) ilimitados.&lt;/p&gt;
+
+&lt;p&gt;Hay que puntualizar una cosa con referencia a lo de dispositivos &lt;strong&gt;ilimitados&lt;/strong&gt; que salio en el mismo podcast donde se hablo de las licencias. 
+El tema es que los famosos ilimitados queda muy bonito, pero que ahora mismo, &lt;strong&gt;UnRAID&lt;/strong&gt; solo soporta 24 dispositivos, si son muchos, pero no es ilimitado. En mi caso, yo con 3 HDD, para que os hagais una idea, tengo unos 50Tb disponibles. Más que suficiente para mi servidor.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Tambien, hay que tener en cuenta, esto es una opinion mia y personal, es que puedes tener la &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;más mejor&lt;/code&gt; de las licencias, que si la empresa que hay detras de UnRAID dice que anula todas las licencias anteriores, no servira de nada decir que tenias una &lt;strong&gt;PRO&lt;/strong&gt; y que &lt;strong&gt;era para toda la vida&lt;/strong&gt;, a parte de que cuestan una pasta.&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Nota:&lt;/strong&gt; Mucha gente opina, que si la empresa que hay detras de &lt;strong&gt;UnRAID&lt;/strong&gt; hiciera eso, la comunidad entera se les echaria encima y abandonarian el barco en masa, con las consecuencias que eso podria tener para la empresa.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Después de haber resuelto el tema de la licencia me puse a instalar todo lo que tenia en el anterior servidor, que es lo siguiente:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Jellyfin&lt;/li&gt;
+  &lt;li&gt;Flexget&lt;/li&gt;
+  &lt;li&gt;Transmission&lt;/li&gt;
+  &lt;li&gt;aMule&lt;/li&gt;
+  &lt;li&gt;Gotify
+    &lt;ul&gt;
+      &lt;li&gt;Tengo que hacer un articulo sobre esto.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Caddy&lt;/li&gt;
+  &lt;li&gt;DuckDns&lt;/li&gt;
+  &lt;li&gt;Jackett&lt;/li&gt;
+  &lt;li&gt;Scruttiny
+    &lt;ul&gt;
+      &lt;li&gt;Tengo que hacer un articulo sobre esto.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Wireguard
+    &lt;ul&gt;
+      &lt;li&gt;No hace falta instalar nada, porque ya va instalado en el propio UnRAID&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Navidrome&lt;/li&gt;
+  &lt;li&gt;Glances&lt;/li&gt;
+  &lt;li&gt;HomePage&lt;/li&gt;
+  &lt;li&gt;PiHole&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Aun me faltan algunas cosas para estar al 100%, pero hay andamos. Y aqui estamos.&lt;/p&gt;
+
+&lt;p&gt;Si nos ponemos a hablar de las pegas que, en mi caso, le encuentro, serian las siguientes:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Consume muchos recursos, a mi modo de ver, y si encima vienes de una GNU/Debian con 16Gb, pues.
+    &lt;ul&gt;
+      &lt;li&gt;Esto viene porque segun para que cosas, sobre todo copiar archivos, y eso que no tengo el HDD de paridad (que daria para hablar otro articulo), lo veo como un proceso que requiere mucha CPU, y esto lo digo con conocimiento de causa, porque antes tenia los HDD conectados a traves de USB y no notaba tanto consumo de CPU como ahora, que estan conectados a traves de SATA.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Al consumir tantos recursos, hace, en mi caso, que la CPU se caliente más de lo que me gustaria, llega hasta unos agradables 65º. Una temperatura que no es de mi agrado.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Como veis, son unicamente 2, pero seguramente, si es que me lee alguien, dira que soy un exagerado y que a ellos, eso no les pasa. Pero claro, por lo que he visto en el canal de &lt;strong&gt;Discord&lt;/strong&gt; mi servidor parece de pobre, porque por lo que he podido intuir, parece que ser que tienen servidores industriales ;)&lt;/p&gt;
+
+&lt;p&gt;Y hasta aqui hemos llegado, ya seguire explicando como va mi experiencia y sensaciones con UnRAID.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Nota:&lt;/strong&gt; Si llegase el momento de que &lt;strong&gt;UnRAID&lt;/strong&gt; cambiase su politica de licencias, que opción escogerias tu.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;referencia&quot;&gt;Referencia&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x&quot;&gt;Cambios y modificaciones compatibles con los tiny’s M910Q/M710Q/M910X&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://unraid.net&quot;&gt;UnRAID&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLVJ0-m0_zw1iM5w6oDHrEwMW87JnC_2pR&quot;&gt;Tutoriales UnRAID_ES&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Victor</name></author><category term="UnRAID" /><category term="Linux" /><summary type="html">Este mes de marzo ha traido un cambio inesperado en mi servidor.</summary></entry><entry><title type="html">Usando HomePage. El Dashboard</title><link href="https://vctrsnts.github.io/2024/02/12/usando-homepage/" rel="alternate" type="text/html" title="Usando HomePage. El Dashboard" /><published>2024-02-12T00:00:00+01:00</published><updated>2024-02-12T00:00:00+01:00</updated><id>https://vctrsnts.github.io/2024/02/12/usando-homepage</id><content type="html" xml:base="https://vctrsnts.github.io/2024/02/12/usando-homepage/">&lt;p&gt;Despúes de escuchar el &lt;a href=&quot;https://ugeek.github.io/post/2021-05-24-homer-mi-dashboard-favorito.html&quot;&gt;podcast&lt;/a&gt; de &lt;strong&gt;uGeek&lt;/strong&gt; donde hablaba de los &lt;strong&gt;dashboard&lt;/strong&gt; y en especial del que el usaba, &lt;strong&gt;Homer&lt;/strong&gt;, me decidi a probarlo a ver que tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Asi que me decidi a instalar y probar &lt;strong&gt;Homer&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;!--more--&gt;
 
@@ -2118,7 +2232,7 @@ pusimos con la instalación.&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;Nota:&lt;/strong&gt;: &lt;a href=&quot;https://www.github.com/Vctrsnts/dot_file&quot;&gt;aqui&lt;/a&gt; podreis encontrar los ficheros de configuración que estoy usando.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Nota:&lt;/strong&gt; &lt;a href=&quot;https://www.github.com/Vctrsnts/dot_file&quot;&gt;aqui&lt;/a&gt; podreis encontrar los ficheros de configuración que estoy usando.&lt;/p&gt;
 
 &lt;hr /&gt;
 
