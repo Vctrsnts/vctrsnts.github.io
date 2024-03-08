@@ -41,6 +41,6 @@ else
 	git commit -m "$TXT"
 
 	# I finalitzem pujant els arxius
-	git push origin master
+	git push origin HEAD:master
 
 fi
