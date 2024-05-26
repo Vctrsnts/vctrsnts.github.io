@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.9
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  
+  <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5"> <!-- Theme Mode--> <script> const darkBtn = "Dark"; const lightBtn = "Light"; const isAutoTheme = false; const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; if (isAutoTheme) { document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme') ?? preferredTheme); } else { document.documentElement.setAttribute('data-theme', "dark"); } </script> <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)--> <script defer src="/assets/js/main.min.js"></script> <!-- CSS --> <link rel="stylesheet" href="/assets/css/main.css"> <!--Favicon--> <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon"> <!-- KaTeX 0.16.9 --> <script defer src="/assets/js/vendor/katex.min.js"></script> <script defer src="/assets/js/vendor/katex.auto-render.min.js" onload="renderMathInElement(document.body);"></script> <!-- Mermaid 10.8.0 --> <script defer src="/assets/js/vendor/mermaid.min.js"></script> <!-- Simple Jekyll Search 1.10.0 --> <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script> <!-- Google Analytics / Cookie Consent --> <script> const cookieName = 'cookie-notice-dismissed-https://vctrsnts.github.io'; const isCookieConsent = 'false'; const analyticsName = ''; const analyticsNameGA4 = ''; </script> <!-- seo tags --> <meta property="og:image" content="https://vctrsnts.github.io/assets/img/header/logo.png"> <meta property="og:type" content="website" /> <!-- Begin Jekyll SEO tag v2.8.0 --> <title>Raspberry Pi. Iniciar desde un HDD externo | Si lo haces, hazlo bien!</title> <meta name="generator" content="Jekyll v4.3.3" /> <meta property="og:title" content="Raspberry Pi. Iniciar desde un HDD externo" /> <meta name="author" content="VSANTOS" /> <meta property="og:locale" content="es_ES" /> <meta name="description" content="Después de haber configurado la red, ahora pasare a explicar como extraer la información de la raiz / de la SD para pasarla a un HDD externo y así alargar la vida de nuestra SD." /> <meta property="og:description" content="Después de haber configurado la red, ahora pasare a explicar como extraer la información de la raiz / de la SD para pasarla a un HDD externo y así alargar la vida de nuestra SD." /> <link rel="canonical" href="https://vctrsnts.github.io/hardware/raspberry%20pi/2016/04/03/rpi-iniciar-hd-externo.html" /> <meta property="og:url" content="https://vctrsnts.github.io/hardware/raspberry%20pi/2016/04/03/rpi-iniciar-hd-externo.html" /> <meta property="og:site_name" content="Si lo haces, hazlo bien!" /> <meta property="og:type" content="article" /> <meta property="article:published_time" content="2016-04-03T00:00:00+00:00" /> <meta name="twitter:card" content="summary" /> <meta property="twitter:title" content="Raspberry Pi. Iniciar desde un HDD externo" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"VSANTOS","url":"https://github.com/vctrsnts"},"dateModified":"2016-04-03T00:00:00+00:00","datePublished":"2016-04-03T00:00:00+00:00","description":"Después de haber configurado la red, ahora pasare a explicar como extraer la información de la raiz / de la SD para pasarla a un HDD externo y así alargar la vida de nuestra SD.","headline":"Raspberry Pi. Iniciar desde un HDD externo","mainEntityOfPage":{"@type":"WebPage","@id":"https://vctrsnts.github.io/hardware/raspberry%20pi/2016/04/03/rpi-iniciar-hd-externo.html"},"url":"https://vctrsnts.github.io/hardware/raspberry%20pi/2016/04/03/rpi-iniciar-hd-externo.html"}</script> <!-- End Jekyll SEO tag --> <!-- RSS --> <link rel="alternate" type="application/atom+xml" title="Si lo haces, hazlo bien!" href="https://vctrsnts.github.io/feed.xml"/> <link type="application/atom+xml" rel="alternate" href="https://vctrsnts.github.io/feed.xml" title="Si lo haces, hazlo bien!" /> <!-- Twitter Cards --> <meta name="twitter:title" content="Raspberry Pi. Iniciar desde un HDD externo"> <meta name="twitter:description" content="Después de haber configurado la red, ahora pasare a explicar como extraer la información de la raiz / de la SD para pasarla a un HDD externo y así alargar la..."> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://vctrsnts.github.io/assets/img/header/triangular.jpeg"> <meta name="twitter:image:alt" content="Raspberry Pi. Iniciar desde un HDD externo"> </head>
+  <body>
+    
+    <header class="site-header"> <!-- Logo and title --> <div class="branding"> <a href="/"> <img alt="logo img" class="avatar" src="/assets/img/logo.png" loading="lazy"/> </a> <a class="site-title" aria-label="Si lo haces, hazlo bien!" href="/"> Si lo haces, hazlo bien! </a> </div> <!-- Toggle menu --> <nav class="clear"> <a aria-label="pull" id="pull" class="toggle" href="#"> <i class="fas fa-bars fa-lg"></i> </a> <!-- Menu --> <ul class="hide"> <li class="separator"> | </li> <li> <a class="clear" aria-label="About" title="About" href="/about/"> <span class="navbar-label ">About</span> </a> </li> <li class="separator"> | </li> <li> <a class="clear" aria-label="Archivo" title="Archivo" href="/archive"> <span class="navbar-label ">Archivo</span> </a> </li> <li class="separator"> | </li> <li> <a class="clear" aria-label="Tags" title="Tags" href="/tags/"> <i class="navbar-icon fas fa-tags" aria-hidden="true"></i> <span class="navbar-label navbar-label-with-icon">Tags</span> </a> </li> <li class="separator"> | </li> <li> <a class="clear" aria-label="Search" title="Search" href="/search/"> <i class="navbar-icon fas fa-search" aria-hidden="true"></i> <span class="navbar-label navbar-label-with-icon">Search</span> </a> </li> </ul> </nav> </header>
+    <div class="content">
+      <article >
+    <header id="main" style="">
+        <div class="title-padder">
+            
+                <h1 id="Raspberry+Pi.+Iniciar+desde+un+HDD+externo" class="title">Raspberry Pi. Iniciar desde un HDD externo</h1>
+                
+
+
+<div class="post-info"><a href="https://github.com/vctrsnts" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="https://avatars2.githubusercontent.com/u/816965?s=460&v=4" loading="lazy">
+    
+    <p class="meta">
+      VSANTOS - 
+      
+      Abril 3, 2016
+    </p></a></div>
+
+            
+        </div>
+    </header>
+
+    <section class="post-content">
+    
+            <p>Después de haber configurado la red, ahora pasare a explicar como extraer la información de la raiz <code class="language-plaintext highlighter-rouge">/</code> de la SD para pasarla a un HDD externo y así alargar la vida de nuestra <em>SD</em>.</p>
+
+<!-- more -->
+
+<p>Haciendo este cambio, solamente se usara la SD en el momento del inicio, luego todo funcionara desde el HDD externo. El proceso es un poco largo, pero a la larga beneficiosa.</p>
+
+<p>Lo primero que tenemos que hacer, es realizar una imagen de nuestra SD, tal como se encuentra ahora. Yo el proceso lo explicare bajo la premisa de que estas con Linux.</p>
+
+<p>Antes de nada, tienes que saber en que dispositivo esta nuestra SD cuando lo insertamos en nuestro PC, para eso, haciendo un mount, se puede ver facilmente. En mi caso es el siguiente:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">   root@raspberry:~#</span><span class="w"> </span>mount
+<span class="go">   /dev/mmcblk0p1     /boot
+   /dev/mmcblk0p2     /
+</span></code></pre></div></div>
+
+<p>Lo que a nosotros nos interesa es copiar la segunda particion de la siguiente manera:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">  root@raspberry:~#</span><span class="w"> </span><span class="nb">dd </span><span class="k">if</span><span class="o">=</span>/dev/mmcblk0p2 <span class="nv">of</span><span class="o">=</span>/home/usuario/backup.img
+</code></pre></div></div>
+
+<p>Después lo que yo hice, fue crear las particiones necesarias en el HDD externo.</p>
+
+<p>Mi particionado, quedo de la siguiente manera (recordar que ahora mismo se estan realizando estas acciones desde el nuestro PC, no desde la Raspberry, por eso pongo <code class="language-plaintext highlighter-rouge">sdb</code>):</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">   filesystem      mount point
+   ----------      -----------   
+   /dev/sdb1       /
+   /dev/sdb2       /home
+</span><span class="gp">   #</span><span class="w"> </span>para amule-daemon
+<span class="go">   /dev/sdb5       /media/Incoming
+   /dev/sdb6       /media/Temporal
+</span><span class="gp">   #</span><span class="w"> </span>para transmission-daemon
+<span class="go">   /dev/sdb7       /media/Torrents
+</span></code></pre></div></div>
+
+<p>Una vez, tenemos creadas las particiones en nuestro HDD externo, pasamos a copiar la imagen que hemos realizado anteriormente a la raiz de HDD de la siguiente manera:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">   root@raspberry:~#</span><span class="w"> </span><span class="nb">dd </span><span class="k">if</span><span class="o">=</span>/home/usuario/backup.img <span class="nv">of</span><span class="o">=</span>/dev/sdb1
+</code></pre></div></div>
+
+<p>Ahora viene lo importante, que es modificar un fichero de la partición <code class="language-plaintext highlighter-rouge">/boot</code> de la SD para que cuando pongamos el HDD externo conectado a la Raspberry funcione correctamente. Recordar que cuando se 
+haga esa conexión, pasara de ser <code class="language-plaintext highlighter-rouge">/dev/sdb</code> a <code class="language-plaintext highlighter-rouge">/dev/sda</code>.</p>
+
+<p>El fichero a modificar es el siguiente (previamente hemos hecho un mount de la particion <code class="language-plaintext highlighter-rouge">/boot</code>):</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">   root@raspberry:~#</span><span class="w"> </span>vi cmdline.txt
+</code></pre></div></div>
+
+<p>Y modificamos lo siguiente <code class="language-plaintext highlighter-rouge">root=/dev/mmcblk0p2</code> por <code class="language-plaintext highlighter-rouge">root=/dev/sda1</code></p>
+
+<p>Otra cosa a tener en cuenta, es que si queremos que por defecto, se monten el resto de particiones que hemos creado, se tienen que incluir en el fichero <code class="language-plaintext highlighter-rouge">/etc/fstab</code> de la Raspberry. Yo lo he hecho de
+ la siguiente manera:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">   root@raspberry:~#</span><span class="w"> </span>vi /etc/fstab
+</code></pre></div></div>
+
+<p>Visualizaremos lo siguiente:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">   filesystem      mount point     type    option                  dump    pass
+   ----------      -----------     ----    ------                  ----    ----
+   proc            /proc           proc    defaults                0       0
+   /dev/mmcblkp1   /boot           vfat    defaults                0       2
+   /dev/mmcblkp2   /               ext4    defaults,noatime        0       1
+</span></code></pre></div></div>
+
+<p>Y en mi caso, lo deje de la siguiente manera:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">   filesystem      mount point     type    option                  dump    pass
+   ----------      -----------     ----    ------                  ----    ----   
+   proc            /proc           proc    defaults                0       0
+   /dev/mmcblk0p1  /boot           vfat    defaults                0       2
+   /dev/sda1       /               ext4    defaults,noatime        0       1
+   /dev/sda2       /home           ext4    defaults                0       0
+   /dev/sda5       /media/Incoming ext4    defaults,noatime        0       0
+   /dev/sda6       /media/Temporal ext4    defaults,noatime        0       0
+   /dev/sda7       /media/Torrents ext4    defaults,noatime        0       0
+</span></code></pre></div></div>
+
+<p>Ahora solamente nos quedaria poner la SD en nuestra Raspberry, conectar el HD externo y todo tendria que funcionar correctamente.</p>
+
+    
+    </section>
+
+    <!-- Social media shares -->
+     
+
+
+    <!-- Tag list -->
+    
+    
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags#Hardware">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Hardware</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags#Raspberry+Pi">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Raspberry Pi</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+
+
+
+<!-- To change color of links in the page --> <style> header#main { background-size: cover; background-repeat: no-repeat; background-position: center; } </style> <!-- Post navigation --> <div id="post-nav"> <div id="previous-post"> <a alt="Raspberry Pi. Acceso a traves de ssh" href="/raspberry%20pi/ssh/2016/04/04/rpi-acceso-traves-ssh.html"> <p>Previous post</p> Raspberry Pi. Acceso a traves de ssh </a> </div> <div id="next-post"> <a alt="Raspberry Pi. Configurar la red" href="/ethernet/raspberry%20pi/2016/04/03/rpi-configurar-red.html"> <p>Next post</p> Raspberry Pi. Configurar la red </a> </div> </div> <!--Utterances--> <!-- Cusdis --> <!-- Disqus -->
+
+
+    </div>
+    
+    <footer class="site-footer"> <ul> <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" title="This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"><i class="fab fa-creative-commons fa-stack fa-lg"></i></span><span class="fa-stack fa-lg"><i class="fab fa-creative-commons-by fa-stack fa-lg"></i></span><span class="fa-stack fa-lg"><i class="fab fa-creative-commons-nc-eu fa-stack fa-lg"></i></span> </a> </ul> <p class="text"> Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a> </p> <div class="footer-icons"> <ul> <!-- Social icons from Font Awesome, if enabled --> <li> <a feed.xml href="/feed.xml" title="Follow RSS feed" target="_blank"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fas fa-rss fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://github.com/vctrsnts" title="Follow on Github" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-github fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://mastodon.online/@vsantos" title="Follow on Mastodon" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://vctrsnts.tumblr.com/" title="Follow on Tumblr" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-tumblr fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://vsantos.wordpress.com/" title="Follow on Wordpress" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-wordpress fa-stack-1x fa-inverse"></i> </span> </a> </li> </ul> </div> <script type="module"> mermaid.initialize({ startOnLoad: false, theme: "default" }); mermaid.run({ nodes: [...document.querySelectorAll('.language-mermaid'), ...document.querySelectorAll('.mermaid')] }); </script> </footer>
+  </body>
+</html>

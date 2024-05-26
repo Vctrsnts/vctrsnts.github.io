@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.9
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  
+  <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5"> <!-- Theme Mode--> <script> const darkBtn = "Dark"; const lightBtn = "Light"; const isAutoTheme = false; const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; if (isAutoTheme) { document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme') ?? preferredTheme); } else { document.documentElement.setAttribute('data-theme', "dark"); } </script> <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)--> <script defer src="/assets/js/main.min.js"></script> <!-- CSS --> <link rel="stylesheet" href="/assets/css/main.css"> <!--Favicon--> <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon"> <!-- KaTeX 0.16.9 --> <script defer src="/assets/js/vendor/katex.min.js"></script> <script defer src="/assets/js/vendor/katex.auto-render.min.js" onload="renderMathInElement(document.body);"></script> <!-- Mermaid 10.8.0 --> <script defer src="/assets/js/vendor/mermaid.min.js"></script> <!-- Simple Jekyll Search 1.10.0 --> <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script> <!-- Google Analytics / Cookie Consent --> <script> const cookieName = 'cookie-notice-dismissed-https://vctrsnts.github.io'; const isCookieConsent = 'false'; const analyticsName = ''; const analyticsNameGA4 = ''; </script> <!-- seo tags --> <meta property="og:image" content="https://vctrsnts.github.io/assets/img/header/logo.png"> <meta property="og:type" content="website" /> <!-- Begin Jekyll SEO tag v2.8.0 --> <title>Mi nuevo mediacenter - Thinkcenter m710q | Si lo haces, hazlo bien!</title> <meta name="generator" content="Jekyll v4.3.3" /> <meta property="og:title" content="Mi nuevo mediacenter - Thinkcenter m710q" /> <meta name="author" content="VSANTOS" /> <meta property="og:locale" content="es_ES" /> <meta name="description" content="Como ya mencione en al articulo que hablaba sobre el cambio de servidor Mi nuevo servidor, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar." /> <meta property="og:description" content="Como ya mencione en al articulo que hablaba sobre el cambio de servidor Mi nuevo servidor, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar." /> <link rel="canonical" href="https://vctrsnts.github.io/hardware/raspberry%20pi/thinkcenter/2022/11/08/cambiando-mediacenter.html" /> <meta property="og:url" content="https://vctrsnts.github.io/hardware/raspberry%20pi/thinkcenter/2022/11/08/cambiando-mediacenter.html" /> <meta property="og:site_name" content="Si lo haces, hazlo bien!" /> <meta property="og:type" content="article" /> <meta property="article:published_time" content="2022-11-08T00:00:00+00:00" /> <meta name="twitter:card" content="summary" /> <meta property="twitter:title" content="Mi nuevo mediacenter - Thinkcenter m710q" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"VSANTOS","url":"https://github.com/vctrsnts"},"dateModified":"2022-11-08T00:00:00+00:00","datePublished":"2022-11-08T00:00:00+00:00","description":"Como ya mencione en al articulo que hablaba sobre el cambio de servidor Mi nuevo servidor, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar.","headline":"Mi nuevo mediacenter - Thinkcenter m710q","mainEntityOfPage":{"@type":"WebPage","@id":"https://vctrsnts.github.io/hardware/raspberry%20pi/thinkcenter/2022/11/08/cambiando-mediacenter.html"},"url":"https://vctrsnts.github.io/hardware/raspberry%20pi/thinkcenter/2022/11/08/cambiando-mediacenter.html"}</script> <!-- End Jekyll SEO tag --> <!-- RSS --> <link rel="alternate" type="application/atom+xml" title="Si lo haces, hazlo bien!" href="https://vctrsnts.github.io/feed.xml"/> <link type="application/atom+xml" rel="alternate" href="https://vctrsnts.github.io/feed.xml" title="Si lo haces, hazlo bien!" /> <!-- Twitter Cards --> <meta name="twitter:title" content="Mi nuevo mediacenter - Thinkcenter m710q"> <meta name="twitter:description" content="Como ya mencione en al articulo que hablaba sobre el cambio de servidor Mi nuevo servidor, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar.Asi qu..."> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://vctrsnts.github.io/assets/img/header/triangular.jpeg"> <meta name="twitter:image:alt" content="Mi nuevo mediacenter - Thinkcenter m710q"> </head>
+  <body>
+    
+    <header class="site-header"> <!-- Logo and title --> <div class="branding"> <a href="/"> <img alt="logo img" class="avatar" src="/assets/img/logo.png" loading="lazy"/> </a> <a class="site-title" aria-label="Si lo haces, hazlo bien!" href="/"> Si lo haces, hazlo bien! </a> </div> <!-- Toggle menu --> <nav class="clear"> <a aria-label="pull" id="pull" class="toggle" href="#"> <i class="fas fa-bars fa-lg"></i> </a> <!-- Menu --> <ul class="hide"> <li class="separator"> | </li> <li> <a class="clear" aria-label="About" title="About" href="/about/"> <span class="navbar-label ">About</span> </a> </li> <li class="separator"> | </li> <li> <a class="clear" aria-label="Archivo" title="Archivo" href="/archive"> <span class="navbar-label ">Archivo</span> </a> </li> <li class="separator"> | </li> <li> <a class="clear" aria-label="Tags" title="Tags" href="/tags/"> <i class="navbar-icon fas fa-tags" aria-hidden="true"></i> <span class="navbar-label navbar-label-with-icon">Tags</span> </a> </li> <li class="separator"> | </li> <li> <a class="clear" aria-label="Search" title="Search" href="/search/"> <i class="navbar-icon fas fa-search" aria-hidden="true"></i> <span class="navbar-label navbar-label-with-icon">Search</span> </a> </li> </ul> </nav> </header>
+    <div class="content">
+      <article >
+    <header id="main" style="">
+        <div class="title-padder">
+            
+                <h1 id="Mi+nuevo+mediacenter+-+Thinkcenter+m710q" class="title">Mi nuevo mediacenter - Thinkcenter m710q</h1>
+                
+
+
+<div class="post-info"><a href="https://github.com/vctrsnts" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="https://avatars2.githubusercontent.com/u/816965?s=460&v=4" loading="lazy">
+    
+    <p class="meta">
+      VSANTOS - 
+      
+      Noviembre 8, 2022
+    </p></a></div>
+
+            
+        </div>
+    </header>
+
+    <section class="post-content">
+    
+            <p>Como ya mencione en al articulo que hablaba sobre el cambio de servidor <a href="/debian%20gnu/linux/docker/2022/05/26/nuevo-servidor.html">Mi nuevo servidor</a>, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar.</p>
+
+<!-- more -->
+
+<p>Asi que decidi cambiar la antigua RPI3 donde empezaba ya a tener problemas con los nuevos codecs con que venian las peliculas (HEVC 10b-AC3) y cambiarla por la RPI4 con soporte para estos nuevos 
+codecs y que no usaba por haberla sustituido por el Dell.</p>
+
+<p>Me puse manos a la obra con ello, pero ya os digo que me decepciono un monton la RPI4.</p>
+
+<p>Lo primero fue bajarme la imagen compatible de Libreelec para mi RPI4 y su posterior instalación. Todo esto conectado a un monitor que tengo en casa para estas pruebas / instalaciones.</p>
+
+<p>No tuve ningun problema la la hora de la instalación y de la configuración (Wifi, pluguins, conexión a SAMBA, etc…) todo perfecto. Luego lo conecto al TV que tengo en el salon con un conversor 
+de HDMI a micro-HDMI y no funcionaba. No se veia nada, todo en negro. Aqui es donde pienso que no he hecho bien la instalación / configuración, que no lee correctamente la resolución, o sea las 
+cosas más normales que te puedas imaginar.</p>
+
+<p>Busque información por inet, pregunte a uno de los canales de Telegram donde estoy que tratan sobre las RPI4 como mediacenter, etc… y todos me decian, que tenia que forzar la resolución a traves 
+del fichero <strong>config.txt</strong>. Todo sin obtener ningun resultado.</p>
+
+<p>Al final me canse de trastear con la RPI4, y eso que habia hecho miles de instalaciones pensado que hay es donde residia el problema. Al final ya me quedo claro, que el problema no era la 
+instalación, sino el conversor de HDMI a micro-HDMI que no funcionaba correctamente. Asi que el siguiente paso, fue comprar un cable de HDMI a micro-HDMI.</p>
+
+<p>Una vez que me llego el cable correcto, vuelta a hacer una nueva instalación conectando la RPI4 al monitor de pruebas. Todo funcionaba a las mil maravillas, la WIFI excelente, la imagen perfecta, hay 
+es donde me dije, pues ya esta todo en marcha y listo para volver a funcionar. Hay infeliz de mi!!!</p>
+
+<p>Me llevo la RPI4 al TV del comedor y la conecto y no me lo podria creer, todo funcionaba perfectamente. Pues ya esta, lo vuelvo a tener todo en perfecto estado y en marcha hasta que puse a usar
+la RPI4 con la WIFI y aqui es donde se me cayo el mundo encima.</p>
+
+<p>No me lo podia creer, la WIFI no funcionaba ni a patadas, la pelicula se quedaba congelada y no se veia nada!!! yo tirandome de los pelos porque no entendia nada, si hasta hace 5 minutos todo 
+funcionaba correctamente y ahora de golpe y porrazo no funciona nada. Volvemos a estar como en el principio.</p>
+
+<p>A partir de aqui todo fueron problemas. Pero vamos a explicar todo lo sucedido paso a paso.</p>
+
+<p>Lo primero fue copiar la imagen de Libreelec en el SSD e iniciamos la instalación / configuración de Libreelec. Todo funciona perfectamente hasta llegar a la configuración de la <code class="language-plaintext highlighter-rouge">WIFI</code> (y esto si que es para mear y no echar gota).</p>
+
+<p>Despues de buscar información como un loco, veo que hay un error (validado y reportado) en el diseño de la Raspberry que es, cuando usas la WIFI esta se <code class="language-plaintext highlighter-rouge">acopla</code> a la señal del cable HDMI y hace que se anule la señal WIFI. Para solucionar este problema se puede hacer de 3 maneras:</p>
+<ul>
+  <li><strong>Solución dificil</strong>, cambiar de canal en el que emite tu router por otro diferente para que no se acople a la señal del cable HDMI.</li>
+  <li><strong>Solución facil</strong>, desactivar la WIFI de la Raspberry y usar un conector USB-WIFI</li>
+  <li><strong>Solución ideal</strong>, esperar a que Raspberry saque un nuevo firmware que solucione este problema. Se comenta que hasta finales de año no estara disponible.</li>
+</ul>
+
+<p>En mi caso, lo que hice fue escoger la solución facil, me compre un usb-wifi y volvi de nuevo a configurar la RPI4B, esperando, por fin, poder usarla como HTC.</p>
+
+<p>Volvemos a reiniciar la configuración de la WIFI sin ningun problema, esta vez, ya tenemos la RPI4B conectada a la WIFI, pero parece ser que entre el SSD conectado a traves de USB, el mando a 
+distancia conectado a traves de USB y el USB de la WIFI, la Raspberry no podia manejar correctamente toda la <code class="language-plaintext highlighter-rouge">información</code> que recibia.</p>
+
+<p>Para que os hagais una idea, la RPI3B funcionaba mejor que la RPI4B y eso que esta ultima (siempre lo añado a todos mis Libreelec) habia creado el fichero <code class="language-plaintext highlighter-rouge">advancedsettings.xml</code> donde le añado lo 
+siguiente:</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   &lt;advancedsettings version="1.0"&gt;
+     &lt;cache&gt;
+       &lt;buffermode&gt;4&lt;/buffermode&gt;
+       &lt;memorysize&gt;0&lt;/memorysize&gt;
+     &lt;/cache&gt;
+   &lt;/advancedsettings&gt;
+</code></pre></div></div>
+
+<p>Donde:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">buffermode</code>: le indica a Kodi que tipo de buffer que se va a usar (en mi caso, selecciono el valor <code class="language-plaintext highlighter-rouge">4</code> para el tratamiento de ficheros a traves de samba, nfs).</li>
+  <li><code class="language-plaintext highlighter-rouge">memorysize</code>: le indica a Kodi que de que manera va a usar la RAM (en mi caso, selecciono el valor <code class="language-plaintext highlighter-rouge">0</code> para que de preferencia al SSD/HDD en vez de a la RAM).</li>
+</ul>
+
+<p>De esta manera se consigue que mientras se visualiza la pelicula / serie, se descargue el fichero y no tener problemas a la hora de visualización.</p>
+
+<p>Pero en mi caso, esto no pasa, para que os hagais una idea de como funciona, que habia veces (da igual que versión de mkv fuera, 264, 265) que Kodi se quedaba colgado, incluso usando un SSD.</p>
+
+<p>Al final, cansado de ver que era imposible usar la RPI4B, empeza a investigar y a preguntar en un canal de Telegram sobre usar la Raspberry como HTC y se llego a la conclusión de que era el USB que 
+se colapsaba y en cambio esto mismo (en la RPI3B) no pasa, porque como por defecto, uso la WIFI que ya lleva incorpada, pues…</p>
+
+<p>Y asi estamos, usando la RPI4B como HTC, desilusionado ante el mal funcionamiento de lo que tendria que ser la mejor Raspeberry hasta el momento.</p>
+
+<p>Por eso digo, que maldita el dia que se me ocurrio cambiar mi RPI3 (se que era un cambio necesario, la tecnologia siempre esta en constante evolución y más los codecs para ver las peliculas son los 
+que mandan) a la RPI4, y ahora la tengo tirada en casa sin usar, por culpa de este problema, aunque 😉 podria haberla vendido y sacarme una pasta, porque tal como estan las RPI4, ganaria pasta 
+seguro, pero me da pena venderla, porque nunca se sabe cuando te va hacer falta una.</p>
+
+<p>Asi que despues (de nuevo, pregunte en otro canal de Telegram) me aconsejaron que lo mejor y que para ahorrarme futuros problemas, que lo mejor es tener un PC conectado a la TV del comedor y me 
+ahorro todos los problemas derivados con los codecs y el soporte de estos, porque en un PC normal y corriente tiene más recorrido que la RPI4.</p>
+
+<p>Y fue lo que hice, volvi a mi canal favorito de Thinkpads de Telegram y pregunte si alguno le sobrava algun Tiny. Y ten por seguro que siempre hay alguien que le sobra un Tiny.</p>
+
+<p>Como todo en este mundo, es mutable y ante la posibilidad de conseguir a buen precio un <a href="https://icecat.biz/es/p/lenovo/10mr0047us/thinkcentre-pcs-workstations-m710q-36768136.html">Lenovo Thinkcenter M710q</a>,
+ asi que me lance de cabeza por el.</p>
+
+<div class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/images/lenovo-m710q.jpg" alt="lenovo-m710q.jpg" />
+    </div>
+    
+</div>
+
+<p>Y ya me veis, de tener 2 RPI (RPI4 con 4Gb como servidor y una RPI3 como mediacenter) a tener un Tiny Lenovo m710q con 8Gb y un i5-6500 como mediacenter y un Dell Optiplex 3050 con 8Gb y un i5-7500 
+como servidor.</p>
+
+<p>Por eso digo, que a veces no hay mal que por bien no venga.</p>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://libreelec.tv">Libreelec</a></li>
+  <li><a href="https://www.adslzone.net/2019/11/28/problemas-wifi-raspberry-pi-4/]">RPI4B pierde cobertura Wifi</a></li>
+  <li><a href="https://www.enricozini.org/blog/2019/himblick/raspberry-pi-4-loses-wifi-at-2560x1440-screen-resolution/">Raspberry Pi 4 WiFi stops working at 2560x1440 screen resolution</a></li>
+  <li><a href="https://kodi.wiki/view/Advancedsettings.xml">Cambiar el funcionamiento de la cache en Kodi</a></li>
+</ul>
+
+    
+    </section>
+
+    <!-- Social media shares -->
+     
+
+
+    <!-- Tag list -->
+    
+    
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags#Hardware">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Hardware</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags#Raspberry+Pi">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Raspberry Pi</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags#Thinkcenter">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Thinkcenter</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+
+
+
+<!-- To change color of links in the page --> <style> header#main { background-size: cover; background-repeat: no-repeat; background-position: center; } </style> <!-- Post navigation --> <div id="post-nav"> <div id="previous-post"> <a alt="Publicar feed en Mastodon / Twitter" href="/debian%20gnu/linux/python/2022/11/14/publicar-feed-mastodon.html"> <p>Previous post</p> Publicar feed en Mastodon / Twitter </a> </div> <div id="next-post"> <a alt="Mi nuevo servidor" href="/debian%20gnu/linux/docker/2022/05/26/nuevo-servidor.html"> <p>Next post</p> Mi nuevo servidor </a> </div> </div> <!--Utterances--> <!-- Cusdis --> <!-- Disqus -->
+
+
+    </div>
+    
+    <footer class="site-footer"> <ul> <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" title="This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"><i class="fab fa-creative-commons fa-stack fa-lg"></i></span><span class="fa-stack fa-lg"><i class="fab fa-creative-commons-by fa-stack fa-lg"></i></span><span class="fa-stack fa-lg"><i class="fab fa-creative-commons-nc-eu fa-stack fa-lg"></i></span> </a> </ul> <p class="text"> Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a> </p> <div class="footer-icons"> <ul> <!-- Social icons from Font Awesome, if enabled --> <li> <a feed.xml href="/feed.xml" title="Follow RSS feed" target="_blank"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fas fa-rss fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://github.com/vctrsnts" title="Follow on Github" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-github fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://mastodon.online/@vsantos" title="Follow on Mastodon" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://vctrsnts.tumblr.com/" title="Follow on Tumblr" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-tumblr fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://vsantos.wordpress.com/" title="Follow on Wordpress" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-wordpress fa-stack-1x fa-inverse"></i> </span> </a> </li> </ul> </div> <script type="module"> mermaid.initialize({ startOnLoad: false, theme: "default" }); mermaid.run({ nodes: [...document.querySelectorAll('.language-mermaid'), ...document.querySelectorAll('.mermaid')] }); </script> </footer>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.9
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  
+  <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5"> <!-- Theme Mode--> <script> const darkBtn = "Dark"; const lightBtn = "Light"; const isAutoTheme = false; const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; if (isAutoTheme) { document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme') ?? preferredTheme); } else { document.documentElement.setAttribute('data-theme', "dark"); } </script> <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)--> <script defer src="/assets/js/main.min.js"></script> <!-- CSS --> <link rel="stylesheet" href="/assets/css/main.css"> <!--Favicon--> <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon"> <!-- KaTeX 0.16.9 --> <script defer src="/assets/js/vendor/katex.min.js"></script> <script defer src="/assets/js/vendor/katex.auto-render.min.js" onload="renderMathInElement(document.body);"></script> <!-- Mermaid 10.8.0 --> <script defer src="/assets/js/vendor/mermaid.min.js"></script> <!-- Simple Jekyll Search 1.10.0 --> <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script> <!-- Google Analytics / Cookie Consent --> <script> const cookieName = 'cookie-notice-dismissed-https://vctrsnts.github.io'; const isCookieConsent = 'false'; const analyticsName = ''; const analyticsNameGA4 = ''; </script> <!-- seo tags --> <meta property="og:image" content="https://vctrsnts.github.io/assets/img/header/logo.png"> <meta property="og:type" content="website" /> <!-- Begin Jekyll SEO tag v2.8.0 --> <title>Raspberry Pi. Instalando Jessie-Lite | Si lo haces, hazlo bien!</title> <meta name="generator" content="Jekyll v4.3.3" /> <meta property="og:title" content="Raspberry Pi. Instalando Jessie-Lite" /> <meta name="author" content="VSANTOS" /> <meta property="og:locale" content="es_ES" /> <meta name="description" content="Como dije en el anterior capitulo, despues de recibir mi nuevo juguete:" /> <meta property="og:description" content="Como dije en el anterior capitulo, despues de recibir mi nuevo juguete:" /> <link rel="canonical" href="https://vctrsnts.github.io/raspberry%20pi%20os/2016/04/02/rpi-instalando-jessie-lite.html" /> <meta property="og:url" content="https://vctrsnts.github.io/raspberry%20pi%20os/2016/04/02/rpi-instalando-jessie-lite.html" /> <meta property="og:site_name" content="Si lo haces, hazlo bien!" /> <meta property="og:type" content="article" /> <meta property="article:published_time" content="2016-04-02T00:00:00+00:00" /> <meta name="twitter:card" content="summary" /> <meta property="twitter:title" content="Raspberry Pi. Instalando Jessie-Lite" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"VSANTOS","url":"https://github.com/vctrsnts"},"dateModified":"2016-04-02T00:00:00+00:00","datePublished":"2016-04-02T00:00:00+00:00","description":"Como dije en el anterior capitulo, despues de recibir mi nuevo juguete:","headline":"Raspberry Pi. Instalando Jessie-Lite","mainEntityOfPage":{"@type":"WebPage","@id":"https://vctrsnts.github.io/raspberry%20pi%20os/2016/04/02/rpi-instalando-jessie-lite.html"},"url":"https://vctrsnts.github.io/raspberry%20pi%20os/2016/04/02/rpi-instalando-jessie-lite.html"}</script> <!-- End Jekyll SEO tag --> <!-- RSS --> <link rel="alternate" type="application/atom+xml" title="Si lo haces, hazlo bien!" href="https://vctrsnts.github.io/feed.xml"/> <link type="application/atom+xml" rel="alternate" href="https://vctrsnts.github.io/feed.xml" title="Si lo haces, hazlo bien!" /> <!-- Twitter Cards --> <meta name="twitter:title" content="Raspberry Pi. Instalando Jessie-Lite"> <meta name="twitter:description" content="Como dije en el anterior capitulo, despues de recibir mi nuevo juguete: Toshiba Canvio Connect II 1 TBDespués de ver el correcto funcionamiento de mi nuevo ..."> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://vctrsnts.github.io/assets/img/header/triangular.jpeg"> <meta name="twitter:image:alt" content="Raspberry Pi. Instalando Jessie-Lite"> </head>
+  <body>
+    
+    <header class="site-header"> <!-- Logo and title --> <div class="branding"> <a href="/"> <img alt="logo img" class="avatar" src="/assets/img/logo.png" loading="lazy"/> </a> <a class="site-title" aria-label="Si lo haces, hazlo bien!" href="/"> Si lo haces, hazlo bien! </a> </div> <!-- Toggle menu --> <nav class="clear"> <a aria-label="pull" id="pull" class="toggle" href="#"> <i class="fas fa-bars fa-lg"></i> </a> <!-- Menu --> <ul class="hide"> <li class="separator"> | </li> <li> <a class="clear" aria-label="About" title="About" href="/about/"> <span class="navbar-label ">About</span> </a> </li> <li class="separator"> | </li> <li> <a class="clear" aria-label="Archivo" title="Archivo" href="/archive"> <span class="navbar-label ">Archivo</span> </a> </li> <li class="separator"> | </li> <li> <a class="clear" aria-label="Tags" title="Tags" href="/tags/"> <i class="navbar-icon fas fa-tags" aria-hidden="true"></i> <span class="navbar-label navbar-label-with-icon">Tags</span> </a> </li> <li class="separator"> | </li> <li> <a class="clear" aria-label="Search" title="Search" href="/search/"> <i class="navbar-icon fas fa-search" aria-hidden="true"></i> <span class="navbar-label navbar-label-with-icon">Search</span> </a> </li> </ul> </nav> </header>
+    <div class="content">
+      <article >
+    <header id="main" style="">
+        <div class="title-padder">
+            
+                <h1 id="Raspberry+Pi.+Instalando+Jessie-Lite" class="title">Raspberry Pi. Instalando Jessie-Lite</h1>
+                
+
+
+<div class="post-info"><a href="https://github.com/vctrsnts" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="https://avatars2.githubusercontent.com/u/816965?s=460&v=4" loading="lazy">
+    
+    <p class="meta">
+      VSANTOS - 
+      
+      Abril 2, 2016
+    </p></a></div>
+
+            
+        </div>
+    </header>
+
+    <section class="post-content">
+    
+            <p>Como dije en el anterior capitulo, despues de recibir mi nuevo juguete:</p>
+
+<!-- more -->
+
+<ul>
+  <li><a href="https://www.amazon.es/gp/product/B00TB7K8FA/ref=oh_aui_detailpage_o00_s00?ie=UTF8&amp;psc=1">Toshiba Canvio Connect II 1 TB</a></li>
+</ul>
+
+<p>Después de ver el correcto funcionamiento de mi nuevo HD, lo primero que hice, fue formatearlo con <strong>ext-4</strong> y crear las particiones necesarias que iba a utilizar en la Raspberry. Pero no nos 
+adelantemos a los acontecimientos.</p>
+
+<p>Para realizar una instalación limpia, lo primero que hice fue bajarme la imagen de <strong>Jessie-Lite</strong> que podeis encontrar <a href="https://www.Raspberrypi.org/downloads/raspbian">aqui</a>. Yo escogi la <code class="language-plaintext highlighter-rouge">Lite</code>. 
+En esta no viene ningun gestor de ventanas ni paquetes innecesarios para funcionar en modo servidor.</p>
+
+<p>Una vez descargada, copie la imagen a la SD (lo hice desde mi portatil en <strong>GNU/Linux</strong>, supongo que para <em>Windows</em> tiene que haber alguna aplicacion que haga lo mismo):</p>
+
+<p>Lo primero, es insertar la tarjeta SD y realizar la instrucción <code class="language-plaintext highlighter-rouge">mount</code> para descubrir que dispositivo es nuestra SD:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">   usuari@raspberry:~$</span><span class="w"> </span>mount
+</code></pre></div></div>
+
+<p>Y obtendras un listado con todos los dispositivos conectados. En mi caso, la tarjeta SD, era:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">   usuari@raspberry:~$</span><span class="w"> </span>/dev/mmcblk0
+</code></pre></div></div>
+
+<p>Después de obtener esta información, solamente nos queda copiar la imagen a la SD.</p>
+
+<blockquote>
+  <p>💡 Hay que tener una cosa en cuenta a la hora de copiar la imagen en la SD, es que toda la información que pueda haber en la SD, se perdera.</p>
+</blockquote>
+
+<p>La instrucción para realizar la copia (<strong>se tiene que hacer como root</strong>) es la siguiente:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">   root@raspberry:~#</span><span class="w"> </span><span class="nb">dd </span><span class="nv">bs</span><span class="o">=</span>4M <span class="k">if</span><span class="o">=</span>2016-03-18-raspbian-jessie-lite.img <span class="nv">of</span><span class="o">=</span>/dev/mmcblk0
+<span class="go">   462+1 records in
+   463+0 records out
+   1941962752 bytes (1.9 GB) copied, 256.996 s, 7.6 MB/s
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>💡 Como se puede ver, a la opción bs, se le asigna el valor de 4M, esta puesto así, porque si se pone la opción 1M, el volcado de la información tardaria mucho.</p>
+</blockquote>
+
+<p>Esto, lo que hara, es copiar la imagen en nuestra SD, tener en cuenta, que en mi caso, estaba en el mismo directorio donde tenia la imagen, en caso contrario, tengo que poner todo el path de donde se 
+encuentra la imagen.</p>
+
+<p>Una vez se ha realizado la copia, solamente nos queda insertar la SD en nuestro RPI y a jugar…</p>
+
+<p>Ahora solamente nos quedara realizar la configuración inicial y algunos cambios (que he realizado yo) que lo explicare en el siguiente capitulo.</p>
+
+<p>Hasta otra…</p>
+
+<blockquote>
+  <p>💡 Si quereis obtener más información, podeis mirar este <a href="http://elinux.org/RPi_Easy_SD_Card_Setup">link</a> donde se explica más detalladamente el proceso tanto para Linux, Windows y Mac</p>
+</blockquote>
+
+    
+    </section>
+
+    <!-- Social media shares -->
+     
+
+
+    <!-- Tag list -->
+    
+    
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tag</li>
+      
+
+      
+        <li><a class="button" href="/tags#Raspberry+Pi+OS">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Raspberry Pi OS</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+
+
+
+<!-- To change color of links in the page --> <style> header#main { background-size: cover; background-repeat: no-repeat; background-position: center; } </style> <!-- Post navigation --> <div id="post-nav"> <div id="previous-post"> <a alt="Raspberry Pi. Configurar la red" href="/ethernet/raspberry%20pi/2016/04/03/rpi-configurar-red.html"> <p>Previous post</p> Raspberry Pi. Configurar la red </a> </div> <div id="next-post"> <a alt="Raspberry Pi. Funcionamiento de la RPI" href="/raspberry%20pi%20os/2016/04/02/rpi-funcionamiento-raspberry.html"> <p>Next post</p> Raspberry Pi. Funcionamiento de la RPI </a> </div> </div> <!--Utterances--> <!-- Cusdis --> <!-- Disqus -->
+
+
+    </div>
+    
+    <footer class="site-footer"> <ul> <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" title="This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"><i class="fab fa-creative-commons fa-stack fa-lg"></i></span><span class="fa-stack fa-lg"><i class="fab fa-creative-commons-by fa-stack fa-lg"></i></span><span class="fa-stack fa-lg"><i class="fab fa-creative-commons-nc-eu fa-stack fa-lg"></i></span> </a> </ul> <p class="text"> Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a> </p> <div class="footer-icons"> <ul> <!-- Social icons from Font Awesome, if enabled --> <li> <a feed.xml href="/feed.xml" title="Follow RSS feed" target="_blank"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fas fa-rss fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://github.com/vctrsnts" title="Follow on Github" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-github fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://mastodon.online/@vsantos" title="Follow on Mastodon" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://vctrsnts.tumblr.com/" title="Follow on Tumblr" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-tumblr fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://vsantos.wordpress.com/" title="Follow on Wordpress" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-wordpress fa-stack-1x fa-inverse"></i> </span> </a> </li> </ul> </div> <script type="module"> mermaid.initialize({ startOnLoad: false, theme: "default" }); mermaid.run({ nodes: [...document.querySelectorAll('.language-mermaid'), ...document.querySelectorAll('.mermaid')] }); </script> </footer>
+  </body>
+</html>
