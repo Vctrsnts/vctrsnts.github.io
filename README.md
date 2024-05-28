@@ -1,3 +1,2 @@
-# vctrsnts.github.io
-
-Mi pequeño blog personal 
+# codi-blog
+Codi font del blog que tinc (https://vctrsnts.github.io)
