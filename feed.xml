@@ -1,4 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-05-30T20:52:55+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle>Si lo haces, hazlo bien!</subtitle><entry><title type="html">Cambios en el blog</title><link href="https://vctrsnts.github.io/blog/2024/05/24/cambios-blog.html" rel="alternate" type="text/html" title="Cambios en el blog" /><published>2024-05-24T00:00:00+00:00</published><updated>2024-05-24T00:00:00+00:00</updated><id>https://vctrsnts.github.io/blog/2024/05/24/cambios-blog</id><content type="html" xml:base="https://vctrsnts.github.io/blog/2024/05/24/cambios-blog.html"><![CDATA[<p>Se que llevo un par de semanas sin escribir ningun articulo, pero he estado un poco liado dandole un poco chapa y pintura a este blog que se traduce en lo que estais viendo ahora.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-05-30T21:26:57+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle>Si lo haces, hazlo bien!</subtitle><entry><title type="html">Cambios en el blog - 2</title><link href="https://vctrsnts.github.io/blog/2024/05/30/cambios-blog-2.html" rel="alternate" type="text/html" title="Cambios en el blog - 2" /><published>2024-05-30T00:00:00+00:00</published><updated>2024-05-30T00:00:00+00:00</updated><id>https://vctrsnts.github.io/blog/2024/05/30/cambios-blog-2</id><content type="html" xml:base="https://vctrsnts.github.io/blog/2024/05/30/cambios-blog-2.html"><![CDATA[<p>Como ya explique en el anterior <a href="/blog/2024/05/24/cambios-blog-1.html">articulo</a>, comentaba que habia actualizado mi <strong>Blog / Pagina Web</strong> con un nuevo tema gracias a <em>Jekyll</em> y al final hice el cambio, con unos cuantos problemas pero lo hice. Y aqui podeis ver el resultado…</p>
+
+<!-- more -->
+
+<p>Pero aun asi, habia cosas que no acababan de funcionar y eran:</p>
+<ul>
+  <li>El feed no se creaba correctamente porque las direcciones de los posts apuntaban a http://0.0.0.0:4000
+    <ul>
+      <li>Esta es la dirección por defecto del servidor de jekyll de desarrollo.</li>
+    </ul>
+  </li>
+  <li>En los articulos salia la opción de <strong>SHARE</strong> y aun desactivando las redes sociales, esta opción no desaparecia.</li>
+</ul>
+
+<p>La parte más facil fue la de hacer desaparecer la opción <strong>SHARE</strong> de los post. Hice una modificación al codigo para que a partir de una variable <em>activase</em> la opción de <strong>SHARE</strong> o no.</p>
+
+<p>La primera modificación se tenia que hacer en el archivo <code class="language-plaintext highlighter-rouge">_data/social.yml</code> donde tenemos que añadir lo siguiente:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># add this new option:</span>
+<span class="c1"># For share on general</span>
+<span class="na">share_buttons</span><span class="pi">:</span> <span class="kc">false</span>
+</code></pre></div></div>
+
+<p>Una vez realizada esta modificación, la siguiente modificación se tenia que hacer en <code class="language-plaintext highlighter-rouge">_includes/social/share_buttons.liquid</code> donde teniamos que añadir el siguiente codigo:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">{</span><span class="sx">% if </span><span class="n">site</span><span class="p">.</span><span class="nf">data</span><span class="p">.</span><span class="nf">social</span><span class="p">.</span><span class="nf">share_buttons</span> <span class="sx">%}
+...
+{% endif %}</span></code></pre></figure>
+
+<p>Y con esto se conseguia que los iconos de <strong>SHARE</strong> no se visualizaran.</p>
+
+<p>Una vez realizada esta modificación, hable con el creador del tema para plantearle esta modificación y que se lo añadiera al tema. Después de un pequeño problema de comunicación, al final nos entendimos los dos con respecto a lo que le estaba proponiendo y le pareció una buena idea y que no habia ningun problema, que o yo hacia el <strong>PULL REQUEST</strong>, o sino tenia mucha prisa el se encargaria de hacer las modificaciones oportunas.</p>
+
+<p>Le dije que mejor lo hiciera el, porque hacer los <strong>PR</strong> en codigo ajeno al mio no me hace mucha gracias, no vaya ser que la lie. Además no tenia prisa.</p>
+
+<p>Y asi quedo la cosa, con esta modificación a la espera, pero en mi caso, como ya la tenia, pues adelante. Pero pasado un dia, el desarrollador del tema, me respondiendo a mi petición, indicando que esto ya lo hacia por defecto. A mi me extraño mucho, porque yo lo habia probado y no habia pasado nada.</p>
+
+<p>El me puntualizo, que para activar esta funcionalidad, en el fichero <code class="language-plaintext highlighter-rouge">_data/social.yml</code> tenia que poner a <code class="language-plaintext highlighter-rouge">false</code> todas las redes sociales y con esto ya funcionaba lo que yo queria:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># For the share button options at the bottom of the articles</span>
+<span class="na">share</span><span class="pi">:</span>
+  <span class="na">email</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="na">facebook</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="na">linkedin</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="na">pinterest</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="na">pocket</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="na">reddit</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="na">tumblr</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="na">twitter</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="na">wordpress</span><span class="pi">:</span>
+</code></pre></div></div>
+<p>Asi que lo probe y tenia razon. Lo que el decia funcionaba perfectamente.</p>
+
+<p>Ahi fue cuando le pregunte, si ese fichero no es el que controla los iconos que aparecen en el <strong>footer</strong> de la web, y su respuesta fue, que no, ese fichero es el que controla la opción <strong>SHARE</strong>. El que controla el footer es <code class="language-plaintext highlighter-rouge">_data/icons.yml</code>. Entonces dije, <em>tierra tragame</em>.</p>
+
+<p>Eso me pasa por no revisar concienzudamente el codigo para asi entender lo que esta haciendo, porque lo más fuerte es que el codigo es muy facil de entender. Lo que hace estar fuera de este mundo durante un par de años. Que todo avanza muy rapidamente.</p>
+
+<p>Asi que deshice las modificaciones que habia hecho y todo funciono correctamente.</p>
+
+<p>Pero ahora venia el problema más grave, como solucionar el tema del <code class="language-plaintext highlighter-rouge">feed.yml</code> que no apuntaba correctamente a la dirección de los articulos cuando se subia a <strong>github.com</strong>. Me pase dias y dias intentando buscar la solución al problema. Mucha gente decia que si ponias en el fichero <code class="language-plaintext highlighter-rouge">_config.yml</code>, en la opción <em>feed</em> la opción <em>url</em> de la siguiente manera:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">feed</span><span class="pi">:</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="s">https://tudominio.github.io</span>
+</code></pre></div></div>
+<p>Funcionaba sin ningun problema. Pero no era mi caso. Y era muy frustante no conseguir hacer funciona el <em>feed</em> correctamente. Asi que si no puedes con el, hazte uno propio y fue lo que hice, construir mi propio feed, para que a la hora de generar el sitio en <strong>github</strong> se creara automaticamente. El codigo que use era el siguiente:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;</span><span class="p">?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"UTF-8"</span><span class="p">?</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">rss</span> <span class="n">version</span><span class="o">=</span><span class="s2">"2.0"</span> <span class="n">xmlns</span><span class="ss">:atom</span><span class="o">=</span><span class="s2">"http://www.w3.org/2005/Atom"</span>
+  <span class="n">xmlns</span><span class="ss">:dc</span><span class="o">=</span><span class="s2">"http://purl.org/dc/elements/1.1/"</span>
+  <span class="n">xmlns</span><span class="ss">:sy</span><span class="o">=</span><span class="s2">"http://purl.org/rss/1.0/modules/syndication/"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">channel</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">site</span><span class="p">.</span><span class="nf">name</span> <span class="o">|</span> <span class="n">xml_escape</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/title&gt;
+    &lt;description&gt;{% if site.description %}{{ site.description | xml_escape }}{% endif %}&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">sy</span><span class="ss">:updatePeriod</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">site</span><span class="p">.</span><span class="nf">feed_update_period</span> <span class="o">|</span> <span class="ss">default: </span><span class="s2">"daily"</span> <span class="o">|</span> <span class="n">xml_escape</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/sy:updatePeriod&gt;
+    &lt;sy:updateFrequency&gt;{{ site.feed_update_frequency | default: 1 | xml_escape }}&lt;/s</span><span class="n">y</span><span class="p">:</span><span class="n">updateFrequency</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">link</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">site</span><span class="p">.</span><span class="nf">url</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/link&gt;
+    &lt;atom:link href="{{ site.url }}/</span><span class="p">{{</span> <span class="n">page</span><span class="p">.</span><span class="nf">path</span> <span class="p">}}</span><span class="s2">" rel="</span><span class="nb">self</span><span class="s2">" type="</span><span class="n">application</span><span class="o">/</span><span class="n">rss</span><span class="o">+</span><span class="n">xml</span><span class="s2">" /&gt;
+    &lt;lastBuildDate&gt;{% for post in site.posts limit:1 %}{{ post.date | date_to_rfc822 }}{% endfor %}&lt;/lastBuildDate&gt;
+    {% assign feed_items = site.feed_items | default: 10 %}
+    {% for post in site.posts limit:feed_items %}
+      &lt;item&gt;
+        &lt;title&gt;{{ post.title | xml_escape }}&lt;/title&gt;
+        {% if post.author.name %}
+          &lt;dc:creator&gt;{{ post.author.name | xml_escape }}&lt;/dc:creator&gt;
+        {% endif %}
+        {% if post.excerpt %}
+          &lt;description&gt;{{ post.excerpt | xml_escape }}&lt;/description&gt;
+        {% else %}
+          &lt;description&gt;{{ post.content | xml_escape }}&lt;/description&gt;
+        {% endif %}
+        &lt;pubDate&gt;{{ post.date | date_to_rfc822 }}&lt;/pubDate&gt;
+        &lt;link&gt;{{ site.url }}{{ post.url }}&lt;/link&gt;
+        &lt;guid isPermaLink="</span><span class="kp">true</span><span class="s2">"&gt;{{ site.url }}{{ post.url }}&lt;/guid&gt;
+        &lt;/item&gt;
+    {% endfor %}
+  &lt;/channel&gt;
+&lt;/rss&gt;</span></code></pre></figure>
+
+<p>Y como cogia la información del fichero <code class="language-plaintext highlighter-rouge">_config.yml</code> para la creación de los links, pues no habia problema.</p>
+
+<p>Pero yo no queria esta chapuza, por llamarlo de alguna manera. Yo queria utilizar todo el potencial de <em>jekyll</em> y que fuera él, el que me creara el feed, porque sino, para eso, me hago yo el tema. Lo unico que me quedaba, era preguntar directamente a la <a href="https://talk.jekyllrb.com/t/jekyll-always-0-0-0-0-4000/9204">fuente</a>, donde explique el problema y como hacia para construir el sitio y después subirlo a <strong>GitHub</strong>.</p>
+
+<p>Aqui fue donde explique que usaba un archivo sh, este en <a href="/debian%20gnu/linux/docker/2023/08/01/como-funciona-esta-web.html">concreto</a> que hacia las siguientes funciones:</p>
+<ul>
+  <li>Construir el sitio añadiendo los nuevos posts, recordar que yo todo esto lo tengo en docker:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">docker exec jekyll bundle exec jekyll serve build</code></li>
+    </ul>
+  </li>
+  <li>Subir los archivos <code class="language-plaintext highlighter-rouge">html</code> a <strong>GitHub</strong>.</li>
+</ul>
+
+<p>La primera respuesta que me dieron, que tienen mucha razon, fue, porque hacia eso, si eso lo podia hacer <strong>GitHub</strong> directamente y tienen toda la razon, pero les dije, que no me hacia mucha gracias subir todo el <code class="language-plaintext highlighter-rouge">codigo fuente</code> de mi web. Que preferia, en mi caso, tener el control del codigo fuente y subir solamente el codigo html final.</p>
+
+<p>Y hay fue donde me dijeron que entonces, el problema lo tenia yo, porque no entendia bien como funcionaba <strong>jekyll</strong>, 😭 lo que siempre me pasa por no leer y comprender el funcionamiento de las cosas, y en este caso de <em>jekyll</em>. Entonces me explicaron, que la instrucción que yo estaba usando, lo que hacia era:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">serve</code> es crear, más o menos, con lo parametros del servidor de docker y mostrarme el resultado, pero sino ninguna modificación.
+    <ul>
+      <li>O sea usando por defecto la dirección del servidor <code class="language-plaintext highlighter-rouge">http://0.0.0.0:4000</code></li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">build</code> lo que hace es construir el sitio usando la configuración del fichero <code class="language-plaintext highlighter-rouge">_config.yml</code>.</li>
+</ul>
+
+<p>Y lo que yo estaba haciendo a parte de no tener sentido era <em>crear</em> y <em>construir</em> el sitio con los valors por defecto del servidor y por eso, el feed no se creaba correctamente. Que lo correcto, era usar <code class="language-plaintext highlighter-rouge">jekyll build</code>. Y asi que me fue.</p>
+
+<p>Lo que puede pasar por no entender lo que haces. Y funciono 🥲. Al usar <em>build</em> el feed y todo el resto de ficheros, <em>sitemap.yml</em>, <em>robots.txt</em>, se creaban usando los valores de <code class="language-plaintext highlighter-rouge">_config.yml</code>.</p>
+
+<p>Pues ya estaba todo. Por fin tenia todo el tema funcionando correctamente y lo mas impportante, sin necesidad de utilizar ninguna funcionalidad externa a <em>jekyll</em>, para que asi, en un futuro, espero que lejano, si quiero cambiar de nuevo de tema, no tener que volver a pelearme con el codigo para conseguir que funcione correctamente.</p>
+
+<p>Aunque esto no es del todo cierto, porque cada tema, tiene su manera particular de crear los posts, pero bueno, eso es otro tema.</p>
+
+<p>Y hasta aqui hemos llegado. Con mi sitio con un tema nuevo y a pleno rendimiento y con tiempo para decidar a otras cosas que tengo pendientes y sin tener que preocuparme por su funcionamiento. Lo unico que me queda, si, nunca se puede decir que todo esta perfecto, es, como el tema tiene esa posibilidad, la de añadir alguna imagen de cabecera de los articulos. Pero eso ya se vera.</p>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://github.com/sylhare/Type-on-Strap/discussions/442">Modificar opción SHARE</a></li>
+  <li><a href="https://talk.jekyllrb.com/t/jekyll-always-0-0-0-0-4000/9204">Jekyll always 0.0.0.0:4000</a></li>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Blog" /><category term="Blog" /><summary type="html"><![CDATA[Como ya explique en el anterior articulo, comentaba que habia actualizado mi Blog / Pagina Web con un nuevo tema gracias a Jekyll y al final hice el cambio, con unos cuantos problemas pero lo hice. Y aqui podeis ver el resultado…]]></summary></entry><entry><title type="html">Cambios en el blog - 1</title><link href="https://vctrsnts.github.io/blog/2024/05/24/cambios-blog-1.html" rel="alternate" type="text/html" title="Cambios en el blog - 1" /><published>2024-05-24T00:00:00+00:00</published><updated>2024-05-24T00:00:00+00:00</updated><id>https://vctrsnts.github.io/blog/2024/05/24/cambios-blog-1</id><content type="html" xml:base="https://vctrsnts.github.io/blog/2024/05/24/cambios-blog-1.html"><![CDATA[<p>Se que llevo un par de semanas sin escribir ningun articulo, pero he estado un poco liado dandole un poco chapa y pintura a este blog que se traduce en lo que estais viendo ahora.</p>
 
 <!-- more -->
 
