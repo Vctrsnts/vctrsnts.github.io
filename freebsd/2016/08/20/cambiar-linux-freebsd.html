@@ -35,20 +35,20 @@
     <section class="post-content">
     
             <blockquote>
-  <p>💡 Antes de nada, decir que esto no es una critica a <a href="https://www.freebsd.org">FreeBSD</a> ni una guerra de cual es mejor (porque de eso, si buscas en cualquier foro de FreeBSD o de GNU/Linux encontraras 
+  <p>💡 Antes de nada, decir que esto no es una critica a <a href="https://www.freebsd.org" target="_blank">FreeBSD</a> ni una guerra de cual es mejor (porque de eso, si buscas en cualquier foro de FreeBSD o de GNU/Linux encontraras 
 muchas y mejores).</p>
 </blockquote>
 
 <blockquote>
   <p>💡 Sino que es mi opinion personal como usuario desde hace muchos años de <strong>Debian GNU/Linux</strong> (empece con <strong>Potato</strong>) con respecto a la transición de <a href="http://www.debian.org/index.es.html">Debian GNU/Linux</a> 
-a <a href="https://www.freebsd.org">FreeBSD</a>.</p>
+a <a href="https://www.freebsd.org" target="_blank">FreeBSD</a>.</p>
 </blockquote>
 
 <p>Después de hacer esta aclaración, ya podemos empezar… 😉</p>
 
 <!-- more -->
 
-<p>Todo esto, viene a raiz del pesimo modo (en mi opinion) en que se ha llevado a cabo la implementación de <a href="https://es.wikipedia.org/wiki/Systemd">Systemd</a> en <strong>Debian GNU/Linux</strong>. A raiz de este cambio, 
+<p>Todo esto, viene a raiz del pesimo modo (en mi opinion) en que se ha llevado a cabo la implementación de <a href="https://es.wikipedia.org/wiki/Systemd" target="_blank">Systemd</a> en <strong>Debian GNU/Linux</strong>. A raiz de este cambio, 
 estuve buscando alternativas, pero todas las versión de Linux ya tienen implementado <strong>Systemd</strong> en su interior y la unica alternativa que quedaba era <strong>FreeBSD</strong>. Y desde hace un par de meses, 
 vengo haciendo pruebas en mi <strong>Dell XPS</strong> (junto con un HDD de 250GB) con <strong>FreeBSD</strong> y a continuación explico mi opinion personal con respecto a su instalación y uso (que conste que esto, lo estoy 
 escribiendo desde <strong>Debian GNU/Linux</strong>).</p>
@@ -86,7 +86,7 @@ logrado entender), a parte de que en mi portatil, no puedo usarlos, porque por c
    | Intenso |        65º       |   85º   |
 </span></code></pre></div></div>
 
-<p>En cambio, después de unas <a href="https://forums.freebsd.org/threads/57176">modificaciones</a> en la configuración del sistema que me aconsejaron en el <a href="https://forums.freebsd.org">Forum de FreeBSD</a> (que seria
+<p>En cambio, después de unas <a href="https://forums.freebsd.org/threads/57176" target="_blank">modificaciones</a> en la configuración del sistema que me aconsejaron en el <a href="https://forums.freebsd.org" target="_blank">Forum de FreeBSD</a> (que seria
  de mi sin ellos), he conseguido tener las mismas temperaturas que tenia en <strong>Debian GNU/Linux</strong> en <strong>FreeBSD</strong> 😉</p>
 
 <h3 id="5-xorg-slim-xfce">5. Xorg, Slim, Xfce</h3>
@@ -95,7 +95,7 @@ logrado entender), a parte de que en mi portatil, no puedo usarlos, porque por c
 <p>La instalación, como dije antes a traves de pkg es muy facil, sin ningun problema, aunque tengo que decir que para la configuración de Xorg (Optimus, ayudando) en un poco diferente a como lo pinta en 
 el HandBook y como te lo intentan vender en el Foro.</p>
 
-<p>Porque digo esto, segun el <a href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x-config.html">Handbook</a>(5.4.8) ya no es necesario crear el fichero <code class="language-plaintext highlighter-rouge">xorg.conf</code> para que todo funcione 
+<p>Porque digo esto, segun el <a href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x-config.html" target="_blank">Handbook</a>(5.4.8) ya no es necesario crear el fichero <code class="language-plaintext highlighter-rouge">xorg.conf</code> para que todo funcione 
 correctamente, pero en mi caso, no se si por culpa de <strong>Optimus</strong> o que, si no tenia el fichero <code class="language-plaintext highlighter-rouge">xorg.conf</code>, <code class="language-plaintext highlighter-rouge">startx</code> no me funcionaban. Después de mucho preguntar en el foro de FreeBSD, creo que al 
 final, me creyeron cuando dije que sin fichero no me funcionaba.</p>
 
@@ -117,12 +117,12 @@ final, me creyeron cuando dije que sin fichero no me funcionaba.</p>
   <li>Calibre</li>
 </ul>
 
-<p>Yo creo que todas estas aplicaciones estan todas portadas a FreeBSD, a excepción de Wicd, que me recomendaron como alternativa usar <a href="http://opal.com/freebsd/ports/net-mgmt/wifimgr">wifimgr</a>.</p>
+<p>Yo creo que todas estas aplicaciones estan todas portadas a FreeBSD, a excepción de Wicd, que me recomendaron como alternativa usar <a href="http://opal.com/freebsd/ports/net-mgmt/wifimgr" target="_blank">wifimgr</a>.</p>
 
 <h3 id="7-hardware-externo">7. Hardware externo</h3>
 <p>Porque tengo una sección sobre el <strong>Hardware</strong>, porque lo unico que me quedaba por probar es todo el tema de los USB (pendrive, ebook) no uso nada más.</p>
 
-<p>Y aqui es donde viene el problema, <strong>FreeBSD</strong> no tiene portado el paquete <code class="language-plaintext highlighter-rouge">xfce-volman</code>, asi que tienes que tirar de <a href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/usb-disks.html">Handbook</a>.</p>
+<p>Y aqui es donde viene el problema, <strong>FreeBSD</strong> no tiene portado el paquete <code class="language-plaintext highlighter-rouge">xfce-volman</code>, asi que tienes que tirar de <a href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/usb-disks.html" target="_blank">Handbook</a>.</p>
 
 <p>Parezco un poco repetitivo, pero en la documentación te lo ponen como que es muy facil, pero realmente no es asi. Tienes que modificar más de un fichero, que si no te lo explican (no viene en la 
 documentación) no logras que funcione. Pero gracias a un usuario del foro de FreeBSD, consegui que funcionara, pero de aquella manera. Me explico.</p>

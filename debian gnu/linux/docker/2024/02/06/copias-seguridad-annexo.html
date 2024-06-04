@@ -38,15 +38,15 @@
 
 <p>Tal como se puede ver en estos 2 articulos que ya habia escrito:</p>
 <ul>
-  <li><a href="/docker/raspberry%20pi%20os/2021/01/17/rpi-copias-seguridad.html">Raspberry Pi. Haciendo copias de seguridad</a></li>
-  <li><a href="/docker/raspberry%20pi%20os/2021/01/18/rpi-externalizando-copias-seguridad.html">Raspberry Pi. Externalizando copias de seguridad</a></li>
+  <li><a href="/docker/raspberry%20pi%20os/2021/01/17/rpi-copias-seguridad.html" target="_blank">Raspberry Pi. Haciendo copias de seguridad</a></li>
+  <li><a href="/docker/raspberry%20pi%20os/2021/01/18/rpi-externalizando-copias-seguridad.html" target="_blank">Raspberry Pi. Externalizando copias de seguridad</a></li>
 </ul>
 
 <!-- more -->
 
-<p>Donde explicaba, en el primer articulo, que mediante el docker de <strong>rsnapshot</strong> realizaba las copia de seguridad de los ficheros más importantes de  mi servidor y, en el segundo articulo, explicaba, que a traves, tambien al docker de <strong>megacmd</strong> pasaba estas copias de seguridad a <a href="https://mega.nz">Mega</a> para tener una doble seguridad, una copia en el servidor y otra copia fuera de el. Todo funcionaba correctamente, pero la segunda parte no era de mi agrado, porque tenia un docker muy desactualizado y que no me daba mucha confianza.</p>
+<p>Donde explicaba, en el primer articulo, que mediante el docker de <strong>rsnapshot</strong> realizaba las copia de seguridad de los ficheros más importantes de  mi servidor y, en el segundo articulo, explicaba, que a traves, tambien al docker de <strong>megacmd</strong> pasaba estas copias de seguridad a <a href="https://mega.nz" target="_blank">Mega</a> para tener una doble seguridad, una copia en el servidor y otra copia fuera de el. Todo funcionaba correctamente, pero la segunda parte no era de mi agrado, porque tenia un docker muy desactualizado y que no me daba mucha confianza.</p>
 
-<p>Pero todo cambio cuando escuche este <a href="https://www.ivoox.com/google-stadia-copias-seguridad-revision-del-audios-mp3_rf_96963743_1.html">podcast</a> de <strong>Desahogo Geek</strong> donde explicaba la manera que el hacia sus copias de seguridad de sus servidores. Y me intereso, asi que me puse a ver como se podia hacer.</p>
+<p>Pero todo cambio cuando escuche este <a href="https://www.ivoox.com/google-stadia-copias-seguridad-revision-del-audios-mp3_rf_96963743_1.html" target="_blank">podcast</a> de <strong>Desahogo Geek</strong> donde explicaba la manera que el hacia sus copias de seguridad de sus servidores. Y me intereso, asi que me puse a ver como se podia hacer.</p>
 
 <p>La manera que lo hacia <strong>AlexPro</strong> se basaba en 2 funcionalidades, 3 en mi caso, que son las siguientes:</p>
 <ul>
@@ -55,9 +55,9 @@
   <li>Automatizar mediante un script en <strong>bash</strong> las copias de seguridad, que en mi caso, serian las que hago mediante <strong>rsnapshot</strong>.</li>
 </ul>
 
-<p>Con respecto a las 2 primeras, <strong>rsnapshot</strong> no lo voy a volver a explicar, porque podeis ir al <a href="/docker/raspberry%20pi%20os/2021/01/17/rpi-copias-seguridad.html">articulo</a> que tengo publicado donde lo explico detalladamente, con respecto a como se tiene que configurar <strong>rclone</strong>, en vez de explicarlo yo aqui, que seguramente no contemplaria todas las opciones posibles, recomiendo que mireis estos <a href="https://alexpro.sytes.net/rclone">articulos</a> que a escrito <strong>AlexPro</strong> que explica todas las opciones posibles y en el que yo me he basado para configurar mi <strong>rclone</strong>.</p>
+<p>Con respecto a las 2 primeras, <strong>rsnapshot</strong> no lo voy a volver a explicar, porque podeis ir al <a href="/docker/raspberry%20pi%20os/2021/01/17/rpi-copias-seguridad.html" target="_blank">articulo</a> que tengo publicado donde lo explico detalladamente, con respecto a como se tiene que configurar <strong>rclone</strong>, en vez de explicarlo yo aqui, que seguramente no contemplaria todas las opciones posibles, recomiendo que mireis estos <a href="https://alexpro.sytes.net/rclone" target="_blank">articulos</a> que a escrito <strong>AlexPro</strong> que explica todas las opciones posibles y en el que yo me he basado para configurar mi <strong>rclone</strong>.</p>
 
-<p>Lo que si que voy a explicar, es el script en <strong>bash</strong> (modificando el que habian hecho anteriormente <a href="https://juncotic.com/megafuse-realizando-backups-mega-linux">Diego Cordoba</a> y que a su vez, fue modificado por <a href="https://github.com/luisurbinanet/megafuse-backup-script">Luis Urbina</a> y que modifique a mis necesidades para hacer las copias de seguridad a <strong>Mega</strong>. El script es el siguiente:</p>
+<p>Lo que si que voy a explicar, es el script en <strong>bash</strong> (modificando el que habian hecho anteriormente <a href="https://juncotic.com/megafuse-realizando-backups-mega-linux" target="_blank">Diego Cordoba</a> y que a su vez, fue modificado por <a href="https://github.com/luisurbinanet/megafuse-backup-script" target="_blank">Luis Urbina</a> y que modifique a mis necesidades para hacer las copias de seguridad a <strong>Mega</strong>. El script es el siguiente:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 <span class="c"># Victor Santos Garcia / https://vctrsnts.github.io</span>
 <span class="c"># Creado Diego Cordoba, modificat per Luis Urbina</span>
@@ -184,9 +184,9 @@ rclone <span class="nt">--config</span> <span class="k">${</span><span class="nv
 
 <h4 id="referencia">Referencia</h4>
 <ul>
-  <li><a href="https://www.ivoox.com/google-stadia-copias-seguridad-revision-del-audios-mp3_rf_96963743_1.html">Google Stadia, copias de seguridad y revisión del coche</a></li>
-  <li><a href="https://juncotic.com/megafuse-realizando-backups-mega-linux">MegaFuse: realizando backups en MEGA desde Linux</a></li>
-  <li><a href="https://github.com/luisurbinanet/megafuse-backup-script">megafuse-backup-script</a></li>
+  <li><a href="https://www.ivoox.com/google-stadia-copias-seguridad-revision-del-audios-mp3_rf_96963743_1.html" target="_blank">Google Stadia, copias de seguridad y revisión del coche</a></li>
+  <li><a href="https://juncotic.com/megafuse-realizando-backups-mega-linux" target="_blank">MegaFuse: realizando backups en MEGA desde Linux</a></li>
+  <li><a href="https://github.com/luisurbinanet/megafuse-backup-script" target="_blank">megafuse-backup-script</a></li>
 </ul>
 
     

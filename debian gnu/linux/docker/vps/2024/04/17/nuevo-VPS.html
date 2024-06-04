@@ -34,22 +34,22 @@
 
     <section class="post-content">
     
-            <p>Tal como escribi en este <a href="/debian%20gnu/linux/docker/vps/2024/04/10/desastre-siglo.html">articulo</a> donde explicaba que, seguramente por error mio, al detener la instancia, esta se perdio y luego fue imposible remontarla, porque no <strong>habia recursos disponibles</strong>.</p>
+            <p>Tal como escribi en este <a href="/debian%20gnu/linux/docker/vps/2024/04/10/desastre-siglo.html" target="_blank">articulo</a> donde explicaba que, seguramente por error mio, al detener la instancia, esta se perdio y luego fue imposible remontarla, porque no <strong>habia recursos disponibles</strong>.</p>
 
 <!-- more -->
 
 <p>Entonces, recordando que tenia una instancia en Google Cloud, la volvi a activar y hasta hace un par de dias era lo que usaba. Pero claro, con todos los servicions que le habia puesto:</p>
 <ul>
-  <li><a href="/debian%20gnu/linux/docker/vps/2024/01/10/searxng-uno-todo.html">Searxng</a></li>
-  <li><a href="/docker/raspberry%20pi%20os/2021/04/08/rpi-caddy-proxy-manager.html">duckdns y Caddy</a></li>
-  <li><a href="/debian%20gnu/linux/docker/vps/2024/04/13/uno-juntarlos-todos.html">rss-funnel</a></li>
-  <li><a href="{}">Sock5</a></li>
-  <li><a href="{}">Glances</a></li>
+  <li><a href="/debian%20gnu/linux/docker/vps/2024/01/10/searxng-uno-todo.html" target="_blank">Searxng</a></li>
+  <li><a href="/docker/raspberry%20pi%20os/2021/04/08/rpi-caddy-proxy-manager.html" target="_blank">duckdns y Caddy</a></li>
+  <li><a href="/debian%20gnu/linux/docker/vps/2024/04/13/uno-juntarlos-todos.html" target="_blank">rss-funnel</a></li>
+  <li><a href="{}" target="_blank">Sock5</a></li>
+  <li><a href="{}" target="_blank">Glances</a></li>
 </ul>
 
-<p>La maquina de Google se me quedaba pequeña, sobre todo en memoria, quedaban libres unos 150Mb, se que muchos direis, que eso es una barbaridad, pero me gusta ir sobre-seguro y que el dia de mañana cuando necesite un poco más no tenga problemas. Si teneis razon, es para uso personal, pero … y más cuando habia pensado traspasar una sección del contendor de <a href="/docker/raspberry%20pi%20os/2021/05/30/flexget-podcast.html">flexget</a> (la sección que se encarga de los podcast), que tengo ahora mismo en mi servidor personal a Google. Ante esto, me veia en la necesidad de disponer de un VPS un poco más completo que el de Google.</p>
+<p>La maquina de Google se me quedaba pequeña, sobre todo en memoria, quedaban libres unos 150Mb, se que muchos direis, que eso es una barbaridad, pero me gusta ir sobre-seguro y que el dia de mañana cuando necesite un poco más no tenga problemas. Si teneis razon, es para uso personal, pero … y más cuando habia pensado traspasar una sección del contendor de <a href="/docker/raspberry%20pi%20os/2021/05/30/flexget-podcast.html" target="_blank">flexget</a> (la sección que se encarga de los podcast), que tengo ahora mismo en mi servidor personal a Google. Ante esto, me veia en la necesidad de disponer de un VPS un poco más completo que el de Google.</p>
 
-<p>Y gracias al articulo que escribi explicando que me habia sucedido con la instancia de Oracle, se puso en contacto conmigo, <a href="https://atareao.es">atareao</a> para aconsejarme (se necesita mucha más gente como el), que el tenia un par de VPS en <a href="https://www.contabo.com">contabo</a> y que a parte de ser economico, nunca habia tenido ningun problema, asi que me puse a buscar información sobre ese VPS.</p>
+<p>Y gracias al articulo que escribi explicando que me habia sucedido con la instancia de Oracle, se puso en contacto conmigo, <a href="https://atareao.es" target="_blank">atareao</a> para aconsejarme (se necesita mucha más gente como el), que el tenia un par de VPS en <a href="https://www.contabo.com" target="_blank">contabo</a> y que a parte de ser economico, nunca habia tenido ningun problema, asi que me puse a buscar información sobre ese VPS.</p>
 
 <p>Lo que encontre, al principio me asusto un poco, porque, eso si, habia mucha gente que decia que estaba muy contenta con ellos y muy economicos, pero que cuidado si tienes algun problema porque tardaran mucho en solucionartelo, si es que lo hacen.</p>
 
@@ -80,16 +80,16 @@
 
 <p>Como eran unos requisitos que estaban muy bien, pues nada, me di de alta y ya tengo un nuevo VPS para substituir a mis antiguos VPS (Oracle y Google).</p>
 
-<p>De momento, estoy con todo el tema de la configuración de la maquina, <a href="/raspberry%20pi/ssh/2016/04/04/rpi-acceso-traves-ssh.html">acceso SSH</a>, firewall, <a href="/raspberry%20pi%20os/seguridad/2020/11/08/rpi-usando-fail2ban.html">fail2ban</a>, etc…</p>
+<p>De momento, estoy con todo el tema de la configuración de la maquina, <a href="/raspberry%20pi/ssh/2016/04/04/rpi-acceso-traves-ssh.html" target="_blank">acceso SSH</a>, firewall, <a href="/raspberry%20pi%20os/seguridad/2020/11/08/rpi-usando-fail2ban.html" target="_blank">fail2ban</a>, etc…</p>
 
 <p>Y después lo primero es realizar la instalación (a traves de mi querido docker) de traefik para poder securizar aun más la maquina.</p>
 
-<p>Espero conseguirlo gracias a los videos de <a href="https://atareao.es">atareo</a>, los que más me han ayudado, pero podeis encontrar muchos más si vais a su pagina web, que cuando habla de traefik, los ojos le brillan :)</p>
+<p>Espero conseguirlo gracias a los videos de <a href="https://atareao.es" target="_blank">atareo</a>, los que más me han ayudado, pero podeis encontrar muchos más si vais a su pagina web, que cuando habla de traefik, los ojos le brillan :)</p>
 
 <h4 id="referencia">Referencia</h4>
 <ul>
-  <li><a href="https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik">Exprimiendo Traefink</a></li>
-  <li><a href="https://atareao.es/tutorial/self-hosted/mil-servicios-con-traefik">Mil servicios con Traefik</a></li>
+  <li><a href="https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik" target="_blank">Exprimiendo Traefink</a></li>
+  <li><a href="https://atareao.es/tutorial/self-hosted/mil-servicios-con-traefik" target="_blank">Mil servicios con Traefik</a></li>
 </ul>
 
     

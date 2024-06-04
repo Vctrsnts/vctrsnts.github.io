@@ -39,16 +39,16 @@ decidir buscar otra alternativa más facil.</p>
 
 <p>Después de buscar y leer a mis blogueros preferidos:</p>
 <ul>
-  <li><a href="https://ugeek.github.io">uGeek</a></li>
-  <li><a href="https://elblogdelazaro.org">El Blog de Lazaro</a></li>
+  <li><a href="https://ugeek.github.io" target="_blank">uGeek</a></li>
+  <li><a href="https://elblogdelazaro.org" target="_blank">El Blog de Lazaro</a></li>
 </ul>
 
 <!-- more -->
 
 <p>Vi que los dos recomendaban:</p>
 <ul>
-  <li><a href="https://caddyserver.com">Caddy</a></li>
-  <li><a href="https://nginxproxymanager.com">Nginx Proxy Manager</a></li>
+  <li><a href="https://caddyserver.com" target="_blank">Caddy</a></li>
+  <li><a href="https://nginxproxymanager.com" target="_blank">Nginx Proxy Manager</a></li>
 </ul>
 
 <p>Cada uso con sus ventajas e inconvenientes, aunque me tiraba más npm (para abreviar) por el gui que tenia, me decidi por caddy, porque una de sus virtudes es que podias tener url del siguiente estilo:</p>
@@ -59,7 +59,7 @@ decidir buscar otra alternativa más facil.</p>
 <p>Además el poder tener todos tus servicios activos y con su correspondiente certificado solamente con un fichero de texto.</p>
 
 <p>Y eso es una ventaja, porque se parece más a una <code class="language-plaintext highlighter-rouge">URL</code> de verdad. Y por eso me decidi por <code class="language-plaintext highlighter-rouge">Caddy</code>, aunque al final tuve que tirar por npm, ya lo comentare en otro 
-<a href="/docker/raspberry%20pi%20os/2021/05/07/rpi-nginx-proxy-manager.html">articulo</a>.</p>
+<a href="/docker/raspberry%20pi%20os/2021/05/07/rpi-nginx-proxy-manager.html" target="_blank">articulo</a>.</p>
 
 <h3 id="qué-es-caddy">Qué es Caddy</h3>
 <p>Caddy 2 es un potente servidor web de código abierto desarrollado en go. Simplifica su infraestructura y se encarga de las renovaciones de certificados.</p>
@@ -101,7 +101,7 @@ decidir buscar otra alternativa más facil.</p>
 <p>Creamos el archivo <code class="language-plaintext highlighter-rouge">Caddyfile</code>, donde irá la configuración de nuestro proxy inverso.</p>
 
 <p>Voy a exponer mi docker de <strong>Spotify</strong> personal al mundo para asi a traves del movil poder escuchar la musica que tengo en el servidor, en concreto, <strong>Navidrome</strong> (ya explicare en otro 
-<a href="/docker/raspberry%20pi%20os/2021/05/08/rpi-spotify.html">articulo</a> como tener tu propio <strong>Spotify</strong> en funcionamiento).</p>
+<a href="/docker/raspberry%20pi%20os/2021/05/08/rpi-spotify.html" target="_blank">articulo</a> como tener tu propio <strong>Spotify</strong> en funcionamiento).</p>
 
 <p>Caddy se encargará de exponer este servicio a la red generando el certificado con Let’s Encrypt, que en mi caso, como ya he dicho, es mi Spotify privado y asi no tener que depender de nadie.</p>
 <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="s">music.midominio.duckdns.org {</span>
@@ -114,7 +114,7 @@ caddy se encargara de actualizarlo.</p>
 
 <h4 id="referencia">Referencia:</h4>
 <ul>
-  <li><a href="https://ugeek.github.io/blog/post/2021-02-19-proxy-inverso-con-caddy.html">Proxy Inverso con Caddy</a></li>
+  <li><a href="https://ugeek.github.io/blog/post/2021-02-19-proxy-inverso-con-caddy.html" target="_blank">Proxy Inverso con Caddy</a></li>
 </ul>
 
     

@@ -34,11 +34,11 @@
 
     <section class="post-content">
     
-            <p>Despúes de escuchar el <a href="https://ugeek.github.io/post/2021-05-24-homer-mi-dashboard-favorito.html">podcast</a> de <strong>uGeek</strong> donde hablaba de los <strong>dashboard</strong> y en especial del que el usaba, <strong>Homer</strong>, me decidi a probarlo a ver que tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Asi que me decidi a instalar y probar <strong>Homer</strong>.</p>
+            <p>Despúes de escuchar el <a href="https://ugeek.github.io/post/2021-05-24-homer-mi-dashboard-favorito.html" target="_blank">podcast</a> de <strong>uGeek</strong> donde hablaba de los <strong>dashboard</strong> y en especial del que el usaba, <strong>Homer</strong>, me decidi a probarlo a ver que tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Asi que me decidi a instalar y probar <strong>Homer</strong>.</p>
 
 <!-- more -->
 
-<p>Al principio, no necesitaba nada más, pero poco a poco, cuanto más te adentras en el mundo de los <strong>dashboards</strong>, ves las infinitas posibilidades que tienes a tu alcance y que en el caso de <strong>Homer</strong> no me lo daba. Asi que, me decibi a buscar otros que pudieran ampliar la información que me podian mostrar y no encontraba el más adecuado hasta que lei el <a href="https://elblogdelazaro.org/posts/2023-06-21-docker-homepage-dashboard/">articulo</a> de <strong>Lazaro</strong> donde hablaba de <a href="https://github.com/gethomepage/homepage">HomePage</a> y de las multiples opciones que tenia. Y puedo decir que si, tiene muchas opciones de configuración que te pueden ayudar a visualizar toda la información que puedas necesitar.</p>
+<p>Al principio, no necesitaba nada más, pero poco a poco, cuanto más te adentras en el mundo de los <strong>dashboards</strong>, ves las infinitas posibilidades que tienes a tu alcance y que en el caso de <strong>Homer</strong> no me lo daba. Asi que, me decibi a buscar otros que pudieran ampliar la información que me podian mostrar y no encontraba el más adecuado hasta que lei el <a href="https://elblogdelazaro.org/posts/2023-06-21-docker-homepage-dashboard/" target="_blank">articulo</a> de <strong>Lazaro</strong> donde hablaba de <a href="https://github.com/gethomepage/homepage" target="_blank">HomePage</a> y de las multiples opciones que tenia. Y puedo decir que si, tiene muchas opciones de configuración que te pueden ayudar a visualizar toda la información que puedas necesitar.</p>
 
 <p>Y como además, <strong>Homer</strong> tambien tiene esta posibilidad, se podia usar a traves de <strong>docker</strong> que más se podia pedir. Asi que me dispuse a crear el container de <strong>HomePage</strong>. En mi caso, todo lo tengo concentrado en un fichero <code class="language-plaintext highlighter-rouge">yaml</code> que contine todos los dockers que uso:</p>
 <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">homepage</span><span class="pi">:</span>
@@ -58,7 +58,7 @@
 </code></pre></div></div>
 <p>Y asi se quedo, con un par de opciones más, <code class="language-plaintext highlighter-rouge">transmission</code>, <code class="language-plaintext highlighter-rouge">navidrome</code>, <code class="language-plaintext highlighter-rouge">jellyfin</code> y el uso de <strong>CPU</strong>, <strong>Memoria</strong> y <strong>HDD</strong> del servidor. Con esto ya lo tenia todo. Pero como dice el refran, siempre deseas lo que tienen los otros… Y asi sucedio…</p>
 
-<p>Aqui tengo que hacer un inciso, porque a parte de tener el <strong>dashboard</strong> de <strong>HomePage</strong> otra de las muchas cosas que siempre quiero controlar, es el estado de los 2 servidores que tengo ahora mismo (el servidor local y el servidor de Oracle) y esto lo podia controlar a traves del docker <strong>Glances</strong> que conoci después de leer el <a href="https://atareao.es/software/utilidades/glances-una-potente-alternativa-al-monitor-del-sistema/">articulo</a> que hizo <a href="https://atareao.es">Lorenzo</a> donde hablaba de el. Una versión resumida de este articulo, es que <strong>Glances</strong> es una especió de <strong>htop</strong> pero vitaminado. 
+<p>Aqui tengo que hacer un inciso, porque a parte de tener el <strong>dashboard</strong> de <strong>HomePage</strong> otra de las muchas cosas que siempre quiero controlar, es el estado de los 2 servidores que tengo ahora mismo (el servidor local y el servidor de Oracle) y esto lo podia controlar a traves del docker <strong>Glances</strong> que conoci después de leer el <a href="https://atareao.es/software/utilidades/glances-una-potente-alternativa-al-monitor-del-sistema/" target="_blank">articulo</a> que hizo <a href="https://atareao.es" target="_blank">Lorenzo</a> donde hablaba de el. Una versión resumida de este articulo, es que <strong>Glances</strong> es una especió de <strong>htop</strong> pero vitaminado. 
 Asi que tambien lo instale, porque con el podia obtener toda la informació (accediendo a ella a traves de la web) de los 2 servidores.</p>
 <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">glances</span><span class="pi">:</span>
   <span class="na">image</span><span class="pi">:</span> <span class="s">nicolargo/glances:latest-full</span>
@@ -76,7 +76,7 @@ Asi que tambien lo instale, porque con el podia obtener toda la informació (acc
   <span class="na">ports</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">61208:61208</span>
 </code></pre></div></div>
-<p>Y sin saberlo tenia todo lo necesarió para obtener mucha más información de la que me estaba facilitando <strong>HomePage</strong> hasta el momento y que yo desconocia que se podia obtener, hasta que en el canal de Telegram de <a href="https://homelabs.club">HomeLabs.club</a> empezaron a hablar de ello y de las multiples posibilidades que habia, junto con una captura de pantalla de toda la información que se podia obtener. Y yo, tenia a mi disposición toda esa información, pero desconocia como obtenerla.</p>
+<p>Y sin saberlo tenia todo lo necesarió para obtener mucha más información de la que me estaba facilitando <strong>HomePage</strong> hasta el momento y que yo desconocia que se podia obtener, hasta que en el canal de Telegram de <a href="https://homelabs.club" target="_blank">HomeLabs.club</a> empezaron a hablar de ello y de las multiples posibilidades que habia, junto con una captura de pantalla de toda la información que se podia obtener. Y yo, tenia a mi disposición toda esa información, pero desconocia como obtenerla.</p>
 
 <p>Después de pedir ayuda o si me podian facilitar los archivos de configuración que usaban, me podian servir como base para asi yo poder hacer mi configuración. Hay que remarcar, que para configurar <strong>HomePage</strong> se necesitan de 5 archivos <strong>yaml</strong> donde:</p>
 
@@ -225,7 +225,7 @@ Asi que tambien lo instale, porque con el podia obtener toda la informació (acc
         <span class="na">token</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">token</span><span class="pi">]</span>
         <span class="na">salt</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">salt</span><span class="pi">]</span>
 </code></pre></div></div>
-<p>Lo que podeis hacer, yo lo tengo montado, más información en este <a href="/debian%20gnu/linux/docker/vps/2024/01/10/searxng-uno-todo.html">articulo</a>, es tener montado vuestro propio buscador y hacer todas las busquedas en el y asi confundirr en todo lo posible al <strong>Gran Hermano</strong>.</p>
+<p>Lo que podeis hacer, yo lo tengo montado, más información en este <a href="/debian%20gnu/linux/docker/vps/2024/01/10/searxng-uno-todo.html" target="_blank">articulo</a>, es tener montado vuestro propio buscador y hacer todas las busquedas en el y asi confundirr en todo lo posible al <strong>Gran Hermano</strong>.</p>
 
 <h3 id="widgetsyaml">widgets.yaml</h3>
 <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#</span>
@@ -292,9 +292,9 @@ Asi que tambien lo instale, porque con el podia obtener toda la informació (acc
 </code></pre></div></div>
 <p>Teoricamente, con esta configuración tendria que funcionar todo correctamente y realizar la integración correctamente con docker, pero no era asi. En mi caso, no veia ningun tipo de información relacionada con los dockers. Y todo lo que encontraba, es que esto tenia que funcionar si o si.</p>
 
-<p>Entonces me puse a buscar información del motivo por el cual en mi caso no me funcionaba, tambien lo pregunte en el canal, pero todo el mundo me decia que tenia que funcionar correctamente y sin ningun problema, hay que tener en cuenta una cosa, en el canal de Telegram cuando exponia mi problema, todos los que me decian que tenia que funcionar correctamente, lo tenian instalado en <a href="https://unraid.net/">Unraid</a> y seguramente <strong>UnRaid</strong> hace alguna cosa para que funcione automaticamente, cosa que si tu lo haces manualmente y sin <strong>UnRaid</strong> no funciona.</p>
+<p>Entonces me puse a buscar información del motivo por el cual en mi caso no me funcionaba, tambien lo pregunte en el canal, pero todo el mundo me decia que tenia que funcionar correctamente y sin ningun problema, hay que tener en cuenta una cosa, en el canal de Telegram cuando exponia mi problema, todos los que me decian que tenia que funcionar correctamente, lo tenian instalado en <a href="https://unraid.net/" target="_blank">Unraid</a> y seguramente <strong>UnRaid</strong> hace alguna cosa para que funcione automaticamente, cosa que si tu lo haces manualmente y sin <strong>UnRaid</strong> no funciona.</p>
 
-<p>Despues de buscar, encontre en la documentación que hacia referencia a <a href="https://gethomepage.dev/v0.7.4/configs/docker/#using-docker-socket-proxy">docker</a> en <strong>HomePage</strong> que para que la integración funcionase correctamente se tenia que instalar un <strong>proxy</strong> que es el que realiza la comunicación entre <strong>docker</strong> y <strong>HomePage</strong>.</p>
+<p>Despues de buscar, encontre en la documentación que hacia referencia a <a href="https://gethomepage.dev/v0.7.4/configs/docker/#using-docker-socket-proxy" target="_blank">docker</a> en <strong>HomePage</strong> que para que la integración funcionase correctamente se tenia que instalar un <strong>proxy</strong> que es el que realiza la comunicación entre <strong>docker</strong> y <strong>HomePage</strong>.</p>
 
 <p>Para ello, se necesitaba el siguiente container:</p>
 <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">dockerproxy</span><span class="pi">:</span>
@@ -373,10 +373,10 @@ usuari@debian:/sudo systemctl restart docker.service
 
 <h4 id="referencia">Referencia</h4>
 <ul>
-  <li><a href="https://ugeek.github.io/blog/post/2021-05-24-homer-mi-dashboard.html">Homer. Mi Dashboard</a></li>
-  <li><a href="https://elblogdelazaro.org/posts/2023-06-21-docker-homepage-dashboard/">Docker: Homepage dashboard</a></li>
-  <li><a href="https://atareao.es/software/utilidades/glances-una-potente-alternativa-al-monitor-del-sistema/">Glances una potente alternativa al Monitor del Sistema</a></li>
-  <li><a href="https://gethomepage.dev/v0.7.4/configs/docker/#using-docker-socket-proxy">HomePage - Docker</a></li>
+  <li><a href="https://ugeek.github.io/blog/post/2021-05-24-homer-mi-dashboard.html" target="_blank">Homer. Mi Dashboard</a></li>
+  <li><a href="https://elblogdelazaro.org/posts/2023-06-21-docker-homepage-dashboard/" target="_blank">Docker: Homepage dashboard</a></li>
+  <li><a href="https://atareao.es/software/utilidades/glances-una-potente-alternativa-al-monitor-del-sistema/" target="_blank">Glances una potente alternativa al Monitor del Sistema</a></li>
+  <li><a href="https://gethomepage.dev/v0.7.4/configs/docker/#using-docker-socket-proxy" target="_blank">HomePage - Docker</a></li>
 </ul>
 
     

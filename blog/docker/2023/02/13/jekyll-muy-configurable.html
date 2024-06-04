@@ -38,7 +38,7 @@
 
 <!--more--->
 
-<p>Todo empezo a mediados del 2021 cuando cada vez tenia más problemas a la hora de crear articulos y subirlos a <strong>wordpress</strong>, aunque ahora le estoy dado otro <a href="https://vsantos.wordpress.com">uso</a>, asi que me puse a investigar y la mayoria de personas a las que sigo, lo tienen alojado en <strong>Github</strong> o <strong>Gitlab</strong>.</p>
+<p>Todo empezo a mediados del 2021 cuando cada vez tenia más problemas a la hora de crear articulos y subirlos a <strong>wordpress</strong>, aunque ahora le estoy dado otro <a href="https://vsantos.wordpress.com" target="_blank">uso</a>, asi que me puse a investigar y la mayoria de personas a las que sigo, lo tienen alojado en <strong>Github</strong> o <strong>Gitlab</strong>.</p>
 
 <p>Investigue que diferencia habia entre los dos, pero no encontre ninguna a nivel de uso personal, asi que lance la moneda al aire y salio <strong>Github</strong>, podria haber salido <strong>Gitlab</strong>, y me puse a ello. Después de investigar me cree mi repositorio.</p>
 
@@ -48,14 +48,14 @@
 
 <p>Después entendi lo que hacia <strong>Github</strong>, que era <code class="language-plaintext highlighter-rouge">compilar</code> (si se le puede decir asi) los archivos <code class="language-plaintext highlighter-rouge">markdown</code> y generar automaticamente el fichero <code class="language-plaintext highlighter-rouge">html</code>, segui investigando a ver si eso se podia hacer en local y resulto que si que se podia hacer, pero claro, para hacer eso, necesitabas tener un servidor <strong>Jekyll</strong> para que se realizase la compilación y solamente tener que subir los ficheros <code class="language-plaintext highlighter-rouge">compilados</code> y tener en mi poder, el codigo fuente del blog.</p>
 
-<p>Y sigo pensando que no me equivoque, porque gracias a ello, aprendi como crear un docker (mi primer docker). Era un <a href="https://hub.docker.com/r/vctrsnts/jekyll-git">Docker</a> que tiene un servidor jekyll para poder realizar las compilaciones de los <code class="language-plaintext highlighter-rouge">markdown</code>. Tambien tengo que decir que no funciona muy bien, pero bueno, como primera experiencia en crear un docker, no me fue mal, porque entiendi mejor como funcionan los docker.</p>
+<p>Y sigo pensando que no me equivoque, porque gracias a ello, aprendi como crear un docker (mi primer docker). Era un <a href="https://hub.docker.com/r/vctrsnts/jekyll-git" target="_blank">Docker</a> que tiene un servidor jekyll para poder realizar las compilaciones de los <code class="language-plaintext highlighter-rouge">markdown</code>. Tambien tengo que decir que no funciona muy bien, pero bueno, como primera experiencia en crear un docker, no me fue mal, porque entiendi mejor como funcionan los docker.</p>
 
 <p>Cuando vi que la cosa no funcionaba correctamente, la idea era interesante, pero el resultado no era muy satisfactorio, me puse a buscar un docker ya creado y que fuera mejor que el mio. Y di con el.</p>
 
-<p>Su autor es <a href="https://github.com/BretFisher/jekyll-serve">bretfisher</a>, tengo que informar que es un poco lioso de usar, porque tiene 2 contenedores:</p>
+<p>Su autor es <a href="https://github.com/BretFisher/jekyll-serve" target="_blank">bretfisher</a>, tengo que informar que es un poco lioso de usar, porque tiene 2 contenedores:</p>
 <ul>
-  <li><a href="https://hub.docker.com/r/bretfisher/jekyll">Jekyll</a></li>
-  <li><a href="https://github.com/BretFisher/jekyll-serve">Jekyll-serve</a></li>
+  <li><a href="https://hub.docker.com/r/bretfisher/jekyll" target="_blank">Jekyll</a></li>
+  <li><a href="https://github.com/BretFisher/jekyll-serve" target="_blank">Jekyll-serve</a></li>
 </ul>
 
 <p>El unico que te tiene que importar es es el contenedor que hacer de <strong>jekyll-serve</strong>.</p>
@@ -71,17 +71,17 @@
     <span class="na">volumes</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">../blog:/site</span>
 </code></pre></div></div>
-<p>Cuando ya tenia este contenedor en marcha, ya pude empezar con la creación de mis articulos y es aqui, después de esta pequeña historia, donde explico la idea principal de este articulo. Unir <strong>Jekyll</strong>, <strong>Mastodon</strong> y <strong>Github</strong> y todo lo que me podia ofrecer este ultimo y una de estas posibilidades es la de publicar mis articulos a traves de un <a href="/debian%20gnu/linux/python/2022/11/14/publicar-feed-mastodon.html">bot</a>.</p>
+<p>Cuando ya tenia este contenedor en marcha, ya pude empezar con la creación de mis articulos y es aqui, después de esta pequeña historia, donde explico la idea principal de este articulo. Unir <strong>Jekyll</strong>, <strong>Mastodon</strong> y <strong>Github</strong> y todo lo que me podia ofrecer este ultimo y una de estas posibilidades es la de publicar mis articulos a traves de un <a href="/debian%20gnu/linux/python/2022/11/14/publicar-feed-mastodon.html" target="_blank">bot</a>.</p>
 
-<p>Pero lo que echaba de menos, porque no se veia ninguna imagen en la publicación en <strong>Mastodon</strong>, cuando lei uno de los toots de <a href="https://mastodon.online/@elblogdelazaro@mastodon.social">elBlogdeLazaro</a>, que sigo y que me ha dado el punto de inicio por donde empezar, se podia visualizar una imagen, o mejor dicho, el logo de su web.</p>
+<p>Pero lo que echaba de menos, porque no se veia ninguna imagen en la publicación en <strong>Mastodon</strong>, cuando lei uno de los toots de <a href="https://mastodon.online/@elblogdelazaro@mastodon.social" target="_blank">elBlogdeLazaro</a>, que sigo y que me ha dado el punto de inicio por donde empezar, se podia visualizar una imagen, o mejor dicho, el logo de su web.</p>
 
 <p>Yo queria hacer lo mismo, pero no encontraba ninguna información donde se explicase como se tenia que hacer o como configurar <strong>Mastodon</strong>, después descubri que las modificaciones necesarias las tenia que hacer en los archivos de mi blog, y gracias a una pista que, como ya he dicho, me dio <em>Carlos. M</em> conseguir descubrir como hacerlo.</p>
 
 <p>La pista fue (<em>Lazaro</em> usa Hugo, otra alternativa a Jekyll), me comento, que en su caso, esto es automatico y que a traves de <code class="language-plaintext highlighter-rouge">:EXPORT_hugo_custom_front_matter+: :image /images/......</code> es la manera que se muestra el logo en las publicaciones de <strong>Mastodon</strong>, pero ya era algo.</p>
 
-<p>Me puse a buscar todo lo referente a la pista que me habia dado y que se podia hacer en <strong>Hugo</strong> y al final la encontre en esta <a href="https://sherblog.pro/compartiendo-contenido-de-hugo-en-mastodon">pagina</a>, encontre la gran pista que me llevaria hacia mi objetivo.</p>
+<p>Me puse a buscar todo lo referente a la pista que me habia dado y que se podia hacer en <strong>Hugo</strong> y al final la encontre en esta <a href="https://sherblog.pro/compartiendo-contenido-de-hugo-en-mastodon" target="_blank">pagina</a>, encontre la gran pista que me llevaria hacia mi objetivo.</p>
 
-<p>Todo consiste, en que <strong>Mastodon</strong> utiliza <strong>OpenGraph</strong> para todo el tratamiento de las publicaciones (seguramente es más complicado que esto), pero en mi caso me dio la pista definitiva que necesitaba. Lo que tenia que hacer, es buscar como poner en mi blog una imagen del tipo <code class="language-plaintext highlighter-rouge">og:image</code> en la pantilla. La solución la encontre en la siguiente <a href="https://gist.github.com/davidensinger/5431869">pagina</a>, donde se puede ver, el codigo necesario para usar <code class="language-plaintext highlighter-rouge">imagenes og</code>:</p>
+<p>Todo consiste, en que <strong>Mastodon</strong> utiliza <strong>OpenGraph</strong> para todo el tratamiento de las publicaciones (seguramente es más complicado que esto), pero en mi caso me dio la pista definitiva que necesitaba. Lo que tenia que hacer, es buscar como poner en mi blog una imagen del tipo <code class="language-plaintext highlighter-rouge">og:image</code> en la pantilla. La solución la encontre en la siguiente <a href="https://gist.github.com/davidensinger/5431869" target="_blank">pagina</a>, donde se puede ver, el codigo necesario para usar <code class="language-plaintext highlighter-rouge">imagenes og</code>:</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">content</span><span class="o">=</span><span class="dl">"</span><span class="s2">site.url/assets/img/posts/page.image</span><span class="dl">"</span> <span class="nx">property</span><span class="o">=</span><span class="dl">"</span><span class="s2">og:image</span><span class="dl">"</span><span class="o">&gt;</span>
 </code></pre></div></div>
 <p>Gracias a este codigo y después de modificarlo para poderlo usar en mi plantilla, la modificación la he hecho en <code class="language-plaintext highlighter-rouge">_layouts/default.html</code>:</p>
@@ -97,10 +97,10 @@
 
 <h4 id="referencia">Referencia</h4>
 <ul>
-  <li><a href="https://gist.github.com/davidensinger/5431869">Opciones og:image</a></li>
-  <li><a href="https://stackoverflow.com/questions/57493239/opengraph-link-previews-in-jekyll">Opengraph link previews in Jekyll</a></li>
-  <li><a href="https://brianbunke.com/blog/2017/09/06/twitter-cards-on-jekyll">Twitter Cards on Jekyll</a></li>
-  <li><a href="https://sherblog.pro/compartiendo-contenido-de-hugo-en-mastodon">Compartiendo contenido de Hugo en Mastodon</a></li>
+  <li><a href="https://gist.github.com/davidensinger/5431869" target="_blank">Opciones og:image</a></li>
+  <li><a href="https://stackoverflow.com/questions/57493239/opengraph-link-previews-in-jekyll" target="_blank">Opengraph link previews in Jekyll</a></li>
+  <li><a href="https://brianbunke.com/blog/2017/09/06/twitter-cards-on-jekyll" target="_blank">Twitter Cards on Jekyll</a></li>
+  <li><a href="https://sherblog.pro/compartiendo-contenido-de-hugo-en-mastodon" target="_blank">Compartiendo contenido de Hugo en Mastodon</a></li>
 </ul>
 
     

@@ -36,7 +36,7 @@
     
             <p>Este mes de marzo ha traido un cambio inesperado en mi servidor.</p>
 
-<p>Lo primero de todo, vi una oferta de un Lenovo m910x (el que dispone de una ranura para puerto PCI) en Wallapop que venia completo (tarjeta grafica, SSD, RAM, transformador de 135w), o sea, una perita en dulce. Asi que me lance de cabeza a el. Y junto con los 2 HDD que ya tenia en funcionamiento (18Tb y otro de 12Tb) en mi <a href="/debian%20gnu/linux/thinkcenter/2023/08/01/de-nuevo-cambiando-servidor.html">antiguo servidor</a> más otro que estaba en stand-by de 16Tb, y aprovechando el <a href="https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x">mod</a> que se le puede hacer a los Tiny (sobre todo a los m910x), pense en aprovechar los 3 HDD y tener un <strong>peazo</strong> servidor que no se lo saltase un galgo.</p>
+<p>Lo primero de todo, vi una oferta de un Lenovo m910x (el que dispone de una ranura para puerto PCI) en Wallapop que venia completo (tarjeta grafica, SSD, RAM, transformador de 135w), o sea, una perita en dulce. Asi que me lance de cabeza a el. Y junto con los 2 HDD que ya tenia en funcionamiento (18Tb y otro de 12Tb) en mi <a href="/debian%20gnu/linux/thinkcenter/2023/08/01/de-nuevo-cambiando-servidor.html" target="_blank">antiguo servidor</a> más otro que estaba en stand-by de 16Tb, y aprovechando el <a href="https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x" target="_blank">mod</a> que se le puede hacer a los Tiny (sobre todo a los m910x), pense en aprovechar los 3 HDD y tener un <strong>peazo</strong> servidor que no se lo saltase un galgo.</p>
 
 <!-- more -->
 
@@ -46,7 +46,7 @@
 <ul>
   <li>Soldar 3 cables a la placa base, para sacar la alimentación para los HDD.
     <ul>
-      <li>Los puntos que tienes que soldar, los puedes encontrar en esta <a href="https://media.printables.com/media/prints/571792/images/4573825_5c9533df-9369-43f3-adfb-a8e3ec3e6bcc/thumbs/inside/1280x960/jpeg/noard-pinout-voltages.webp">image</a> del mod donde indica donde se tienen que hacer las soldaduras. El problema es si no tienes mucha experiencia o ninguna, entonces la cosa se complica. Yo he tenido de recordar los 5 años que me pase soldando cuando estaba haciendo el FP. de electronica industrial, asi que…</li>
+      <li>Los puntos que tienes que soldar, los puedes encontrar en esta <a href="https://media.printables.com/media/prints/571792/images/4573825_5c9533df-9369-43f3-adfb-a8e3ec3e6bcc/thumbs/inside/1280x960/jpeg/noard-pinout-voltages.webp" target="_blank">image</a> del mod donde indica donde se tienen que hacer las soldaduras. El problema es si no tienes mucha experiencia o ninguna, entonces la cosa se complica. Yo he tenido de recordar los 5 años que me pase soldando cuando estaba haciendo el FP. de electronica industrial, asi que…</li>
     </ul>
   </li>
   <li>Encontrar todo el material necesario para poder conectar los cables SATA a la PCI del Tiny. En la web de <strong>homelabs.club</strong> los encontraras.</li>
@@ -58,16 +58,16 @@
   </li>
 </ul>
 
-<p>Una vez realizada la parte más dificil, ahora solamente toca decidir que <strong>Sistema Operativo</strong> ponerle. En principio queria volver a poner <strong>Debian GNU/Linux</strong> tal como tenia antes en mi anterior servidor. Pero en el canal de telegram de <strong>HomeLabs.club</strong> todo el mundo comentaba las bondades de <a href="https://unraid.net">UnRAID</a> y me decidi a probarlo a ver que tal era y si era tan bueno como decian.</p>
+<p>Una vez realizada la parte más dificil, ahora solamente toca decidir que <strong>Sistema Operativo</strong> ponerle. En principio queria volver a poner <strong>Debian GNU/Linux</strong> tal como tenia antes en mi anterior servidor. Pero en el canal de telegram de <strong>HomeLabs.club</strong> todo el mundo comentaba las bondades de <a href="https://unraid.net" target="_blank">UnRAID</a> y me decidi a probarlo a ver que tal era y si era tan bueno como decian.</p>
 
 <p>Antes de nada, tenia que conseguir una licencia. Lo bueno que tiene <strong>UnRAID</strong>, es que tiene una licencia de prueba de <code class="language-plaintext highlighter-rouge">30 dias</code>. El <strong>Sistema Operativo</strong> tiene muy bien. Todo esta bien cuidado y bien ordenado, aunque al principio cuesta encontrar las cosas, pero eso es como todo.</p>
 
 <p>Pero por mi experiencia, antes de nada y para que no te lleves ningun susto o te encuentres perdido, te recomiendo que le des un vistado a los siguientes videos:</p>
 <ul>
-  <li><a href="https://www.youtube.com/watch?v=00zfs3U21GY">Guía de Primeros Pasos en UnRAID (parte1)</a></li>
-  <li><a href="https://www.youtube.com/watch?v=Aq6ssRuMQVo">Guía de Primeros Pasos en UnRAID (parte2)</a></li>
-  <li><a href="https://www.youtube.com/watch?v=B5jpsmV1Mjg">Guía de Primeros Pasos en UnRAID (parte3)</a></li>
-  <li><a href="https://www.youtube.com/watch?v=GRjWusI3fj8">Guía de Primeros Pasos en UnRAID (parte4)</a></li>
+  <li><a href="https://www.youtube.com/watch?v=00zfs3U21GY" target="_blank">Guía de Primeros Pasos en UnRAID (parte1)</a></li>
+  <li><a href="https://www.youtube.com/watch?v=Aq6ssRuMQVo" target="_blank">Guía de Primeros Pasos en UnRAID (parte2)</a></li>
+  <li><a href="https://www.youtube.com/watch?v=B5jpsmV1Mjg" target="_blank">Guía de Primeros Pasos en UnRAID (parte3)</a></li>
+  <li><a href="https://www.youtube.com/watch?v=GRjWusI3fj8" target="_blank">Guía de Primeros Pasos en UnRAID (parte4)</a></li>
 </ul>
 
 <p>Estos videos van muy bien, porque te pone en situación y te ayudan en la primera instalación y configuración del sistema. Es muy sencillo, pero como siempre pasa, el principio cuesta todo.</p>
@@ -143,9 +143,9 @@ El tema es que los famosos ilimitados queda muy bonito, pero que ahora mismo, <s
 
 <h4 id="referencia">Referencia</h4>
 <ul>
-  <li><a href="https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x">Cambios y modificaciones compatibles con los tiny’s M910Q/M710Q/M910X</a></li>
-  <li><a href="https://unraid.net">UnRAID</a></li>
-  <li><a href="https://www.youtube.com/playlist?list=PLVJ0-m0_zw1iM5w6oDHrEwMW87JnC_2pR">Tutoriales UnRAID_ES</a></li>
+  <li><a href="https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x" target="_blank">Cambios y modificaciones compatibles con los tiny’s M910Q/M710Q/M910X</a></li>
+  <li><a href="https://unraid.net" target="_blank">UnRAID</a></li>
+  <li><a href="https://www.youtube.com/playlist?list=PLVJ0-m0_zw1iM5w6oDHrEwMW87JnC_2pR" target="_blank">Tutoriales UnRAID_ES</a></li>
 </ul>
 
     

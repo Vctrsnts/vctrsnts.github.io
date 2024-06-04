@@ -34,7 +34,7 @@
 
     <section class="post-content">
     
-            <p>Después de mucho tiempo usando <a href="/debian%20gnu/linux/i3/2020/08/06/usando-i3-wm.html">i3-wm</a>, estaba constantemente, cambiando de wallpaper (seguramente ha más de uno le pasa), pense que habria alguna manera de hacer que cada X tiempo, el wallpaper que estoy utilizando cambiara automaticamente, de los que tengo en el directorio donde los guardo.</p>
+            <p>Después de mucho tiempo usando <a href="/debian%20gnu/linux/i3/2020/08/06/usando-i3-wm.html" target="_blank">i3-wm</a>, estaba constantemente, cambiando de wallpaper (seguramente ha más de uno le pasa), pense que habria alguna manera de hacer que cada X tiempo, el wallpaper que estoy utilizando cambiara automaticamente, de los que tengo en el directorio donde los guardo.</p>
 
 <p>Así que me puse a la busqueda de como se puede hacer.</p>
 
@@ -42,8 +42,8 @@
 
 <p>Encontre unas cuantas maneras de hacer lo que yo queria :</p>
 <ul>
-  <li>Primer <a href="https://forum.codeselfstudy.com/t/desktop-background-switcher-for-i3wm/1044">script</a></li>
-  <li>Segundo <a href="https://github.com/levinit/i3wm-config/blob/master/i3/wallpaper.sh">script</a></li>
+  <li>Primer <a href="https://forum.codeselfstudy.com/t/desktop-background-switcher-for-i3wm/1044" target="_blank">script</a></li>
+  <li>Segundo <a href="https://github.com/levinit/i3wm-config/blob/master/i3/wallpaper.sh" target="_blank">script</a></li>
 </ul>
 
 <p>Yo me quede con la idea del segundo script, aunque le añadi la posibilidad de enviar notificaciones al escritorio de los cambios de fondos de pantalla a través del <code class="language-plaintext highlighter-rouge">notify-send</code>.</p>
@@ -99,7 +99,7 @@ exec_always <span class="nt">--no-startup-id</span> feh <span class="nt">--bg-sc
 <span class="nb">exec</span> <span class="nt">--no-startup-id</span>  ~/.config/i3/scripts/wallpaper.sh &amp;
 </code></pre></div></div>
 
-<p>La otra modificación que he realizado, ha sido la de que en la barra de <code class="language-plaintext highlighter-rouge">i3-wm</code> (<code class="language-plaintext highlighter-rouge">i3block</code>) me informe de los paquetes que se tienen que actualizar, era una información que me gustaba tener y después de mucho buscar, encontré el <a href="https://github.com/vivien/i3blocks-contrib">comando / instrucción</a> que me daba lo que necesitada.</p>
+<p>La otra modificación que he realizado, ha sido la de que en la barra de <code class="language-plaintext highlighter-rouge">i3-wm</code> (<code class="language-plaintext highlighter-rouge">i3block</code>) me informe de los paquetes que se tienen que actualizar, era una información que me gustaba tener y después de mucho buscar, encontré el <a href="https://github.com/vivien/i3blocks-contrib" target="_blank">comando / instrucción</a> que me daba lo que necesitada.</p>
 
 <p>Lo primero, necesitas el script <code class="language-plaintext highlighter-rouge">apt-upgrades</code> y descargarlo en algún sitio desde donde puedas tener acceso. En mi caso, lo he dejado en el directorio del <code class="language-plaintext highlighter-rouge">i3-wm/script</code>, que es donde tengo todos los scripts que uso para <code class="language-plaintext highlighter-rouge">i3-wm</code>.</p>
 
@@ -211,10 +211,10 @@ aptitude full-upgrade <span class="nt">--simulate</span> <span class="nt">--assu
 
 <h4 id="referencia">Referencia</h4>
 <ul>
-  <li><a href="https://forum.codeselfstudy.com/t/desktop-background-switcher-for-i3wm/1044">Primera versión del script</a></li>
-  <li><a href="https://github.com/levinit/i3wm-config/blob/master/i3/wallpaper.sh">Segunda versión del script</a></li>
-  <li><a href="https://github.com/levinit/i3wm-config/blob/master/i3/config">Modificación en el config</a></li>
-  <li><a href="https://github.com/vivien/i3blocks-contrib">apt-upgrades</a></li>
+  <li><a href="https://forum.codeselfstudy.com/t/desktop-background-switcher-for-i3wm/1044" target="_blank">Primera versión del script</a></li>
+  <li><a href="https://github.com/levinit/i3wm-config/blob/master/i3/wallpaper.sh" target="_blank">Segunda versión del script</a></li>
+  <li><a href="https://github.com/levinit/i3wm-config/blob/master/i3/config" target="_blank">Modificación en el config</a></li>
+  <li><a href="https://github.com/vivien/i3blocks-contrib" target="_blank">apt-upgrades</a></li>
 </ul>
 
     

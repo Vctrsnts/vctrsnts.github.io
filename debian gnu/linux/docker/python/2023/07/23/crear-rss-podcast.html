@@ -40,17 +40,17 @@
 
 <p>Yo siempre he escuchado un programa de radio de <strong><em>Catalunya Radio</em></strong> que trata sobre la historia en general y como soy un entusiasta de la historia, pues este programa no podia faltar, pero claro, me lo programan a unas horas, que es imposible seguirlo. Asi que decidi mirar si tenian la opcion de descargar los programas en formato podcast, y resulto que si era posible.</p>
 
-<p>Asi mismo, tambien empece a seguir a unos podcaster que hablan sobre tecnologia (<a href="https://ugeek.github.io">uGeek</a>, <a href="https://atareao.es">Atareao</a>, <a href="https://papafriki.gitlab.io/podcast">PapaFriki</a>, etc…) y me he aficionado a ellos, asi que tambien los puse en la lista de seguimiento. Pero claro, yo los puedo escuchar cuando puedo y este año (2023) ha sido un poco dificil, porque he tenido un año muy complicado.</p>
+<p>Asi mismo, tambien empece a seguir a unos podcaster que hablan sobre tecnologia (<a href="https://ugeek.github.io" target="_blank">uGeek</a>, <a href="https://atareao.es" target="_blank">Atareao</a>, <a href="https://papafriki.gitlab.io/podcast" target="_blank">PapaFriki</a>, etc…) y me he aficionado a ellos, asi que tambien los puse en la lista de seguimiento. Pero claro, yo los puedo escuchar cuando puedo y este año (2023) ha sido un poco dificil, porque he tenido un año muy complicado.</p>
 
-<p>Entonces empece a investigar la manera de descargar los podcast automaticamente y si que existe, más información en este <a href="/docker/raspberry%20pi%20os/2021/05/30/flexget-podcast.html">articulo</a>. Y que además, tambien se puede hacer lo mismo con los otros podcast, mientras tengan un fichero <strong><em>RSS</em></strong>, se puede descargar. Asi que lo más importante, conseguir los podcast ya estaba echo. Pero claro, ahora faltaba la parte de poderlos escuchar.</p>
+<p>Entonces empece a investigar la manera de descargar los podcast automaticamente y si que existe, más información en este <a href="/docker/raspberry%20pi%20os/2021/05/30/flexget-podcast.html" target="_blank">articulo</a>. Y que además, tambien se puede hacer lo mismo con los otros podcast, mientras tengan un fichero <strong><em>RSS</em></strong>, se puede descargar. Asi que lo más importante, conseguir los podcast ya estaba echo. Pero claro, ahora faltaba la parte de poderlos escuchar.</p>
 
 <blockquote>
-  <p>⚠️ Antes un pequeño inciso sobre mi manera de tratar los ficheros de podcast. Al principio, los podcast los trataba como si fueran ficheros de musica normales y corrientes, pero siempre intentaba tenerlos separados de la musica, en un directorio los podcast y en otro la musica, pero a la hora de escuchar, siempre acababan juntandose en la aplicación del movil que usaba (<strong>D-Sub</strong>, <strong>Tempo</strong>, etc…), asi que me puse a investigar y gracias a unos de los podcast, valga la redundancia, de <a href="https://ugeek.github.io/post/2022-12-07-charla-con-atareao-sobre-servicios-y-mucho-mas.html">uGeek</a>, donde explicaba que el estaba intentando crear su propio feed de los podcast que seguia, para que asi, a traves del movil o cualquier otra aplicacion, poderlos escuchar cuando fuera posible.</p>
+  <p>⚠️ Antes un pequeño inciso sobre mi manera de tratar los ficheros de podcast. Al principio, los podcast los trataba como si fueran ficheros de musica normales y corrientes, pero siempre intentaba tenerlos separados de la musica, en un directorio los podcast y en otro la musica, pero a la hora de escuchar, siempre acababan juntandose en la aplicación del movil que usaba (<strong>D-Sub</strong>, <strong>Tempo</strong>, etc…), asi que me puse a investigar y gracias a unos de los podcast, valga la redundancia, de <a href="https://ugeek.github.io/post/2022-12-07-charla-con-atareao-sobre-servicios-y-mucho-mas.html" target="_blank">uGeek</a>, donde explicaba que el estaba intentando crear su propio feed de los podcast que seguia, para que asi, a traves del movil o cualquier otra aplicacion, poderlos escuchar cuando fuera posible.</p>
 </blockquote>
 
 <p>Y esa idea me gusto mucho y me puse a investigar, porque los conocimientos que tengo yo de bash son muy pocos y llegar al nivel para hacer lo que estaba explicando <strong>uGeek</strong> seria muy complicado.</p>
 
-<p>Despues de mucho buscar y probar, encontre este <a href="https://github.com/amsehili/genRSS">proyecto</a> en github, que a traves de un fichero python, se crea automaticament el fichero RSS del directorio que tu le indicabas junto con el titulo y descripción y después, este mismo fichero RSS, lo puedes exponer a internet, para que cualquier aplicacion lectora de RSS (sobre todo las aplicaciones de podcast que funcionan a traves de ellos) pudiera tener acceso a estos podcast.</p>
+<p>Despues de mucho buscar y probar, encontre este <a href="https://github.com/amsehili/genRSS" target="_blank">proyecto</a> en github, que a traves de un fichero python, se crea automaticament el fichero RSS del directorio que tu le indicabas junto con el titulo y descripción y después, este mismo fichero RSS, lo puedes exponer a internet, para que cualquier aplicacion lectora de RSS (sobre todo las aplicaciones de podcast que funcionan a traves de ellos) pudiera tener acceso a estos podcast.</p>
 
 <p>Aqui pongo un ejemplo de como uso yo este fichero:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">   usuari@debian:~$</span>python3 /home/usuari/genRSS/genRSS.py <span class="nt">-e</span> mp3 <span class="nt">-d</span> directorio_podcast <span class="nt">-H</span> http://ip_servidor:puerto <span class="nt">-i</span> https://imagen_de_la_caratula.jpg <span class="nt">-t</span> <span class="s2">"Titulo_del_Podcast"</span> <span class="nt">-p</span> <span class="s2">"Descripción del Podcast"</span> <span class="nt">-C</span> <span class="nt">-r</span> <span class="nt">-o</span> fichero.rss.rss
@@ -64,11 +64,11 @@
 
 <p>Ahora, solo faltaba elegir un buen podcaster, creo que se llaman asi, para poder escuchar mis podcast, y me decidi por <strong><em>AntennaPod</em></strong> donde se podia añadir los RSS creados por mi mismo y poderlos escuchar.</p>
 
-<p>Tengo que añadir, que para tener acceso a los ficheros RSS que habia creado en mi servidor, tenia que tener acceso a ellos y, en mi caso, esto lo hacia a traves de <strong><em>WEBDAV</em></strong> (como contenedor de docker), si quereis saber como se puede configurar, <strong><em>uGeek</em></strong> tiener un buen <a href="https://ugeek.github.io/blog/post/2019-10-22-docker-servidor-webdav.html">articulo</a> donde explica como se hace y como hacerlo, especificamente en docker.</p>
+<p>Tengo que añadir, que para tener acceso a los ficheros RSS que habia creado en mi servidor, tenia que tener acceso a ellos y, en mi caso, esto lo hacia a traves de <strong><em>WEBDAV</em></strong> (como contenedor de docker), si quereis saber como se puede configurar, <strong><em>uGeek</em></strong> tiener un buen <a href="https://ugeek.github.io/blog/post/2019-10-22-docker-servidor-webdav.html" target="_blank">articulo</a> donde explica como se hace y como hacerlo, especificamente en docker.</p>
 
-<p>Y tengo que decir que funcionaba todo perfectamente, pero eso si, abierto al peligroso mundo de internet y más, después de escuchar este <a href="https://ugeek.github.io/post/2023-07-31-seguridad-en-mis-servicios.html">episodio</a> de <strong>uGeek</strong> que habla sobre la seguridad de nuestros servidores abiertos al mundo y se te ponen los pelos de punta.</p>
+<p>Y tengo que decir que funcionaba todo perfectamente, pero eso si, abierto al peligroso mundo de internet y más, después de escuchar este <a href="https://ugeek.github.io/post/2023-07-31-seguridad-en-mis-servicios.html" target="_blank">episodio</a> de <strong>uGeek</strong> que habla sobre la seguridad de nuestros servidores abiertos al mundo y se te ponen los pelos de punta.</p>
 
-<p>La solución que daba, era usar una VPN (wireguard que ya tengo montada), en este <a href="https://ugeek.github.io/blog/post/2021-05-28-el-modo-mas-facil-de-instalar-administrar-wireguard.html">articulo</a> podeis encontrar como se puede hacer y asi poder conectar a nuestro servidor y simular como si estuvieramos en nuestra propia red pero sin estarlo.</p>
+<p>La solución que daba, era usar una VPN (wireguard que ya tengo montada), en este <a href="https://ugeek.github.io/blog/post/2021-05-28-el-modo-mas-facil-de-instalar-administrar-wireguard.html" target="_blank">articulo</a> podeis encontrar como se puede hacer y asi poder conectar a nuestro servidor y simular como si estuvieramos en nuestra propia red pero sin estarlo.</p>
 
 <p>Y tengo que decir que, ahora mismo, es como lo tengo funcionando y funciona a la perfección. Sin ningun corte ni nada, todo perfecto. Y para más inri, tambien tengo la musica en mi servidor y accedo a ella a traves de la VPN y sin problemas.</p>
 
@@ -78,11 +78,11 @@
 
 <h4 id="referencia">Referencia</h4>
 <ul>
-  <li><a href="https://ugeek.github.io/blog/post/2019-10-22-docker-servidor-webdav.html">WebDav - uGeek</a></li>
-  <li><a href="https://ugeek.github.io/post/2023-07-31-seguridad-en-mis-servicios.html">Seguridad en mis servicios - uGeek</a></li>
-  <li><a href="https://ugeek.github.io/post/2022-12-07-charla-con-atareao-sobre-servicios-y-mucho-mas.html">Charla con Atareao y algo más - uGeek</a></li>
-  <li><a href="https://ugeek.github.io/blog/post/2021-05-28-el-modo-mas-facil-de-instalar-administrar-wireguard.html">El modo más facil de instalar y administrar Wireguard - uGeek</a></li>
-  <li><a href="https://github.com/amsehili/genRSS">genRSS</a></li>
+  <li><a href="https://ugeek.github.io/blog/post/2019-10-22-docker-servidor-webdav.html" target="_blank">WebDav - uGeek</a></li>
+  <li><a href="https://ugeek.github.io/post/2023-07-31-seguridad-en-mis-servicios.html" target="_blank">Seguridad en mis servicios - uGeek</a></li>
+  <li><a href="https://ugeek.github.io/post/2022-12-07-charla-con-atareao-sobre-servicios-y-mucho-mas.html" target="_blank">Charla con Atareao y algo más - uGeek</a></li>
+  <li><a href="https://ugeek.github.io/blog/post/2021-05-28-el-modo-mas-facil-de-instalar-administrar-wireguard.html" target="_blank">El modo más facil de instalar y administrar Wireguard - uGeek</a></li>
+  <li><a href="https://github.com/amsehili/genRSS" target="_blank">genRSS</a></li>
 </ul>
 
     

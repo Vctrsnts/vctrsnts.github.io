@@ -34,17 +34,17 @@
 
     <section class="post-content">
     
-            <p>Como os explique en este <a href="/debian%20gnu/linux/docker/vps/2024/04/19/traefik.html">articulo</a>, aprovechando que tenia nuevo VPS, queria sacarle el maximo partido y después de haber instalado <strong>traefik</strong> aun tenia más ganas.</p>
+            <p>Como os explique en este <a href="/debian%20gnu/linux/docker/vps/2024/04/19/traefik.html" target="_blank">articulo</a>, aprovechando que tenia nuevo VPS, queria sacarle el maximo partido y después de haber instalado <strong>traefik</strong> aun tenia más ganas.</p>
 
 <p>Y aqui es donde os aviso, he estado 3 dias intentando hacerlo funcionar correctamente y hasta que al final, me vino una <strong>inspiración</strong> y pude conseguir que funcionara correctamente.</p>
 
 <!-- more -->
 
-<p>Lo más importante es que como base, sigo los articulos que ha posteado <a href="https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik">atareao</a> que podeis encontrar en su pagina web y la información que tiene en <a href="https://github.com/atareao/self-hosted/tree/main/searxng">gitHub searxNG</a> que explica con un ejemplo muy claro, aunque hay que remarcar que cuesta de seguirle el ritmo, como usar <strong>traefik</strong> pero ya junto con los contenedores de docker.</p>
+<p>Lo más importante es que como base, sigo los articulos que ha posteado <a href="https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik" target="_blank">atareao</a> que podeis encontrar en su pagina web y la información que tiene en <a href="https://github.com/atareao/self-hosted/tree/main/searxng" target="_blank">gitHub searxNG</a> que explica con un ejemplo muy claro, aunque hay que remarcar que cuesta de seguirle el ritmo, como usar <strong>traefik</strong> pero ya junto con los contenedores de docker.</p>
 
 <p>En mi caso, os pondre la configuración que he usado, que puede seros de mucha ayuda asi como el problema que tuve y que me volvio loco.</p>
 
-<p>Partiendo de la base, que el archivo <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> y los archivos <code class="language-plaintext highlighter-rouge">traefik.yml</code>, <code class="language-plaintext highlighter-rouge">dynamic.yml</code>, <code class="language-plaintext highlighter-rouge">users.txt</code> y <code class="language-plaintext highlighter-rouge">acme.json</code> que estais utilizando son los mismo que puse en el anterior <a href="/debian%20gnu/linux/docker/vps/2024/04/19/traefik.html">articulo</a> donde hablaba de <strong>traefik</strong>, ahora, lo más normal seria poder sacarle todo el potencial que tiene traefik y para eso, os voy a explicar como lo uso, para el servicio <a href="/debian%20gnu/linux/docker/vps/2024/04/13/uno-juntarlos-todos.html">rssFunnel</a> que tengo activo.</p>
+<p>Partiendo de la base, que el archivo <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> y los archivos <code class="language-plaintext highlighter-rouge">traefik.yml</code>, <code class="language-plaintext highlighter-rouge">dynamic.yml</code>, <code class="language-plaintext highlighter-rouge">users.txt</code> y <code class="language-plaintext highlighter-rouge">acme.json</code> que estais utilizando son los mismo que puse en el anterior <a href="/debian%20gnu/linux/docker/vps/2024/04/19/traefik.html" target="_blank">articulo</a> donde hablaba de <strong>traefik</strong>, ahora, lo más normal seria poder sacarle todo el potencial que tiene traefik y para eso, os voy a explicar como lo uso, para el servicio <a href="/debian%20gnu/linux/docker/vps/2024/04/13/uno-juntarlos-todos.html" target="_blank">rssFunnel</a> que tengo activo.</p>
 
 <p>Todo empieza en la configuració del <strong>docker-compose</strong> de dicho servició y para ello, se tiene que hacer añadir las siguientes lineas:</p>
 <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="na">rssFunnel</span><span class="pi">:</span>
@@ -111,7 +111,7 @@
 
 <h4 id="referencia">Referencia</h4>
 <ul>
-  <li><a href="https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik">532 - Exprimiendo tu proxy inverso Traefik</a></li>
+  <li><a href="https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik" target="_blank">532 - Exprimiendo tu proxy inverso Traefik</a></li>
 </ul>
 
     
