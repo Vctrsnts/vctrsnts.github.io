@@ -1,4 +1,103 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-06-07T12:24:38+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle>Si lo haces, hazlo bien!</subtitle><entry><title type="html">Opinión Personal sobre unRaid</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/05/opinion-unraid.html" rel="alternate" type="text/html" title="Opinión Personal sobre unRaid" /><published>2024-06-05T00:00:00+00:00</published><updated>2024-06-05T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/05/opinion-unraid</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/05/opinion-unraid.html"><![CDATA[<p>Tal como explique en este <a href="/debian%20gnu/linux/unraid/2024/03/07/cambiando-unraid.html" target="_blank">articulo</a> empece a usar <strong>unRaid</strong> y puedo decir que después 3 meses (algunos podeis pensar que es poco tiempo), ya me he hecho una opinión sobre este SO y la voy a exponer.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-06-07T12:28:27+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle>Si lo haces, hazlo bien!</subtitle><entry><title type="html">Usando Traefik - 3</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/docker/vps/2024/06/06/usando-traefik-3.html" rel="alternate" type="text/html" title="Usando Traefik - 3" /><published>2024-06-06T00:00:00+00:00</published><updated>2024-06-06T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/docker/vps/2024/06/06/usando-traefik-3</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/docker/vps/2024/06/06/usando-traefik-3.html"><![CDATA[<p>Como recordais hice 2 articulos donde en el <a href="/debian%20gnu/linux/docker/vps/2024/05/06/usando-traefik-1.html">primero articulo</a> explicaba como se podia usar <strong>traefik</strong> con otros servicios de docker y en el <a href="/debian%20gnu/linux/docker/vps/2024/05/13/usando-traefik-2.html">segundo articulo</a>, explicaba como se le podia añadir una capa más de seguridad a nuestro servicio de <em>traefik</em> que consistia en bloquear las peticiones de paises de nuestra lista negra.</p>
+
+<p>En este 3 articulo, explicare unas modificaciones que, como siempre me pasa, no acabe de entender al leer el <a href="">articulo principal</a> de <a href="https://www.atareao.es">atareao</a> y que gracias, no se si por inspiración divida de <em>Lorenzo</em> he acabado de entender.</p>
+
+<!-- more -->
+
+<p>Estas modificaciones, si te fijas bien, en el articulo de <em>Atareao</em> y que esta al final, comenta que después de lo que se ha hecho, hay suficiente con estas lineas:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="s">traefik.enable=true</span>
+<span class="pi">-</span> <span class="s">traefik.http.services.jellyfin.loadbalancer.server.port=8096</span>
+<span class="pi">-</span> <span class="s">traefik.http.routers.jellyfin.entrypoints=websecure</span>
+<span class="pi">-</span> <span class="s">traefik.http.routers.jellyfin.rule=Host(`${FQDN}`)</span>
+</code></pre></div></div>
+<p>Para que <em>traefik</em> tenga en cuenta el servicio que nosotros le estamos indicando y lo configure correctamente e incluso con un certificado de <strong>letsncrypt</strong>. En el caso de <strong>Lorenzo</strong> el lo explica para <em>Jellyfin</em>, pero en mi caso, lo explicare para <strong>rss-funnel</strong>, que es el servicio de ejemplo que utilice en el primer articulo. Tambien pondre las modificaciones necesarias que se tiene que hacer en los ficheros de configuración de <em>traefik</em>.</p>
+
+<p>Como podeis recordar en la configuración de <code class="language-plaintext highlighter-rouge">rss-funnel</code> del primer articulo, lo tenia configurado de la siguiente manera:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="na">rssFunnel</span><span class="pi">:</span>
+  <span class="na">image</span><span class="pi">:</span> <span class="s">ghcr.io/shouya/rss-funnel:latest</span>
+  <span class="na">container_name</span><span class="pi">:</span> <span class="s">rssFunnel</span>
+  <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+  <span class="na">networks</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">proxy</span>
+  <span class="na">ports</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">33333:4080</span>
+  <span class="na">volumes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">${HOME}/config/rss-funnel/funnel.yaml:/funnel.yaml</span>
+  <span class="na">environment</span><span class="pi">:</span>
+    <span class="na">RSS_FUNNEL_CONFIG</span><span class="pi">:</span> <span class="s">/funnel.yaml</span>
+    <span class="na">RSS_FUNNEL_BIND</span><span class="pi">:</span> <span class="s">0.0.0.0:PORT</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">traefik.enable=true</span>
+    <span class="pi">-</span> <span class="s">traefik.http.services.rssFunnel.loadbalancer.server.port=4080</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.rssFunnel.entrypoints=web</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.rssFunnel.rule=Host(`${PODCAST_SERVER}`)</span>
+    <span class="pi">-</span> <span class="s">traefik.http.middlewares.rssFunnel-https-redirect.redirectscheme.scheme=websecure</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.rssFunnel.middlewares=rssFunnel-https-redirect</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.rssFunnel-secure.entrypoints=websecure</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.rssFunnel-secure.rule=Host(`${PODCAST_SERVER}`)</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.rssFunnel-secure.tls=true</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.rssFunnel-secure.tls.certresolver=letsencrypt</span>
+</code></pre></div></div>
+<p>Pero siguiendo las pautas que ha dado <em>atareao</em>, tendria que quedar de la siguiente manera:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="na">rssFunnel</span><span class="pi">:</span>
+  <span class="na">image</span><span class="pi">:</span> <span class="s">ghcr.io/shouya/rss-funnel:latest</span>
+  <span class="na">container_name</span><span class="pi">:</span> <span class="s">rssFunnel</span>
+  <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+  <span class="na">networks</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">proxy</span>
+  <span class="na">volumes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">${HOME}/config/rss-funnel/funnel.yaml:/funnel.yaml</span>
+  <span class="na">environment</span><span class="pi">:</span>
+    <span class="na">RSS_FUNNEL_CONFIG</span><span class="pi">:</span> <span class="s">/funnel.yaml</span>
+    <span class="na">RSS_FUNNEL_BIND</span><span class="pi">:</span> <span class="s">0.0.0.0:PORT</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">traefik.enable=true</span>
+    <span class="pi">-</span> <span class="s">traefik.http.services.rssFunnel.loadbalancer.server.port=4080</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.rssFunnel.entrypoints=websecure</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.rssFunnel.rule=Host(`${PODCAST_SERVER}`)</span>
+</code></pre></div></div>
+<p>Como veis, he quitado toda la parte del puerto, la sección del certificado y la sección de la redirección porque de todo esto, se encarga <em>traefik</em>, esto es como consecuencia de que en el fichero <code class="language-plaintext highlighter-rouge">traefik.yml</code> hemos puesto lo siguiente:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">api</span><span class="pi">:</span>
+  <span class="na">dashboard</span><span class="pi">:</span> <span class="kc">true</span>
+
+<span class="na">entryPoints</span><span class="pi">:</span>
+  <span class="na">web</span><span class="pi">:</span>
+    <span class="na">address</span><span class="pi">:</span> <span class="s2">"</span><span class="s">:80"</span>
+    <span class="na">http</span><span class="pi">:</span>
+      <span class="na">redirections</span><span class="pi">:</span>
+        <span class="na">entryPoint</span><span class="pi">:</span>
+          <span class="na">to</span><span class="pi">:</span> <span class="s">websecure</span>
+          <span class="na">scheme</span><span class="pi">:</span> <span class="s">https</span>
+          <span class="na">permanent</span><span class="pi">:</span> <span class="kc">true</span>
+  <span class="na">websecure</span><span class="pi">:</span>
+    <span class="na">address</span><span class="pi">:</span> <span class="s2">"</span><span class="s">:443"</span>
+    <span class="na">http</span><span class="pi">:</span>
+      <span class="na">tls</span><span class="pi">:</span>
+        <span class="na">certresolver</span><span class="pi">:</span> <span class="s">letsencrypt</span>
+</code></pre></div></div>
+<p>Que es el encargado de crear automaticamente los certificados de todos los dominios que ponemos con <em>traefik</em>. Y os puedo decir que funciona perfectamente.</p>
+
+<p>Lo he aplicado a los siguientes contenedores:</p>
+<ul>
+  <li><a href="/debian%20gnu/linux/docker/vps/2024/01/10/searxng-uno-todo.html">SearxNG</a></li>
+  <li><a href="/debian%20gnu/linux/docker/vps/2024/04/13/uno-juntarlos-todos.html">rss-Funnel</a></li>
+  <li><a href="/debian%20gnu/linux/docker/vps/2024/04/19/traefik.html">Traefik</a></li>
+</ul>
+
+<p>Y funciona de fabula. Como dice el dicho, nunca te iras a dormir sin conocer una nueva cosa.</p>
+
+<p>Después de esto lo ultimo que me falta es ponerme con <strong>crowdsec</strong> que, una vez más, siempre habia pensado que era un <em>plugin</em> que se añadia a <em>traefik</em> y no, es un contenedor más con su respectiva configuración.</p>
+
+<p>Pero ahora estoy más tranquilo, porque entiendo un poco más como funciona el mundo de <em>traefik</em> y con ayuda de la excelente documentación que tiene <em>Atareao</em> con respecto a esto, creo que no tendre ningun problema en implementarlo en mi servidor.</p>
+
+<p>Como dice el dicho</p>
+
+<h4 id="la-suerte-favorece-a-los-valientes">La suerte favorece a los valientes</h4>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik">532 - Exprimiendo tu proxy inverso Traefik</a></li>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Debian GNU/Linux" /><category term="Docker" /><category term="VPS" /><category term="Debian GNU/Linux" /><category term="Docker" /><category term="VPS" /><summary type="html"><![CDATA[Como recordais hice 2 articulos donde en el primero articulo explicaba como se podia usar traefik con otros servicios de docker y en el segundo articulo, explicaba como se le podia añadir una capa más de seguridad a nuestro servicio de traefik que consistia en bloquear las peticiones de paises de nuestra lista negra. En este 3 articulo, explicare unas modificaciones que, como siempre me pasa, no acabe de entender al leer el articulo principal de atareao y que gracias, no se si por inspiración divida de Lorenzo he acabado de entender.]]></summary></entry><entry><title type="html">Opinión Personal sobre unRaid</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/05/opinion-unraid.html" rel="alternate" type="text/html" title="Opinión Personal sobre unRaid" /><published>2024-06-05T00:00:00+00:00</published><updated>2024-06-05T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/05/opinion-unraid</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/05/opinion-unraid.html"><![CDATA[<p>Tal como explique en este <a href="/debian%20gnu/linux/unraid/2024/03/07/cambiando-unraid.html" target="_blank">articulo</a> empece a usar <strong>unRaid</strong> y puedo decir que después 3 meses (algunos podeis pensar que es poco tiempo), ya me he hecho una opinión sobre este SO y la voy a exponer.</p>
 
 <p>Repito es mi opinión personal y se que este articulo puede levantar ampollas, pero como digo, es mi opinión y a quien no le guste <em>que s’hi posi fulles</em>.</p>
 
@@ -1090,7 +1189,7 @@ HOMEPAGE_VAR_PIHOLE=[key]
 <p>Con esto, ya tenemos la instalación de traefik en marcha. Ahora viene lo más dificil, que es configurar el resto de servicios para que hagan uso de <strong>traefik</strong> y poder usarlo.</p>
 
 <blockquote>
-  <p>⚠️ Aqui tengo que informar que el fichero <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> de <em>traefik</em> ha sufrido algunas modificaciones como consecuencia de lo que podeis leer en este <a href="">articulo</a>, quedando de la siguiente manera:</p>
+  <p>⚠️ Aqui tengo que informar que el fichero <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> de <em>traefik</em> ha sufrido algunas modificaciones como consecuencia de lo que podeis leer en este <a href="/debian%20gnu/linux/docker/vps/2024/06/06/usando-traefik-3.html">articulo</a>, quedando de la siguiente manera:</p>
   <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">labels</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">traefik.enable=true</span>
     <span class="pi">-</span> <span class="s">traefik.http.services.traefik.loadbalancer.server.port=80</span>

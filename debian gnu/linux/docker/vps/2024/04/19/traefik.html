@@ -200,7 +200,7 @@
 <p>Con esto, ya tenemos la instalación de traefik en marcha. Ahora viene lo más dificil, que es configurar el resto de servicios para que hagan uso de <strong>traefik</strong> y poder usarlo.</p>
 
 <blockquote>
-  <p>⚠️ Aqui tengo que informar que el fichero <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> de <em>traefik</em> ha sufrido algunas modificaciones como consecuencia de lo que podeis leer en este <a href="">articulo</a>, quedando de la siguiente manera:</p>
+  <p>⚠️ Aqui tengo que informar que el fichero <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> de <em>traefik</em> ha sufrido algunas modificaciones como consecuencia de lo que podeis leer en este <a href="/debian%20gnu/linux/docker/vps/2024/06/06/usando-traefik-3.html">articulo</a>, quedando de la siguiente manera:</p>
   <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">labels</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">traefik.enable=true</span>
     <span class="pi">-</span> <span class="s">traefik.http.services.traefik.loadbalancer.server.port=80</span>
