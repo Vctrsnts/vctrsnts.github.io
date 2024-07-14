@@ -1,4 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-06-14T15:47:33+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle>Si lo haces, hazlo bien!</subtitle><entry><title type="html">Opinión Personal sobre unRaid - 1</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/13/opinion-unraid-1.html" rel="alternate" type="text/html" title="Opinión Personal sobre unRaid - 1" /><published>2024-06-13T00:00:00+00:00</published><updated>2024-06-13T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/13/opinion-unraid-1</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/13/opinion-unraid-1.html"><![CDATA[<p>Tal como explique en este <a href="/debian%20gnu/linux/unraid/2024/06/05/opinion-unraid.html" target="_blank">articulo</a> comente que iba a dar mi opinión con respecto a <strong>unRaid</strong> y aqui va el primero de los 2 articulos que tenia planeado escribir dando mi opinión con respecto a las cosas positivas y negativas.  y aqui la el primero de los 2 articulos. Vamos a hablar de las cosas positivas que le he encontrado.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-07-14T17:11:09+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle>Si lo haces, hazlo bien!</subtitle><entry><title type="html">Opinión Personal sobre unRaid - 2</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/23/opinion-unraid-2.html" rel="alternate" type="text/html" title="Opinión Personal sobre unRaid - 2" /><published>2024-06-23T00:00:00+00:00</published><updated>2024-06-23T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/23/opinion-unraid-2</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/23/opinion-unraid-2.html"><![CDATA[<p>Tal como explique en este <a href="/debian%20gnu/linux/unraid/2024/06/05/opinion-unraid.html" target="_blank">articulo</a> comente que iba a dar mi opinión con respecto a <strong>unRaid</strong> y aqui va el segundo de los 2 articulos que tenia planeado escribir dando mi opinión con respecto a las cosas positivas y negativas, y hoy toca hablar de las cosas negativas que le he encontrado, y siento decir que son más que las positivas que negativas.</p>
+
+<!-- more -->
+
+<p>Aunque algunas, al final las he podido solucionar, pero la solución que he utilizado, seguramente sea la correcta si voy a mirar la documentación de <em>unRaid</em>, pero no me parece correcto que se tenga que hacer de esta manera.</p>
+
+<h3 id="puntos-negativos">Puntos negativos</h3>
+
+<h4 id="usando-el-so-mediante-un-usb">Usando el SO mediante un USB</h4>
+<p>Lo primero y más importante como punto negativo, es que en pleno siglo XXI, se tenga que usar un SO mediante un USB, con lo que implica eso. Ni la RaspberryPi y ya es decir mucho, usa ese sistema ya. Si, lo puedes usar, pero añadieron la opción de instalar el SO en un HDD externo y no me creo, que unRaid, no sea capaz de replicar esta funcionalida. Seguramente, me direis, que es para no estropear el RAID o cualquier otra cosa, pero un USB. Y porque no en una <strong>SD</strong> ya puestos?</p>
+
+<p>Pero si ahora todo el mundo tiene un SSD por hay abandonado donde se podria instalar el SO y funcionaria 100 veces mejor que el USB y con lo que se reducirian los posibles errores de escritura que tiene a la larga un USB, porque como todo el mundo sabe, un USB, no es para estar escribiendo todo el rato.</p>
+
+<p>Seguramente me direis que eso no pasa con unRaid, que no esta escribiendo todo el rato en el USB, no se si es cierto o no, pero me hago la siguiente pregunta. Y los <strong>logs</strong>? donde se graban en la RAM? Y si es asi, que pasa cuando se reinicia el sistema, se pierden los logs?</p>
+
+<p>Digo los <strong>logs</strong>, como podria decir cualquier otra cosa. No es mejor poder instalar el SO en un HDD / SDD que este en unRaid y asi usarlo como disco de sistema.</p>
+
+<p>Porque teniendo 300 HDD conectados a unRaid y que no puedas disponer de ninguno como disco para el SO, me parece un poco fuerte.</p>
+
+<p>Y esto es lo primero en la frente, no se que más sorpresas me deparara unRaid.</p>
+
+<h4 id="instalación-de-aplicaciones">Instalación de aplicaciones</h4>
+<p>Cuando me refiero a la instalación de aplicaciones, no me estoy refiriendo a docker, que de eso ya hablare más adelante o a los SO para virtualizar, que no voy a dar mi opinión con respecto a esto, porque no lo estoy usando. Me estoy refiriendo ha aplicaciones que puedas necesitar. Y voy a poner un ejemplo para explicar a lo que me estoy refiriendo.</p>
+
+<p>En mi caso, tengo un <a href="/debian%20gnu/linux/docker/2023/08/01/como-funciona-esta-web.html" target="_blank">script</a>, que cada fin de semana sube un <em>toot</em> a mi cuenta de <em>Mastodon</em> gracias a Python que tienes que instalar, con esto no tengo ningun problema, porque a traves del <em>plugin</em> <strong>NerdTools</strong> se puede hacer facilmente y sin complicaciones.</p>
+
+<p>Pero el problema es que a parte de Python, también necesitas otros programas, como podria ser <em>Mastodon.py</em>, <em>Twython</em> y <em>feedparser</em> y que tienes que instalar a traves de <code class="language-plaintext highlighter-rouge">pip install</code> y esto es lo que no acabo de entender. El motivo por el cual no hacen lo mismo que otras distribuciones que mediante, me voy a centrar en la distribución que hace más de 20 años que uso, y esta no es otra que <em>GNU/Debian</em>, y esto se haria de la siguiente manera con <code class="language-plaintext highlighter-rouge">apt install python3-twython</code> o <code class="language-plaintext highlighter-rouge">apt install python3-feedparser</code> ya tienes estos programas instalados y no como en <em>unRaid</em> que lo tienes que hacer a traves de python <code class="language-plaintext highlighter-rouge">pip install feedparser</code>.</p>
+
+<p>Yo esto lo veo como una desventaja. Porque además, es que si te vas a la paqueteria de <em>Slackware</em> estos paquetes <del>si que estan disponibles y eso por eso que no entiendo porque no se pueden instalar</del>.</p>
+
+<blockquote>
+  <p>⚠️ Nota: Aqui hago un inciso, porque he buscado estos paquetes en la distribución de <em>Slackware</em> y no estan disponibles para su instalación, entonces entiendo que se tiene que hacer a traves de <code class="language-plaintext highlighter-rouge">pip install</code>, pero aun asi me resulta extraño. Sera que estoy acostumbrado a GNU/Debian.</p>
+</blockquote>
+
+<p>Y luego para acabarlo de rematar, una vez que los instalas y en el caso de que se reinicie el servidor, nos puede pasar a todos, estos se tienen que volver a instalar. No le encuentro ningun sentido, porque si es un paquete que tu has instalado, significa que es algo que tu quieres y necesitas, sino no lo instalarias.</p>
+
+<p>Esto me ha pasado al querer usar el paquete <strong>lame</strong> para recodificar un mp3 (que es un paquete que si que esta en la paqueteria de <em>Slackware</em>). Primero que no estaba disponible a traves de la paqueteria de <em>unRaid</em> asi que tuve que ir a la paqueteria de <em>Slackware</em> e instalarlo pero no me funcionaba y, vuelvo a repetir, cuando se reinicia el servidor, el paquete se pierde.</p>
+
+<p>Esto tiene una facil solución, pero que sino lo sabes, pues… (culpa mia por no leer la documentación de <em>unRaid</em>, pero digamos la verdad, quien se lee los manuales), todo se soluciona basicamente si copiamos el paquete en <code class="language-plaintext highlighter-rouge">boot/extra</code> para que asi la proxima vez, el servidor instale la aplicación. Pero en mi caso, esto no funcionaba y no sabia el motivo y es un punto que no me acaba de gustar y que se tendria que mejorar para futuras versiones, que cualquier aplicación externa a <em>unRaid</em> se pierda después de un reinicio. Tienes la opción de ponerla en <code class="language-plaintext highlighter-rouge">boot/extra</code>, pero lo tienes que hacer y si no lo sabes, pues…</p>
+
+<blockquote>
+  <p>⚠️ Nota: buscando información sobre la paqueteria de <em>slackware</em> he encontrado este <a href="https://cameronjtinker.com/posts/installing-system-packages-on-unraid-aka-slackware" target="_blank">articulo</a> donde explica cual es la manera correcta de instalar, paqueteria externa en nuestro <em>unRaid</em> y funciona correctamente. Me he descargado <strong>lame</strong> y he seguido las indicaciones y de momento lo tengo funcionado.
+Esto se hace a traves de la siguiente instrucción <code class="language-plaintext highlighter-rouge">upgradepkg --install-new paquete.txz</code></p>
+</blockquote>
+
+<p>Ya hemos instalado la aplicación, pero no tendria que ser tan dificil si ya tenemos dentro del propio <em>unRaid</em> la posibilidad de instalar aplicaciones <em>externas</em> a traves del plugin <em>NerdTools</em> pues se le tendria que sacar más provecho.</p>
+
+<h4 id="gestión-de-docker">Gestión de docker</h4>
+
+<p>Se que la <em>gestión de docker</em>, <em>unRaid</em> la hace a traves de plantillas. Supongo que es la mejor es la mejor forma de gestionar los dockers, pero me parece muy floja. Con todas las posibilidades que tiene docker y que las plantillas te limiten todas las posibilidades que te da. Si tienes la opción de añadir lo que tu quieres “añadiendo varibles, rutas, etc…” pero se hace más lento y complicado, si como es mi caso, estas acostumbrado a usar <em>docker</em> a traves de un fichero <em>yaml</em>.</p>
+
+<p>Si tienes la posibilidad de instalar el <em>plugin compose</em>, pero claro, tienes que instalar otra cosa, que si vas sumando, al final, haces que todo el sistema se vuelva más lento. No podria estar ya implementada esta opcion y poderla usar? Si en docker tenemos <em>docker compose</em>, porque no se puede tener lo mismo. Asi amplias las posibilidades y no la encorsetas en las plantillas, que si, para empezar estan bien, pero te limitan mucho, y más si, como yo, estas acostumbrado a usar un simple fichero para <em>docker</em>.</p>
+
+<p>Creo que aqui, se tendria que hacer un planteamiento en como se estructura y se usa docker, para dotar a <em>unRaid</em>, de la misma versatilidad que tiene docker. Porque luego, si lo ves, todo se hace a traves de <code class="language-plaintext highlighter-rouge">docker-compose</code>.</p>
+
+<p>Pero claro, esto ya es un suma y sigue, que cosas que a mi entender son muy mejorables y que van sumando, y que en mi caso, no le vea mucha utilidad usar <em>unRaid</em> en comparación a tener un servidor con una <em>GNU/Debian</em> u otra distribución junto con <em>docker</em>.</p>
+
+<h4 id="gestión-del-administrador-de-archivos">Gestión del administrador de archivos</h4>
+
+<p>El gestor de archivos que usa <em>unRaid</em> es muy malo, siento decirlo. Podria ser mejor, pero no le sacan todo el potencial que se le podria sacar.</p>
+
+<p>Un ejemplo de esto, es que una vez que has seleccionado los archivos a tratar, tienes que ir hasta el final de la pagina para realizar la acción. No podria funcionar esto de otra manera. Que siempre fueran visibles las acciones que quieres realizar?</p>
+
+<p>A parte el funcionamiento es poco agil y en el caso de querer descargar archivos a tu ordenador, tienes que ir de archivo en archivo, no puedes hacer una selección y descargarlos todos a la vez.</p>
+
+<p>Se nota que aun hace falta mucho trabajo que hacer con este gestor de archivos y que se le podria sacar más provecho de lo que se esta haciendo ahora.</p>
+
+<h4 id="so-que-hay-por-debajo-de-unraid">SO que hay por debajo de unRaid</h4>
+
+<p>Esto es la opinión más personal de todo el articulo y lo digo con toda la convicción del mundo.</p>
+
+<p>Si no lo habeis notado aun, soy usuario de <em>Debian GNU/Linux</em> desde hace más de 20 años y seguramente aun me falta mucho que aprender con respecto a todo el mundo de GNU/Linux. Pero aunque solo sea por los años que llevo usandolo, tengo una opinión formada con respecte a <em>GNU/Debian</em> y por eso, me gustaria saber el motivo de porque han usado <em>Slackware</em> como plataforma para crear <em>unRaid</em> cuando, si por algo es conocido GNU/Debian es por la multitud de posibilidades que tiene para instalar en cualquier hardware.</p>
+
+<p>Además, tiene, seguramente, uno de los mejores sistema de instalación de paquetes y con muchos años a sus espaldas y me estoy refiriendo a <em>APT</em> o <em>APT-GET</em>. Y por eso no lo entiendo. Vuelvo a decir es una opinión personal y seguramente habra un motivo, pero no lo se ver.</p>
+
+<p>Y si mucho me apurais, podrian haber utilizado <a href="https://es.wikipedia.org/wiki/NetBSD" target="_blank">NetBSD</a> que yo lo considero el <em>GNU/Debian</em> de los <em>BSD</em>, porque este SO se pueda instalar en 58 plataformas diferentes y se dice pronto.</p>
+
+<h4 id="foro-de-ayuda">Foro de ayuda</h4>
+
+<p>Foro de ayuda como tal, si que existe en la pagina web de <em>unRaid</em>, pero hay otro en <em>Discord</em> que te ayudan todo lo que pueden y más, sobre eso no tengo ninguna queja, pero habiendo <em>telegram</em> que seguramente todo el mundo que usa <em>unRaid</em> lo tiene instalado, no logro entender porque usan <em>Discord</em>. Porque obligas a la persona a tener 2 aplicaciones, <em>telegram</em> y <em>Discord</em>.</p>
+
+<p>Y, en mi opinión, prefiero solo tener una sola de aplicación para eso. A parte, en el canal de telegram de <strong>HomeLabs</strong> tambien hay mucha gente que usa <em>unRaid</em> y, en mi caso, prefiero hacer las consultas hay que en <em>Discord</em>, por decir que me he dado de baja de <em>Discord</em> y ahora todas las dudas que tengo, las hago por telegram. Me resulta más facil y todo lo tengo concentrado en una aplicación y no en 2 como tenia antes.</p>
+
+<p>No entiendo el motivo del porque usan <em>Discord</em>. Seguramente habra algun motivo, pero lo desconozco. Y se que antes usaban telegram, porque mucha gente de <em>HomeLabs</em> me lo confirmaron.</p>
+
+<h3 id="opinión-final">Opinión Final</h3>
+<p>Se que podria poner en 4 lineas mi opinión final con respecto a <em>unRaid</em>, pero prefiero hacerlo en un ultimo articulo, para explicar lo que pienso.</p>
+
+<p>Este articulo saldra, proximamente, si es que los <strong>fanboys</strong> de unRaid, no me han matado. 😅</p>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Unraid" target="_blank">Slackware on unRaid</a></li>
+  <li><a href="https://es.wikipedia.org/wiki/NetBSD" target="_blank">NetBSD</a></li>
+  <li><a href="/debian%20gnu/linux/docker/2023/08/01/como-funciona-esta-web.html" target="_blank">Como funciona esta web y su creación</a></li>
+  <li><a href="https://cameronjtinker.com/posts/installing-system-packages-on-unraid-aka-slackware" target="_blank">Installing system packages on unRAID aka Slackware</a></li>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Debian GNU/Linux" /><category term="unRAID" /><category term="Debian GNU/Linux" /><category term="unRAID" /><summary type="html"><![CDATA[Tal como explique en este articulo comente que iba a dar mi opinión con respecto a unRaid y aqui va el segundo de los 2 articulos que tenia planeado escribir dando mi opinión con respecto a las cosas positivas y negativas, y hoy toca hablar de las cosas negativas que le he encontrado, y siento decir que son más que las positivas que negativas.]]></summary></entry><entry><title type="html">Opinión Personal sobre unRaid - 1</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/13/opinion-unraid-1.html" rel="alternate" type="text/html" title="Opinión Personal sobre unRaid - 1" /><published>2024-06-13T00:00:00+00:00</published><updated>2024-06-13T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/13/opinion-unraid-1</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/13/opinion-unraid-1.html"><![CDATA[<p>Tal como explique en este <a href="/debian%20gnu/linux/unraid/2024/06/05/opinion-unraid.html" target="_blank">articulo</a> comente que iba a dar mi opinión con respecto a <strong>unRaid</strong> y aqui va el primero de los 2 articulos que tenia planeado escribir dando mi opinión con respecto a las cosas positivas y negativas.  y aqui la el primero de los 2 articulos. Vamos a hablar de las cosas positivas que le he encontrado.</p>
 
 <!-- more -->
 
@@ -160,12 +256,12 @@ Pero claro, esto si lo tienes configurado de esta manera o de alguna manera simi
 
 <h3 id="puntos-negativos">Puntos negativos</h3>
 <ul>
-  <li>Instalación del Sistema Operativo en un USB</li>
+  <li>Usando el SO mediante un USB</li>
   <li>Instalación de aplicaciones</li>
   <li>Gestión de docker</li>
-  <li>Gestión a traves del administrador de archivos</li>
-  <li>Agilidad del Sistema Operativo</li>
+  <li>Gestión del administrador de archivos</li>
   <li>Sistema Operativo que hay por debajo de unRaid</li>
+  <li>Foro de ayuda</li>
 </ul>
 
 <p>Esto, en mi opinión, son los puntos positivos y negativos que he encontrado. Seguramente muchos direis estoy haciendo una montaña de un grano de arena, pero acostumbrado como estaba a gestionar mi servidor con Debian GNU/Linux desde la consola a pasar a gestionar el servidor a traves de <em>unRaid</em>.</p>
