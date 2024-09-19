@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-09-18T17:26:45+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle>Si lo haces, hazlo bien!</subtitle><entry><title type="html">Usando Traefik - 4</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/docker/vps/2024/07/26/usando-traefik-4.html" rel="alternate" type="text/html" title="Usando Traefik - 4" /><published>2024-07-26T00:00:00+00:00</published><updated>2024-07-26T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/docker/vps/2024/07/26/usando-traefik-4</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/docker/vps/2024/07/26/usando-traefik-4.html"><![CDATA[<p>Tal como indique en este <a href="/debian%20gnu/linux/docker/vps/2024/04/19/traefik.html">articulo</a>, lo unico que me faltaba por añadir a <strong>traefik</strong> para tener mi VPS lo más seguro posible era <strong>crowdsec</strong> y por fin, ya lo tengo instalado.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-09-19T11:03:24+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle>Si lo haces, hazlo bien!</subtitle><entry><title type="html">Modificaciones en el servidor</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/09/18/modificando-servidor.html" rel="alternate" type="text/html" title="Modificaciones en el servidor" /><published>2024-09-18T00:00:00+00:00</published><updated>2024-09-18T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/09/18/modificando-servidor</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/09/18/modificando-servidor.html"><![CDATA[<p>Durante estas vacaciones he modificado un poco el aspecto de mi servidor con la finalidad de que todo estuviera un poco más ordenado y más homogeneo, porque por una banda, tenia mi <a href="/debian%20gnu/linux/unraid/2024/03/07/cambiando-unraid.html" target="_blank">servidor</a> por un lado y por otro, en un caddy metalico de discos comprado en Aliexpress, los HDD al que le habia puesto este <a href="https://www.amazon.es/dp/B09SLPRYYZ" target="_blank">ventilador</a> para bajar la temperatura de los mismos.</p>
+
+<!-- more -->
+
+<p>Esto viene como consecuencia de que durante buena parte del verano, habian estado a unos agradables, 45º - 50º y que yo sepa, estas temperaturas no son muy buenas para un HDD, aunque sean HDD’s para servidores, que ya de por si, tendrian que estar preparados para el calor, pero es una cosa que no queria comprobar.</p>
+
+<p>Asi que me puse con las modificaciones…</p>
+
+<p>Y estas modificaciones, como no puede ser de otra manera, se las tengo que agradecer a <strong>@harebonse</strong> del canal de <strong>HomeLabs.Club</strong> por crear una caja o más concretamente <strong>Lenovo ThinkCentre NAS/drive case</strong> y que a la vez, se le puede añadir hasta 6 HDD’s que no son pocos.</p>
+
+<p>De nuevo, gracias por todo el trabajo… Y como una imagen vale más que mil palabras, aqui pongo una imagen de como es el diseño de esta caja:</p>
+
+<div class="row">
+    
+    <div style="flex: 100.0%">
+        <img class="single" src="/assets/img/images/server_01.jpg" alt="server_01.jpg" />
+    </div>
+    
+</div>
+
+<p>Antes de empezar con la modificación real del servidor, necesitaba tener todos los materiales necesarios para hacer el cambio, que en este caso es:</p>
+<ul>
+  <li>Ventiladors ARCTIV P14</li>
+  <li>Tornillo de cabeza avellanada 6-32 de 8mm.
+    <ul>
+      <li>Esto los he puesto, para que los HDD tengan una mejor sujección, aunque con unos de 6mm tambien funcionaban, pero prefiero un poco más de seguridad 😂</li>
+    </ul>
+  </li>
+  <li>Cable USB con adaptador para ventilador.</li>
+  <li>Y lo más importante, la caja</li>
+</ul>
+
+<p>Una vez que tenia todo el material, me puse con el montaje de la misma.</p>
+
+<p>Lo que si que hay que tener en cuenta, es que como puede aceptar hasta 6 HDD’s, la caja esta diseñada para que puedas acoplar una fuente de alimentación de 12v para los HDD. En mi caso, yo obtenia la alimentación directamente de la placa del Tiny y como uso un transformador de 135w con lo que al usar solamente 4 HDD’s no es necesario añadir la fuente adicional.</p>
+
+<p>Tambien hay que tener en cuenta, que se le puede añadir una placa controladora <strong>p822</strong> para los HDD’s, porque la caja tiene los agujeros especificos para dicha placa.</p>
+
+<p>Para finalizar, os pongo un par de fotos de como queda todo el montaje en mi servidor:</p>
+
+<div class="row">
+    
+    <div style="flex: 100.0%">
+        <img class="single" src="/assets/img/images/server_02.jpg" alt="server_02.jpg" />
+    </div>
+    
+</div>
+
+<p>Aqui hay que tener en cuenta, que la posición de la tapa delantera esta al reves (equivocación mia, pero que en mi caso es positiva), el ventilador tendria que estar más arriba, para asi llevar el aire, a parte de a los HDD’s tambien a la controladora, pero como este no es mi caso, esta asi, para que el mayo flujo de aire vaya hacia los discos.</p>
+
+<div class="row">
+    
+    <div style="flex: 100.0%">
+        <img class="single" src="/assets/img/images/server_03.jpg" alt="server_03.jpg" />
+    </div>
+    
+</div>
+
+<p>Como podeis ver, mis vacaciones han sido interesantes. Pocas modificaciones en mi servidor pero de gran calado.</p>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://www.amazon.es/dp/B09SLPRYYZ" target="_blank">Ventilador Arctic P14 Slim</a></li>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Debian GNU/Linux" /><category term="unRAID" /><category term="Debian GNU/Linux" /><category term="unRAID" /><summary type="html"><![CDATA[Durante estas vacaciones he modificado un poco el aspecto de mi servidor con la finalidad de que todo estuviera un poco más ordenado y más homogeneo, porque por una banda, tenia mi servidor por un lado y por otro, en un caddy metalico de discos comprado en Aliexpress, los HDD al que le habia puesto este ventilador para bajar la temperatura de los mismos.]]></summary></entry><entry><title type="html">Usando Traefik - 4</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/docker/vps/2024/07/26/usando-traefik-4.html" rel="alternate" type="text/html" title="Usando Traefik - 4" /><published>2024-07-26T00:00:00+00:00</published><updated>2024-07-26T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/docker/vps/2024/07/26/usando-traefik-4</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/docker/vps/2024/07/26/usando-traefik-4.html"><![CDATA[<p>Tal como indique en este <a href="/debian%20gnu/linux/docker/vps/2024/04/19/traefik.html">articulo</a>, lo unico que me faltaba por añadir a <strong>traefik</strong> para tener mi VPS lo más seguro posible era <strong>crowdsec</strong> y por fin, ya lo tengo instalado.</p>
 
 <p>Antes de lanzarte a la piscina directamente, te aconsejo que les eches un vistazo a este <a href="https://atareao.es/podcast/mas-herramientas-para-proteger-tu-linux">articulo</a> de <strong>atareao</strong> donde habla de <em>crowdsec</em> y tambien a este <a href="https://www.youtube.com/watch?v=-GxUP6bNxF0">video</a>, que me ha servido como guia en todo el proceso.</p>
 
@@ -379,7 +442,7 @@ Esto se hace a traves de la siguiente instrucción <code class="language-plainte
 Pero claro, esto si lo tienes configurado de esta manera o de alguna manera similar, pero en el caso, como tengo yo, que tengo 2 HDD, uno de 18Tb y otro de 16Tb, entiendo que tendre que tener un HDD de como minimo 18Tb. Que es aqui donde yo he cometido el error, pensando que tendrias que tener un HDD con la capacidad maxima (en mi caso, 32Tb). Fallo mio. 😰</p>
 </blockquote>
 
-<p>Asi mismo, tambien hay que tener en cuenta, que lo primero que se tiene que hacer una vez has puesto un nuevo HDD en el servidor, es hacer un <em>PreClear</em> de este mismo para comprobar la <em>salud</em> de HDD, pero hay que tener en cuenta una cosa que dependiendo de la capacidad del HDD puedes estar con el HDD conectado y haciendo las validacions correspondientes del <em>PreClear</em> durante unas 96 hores, esto es lo que me paso a mi y lo explcique en este <a href="/debian%20gnu/linux/unraid/2024/03/07/cambiando-unraid-1.html" target="_blank">articulo</a>. Que sino estas preparado pues de puede sorprender y asustar, pero si luego entiendes que lo hace para validar el HDD, pues no esta mal, porque si se tira, como fue mi caso, 96 hores y no le pasa nada al HDD, esta en buenas condiciones. Aunque nunca puedes dar un 100%, pero bueno, un 90% si.</p>
+<p>Asi mismo, tambien hay que tener en cuenta, que lo primero que se tiene que hacer una vez has puesto un nuevo HDD en el servidor, es hacer un <em>PreClear</em> de este mismo para comprobar la <em>salud</em> de HDD, pero hay que tener en cuenta una cosa que dependiendo de la capacidad del HDD puedes estar con el HDD conectado y haciendo las validacions correspondientes del <em>PreClear</em> durante unas 96 hores, esto es lo que me paso a mi y lo explcique en este <a href="/debian%20gnu/linux/unraid/2024/03/07/cambiando-unraid.html" target="_blank">articulo</a>. Que sino estas preparado pues de puede sorprender y asustar, pero si luego entiendes que lo hace para validar el HDD, pues no esta mal, porque si se tira, como fue mi caso, 96 hores y no le pasa nada al HDD, esta en buenas condiciones. Aunque nunca puedes dar un 100%, pero bueno, un 90% si.</p>
 
 <p>Para eso, prefiero tener un buen sistema de copias de seguridad para salvaguardar la información que a mi si que me interesa no perder.</p>
 
@@ -502,7 +565,7 @@ Pero claro, esto si lo tienes configurado de esta manera o de alguna manera simi
 <h4 id="referencia">Referencia</h4>
 <ul>
   <li><a href="https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik">532 - Exprimiendo tu proxy inverso Traefik</a></li>
-</ul>]]></content><author><name>VSANTOS</name></author><category term="Debian GNU/Linux" /><category term="Docker" /><category term="VPS" /><category term="Debian GNU/Linux" /><category term="Docker" /><category term="VPS" /><summary type="html"><![CDATA[Como recordais hice 2 articulos donde en el primero articulo explicaba como se podia usar traefik con otros servicios de docker y en el segundo articulo, explicaba como se le podia añadir una capa más de seguridad a nuestro servicio de traefik que consistia en bloquear las peticiones de paises de nuestra lista negra. En este 3 articulo, explicare unas modificaciones que, como siempre me pasa, no acabe de entender al leer el articulo principal de atareao y que gracias, no se si por inspiración divida de Lorenzo he acabado de entender.]]></summary></entry><entry><title type="html">Opinión Personal sobre unRaid</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/05/opinion-unraid.html" rel="alternate" type="text/html" title="Opinión Personal sobre unRaid" /><published>2024-06-05T00:00:00+00:00</published><updated>2024-06-05T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/05/opinion-unraid</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/05/opinion-unraid.html"><![CDATA[<p>Tal como explique en este <a href="/debian%20gnu/linux/unraid/2024/03/07/cambiando-unraid-1.html" target="_blank">articulo</a> empece a usar <strong>unRaid</strong> y puedo decir que después 3 meses (algunos podeis pensar que es poco tiempo), ya me he hecho una opinión sobre este SO y la voy a exponer.</p>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Debian GNU/Linux" /><category term="Docker" /><category term="VPS" /><category term="Debian GNU/Linux" /><category term="Docker" /><category term="VPS" /><summary type="html"><![CDATA[Como recordais hice 2 articulos donde en el primero articulo explicaba como se podia usar traefik con otros servicios de docker y en el segundo articulo, explicaba como se le podia añadir una capa más de seguridad a nuestro servicio de traefik que consistia en bloquear las peticiones de paises de nuestra lista negra. En este 3 articulo, explicare unas modificaciones que, como siempre me pasa, no acabe de entender al leer el articulo principal de atareao y que gracias, no se si por inspiración divida de Lorenzo he acabado de entender.]]></summary></entry><entry><title type="html">Opinión Personal sobre unRaid</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/05/opinion-unraid.html" rel="alternate" type="text/html" title="Opinión Personal sobre unRaid" /><published>2024-06-05T00:00:00+00:00</published><updated>2024-06-05T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/05/opinion-unraid</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/06/05/opinion-unraid.html"><![CDATA[<p>Tal como explique en este <a href="/debian%20gnu/linux/unraid/2024/03/07/cambiando-unraid.html" target="_blank">articulo</a> empece a usar <strong>unRaid</strong> y puedo decir que después 3 meses (algunos podeis pensar que es poco tiempo), ya me he hecho una opinión sobre este SO y la voy a exponer.</p>
 
 <p>Repito es mi opinión personal y se que este articulo puede levantar ampollas, pero como digo, es mi opinión y a quien no le guste <em>que s’hi posi fulles</em>.</p>
 
@@ -531,7 +594,7 @@ Pero claro, esto si lo tienes configurado de esta manera o de alguna manera simi
 
 <p>Ya se que muchos tambien direis que, no haberte cambiado, pero en eso consiste el aprender, en probar cosas y en sacar tus propias concluisones para poder rebatir si lo que me habian dicho era cierto o falso.</p>
 
-<p>Y tal como dije en este <a href="/debian%20gnu/linux/unraid/2024/03/07/cambiando-unraid-1.html" target="_blank">articulo</a> fui yo el que di el salto de <em>Debian</em> a <em>unRaid</em> porque por lo que me explicaban y por lo que veia, daba la sensación de que todo era más facil de gestionar y de usar, pero en mi caso, no ha sido asi.</p>
+<p>Y tal como dije en este <a href="/debian%20gnu/linux/unraid/2024/03/07/cambiando-unraid.html" target="_blank">articulo</a> fui yo el que di el salto de <em>Debian</em> a <em>unRaid</em> porque por lo que me explicaban y por lo que veia, daba la sensación de que todo era más facil de gestionar y de usar, pero en mi caso, no ha sido asi.</p>
 
 <p>Como digo, en futuras entradas, podreis leer lo <em>bueno</em> y lo <em>malo</em>, <em>a lo mejor lo malo</em>, no seria la palabra correcta, sino lo mejorable, en mi opinión, que le he encontrado a <em>unRaid</em>.</p>]]></content><author><name>VSANTOS</name></author><category term="Debian GNU/Linux" /><category term="unRAID" /><category term="Debian GNU/Linux" /><category term="unRAID" /><summary type="html"><![CDATA[Tal como explique en este articulo empece a usar unRaid y puedo decir que después 3 meses (algunos podeis pensar que es poco tiempo), ya me he hecho una opinión sobre este SO y la voy a exponer. Repito es mi opinión personal y se que este articulo puede levantar ampollas, pero como digo, es mi opinión y a quien no le guste que s’hi posi fulles.]]></summary></entry><entry><title type="html">Usando HomePage. El Dashboard - 2</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/docker/2024/06/03/usando-homepage-2.html" rel="alternate" type="text/html" title="Usando HomePage. El Dashboard - 2" /><published>2024-06-03T00:00:00+00:00</published><updated>2024-06-03T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/docker/2024/06/03/usando-homepage-2</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/docker/2024/06/03/usando-homepage-2.html"><![CDATA[<p>Como ya comente en el anterior <a href="/debian%20gnu/linux/docker/2024/02/12/usando-homepage-1.html" target="_blank">articulo</a>  donde hablaba de que estaba usando <strong>HomePage</strong> con una configuración <em>normal</em> y muy <em>simple</em>, pero que a la vez era funcional, por no decir basica para cuando te inicias, pero me faltaba algo, en resumen, queria algo más…</p>
 
@@ -1831,7 +1894,7 @@ HOMEPAGE_VAR_PIHOLE=[key]
 
 <p>Lo que si que estoy pensando, es en un futuro, alquilar un VPS un poco decente, y no tener que preocuparme de cualquier problema. Pero claro, lo que me gustaria seria un VPS que no fuera muy caro, porque no quiero nada por el estilo de Oracle (RAM, CPU, HDD), pero tampoco quiero tan limitado como tengo ahora mismo con Google. Pero a ver donde encuentro algo asi y que esa economico.</p>
 
-<p>Si alguien me lees y puede aconsejarme algun VPS, le estare muy agradecido.</p>]]></content><author><name>VSANTOS</name></author><category term="Debian GNU/Linux" /><category term="Docker" /><category term="VPS" /><category term="Debian GNU/Linux" /><category term="Docker" /><category term="VPS" /><summary type="html"><![CDATA[Si recordais este articulo Por fin VPS para hacer pruebas y luego leeis lo que me ha pasado, entedereis porque titulo este articulo como lo titulo. Porque no es para menos.]]></summary></entry><entry><title type="html">Cambiando a UnRAID - 1</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/03/07/cambiando-unraid-1.html" rel="alternate" type="text/html" title="Cambiando a UnRAID - 1" /><published>2024-03-07T00:00:00+00:00</published><updated>2024-03-07T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/03/07/cambiando-unraid-1</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/03/07/cambiando-unraid-1.html"><![CDATA[<p>Este mes de marzo ha traido un cambio inesperado en mi servidor.</p>
+<p>Si alguien me lees y puede aconsejarme algun VPS, le estare muy agradecido.</p>]]></content><author><name>VSANTOS</name></author><category term="Debian GNU/Linux" /><category term="Docker" /><category term="VPS" /><category term="Debian GNU/Linux" /><category term="Docker" /><category term="VPS" /><summary type="html"><![CDATA[Si recordais este articulo Por fin VPS para hacer pruebas y luego leeis lo que me ha pasado, entedereis porque titulo este articulo como lo titulo. Porque no es para menos.]]></summary></entry><entry><title type="html">Cambiando a UnRAID</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/03/07/cambiando-unraid.html" rel="alternate" type="text/html" title="Cambiando a UnRAID" /><published>2024-03-07T00:00:00+00:00</published><updated>2024-03-07T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/03/07/cambiando-unraid</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/03/07/cambiando-unraid.html"><![CDATA[<p>Este mes de marzo ha traido un cambio inesperado en mi servidor.</p>
 
 <p>Lo primero de todo, vi una oferta de un Lenovo m910x (el que dispone de una ranura para puerto PCI) en Wallapop que venia completo (tarjeta grafica, SSD, RAM, transformador de 135w), o sea, una perita en dulce. Asi que me lance de cabeza a el. Y junto con los 2 HDD que ya tenia en funcionamiento (18Tb y otro de 12Tb) en mi <a href="/debian%20gnu/linux/thinkcenter/2023/08/01/de-nuevo-cambiando-servidor.html" target="_blank">antiguo servidor</a> más otro que estaba en stand-by de 16Tb, y aprovechando el <a href="https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x" target="_blank">mod</a> que se le puede hacer a los Tiny (sobre todo a los m910x), pense en aprovechar los 3 HDD y tener un <strong>peazo</strong> servidor que no se lo saltase un galgo.</p>
 
