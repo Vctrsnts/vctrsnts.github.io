@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.4.9
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  
+  <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5"> <!-- UMAMI --> <script defer src="https://umami.ahnenerbe.duckdns.org/script.js" data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script> <!-- Theme Mode--> <script> const darkBtn = "Dark"; const lightBtn = "Light"; const isAutoTheme = false; const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; if (isAutoTheme) { document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme') ?? preferredTheme); } else { document.documentElement.setAttribute('data-theme', "dark"); } </script> <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)--> <script defer src="/assets/js/main.min.js"></script> <!-- CSS --> <link rel="stylesheet" href="/assets/css/main.css"> <!--Favicon--> <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon"> <!-- KaTeX 0.16.9 --> <!-- Mermaid 10.8.0 --> <script defer src="/assets/js/vendor/mermaid.min.js"></script> <!-- Simple Jekyll Search 1.10.0 --> <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script> <!-- Google Analytics / Cookie Consent --> <script> const cookieName = 'cookie-notice-dismissed-https://vctrsnts.github.io'; const isCookieConsent = 'false'; const analyticsName = ''; const analyticsNameGA4 = ''; </script> <!-- seo tags --> <meta property="og:image" content="https://vctrsnts.github.io/assets/img/feature-img/logo_post.jpg"> <meta property="og:type" content="website" /> <!-- Begin Jekyll SEO tag v2.8.0 --> <title>Usando HomePage. El Dashboard | Si lo haces, hazlo bien!</title> <meta name="generator" content="Jekyll v4.3.3" /> <meta property="og:title" content="Usando HomePage. El Dashboard" /> <meta name="author" content="VSANTOS" /> <meta property="og:locale" content="es_ES" /> <meta name="description" content="Despúes de escuchar el podcast de uGeek donde hablaba de los dashboard y en especial del que el usaba, Homer, me decidi a probarlo a ver que tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Asi que me decidi a instalar y probar Homer." /> <meta property="og:description" content="Despúes de escuchar el podcast de uGeek donde hablaba de los dashboard y en especial del que el usaba, Homer, me decidi a probarlo a ver que tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Asi que me decidi a instalar y probar Homer." /> <link rel="canonical" href="https://vctrsnts.github.io/docker/unraid/2024/02/12/usando-homepage-1.html" /> <meta property="og:url" content="https://vctrsnts.github.io/docker/unraid/2024/02/12/usando-homepage-1.html" /> <meta property="og:site_name" content="Si lo haces, hazlo bien!" /> <meta property="og:type" content="article" /> <meta property="article:published_time" content="2024-02-12T00:00:00+00:00" /> <meta name="twitter:card" content="summary" /> <meta property="twitter:title" content="Usando HomePage. El Dashboard" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"VSANTOS","url":"https://github.com/vctrsnts"},"dateModified":"2024-02-12T00:00:00+00:00","datePublished":"2024-02-12T00:00:00+00:00","description":"Despúes de escuchar el podcast de uGeek donde hablaba de los dashboard y en especial del que el usaba, Homer, me decidi a probarlo a ver que tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Asi que me decidi a instalar y probar Homer.","headline":"Usando HomePage. El Dashboard","mainEntityOfPage":{"@type":"WebPage","@id":"https://vctrsnts.github.io/docker/unraid/2024/02/12/usando-homepage-1.html"},"url":"https://vctrsnts.github.io/docker/unraid/2024/02/12/usando-homepage-1.html"}</script> <!-- End Jekyll SEO tag --> <!-- RSS --> <link rel="alternate" type="application/atom+xml" title="Si lo haces, hazlo bien!" href="https://vctrsnts.github.io/feed.xml"/> <link type="application/atom+xml" rel="alternate" href="https://vctrsnts.github.io/feed.xml" title="Si lo haces, hazlo bien!" /> <!-- Twitter Cards --> <meta name="twitter:title" content="Usando HomePage. El Dashboard"> <meta name="twitter:description" content="Despúes de escuchar el podcast de uGeek donde hablaba de los dashboard y en especial del que el usaba, Homer, me decidi a probarlo a ver que tal funcionaba l..."> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://vctrsnts.github.io/assets/img/feature-img/logo_post.jpg"> <meta name="twitter:image:alt" content="Usando HomePage. El Dashboard"> </head>
+  <body>
+    
+    <header class="site-header"> <!-- Logo and title --> <div class="branding"> <a href="/"> <img alt="logo img" class="avatar" src="/assets/img/logo.png" loading="lazy"/> </a> <a class="site-title" aria-label="Si lo haces, hazlo bien!" href="/"> Si lo haces, hazlo bien! </a> </div> <!-- Toggle menu --> <nav class="clear"> <a aria-label="pull" id="pull" class="toggle" href="#"> <i class="fas fa-bars fa-lg"></i> </a> <!-- Menu --> <ul class="hide"> <li class="separator"> | </li> <li> <a class="clear" aria-label="About" title="About" href="/about/"> <span class="navbar-label ">About</span> </a> </li> <li class="separator"> | </li> <li> <a class="clear" aria-label="Archivo" title="Archivo" href="/archive"> <span class="navbar-label ">Archivo</span> </a> </li> <li class="separator"> | </li> <li> <a class="clear" aria-label="Tags" title="Tags" href="/tags/"> <i class="navbar-icon fas fa-tags" aria-hidden="true"></i> <span class="navbar-label navbar-label-with-icon">Tags</span> </a> </li> <li class="separator"> | </li> <li> <a class="clear" aria-label="Search" title="Search" href="/search/"> <i class="navbar-icon fas fa-search" aria-hidden="true"></i> <span class="navbar-label navbar-label-with-icon">Search</span> </a> </li> </ul> </nav> </header>
+    <div class="content">
+      <article class="feature-image" >
+    <header id="main" style="">
+        <div class="title-padder">
+            
+                <h1 id="Usando+HomePage.+El+Dashboard" class="title">Usando HomePage. El Dashboard</h1>
+                
+
+
+<div class="post-info"><a href="https://github.com/vctrsnts" target="_blank" rel="noopener">
+      <img alt="Author's avatar" src="/assets/img/avatar.jpg" loading="lazy">
+    
+    <p class="meta">
+      VSANTOS - 
+      
+      Febrero 12, 2024
+    </p></a></div>
+
+            
+        </div>
+    </header>
+
+    <section class="post-content">
+    
+            <p>Despúes de escuchar el <a href="https://ugeek.github.io/post/2021-05-24-homer-mi-dashboard-favorito.html" target="_blank">podcast</a> de <strong>uGeek</strong> donde hablaba de los <strong>dashboard</strong> y en especial del que el usaba, <strong>Homer</strong>, me decidi a probarlo a ver que tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Asi que me decidi a instalar y probar <strong>Homer</strong>.</p>
+
+<!-- more -->
+
+<p>Al principio, no necesitaba nada más, pero poco a poco, cuanto más te adentras en el mundo de los <strong>dashboards</strong>, ves las infinitas posibilidades que tienes a tu alcance y que en el caso de <strong>Homer</strong> no me lo daba. Asi que, me decibi a buscar otros que pudieran ampliar la información que me podian mostrar y no encontraba el más adecuado hasta que lei el <a href="https://elblogdelazaro.org/posts/2023-06-21-docker-homepage-dashboard/" target="_blank">articulo</a> de <strong>Lazaro</strong> donde hablaba de <a href="https://github.com/gethomepage/homepage" target="_blank">HomePage</a> y de las multiples opciones que tenia. Y puedo decir que si, tiene muchas opciones de configuración que te pueden ayudar a visualizar toda la información que puedas necesitar.</p>
+
+<p>Y como además, <strong>Homer</strong> tambien tiene esta posibilidad, se podia usar a traves de <strong>docker</strong> que más se podia pedir. Asi que me dispuse a crear el container de <strong>HomePage</strong>. En mi caso, todo lo tengo concentrado en un fichero <code class="language-plaintext highlighter-rouge">yaml</code> que contine todos los dockers que uso:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">homepage</span><span class="pi">:</span>
+  <span class="na">image</span><span class="pi">:</span> <span class="s">ghcr.io/gethomepage/homepage:latest</span>
+  <span class="na">container_name</span><span class="pi">:</span> <span class="s">homepage</span>
+  <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+  <span class="na">ports</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">2000:3000</span>
+  <span class="na">environment</span><span class="pi">:</span>
+    <span class="na">PUID</span><span class="pi">:</span> <span class="m">1000</span>
+    <span class="na">PGID</span><span class="pi">:</span> <span class="m">1000</span>
+  <span class="na">volumes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">${STORAGE}/config/homepage:/app/config</span>
+    <span class="pi">-</span> <span class="s">/var/run/docker.sock:/var/run/docker.sock</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">diun.enable=true</span>
+</code></pre></div></div>
+<p>Y asi se quedo, con un par de opciones más, <code class="language-plaintext highlighter-rouge">transmission</code>, <code class="language-plaintext highlighter-rouge">navidrome</code>, <code class="language-plaintext highlighter-rouge">jellyfin</code> y el uso de <strong>CPU</strong>, <strong>Memoria</strong> y <strong>HDD</strong> del servidor. Con esto ya lo tenia todo. Pero como dice el refran, siempre deseas lo que tienen los otros… Y asi sucedio…</p>
+
+<p>Aqui tengo que hacer un inciso, porque a parte de tener el <strong>dashboard</strong> de <strong>HomePage</strong> otra de las muchas cosas que siempre quiero controlar, es el estado de los 2 servidores que tengo ahora mismo (el servidor local y el servidor de Oracle) y esto lo podia controlar a traves del docker <strong>Glances</strong> que conoci después de leer el <a href="https://atareao.es/software/utilidades/glances-una-potente-alternativa-al-monitor-del-sistema/" target="_blank">articulo</a> que hizo <a href="https://atareao.es" target="_blank">Lorenzo</a> donde hablaba de el. Una versión resumida de este articulo, es que <strong>Glances</strong> es una especió de <strong>htop</strong> pero vitaminado. 
+Asi que tambien lo instale, porque con el podia obtener toda la informació (accediendo a ella a traves de la web) de los 2 servidores.</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">glances</span><span class="pi">:</span>
+  <span class="na">image</span><span class="pi">:</span> <span class="s">nicolargo/glances:latest-full</span>
+  <span class="na">container_name</span><span class="pi">:</span> <span class="s">glances</span>
+  <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+  <span class="na">pid</span><span class="pi">:</span> <span class="s">host</span>
+  <span class="na">privileged</span><span class="pi">:</span> <span class="kc">true</span>
+  <span class="na">volumes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">/var/run/docker.sock:/var/run/docker.sock</span>
+    <span class="pi">-</span> <span class="s">/run/user/1000/podman/podman.sock:/run/user/1000/podman/podman.sock</span>
+    <span class="pi">-</span> <span class="s">${STORAGE}/config/glances/glances.conf:/glances/conf/glances.conf</span>
+  <span class="na">environment</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">TZ='Europe/Madrid'</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">GLANCES_OPT=-C</span><span class="nv"> </span><span class="s">/glances/conf/glances.conf</span><span class="nv"> </span><span class="s">-w"</span>
+  <span class="na">ports</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">61208:61208</span>
+</code></pre></div></div>
+<p>Y sin saberlo tenia todo lo necesarió para obtener mucha más información de la que me estaba facilitando <strong>HomePage</strong> hasta el momento y que yo desconocia que se podia obtener, hasta que en el canal de Telegram de <a href="https://homelabs.club" target="_blank">HomeLabs.club</a> empezaron a hablar de ello y de las multiples posibilidades que habia, junto con una captura de pantalla de toda la información que se podia obtener. Y yo, tenia a mi disposición toda esa información, pero desconocia como obtenerla.</p>
+
+<p>Después de pedir ayuda o si me podian facilitar los archivos de configuración que usaban, me podian servir como base para asi yo poder hacer mi configuración. Hay que remarcar, que para configurar <strong>HomePage</strong> se necesitan de 5 archivos <strong>yaml</strong> donde:</p>
+
+<h3 id="settingsyaml">settings.yaml</h3>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#</span>
+<span class="c1"># La configuració basica del dashboard (color de fons, idioma, disposició de la informació, etc...)</span>
+<span class="c1">#</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">HomePage</span>
+<span class="na">language</span><span class="pi">:</span> <span class="s">ca</span>
+
+<span class="na">color</span><span class="pi">:</span> <span class="s">slate</span>
+<span class="na">headerStyle</span><span class="pi">:</span> <span class="s">boxed</span>
+<span class="na">hideVersion</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">useEqualHeights</span><span class="pi">:</span> <span class="kc">true</span>
+
+<span class="na">layout</span><span class="pi">:</span>
+ <span class="na">servidoLocal</span><span class="pi">:</span>
+   <span class="na">header</span><span class="pi">:</span> <span class="kc">false</span>
+   <span class="na">style</span><span class="pi">:</span> <span class="s">columns</span>
+   <span class="na">columns</span><span class="pi">:</span> <span class="m">3</span>
+
+ <span class="na">Oracle</span><span class="pi">:</span>
+   <span class="na">header</span><span class="pi">:</span> <span class="kc">false</span>
+   <span class="na">style</span><span class="pi">:</span> <span class="s">columns</span>
+   <span class="na">columns</span><span class="pi">:</span> <span class="m">3</span>
+
+ <span class="na">Dockers</span><span class="pi">:</span>
+   <span class="na">header</span><span class="pi">:</span> <span class="kc">false</span>
+   <span class="na">style</span><span class="pi">:</span> <span class="s">row</span>
+   <span class="na">columns</span><span class="pi">:</span> <span class="m">3</span>
+
+ <span class="na">Media</span><span class="pi">:</span>
+   <span class="na">header</span><span class="pi">:</span> <span class="kc">false</span>
+   <span class="na">style</span><span class="pi">:</span> <span class="s">row</span>
+   <span class="na">columns</span><span class="pi">:</span> <span class="m">2</span>
+</code></pre></div></div>
+<h3 id="servicesyaml">services.yaml</h3>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#</span>
+<span class="c1"># Es configuran els serveis que volem visualitzar per pantalla</span>
+<span class="c1">#</span>
+<span class="pi">-</span> <span class="na">servidorLocal</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">Network</span><span class="pi">:</span>
+      <span class="na">widget</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">glances</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">metric</span><span class="pi">:</span> <span class="s">network:eth0</span>
+        <span class="na">chart</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="pi">-</span> <span class="na">Memory</span><span class="pi">:</span>
+      <span class="na">widget</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">glances</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">metric</span><span class="pi">:</span> <span class="s">memory</span>
+        <span class="na">chart</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="pi">-</span> <span class="na">Process</span><span class="pi">:</span>
+      <span class="na">widget</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">glances</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">metric</span><span class="pi">:</span> <span class="s">process</span>
+        
+<span class="pi">-</span> <span class="na">Oracle</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">Network</span><span class="pi">:</span>
+      <span class="na">widget</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">glances</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">metric</span><span class="pi">:</span> <span class="s">network:eth0</span>
+        <span class="na">chart</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="pi">-</span> <span class="na">Memory</span><span class="pi">:</span>
+      <span class="na">widget</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">glances</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">metric</span><span class="pi">:</span> <span class="s">memory</span>
+        <span class="na">chart</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="pi">-</span> <span class="na">Process</span><span class="pi">:</span>
+      <span class="na">widget</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">glances</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">metric</span><span class="pi">:</span> <span class="s">process</span>
+        
+<span class="pi">-</span> <span class="na">Dockers</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">Transmission</span><span class="pi">:</span>
+      <span class="na">icon</span><span class="pi">:</span> <span class="s">transmission</span>
+      <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+      <span class="na">description</span><span class="pi">:</span> <span class="s">Servidor Transmission</span>
+      <span class="na">container</span><span class="pi">:</span> <span class="s">transmission</span>
+      <span class="na">widget</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">transmission</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">username</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">usuari</span><span class="pi">]</span>
+        <span class="na">password</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">password</span><span class="pi">]</span>
+  <span class="pi">-</span> <span class="na">aMule</span><span class="pi">:</span>
+      <span class="na">icon</span><span class="pi">:</span> <span class="s">https://raw.githubusercontent.com/amule-project/amule/master/amule.png</span>
+      <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+      <span class="na">description</span><span class="pi">:</span> <span class="s">Servidor aMule</span>
+      <span class="na">container</span><span class="pi">:</span> <span class="s">amule</span>
+  <span class="pi">-</span> <span class="na">Jackett</span><span class="pi">:</span>
+      <span class="na">icon</span><span class="pi">:</span> <span class="s">jackett.png</span>
+      <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+      <span class="na">description</span><span class="pi">:</span> <span class="s">Servidor Indexers</span>
+      <span class="na">container</span><span class="pi">:</span> <span class="s">jackett</span>
+      <span class="na">widget</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">jackett</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+  <span class="pi">-</span> <span class="na">PiHole</span><span class="pi">:</span>
+      <span class="na">icon</span><span class="pi">:</span> <span class="s">pi-hole.png</span>
+      <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+      <span class="na">description</span><span class="pi">:</span> <span class="s">Servidor PiHole</span>
+      <span class="na">container</span><span class="pi">:</span> <span class="s">pihole</span>
+      <span class="na">widget</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">pihole</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">key</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">key</span><span class="pi">]</span>
+  <span class="pi">-</span> <span class="na">SpeedTest</span><span class="pi">:</span>
+      <span class="na">icon</span><span class="pi">:</span> <span class="s">https://cdn.icon-icons.com/icons2/3053/PNG/512/speedtest_macos_bigsur_icon_189707.png</span>
+      <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+      <span class="na">container</span><span class="pi">:</span> <span class="s">speedtest</span>
+      <span class="na">widget</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">speedtest</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+  <span class="pi">-</span> <span class="na">Scrutiny</span><span class="pi">:</span>
+      <span class="na">icon</span><span class="pi">:</span> <span class="s">https://repository-images.githubusercontent.com/289524449/fc01e480-e6ab-11ea-9e20-53257df6f326</span>
+      <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+      <span class="na">container</span><span class="pi">:</span> <span class="s">scrutiny</span>
+      <span class="na">widget</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">scrutiny</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        
+<span class="pi">-</span> <span class="na">Media</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">Jellyfin</span><span class="pi">:</span>
+      <span class="na">icon</span><span class="pi">:</span> <span class="s">jellyfin.png</span>
+      <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+      <span class="na">description</span><span class="pi">:</span> <span class="s">Servidor Multimedia</span>
+      <span class="na">container</span><span class="pi">:</span> <span class="s">jellyfin</span>
+      <span class="na">widget</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">jellyfin</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">key</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">key</span><span class="pi">]</span>
+  <span class="pi">-</span> <span class="na">Navidrome</span><span class="pi">:</span>
+      <span class="na">icon</span><span class="pi">:</span> <span class="s">navidrome</span>
+      <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+      <span class="na">description</span><span class="pi">:</span> <span class="s">Servidor Musica</span>
+      <span class="na">container</span><span class="pi">:</span> <span class="s">navidrome</span>
+      <span class="na">widget</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">navidrome</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">user</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">usuari</span><span class="pi">]</span>
+        <span class="na">token</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">token</span><span class="pi">]</span>
+        <span class="na">salt</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">salt</span><span class="pi">]</span>
+</code></pre></div></div>
+<p>Lo que podeis hacer, yo lo tengo montado, más información en este <a href="/docker/vps/2024/01/10/searxng-uno-todo.html" target="_blank">articulo</a>, es tener montado vuestro propio buscador y hacer todas las busquedas en el y asi confundirr en todo lo posible al <strong>Gran Hermano</strong>.</p>
+
+<h3 id="widgetsyaml">widgets.yaml</h3>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#</span>
+<span class="c1"># On es pot configurar el teu buscador preferit o visualitzar diverses informacions del teu servidor</span>
+<span class="c1"># En el meu cas, visualitzar la informació (CPU, MEMORIA, UPTIME) de 2 servidores diferents (servidor local i Oracle)</span>
+<span class="c1">#</span>
+<span class="pi">-</span> <span class="na">glances</span><span class="pi">:</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+  <span class="na">label</span><span class="pi">:</span> <span class="s">servidorLocal</span>
+  <span class="na">cpu</span><span class="pi">:</span> <span class="kc">true</span>
+  <span class="na">mem</span><span class="pi">:</span> <span class="kc">true</span>
+  <span class="na">uptime</span><span class="pi">:</span> <span class="kc">true</span>
+
+<span class="pi">-</span> <span class="na">glances</span><span class="pi">:</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+  <span class="na">label</span><span class="pi">:</span> <span class="s">Oracle</span>
+  <span class="na">cpu</span><span class="pi">:</span> <span class="kc">true</span>
+  <span class="na">mem</span><span class="pi">:</span> <span class="kc">true</span>
+  <span class="na">uptime</span><span class="pi">:</span> <span class="kc">true</span>
+
+<span class="pi">-</span> <span class="na">search</span><span class="pi">:</span>
+  <span class="na">provider</span><span class="pi">:</span> <span class="s">custom</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+  <span class="na">focus</span><span class="pi">:</span> <span class="kc">true</span>
+  <span class="na">target</span><span class="pi">:</span> <span class="s">_blank</span>
+
+<span class="pi">-</span> <span class="na">datetime</span><span class="pi">:</span>
+  <span class="na">locale</span><span class="pi">:</span> <span class="s">nl</span>
+  <span class="na">text_size</span><span class="pi">:</span> <span class="s">xs</span>
+  <span class="na">format</span><span class="pi">:</span>
+    <span class="na">dateStyle</span><span class="pi">:</span> <span class="s">short</span>
+    <span class="na">timeStyle</span><span class="pi">:</span> <span class="s">short</span>
+    <span class="na">hourCycle</span><span class="pi">:</span> <span class="s">h23</span>
+</code></pre></div></div>
+
+<h3 id="bookmarksyaml">bookmarks.yaml</h3>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#</span>
+<span class="c1"># links a les pagines web més utilizades en el meu cas</span>
+<span class="c1">#</span>
+<span class="pi">-</span> <span class="na">Blogs</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">Personal</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">icon</span><span class="pi">:</span> <span class="s">github-light.png</span>
+  <span class="pi">-</span> <span class="na">uGeek</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">icon</span><span class="pi">:</span> <span class="s">blogger.png</span>
+  <span class="pi">-</span> <span class="na">Lazaro</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">icon</span><span class="pi">:</span> <span class="s">blogger.png</span>
+  <span class="pi">-</span> <span class="na">EruenPlay</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">icon</span><span class="pi">:</span> <span class="s">youtube.png</span>
+
+<span class="pi">-</span> <span class="na">Social</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">Mastodon</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">icon</span><span class="pi">:</span> <span class="s">mastodon.png</span>
+  <span class="pi">-</span> <span class="na">Telegram</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">icon</span><span class="pi">:</span> <span class="s">telegram.png</span>
+  <span class="pi">-</span> <span class="na">RiseUp</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">icon</span><span class="pi">:</span> <span class="s">mailu.png</span>
+</code></pre></div></div>
+<p>Teoricamente, con esta configuración tendria que funcionar todo correctamente y realizar la integración correctamente con docker, pero no era asi. En mi caso, no veia ningun tipo de información relacionada con los dockers. Y todo lo que encontraba, es que esto tenia que funcionar si o si.</p>
+
+<p>Entonces me puse a buscar información del motivo por el cual en mi caso no me funcionaba, tambien lo pregunte en el canal, pero todo el mundo me decia que tenia que funcionar correctamente y sin ningun problema, hay que tener en cuenta una cosa, en el canal de Telegram cuando exponia mi problema, todos los que me decian que tenia que funcionar correctamente, lo tenian instalado en <a href="https://unraid.net/" target="_blank">Unraid</a> y seguramente <strong>UnRaid</strong> hace alguna cosa para que funcione automaticamente, cosa que si tu lo haces manualmente y sin <strong>UnRaid</strong> no funciona.</p>
+
+<p>Despues de buscar, encontre en la documentación que hacia referencia a <a href="https://gethomepage.dev/v0.7.4/configs/docker/#using-docker-socket-proxy" target="_blank">docker</a> en <strong>HomePage</strong> que para que la integración funcionase correctamente se tenia que instalar un <strong>proxy</strong> que es el que realiza la comunicación entre <strong>docker</strong> y <strong>HomePage</strong>.</p>
+
+<p>Para ello, se necesitaba el siguiente container:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">dockerproxy</span><span class="pi">:</span>
+  <span class="na">image</span><span class="pi">:</span> <span class="s">ghcr.io/tecnativa/docker-socket-proxy:latest</span>
+  <span class="na">container_name</span><span class="pi">:</span> <span class="s">dockerproxy</span>
+  <span class="na">environment</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">CONTAINERS=1</span> <span class="c1"># Allow access to viewing containers</span>
+    <span class="pi">-</span> <span class="s">SERVICES=1</span> <span class="c1"># Allow access to viewing services (necessary when using Docker Swarm)</span>
+    <span class="pi">-</span> <span class="s">TASKS=1</span> <span class="c1"># Allow access to viewing tasks (necessary when using Docker Swarm)</span>
+    <span class="pi">-</span> <span class="s">POST=0</span> <span class="c1"># Disallow any POST operations (effectively read-only)</span>
+  <span class="na">ports</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">127.0.0.1:2375:2375</span>
+  <span class="na">volumes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">/var/run/docker.sock:/var/run/docker.sock:ro</span> <span class="c1"># Mounted as read-only</span>
+  <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+</code></pre></div></div>
+<p>Y una vez que ya lo tienes en funcionamiento, solamente tienes que configurar en el archivo <code class="language-plaintext highlighter-rouge">docker.yaml</code> de la siguiente manera:</p>
+
+<h3 id="dockeryaml">docker.yaml</h3>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#</span>
+<span class="c1"># Per a realitzar la integració de docker amb HomePage i visualitzar tota la informació dels contenidors</span>
+<span class="c1">#</span>
+<span class="na">my-docker</span><span class="pi">:</span>
+  <span class="na">host</span><span class="pi">:</span> <span class="s">dockerproxy</span>
+  <span class="na">port</span><span class="pi">:</span> <span class="m">2375</span>
+</code></pre></div></div>
+<p>Y una vez esto, solamente tenemos que añadir en el archivo <code class="language-plaintext highlighter-rouge">services.yaml</code> la opción <code class="language-plaintext highlighter-rouge">server</code> de la siguiente manera:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">Dockers</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">Transmission</span><span class="pi">:</span>
+        <span class="na">icon</span><span class="pi">:</span> <span class="s">transmission</span>
+        <span class="na">href</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+        <span class="na">description</span><span class="pi">:</span> <span class="s">Servidor Transmission</span>
+        <span class="c1"># AQUI VA LA MODIFICACIÓ NECESSARIA PER A LA COMUNICACIÓ AMB DOCKER</span>
+        <span class="na">server</span><span class="pi">:</span> <span class="s">my-docker</span>
+        <span class="c1"># I EL NOM DEL CONTAINER</span>
+        <span class="na">container</span><span class="pi">:</span> <span class="s">transmission</span>
+        <span class="na">widget</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">transmission</span>
+          <span class="na">url</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">url</span><span class="pi">]</span>
+          <span class="na">username</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">usuari</span><span class="pi">]</span>
+          <span class="na">password</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">password</span><span class="pi">]</span>
+</code></pre></div></div>
+<p>Y al final si, ya lo tenia todo funcionando correctamente. Pero cuando comente de la solución que habia tomado en el canal de Telegram, me dijeron que no hacia falta tener un contener más para que todo funcionase correctamente, sino que solamente hacia falta crear el siguiente fichero <code class="language-plaintext highlighter-rouge">override.conf</code> de la siguiente manera:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">usuari@debian:/sudo mkdir /etc/systemd/system/docker.service.d
+</span></code></pre></div></div>
+
+<h3 id="etcsystemdsystemdockerservicedoverrideconf">/etc/systemd/system/docker.service.d/override.conf</h3>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">[</span><span class="nv">Service</span><span class="pi">]</span>
+<span class="s">ExecStart=</span>
+<span class="s">ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2375 --containerd=/run/containerd/containerd.sock</span>
+</code></pre></div></div>
+<p>Y luego, solamente nos queda reiniciar el servicio del <code class="language-plaintext highlighter-rouge">daemon</code> y <code class="language-plaintext highlighter-rouge">docker</code>:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">usuari@debian:/sudo systemctl daemon-reload
+usuari@debian:/sudo systemctl restart docker.service
+</span><span class="gp">#</span><span class="w"> </span>CON LA SIGUIENTE INSTRUCCION PODEMOS COMPROBAR QUE EL DEMONIO DE DOCKER ESTA FUNCIONANDO CORRECTAMENTE Y EL PUERTO ASIGNADO
+<span class="go">usuari@debian:/sudo netstat -lntp | grep dockerd
+</span></code></pre></div></div>
+<p>Y si todo ha ido bien, ya podemos detener el container <code class="language-plaintext highlighter-rouge">dockerproxy</code> y proceder a modificar ya por ultima vez el archivo <code class="language-plaintext highlighter-rouge">docker.yaml</code> de <strong>HomePage</strong> de la siguiente manera:</p>
+
+<h3 id="dockeryaml-1">docker.yaml</h3>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">my-docker</span><span class="pi">:</span>
+  <span class="na">host</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">IP SERVIDOR</span><span class="pi">]</span>
+  <span class="na">port</span><span class="pi">:</span> <span class="m">2375</span>
+</code></pre></div></div>
+<p>Y con esto ya lo tendriamos todo en funcionamiento y para que veais como lo tengo en mi caso:</p>
+
+<div class="row">
+    
+    <div style="flex: 100.0%">
+        <img class="single" src="/assets/img/images/screenshot_003.png" alt="screenshot_003.png" />
+    </div>
+    
+</div>
+
+<p>Pero eso si, como dice el refran <strong>para gustos, colores</strong>. Vosotros podeis hacerlo a vuestro gusto.</p>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://ugeek.github.io/blog/post/2021-05-24-homer-mi-dashboard.html" target="_blank">Homer. Mi Dashboard</a></li>
+  <li><a href="https://elblogdelazaro.org/posts/2023-06-21-docker-homepage-dashboard/" target="_blank">Docker: Homepage dashboard</a></li>
+  <li><a href="https://atareao.es/software/utilidades/glances-una-potente-alternativa-al-monitor-del-sistema/" target="_blank">Glances una potente alternativa al Monitor del Sistema</a></li>
+  <li><a href="https://gethomepage.dev/v0.7.4/configs/docker/#using-docker-socket-proxy" target="_blank">HomePage - Docker</a></li>
+</ul>
+
+    
+    </section>
+
+    <!-- Social media shares -->
+    
+ 
+  
+
+
+
+
+    <!-- Tag list -->
+    
+    
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tags</li>
+      
+
+      
+        <li><a class="button" href="/tags#Docker">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> Docker</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags#unRAID">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> unRAID</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+
+
+
+<!-- To change color of links in the page --> <style> header#main { background-size: cover; background-repeat: no-repeat; background-position: center; } header#main { background-image: url('/assets/img/feature-img/logo_post.jpg'); } </style> <!-- Post navigation --> <div id="post-nav"> <div id="previous-post"> <a alt="Cambiando a UnRAID" href="/unraid/2024/03/07/cambiando-unraid.html"> <p>Previous post</p> Cambiando a UnRAID </a> </div> <div id="next-post"> <a alt="Copias de Seguridad. Annexo" href="/debian%20gnu/linux/docker/2024/02/06/copias-seguridad-annexo.html"> <p>Next post</p> Copias de Seguridad. Annexo </a> </div> </div> <!--Utterances--> <!-- Cusdis --> <!-- Disqus -->
+
+
+    </div>
+    
+    <footer class="site-footer"> <ul> <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" title="This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"><i class="fab fa-creative-commons fa-stack fa-lg"></i></span><span class="fa-stack fa-lg"><i class="fab fa-creative-commons-by fa-stack fa-lg"></i></span><span class="fa-stack fa-lg"><i class="fab fa-creative-commons-nc-eu fa-stack fa-lg"></i></span> </a> </ul> <p class="text"> Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a> </p> <div class="footer-icons"> <ul> <!-- Social icons from Font Awesome, if enabled --> <li> <a feed.xml href="/feed.xml" title="Follow RSS feed" target="_blank"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fas fa-rss fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://github.com/vctrsnts" title="Follow on Github" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-github fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://mastodon.online/@vsantos" title="Follow on Mastodon" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://vctrsnts.tumblr.com/" title="Follow on Tumblr" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-tumblr fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://vsantos.wordpress.com/" title="Follow on Wordpress" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-wordpress fa-stack-1x fa-inverse"></i> </span> </a> </li> </ul> </div> <script type="module"> mermaid.initialize({ startOnLoad: false, theme: "default" }); mermaid.run({ nodes: [...document.querySelectorAll('.language-mermaid'), ...document.querySelectorAll('.mermaid')] }); </script> </footer>
+  </body>
+</html>
