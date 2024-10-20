@@ -1,4 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-10-20T16:41:31+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle>Si lo haces, hazlo bien!</subtitle><entry><title type="html">Modificaciones en el servidor - 2</title><link href="https://vctrsnts.github.io/hardware/2024/10/19/modificando-servidor-2.html" rel="alternate" type="text/html" title="Modificaciones en el servidor - 2" /><published>2024-10-19T00:00:00+00:00</published><updated>2024-10-19T00:00:00+00:00</updated><id>https://vctrsnts.github.io/hardware/2024/10/19/modificando-servidor-2</id><content type="html" xml:base="https://vctrsnts.github.io/hardware/2024/10/19/modificando-servidor-2.html"><![CDATA[<p>Se ha venido una nueva modificación en el servidor, y una más, pero esta vez, ha sido más a nivel de hardware que de software.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-10-20T18:37:12+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle>Si lo haces, hazlo bien!</subtitle><entry><title type="html">Controlado Temperatura Servidor</title><link href="https://vctrsnts.github.io/hardware/unraid/2024/10/20/controlado-temperatura-servidor.html" rel="alternate" type="text/html" title="Controlado Temperatura Servidor" /><published>2024-10-20T00:00:00+00:00</published><updated>2024-10-20T00:00:00+00:00</updated><id>https://vctrsnts.github.io/hardware/unraid/2024/10/20/controlado-temperatura-servidor</id><content type="html" xml:base="https://vctrsnts.github.io/hardware/unraid/2024/10/20/controlado-temperatura-servidor.html"><![CDATA[<p>Como ya comente en el anterior <a href="/hardware/2024/10/19/modificando-servidor-2.html">articulo</a> donde explicaba que habia puesto un <strong>Xeon</strong> en mi servidor y todo lo referente a la temperatura.</p>
+
+<p>Pero claro, eso me gustaria verlo reflejado en <strong>unRAID</strong>, porque hasta ahora, solamente habia podido visualizar la temperatura de la CPU, de la placa base era imposible cuando teoricamente los Tiny son equipos con componentes muy normales y comunes.</p>
+
+<!-- more -->
+
+<p>Pues en este caso, de comunes lo tienen todo menos los sensores de control de la temperatura. Además <strong>unRAID</strong> no ayudaba mucho con ello. Seguramente muchos direis, y por que no instalas el plugin <strong>Dynamix System Temperature</strong> y problema solucionado.</p>
+
+<p>Ya lo tengo instalado y aun así, lo unico que podia visualizar era la temperatura de la CPU:</p>
+
+<div class="row">
+    
+    <div style="flex: 100.0%">
+        <img class="single" src="/assets/img/images/configure_temperature_01.jpg" alt="configure_temperature_01.jpg" />
+    </div>
+    
+</div>
+
+<p>Y eso que teoricamente <em>sensors</em> funcionaba correctamente. Eso creia yo.</p>
+
+<p>Asi que después de instalar el <strong>Xeon</strong> me propuse visualizar todas las temperaturas posibles para asi controlar mejor el servidor, porque no es lo mismo tener un <em>i5-6500T</em> que un <strong>Xeon</strong> y lo primero de todo era saber que <strong>sensor</strong> se tenian que usar para poder visualizar la información de ellos. y resulto que me toco el peor de todos, el que es más complicado de hacer funcionar. Ni más ni menos que el <strong>nct6683</strong>.</p>
+
+<p>Y en todos los sitios que encontraba información, porque me resulto muy dificil, decian que no era nada facil hacerlo funcionar en GNU/Linux, pero yo segui buscando hasta que encontre la siguiente <a href="https://fun2ex.com/fixed-z370m-pro4-unraid-temperature-problem" target="_blank">web</a>, donde explicaban que se tenia que hacer para hacer funcionar los sensores del <strong>nct6683</strong>.</p>
+
+<p>Lo que habia que hacer es ejecutar lo siguiente:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">root@unRaid: modprobe coretemp
+root@unRaid: modprobe -r nct6683
+root@unRaid: modprobe nct6683 force=1
+</span></code></pre></div></div>
+<p>Y lo probe, y mira por donde que dio resultado. Podia ver todos los sensores disponibles en la placa, incluido la velocidad del ventilador.</p>
+
+<div class="row">
+    
+    <div style="flex: 100.0%">
+        <img class="single" src="/assets/img/images/configure_temperature_02.jpg" alt="configure_temperature_02.jpg" />
+    </div>
+    
+</div>
+
+<p>Asi que me dije, pues mira, no ha sido tan dificil como parecia.</p>
+
+<p>Ingenuo de mi. <strong>UnRAID</strong> no hace nada para facilitar las cosas, sino todo lo contrario, las complica y cada vez, me estoy dando cuenta de ello.</p>
+
+<p>Lo que pasa es que si reinicias <strong>unRAID</strong> todo se pierde y ya no detecta nada. Asi que tenia que buscar una manera de que esta configuración fuera permanente. Busque información sobre que hacer en estos casos en <strong>unRAID</strong> y un <a href="https://forums.unraid.net/topic/18959-script-to-enable-sata-controllers-without-kernel-modification/" target="_blank">hilo</a> decia, que si pones un fichero <code class="language-plaintext highlighter-rouge">bash</code> en <code class="language-plaintext highlighter-rouge">/boot/config</code> el sistema lo ejecuta cuando se inicia. Pero no pasaba asi y si queria que los sensores volvieran a funcionar, tenia que volver a ejecutar las 3 instrucciones de nuevo.</p>
+
+<p>En otro <a href="https://forums.unraid.net/topic/143931-how-can-i-get-modules-to-load-on-reboot-automatically/" target="_blank">hilo</a>, que si lo pones en <code class="language-plaintext highlighter-rouge">/boot/custom/scripts</code> tambien funcionaba, pero en mi caso, ninguno de los 2 casos era el correcto.</p>
+
+<p>Y no veia la manera de como solucionar la cosa, hasta que recorde, que tengo un <code class="language-plaintext highlighter-rouge">script</code> que se ejecuta cada vez que se inician los arrays, que me instala las aplicaciones necesarias para hacer publicaciones en <em>Mastodon</em>, y pense, porque no, si ejecuto el <code class="language-plaintext highlighter-rouge">bash</code> cada vez que se inicia el array, tendria que funcionar sin ningun problema.</p>
+
+<p>No tenia nada que perder, y lo probe. Y resulto perfecto. Ya podia visualizar correctamente la temperatura de la CPU, de la placa base y la velocidad del ventilador. Que más se podia pedir. Pero eso si, tener que recurrir a scripts para hacer esto, me parece un poco 😡</p>
+
+<p>Y asi se puede ver como queda actualmente:</p>
+
+<div class="row">
+    
+    <div style="flex: 100.0%">
+        <img class="single" src="/assets/img/images/configure_temperature_03.jpg" alt="configure_temperature_03.jpg" />
+    </div>
+    
+</div>
+
+<p>Un pasito más que he dado para tener mi servidor como a mi me gusta.</p>
+
+<p>Y ahora estoy pensando en conseguir que pueda enviar mis copias de seguridad de mi movil al servidor. He oido que hay un docker que se llama <strong>Syncthing</strong> que hace algo parecido, pero tengo que estudiarlo más.</p>
+
+<p>Vosotros que servicios de docker teneis y que penseis que son indispensables de tener en un servidor???</p>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://fun2ex.com/fixed-z370m-pro4-unraid-temperature-problem" target="_blank">Resolve the issue of the ASRock Z370M-Pro4 motherboard not being able to obtain fan speed in Unraid</a></li>
+  <li><a href="https://forums.unraid.net/topic/115301-%E6%B8%A9%E5%BA%A6%E6%A3%80%E6%B5%8B%E6%8F%92%E4%BB%B6%E6%97%A0%E6%B3%95%E6%A3%80%E6%B5%8B%E5%88%B0%E4%B8%BB%E6%9D%BF%E9%A3%8E%E6%89%87%E7%9A%84%E8%BD%AC%E9%80%9F" target="_blank">El complemento de detección de temperatura no puede detectar la velocidad del ventilador de la placa base, <strong>web en chino</strong></a></li>
+  <li><a href="https://forums.unraid.net/topic/18959-script-to-enable-sata-controllers-without-kernel-modification/" target="_blank">Script to enable SATA Controllers without kernel modification</a></li>
+  <li><a href="https://forums.unraid.net/topic/143931-how-can-i-get-modules-to-load-on-reboot-automatically/" target="_blank">How can I get modules to load on reboot automatically?</a></li>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Hardware" /><category term="unRAID" /><category term="Hardware" /><category term="unRAID" /><summary type="html"><![CDATA[Como ya comente en el anterior articulo donde explicaba que habia puesto un Xeon en mi servidor y todo lo referente a la temperatura. Pero claro, eso me gustaria verlo reflejado en unRAID, porque hasta ahora, solamente habia podido visualizar la temperatura de la CPU, de la placa base era imposible cuando teoricamente los Tiny son equipos con componentes muy normales y comunes.]]></summary></entry><entry><title type="html">Modificaciones en el servidor - 2</title><link href="https://vctrsnts.github.io/hardware/2024/10/19/modificando-servidor-2.html" rel="alternate" type="text/html" title="Modificaciones en el servidor - 2" /><published>2024-10-19T00:00:00+00:00</published><updated>2024-10-19T00:00:00+00:00</updated><id>https://vctrsnts.github.io/hardware/2024/10/19/modificando-servidor-2</id><content type="html" xml:base="https://vctrsnts.github.io/hardware/2024/10/19/modificando-servidor-2.html"><![CDATA[<p>Se ha venido una nueva modificación en el servidor, y una más, pero esta vez, ha sido más a nivel de hardware que de software.</p>
 
 <p>Como sabreis, si no os habeis dado cuenta leyendo algunos de mis articulos, estoy subscrito al canal de telegram de <a href="https://homelabs.club" target="_blank">HomeLabs.club</a>, donde siempre tienen alguna nueva cosa para liarte la manta a la cabeza.</p>
 
