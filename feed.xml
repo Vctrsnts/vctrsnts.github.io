@@ -1,4 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-10-23T18:03:33+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle>Si lo haces, hazlo bien!</subtitle><entry><title type="html">Los podcast que escucho</title><link href="https://vctrsnts.github.io/blog/2024/10/21/podcast-escucho.html" rel="alternate" type="text/html" title="Los podcast que escucho" /><published>2024-10-21T00:00:00+00:00</published><updated>2024-10-21T00:00:00+00:00</updated><id>https://vctrsnts.github.io/blog/2024/10/21/podcast-escucho</id><content type="html" xml:base="https://vctrsnts.github.io/blog/2024/10/21/podcast-escucho.html"><![CDATA[<p>Este va a ser un articulo como muchos otros, donde la gente explica que podcast sigue o escucha, pero antes de eso, lo primero es felicitar a <strong>Jose</strong> de <a href="https://www.ivoox.com/podcast-frente-al-cliente_sq_f1819687_1.html" target="_blank">Frente al Cliente</a> por el premio, merecidisimo, que le otrogaron en las <strong>JPOD 2024</strong>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-10-28T21:51:16+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle>Si lo haces, hazlo bien!</subtitle><entry><title type="html">Servicio para actualizar imagenes docker</title><link href="https://vctrsnts.github.io/2024/10/28/script-actualizar-docker.html" rel="alternate" type="text/html" title="Servicio para actualizar imagenes docker" /><published>2024-10-28T00:00:00+00:00</published><updated>2024-10-28T00:00:00+00:00</updated><id>https://vctrsnts.github.io/2024/10/28/script-actualizar-docker</id><content type="html" xml:base="https://vctrsnts.github.io/2024/10/28/script-actualizar-docker.html"><![CDATA[<p>Como he tenido malas experencias a la hora de usar servicios para mantener las imagenes actualizadas, he cambiado el servició que tenia actualmente <strong>whatsup</strong> por <strong>cup</strong>.</p>
+
+<!-- more -->
+
+<p>En estos 3 articulos donde explico todo el proceso:</p>
+<ul>
+  <li><a href="/debian%20gnu/linux/docker/2023/01/25/usando-watchtower.html" target="_blank">Usando watchtower</a></li>
+  <li><a href="/docker/2023/02/19/actualizacion-watchtower.html" target="_blank">Cambiando watchtower por diun</a></li>
+  <li><a href="/docker/2023/04/29/donde-dije-digo-digo-diego.html" target="_blank">Donde digo dije, digo Diego</a></li>
+</ul>
+
+<p>Pero no me hacia mucha gracia, asi que cambie a <strong>Whatsup</strong>, pero me volvia un poco loco y buscaba algo más facil y simple, que simplemente me informara de lo que hay, sin tantas complicaciones como me daba <strong>Whatsup</strong>.</p>
+
+<p>Hasta que encontre este <a href="https://elblogdelazaro.org/posts/2024-10-04-comprueba-las-actualizaciones-de-tus-imagenes-docker-con-cup-docker" target="_blank">articulo</a> en el <strong>blog de lazaro</strong> donde daba una alternativa a <strong>Whatsup</strong>. Este nuevo servicio es <a href="https://github.com/sergi0g/cup" target="_blank">cup</a>, donde el funcionamiento es muy parecido a <strong>Whatsup</strong> pero más simple.</p>
+
+<p>Asi que me lei el articulo y me resulto muy interesante asi que lo he instalado en mi servidor y me ha gustado mucho y lo he dejado instalado porque me parece muy interesante. Aunque tiene algunos errores, ten en cuenta, que este servicio esta en construcción, asi que a lo mejor cuando uses tu, el error que tengo yo (no puedo cambiar el tema de la web), puede que este ya solucionado, pero…</p>
+
+<p>La instalación es muy simple. Yo en mi caso lo he instalado a traves de <code class="language-plaintext highlighter-rouge">docker-compose</code> de la siguiente manera:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">cup</span><span class="pi">:</span>
+  <span class="na">image</span><span class="pi">:</span> <span class="s">ghcr.io/sergi0g/cup:latest</span>
+  <span class="na">container_name</span><span class="pi">:</span> <span class="s">cup</span> <span class="c1"># Optional</span>
+  <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+  <span class="na">networks</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">internal</span>
+  <span class="na">command</span><span class="pi">:</span> <span class="s">-c /config/cup.json serve</span>
+  <span class="na">volumes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">/var/run/docker.sock:/var/run/docker.sock</span>
+    <span class="pi">-</span> <span class="s">${HOME}/config/cup/cup.json:/config/cup.json</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">traefik.enable=true</span>
+    <span class="pi">-</span> <span class="s">traefik.http.services.cup.loadbalancer.server.port=${PORT}</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.cup.entrypoints=websecure</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.cup-secure.middlewares=myauth@file</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.cup.rule=Host(`${CUP_SERVER}`)</span>
+</code></pre></div></div>
+<p>Como podeis ver, en mi caso, uso <strong>traefik</strong> por eso tengo las respectivas etiquetas. Pero funciona de la misma manera sin estas etiquetas, pero si es asi, tienes que añadir el puerto que quieres usar:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">cup</span><span class="pi">:</span>
+  <span class="na">ports</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">8000:8000</span>
+</code></pre></div></div>
+<p>Y con esto tendras una pagina web, a la que accederas desde el puerto que tu indiques y veras los servicions que estan disponibles junto con los que tienen disponible la actualización.</p>
+
+<p>A parte de tener este servicio, se que podria usar <strong>diun</strong>, volver a <strong>whatsup</strong> o <strong>watchtower</strong>, tambien me he echo un script en <code class="language-plaintext highlighter-rouge">bash</code> para actualizar los servicios más facilmente, lo hago yo manualmente, pero me resulta más comodo de esta manera, pero para simplificar las instrucciones necesarias.</p>
+
+<p>El script tiene lo siguiente:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="c">#!/bin/bash</span>
+
+   <span class="k">for </span>param <span class="k">in</span> <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span><span class="p">;</span> <span class="k">do
+
+     </span>docker compose pull <span class="nv">$param</span> <span class="o">&amp;&amp;</span> docker compose up <span class="nt">-d</span> <span class="nv">$param</span> <span class="o">&amp;&amp;</span> docker image prune
+
+   <span class="k">done</span>
+</code></pre></div></div>
+<p>Se usa de la siguiente manera:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">  usuari@debian:~$</span>sh sh update_docker.sh docker_1 docker_2 ...
+</code></pre></div></div>
+<p>Y con esto ya he finalizado este articulo rapido y facil. Que ha veces son los más dificiles de hacer.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://es.ccm.net/ordenadores/linux/2368-bash-los-parametros" target="_blank">Pasar parámetros Bash script desde la Shell</a></li>
+  <li><a href="https://elblogdelazaro.org/posts/2024-10-04-comprueba-las-actualizaciones-de-tus-imagenes-docker-con-cup-docker" target="_blank">Comprueba las actualizaciones de tus imágenes docker con cup</a></li>
+</ul>]]></content><author><name>VSANTOS</name></author><summary type="html"><![CDATA[Como he tenido malas experencias a la hora de usar servicios para mantener las imagenes actualizadas, he cambiado el servició que tenia actualmente whatsup por cup.]]></summary></entry><entry><title type="html">Los podcast que escucho</title><link href="https://vctrsnts.github.io/blog/2024/10/21/podcast-escucho.html" rel="alternate" type="text/html" title="Los podcast que escucho" /><published>2024-10-21T00:00:00+00:00</published><updated>2024-10-21T00:00:00+00:00</updated><id>https://vctrsnts.github.io/blog/2024/10/21/podcast-escucho</id><content type="html" xml:base="https://vctrsnts.github.io/blog/2024/10/21/podcast-escucho.html"><![CDATA[<p>Este va a ser un articulo como muchos otros, donde la gente explica que podcast sigue o escucha, pero antes de eso, lo primero es felicitar a <strong>Jose</strong> de <a href="https://www.ivoox.com/podcast-frente-al-cliente_sq_f1819687_1.html" target="_blank">Frente al Cliente</a> por el premio, merecidisimo, que le otrogaron en las <strong>JPOD 2024</strong>.</p>
 
 <p>Lo que me extraña es que no fuera a buscarlo. Sera por esa mala costumbre que tienen los camareros de trabajar los fines de semana 😜.</p>
 
@@ -3241,7 +3302,7 @@ rclone <span class="nt">--config</span> <span class="k">${</span><span class="nv
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">GRUB_DISABLE_OS_PROBER</span><span class="o">=</span><span class="nb">false</span>
 </code></pre></div></div>
 
-<p>Con esta opción obligas a <strong><em>grub</em></strong> a detectar otros SO y me ahorre, volver a reinstalar todo mi sistema.</p>]]></content><author><name>VSANTOS</name></author><category term="Debian GNU/Linux" /><category term="Debian GNU/Linux" /><summary type="html"><![CDATA[No se si os ha pasado muchas veces eso de perder el arranque de GNU/Linux GRUB, pero a mi, me esta pasando muchas veces ultimamente y no se si es porque tengo mala suerte o porque tengo mal configurado el inicio entre Linux y Windows, asi que al final, me he tenido que buscar la vida, para saber como se puede solucionar, porque sino, tengo que volver a reinstalarlo todo y ahora que el sistema lo tengo como yo quiero, pues …]]></summary></entry><entry><title type="html">Donde dije digo, digo Diego</title><link href="https://vctrsnts.github.io/docker/2023/04/29/donde-dije-digo-digo-diego.html" rel="alternate" type="text/html" title="Donde dije digo, digo Diego" /><published>2023-04-29T00:00:00+00:00</published><updated>2023-04-29T00:00:00+00:00</updated><id>https://vctrsnts.github.io/docker/2023/04/29/donde-dije-digo-digo-diego</id><content type="html" xml:base="https://vctrsnts.github.io/docker/2023/04/29/donde-dije-digo-digo-diego.html"><![CDATA[<p>Mucha gente pensara que me he vuelto loco al poner este titulo a este articulo y más siendo un blog de tecnologia, pero cuando llegueis al final lo entendereis.</p>
+<p>Con esta opción obligas a <strong><em>grub</em></strong> a detectar otros SO y me ahorre, volver a reinstalar todo mi sistema.</p>]]></content><author><name>VSANTOS</name></author><category term="Debian GNU/Linux" /><category term="Debian GNU/Linux" /><summary type="html"><![CDATA[No se si os ha pasado muchas veces eso de perder el arranque de GNU/Linux GRUB, pero a mi, me esta pasando muchas veces ultimamente y no se si es porque tengo mala suerte o porque tengo mal configurado el inicio entre Linux y Windows, asi que al final, me he tenido que buscar la vida, para saber como se puede solucionar, porque sino, tengo que volver a reinstalarlo todo y ahora que el sistema lo tengo como yo quiero, pues …]]></summary></entry><entry><title type="html">Donde digo dije, digo Diego</title><link href="https://vctrsnts.github.io/docker/2023/04/29/donde-dije-digo-digo-diego.html" rel="alternate" type="text/html" title="Donde digo dije, digo Diego" /><published>2023-04-29T00:00:00+00:00</published><updated>2023-04-29T00:00:00+00:00</updated><id>https://vctrsnts.github.io/docker/2023/04/29/donde-dije-digo-digo-diego</id><content type="html" xml:base="https://vctrsnts.github.io/docker/2023/04/29/donde-dije-digo-digo-diego.html"><![CDATA[<p>Mucha gente pensara que me he vuelto loco al poner este titulo a este articulo y más siendo un blog de tecnologia, pero cuando llegueis al final lo entendereis.</p>
 
 <!-- more -->
 
