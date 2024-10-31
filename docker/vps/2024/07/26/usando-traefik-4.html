@@ -271,7 +271,7 @@
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">usuari@debian:~$</span>docker <span class="nb">exec </span>crowdsec cscli decisions list
 </code></pre></div></div>
 <p>Donde veremos que, ciertamente, hemos baneado nuestra ip. Y para ver como funciona, nos conectamos a los servicios que tenemos alojados en el VPS / servidor y nos tiene que aparecer el mensaje de <strong>forbidden</strong>. Pero tranquilo, no te asustes para revertir este <em>baneo</em> tenemos que hacer la instruccion contraria:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">usuari@debian:~$</span>docker <span class="nb">exec </span>crowdsec cscli delete <span class="nt">--ip</span> nuestra_ip_de_acceso
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">usuari@debian:~$</span>docker <span class="nb">exec </span>crowdsec cscli decisions delete <span class="nt">--ip</span> nuestra_ip_de_acceso
 </code></pre></div></div>
 <p>Y si volvemos a ejecutar la orden:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">usuari@debian:~$</span>docker <span class="nb">exec </span>crowdsec cscli decisions list
