@@ -43,52 +43,51 @@
 <p>Lo primero, es tener una cuenta y después tienes que crear un aplicación en <code class="language-plaintext highlighter-rouge">Mastodon</code> de igual forma que se puede crear en Twitter (explicación más adelante ).</p>
 
 <p>Aprovechando que en el servidor ya tengo Python instalado, hare que se ejecute en el mismo servidor. Eso si, también tienes que instalar:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">   usuari@debian:~$</span><span class="w"> </span>pip <span class="nb">install</span> <span class="nt">--user</span> feddparser mastodon
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">   usuari@debian:~$</span><span class="w"> </span>pip <span class="nb">install</span> <span class="nt">--user</span> feedparser mastodon
 </code></pre></div></div>
-
 <p>Para que Python pueda realizar el tratamiento del fichero <code class="language-plaintext highlighter-rouge">xml</code>.</p>
 
 <p>Una vez que ya tienes la aplicación creada, tienes que crear un fichero en <code class="language-plaintext highlighter-rouge">Python</code> que tiene que tener la siguiente estructura:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">   #</span><span class="o">!</span>/usr/bin/env python
-<span class="gp">   #</span><span class="w"> </span>-<span class="k">*</span>- coding: utf-8 -<span class="k">*</span>-
-<span class="go"> 
-</span><span class="gp">   #</span><span class="w"> </span>el fitxer original es de Carlos M. <span class="o">(</span>https://elblogdelazaro.org <span class="o">)</span>
-<span class="go"> 
-</span><span class="gp">   #</span><span class="w"> </span>Tens que tindre instalats les llibreries feedparser, Mastodon
-<span class="go"> 
-</span><span class="gp">   #</span><span class="w"> </span>Realitzem la crida als moduls de Python
-<span class="go">   import feedparser
-   import random
-   from mastodon import Mastodon
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="c1">#!/usr/bin/env python
+</span>   <span class="c1"># -*- coding: utf-8 -*-
+</span> 
+   <span class="c1"># el fitxer original es de Carlos M. (https://elblogdelazaro.org )
+</span> 
+   <span class="c1"># Tens que tindre instalats les llibreries feedparser, Mastodon
+</span> 
+   <span class="c1"># Realitzem la crida als moduls de Python
+</span>   <span class="kn">import</span> <span class="n">feedparser</span>
+   <span class="kn">import</span> <span class="n">random</span>
+   <span class="kn">from</span> <span class="n">mastodon</span> <span class="kn">import</span> <span class="n">Mastodon</span>
  
-</span><span class="gp">   #</span><span class="w"> </span>Reallitzem la crida a les claus del Diccionari
-<span class="go">   CUSTOMER_KEY = 'xxxxxxxxxxxxxxx'
-   CUSTOMER_SECRET = 'xxxxxxxxxxxxxxxxx'
-   ACCESS_TOKEN = 'xxxxxxxxxxxx'
-   ACCESS_TOKEN_SECRET = 'xxxxxxxxxxxxxxxxxxx'
+   <span class="c1"># Reallitzem la crida a les claus del Diccionari
+</span>   <span class="n">CUSTOMER_KEY</span> <span class="o">=</span> <span class="sh">'</span><span class="s">xxxxxxxxxxxxxxx</span><span class="sh">'</span>
+   <span class="n">CUSTOMER_SECRET</span> <span class="o">=</span> <span class="sh">'</span><span class="s">xxxxxxxxxxxxxxxxx</span><span class="sh">'</span>
+   <span class="n">ACCESS_TOKEN</span> <span class="o">=</span> <span class="sh">'</span><span class="s">xxxxxxxxxxxx</span><span class="sh">'</span>
+   <span class="n">ACCESS_TOKEN_SECRET</span> <span class="o">=</span> <span class="sh">'</span><span class="s">xxxxxxxxxxxxxxxxxxx</span><span class="sh">'</span>
  
-</span><span class="gp">   #</span><span class="w"> </span>Informem de l<span class="s1">'adreça del feed
-</span><span class="go">   feed = 'tu dirección web hacia el feed.xml'
+   <span class="c1"># Informem de l'adreça del feed
+</span>   <span class="n">feed</span> <span class="o">=</span> <span class="sh">'</span><span class="s">tu dirección web hacia el feed.xml</span><span class="sh">'</span>
  
-</span><span class="gp">   #</span><span class="w"> </span>Descodifiquem el feed <span class="o">(</span>arxiu XML<span class="o">)</span>
-<span class="go">   d = feedparser.parse(feed)
+   <span class="c1"># Descodifiquem el feed (arxiu XML)
+</span>   <span class="n">d</span> <span class="o">=</span> <span class="n">feedparser</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">feed</span><span class="p">)</span>
  
-</span><span class="gp">   #</span><span class="w"> </span>Obtenim la longitud del feed i aleatoriament seleccionem un article
-<span class="go">   feedlen = len(d['entries'])
-   num = random.randint(0, feedlen)
+   <span class="c1"># Obtenim la longitud del feed i aleatoriament seleccionem un article
+</span>   <span class="n">feedlen</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="sh">'</span><span class="s">entries</span><span class="sh">'</span><span class="p">])</span>
+   <span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="nf">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">feedlen</span><span class="p">)</span>
  
-</span><span class="gp">   #</span><span class="w"> </span>Iniciem l<span class="s1">'API de Mastodon, i escribim l'</span>estat
-<span class="go">   status_text = d['entries'][num]['title'] + '\n' + d['entries'][num]['link']
-   articulo = ("Recordando artículos publicados:" + '\n' + status_text)
+   <span class="c1"># Iniciem l'API de Mastodon, i escribim l'estat
+</span>   <span class="n">status_text</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="sh">'</span><span class="s">entries</span><span class="sh">'</span><span class="p">][</span><span class="n">num</span><span class="p">][</span><span class="sh">'</span><span class="s">title</span><span class="sh">'</span><span class="p">]</span> <span class="o">+</span> <span class="sh">'</span><span class="se">\n</span><span class="sh">'</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="sh">'</span><span class="s">entries</span><span class="sh">'</span><span class="p">][</span><span class="n">num</span><span class="p">][</span><span class="sh">'</span><span class="s">link</span><span class="sh">'</span><span class="p">]</span>
+   <span class="n">articulo</span> <span class="o">=</span> <span class="p">(</span><span class="sh">"</span><span class="s">Recordando artículos publicados:</span><span class="sh">"</span> <span class="o">+</span> <span class="sh">'</span><span class="se">\n</span><span class="sh">'</span> <span class="o">+</span> <span class="n">status_text</span><span class="p">)</span>
 
-</span><span class="gp">   #</span><span class="w"> </span>Token y url de la Instancia
-<span class="go">   mastodon = Mastodon(
-     access_token = 'XXXXXXXXXXXXXXXXXXXXXXX',
-     api_base_url = 'https://mastodon.online/'
-   )
-</span><span class="gp">   #</span><span class="w"> </span>Publiquem a Mastodon
-<span class="go">   mastodon.status_post(articulo)
-</span></code></pre></div></div>
+   <span class="c1"># Token y url de la Instancia
+</span>   <span class="n">mastodon</span> <span class="o">=</span> <span class="nc">Mastodon</span><span class="p">(</span>
+     <span class="n">access_token</span> <span class="o">=</span> <span class="sh">'</span><span class="s">XXXXXXXXXXXXXXXXXXXXXXX</span><span class="sh">'</span><span class="p">,</span>
+     <span class="n">api_base_url</span> <span class="o">=</span> <span class="sh">'</span><span class="s">https://mastodon.online/</span><span class="sh">'</span>
+   <span class="p">)</span>
+   <span class="c1"># Publiquem a Mastodon
+</span>   <span class="n">mastodon</span><span class="p">.</span><span class="nf">status_post</span><span class="p">(</span><span class="n">articulo</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>Lo que tienes que tener en cuenta, es informar correctamente de:</p>
 <ul>
