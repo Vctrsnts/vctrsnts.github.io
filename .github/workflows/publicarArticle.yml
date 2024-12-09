@@ -1,0 +1,55 @@
+name: Publicar Nous articles
+
+on:
+  push:
+    paths:
+      - '**/*.html'  # Cubre cualquier archivo HTML en cualquier subdirectorio
+  workflow_dispatch:
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository content
+      uses: actions/checkout@v2
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run publish script
+      env:
+        BSKY_USER: ${{ secrets.BSKY_USER }}
+        BSKY_PASS: ${{ secrets.BSKY_PASS }}
+        MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+        MASTODON_URL: ${{ secrets.MASTODON_URL }}
+        CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+        CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
+        OAUTH_TOKEN: ${{ secrets.OAUTH_TOKEN }}
+        OAUTH_SECRET: ${{ secrets.OAUTH_SECRET }}
+        FEED_URL: ${{ secrets.FEED_URL }}
+        IMAGE_URL: ${{ secrets.IMAGE_URL }}
+        BLOG_NAME: ${{ secrets.BLOG_NAME }}
+      run: |
+        python publicarArticle.py
+
+    - name: Debug step (optional)
+      if: failure()
+      run: |
+        echo "Algo falló durante el proceso de publicación. Revisando detalles..."
+        # Imprime información del sistema
+        uname -a
+        # Lista archivos y directorios
+        ls -lah
+        # Muestra las variables de entorno configuradas
+        printenv
+        # Revisa los logs de pip
+        cat ~/.pip/pip.log
+        echo "Depuración completada. Revisa los detalles anteriores para identificar el problema."
+
