@@ -129,18 +129,18 @@ def create_tumblr_post(client, blog_name, feed_url):
 
 def main():
     env_vars = load_environment_variables()
+
+    postToBsky = True
+    postToMastodon = True
+    postToTumblr = True    
     
-    post_to_bsky = True
-    post_to_mastodon = True
-    post_to_tumblr = True
-    
-    if post_to_bsky:
+    if postToBsky:
         post_to_bluesky(env_vars['bsky_user'], env_vars['bsky_pass'], env_vars['feed_url'], env_vars['image_url'])
     
-    if post_to_mastodon:
+    if postToMastodon:
         post_to_mastodon(env_vars['mastodon_token'], env_vars['mastodon_url'], env_vars['feed_url'])
     
-    if post_to_tumblr:
+    if postToTumblr:
         client = authenticate_tumblr(env_vars)
         create_tumblr_post(client, env_vars['blog_name'], env_vars['feed_url'])
 
