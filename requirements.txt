@@ -1,7 +1,7 @@
-pip3.9 install feedparser
-pip3.9 install twython
-pip3.9 install Mastodon.py
-pip3.9 install PyTumblr
-pip3.9 install python-dotenv
-pip3.9 install atproto
-pip3.9 install requests
+feedparser
+twython
+Mastodon.py
+PyTumblr
+python-dotenv
+atproto
+requests
