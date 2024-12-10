@@ -5,6 +5,8 @@ on:
     paths:
       - '**/*.html'  # Cubre cualquier archivo HTML en cualquier subdirectorio
 
+  workflow_dispatch:
+
 jobs:
   publicar:
     runs-on: ubuntu-latest
