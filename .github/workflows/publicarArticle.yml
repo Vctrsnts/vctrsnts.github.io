@@ -22,6 +22,11 @@ jobs:
       run: |
         pip install -r requirements.txt
 
+    - name: Wait for 5 minutes
+      run: |
+        echo "Esperando 5 minutos antes de ejecutar el script..."
+        sleep 300  # Espera de 300 segundos (5 minutos)
+
     - name: Run publish script
       env:
         BSKY_USER: ${{ secrets.BSKY_USER }}
