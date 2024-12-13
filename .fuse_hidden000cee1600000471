@@ -10,7 +10,7 @@
 # bash up2Git.sh <fitxers>
 
 # a traves de docker, actualitzem el fitxer RSS
-docker exec jekyll bundle exec jekyll build
+docker exec jekyll_blog bundle exec jekyll build
 
 # Comprovem si el directori on ens trobem es un repositori de Git
 if [ ! -d '.git' ]; then
