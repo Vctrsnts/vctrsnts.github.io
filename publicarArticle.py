@@ -132,7 +132,7 @@ def main():
 
     postToBsky = True
     postToMastodon = True
-    postToTumblr = True    
+    postToTumblr = False    
     
     if postToBsky:
         post_to_bluesky(env_vars['bsky_user'], env_vars['bsky_pass'], env_vars['feed_url'], env_vars['image_url'])
