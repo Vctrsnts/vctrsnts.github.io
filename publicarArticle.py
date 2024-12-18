@@ -45,7 +45,7 @@ def load_environment_variables():
         'consumer_secret': os.getenv('CONSUMER_SECRET'),
         'oauth_token': os.getenv('OAUTH_TOKEN'),
         'oauth_secret': os.getenv('OAUTH_SECRET'),
-        'feed_url': os.getenv('FEED_URL'),
+        'feed_github': os.getenv('FEED_GITHUB'),
         'image_url': os.getenv('IMAGE_URL'),
         'blog_name': os.getenv('BLOG_NAME')
     }
@@ -135,14 +135,14 @@ def main():
     postToTumblr = False    
     
     if postToBsky:
-        post_to_bluesky(env_vars['bsky_user'], env_vars['bsky_pass'], env_vars['feed_url'], env_vars['image_url'])
+        post_to_bluesky(env_vars['bsky_user'], env_vars['bsky_pass'], env_vars['feed_github'], env_vars['image_url'])
     
     if postToMastodon:
-        post_to_mastodon(env_vars['mastodon_token'], env_vars['mastodon_url'], env_vars['feed_url'])
+        post_to_mastodon(env_vars['mastodon_token'], env_vars['mastodon_url'], env_vars['feed_github'])
     
     if postToTumblr:
         client = authenticate_tumblr(env_vars)
-        create_tumblr_post(client, env_vars['blog_name'], env_vars['feed_url'])
+        create_tumblr_post(client, env_vars['blog_name'], env_vars['feed_github'])
 
 if __name__ == "__main__":
     main()
