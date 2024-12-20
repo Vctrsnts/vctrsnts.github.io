@@ -9,8 +9,18 @@
 # Mode de fer servir: executal de la següent manera:
 # bash up2Git.sh <fitxers>
 
+# Actualitzem la clau publica de GitHub
+eval "$(ssh-agent -s)"
+ssh-add /root/.ssh/github_web
+
+ssh -T git@github.com
+
+sleep 10
+
 # a traves de docker, actualitzem el fitxer RSS
 docker exec jekyll_blog bundle exec jekyll build
+
+sleep 10
 
 # Comprovem si el directori on ens trobem es un repositori de Git
 if [ ! -d '.git' ]; then
@@ -42,5 +52,4 @@ else
 
 	# I finalitzem pujant els arxius
 	git push origin HEAD:master
-
 fi
