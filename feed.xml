@@ -1,4 +1,126 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-12-23T20:03:02+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">Mis aplicaciones por defecto 2024</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/2024/12/11/mis-aplicaciones-2024.html" rel="alternate" type="text/html" title="Mis aplicaciones por defecto 2024" /><published>2024-12-11T00:00:00+00:00</published><updated>2024-12-11T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/2024/12/11/mis-aplicaciones-2024</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/2024/12/11/mis-aplicaciones-2024.html"><![CDATA[<p>Siguiendo la iniciativa de <a href="https://elblogdelazaro.org/posts/2024-12-09-mis-aplicaciones-por-defecto-2024" target="_blank">Lazaro</a>, pues tambien pondre mi granito de arena a esta buena idea, porque asi, la gente puede descubrir nuevas aplicaciones que nunca habrias pensado que existieran, y de esta manera, pues…</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2024-12-23T22:20:10+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">Nuevo sitio web</title><link href="https://vctrsnts.github.io/blog/2024/12/23/nueva-web.html" rel="alternate" type="text/html" title="Nuevo sitio web" /><published>2024-12-23T00:00:00+00:00</published><updated>2024-12-23T00:00:00+00:00</updated><id>https://vctrsnts.github.io/blog/2024/12/23/nueva-web</id><content type="html" xml:base="https://vctrsnts.github.io/blog/2024/12/23/nueva-web.html"><![CDATA[<p>Que no cunda el panico ante el titulo de este articulo.</p>
+
+<p>No voy a hacer ningun cambio en este web ni voy a borrarlo todo e irme de hermitaño a una cueva 🤣</p>
+
+<p>Solamente es para informar, que como tenia <strong>wordpress</strong> una pagina web donde iba subiendo los libros que he ido leyendo durante estos años, pues …</p>
+
+<!-- more -->
+
+<p>De la misma manera que me paso antes, cuando di el salto a <strong>GitHub</strong> para tener un poco más de control sobre la web, más que <em>wordpress</em> seguro que lo tengo, pues he hecho lo mismo pero esta vez en <strong>GitLab</strong>.</p>
+
+<p>A parte de toda la creación de los articulos, donde sigo usando <strong>Jekyll</strong> para la generación del sitio estatico, tambien me ha servido para aprender como es el funcionamiento de <strong>GitLab</strong>. Eso si, tengo que decir que es muy diferente a <strong>GitHub</strong> en todo, o en casi todo.</p>
+
+<p>Lo veo todo más lioso y más confuso, me resulto más facil <strong>GitHub</strong>, pero eso si tengo que decir que los <a href="https://elblogdelazaro.org/search/?q=GitLab" target="_blank">articulos</a> de <strong>Lazaro</strong> me sirvieron de punta de lanza para resolver todas las dudas que me iban surgiendo con respecto a funcionamiento y creación de un sitio en <strong>GitLab</strong>.</p>
+
+<p>De nuevo <strong>gracias Lazaro por tus articulos</strong>.</p>
+
+<p>Tambien, tengo que decir que me apoye en <strong>Copilot</strong> (y tengo que decir que me ayudo más que <strong>ChatGPT</strong>), para crear un script que me facilitara el proceso de subir los archivos a mi repositorio, porque siempre lo he encontrado tedioso y complicado.</p>
+
+<p>El script que estoy usando actualmente para subir los archivos resultantes de mi sitio a <strong>GitLab</strong>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">#!/bin/bash</span>
+
+  <span class="c"># Up2GitLab 0.2</span>
+  <span class="c"># Actualitzar facil i rapidament el teu repositori de GitLab</span>
+  <span class="c"># (CC) 2024 Victor Santos</span>
+  <span class="c"># https://vctrsnts.github.io</span>
+  <span class="c"># Bajo licencia GNU/GPL</span>
+
+  <span class="c"># Mode de fer servir: executal de la següent manera:</span>
+  <span class="c"># sh up2GitLab.sh</span>
+
+  <span class="c"># Actualitzacio del public key amb GitLab perque sempre tenia problemes amb la key</span>
+  <span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>ssh-agent <span class="nt">-s</span><span class="si">)</span><span class="s2">"</span>
+  ssh-add /root/.ssh/idKeyGitLab
+
+  <span class="c"># Validació de que estem 'conectats' a gitlab</span>
+  ssh <span class="nt">-T</span> git@gitlab.com
+
+  <span class="nb">sleep </span>10
+
+  <span class="c"># A traves de Docker, actualitzem el fitxer RSS</span>
+  <span class="c"># docker exec jekyll_book bundle exec jekyll build</span>
+  <span class="c"># cp ../Gemfile .</span>
+  docker <span class="nb">exec </span>jekyll_book bundle <span class="nb">exec </span>jekyll build
+
+  <span class="nb">sleep </span>10
+
+  <span class="nb">cp</span> ../Gemfile <span class="nb">.</span>
+
+  <span class="c"># Solicita el mensaje del commit</span>
+  <span class="nb">read</span> <span class="nt">-p</span> <span class="s2">"Introduce el mensaje del commit: "</span> commit_message
+
+  <span class="nb">rm</span> <span class="nt">-rf</span> .fuse<span class="k">*</span>
+
+  <span class="c"># Asegúrate de estar en el directorio del repositorio</span>
+  <span class="nv">repo_dir</span><span class="o">=</span><span class="s2">"directori on esta el _site de jekyll"</span>
+  <span class="nb">cd</span> <span class="s2">"</span><span class="nv">$repo_dir</span><span class="s2">"</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">"Directorio del repositorio no encontrado"</span><span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
+
+  <span class="c"># Establecer el repositorio remoto (opcional, si no está ya configurado)</span>
+  <span class="nv">remote_repo</span><span class="o">=</span><span class="s2">"el teu repositori de GitLab"</span>
+  git remote add origin <span class="s2">"</span><span class="nv">$remote_repo</span><span class="s2">"</span> 2&gt;/dev/null
+
+  <span class="c"># Configurar la reconciliación de ramas divergentes</span>
+  git config <span class="nt">--global</span> pull.rebase <span class="nb">false</span>
+
+  <span class="c"># Añade todos los cambios al índice</span>
+  <span class="k">if</span> <span class="o">!</span> git add .<span class="p">;</span> <span class="k">then
+      </span><span class="nb">echo</span> <span class="s2">"Error al añadir cambios"</span>
+      <span class="nb">exit </span>1
+  <span class="k">fi</span>
+
+  <span class="c"># Realiza el commit amb el següent missatge</span>
+  <span class="k">if</span> <span class="o">!</span> git commit <span class="nt">-m</span> <span class="s2">"</span><span class="nv">$commit_message</span><span class="s2">"</span><span class="p">;</span> <span class="k">then
+      </span><span class="nb">echo</span> <span class="s2">"Error al realitzar el commit. Verifica que hi hagi canvis per pujar."</span>
+      <span class="nb">exit </span>1
+  <span class="k">fi</span>
+
+  <span class="c"># Realiza el push a la rama master</span>
+  <span class="k">if</span> <span class="o">!</span> git push origin main <span class="nt">--force</span><span class="p">;</span> <span class="k">then
+      </span><span class="nb">echo</span> <span class="s2">"Error al realitzar el push a la rama master"</span>
+      <span class="nb">exit </span>1
+  <span class="k">fi</span>
+
+  <span class="c"># Registre dactivitats</span>
+  <span class="nv">log_file</span><span class="o">=</span><span class="s2">"</span><span class="nv">$repo_dir</span><span class="s2">/push_log.txt"</span>
+  <span class="nb">echo</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">date</span><span class="si">)</span><span class="s2">: Commit realitzat amb el missatge '</span><span class="nv">$commit_message</span><span class="s2">' i push a la rama master"</span> <span class="o">&gt;&gt;</span> <span class="s2">"</span><span class="nv">$log_file</span><span class="s2">"</span>
+
+  <span class="nb">echo</span> <span class="s2">"Canvis pujats amb exit a la rama master."</span>
+</code></pre></div></div>
+
+<p>Algunos os chocara el porque añado la <strong>key</strong> momentos antes de hacer el <em>push</em>, esto lo hago, porque como tengo a parte del repositorio de <strong>GitLab</strong> tambien tengo el repositorio de <strong>GitHub</strong> y a veces el sistema se volvia loco, no he encontrado explicación a esto, prefiero hacerlo de esta manera y asi me evito problemas y mezclo los ficheros entre los diferentes sitios. No tendria que pasar, pero nunca se sabe. Los caminos del señor son inescrutables 😇.</p>
+
+<p>Asi mismo, tambien tengo un <code class="language-plaintext highlighter-rouge">sleep 10</code> porque de esa manera evito que a la hora de actualitzar mi repositorio me suba un ficher <code class="language-plaintext highlighter-rouge">.fuse*</code> a <strong>GitLab</strong>, pero no funciona del todo bien. Esto es debido, a que antes de actualizar el repositorio, ejecuto <code class="language-plaintext highlighter-rouge">docker exec jekyll_book bundle exec jekyll build</code> para regenerar los siguientes ficheros:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">feed.xml</code></li>
+  <li><code class="language-plaintext highlighter-rouge">sitemap.xml</code></li>
+  <li><code class="language-plaintext highlighter-rouge">robots.txt</code></li>
+</ul>
+
+<p>Con la dirección correcta del sitio, porque sino, a la hora de subirlo al repositorio, me lo subia con la ip por defecto de <strong>Jekyll</strong>, que no es otra que <em>http://0.0.0.0:4000</em> y de esta manera, es lo que he encontrado yo, pone la correcta.</p>
+
+<p>Con este script, subo los archivos al repositorio de <strong>GitLab</strong>, espero los 5 minutos de rigor para que se actulize el sistema y ya lo tengo todo actualizado y listo para visitar.</p>
+
+<p>Además como tambien tiene el feed que junto al script que podeis encontrar en este <a href="/debian%20gnu/linux/python/2024/12/10/publicar-redes-sociales.html" target="_blank">articulo</a> voy publicando, eso si en <a href="https://www.tumblr.com/vctrsnts" target="_blank">Tumblr</a>, para no mezclar articulos de diferentes tematicas (informatica, tecnologia, etc..) con los articulos de los libros en Mastodon. Eso si, tengo que pensar si los publico en <a href="https://bsky.app/profile/vctrsnts.bsky.social" target="_blank">BlueSky</a> o no que es más como un <strong>Twitter - X</strong> pero en sus comienzos. A ver cuanto dura.</p>
+
+<p>Y después de todo esto, <a href="https://vctrsnts.gitlab.io" target="_blank">aqui</a> podeis encontrar la nueva pagina web donde voy colgando los libros que he leido.</p>
+
+<blockquote>
+  <p>Antes de nada, avisar que la web, esta en <strong>Catalán</strong>. Se que un sitio de este estilo, ya de por si, tendra pocas visitas y aun menos si esta en catalán. Y hasta aqui puedo leer, porque sino me encenderia y este no es ni el lugar para eso 🤬 🔥.</p>
+</blockquote>
+
+<p>Espero que os sea de utilidad y encontreis libros que os gusten y que yo ya he leido. Si teneis dudas, podeis contactar conmigo, para preguntar sobre alguno en concreto.</p>
+
+<blockquote>
+  <p>Aun me faltan por añadir unos cuantos más. Es lo malo que tiene de ir a trabajar en Rodalies / Renfe, que tienes mucho tiempo libre 🤣.</p>
+</blockquote>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://elblogdelazaro.org/posts/2018-12-10-sitio-web-estatico-gitlab" target="_blank">Cómo crear un sitio web estático en Gitlab Pages</a></li>
+  <li><a href="https://elblogdelazaro.org/posts/2017-09-23-jekyll-y-gitlab" target="_blank">Como crear un blog con Jekyll y Gitlab Pages</a></li>
+  <li><a href="https://vctrsnts.gitlab.io" target="_blank">Parlem de llibres</a></li>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Blog" /><category term="Blog" /><summary type="html"><![CDATA[Que no cunda el panico ante el titulo de este articulo. No voy a hacer ningun cambio en este web ni voy a borrarlo todo e irme de hermitaño a una cueva 🤣 Solamente es para informar, que como tenia wordpress una pagina web donde iba subiendo los libros que he ido leyendo durante estos años, pues …]]></summary></entry><entry><title type="html">Mis aplicaciones por defecto 2024</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/2024/12/11/mis-aplicaciones-2024.html" rel="alternate" type="text/html" title="Mis aplicaciones por defecto 2024" /><published>2024-12-11T00:00:00+00:00</published><updated>2024-12-11T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/2024/12/11/mis-aplicaciones-2024</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/2024/12/11/mis-aplicaciones-2024.html"><![CDATA[<p>Siguiendo la iniciativa de <a href="https://elblogdelazaro.org/posts/2024-12-09-mis-aplicaciones-por-defecto-2024" target="_blank">Lazaro</a>, pues tambien pondre mi granito de arena a esta buena idea, porque asi, la gente puede descubrir nuevas aplicaciones que nunca habrias pensado que existieran, y de esta manera, pues…</p>
 
 <!-- more -->
 
@@ -735,12 +857,7 @@ root@unRaid: modprobe nct6683 force=1
 <ul>
   <li><a href="https://www.youtube.com/watch?v=ZDUWrwq1PXE">Como modificar la bios de tu Lenovo m710q, m910q o m910x tiny para usar CPUs no soportadas</a></li>
   <li><a href="https://t.me/c/1410082468/127">Hacer downgrade a Xeon</a></li>
-</ul>]]></content><author><name>VSANTOS</name></author><category term="Hardware" /><category term="Hardware" /><summary type="html"><![CDATA[Se ha venido una nueva modificación en el servidor, y una más, pero esta vez, ha sido más a nivel de hardware que de software. Como sabreis, si no os habeis dado cuenta leyendo algunos de mis articulos, estoy subscrito al canal de telegram de HomeLabs.club, donde siempre tienen alguna nueva cosa para liarte la manta a la cabeza.]]></summary></entry><entry><title type="html">Copias de seguridad - unRaid</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/09/27/copias-seguridad-unraid.html" rel="alternate" type="text/html" title="Copias de seguridad - unRaid" /><published>2024-09-27T00:00:00+00:00</published><updated>2024-09-27T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/09/27/copias-seguridad-unraid</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/09/27/copias-seguridad-unraid.html"><![CDATA[<!-- more -->
-
-<h4 target="_blank" id="referencia">Referencia</h4>
-<ul>
-  <li><a href="https://elblogdelazaro.org/tags/restic">ElBlogdeLazaro - Restic</a></li>
-</ul>]]></content><author><name>VSANTOS</name></author><category term="Debian GNU/Linux" /><category term="unRAID" /><category term="Debian GNU/Linux" /><category term="unRAID" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Modificaciones en el servidor - 1</title><link href="https://vctrsnts.github.io/hardware/2024/09/18/modificando-servidor-1.html" rel="alternate" type="text/html" title="Modificaciones en el servidor - 1" /><published>2024-09-18T00:00:00+00:00</published><updated>2024-09-18T00:00:00+00:00</updated><id>https://vctrsnts.github.io/hardware/2024/09/18/modificando-servidor-1</id><content type="html" xml:base="https://vctrsnts.github.io/hardware/2024/09/18/modificando-servidor-1.html"><![CDATA[<p>Durante estas vacaciones he modificado un poco el aspecto de mi servidor con la finalidad de que todo estuviera un poco más ordenado y más homogeneo, porque por una banda, tenia mi <a href="/unraid/2024/03/07/cambiando-unraid.html" target="_blank">servidor</a> por un lado y por otro, en un caddy metalico de discos comprado en Aliexpress, los HDD al que le habia puesto este <a href="https://www.amazon.es/dp/B09SLPRYYZ" target="_blank">ventilador</a> para bajar la temperatura de los mismos.</p>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Hardware" /><category term="Hardware" /><summary type="html"><![CDATA[Se ha venido una nueva modificación en el servidor, y una más, pero esta vez, ha sido más a nivel de hardware que de software. Como sabreis, si no os habeis dado cuenta leyendo algunos de mis articulos, estoy subscrito al canal de telegram de HomeLabs.club, donde siempre tienen alguna nueva cosa para liarte la manta a la cabeza.]]></summary></entry><entry><title type="html">Modificaciones en el servidor - 1</title><link href="https://vctrsnts.github.io/hardware/2024/09/18/modificando-servidor-1.html" rel="alternate" type="text/html" title="Modificaciones en el servidor - 1" /><published>2024-09-18T00:00:00+00:00</published><updated>2024-09-18T00:00:00+00:00</updated><id>https://vctrsnts.github.io/hardware/2024/09/18/modificando-servidor-1</id><content type="html" xml:base="https://vctrsnts.github.io/hardware/2024/09/18/modificando-servidor-1.html"><![CDATA[<p>Durante estas vacaciones he modificado un poco el aspecto de mi servidor con la finalidad de que todo estuviera un poco más ordenado y más homogeneo, porque por una banda, tenia mi <a href="/unraid/2024/03/07/cambiando-unraid.html" target="_blank">servidor</a> por un lado y por otro, en un caddy metalico de discos comprado en Aliexpress, los HDD al que le habia puesto este <a href="https://www.amazon.es/dp/B09SLPRYYZ" target="_blank">ventilador</a> para bajar la temperatura de los mismos.</p>
 
 <!-- more -->
 
@@ -1066,17 +1183,7 @@ root@unRaid: modprobe nct6683 force=1
   <li><a href="https://atareao.es/podcast/mas-herramientas-para-proteger-tu-linux/">528 - Más herramientas para proteger tu Linux</a></li>
   <li><a href="https://github.com/atareao/self-hosted/blob/main/traefik/traefik.yml">GitHub Atareao - Traefik</a></li>
   <li><a href="https://github.com/atareao/self-hosted/blob/main/crowdsec/docker-compose.yml">GitHub Atareao - Crowdsec</a></li>
-</ul>]]></content><author><name>VSANTOS</name></author><category term="Docker" /><category term="VPS" /><category term="Docker" /><category term="VPS" /><summary type="html"><![CDATA[Tal como indique en este articulo, lo unico que me faltaba por añadir a traefik para tener mi VPS lo más seguro posible era crowdsec y por fin, ya lo tengo instalado. Antes de lanzarte a la piscina directamente, te aconsejo que les eches un vistazo a este articulo de atareao donde habla de crowdsec y tambien a este video, que me ha servido como guia en todo el proceso.]]></summary></entry><entry><title type="html">Opinión Personal sobre unRaid - Final</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/07/17/opini%C3%B3n-unraid-final.html" rel="alternate" type="text/html" title="Opinión Personal sobre unRaid - Final" /><published>2024-07-17T00:00:00+00:00</published><updated>2024-07-17T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/07/17/opini%C3%B3n-unraid-final</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2024/07/17/opini%C3%B3n-unraid-final.html"><![CDATA[<p>Después de los articulos sobre <strong>unRaid</strong>:</p>
-<ul>
-  <li><a href="/unraid/2024/06/13/opinion-unraid-1.html" target="_blank">Opinión Personal sobre unRaid - 1</a></li>
-  <li><a href="/unraid/2024/06/23/opinion-unraid-2.html" target="_blank">Opinión Personal sobre unRaid - 2</a></li>
-</ul>
-
-<p>Donde hablaba de lo bueno y de lo malo que yo le he encontrado y si no me han matado los <em>fanboys</em> de unRaid, voy a dar mi opinión final sobre él.</p>
-
-<!-- more -->
-
-<h4 target="_blank" id="referencia">Referencia</h4>]]></content><author><name>VSANTOS</name></author><category term="Debian GNU/Linux" /><category term="unRAID" /><category term="Debian GNU/Linux" /><category term="unRAID" /><summary type="html"><![CDATA[Después de los articulos sobre unRaid: Opinión Personal sobre unRaid - 1 Opinión Personal sobre unRaid - 2 Donde hablaba de lo bueno y de lo malo que yo le he encontrado y si no me han matado los fanboys de unRaid, voy a dar mi opinión final sobre él.]]></summary></entry><entry><title type="html">Opinión Personal sobre unRaid - 2</title><link href="https://vctrsnts.github.io/unraid/2024/06/23/opinion-unraid-2.html" rel="alternate" type="text/html" title="Opinión Personal sobre unRaid - 2" /><published>2024-06-23T00:00:00+00:00</published><updated>2024-06-23T00:00:00+00:00</updated><id>https://vctrsnts.github.io/unraid/2024/06/23/opinion-unraid-2</id><content type="html" xml:base="https://vctrsnts.github.io/unraid/2024/06/23/opinion-unraid-2.html"><![CDATA[<p>Tal como explique en este <a href="/unraid/2024/06/05/opinion-unraid.html" target="_blank">articulo</a> comente que iba a dar mi opinión con respecto a <strong>unRaid</strong> y aqui va el segundo de los 2 articulos que tenia planeado escribir dando mi opinión con respecto a las cosas positivas y negativas, y hoy toca hablar de las cosas negativas que le he encontrado, y siento decir que son más que las positivas que negativas.</p>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Docker" /><category term="VPS" /><category term="Docker" /><category term="VPS" /><summary type="html"><![CDATA[Tal como indique en este articulo, lo unico que me faltaba por añadir a traefik para tener mi VPS lo más seguro posible era crowdsec y por fin, ya lo tengo instalado. Antes de lanzarte a la piscina directamente, te aconsejo que les eches un vistazo a este articulo de atareao donde habla de crowdsec y tambien a este video, que me ha servido como guia en todo el proceso.]]></summary></entry><entry><title type="html">Opinión Personal sobre unRaid - 2</title><link href="https://vctrsnts.github.io/unraid/2024/06/23/opinion-unraid-2.html" rel="alternate" type="text/html" title="Opinión Personal sobre unRaid - 2" /><published>2024-06-23T00:00:00+00:00</published><updated>2024-06-23T00:00:00+00:00</updated><id>https://vctrsnts.github.io/unraid/2024/06/23/opinion-unraid-2</id><content type="html" xml:base="https://vctrsnts.github.io/unraid/2024/06/23/opinion-unraid-2.html"><![CDATA[<p>Tal como explique en este <a href="/unraid/2024/06/05/opinion-unraid.html" target="_blank">articulo</a> comente que iba a dar mi opinión con respecto a <strong>unRaid</strong> y aqui va el segundo de los 2 articulos que tenia planeado escribir dando mi opinión con respecto a las cosas positivas y negativas, y hoy toca hablar de las cosas negativas que le he encontrado, y siento decir que son más que las positivas que negativas.</p>
 
 <!-- more -->
 
