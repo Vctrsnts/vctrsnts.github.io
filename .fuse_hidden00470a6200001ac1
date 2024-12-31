@@ -22,6 +22,8 @@ docker exec jekyll_blog bundle exec jekyll build
 
 sleep 10
 
+rm -rf .fuse*
+
 # Comprovem si el directori on ens trobem es un repositori de Git
 if [ ! -d '.git' ]; then
 	echo 'Aquesta carpeta no conte cap repositori de Git'
