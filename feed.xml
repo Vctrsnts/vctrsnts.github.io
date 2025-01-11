@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2025-01-03T13:05:54+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">Opinión Personal sobre unRaid - Final</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2025/01/03/opini%C3%B3n-unraid-final.html" rel="alternate" type="text/html" title="Opinión Personal sobre unRaid - Final" /><published>2025-01-03T00:00:00+00:00</published><updated>2025-01-03T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/unraid/2025/01/03/opini%C3%B3n-unraid-final</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2025/01/03/opini%C3%B3n-unraid-final.html"><![CDATA[<p>Como primer articulo de este nuevo año, os pongo el articulo final que me faltaba sobre <strong>mi opinión personal - final</strong> con respecto a <strong>unRaid</strong>, pero he estado un poco liado y por eso me he retrasado un poco, pero ahora vamos al articulo final con respecto a lo que <strong>yo</strong> pienso.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2025-01-11T13:42:22+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">Propositos 2025</title><link href="https://vctrsnts.github.io/blog/2025/01/11/propositos-2025.html" rel="alternate" type="text/html" title="Propositos 2025" /><published>2025-01-11T00:00:00+00:00</published><updated>2025-01-11T00:00:00+00:00</updated><id>https://vctrsnts.github.io/blog/2025/01/11/propositos-2025</id><content type="html" xml:base="https://vctrsnts.github.io/blog/2025/01/11/propositos-2025.html"><![CDATA[<p>Como a buen principio de año y que me gustaria conversar en los siguientes años, es poner un listado de las cosas que me gustaria conseguir este año con referencia a mi servidor, docker, etc… O sea, todo lo que tiene que ver con el mundo de la tecnologia y la informatica.</p>
+
+<!-- more -->
+
+<p>La lista que me gustaria poder conseguir a finales de este año, seria la siguiente:</p>
+<ul>
+  <li>Conseguir de alguna manera poder escuchar los podcast en mi portatil sin tener que utilizar aplicaciones tan desactualizadas como <strong>gPodder</strong>.
+    <ul>
+      <li>Porque he estado buscando otras aplicaciones que tenian buena pinta, pero o que no tienen paquete para <em>Debian GNU/Linux</em> o imagen <em>AppImage</em>. Se que esta la posibilidad de usar <em>snap</em>, pero tener que instalar aplicaciones externas para usar un paquete, que teoricamente lo tiene todo pues no es muy logico.</li>
+    </ul>
+  </li>
+  <li>Mejorar, siempre que sea posible, mi servidor <em>unRaid</em>. No se como lo podria mejorar más, porque tal como esta ahora mismo lo veo perfecto, pero hay algunas cosas, sobretodo con la caja, para más información podeis leer este <a href="/hardware/2024/09/18/modificando-servidor-1.html" target="_blank">articulo</a> porque la sujección al tiny, no me parece muy fiable.
+    <ul>
+      <li>Tambien, he pensado en poner más HDD pero para eso, necesitaria añadir una fuente externa para poderlos alimentar estos HDD.</li>
+    </ul>
+  </li>
+  <li>Rezar 😉 para que el portatil no reviente, aunque no es un tema que me preocupe mucho, porque tengo en la reserva un <a href="/thinkcenter/2023/09/11/substitutos-portatil.html" target="_blank">tiny</a>.</li>
+  <li>Mejorar mi VPS en todo lo que se pueda y sacarle más partido.
+    <ul>
+      <li>Aunque ya esta bien tal como esta, pero siempre se puede exprimir todo un poco más.</li>
+    </ul>
+  </li>
+  <li>Tengo en mente, que es una cosa que siempre me ha rondado por la cabeza, es comprar mi propio dominio personal y por ende, tener mi propia pagina web en el VPS.
+    <ul>
+      <li>Aunque luego digo que no es necesario, porque tal como lo tengo ahora <strong>gitHub</strong>, tengo más que suficiente para todo lo que yo hago. Pero ahi estamos, con esa idea siempre rondando por la cabeza.</li>
+    </ul>
+  </li>
+  <li>Como habreis visto es este otro <a href="/blog/2024/12/23/nueva-web.html" target="_blank">articulo</a>, ahora mismo, la tengo ubicada como un proyecto más de <strong>gitHub</strong>, anteriormente la habia tenido en <strong>gitLab</strong>.
+    <ul>
+      <li>Pero lo he abandonado porque el funcionamiento que tiene no me gusta mucho y después de descubrir este nuevo sitio <a href="https://codeberg.org" target="_blank">Codeberg</a>, estoy pensando es esta nueva web, ubicarla aqui, porque asi aprendemos cosas nuevas.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Aqui tenemos la lista que en principio son los puntos fuertes que me gustaria ver cumplido, pero nunca se sabe, porque estas listas son variables y donde digo que me gustaria hacer una cosa, luego no se cumple pero se añade un nuevo tema que me inspara más o ideas que voy viendo escuchando o leyendo los articulos de los podcasters que sigo actualmente:</p>
+<ul>
+  <li><a href="https://atareao.es">Atareao</a></li>
+  <li><a href="https://elblogdelazaro.org">Lazaro</a></li>
+  <li><a href="https://ugeek.github.io">uGeek</a></li>
+</ul>
+
+<p>A parte de que este mundo de la tecnologia y la informatica, es como una <em>caja de bombones</em>, nunca sabes lo que te va a tocar.</p>
+
+<p>Y sobretodo, a ver cuantas de estos puntos de esta lista, se ven cumplidas a finales de este nuevo año 🤞.</p>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://codeberg.org">Codeberg</a></li>
+  <li><a href="https://atareao.es">Atareao</a></li>
+  <li><a href="https://elblogdelazaro.org">Lazaro</a></li>
+  <li><a href="https://ugeek.github.io">uGeek</a></li>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Blog" /><category term="Blog" /><summary type="html"><![CDATA[Como a buen principio de año y que me gustaria conversar en los siguientes años, es poner un listado de las cosas que me gustaria conseguir este año con referencia a mi servidor, docker, etc… O sea, todo lo que tiene que ver con el mundo de la tecnologia y la informatica.]]></summary></entry><entry><title type="html">Opinión Personal sobre unRaid - Final</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2025/01/03/opini%C3%B3n-unraid-final.html" rel="alternate" type="text/html" title="Opinión Personal sobre unRaid - Final" /><published>2025-01-03T00:00:00+00:00</published><updated>2025-01-03T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/unraid/2025/01/03/opini%C3%B3n-unraid-final</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/unraid/2025/01/03/opini%C3%B3n-unraid-final.html"><![CDATA[<p>Como primer articulo de este nuevo año, os pongo el articulo final que me faltaba sobre <strong>mi opinión personal - final</strong> con respecto a <strong>unRaid</strong>, pero he estado un poco liado y por eso me he retrasado un poco, pero ahora vamos al articulo final con respecto a lo que <strong>yo</strong> pienso.</p>
 
 <!-- more -->
 
