@@ -1,4 +1,338 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2025-01-11T13:42:22+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">Propositos 2025</title><link href="https://vctrsnts.github.io/blog/2025/01/11/propositos-2025.html" rel="alternate" type="text/html" title="Propositos 2025" /><published>2025-01-11T00:00:00+00:00</published><updated>2025-01-11T00:00:00+00:00</updated><id>https://vctrsnts.github.io/blog/2025/01/11/propositos-2025</id><content type="html" xml:base="https://vctrsnts.github.io/blog/2025/01/11/propositos-2025.html"><![CDATA[<p>Como a buen principio de año y que me gustaria conversar en los siguientes años, es poner un listado de las cosas que me gustaria conseguir este año con referencia a mi servidor, docker, etc… O sea, todo lo que tiene que ver con el mundo de la tecnologia y la informatica.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2025-01-19T19:48:18+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">Historia del cambio de terminal</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/2025/01/13/cambiando-a-wezterm.html" rel="alternate" type="text/html" title="Historia del cambio de terminal" /><published>2025-01-13T00:00:00+00:00</published><updated>2025-01-13T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/2025/01/13/cambiando-a-wezterm</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/2025/01/13/cambiando-a-wezterm.html"><![CDATA[<p>Este es un articulo, que como puedes ver, es un articulo muy parecido a los que he ha escrito <strong>Lorenzo</strong>, de <a href="https://atareao.es" target="_blank">Atareao</a>, porque es algo, que si te pones a pensar es una de las aplicaciones que más se utilizan en <em>GNU/Linux</em> pero a la que no se le da mucha impportacia.</p>
+
+<p>Nos estamos refiriendo a la terminal.</p>
+
+<!-- more -->
+
+<p>Esa aplicación, en mi caso, no era una cosa a la que le diera mucha importancia. Siempre usaba la que venia por defecto en el <em>Desktop</em> que instalaba en ese momento, <em>konsole</em> en el caso de <strong>KDE</strong>, <em>xfce4-terminal</em> en el caso de <strong>XFCE</strong>, o sino en el caso de usar los <em>Windows Tiling Manager</em> que el mejor ejemplo, se podria decir que es <strong>i3-WM</strong>, tambien usaba <em>xfce4-terminal</em>. Pero al usar los que venian por defecto, siempre, en mi caso, me encontraba un poco limitado porque si quieres trabajar con diferentes <em>paneles</em> o <em>escritorios</em>, tienes que usar diferentes pestañas y tienes que ir saltando de pestaña en pestaña y eso era un poco rollo.</p>
+
+<p>Pero todo cambio, a partir de un <a href="https://www.youtube.com/watch?v=7gmpjacFoHM" target="_blank">video</a> del <strong>PeladoNerd</strong> donde explicaba el uso de <strong>TMUX</strong>. Un famoso <em>multiplexor</em> donde podias tener varios <em>terminales</em> en la misma ventana.</p>
+
+<p>Esto era una mejora en mi manera de trabajar con respecto a lo que tenia antes. Pero aun habia un pequeño problema que seguia existiendo, que aunque habia logrado una mejora muy sustancial con respecto a lo que tenia antes, tenia que seguir utilizando 2 aplicaciones:</p>
+<ul>
+  <li>La terminal que habia instalado.</li>
+  <li><em>Tmux</em> para disponer de estas mejoras.</li>
+</ul>
+
+<p>Aqui os pongo la configuración del fichero <code class="language-plaintext highlighter-rouge">tmux.conf</code> que estaba usando en ese momento. Nunca se sabe si os puede ser de utilidad:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">## Configuració per defecte</span>
+<span class="nb">set</span> <span class="nt">-g</span> assume-paste-time 0
+<span class="c"># Iniciem les pestanyes de TMUX per 1 en comptes de 0</span>
+<span class="nb">set</span> <span class="nt">-g</span> base-index 1
+setw <span class="nt">-g</span> main-pane-width 126
+<span class="c">#setw -g aggressive-resize off</span>
+<span class="nb">set</span> <span class="nt">-g</span> status on
+<span class="nb">set</span> <span class="nt">-g</span> history-limit 10000
+<span class="c">#set -g pane-border-format "#P: #{pane_current_command}"</span>
+<span class="nb">set</span> <span class="nt">-g</span> mouse on
+
+<span class="c">## Canviem la keybind per defecte</span>
+unbind C-b
+<span class="nb">set</span> <span class="nt">-g</span> prefix C-a
+<span class="nb">bind </span>C-a send-prefix
+
+<span class="c"># custom bindings</span>
+bind-key H resize-pane <span class="nt">-L</span> 5
+bind-key L resize-pane <span class="nt">-R</span> 5
+bind-key j <span class="k">select</span><span class="nt">-pane</span> <span class="nt">-t</span> :.-
+bind-key x swap-pane <span class="nt">-t</span> :.0 <span class="se">\;</span> <span class="k">select</span><span class="nt">-pane</span> <span class="nt">-t</span> :.0
+bind-key k kill-pane <span class="se">\;</span> <span class="k">select</span><span class="nt">-layout</span> main-vertical
+bind-key v split-window <span class="nt">-v</span> <span class="se">\;</span> <span class="k">select</span><span class="nt">-layout</span> main-vertical <span class="se">\;</span> swap-pane <span class="nt">-t</span> :.0 <span class="se">\;</span> <span class="k">select</span><span class="nt">-pane</span> <span class="nt">-t</span> :.0
+<span class="c"># EXECUTEM SCRIPT</span>
+bind-key r run-shell <span class="s2">"~/.tmux/scripts/resize-adaptable.sh -l main-vertical -p 60"</span>
+<span class="c">## Configuracio de diferents accions programades</span>
+<span class="c"># Es recarrega la configuració de tmux</span>
+bind-key R source-file ~/.tmux.conf <span class="se">\;</span> display-message <span class="s2">"Config reloaded"</span>
+<span class="c"># Es pasa a opcio "paste-buffer"</span>
+<span class="c">#bind-key p paste-buffer</span>
+<span class="c"># Es pasa a opció "copy-mode"</span>
+<span class="c">#bind-key c copy-mode</span>
+
+<span class="c">## Configuració del Status Bar</span>
+set-window-option <span class="nt">-g</span> window-status-format <span class="s2">""</span>
+set-window-option <span class="nt">-g</span> window-status-current-format <span class="s2">""</span>
+
+<span class="c">## Configuració del color del Status Bar</span>
+set-option <span class="nt">-g</span> status-bg colour235 <span class="c">#base02</span>
+set-option <span class="nt">-g</span> status-fg yellow <span class="c">#yellow</span>
+
+<span class="c">## Es visualitzar la adreça IP</span>
+<span class="nb">set</span> <span class="nt">-g</span> status-left-length 178
+<span class="c"># Configuració per a la visualització de la adreça IP</span>
+<span class="nv">DEFAULT_GW</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span>ip route | <span class="nb">grep</span> <span class="s1">'default'</span> | <span class="nb">awk</span> <span class="s1">'{print $3}'</span><span class="si">)</span><span class="s2">"</span>
+
+<span class="nb">set</span> <span class="nt">-g</span> status-left <span class="s2">"#[fg=green][#P] #[fg=yellow]#(ip address | grep 'enp3s0' | grep 'inet ' | awk '{print </span><span class="se">\"</span><span class="s2">inet </span><span class="se">\"</span><span class="nv">$2</span><span class="s2">}')#[fg=red]#(ip address | grep 'wlp8s0' | grep 'inet ' | awk '{print </span><span class="se">\"</span><span class="s2">inet </span><span class="se">\"</span><span class="nv">$2</span><span class="s2">}') #[fg=white]208.67.222.222 (#(ping -c1 208.67.222.222 | grep time | cut -f4 -d'=')) #[fg=white]#(ip route | grep 'default' | awk '{print </span><span class="se">\"</span><span class="s2">gateway </span><span class="se">\"</span><span class="nv">$3</span><span class="s2">}') (#(ping -c1 </span><span class="nv">$DEFAULT_GW</span><span class="s2"> | grep time | cut -f4 -d'='))"</span>
+
+<span class="nb">set</span> <span class="nt">-g</span> status-right-length 60
+<span class="nb">set</span> <span class="nt">-g</span> status-right <span class="s2">"#[fg=yellow]%d %b %Y #[fg=green]%H:%M"</span>
+</code></pre></div></div>
+<p>Si os fijais, hay un script (que os pongo a continuación) que lo que hacia es redimensionar el tamaño del panel al de la pantalla, porque no habia forma de que esto se hiciera automaticamente:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">lflag</span><span class="o">=</span>
+<span class="nv">pflag</span><span class="o">=</span>
+<span class="nv">tflag</span><span class="o">=</span>
+<span class="k">while </span><span class="nb">getopts </span>l:p:t: name<span class="p">;</span>
+<span class="k">do
+    case</span> <span class="nv">$name</span> <span class="k">in
+    </span>l<span class="p">)</span>    <span class="nv">lflag</span><span class="o">=</span>1
+      <span class="nv">layout_name</span><span class="o">=</span><span class="nv">$OPTARG</span><span class="p">;;</span>
+    p<span class="p">)</span>    <span class="nv">pflag</span><span class="o">=</span>1
+          <span class="nv">percentage</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPTARG</span><span class="s2">"</span><span class="p">;;</span>
+    t<span class="p">)</span>    <span class="nv">tflag</span><span class="o">=</span>1
+          <span class="nv">target</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPTARG</span><span class="s2">"</span><span class="p">;;</span>
+    ?<span class="p">)</span>   <span class="nb">printf</span> <span class="s2">"Usage: %s: [-l layout-name] [-p percentage] [-t target-window]</span><span class="se">\n</span><span class="s2">"</span> <span class="nv">$0</span>
+          <span class="nb">exit </span>2<span class="p">;;</span>
+    <span class="k">esac</span>
+<span class="k">done
+
+if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$pflag</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    if</span> <span class="o">!</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$percentage</span><span class="s2">"</span> <span class="nt">-eq</span> <span class="s2">"</span><span class="nv">$percentage</span><span class="s2">"</span> <span class="o">]</span> 2&gt; /dev/null<span class="p">;</span> <span class="k">then
+        </span><span class="nb">printf</span> <span class="s2">"Percentage (-p) must be an integer"</span> <span class="o">&gt;</span>&amp;2
+        <span class="nb">exit </span>1
+    <span class="k">fi
+fi
+if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$lflag</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    if</span> <span class="o">[</span> <span class="nv">$layout_name</span> <span class="o">!=</span> <span class="s1">'main-horizontal'</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nv">$layout_name</span> <span class="o">!=</span> <span class="s1">'main-vertical'</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then
+        </span><span class="nb">printf</span> <span class="s2">"layout name must be main-horizontal or main-vertical"</span> <span class="o">&gt;</span>&amp;2
+        <span class="nb">exit </span>1
+    <span class="k">fi
+fi
+
+if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$layout_name</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"main-vertical"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">MAIN_PANE_SIZE</span><span class="o">=</span><span class="si">$(</span><span class="nb">expr</span> <span class="si">$(</span>tmux display <span class="nt">-p</span> <span class="s1">'#{window_width}'</span><span class="si">)</span> <span class="se">\*</span> <span class="nv">$percentage</span> <span class="se">\/</span> 100<span class="si">)</span>
+    <span class="nv">MAIN_SIZE_OPTION</span><span class="o">=</span><span class="s1">'main-pane-width'</span>
+
+<span class="k">fi
+
+if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$layout_name</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"main-horizontal"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">MAIN_PANE_SIZE</span><span class="o">=</span><span class="si">$(</span><span class="nb">expr</span> <span class="si">$(</span>tmux display <span class="nt">-p</span> <span class="s1">'#{window_height}'</span><span class="si">)</span> <span class="se">\*</span> <span class="nv">$percentage</span> <span class="se">\/</span> 100<span class="si">)</span>
+    <span class="nv">MAIN_SIZE_OPTION</span><span class="o">=</span><span class="s1">'main-pane-height'</span>
+<span class="k">fi
+
+if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$target</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span>tmux setw <span class="nt">-t</span> <span class="nv">$target</span> <span class="nv">$MAIN_SIZE_OPTION</span> <span class="nv">$MAIN_PANE_SIZE</span><span class="p">;</span> tmux <span class="k">select</span><span class="nt">-layout</span> <span class="nt">-t</span> <span class="nv">$target</span> <span class="nv">$layout_name</span>
+<span class="k">else
+    </span>tmux setw <span class="nv">$MAIN_SIZE_OPTION</span> <span class="nv">$MAIN_PANE_SIZE</span><span class="p">;</span> tmux <span class="k">select</span><span class="nt">-layout</span> <span class="nv">$layout_name</span>
+<span class="k">fi
+
+</span><span class="nb">exit </span>0
+</code></pre></div></div>
+<p>Y con esta configuración estuve un monton de tiempo porque desconocia que más alla de esto habian más cosas.</p>
+
+<p>Todo esto cambio, cuando descubri a <a href="https://atareao.es" target="_blank">Lorenzo</a> donde en uno de sus <a href="https://atareao.es/podcast/kitty-el-mejor-terminal-para-linux" target="_blank">articulos</a> explicaba que habia encontrado una nueva terminal donde todo lo que, en mi caso necesitaba, ya estaba implementado por defecto. Y esta aplicación, no era otra que <a href="https://sw.kovidgoyal.net/kitty" target="_blank">Kitty</a>. Teniendo en cuenta que las opiniones de <strong>Lorenzo</strong> las tengo en muy alta estima, pues decidi probar esta nueva <em>terminal</em>.</p>
+
+<p>Desde el momento que la instale y la configure, aqui teneis el fichero de configuración de <code class="language-plaintext highlighter-rouge">kitty.conf</code>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># vim:fileencoding=utf-8:ft=conf:foldmethod=marker</span>
+
+<span class="c">#: Fonts {</span>
+  font_family      Fira Code
+  bold_font        auto
+  italic_font      auto
+  bold_italic_font auto
+
+  font_size 10.0
+<span class="c">#: }</span>
+
+<span class="c">#: Cursor customization {</span>
+  cursor <span class="c">#f19618</span>
+<span class="c">#: }</span>
+
+<span class="c">#: Scrollback {</span>
+  scrollback_lines 2000
+<span class="c">#: }</span>
+
+<span class="c">#: Mouse {</span>
+  detect_urls <span class="nb">yes
+
+  </span>copy_on_select <span class="nb">yes</span>
+<span class="c">#: }</span>
+
+<span class="c">#: Terminal bell {</span>
+  enable_audio_bell silence
+<span class="c">#: }</span>
+
+<span class="c">#: Window layout {</span>
+  enabled_layouts tall
+
+  window_border_width 5.0
+
+  window_padding_width 3.0
+
+  hide_window_decorations no
+<span class="c">#: }</span>
+
+<span class="c">#: Color scheme {</span>
+  foreground <span class="c">#e5e1cf</span>
+  background <span class="c">#0e1419</span>
+
+  background_opacity 0.8
+
+  selection_foreground <span class="c">#0e1419</span>
+
+  selection_background <span class="c">#243340</span>
+
+  color0 <span class="c">#000000</span>
+  color8 <span class="c">#323232</span>
+
+  <span class="c">#: black</span>
+
+  color1 <span class="c">#ff3333</span>
+  color9 <span class="c">#ff6565</span>
+
+  <span class="c">#: red</span>
+
+  color2  <span class="c">#b8cc52</span>
+  color10 <span class="c">#e9fe83</span>
+
+  <span class="c">#: green</span>
+
+  color3  <span class="c">#e6c446</span>
+  color11 <span class="c">#fff778</span>
+
+  <span class="c">#: yellow</span>
+
+  color4  <span class="c">#36a3d9</span>
+  color12 <span class="c">#68d4ff</span>
+
+  <span class="c">#: blue</span>
+
+  color5  <span class="c">#f07078</span>
+  color13 <span class="c">#ffa3aa</span>
+
+  <span class="c">#: magenta</span>
+
+  color6  <span class="c">#95e5cb</span>
+  color14 <span class="c">#c7fffc</span>
+
+  <span class="c">#: cyan</span>
+
+  color7  <span class="c">#ffffff</span>
+  color15 <span class="c">#ffffff</span>
+<span class="c">#: }</span>
+
+<span class="c">#: Advanced {</span>
+  allow_remote_control <span class="nb">yes</span>
+<span class="c">#: }</span>
+
+<span class="c">#: Keyboard shortcuts {</span>
+  kitty_mod ctrl+shift
+
+  <span class="c">#: Clipboard {</span>
+
+  map kitty_mod+c copy_to_clipboard
+<span class="c">#: }</span>
+
+<span class="c">#: Window management {</span>
+  map kitty_mod+enter new_window
+<span class="c">#: }</span>
+
+<span class="c">#: Font sizes {</span>
+  map kitty_mod+plus      change_font_size all +2.0
+  map kitty_mod+minus     change_font_size all <span class="nt">-2</span>.0
+  map kitty_mod+backspace change_font_size all 0
+<span class="c">#: }</span>
+</code></pre></div></div>
+<p>Me encanto su funcionamiento y su facilidad de uso, eso si, después de que te hayas acostumbrado a las combinaciones de teclas que se tiene que usar, pero en mi caso, eran pocas, asi que no tuve ningun problema en adaptarme a ellas.</p>
+
+<p>Pero como dice el refran, <em>todo lo bueno se acaba</em> y eso me paso. Un dia, en una actualización de <em>kitty</em>, todo dejo de funcionar. Dejar de funciona no es la palabra correcta, lo que paso, es que todo se fue a la 💩.</p>
+
+<p>El problema que tenia, es que mientras lo estaba usando, me aparecian simbolos en la terminal como si se estuviera pulsando teclas aleatoriamente, sin ningun motivo, cuando esto no era asi. Podia dejar de usar el teclado y los caracteres seguian apareciendo en la pantalla.</p>
+
+<p>Lo primero que hice fue borrar la configuración que tenia hasta el momento, a ver si habia habido algun cambio y por eso tenia este problema, pero todo seguia igual. Tambien borre el paquete y lo volvi a instalar, pero sin ningun cambio.</p>
+
+<p>Busque información, tanto en la web de <em>kitty</em> como en la web de <em>Debian GNU/Linux</em> para ser si alguien habia reportado este fallo. Pero lo unico que encontre es a 2 personas que si que lo habian reportado, pero en una versión anterior a la que yo estaba usando, el problema se habia solucionado, pero eso habia pasado hace un par de años. Asi que esa no era mi solución. Pues viendo los problemas que tenia, me puse a buscar otra terminal que me diera las misma cosas que habia tenido hasta ahora con <em>kitty</em> pero sin este molesto problema.</p>
+
+<p>Que hacemos cuando tienes un problema de este tipo, pues preguntas al profesor, que no es otro de que <strong>Lorenzo</strong>, porque el ya habia hecho una lista de todos los posibles candidatos. Me paso esta pagina web <a href="https://github.com/cdleon/awesome-terminals" target="_blank">web</a>, que a el le habia ayudado mucho en su elección donde podias ver todas las ventajas e inconvenientes de cada opción. Al final me decidi usar <a href="https://github.com/wez/wezterm" target="_blank">wezterm</a> que ofrecia lo mismo que <em>kitty</em>.</p>
+
+<p>La unica pega que tiene es que para instalar el paquete en <em>Debian GNU/Linux</em>, tienes que <a href="https://wezfurlong.org/wezterm/install/linux.html#__tabbed_1_3" target="_blank">instarlo</a> por fuera del sistema. Una cosa que no me gusta mucho. Tambien tienes la opción de instalarlo a traves de <em>AppImage</em>, <em>Flatpak</em>, pero para segun que aplicaciones, las prefiero tener instaladas correctamente en el sistema.</p>
+
+<p>El fichero que uso actualmente de configuración es el siguiente:</p>
+<div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Configuración básica para WezTerm</span>
+<span class="kd">local</span> <span class="n">wezterm</span> <span class="o">=</span> <span class="nb">require</span> <span class="s1">'wezterm'</span>
+<span class="kd">local</span> <span class="n">act</span> <span class="o">=</span> <span class="n">wezterm</span><span class="p">.</span><span class="n">action</span>
+
+<span class="k">return</span> <span class="p">{</span>
+  <span class="c1">-- Actualiza la barra de estado cada 1 segundo</span>
+  <span class="n">status_update_interval</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> 
+  <span class="c1">-- Fuente</span>
+  <span class="n">font</span> <span class="o">=</span> <span class="n">wezterm</span><span class="p">.</span><span class="n">font</span><span class="p">(</span><span class="s2">"Fira Code"</span><span class="p">),</span> <span class="c1">-- Cambia esto a la fuente que prefieras</span>
+  <span class="n">font_size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="c1">-- Tamaño de la fuente</span>
+  <span class="n">default_cursor_style</span> <span class="o">=</span> <span class="s2">"BlinkingBar"</span><span class="p">,</span>
+
+  <span class="c1">-- Ligaduras tipográficas</span>
+  <span class="n">font_rules</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{</span>
+      <span class="n">intensity</span> <span class="o">=</span> <span class="s2">"Bold"</span><span class="p">,</span>
+      <span class="n">font</span> <span class="o">=</span> <span class="n">wezterm</span><span class="p">.</span><span class="n">font_with_fallback</span><span class="p">({</span><span class="s2">"Fira Code"</span><span class="p">,</span> <span class="s2">"Monospace"</span><span class="p">})</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+  <span class="c1">-- Colores</span>
+  <span class="n">color_scheme</span> <span class="o">=</span> <span class="s2">"Dracula"</span><span class="p">,</span> <span class="c1">-- Cambia esto por el esquema que más te guste</span>
+
+  <span class="c1">-- Estilo de la ventana</span>
+  <span class="n">window_padding</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="c1">-- Espaciado desde la izquierda</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="c1">-- Espaciado desde la derecha</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="c1">-- Espaciado superior</span>
+    <span class="n">bottom</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="c1">-- Espaciado inferior</span>
+  <span class="p">},</span>
+
+  <span class="c1">-- Establecer el esquema de la barra de título</span>
+  <span class="n">window_background_opacity</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">98</span><span class="p">,</span> <span class="c1">-- Opacidad de la ventana</span>
+
+  <span class="c1">-- Activar ligaduras de fuentes</span>
+  <span class="n">use_fancy_tab_bar</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">-- Mostrar una barra de pestañas con los nombres de las pestañas</span>
+  <span class="n">tab_bar_at_bottom</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">-- Coloca la barra de pestañas en la parte superior (cambiar a `true` si prefieres abajo)</span>
+  <span class="n">hide_tab_bar_if_only_one_tab</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+
+  <span class="c1">-- Comportamiento de las pestañas</span>
+  <span class="n">default_prog</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"/bin/bash"</span><span class="p">},</span> <span class="c1">-- Cambia por tu shell preferido (zsh, fish, etc.)</span>
+
+  <span class="n">inactive_pane_hsb</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">saturation</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">brightness</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span>
+  <span class="p">},</span>
+  
+  <span class="c1">-- Teclas de acceso rápido</span>
+  <span class="n">keys</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">-- Dividir el terminal</span>
+    <span class="p">{</span><span class="n">key</span><span class="o">=</span><span class="s2">"v"</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="s2">"CTRL|SUPER"</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">act</span><span class="p">{</span><span class="n">SplitVertical</span><span class="o">=</span><span class="p">{</span><span class="n">domain</span><span class="o">=</span><span class="s2">"CurrentPaneDomain"</span><span class="p">}}},</span>
+    <span class="p">{</span><span class="n">key</span><span class="o">=</span><span class="s2">"h"</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="s2">"CTRL|SUPER"</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">act</span><span class="p">{</span><span class="n">SplitHorizontal</span><span class="o">=</span><span class="p">{</span><span class="n">domain</span><span class="o">=</span><span class="s2">"CurrentPaneDomain"</span><span class="p">}}},</span>
+
+    <span class="c1">-- Crear una nueva pestaña</span>
+    <span class="p">{</span><span class="n">key</span><span class="o">=</span><span class="s2">"t"</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="s2">"CTRL|SHIFT"</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">wezterm</span><span class="p">.</span><span class="n">action</span><span class="p">{</span><span class="n">SpawnTab</span><span class="o">=</span><span class="s2">"CurrentPaneDomain"</span><span class="p">}},</span>
+
+    <span class="c1">-- Cambiar entre pestañas</span>
+    <span class="p">{</span><span class="n">key</span><span class="o">=</span><span class="s2">"LeftArrow"</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="s2">"CTRL|SUPER"</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">act</span><span class="p">{</span><span class="n">ActivatePaneDirection</span><span class="o">=</span><span class="s2">"Next"</span><span class="p">}},</span>
+    <span class="p">{</span><span class="n">key</span><span class="o">=</span><span class="s2">"RightArrow"</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="s2">"CTRL|SUPER"</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">act</span><span class="p">{</span><span class="n">ActivatePaneDirection</span><span class="o">=</span><span class="s2">"Prev"</span><span class="p">}}</span>
+  <span class="p">},</span>
+
+  <span class="c1">-- Habilitar el "scrollback" (historial de la terminal)</span>
+  <span class="n">scrollback_lines</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span> <span class="c1">-- Aumenta el número de líneas del historial de la terminal</span>
+
+  <span class="c1">-- Configuración avanzada para la terminal</span>
+  <span class="n">window_decorations</span> <span class="o">=</span> <span class="s2">"NONE"</span><span class="p">,</span> <span class="c1">-- Puedes elegir entre "NONE", "TITLE", "RESIZE", etc.</span>
+
+  <span class="n">mouse_bindings</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{</span><span class="n">event</span><span class="o">=</span><span class="p">{</span><span class="n">Up</span><span class="o">=</span><span class="p">{</span><span class="n">streak</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="s2">"Right"</span><span class="p">}},</span> <span class="n">mods</span><span class="o">=</span><span class="s2">"NONE"</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">wezterm</span><span class="p">.</span><span class="n">action</span><span class="p">{</span><span class="n">PasteFrom</span><span class="o">=</span><span class="s2">"PrimarySelection"</span><span class="p">}},</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Y tal como yo lo tengo configurado, me funciona perfectamente para las necesidades que tengo y lo más extraño, es que no tengo los problemas con las pulsaciones fantasma que me ocurria con <em>kitty</em>, porque tambien habia pensado que el portatil se habia roto, pero claro, sino con otra terminal el problema no aparece, pues, el problema esta en <em>kitty</em>.</p>
+
+<p>Aun asi, intente darle una nueva oportunidad a <em>kitty</em>, para ver si con alguna nueva actualización, se habia solucionado el problema de las pulsaciones, pero el problema seguia persistiendo. Hasta intente usar <em>kitty</em> con el fichero minimo de configuración necesario para su funcionamiento, pero ni aun asi, el error seguia.</p>
+
+<p>Asi, que no me quedo otra cosa, que volver a <em>wezterm</em> que tan buen sabor de boca me habia dejado y por eso, aun lo sigo usando hasta este momento y que espero que sea para mucho tiempo.</p>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=7gmpjacFoHM" target="_blank">POR QUE LOS SRE USAN MAC ? Mis herramientas de trabajo (Parte 2)</a></li>
+  <li><a href="https://github.com/tmux/tmux" target="_blank">Tmux</a></li>
+  <li><a href="https://atareao.es/podcast/kitty-el-mejor-terminal-para-linux" target="_blank">253 - Kitty, el mejor terminal para Linux</a></li>
+  <li><a href="https://atareao.es/podcast/las-aplicaciones-imprescindibles-en-linux-en-2024" target="_blank">560 - Las aplicaciones imprescindibles en Linux en 2024</a></li>
+  <li><a href="https://atareao.es/podcast/batalla-de-terminales-en-linux-wezterm" target="_blank">571 - Batalla de terminales en Linux. Wezterm</a></li>
+  <li><a href="https://github.com/cdleon/awesome-terminals" target="_blank">awesome-terminals</a></li>
+  <li><a href="https://github.com/wez/wezterm" target="_blank">Wezterm</a></li>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Debian GNU/Linux" /><category term="Debian GNU/Linux" /><summary type="html"><![CDATA[Este es un articulo, que como puedes ver, es un articulo muy parecido a los que he ha escrito Lorenzo, de Atareao, porque es algo, que si te pones a pensar es una de las aplicaciones que más se utilizan en GNU/Linux pero a la que no se le da mucha impportacia. Nos estamos refiriendo a la terminal.]]></summary></entry><entry><title type="html">Propositos 2025</title><link href="https://vctrsnts.github.io/blog/2025/01/11/propositos-2025.html" rel="alternate" type="text/html" title="Propositos 2025" /><published>2025-01-11T00:00:00+00:00</published><updated>2025-01-11T00:00:00+00:00</updated><id>https://vctrsnts.github.io/blog/2025/01/11/propositos-2025</id><content type="html" xml:base="https://vctrsnts.github.io/blog/2025/01/11/propositos-2025.html"><![CDATA[<p>Como a buen principio de año y que me gustaria conversar en los siguientes años, es poner un listado de las cosas que me gustaria conseguir este año con referencia a mi servidor, docker, etc… O sea, todo lo que tiene que ver con el mundo de la tecnologia y la informatica.</p>
 
 <!-- more -->
 
@@ -7705,7 +8039,7 @@ cuyas funciones son similares a las del comando chkdsk de Windows.</p>
 <p>Con esta sencilla solución, se reparó la partición y el disco duro externo volvió a ser de lectura/escritura.</p>
 
 <p>Lo que tengo que decir, es que la reparación funciono durante un par de dias… Al final lo que tenia que pasar, paso… El USB acabo en la basura… Estaba en las ultimas. Pero bueno, durante un par
- de dias, logre que siguiera funcionando.</p>]]></content><author><name>VSANTOS</name></author><category term="Bash" /><category term="Debian GNU/Linux" /><category term="Hardware" /><category term="Bash" /><category term="Debian GNU/Linux" /><category term="Hardware" /><summary type="html"><![CDATA[Por si a alguien le vuelve a pasar lo mismo que a mi, aquí pongo una pequeña ayuda de lo que se puede hacer antes de tirar a la basura un USB, que, cada vez que lo montas, esta como lectura…]]></summary></entry><entry><title type="html">Cambiar dinamicamente el fondo de pantalla en Xfce</title><link href="https://vctrsnts.github.io/linux/bash/xfce/2013/01/09/fondo-pantalla-xfce.html" rel="alternate" type="text/html" title="Cambiar dinamicamente el fondo de pantalla en Xfce" /><published>2013-01-09T00:00:00+00:00</published><updated>2013-01-09T00:00:00+00:00</updated><id>https://vctrsnts.github.io/linux/bash/xfce/2013/01/09/fondo-pantalla-xfce</id><content type="html" xml:base="https://vctrsnts.github.io/linux/bash/xfce/2013/01/09/fondo-pantalla-xfce.html"><![CDATA[<p>Después de hacer limpieza de mi portatil (borrar ese espacio en el HD que no utilizaba para nada), he instalado de nuevo mi querido <strong>Debian GNU/Linux</strong>, y como estaba un poco cansado de KDE, lleno de 
+ de dias, logre que siguiera funcionando.</p>]]></content><author><name>VSANTOS</name></author><category term="Bash" /><category term="Debian GNU/Linux" /><category term="Hardware" /><category term="Bash" /><category term="Debian GNU/Linux" /><category term="Hardware" /><summary type="html"><![CDATA[Por si a alguien le vuelve a pasar lo mismo que a mi, aquí pongo una pequeña ayuda de lo que se puede hacer antes de tirar a la basura un USB, que, cada vez que lo montas, esta como lectura…]]></summary></entry><entry><title type="html">Cambiar dinamicamente el fondo de pantalla en Xfce</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/bash/xfce/2013/01/09/fondo-pantalla-xfce.html" rel="alternate" type="text/html" title="Cambiar dinamicamente el fondo de pantalla en Xfce" /><published>2013-01-09T00:00:00+00:00</published><updated>2013-01-09T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/bash/xfce/2013/01/09/fondo-pantalla-xfce</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/bash/xfce/2013/01/09/fondo-pantalla-xfce.html"><![CDATA[<p>Después de hacer limpieza de mi portatil (borrar ese espacio en el HD que no utilizaba para nada), he instalado de nuevo mi querido <strong>Debian GNU/Linux</strong>, y como estaba un poco cansado de KDE, lleno de 
 programas que no utilizo, me decidi probar XFCE.</p>
 
 <!-- more -->
@@ -7740,7 +8074,7 @@ programas que no utilizo, me decidi probar XFCE.</p>
 <p>Y con esto, le indicamos al <code class="language-plaintext highlighter-rouge">cron</code> que cada 5 minutos reinicie el escritorio de XFCE cambiando el fondo de pantalla. Es una funcionalidad o una manera de trabajar que nunca se me hubiese ocurrido, pero 
 en esto consiste el software libre, si no lo encuentras siempre puedes hacerlo tu…</p>
 
-<p>Bueno, espero que os sirve de ayuda</p>]]></content><author><name>VSANTOS</name></author><category term="Linux" /><category term="Bash" /><category term="Xfce" /><category term="Linux" /><category term="Bash" /><category term="Xfce" /><summary type="html"><![CDATA[Después de hacer limpieza de mi portatil (borrar ese espacio en el HD que no utilizaba para nada), he instalado de nuevo mi querido Debian GNU/Linux, y como estaba un poco cansado de KDE, lleno de programas que no utilizo, me decidi probar XFCE.]]></summary></entry><entry><title type="html">Deshabilitar tarjeta NVIDIA Optimus en Debian GNU/Linux</title><link href="https://vctrsnts.github.io/bash/debian%20gnu/linux/hardware/2012/11/11/optimus-debian.html" rel="alternate" type="text/html" title="Deshabilitar tarjeta NVIDIA Optimus en Debian GNU/Linux" /><published>2012-11-11T00:00:00+00:00</published><updated>2012-11-11T00:00:00+00:00</updated><id>https://vctrsnts.github.io/bash/debian%20gnu/linux/hardware/2012/11/11/optimus-debian</id><content type="html" xml:base="https://vctrsnts.github.io/bash/debian%20gnu/linux/hardware/2012/11/11/optimus-debian.html"><![CDATA[<p>Después de mucho buscar al final, pude encontrar un sitio <del><a href="http://pedrobonilla.blogspot.com.es/2011/11/deshabilitar-tarjeta-nvidia-en-sistema.html" target="_blank">aqui</a></del> donde te explicaba como desactivar 
+<p>Bueno, espero que os sirve de ayuda</p>]]></content><author><name>VSANTOS</name></author><category term="Debian GNU/Linux" /><category term="Bash" /><category term="Xfce" /><category term="Debian GNU/Linux" /><category term="Bash" /><category term="Xfce" /><summary type="html"><![CDATA[Después de hacer limpieza de mi portatil (borrar ese espacio en el HD que no utilizaba para nada), he instalado de nuevo mi querido Debian GNU/Linux, y como estaba un poco cansado de KDE, lleno de programas que no utilizo, me decidi probar XFCE.]]></summary></entry><entry><title type="html">Deshabilitar tarjeta NVIDIA Optimus en Debian GNU/Linux</title><link href="https://vctrsnts.github.io/bash/debian%20gnu/linux/hardware/2012/11/11/optimus-debian.html" rel="alternate" type="text/html" title="Deshabilitar tarjeta NVIDIA Optimus en Debian GNU/Linux" /><published>2012-11-11T00:00:00+00:00</published><updated>2012-11-11T00:00:00+00:00</updated><id>https://vctrsnts.github.io/bash/debian%20gnu/linux/hardware/2012/11/11/optimus-debian</id><content type="html" xml:base="https://vctrsnts.github.io/bash/debian%20gnu/linux/hardware/2012/11/11/optimus-debian.html"><![CDATA[<p>Después de mucho buscar al final, pude encontrar un sitio <del><a href="http://pedrobonilla.blogspot.com.es/2011/11/deshabilitar-tarjeta-nvidia-en-sistema.html" target="_blank">aqui</a></del> donde te explicaba como desactivar 
 la tarjeta grafica Nvidia de mi portatil Dell XPS 15. Estaba ya cansado de escuchar el ventilador funcionando todo el rato por culpa de una tarjeta grafica que no utilizaba. Así que lo pongo a 
 continuación porque así se difunde más facilmente y lo guardo para mi como apuntes…</p>
 
