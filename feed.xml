@@ -1,4 +1,213 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2025-01-19T19:48:18+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">Historia del cambio de terminal</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/2025/01/13/cambiando-a-wezterm.html" rel="alternate" type="text/html" title="Historia del cambio de terminal" /><published>2025-01-13T00:00:00+00:00</published><updated>2025-01-13T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/2025/01/13/cambiando-a-wezterm</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/2025/01/13/cambiando-a-wezterm.html"><![CDATA[<p>Este es un articulo, que como puedes ver, es un articulo muy parecido a los que he ha escrito <strong>Lorenzo</strong>, de <a href="https://atareao.es" target="_blank">Atareao</a>, porque es algo, que si te pones a pensar es una de las aplicaciones que más se utilizan en <em>GNU/Linux</em> pero a la que no se le da mucha impportacia.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2025-03-28T18:42:26+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">Instalación y configuración de mi servidor de Matrix</title><link href="https://vctrsnts.github.io/docker/unraid/matrix/2025/03/25/instal-config-matrix.html" rel="alternate" type="text/html" title="Instalación y configuración de mi servidor de Matrix" /><published>2025-03-25T00:00:00+00:00</published><updated>2025-03-25T00:00:00+00:00</updated><id>https://vctrsnts.github.io/docker/unraid/matrix/2025/03/25/instal-config-matrix</id><content type="html" xml:base="https://vctrsnts.github.io/docker/unraid/matrix/2025/03/25/instal-config-matrix.html"><![CDATA[<p>A partir de unos articulos de <a href="https://atareao.es/?s=matrix" target="_blank">Lorenzo</a> y de <a href="https://ugeek.github.io" target="_blank">uGeek</a> (podeis encontrar más información en la referencia), me pico la sobre como seria tener mi propio servidor de mensajeria y poderlo utilizar para enviar las notificaciones de mis servicios y asi no depender tanto de <em>Telegram</em>.</p>
+
+<p>Y de hay viene este nuevo articulo, donde explicare todo el proceso de instalación y uso de mi nuevo servidor <strong>Matrix</strong> en mi VPS y os aviso que no ha sido nada sencillo.</p>
+
+<!-- more -->
+
+<blockquote>
+  <p>⚠️ Nota: Pero antes, tengo que tirarle un poco de las orejas a <strong>Lorenzo</strong>, porque la información que tiene puesto en su <strong>pagina web</strong> o en su repositorio de <strong>GitHub</strong> es muy floja con respecto a la instalación y configuración de todo lo que se necesita para su correcto uso, y eso me ha lastrado mucho a la hora de realizar toda la instalación y configuración. 
+Porque cuando tienes algo por donde empezar, todo se hace más facil y no como esta vez que ha sido como tirarte a la piscina sin saber nadar y sin flotador. Que si, he aprendido mucho, pero no es lo más recomendable.
+Que conste que no es ninguna recriminación hacia <strong>Lorenzo</strong>, porque seguro que tendra algun motivo para no haberlo subido a su repositorio, pero es que ha sido como un dolor de muelas todo el proceso. 😭</p>
+</blockquote>
+
+<p>Después del tiron de orejas, viene lo bueno, la explicación de todo lo necesario para tener un servidor de <strong>Matrix</strong> en marcha y a pleno rendimiento, aunque aun le faltan algunas cosas que explicare en proximos articulos.</p>
+
+<p>Lo primero es decidir que servidor de <em>Matrix</em> utilizar. Como he dicho, <strong>uGeek</strong> y <strong>Lorenzo</strong> 2 muy diferentes entre ellos, te recomiendo que leas los articulos que hablan de ello porque son muy interesantes, y estos servidores son:</p>
+<ul>
+  <li><em>uGeek</em>: <a href="https://github.com/matrix-org/synapse" target="_blank">Synapse</a></li>
+  <li><em>Lorenzo</em>: <a href="https://conduit.rs" target="_blank">Conduit</a></li>
+</ul>
+
+<p>En principio, el que recomienda <strong>Matrix</strong> es que se use <em>Synapse</em>, pero es un poco pesado de usar para las cosas, que en mi caso quiero hacer, que son basicamente:</p>
+<ul>
+  <li>Un solo usuario 😁</li>
+  <li>Solo enviara notificaciones de los servicios que tengo activos tanto en mi servidor domestico como de mi VPS.</li>
+  <li>El volumen de notificaciones que tendra que enviar es muy bajo.</li>
+</ul>
+
+<p>En este caso, para este tipo de uso, segun lo que he podido leer, y <strong>atareao</strong> pone mucho enfasis en este punto, el mejor es <strong>conduit</strong> por los pocos recursos que necesita asi como los que consume.</p>
+
+<p>Asi que en primera instancia me fui a por la instalación de <strong>Conduit</strong> como servidor de <strong>Matrix</strong> y como he dicho, <strong>Lorenzo</strong> no lo ha puesto nada facil, porque no habia subido a su repositorio, como siempre hace, el <code class="language-plaintext highlighter-rouge">docker-compose</code> para la instalación, y ha sido una tarea ardua y nada sencilla.</p>
+
+<p>Eso si, lo cortes no quita lo valiente, y tengo que decir que <em>Lorenzo</em> si que puso el <code class="language-plaintext highlighter-rouge">docker-compose</code> en este <a href="https://atareao.es/podcast/crear-bots-en-matrix" target="_blank">articulo</a>, para instalar el servidor de <em>Matrix</em> y el cliente <em>Cinny</em>, pero no de la manera que nos tiene acostumbrados.</p>
+
+<blockquote>
+  <p>⚠️ Opinión Persona: Con respecto a los articulos y más concretamente los videos de <em>Lorenzo</em>, antes si explicaba todo el proceso de instalación, <em>en plan rapido y explicaba un poco por encima lo que hace cada cosa</em>, pero ya era algo por donde empezar, ahora en los nuevos videos esto no lo hace y se hace un poco más dificil ver y entender todo el conjunto. Que si, de esta manera aprendes más, pero el inicio es más cuesta arriba.</p>
+</blockquote>
+
+<p>Pues como iba diciendo, tenia un <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> por el que empezar a trastear y en mi caso quedo de la siguiente manera:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="na">cinny</span><span class="pi">:</span>
+   <span class="na">image</span><span class="pi">:</span> <span class="s">ajbura/cinny:latest</span>
+   <span class="na">init</span><span class="pi">:</span> <span class="kc">true</span>
+   <span class="na">container_name</span><span class="pi">:</span> <span class="s">matrixCinny</span>
+   <span class="na">networks</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">internal</span>
+   <span class="na">volumes</span><span class="pi">:</span>
+     <span class="c1"># Es el GitHub de Cinny podeu trobar un config.json per començar</span>
+     <span class="pi">-</span> <span class="s">${HOME}/config/matrix/cinny/config.json:/app/config.json</span>
+   <span class="na">labels</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">traefik.enable=true</span>
+     <span class="pi">-</span> <span class="s">traefik.http.services.cinny.loadbalancer.server.port=80</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.cinny-secure.entrypoints=websecure</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.cinny-secure.rule=Host(`${CINNY_SERVER}`)</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.cinny-secure.tls=true</span>
+     <span class="c1"># En aquest cas, vaig trobar a falta informació respecte al que fa exactament aquests 2 middlewares.</span>
+     <span class="c1"># Més o menys ara tinc que clar fan, pero...</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.cinny-secure.middlewares=traefik-real-ip@file,http2https@file</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.cinny-secure.tls.certresolver=letsencrypt</span>
+
+<span class="na">conduit</span><span class="pi">:</span>
+  <span class="na">image</span><span class="pi">:</span> <span class="s">matrixconduit/matrix-conduit:latest</span>
+  <span class="na">container_name</span><span class="pi">:</span> <span class="s">matrixConduit</span>
+  <span class="na">init</span><span class="pi">:</span> <span class="kc">true</span>
+  <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+  <span class="na">volumes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">${HOME}/config/matrix/db:/var/lib/matrix-conduit/</span>
+    <span class="pi">-</span> <span class="s">${HOME}/config/matrix/conduit.toml:/conduit.toml</span>
+  <span class="na">environment</span><span class="pi">:</span>
+    <span class="na">CONDUIT_CONFIG</span><span class="pi">:</span> <span class="s">/conduit.toml</span>
+    <span class="na">RUST_BACKTRACE</span><span class="pi">:</span> <span class="s">full</span>
+  <span class="na">networks</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s">internal</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">traefik.enable=true</span>
+    <span class="pi">-</span> <span class="s">traefik.http.services.conduit.loadbalancer.server.port=6167</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.conduit-secure.entrypoints=websecure</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.conduit-secure.rule=Host(`${MATRIX_SERVER}`)</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.conduit-secure.tls=true</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.conduit-secure.tls.certresolver=letsencrypt</span>
+    <span class="pi">-</span> <span class="s">traefik.http.routers.conduit-secure.middlewares=cors-headers@docker</span>
+    <span class="pi">-</span> <span class="s">traefik.http.middlewares.cors-headers.headers.accessControlAllowOriginList=*</span>
+    <span class="pi">-</span> <span class="s">traefik.http.middlewares.cors-headers.headers.accessControlAllowHeaders=Origin, X-Requested-With, Content-Type, Accept, Authorization</span>
+    <span class="pi">-</span> <span class="s">traefik.http.middlewares.cors-headers.headers.accessControlAllowMethods=GET, POST, PUT, DELETE, OPTIONS</span>
+
+ <span class="na">well-known</span><span class="pi">:</span>
+   <span class="na">image</span><span class="pi">:</span> <span class="s">nginx:latest</span>
+   <span class="na">container_name</span><span class="pi">:</span> <span class="s">matrixNginx</span>
+   <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+   <span class="na">networks</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">internal</span>
+   <span class="na">volumes</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">${HOME}/config/matrix/nginx/matrix.conf:/etc/nginx/conf.d/matrix.conf</span> <span class="c1"># the config to serve the .well-known/matrix files</span>
+     <span class="pi">-</span> <span class="s">${HOME}/config/matrix/nginx/www:/var/www/</span> <span class="c1"># location of the client and server .well-known-files</span>
+   <span class="na">labels</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">traefik.enable=true</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.to-matrix-wellknown.rule=Host(`${MATRIX_SERVER}`) &amp;&amp; PathPrefix(`/.well-known/matrix`)</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.to-matrix-wellknown.tls=true</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.to-matrix-wellknown.tls.certresolver=letsencrypt</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.to-matrix-wellknown.middlewares=cors-headers@docker</span>
+     <span class="pi">-</span> <span class="s">traefik.http.middlewares.cors-headers.headers.accessControlAllowOriginList=*</span>
+     <span class="pi">-</span> <span class="s">traefik.http.middlewares.cors-headers.headers.accessControlAllowHeaders=Origin, X-Requested-With, Content-Type, Accept, Authorization</span>
+     <span class="pi">-</span> <span class="s">traefik.http.middlewares.cors-headers.headers.accessControlAllowMethods=GET, POST, PUT, DELETE, OPTIONS</span>
+</code></pre></div></div>
+<p>Esto es el <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> como ya he dicho, para <em>Cinny</em>, <em>Conduit</em> y <em>WellKnown</em> (Nginx), este ultimo, por lo que he ido leyendo, entiendo que se usa más para todas las funcionalidades de cuando tu servidor de <em>matrix</em> esta federado con el resto de servidores, pero que en teoria, para un uso normal no haria falta, pero si lo usa <em>Lorenzo</em> seguramente algo se me escapa. <em>Donde manda patron, no manda marinero</em>.</p>
+
+<p>Asi mismo, a parte del <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> tambien se tienen que hacer unas modificaciones en el <strong>proxy</strong> que estes utilizando, que en mi caso es <strong>traefik</strong>. Las modificaciones que se tienen que hacer en el fichero <code class="language-plaintext highlighter-rouge">traefik.yml</code> son:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">experimental</span><span class="pi">:</span>
+  <span class="na">plugins</span><span class="pi">:</span>
+    <span class="na">geoBlock</span><span class="pi">:</span>
+      <span class="na">moduleName</span><span class="pi">:</span> <span class="s2">"</span><span class="s">github.com/PascalMinder/geoblock"</span>
+      <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">v0.2.5"</span>
+    <span class="na">traefik-real-ip</span><span class="pi">:</span>
+      <span class="na">modulename</span><span class="pi">:</span> <span class="s">github.com/soulbalz/traefik-real-ip</span>
+      <span class="na">version</span><span class="pi">:</span> <span class="s">v1.0.3</span>
+</code></pre></div></div>
+<p>Y a continuación la modificación que se tiene que hacer en <code class="language-plaintext highlighter-rouge">dynamic.yml</code>:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">http</span><span class="pi">:</span>
+  <span class="na">middlewares</span><span class="pi">:</span>
+    <span class="na">http2https</span><span class="pi">:</span>
+      <span class="na">redirectScheme</span><span class="pi">:</span>
+        <span class="na">scheme</span><span class="pi">:</span> <span class="s">https</span>
+        <span class="na">permanent</span><span class="pi">:</span> <span class="kc">true</span>
+    <span class="na">traefik-real-ip</span><span class="pi">:</span>
+      <span class="na">plugin</span><span class="pi">:</span>
+        <span class="na">traefik-real-ip</span><span class="pi">:</span>
+          <span class="na">excludednets</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s2">"</span><span class="s">1.1.1.1/24"</span>
+
+    <span class="na">cors-headers</span><span class="pi">:</span>
+      <span class="na">headers</span><span class="pi">:</span>
+        <span class="na">accessControlAllowOriginList</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">*"</span>
+        <span class="na">accessControlAllowHeaders</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">Origin"</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">X-Requested-With"</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">Content-Type"</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">Accept"</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">Authorization"</span>
+        <span class="na">accessControlAllowMethods</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">GET"</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">POST"</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">PUT"</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">DELETE"</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">OPTIONS"</span>
+          
+  <span class="na">routers</span><span class="pi">:</span>
+    <span class="na">conduit-secure</span><span class="pi">:</span>
+      <span class="na">rule</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Host(`${MATRIX_SERVER}`)"</span>
+      <span class="na">entryPoints</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s2">"</span><span class="s">websecure"</span>
+      <span class="c1"># Servico docker del Servidor de Matrix, en mi caso, Conduit</span>
+      <span class="na">service</span><span class="pi">:</span> <span class="s2">"</span><span class="s">conduit"</span>
+      <span class="na">tls</span><span class="pi">:</span>
+        <span class="na">certResolver</span><span class="pi">:</span> <span class="s2">"</span><span class="s">letsencrypt"</span>
+
+  <span class="na">services</span><span class="pi">:</span>
+    <span class="na">conduit</span><span class="pi">:</span>
+      <span class="na">loadBalancer</span><span class="pi">:</span>
+        <span class="na">servers</span><span class="pi">:</span>
+          <span class="c1"># URL del servicio de Conduit</span>
+          <span class="pi">-</span> <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">http://conduit:6167"</span>
+</code></pre></div></div>
+<p>Y con esto, ya tendria que funcionar sin ningun problema nuestro <em>servidor de Matrix</em>. En principio es asi, pero ahora es cuando te das de bruzes con la realidad.</p>
+
+<p>Lo primero es ver que si envias un mensaje desde la consola, este llegue correctamente a tu servidor y aqui es cuando empezaron mis problemas y eso que el script es facil. Encontre miles de los scripts. Pero la diferencia que habia entre unos y otros, es que unos hacian uso de <em>POST</em>, que es la versión antigua para enviar los mensajes, y otros usaban el <em>PUT</em> que es la versión más actual y que todos los servidores de <em>matrix</em> acceptan.</p>
+
+<p>No os podeis imaginar la de problemas que tenia.</p>
+
+<p>Llegue hasta un punto de eliminar el servidor de <strong>Conduit</strong> y probar con <strong>Synapse</strong> a ver si el problema radicaba es eso. Tambien hice multiples modificaciones a los ficheros de traefik (<code class="language-plaintext highlighter-rouge">traefik.yml</code> y <code class="language-plaintext highlighter-rouge">dynamic.yml</code>) y no conseguia que nada funcionase. El problema no estaba en el servidor que utilizase, sino más bien, en el <em>script</em>. Aqui fue donde si que pedi ayuda a <em>Lorenzo</em> porque no sabia por donde salir y fue cuando me paso el <em>script</em> que lo soluciono todo y que pongo a continuación:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="o">!</span> /bin/bash
+<span class="go">
+MATRIX_SERVER="https://matrix.myserver.org"
+TOKEN="TOKEN_MATRIX"
+ROOM_ID="ROOM_ID:matrix.myserver.org"
+
+curl -XPUT \
+</span><span class="gp">    -H "Authorization: Bearer $</span><span class="o">{</span>TOKEN<span class="o">}</span><span class="s2">"</span><span class="se">\</span><span class="s2">
+</span><span class="go">    -H "Content-Type: application/json"\
+    -d '{"msgtype":"m.text","body":"hello world"}' \
+</span><span class="gp">    "https://$</span><span class="o">{</span>MATRIX_SERVER<span class="o">}</span>/_matrix/client/v3/rooms/<span class="k">${</span><span class="nv">ROOM_ID</span><span class="k">}</span>:<span class="k">${</span><span class="nv">MATRIX_SERVER</span><span class="k">}</span>/send/m.room.message/<span class="si">$(</span><span class="nb">date</span> <span class="s1">'+%s%3N'</span><span class="si">)</span><span class="s2">"
+</span></code></pre></div></div>
+<p>Con este simple <em>script</em> todo volvio a la vida y yo por fin podia ver la luz al final del camino.</p>
+
+<p>No pare de enviar mensajes desde la consola al cliente, desde el cliente al movil, desde el movil al cliente y ahora si, todo funcionaba correctamente.</p>
+
+<p>Lo unico que no me acababa de funcionar bien, era el tema de enviar imagenes, esto viene porque en una de las tareas que quiero usar, es necesario enviar imagenes, y no habia manera de que el cliente del portatil se pudieran ver las imagenes. En cambio en el movil si que las veia.</p>
+
+<p>Para que veais lo frustante que es, llegue a probar todos los clientes habidos y por haber a traves de web y en todos me pasaba lo mismo. Me pase 3 dias peleando contra esto y en todos me daba de bruces contra la pared. Hasta que se me ocurrio la brillante idea 💡, porque no lo hice antes, de preguntar en el foro de <em>Conduit</em>. Lo que me respondieron era para darme de collejas hasta en el carnet de identidad. La pregunta era muy simple, <em>tienes el navegador en modo incognito</em> 🤯</p>
+
+<p>No me lo podia creer, no podia ser que por estar con esta configuración no se vieran las imagenes, pues ya os lo podeis imaginar. Si por esta tonteria no se pueden ver las imagenes. Desactive esa opción y las imagenes que enviaba las podia ver si problemas en el cliente de mi portatil 🤬.</p>
+
+<p>Llevaba 3 dias intentando solucionar este problema y todo era por culpa del navegador <em>Firefox</em> que me estaba apuñalando por la espalda. Que es culpa mia porque podia haberlo preguntado antes, pero quien iba a pensar que por estar en <em>modo incognito</em> se bloquearan las imagenes. Una cosa más que ya tenia solucionada.</p>
+
+<p>Lo unico que me faltaba era que los servicios pudieran enviar imagenes pero esto, ya os puedo decir que hasta donde yo se, no es posible, porque por lo que he llegado a entender, y eso que he hecho miles de pruebas, y he leido mucho sobre este tema, es que primero se tiene que enviar la imagen al servidor de <em>matrix</em>, para que te de una especie de <em>URL</em>, más concretamente un <strong>MXC</strong> y luego con esta dirección tu ya puedes enviar un mensaje con esa imagen adjunta. Y no todos los servicios con los que se puede usar <em>matrix</em> tienen ese tipo de funcionalidad implementada.</p>
+
+<p>Aunque <em>matrix</em> mismo podria cambiar esta manera de funcionar y funcionar de la misma manera de <em>Telegram</em>, <em>Discord</em> o <em>Slack</em>.</p>
+
+<p>Pero bueno, ya podia hacer funcionar correctamente mi servidor de matrix y podia enviar y recibir mensajes entre mis diferentes dispositivos.</p>
+
+<p>Ahora solamente queda la opción de sacarle jugo al nuevo servico. Pero esto ya lo explicare en otro articulo que este me parece que ya se esta haciendo muy largo. Porque también os tengo que decir que tuve que sudar sangre y lagrimas para conseguir lo que yo queria.</p>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://atareao.es/podcast/crear-bots-en-matrix" target="_blank">535 - Crear bots en Matrix</a></li>
+  <li><a href="https://atareao.es/podcast/de-mattermost-a-matrix" target="_blank">522 - De Mattermost a Matrix</a></li>
+  <li><a href="https://ugeek.github.io/blog/post/2022-07-11-conduit-el-matrix-escrito-en-rust.html" target="_blank">Conduit. El matrix escrito en rust</a></li>
+  <li><a href="https://ugeek.github.io/blog/post/2021-01-28-servidor-de-mensajeria-matrix-synapse-en-raspberry-ubuntu-debian--con-docker.html" target="_blank">Servidor de mensajería Matrix Synapse, en Raspberry, Ubuntu, Debian… con Docker</a></li>
+  <li><a href="https://cinny.in" target="_blank">Cinny</a></li>
+  <li><a href="https://github.com/matrix-org/synapse" target="_blank">Synapse</a></li>
+  <li><a href="https://conduit.rs" target="_blank">Conduit</a></li>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Docker" /><category term="unRAID" /><category term="Matrix" /><category term="Docker" /><category term="unRAID" /><category term="Matrix" /><summary type="html"><![CDATA[A partir de unos articulos de Lorenzo y de uGeek (podeis encontrar más información en la referencia), me pico la sobre como seria tener mi propio servidor de mensajeria y poderlo utilizar para enviar las notificaciones de mis servicios y asi no depender tanto de Telegram. Y de hay viene este nuevo articulo, donde explicare todo el proceso de instalación y uso de mi nuevo servidor Matrix en mi VPS y os aviso que no ha sido nada sencillo.]]></summary></entry><entry><title type="html">Historia del cambio de terminal</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/2025/01/13/cambiando-a-wezterm.html" rel="alternate" type="text/html" title="Historia del cambio de terminal" /><published>2025-01-13T00:00:00+00:00</published><updated>2025-01-13T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/2025/01/13/cambiando-a-wezterm</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/2025/01/13/cambiando-a-wezterm.html"><![CDATA[<p>Este es un articulo, que como puedes ver, es un articulo muy parecido a los que he ha escrito <strong>Lorenzo</strong>, de <a href="https://atareao.es" target="_blank">Atareao</a>, porque es algo, que si te pones a pensar es una de las aplicaciones que más se utilizan en <em>GNU/Linux</em> pero a la que no se le da mucha impportacia.</p>
 
 <p>Nos estamos refiriendo a la terminal.</p>
 
@@ -1148,7 +1357,7 @@ articulo <span class="o">=</span> <span class="o">(</span><span class="s2">"&lt;
 <h4 id="--estas-online---joanna-rubio">- Estas Online - Joanna Rubio</h4>
 <p>Este <a href="https://www.ivoox.com/podcast-estas-online-podcast_sq_f11900875_1.html" target="_blank">podcast</a> lo descubri escuchando a <strong>Pa ti la Perra</strong> y es como una radio-novela, tan famosas antiguamente, pero que en este caso, la creadora del mismo, le da una vuelta de tuerca al concepto, porque Joanna recrea la telenovela pero a traves de wasaps.</p>
 
-<p>Todavia no he podido echarle el guante al primer capitul, pero es lo que pasa cuando tienes tantas cosas por escuchar, que el tiempo se te echa encima.</p>
+<p>Todavia no he podido echarle el guante al primer capitulo, pero es lo que pasa cuando tienes tantas cosas por escuchar, que el tiempo se te echa encima.</p>
 <h4 id="referencia">Referencia</h4>]]></content><author><name>VSANTOS</name></author><category term="Blog" /><category term="Blog" /><summary type="html"><![CDATA[Este va a ser un articulo como muchos otros, donde la gente explica que podcast sigue o escucha, pero antes de eso, lo primero es felicitar a Jose de Frente al Cliente por el premio, merecidisimo, que le otrogaron en las JPOD 2024. Lo que me extraña es que no fuera a buscarlo. Sera por esa mala costumbre que tienen los camareros de trabajar los fines de semana 😜. Muchas felicidades Jose]]></summary></entry><entry><title type="html">Controlando la temperatura del servidor</title><link href="https://vctrsnts.github.io/hardware/unraid/2024/10/20/controlado-temperatura-servidor.html" rel="alternate" type="text/html" title="Controlando la temperatura del servidor" /><published>2024-10-20T00:00:00+00:00</published><updated>2024-10-20T00:00:00+00:00</updated><id>https://vctrsnts.github.io/hardware/unraid/2024/10/20/controlado-temperatura-servidor</id><content type="html" xml:base="https://vctrsnts.github.io/hardware/unraid/2024/10/20/controlado-temperatura-servidor.html"><![CDATA[<p>Como ya comente en el anterior <a href="/hardware/2024/10/19/modificando-servidor-2.html" target="_blank">articulo</a> donde explicaba que habia puesto un <strong>Xeon</strong> en mi servidor y todo lo referente a la temperatura.</p>
 
 <p>Pero claro, eso me gustaria verlo reflejado en <strong>unRAID</strong>, porque hasta ahora, solamente habia podido visualizar la temperatura de la CPU, de la placa base era imposible cuando teoricamente los Tiny son equipos con componentes muy normales y comunes.</p>
@@ -1258,16 +1467,16 @@ root@unRaid: modprobe nct6683 force=1
 <ul>
   <li>Intel Xeon e2286M</li>
   <li>32Gb de RAM</li>
-  <li>3 HDD’s
+  <li>4 HDD’s
     <ul>
       <li>1 de 18Tb</li>
       <li>1 de 16Tb</li>
       <li>1 de 12Tb</li>
-    </ul>
-  </li>
-  <li>1 HDD de 1Tb
-    <ul>
-      <li>Este lo uso para copias de seguridad</li>
+      <li>1 HDD de 1Tb
+        <ul>
+          <li>Este lo uso para copias de seguridad</li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>

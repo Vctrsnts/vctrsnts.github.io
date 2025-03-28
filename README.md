@@ -1,11 +1,5 @@
 # Type on Strap 🎨
 
-[![Build](https://github.com/sylhare/Type-on-Strap/actions/workflows/jekyll-build.yml/badge.svg)](https://github.com/sylhare/Type-on-Strap/actions/workflows/jekyll-build.yml)
-[![Gem Version](https://badge.fury.io/rb/type-on-strap.svg)](https://badge.fury.io/rb/type-on-strap)
-[![Docker Pulls](https://img.shields.io/docker/pulls/sylhare/type-on-strap)](https://hub.docker.com/r/sylhare/type-on-strap)
-
-[![Default Type on Strap blog](https://github.com/Sylhare/Type-on-Strap/blob/master/assets/img/screenshot.png?raw=true)](https://sylhare.github.io/Type-on-Strap/)
-
 Esto es un fork con mi visión particular de este tema para [Jelyll](https://jekyllrb.com) que se basa en el tema original [sylhare/Type-on-Strap](https://github.com/sylhare/Type-on-Strap) y que segun la documentación original, a su vez
 se basa en el tema de Rohan Chandra [type-theme](https://github.com/rohanchandra/type-theme) y sin ellos, este tema con mis modificaciones, no existiria
 
@@ -299,3 +293,4 @@ This theme is licensed under the [MIT License (MIT)](/LICENSE)
 
 - Pictures from [Pexels](https://www.pexels.com/) are under Creative Commons Zero (CC0) license
 - Fonts are licensed under the [SIL Open Font License (OFL)](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
+

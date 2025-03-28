@@ -30,6 +30,12 @@ if [ ! -d '.git' ]; then
 	exit -1
 fi
 
+# Actualitzacio del directori de treball
+git config --global user.email "vctrsnts@gmail.com"
+git config --global user.name "Vctrsnts"
+
+git config --global --add safe.directory /mnt/user/appdata/jekyll_blog/_site
+
 # Ara validem si hem rebut cap parametre
 if [ $# == 0 ]; then
 	echo "Up2Git: ¡Error! No hem rebut cap parametre"
