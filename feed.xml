@@ -1,4 +1,206 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2025-03-28T18:44:09+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">Instalación y configuración de mi servidor de Matrix</title><link href="https://vctrsnts.github.io/docker/unraid/matrix/2025/03/25/instal-config-matrix.html" rel="alternate" type="text/html" title="Instalación y configuración de mi servidor de Matrix" /><published>2025-03-25T00:00:00+00:00</published><updated>2025-03-25T00:00:00+00:00</updated><id>https://vctrsnts.github.io/docker/unraid/matrix/2025/03/25/instal-config-matrix</id><content type="html" xml:base="https://vctrsnts.github.io/docker/unraid/matrix/2025/03/25/instal-config-matrix.html"><![CDATA[<p>A partir de unos articulos de <a href="https://atareao.es/?s=matrix" target="_blank">Lorenzo</a> y de <a href="https://ugeek.github.io" target="_blank">uGeek</a> (podeis encontrar más información en la referencia), me pico la sobre como seria tener mi propio servidor de mensajeria y poderlo utilizar para enviar las notificaciones de mis servicios y asi no depender tanto de <em>Telegram</em>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2025-03-31T18:41:20+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">Matrix - 2. PushBits, la pasarela que faltaba</title><link href="https://vctrsnts.github.io/docker/matrix/2025/03/28/pushbits.html" rel="alternate" type="text/html" title="Matrix - 2. PushBits, la pasarela que faltaba" /><published>2025-03-28T00:00:00+00:00</published><updated>2025-03-28T00:00:00+00:00</updated><id>https://vctrsnts.github.io/docker/matrix/2025/03/28/pushbits</id><content type="html" xml:base="https://vctrsnts.github.io/docker/matrix/2025/03/28/pushbits.html"><![CDATA[<p>Como bien explique en el anterior <a href="/docker/matrix/2025/03/25/instal-config-matrix.html" target="_blank">articulo</a>, explicaba la instalación y configuración, nada facil, de mi servidor de <strong>matrix</strong> ahora os vengo a traer el siguiente articulo, donde explico el uso que le he dado y los problemeas que me he encontrado asi como los planes de futuro.</p>
+
+<!-- more -->
+
+<p>Después de la instalación de <em>matrix</em> ahora tenia que configurar los servicios para que pudiera utilizar este nuevo servicio que he instalado y aqui es donde me he encontrado algunos problemas, porque no todos los servicios que tengo actualmente incluyendo a <em>unRaid</em> no estan del todo preparados para su uso. Ya lo ireis viendo si seguiis leyendo.</p>
+
+<p>El primer servicio que queria que utilizar <em>matrix</em> es <a href="https://www.flexget.com">flexget</a>, y asi en vez de usar <em>telegram</em> usaria <em>matrix</em>. Segun la documentación de <a href="https://flexget.com/en/Plugins/Notifiers/matrix">flexget</a>, este servicio estaba soportado, aunque tengo que decir, que la documentación, siento usar estas palabras, es un poco penosa, no se como pueden poner esa información. Podrian explicar que tipo de mensajes soporta esta aplicación, de que manera se tienen que enviar, etc… cosas que te pueden servir de ayuda para tu después utilizarlo de la manera que quiereas.</p>
+
+<p>Pero lo unico que te indican es lo siguiente:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">notify</span><span class="pi">:</span>
+  <span class="na">entries</span><span class="pi">:</span>
+    <span class="na">via</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">matrix</span><span class="pi">:</span>
+          <span class="na">server</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://matrix.org"</span>
+          <span class="na">token</span><span class="pi">:</span> <span class="s">senders token</span>
+          <span class="na">room_id</span><span class="pi">:</span> <span class="s">room identifier</span>
+</code></pre></div></div>
+<p>Nada más. Eso si, te explican que es cada cosa (<em>server</em>, <em>token</em> y <em>room_id</em>), pero ya esta. Lo siento, pero para mi esto no es una documentación, más bien son los apuntes de alguien.</p>
+
+<p>Siento decir que esto solo es el principio, porque cuando me puse a hacer las pruebas, no habia manera de hacerlo funcionar con la instalación de <em>Conduit</em> que yo tenia. No funcionaba ni para atras. Cambiando script, haciendo pruebas con todo lo que me encontrada por internet, haciendo preguntas a <em>Copilot</em>, que teoricamente tiene acceso a todo lo de <em>GitHub</em> y <em>flexget</em> esta hay. Cambiando de <em>Conduit</em> a <em>Synapse</em>, pero ni con esas habia manera de enviar un simple mensaje a mi servidor de <em>matrix</em>.</p>
+
+<p>La unica respuesta que obtenia de <em>flexget</em> era lo siguiente:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">root@08aa614bcf06:/config#</span><span class="w"> </span>Error <span class="k">while </span>sending notification to <span class="sb">`</span>matrix<span class="sb">`</span>: 404 Client Error: Not Found <span class="k">for </span>url: https://matrix.myServer.org/_matrix/client/r0/rooms/roomID/send/m.room.message?access_token<span class="o">=</span>TOKEN
+</code></pre></div></div>
+<p>Al final después de muchas preguntas al <em>Slack</em> de <em>flexget</em>, consegui que me respondieran, y lo que me dijeron de que el problema, por el mensaje que me estaba dando <em>flexget</em>, era de que este estaba utilizando la antigua versión del envio de mensajes <code class="language-plaintext highlighter-rouge">r0</code>, en vez de la más actual que ya implemtan todos los servidores de <em>matrix</em> asi como todos los clientes 😱.</p>
+
+<p>Y es una cosa que pude comprobar yo mismo, porque encontre el archivo que utiliza <em>flexget</em> para manejar las notificaciones, y se podia ver claramente como los envios se hacen  envio se hacen mediante una versión anterior a la que se usa actualmente en <em>matrix</em>. Pues empezamos bien. La primera en la frente.</p>
+
+<p>Tambien queria usar <em>matrix</em> para que mi servidor de <em>unRaid</em> me enviara todas las notificaciones, y aqui va la segunda en la frente, <em>unRaid</em> no esta preparado, de momento, para hacer uso de <em>matrix</em>. Que bien empezamos. Con lo que habia sufrido para instalar <em>matrix</em> y voy y me encuentro que las 2 primeras cosas que quiero usar <em>matrix</em> no estan soportadas. Asi, que iba hacer ahora. Desinstalar <em>matrix</em> y volver a <em>telegram</em>.</p>
+
+<blockquote>
+  <p>O como decia <a href="https://es.wikipedia.org/wiki/George_Patton">Geoge S. Patton</a> <strong>Nunca estás vencido hasta que lo admites</strong>.</p>
+</blockquote>
+
+<p>Asi que me puse a investigar por la opción más importante y <em>necesaria</em>, hacer que <em>unRaid</em> pudiera enviar las notificaciones a <em>matrix</em>. Después de mucho investigar, encontre esta <a href="https://forums.unraid.net/topic/122107-matrix-notification-agent" target="_blank">pregunta</a> en el foro de <em>unRaid</em>, que al principio no acababa de entender, pero me explicaron, que hay un servicio en docker, que se llama <a href="https://www.pushbits.io" target="_blank">PushBits</a> que hace de puente entre <em>matrix</em> y cualquier otro servicio, porque <strong>simula</strong> que estas enviando los mensajes a un servidor de <strong>Gotify</strong> y actualmente hay muchos más que pueden enviar notificaciones a <em>Gotify</em> que a <em>matrix</em>, y uno de estos es <em>unRaid</em> que a parte poder enviar las notificaciones a un servidor <em>Gotify</em> tambien permite el envio de notificaciones a <em>PushBits</em>.</p>
+
+<p>Pues ya tenia todo lo necesario, para que tanto <em>unRaid</em> como <em>flexget</em>, pueden enviar mensajes a <em>Gotify</em>. Seguro que lo tenia todo? Faltaba la parte más dificil de todas, la instalatación y configuración. Y aqui se viene otro baño de realidad. En el repositorio de <a href="https://github.com/pushbits/server" target="_blank">Pushbits</a> no encontraba nada de como hacer posible la instalacion a traves de <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> y como usarlo después.</p>
+
+<p>Asi que de nuevo a investigar. Nunca se va acabar esto de investigar 😓. Lo unico que me alegra, es que cuando deje de investigar solamente sera por 2 posibilidades, o soy tan listo que lo se todo 🤣, cosa dificil, o es que estoy muerto 💀.</p>
+
+<p>Pero lo que es la vida, no se como, pero encontre la web de <em>PushBits</em> donde te puede llevar tanto al repositorio como a la documentación, no se como no lo vi antes, y en la documentación, aqui si, es donde obtuvo lo primero, el fichero del <code class="language-plaintext highlighter-rouge">docker-compose</code> para poderlo usar:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="na">pushbits</span><span class="pi">:</span>
+   <span class="na">image</span><span class="pi">:</span> <span class="s">ghcr.io/pushbits/server:latest</span>
+   <span class="na">container_name</span><span class="pi">:</span> <span class="s">matrixPushbits</span>
+   <span class="na">networks</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">proxy</span>
+   <span class="na">volumes</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">/etc/localtime:/etc/localtime:ro</span>
+     <span class="pi">-</span> <span class="s">/etc/timezone:/etc/timezone:ro</span>
+     <span class="pi">-</span> <span class="s">${HOME}/config/matrix/pushbits:/data</span>
+   <span class="na">environment</span><span class="pi">:</span>
+     <span class="na">PUSHBITS_DATABASE_DIALECT</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sqlite3'</span>
+     <span class="na">PUSHBITS_ADMIN_MATRIXID</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@user:matrix.myServer.org'</span> <span class="c1"># The Matrix account on which the admin will receive their notifications.</span>
+     <span class="na">PUSHBITS_ADMIN_PASSWORD</span><span class="pi">:</span> <span class="s1">'</span><span class="s">passwordAdmin'</span> <span class="c1"># The login password of the admin account. Default username is 'admin'.</span>
+     <span class="na">PUSHBITS_MATRIX_USERNAME</span><span class="pi">:</span> <span class="s1">'</span><span class="s">userMatrix'</span> <span class="c1"># The Matrix account from which notifications are sent to all users.</span>
+     <span class="na">PUSHBITS_MATRIX_PASSWORD</span><span class="pi">:</span> <span class="s1">'</span><span class="s">passwordMatrix'</span> <span class="c1"># The password of the above account.</span>
+   <span class="na">labels</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">traefik.enable=true</span>
+     <span class="pi">-</span> <span class="s">traefik.http.services.pushbits.loadbalancer.server.port=5050</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.pushbits.entrypoints=websecure</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.pushbits.rule=Host(`${NOTIFY_SERVER}`)</span>
+</code></pre></div></div>
+<p>Luego me faltaba entender su funcionamiento, y siento decir que la documentación a excepción de su instalación, tambien peca un poco, o a lo mejor soy yo que no encuentro las cosas, que tambien puede ser.</p>
+
+<p>Pero de nuevo la suerte fue mi aliada, que seria de mi, sin las incidencias que entra la gente, porque encontre esta <a href="https://github.com/pushbits/server/issues/71" target="_blank">incidencia</a> donde explicaba todo lo que se tiene que hacer para usar <em>PushBits</em>, pero en ese caso, fallaba, pero para mi ya era algo. Habia conseguido toda la información necesaria para usar este nuevo servicio.</p>
+
+<p>A parte de saber como se tiene que usar, tambien tienes que tener el fichero de configuración, que puedes obtener un ejemplo del repositorio, aunque yo tengo pongo el que estoy utilizando ahora mismo y que me funciona perfectamente:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># A sample configuration for PushBits.</span>
+<span class="c1"># Populated fields contain their default value.</span>
+<span class="c1"># Required fields are marked with [required].</span>
+
+<span class="na">debug</span><span class="pi">:</span> <span class="kc">false</span>
+
+<span class="na">http</span><span class="pi">:</span>
+    <span class="c1"># The address to listen on. If empty, listens on all available IP addresses of the system.</span>
+    <span class="na">listenaddress</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+
+    <span class="c1"># The port to listen on.</span>
+    <span class="na">port</span><span class="pi">:</span> <span class="m">5050</span>
+
+    <span class="c1"># What proxies to trust.</span>
+    <span class="na">trustedproxies</span><span class="pi">:</span> <span class="pi">[]</span>
+
+    <span class="c1"># Filename of the TLS certificate.</span>
+    <span class="na">certfile</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+
+    <span class="c1"># Filename of the TLS private key.</span>
+    <span class="na">keyfile</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+
+<span class="na">database</span><span class="pi">:</span>
+    <span class="c1"># Currently sqlite3, mysql, and postgres are supported.</span>
+    <span class="na">dialect</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sqlite3'</span>
+
+    <span class="c1"># - For sqlite3, specify the database file.</span>
+    <span class="c1"># - For mysql specify the connection string. See details at https://github.com/go-sql-driver/mysql#dsn-data-source-name</span>
+    <span class="c1"># - For postgres, see https://github.com/jackc/pgx.</span>
+    <span class="c1">#   Also consider the canonical docs at https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING.</span>
+    <span class="na">connection</span><span class="pi">:</span> <span class="s1">'</span><span class="s">pushbits.db'</span>
+
+<span class="na">admin</span><span class="pi">:</span>
+    <span class="c1"># The username of the initial admin.</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">admin'</span>
+
+    <span class="c1"># The password of the initial admin.</span>
+    <span class="na">password</span><span class="pi">:</span> <span class="s1">'</span><span class="s">passWord'</span>
+
+    <span class="c1"># The Matrix ID of the initial admin, where notifications for that admin are sent to.</span>
+    <span class="c1"># [required]</span>
+    <span class="na">matrixid</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@user:matrix.myServer.org'</span>
+
+<span class="na">matrix</span><span class="pi">:</span>
+    <span class="c1"># The Matrix server to use for sending notifications.</span>
+    <span class="na">homeserver</span><span class="pi">:</span> <span class="s1">'</span><span class="s">https://matrix.myServer.org'</span>
+
+    <span class="c1"># The username of the Matrix account to send notifications from.</span>
+    <span class="c1"># [required]</span>
+    <span class="na">username</span><span class="pi">:</span> <span class="s1">'</span><span class="s">userMatrix'</span>
+
+    <span class="c1"># The password of the Matrix account to send notifications from.</span>
+    <span class="c1"># [required]</span>
+    <span class="na">password</span><span class="pi">:</span> <span class="s1">'</span><span class="s">passwordMatrix'</span>
+
+<span class="na">security</span><span class="pi">:</span>
+    <span class="c1"># Wether or not to check for weak passwords using HIBP.</span>
+    <span class="na">checkhibp</span><span class="pi">:</span> <span class="kc">false</span>
+
+<span class="na">crypto</span><span class="pi">:</span>
+    <span class="c1"># Configuration of the KDF for password storage. Do not change unless you know what you are doing!</span>
+    <span class="na">argon2</span><span class="pi">:</span>
+        <span class="na">memory</span><span class="pi">:</span> <span class="m">131072</span>
+        <span class="na">iterations</span><span class="pi">:</span> <span class="m">4</span>
+        <span class="na">parallelism</span><span class="pi">:</span> <span class="m">4</span>
+        <span class="na">saltlength</span><span class="pi">:</span> <span class="m">16</span>
+        <span class="na">keylength</span><span class="pi">:</span> <span class="m">32</span>
+
+<span class="na">formatting</span><span class="pi">:</span>
+    <span class="c1"># Whether to use colored titles based on the message priority (&lt;0: grey, 0-3: default, 4-10: yellow, 10-20: orange, &gt;20: red).</span>
+    <span class="na">coloredtitle</span><span class="pi">:</span> <span class="kc">false</span>
+
+<span class="c1"># This settings are only relevant if you want to use PushBits with alertmanager</span>
+<span class="na">alertmanager</span><span class="pi">:</span>
+    <span class="c1"># The name of the entry in the alerts annotations or lables that should be used for the title</span>
+    <span class="na">annotationtitle</span><span class="pi">:</span> <span class="s">title</span>
+    <span class="c1"># The name of the entry in the alerts annotations or labels that should be used for the message</span>
+    <span class="na">annotationmessage</span><span class="pi">:</span> <span class="s">message</span>
+
+<span class="na">repairbehavior</span><span class="pi">:</span>
+    <span class="c1"># Reset the room's name to what was initially set by PushBits.</span>
+    <span class="na">resetroomname</span><span class="pi">:</span> <span class="kc">true</span>
+    <span class="c1"># Reset the room's topic to what was initially set by PushBits.</span>
+    <span class="na">resetroomtopic</span><span class="pi">:</span> <span class="kc">true</span>
+</code></pre></div></div>
+<p>A parte del fichero de configuración, tambien necesitas crear una <em>sala / aplicación</em> (yo asimilo sala de <em>matrix</em>, con aplicación de <em>PushBits</em>), donde primero tienes que dar de alta la aplicación, del que obtendras un <strong>TOKEN</strong> que podras usar para identificar quien esta enviando los mensajes a <em>matrix</em>. Y esto se consigue de la siguiente manera:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">usuari@debian:~$</span><span class="w"> </span>docker <span class="nb">exec</span> <span class="nt">-it</span> matrixPushbits sh
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>VISUALITZEM LES SALES / APLICACIONS QUE TENIM ACTUALMENTE
+<span class="gp">/app $</span><span class="w"> </span>pbcli application list <span class="nt">--url</span> http://172.20.0.5:8080 <span class="nt">--username</span> admin
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>En el cas de que en vulguessim crear una sala / aplicació, haures de fer el següent
+<span class="gp">#</span><span class="w"> </span>En aquest cas, estic creant una sala / aplicació per a flexget
+<span class="gp">/app $</span><span class="w"> </span>pbcli application create flexget <span class="nt">--url</span> http://172.20.0.5:8080 <span class="nt">--username</span> admin
+</code></pre></div></div>
+<p>Cuando tengas creada la sala / aplicación, obtendras un <strong>token</strong> que sera el que tendras que utilizar para validarte con <em>Pushbits</em> y a su vez, este se comunicara con la sala de <em>matrix</em>. Y te puedo asegurar que funciona a la perfección 🎉.</p>
+
+<p>Ya solo nos queda configurar, <em>unRaid</em> para que se envien las notificaciones y como este, esta preparado para <em>PushBits</em> pues todo perfecto:</p>
+
+<div class="row">
+    
+    <div style="flex: 33.333333333333336%">
+        <img class="single" src="/assets/img/images/PushBits.png" alt="PushBits.png" />
+    </div>
+    
+</div>
+
+<p>De la misma manera que <em>unRaid</em> funciona con <em>PushBits</em>, <em>flexget</em>, como tiene la posibilidad de enviar notificaciones a traves de <em>Gotify</em> y <em>PushBits</em> puede <em>simular</em> a este, pues nada más sencillo:</p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">notify-all</span><span class="pi">:</span>
+  <span class="na">notify</span><span class="pi">:</span>
+    <span class="na">entries</span><span class="pi">:</span>
+      <span class="na">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Nou</span><span class="nv"> </span><span class="s">Video'</span>
+      <span class="na">message</span><span class="pi">:</span> <span class="pi">|+</span>
+        <span class="s">*Titol:* { original_title | replace('.XXX.720p.HEVC.x265.PRT', '') | replace('.XXX.720p.HD.WEBRip.x264-TGxXX', '') | asciify | strip_symbols }</span>
+        <span class="s"># Aixo son provas per enviar images a matrix, pero que de moment no funcionant.</span>
+        <span class="s">[Image](https://img.freepik.com/free-photo/side-view-woman-bdsm-aesthetics_23-2151117274.jpg)</span>
+      <span class="na">via</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">gotify</span><span class="pi">:</span>
+            <span class="c1"># Adreça de PushBits</span>
+            <span class="na">url</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{?</span><span class="nv"> </span><span class="s">credencials.gotify.server</span><span class="nv"> </span><span class="s">?}'</span>
+            <span class="err">*</span> <span class="s">Token que ens ha donat al donar d'alta l'aplicació</span>
+            <span class="na">token</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{?</span><span class="nv"> </span><span class="s">credencials.gotify.token</span><span class="nv"> </span><span class="s">?}'</span>
+            <span class="c1"># Prioritat del missatge. Aqui et recomano que revisis la documentación de Gotify</span>
+            <span class="c1"># En el meu cas, jo tinc possat el valor 1</span>
+            <span class="na">priority</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{?</span><span class="nv"> </span><span class="s">credencials.gotify.priority</span><span class="nv"> </span><span class="s">?}'</span>
+            <span class="c1"># Format dels missatges</span>
+            <span class="na">content_type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">text/markdown'</span>
+</code></pre></div></div>
+<p>Y ahora si que podemos decir que todo lo que yo queria ya lo tengo en funcionamiento. Aunque tengo que seguir investigando la posibilidad de poder enviar imagenes como mensajes adjuntos, pero esto ya lo dejo para más adelante. Lo siguiente es hacer, como tiene en funcionamiento <em>atareao</em> un <em>bot de matrix</em> para que me vaya informando de los mails que voy recibiendo y luego, el tiempo ya dira…</p>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://www.pushbits.io" target="_blank">PushBits</a></li>
+  <li><a href="https://github.com/pushbits/server/issues/71" target="_blank">Request failed at creating new application</a></li>
+  <li><a href="https://forums.unraid.net/topic/122107-matrix-notification-agent">Matrix notification agent</a></li>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Docker" /><category term="Matrix" /><category term="Docker" /><category term="Matrix" /><summary type="html"><![CDATA[Como bien explique en el anterior articulo, explicaba la instalación y configuración, nada facil, de mi servidor de matrix ahora os vengo a traer el siguiente articulo, donde explico el uso que le he dado y los problemeas que me he encontrado asi como los planes de futuro.]]></summary></entry><entry><title type="html">Matrix - 1. Instalación y configuración</title><link href="https://vctrsnts.github.io/docker/matrix/2025/03/25/instal-config-matrix.html" rel="alternate" type="text/html" title="Matrix - 1. Instalación y configuración" /><published>2025-03-25T00:00:00+00:00</published><updated>2025-03-25T00:00:00+00:00</updated><id>https://vctrsnts.github.io/docker/matrix/2025/03/25/instal-config-matrix</id><content type="html" xml:base="https://vctrsnts.github.io/docker/matrix/2025/03/25/instal-config-matrix.html"><![CDATA[<p>A partir de unos articulos de <a href="https://atareao.es/?s=matrix" target="_blank">Lorenzo</a> y de <a href="https://ugeek.github.io" target="_blank">uGeek</a> (podeis encontrar más información en la referencia), me pico la sobre como seria tener mi propio servidor de mensajeria y poderlo utilizar para enviar las notificaciones de mis servicios y asi no depender tanto de <em>Telegram</em>.</p>
 
 <p>Y de hay viene este nuevo articulo, donde explicare todo el proceso de instalación y uso de mi nuevo servidor <strong>Matrix</strong> en mi VPS y os aviso que no ha sido nada sencillo.</p>
 
@@ -207,7 +409,7 @@ curl -XPUT \
   <li><a href="https://cinny.in" target="_blank">Cinny</a></li>
   <li><a href="https://github.com/matrix-org/synapse" target="_blank">Synapse</a></li>
   <li><a href="https://conduit.rs" target="_blank">Conduit</a></li>
-</ul>]]></content><author><name>VSANTOS</name></author><category term="Docker" /><category term="unRAID" /><category term="Matrix" /><category term="Docker" /><category term="unRAID" /><category term="Matrix" /><summary type="html"><![CDATA[A partir de unos articulos de Lorenzo y de uGeek (podeis encontrar más información en la referencia), me pico la sobre como seria tener mi propio servidor de mensajeria y poderlo utilizar para enviar las notificaciones de mis servicios y asi no depender tanto de Telegram. Y de hay viene este nuevo articulo, donde explicare todo el proceso de instalación y uso de mi nuevo servidor Matrix en mi VPS y os aviso que no ha sido nada sencillo.]]></summary></entry><entry><title type="html">Historia del cambio de terminal</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/2025/01/13/cambiando-a-wezterm.html" rel="alternate" type="text/html" title="Historia del cambio de terminal" /><published>2025-01-13T00:00:00+00:00</published><updated>2025-01-13T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/2025/01/13/cambiando-a-wezterm</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/2025/01/13/cambiando-a-wezterm.html"><![CDATA[<p>Este es un articulo, que como puedes ver, es un articulo muy parecido a los que he ha escrito <strong>Lorenzo</strong>, de <a href="https://atareao.es" target="_blank">Atareao</a>, porque es algo, que si te pones a pensar es una de las aplicaciones que más se utilizan en <em>GNU/Linux</em> pero a la que no se le da mucha impportacia.</p>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Docker" /><category term="Matrix" /><category term="Docker" /><category term="Matrix" /><summary type="html"><![CDATA[A partir de unos articulos de Lorenzo y de uGeek (podeis encontrar más información en la referencia), me pico la sobre como seria tener mi propio servidor de mensajeria y poderlo utilizar para enviar las notificaciones de mis servicios y asi no depender tanto de Telegram. Y de hay viene este nuevo articulo, donde explicare todo el proceso de instalación y uso de mi nuevo servidor Matrix en mi VPS y os aviso que no ha sido nada sencillo.]]></summary></entry><entry><title type="html">Historia del cambio de terminal</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/2025/01/13/cambiando-a-wezterm.html" rel="alternate" type="text/html" title="Historia del cambio de terminal" /><published>2025-01-13T00:00:00+00:00</published><updated>2025-01-13T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/2025/01/13/cambiando-a-wezterm</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/2025/01/13/cambiando-a-wezterm.html"><![CDATA[<p>Este es un articulo, que como puedes ver, es un articulo muy parecido a los que he ha escrito <strong>Lorenzo</strong>, de <a href="https://atareao.es" target="_blank">Atareao</a>, porque es algo, que si te pones a pensar es una de las aplicaciones que más se utilizan en <em>GNU/Linux</em> pero a la que no se le da mucha impportacia.</p>
 
 <p>Nos estamos refiriendo a la terminal.</p>
 
@@ -1245,7 +1447,7 @@ articulo <span class="o">=</span> <span class="o">(</span><span class="s2">"&lt;
    <span class="k">done</span>
 </code></pre></div></div>
 <p>Se usa de la siguiente manera:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">  usuari@debian:~$</span>sh sh update_docker.sh docker_1 docker_2 ...
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">usuari@debian:~$</span><span class="w"> </span>sh update_docker.sh docker_1 docker_2 ...
 </code></pre></div></div>
 <p>Y con esto ya he finalizado este articulo rapido y facil. Que ha veces son los más dificiles de hacer.</p>
 <h4 id="referencia">Referencia</h4>
