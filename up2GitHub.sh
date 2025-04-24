@@ -9,6 +9,9 @@
 # Mode de fer servir: executal de la següent manera:
 # bash up2Git.sh <fitxers>
 
+# Actualitzem els permisos dels fitxers de _site
+chown -R nobody:users /mnt/user/appdata/jekyll_blog/_site
+
 # Actualitzem la clau publica de GitHub
 eval "$(ssh-agent -s)"
 ssh-add /root/.ssh/github_web
