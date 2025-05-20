@@ -1,4 +1,80 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2025-05-01T19:28:00+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">Modificaciones en el servidor - 3</title><link href="https://vctrsnts.github.io/hardware/2025/04/20/modificaciones-servidor-3.html" rel="alternate" type="text/html" title="Modificaciones en el servidor - 3" /><published>2025-04-20T00:00:00+00:00</published><updated>2025-04-20T00:00:00+00:00</updated><id>https://vctrsnts.github.io/hardware/2025/04/20/modificaciones-servidor-3</id><content type="html" xml:base="https://vctrsnts.github.io/hardware/2025/04/20/modificaciones-servidor-3.html"><![CDATA[<p>Este nuevo articulo no sabia si llamarlo <strong>Modificaciones en el servidor - 3</strong> o <strong>La imaginación humana no tiene limites</strong>, porque una vez que hayais leido este articulo pensareis lo mismo que yo.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2025-05-20T18:31:05+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">De Matrix a Gotify</title><link href="https://vctrsnts.github.io/docker/matrix/gotify/2025/05/20/matrix-gotify.html" rel="alternate" type="text/html" title="De Matrix a Gotify" /><published>2025-05-20T00:00:00+00:00</published><updated>2025-05-20T00:00:00+00:00</updated><id>https://vctrsnts.github.io/docker/matrix/gotify/2025/05/20/matrix-gotify</id><content type="html" xml:base="https://vctrsnts.github.io/docker/matrix/gotify/2025/05/20/matrix-gotify.html"><![CDATA[<p>Como bien sabeis, porque lo explique en este <a href="/docker/matrix/2025/03/25/instal-config-matrix.html" target="_blank">articulo</a> y en este <a href="/docker/matrix/2025/03/28/pushbits.html}" target="_blank">otro</a>, estaba usando <strong>Matrix</strong> como servidor de comunicación entre mis servidores y un servidor. Pero mientras más lo usaba, más desesperación me producia, porque, puede parecer una tonteria, pero en el movil, no recibia las notificaciones de los mensajes que me llegaban al cliente de <strong>Matrix</strong>, que en este caso era <strong>FluffyChat</strong>.</p>
+
+<!-- more -->
+
+<p>Lo habia instalado tanto de <strong>F-Droid</strong> como de la <strong>PlayStore</strong> y en los 2 casos, con el mismo resultado, no me llegaban las notificaciones. Tambien habia probado <strong>Element</strong> con el mismo resultado. Instale <strong>Synapse</strong> también en el VPS para ver si el problema estaba en <strong>Conduit</strong>, pero ni asi lograba que me llegaran las notificaciones.</p>
+
+<p>Investigue por todos sitios, <em>gitHub</em> de <em>Conduit</em>, matrix de <em>Conduit</em> y siempre con los mismos resultados, o no me respondian, o no entendian el motivo del porque no funcionaba.</p>
+
+<p>Al final ya no sabia que hacer, hasta que <a href="https://elblogdelazaro.org/gu%C3%ADa-paso-a-paso-c%C3%B3mo-instalar-gotify-en-unraid" target="_blank">Lazaro</a> publico un nuevo articulo de como instalar <strong>Gotify</strong> en <strong>unRaid</strong>, en mi caso no seria en <strong>unRaid</strong>, porque sino, tengo que abrir el servidor al mundo entero y es una cosa que quiero evitar, pero como tengo el VPS, pues decidi instalarlo ahi.</p>
+
+<p>Tengo que decir que yo ya jugaba con un poco de ventaja con respecto a <strong>Gotify</strong>, porque hace un par de años, antes de usar <strong>Telegram</strong> como servidor de notificaciones de mis servicios y de <strong>unRaid</strong>, lo habia utilizado, pero no me acabada de convencer, porque eso de tener 2 aplicaciones abiertas en el movil, <em>telegram</em> y a la vez <em>gotify</em> para recibir las notificaciones, pues me parecia un derroche de bateria, asi que al final lo acabe poniendo todo el <em>telegram</em> porque era la que más usaba.</p>
+
+<p>Asi que de vuelta al ruedo, a realizar la instalación de <strong>Gotify</strong>, a traves de su correspondiente <code class="language-plaintext highlighter-rouge">docker-compose</code>:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="na">gotify</span><span class="pi">:</span>
+   <span class="na">image</span><span class="pi">:</span> <span class="s">gotify/server:latest</span>
+   <span class="na">container_name</span><span class="pi">:</span> <span class="s">gotify</span>
+   <span class="na">env_file</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">gotify.env</span>
+   <span class="na">volumes</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">${HOME}/config/gotify:/app/data</span>
+   <span class="na">networks</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">proxy</span>
+   <span class="na">labels</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">traefik.enable=true</span>
+     <span class="pi">-</span> <span class="s">traefik.http.services.gotify.loadbalancer.server.port=80</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.gotify.entrypoints=websecure</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.gotify.rule=Host(`${GOTIFY_SERVER}`)</span>
+</code></pre></div></div>
+<p>Lo unico que hay que tener en cuenta es el fichero <code class="language-plaintext highlighter-rouge">gotify.env</code>:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">TZ=Europe/Madrid
+</span></code></pre></div></div>
+<p>Que es donde se configura la zona horaria, pero el resto, es como cualquier otro <em>docker-compose</em>, ahora solamente queda hacer un <code class="language-plaintext highlighter-rouge">docker commpose up -d gotify</code> y listo, y como además lo tengo configurado para que use <em>traefik</em> siguiendo los magnificos articulos que pone a disposición del publico <strong>atareo</strong>, pues es todo mucho más facil.</p>
+
+<p>Lo que si que tengo que agradecer a <strong>Lazaro</strong>, es que en su <a href="https://elblogdelazaro.org/gu%C3%ADa-paso-a-paso-c%C3%B3mo-instalar-gotify-en-unraid/">articulo</a>, explica muy bien todo el tema de las aplicaciones, que seguramente fue una de las razones del porque me echo para atras <strong>Gotify</strong> cuando lo use la primera vez, junto con que puedes poner los iconos de cada aplicación, pues ya lo tenia todo en marcha. Solo me faltaba instalar la aplicación en el movil y tenia todas las notificaciones de mis serviciones a mi disposición y encima diferenciadas por aplicaciones (salas) para que todo estuviera más claro y facil de entender:</p>
+<ul>
+  <li>Backups
+    <ul>
+      <li>En mi caso, las copias de seguridad las hago a traves de <strong>restic</strong>, otro articulo que tengo que hacer (y tambien gracias a <strong>atareao</strong> por dar a conocer el sistema de copias que el usa), y que junto a un <em>script</em> de <strong>Gotify</strong> podia estar informado de cuando y como se habian echo las copias de seguridad.</li>
+    </ul>
+  </li>
+  <li>flexGet</li>
+  <li>unRaid</li>
+  <li>Gestión de Podcast</li>
+  <li>Y más cosas que quiera añadir gracias a los plugins que tiene
+    <ul>
+      <li>Aqui tengo que hacer un inciso, los que yo encontre son un poco 🙁 y no se les puede sacar mucho provecho.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>El script en cuestión es el siguiente:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>SCRIPT PER ENVIAR LES NOTIFICACIONS
+<span class="go">curl -s -S --data \ 
+</span><span class="gp">  '{"message": "'"$</span><span class="o">{</span>DIR_NAME<span class="o">}</span>.xml<span class="s2">"'"</span>, <span class="s2">"title"</span>: <span class="s2">"'"</span><span class="k">${</span><span class="nv">TITLE_RSS</span><span class="k">}</span><span class="s2">"'"</span>, <span class="se">\</span>
+<span class="gp">  "priority":'"$</span><span class="o">{</span>GOTIFY_PRIORITY<span class="o">}</span><span class="s2">"', "</span>extras<span class="s2">": {"</span>client::display<span class="s2">": </span><span class="se">\</span><span class="s2">
+</span><span class="go">  {"contentType": "text/markdown"}}}' \
+</span><span class="gp">  -H 'Content-Type: application/json' "$</span>GOTIFY_SERVER<span class="s2">"
+</span></code></pre></div></div>
+<p>Y con esto, ya tengo de nuevo en marcha mi sistema de notificaciones para substituir <strong>telegram</strong> por algo más <strong>libre</strong> y asi tener <strong>mas libertad digital</strong> tal como dice <strong>Lorenzo</strong>.</p>
+
+<p>Aqui tengo que hacer un inciso, no os penseis que me he olvidado de <strong>Matrix</strong>, aun lo tengo en la cabeza metido molestando y riendose de mi, porque no lo he hecho funcionar correctamente, algo parecido a esto:</p>
+
+<div class="row">
+    
+    <div style="flex: 100.0%">
+        <img class="single" src="/assets/img/images/cerebro.jpg" alt="cerebro.jpg" />
+    </div>
+    
+</div>
+
+<p>Pero tiene que saber, que a mi me cuesta mucho darme por vencido y que al final conseguire hacer funcionar correctamente a <strong>Matrix</strong>, pero ya explicare en otro articulo, como me va mi lucha contra él.</p>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://elblogdelazaro.org/gu%C3%ADa-paso-a-paso-c%C3%B3mo-instalar-gotify-en-unraid" target="_blank">Guía Paso a Paso: Cómo Instalar Gotify en Unraid</a></li>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Docker" /><category term="Matrix" /><category term="Gotify" /><category term="Docker" /><category term="Matrix" /><category term="Gotify" /><summary type="html"><![CDATA[Como bien sabeis, porque lo explique en este articulo y en este otro, estaba usando Matrix como servidor de comunicación entre mis servidores y un servidor. Pero mientras más lo usaba, más desesperación me producia, porque, puede parecer una tonteria, pero en el movil, no recibia las notificaciones de los mensajes que me llegaban al cliente de Matrix, que en este caso era FluffyChat.]]></summary></entry><entry><title type="html">Modificaciones en el servidor - 3</title><link href="https://vctrsnts.github.io/hardware/2025/04/20/modificaciones-servidor-3.html" rel="alternate" type="text/html" title="Modificaciones en el servidor - 3" /><published>2025-04-20T00:00:00+00:00</published><updated>2025-04-20T00:00:00+00:00</updated><id>https://vctrsnts.github.io/hardware/2025/04/20/modificaciones-servidor-3</id><content type="html" xml:base="https://vctrsnts.github.io/hardware/2025/04/20/modificaciones-servidor-3.html"><![CDATA[<p>Este nuevo articulo no sabia si llamarlo <strong>Modificaciones en el servidor - 3</strong> o <strong>La imaginación humana no tiene limites</strong>, porque una vez que hayais leido este articulo pensareis lo mismo que yo.</p>
 
 <!-- more -->
 
@@ -265,7 +341,7 @@
 </code></pre></div></div>
 <p>Al final después de muchas preguntas al <em>Slack</em> de <em>flexget</em>, consegui que me respondieran, y lo que me dijeron de que el problema, por el mensaje que me estaba dando <em>flexget</em>, era de que este estaba utilizando la antigua versión del envio de mensajes <code class="language-plaintext highlighter-rouge">r0</code>, en vez de la más actual que ya implemtan todos los servidores de <em>matrix</em> asi como todos los clientes 😱.</p>
 
-<p>Y es una cosa que pude comprobar yo mismo, porque encontre el archivo que utiliza <em>flexget</em> para manejar las notificaciones, y se podia ver claramente como los envios se hacen  envio se hacen mediante una versión anterior a la que se usa actualmente en <em>matrix</em>. Pues empezamos bien. La primera en la frente.</p>
+<p>Y es una cosa que pude comprobar yo mismo, porque encontre el archivo que utiliza <em>flexget</em> para manejar las notificaciones, y se podia ver claramente como los envios se hacen mediante una versión anterior a la que se usa actualmente en <em>matrix</em>. Pues empezamos bien. La primera en la frente.</p>
 
 <p>Tambien queria usar <em>matrix</em> para que mi servidor de <em>unRaid</em> me enviara todas las notificaciones, y aqui va la segunda en la frente, <em>unRaid</em> no esta preparado, de momento, para hacer uso de <em>matrix</em>. Que bien empezamos. Con lo que habia sufrido para instalar <em>matrix</em> y voy y me encuentro que las 2 primeras cosas que quiero usar <em>matrix</em> no estan soportadas. Asi, que iba hacer ahora. Desinstalar <em>matrix</em> y volver a <em>telegram</em>.</p>
 
@@ -305,7 +381,7 @@
 
 <p>Pero de nuevo la suerte fue mi aliada, que seria de mi, sin las incidencias que entra la gente, porque encontre esta <a href="https://github.com/pushbits/server/issues/71" target="_blank">incidencia</a> donde explicaba todo lo que se tiene que hacer para usar <em>PushBits</em>, pero en ese caso, fallaba, pero para mi ya era algo. Habia conseguido toda la información necesaria para usar este nuevo servicio.</p>
 
-<p>A parte de saber como se tiene que usar, tambien tienes que tener el fichero de configuración, que puedes obtener un ejemplo del repositorio, aunque yo tengo pongo el que estoy utilizando ahora mismo y que me funciona perfectamente:</p>
+<p>A parte de saber como se tiene que usar, tambien tienes que tener el fichero de configuración, que puedes obtener un ejemplo del repositorio, aunque yo pongo el que estoy utilizando ahora mismo y que me funciona perfectamente:</p>
 <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># A sample configuration for PushBits.</span>
 <span class="c1"># Populated fields contain their default value.</span>
 <span class="c1"># Required fields are marked with [required].</span>

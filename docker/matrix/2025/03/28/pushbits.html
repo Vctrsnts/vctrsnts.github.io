@@ -60,7 +60,7 @@
 </code></pre></div></div>
 <p>Al final después de muchas preguntas al <em>Slack</em> de <em>flexget</em>, consegui que me respondieran, y lo que me dijeron de que el problema, por el mensaje que me estaba dando <em>flexget</em>, era de que este estaba utilizando la antigua versión del envio de mensajes <code class="language-plaintext highlighter-rouge">r0</code>, en vez de la más actual que ya implemtan todos los servidores de <em>matrix</em> asi como todos los clientes 😱.</p>
 
-<p>Y es una cosa que pude comprobar yo mismo, porque encontre el archivo que utiliza <em>flexget</em> para manejar las notificaciones, y se podia ver claramente como los envios se hacen  envio se hacen mediante una versión anterior a la que se usa actualmente en <em>matrix</em>. Pues empezamos bien. La primera en la frente.</p>
+<p>Y es una cosa que pude comprobar yo mismo, porque encontre el archivo que utiliza <em>flexget</em> para manejar las notificaciones, y se podia ver claramente como los envios se hacen mediante una versión anterior a la que se usa actualmente en <em>matrix</em>. Pues empezamos bien. La primera en la frente.</p>
 
 <p>Tambien queria usar <em>matrix</em> para que mi servidor de <em>unRaid</em> me enviara todas las notificaciones, y aqui va la segunda en la frente, <em>unRaid</em> no esta preparado, de momento, para hacer uso de <em>matrix</em>. Que bien empezamos. Con lo que habia sufrido para instalar <em>matrix</em> y voy y me encuentro que las 2 primeras cosas que quiero usar <em>matrix</em> no estan soportadas. Asi, que iba hacer ahora. Desinstalar <em>matrix</em> y volver a <em>telegram</em>.</p>
 
@@ -100,7 +100,7 @@
 
 <p>Pero de nuevo la suerte fue mi aliada, que seria de mi, sin las incidencias que entra la gente, porque encontre esta <a href="https://github.com/pushbits/server/issues/71" target="_blank">incidencia</a> donde explicaba todo lo que se tiene que hacer para usar <em>PushBits</em>, pero en ese caso, fallaba, pero para mi ya era algo. Habia conseguido toda la información necesaria para usar este nuevo servicio.</p>
 
-<p>A parte de saber como se tiene que usar, tambien tienes que tener el fichero de configuración, que puedes obtener un ejemplo del repositorio, aunque yo tengo pongo el que estoy utilizando ahora mismo y que me funciona perfectamente:</p>
+<p>A parte de saber como se tiene que usar, tambien tienes que tener el fichero de configuración, que puedes obtener un ejemplo del repositorio, aunque yo pongo el que estoy utilizando ahora mismo y que me funciona perfectamente:</p>
 <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># A sample configuration for PushBits.</span>
 <span class="c1"># Populated fields contain their default value.</span>
 <span class="c1"># Required fields are marked with [required].</span>
