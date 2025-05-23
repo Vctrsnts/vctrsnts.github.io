@@ -1,4 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2025-05-20T21:21:25+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">De Matrix a Gotify</title><link href="https://vctrsnts.github.io/docker/matrix/gotify/2025/05/20/matrix-gotify.html" rel="alternate" type="text/html" title="De Matrix a Gotify" /><published>2025-05-20T00:00:00+00:00</published><updated>2025-05-20T00:00:00+00:00</updated><id>https://vctrsnts.github.io/docker/matrix/gotify/2025/05/20/matrix-gotify</id><content type="html" xml:base="https://vctrsnts.github.io/docker/matrix/gotify/2025/05/20/matrix-gotify.html"><![CDATA[<p>Como bien sabeis, porque lo explique en este <a href="/docker/matrix/2025/03/25/instal-config-matrix.html" target="_blank">articulo</a> y en este <a href="/docker/matrix/2025/03/28/pushbits.html}" target="_blank">otro</a>, estaba usando <strong>Matrix</strong> como servidor de comunicación entre mis servidores y un servidor. Pero mientras más lo usaba, más desesperación me producia, porque, puede parecer una tonteria, pero en el movil, no recibia las notificaciones de los mensajes que me llegaban al cliente de <strong>Matrix</strong>, que en este caso era <strong>FluffyChat</strong>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2025-05-23T11:53:27+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">Restic + Backrest + MiniO - 1</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/docker/2025/05/22/restic-copias-locales-1.html" rel="alternate" type="text/html" title="Restic + Backrest + MiniO - 1" /><published>2025-05-22T00:00:00+00:00</published><updated>2025-05-22T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/docker/2025/05/22/restic-copias-locales-1</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/docker/2025/05/22/restic-copias-locales-1.html"><![CDATA[<p>Lo primero y antes de nada, tengo que dar las gracias a <strong>Lázaro</strong> de <a href="https://elblogdelazaro.org" target="_blank">El Blog de Lázaro</a> y a <strong>Lorenzo</strong> de <a href="https://atareao.es" target="_blank">Atareao</a>, por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.</p>
+
+<!-- more -->
+
+<p>Ahora vamos a explicar como gracias a estas 2 increibles personas, he creado mi perfecto (para mi), sistema de copias de seguridad.</p>
+
+<blockquote>
+  <p>Nota: ❗ Tengo que decir que me falta la parte de externalizar las copias, pero es muy parecido a lo que tengo ahora, asi que no debe de haber muchos problemas 🤞.</p>
+</blockquote>
+
+<p>Lo primero y más basico, es explicar lo que quiero hacer:</p>
+<ul>
+  <li>Mediante <strong>restic</strong>, hacer las copias de seguridad de mi equipo personal y llevarlas al servidor local con <strong>unRaid</strong>.</li>
+  <li><strong>Atareao</strong> explica que lo correcto es hacer una copia de seguridad en local, otra al servidor local y una al VPS externo.
+    <ul>
+      <li>Yo entiendo que las copias en local, si te falla el HDD / SDD del equipo no sirven de nada, que mejor hacer solo copia de seguridad en servidor local (que ya tengo implementado) y otra en VPS externo (que me falta por implementar).</li>
+    </ul>
+  </li>
+  <li>Mantener la regla de <em>7 copias diarias</em>, <em>4 semanales</em>, <em>6 mensuales</em>. Me parece un poco excesivo, pero nunca se sabe, más vale prevenir que curar.</li>
+</ul>
+
+<p>Asi que me puse a ello. Pero lo primero era tener un HDD para guardar las copias de seguridad, y eso, ahora mismo, con mi nuevo <a href="/hardware/2025/04/20/modificaciones-servidor-3.html" target="_blank">servidor</a> es muy sencillo realizar esta ampliación, solamente he aprovechado un HDD de 1Tb que tenia por aqui tirado, lo he conectado a <em>unRaid</em> y a funcionar. De nuevo, tengo que dar las gracias a <strong>@Mr. H</strong>, por el increible diseño que ha hecho.</p>
+
+<p>Una vez que ya tenia mi disco para las copias de seguridad, venia el momento de instalar <strong>restic</strong> en mi equipo personal y en Debian GNU/Linux, con un simple <strong>APT</strong> lo tienes instalado:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usuari@debian:~$ sudo apt install restic
+</code></pre></div></div>
+<p>Y ya esta instalado.</p>
+
+<p>Ahora pasamos a las cosas más complicadas, la instalación de <strong>backrest</strong> y de <strong>MiniO</strong>.</p>
+
+<p>Pero complicado si no estas en <strong>unRaid</strong>, sino es tan facil como ir a la sección <strong>Apps</strong>, buscar <strong>backrest</strong> e instalar. No voy a explicar como se hace la instalación en <strong>unRaid</strong>, primero, porque es muy sencilla y porque solamente tienes que configurar que te aparece, y si no hay suficiente con esto, tienes esta otra, porque <strong>Lázaro</strong>, ha hecho un <a href="https://elblogdelazaro.org/backrest-una-interfaz-web-para-restic-backup" target="_blank">articulo</a> donde lo explica mucho mejor, asi que, porque inventar la rueda si ya esta inventada.</p>
+
+<div class="row">
+    
+    <div class="column">
+        <img src="/assets/img/images/backrest_01.jpg" alt="backrest_01.jpg" />
+    </div>
+    
+    <div class="column">
+        <img src="/assets/img/images/minio.png" alt="minio.png" />
+    </div>
+    
+</div>
+
+<p>Una vez, tenemos <strong>backrest</strong>, solamente nos falta la instalación de <strong>MiniO</strong> y como antes, mejor leer el <a href="https://atareao.es/podcast/no-pierdas-tus-datos-backups-infalibles" target="_blank">articulo</a> de <strong>Lorenzo</strong> que tambien lo explica muy bien.</p>
+
+<blockquote>
+  <p>Nota: Lo que hay que tener en cuenta a la hora de instalar <strong>MiniO</strong> es la nota que añade el creador de este docker, para cuando se usa en <strong>unRaid</strong></p>
+</blockquote>
+
+<blockquote>
+  <p>⚠️ Attention: Unfortunately due to changes in Minio, the unRAID file system is no longer supported. The only way to get Minio to work on unRAID now is by mapping a single disk directly or setting up a V-Disk.</p>
+</blockquote>
+
+<p>En mi caso, no he tenido ningun problema, porque solamente tengo un HDD para las copias de seguridad, pero siempre hay que tenerlo en cuenta.</p>
+
+<h4 id="a-tener-en-cuenta-en-la-configuración-de-nuestro-repositorio-en-backrest">A tener en cuenta en la configuración de nuestro repositorio en backrest</h4>
+<p>A la hora de realizar la instalación de <strong>backrest</strong>, tenemos que tener en cuenta, que la <strong>Ip local</strong> tiene que ser la de nuestro servidor, es el que recibe las copias de seguridad de <strong>restic</strong> de nuestro equipo local.</p>
+
+<p>Asi mismo, en mi caso, no tengo configurado ningun plan de gestión de copias, porque eso se encarga el script de <code class="language-plaintext highlighter-rouge">bash</code> que tengo en mi equipo local haciendo las copias de seguridad.</p>
+
+<p>Después de este pequeño apunte, voy a explicar algunas cosas sobre el uso y funcionamiento de <strong>restic</strong> que nos pueden venir bien para más adelante.</p>
+
+<h4 id="1-saber-el-estado-de-las-copias">1. Saber el estado de las copias:</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usuari@debian:~$ restic -r /path/to/backup snapshots
+</code></pre></div></div>
+<h4 id="2-para-crear-copias-de-seguridad-de-varios-directorios">2. Para crear copias de seguridad de varios directorios</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usuari@debian:~$ restic -r /path/to/backup backup /dir_1 /dir_2 etc....
+</code></pre></div></div>
+<h4 id="3-para-restaurar-copia-de-seguridad">3. para restaurar copia de seguridad</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usuari@debian:~$ restic -r /path/to/backup restore latest --target /dir_recuperar
+</code></pre></div></div>
+<h4 id="4-borrar-repositorios-para-solo-mantener-x-repositorios">4. Borrar repositorios para solo mantener X repositorios</h4>
+<blockquote>
+  <p>Nota: En este caso, como ejemplo, hemos puesto 6 (en este caso hemos puesto 6)</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usuari@debian:~$ restic -r /path/to/backup forget --keep-last 6 prune
+</code></pre></div></div>
+<h4 id="5-borrar-backups-de-más-de-30-dias">5. Borrar backups de más de 30 dias</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usuari@debian:~$ restic -r /path/to/backup forget --keep-within 30d
+</code></pre></div></div>
+<p>Ahora vendria la parte más interesante, el como hacer uso de estas 3 aplicaciones para manejar nuestras copias de seguridad, pero esto lo explicare en el siguiente <a href="" target="_blank">articulo</a>, porque sino, este puede salir muy largo y volverme muy pesado.</p>
+
+<h4 id="referencia">Referencia</h4>
+<ul>
+  <li><a href="https://elblogdelazaro.org/tags/restic" target="_blank">El Blog de Lázaro - Restic</a></li>
+  <li><a href="https://atareao.es/podcast/no-pierdas-tus-datos-backups-infalibles" target="_blank">677 - No pierdas tus datos. Backups infalibles</a></li>
+  <li><a href="https://atareao.es/podcast/backups-en-android-con-restic" target="_blank">680 - Backups en Android con Restic</a></li>
+  <li><a href="https://geekland.eu/copias-de-seguridad-con-restic-de-forma-automatica" target="_blank">Como hacer copias de seguridad cifradas con Restic de forma automática</a></li>
+</ul>]]></content><author><name>VSANTOS</name></author><category term="Debian GNU/Linux" /><category term="Docker" /><category term="Debian GNU/Linux" /><category term="Docker" /><summary type="html"><![CDATA[Lo primero y antes de nada, tengo que dar las gracias a Lázaro de El Blog de Lázaro y a Lorenzo de Atareao, por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.]]></summary></entry><entry><title type="html">Matrix - 3. De Matrix a Gotify</title><link href="https://vctrsnts.github.io/docker/matrix/gotify/2025/05/20/matrix-gotify.html" rel="alternate" type="text/html" title="Matrix - 3. De Matrix a Gotify" /><published>2025-05-20T00:00:00+00:00</published><updated>2025-05-20T00:00:00+00:00</updated><id>https://vctrsnts.github.io/docker/matrix/gotify/2025/05/20/matrix-gotify</id><content type="html" xml:base="https://vctrsnts.github.io/docker/matrix/gotify/2025/05/20/matrix-gotify.html"><![CDATA[<p>Como bien sabeis, porque lo explique en este <a href="/docker/matrix/2025/03/25/instal-config-matrix.html" target="_blank">articulo</a> y en este <a href="/docker/matrix/2025/03/28/pushbits.html" target="_blank">otro</a>, estaba usando <strong>Matrix</strong> como servidor de comunicación entre mis servidores y un servidor. Pero mientras más lo usaba, más desesperación me producia, porque, puede parecer una tonteria, pero en el movil, no recibia las notificaciones de los mensajes que me llegaban al cliente de <strong>Matrix</strong>, que en este caso era <strong>FluffyChat</strong>.</p>
 
 <!-- more -->
 
