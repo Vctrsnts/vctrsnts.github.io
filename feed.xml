@@ -1,4 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2025-05-23T11:53:27+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">Restic + Backrest + MiniO - 1</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/docker/2025/05/22/restic-copias-locales-1.html" rel="alternate" type="text/html" title="Restic + Backrest + MiniO - 1" /><published>2025-05-22T00:00:00+00:00</published><updated>2025-05-22T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/docker/2025/05/22/restic-copias-locales-1</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/docker/2025/05/22/restic-copias-locales-1.html"><![CDATA[<p>Lo primero y antes de nada, tengo que dar las gracias a <strong>Lázaro</strong> de <a href="https://elblogdelazaro.org" target="_blank">El Blog de Lázaro</a> y a <strong>Lorenzo</strong> de <a href="https://atareao.es" target="_blank">Atareao</a>, por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://vctrsnts.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vctrsnts.github.io/" rel="alternate" type="text/html" /><updated>2025-05-25T13:15:01+00:00</updated><id>https://vctrsnts.github.io/feed.xml</id><title type="html">Si lo haces, hazlo bien!</title><subtitle></subtitle><entry><title type="html">Matrix - 4. De vuelta al inicio, de Gotify a Matrix</title><link href="https://vctrsnts.github.io/docker/matrix/gotify/2025/05/25/gotify-matrix.html" rel="alternate" type="text/html" title="Matrix - 4. De vuelta al inicio, de Gotify a Matrix" /><published>2025-05-25T00:00:00+00:00</published><updated>2025-05-25T00:00:00+00:00</updated><id>https://vctrsnts.github.io/docker/matrix/gotify/2025/05/25/gotify-matrix</id><content type="html" xml:base="https://vctrsnts.github.io/docker/matrix/gotify/2025/05/25/gotify-matrix.html"><![CDATA[<p>Como ya explique en este <a href="/docker/matrix/gotify/2025/05/20/matrix-gotify.html" target="_blank">articulo</a>, ante la imposibilidad de usar <strong>Matrix</strong> me pase a <strong>Gotify</strong> aunque me negue a dejar de lado a <em>Matrix</em> y segui investigando, el porque no funcionaba correctamente y asi llegado el momento, poderlo usar o sino, tener una alternativa <em>Gotify</em>.</p>
+
+<!-- more -->
+
+<p>Aqui si que tengo que dar las gracias a <strong>Lorenzo</strong> de <strong>atareao</strong>, por toda la ayuda que me ofrecio para resolver el problema que tenia 👏.</p>
+
+<p>Lo primero fue facilitarme el <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> que el estaba usando para <strong>Matrix</strong>, os lo pongo  continuación por si os sirve de ayuda, pero modificado para mis necesidades:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">conduit</span><span class="pi">:</span>
+   <span class="na">image</span><span class="pi">:</span> <span class="s">matrixconduit/matrix-conduit:latest</span>
+   <span class="na">container_name</span><span class="pi">:</span> <span class="s">matrixConduit</span>
+   <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+   <span class="na">volumes</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">${HOME}/config/matrix/db:/var/lib/matrix-conduit/</span>
+   <span class="na">environment</span><span class="pi">:</span>
+     <span class="na">RUST_BACKTRACE</span><span class="pi">:</span> <span class="s">full</span>
+     <span class="na">CONDUIT_LOG</span><span class="pi">:</span> <span class="s">warn</span>
+     <span class="na">CONDUIT_SERVER_NAME</span><span class="pi">:</span> <span class="s">matrix.servidor.org</span>
+     <span class="na">CONDUIT_DATABASE_PATH</span><span class="pi">:</span> <span class="s">/var/lib/matrix-conduit/</span>
+     <span class="na">CONDUIT_DATABASE_BACKEND</span><span class="pi">:</span> <span class="s">rocksdb</span>
+     <span class="na">CONDUIT_PORT</span><span class="pi">:</span> <span class="m">6167</span>
+     <span class="na">CONDUIT_MAX_REQUEST_SIZE</span><span class="pi">:</span> <span class="s">20_000_000</span> <span class="c1"># in bytes, ~20 MB</span>
+     <span class="na">CONDUIT_ALLOW_REGISTRATION</span><span class="pi">:</span> <span class="kc">false</span>
+     <span class="na">CONDUIT_ALLOW_FEDERATION</span><span class="pi">:</span> <span class="kc">false</span>
+     <span class="na">CONDUIT_ALLOW_CHECK_FOR_UPDATES</span><span class="pi">:</span> <span class="kc">true</span>
+     <span class="na">CONDUIT_ENABLE_LIGHTNING_BOLT</span><span class="pi">:</span> <span class="kc">true</span>
+     <span class="na">CONDUIT_TRUSTED_SERVERS</span><span class="pi">:</span> <span class="s1">'</span><span class="s">["matrix.org"]'</span>
+     <span class="na">CONDUIT_ADDRESS</span><span class="pi">:</span> <span class="s">0.0.0.0</span>
+     <span class="na">CONDUIT_CONFIG</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <span class="c1"># Ignore this</span>
+   <span class="na">networks</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">proxy</span>
+   <span class="na">labels</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">traefik.enable=true</span>
+     <span class="pi">-</span> <span class="s">traefik.http.services.conduit.loadbalancer.server.port=6167</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.conduit.entrypoints=websecure</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.conduit.rule=Host(`${MATRIX_SERVER}`)</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.conduit-secure.tls=true</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.conduit-secure.tls.certresolver=letsencrypt</span>
+     <span class="pi">-</span> <span class="s">traefik.http.routers.conduit.middlewares=cors-headers@docker</span>
+     <span class="pi">-</span> <span class="s">traefik.http.middlewares.cors-headers.headers.accessControlAllowOriginList=*</span>
+     <span class="pi">-</span> <span class="s">traefik.http.middlewares.cors-headers.headers.accessControlAllowHeaders=Origin, X-Requested-With, Content-Type, Accept, Authorization</span>
+     <span class="pi">-</span> <span class="s">traefik.http.middlewares.cors-headers.headers.accessControlAllowMethods=GET, POST, PUT, DELETE, OPTIONS</span>
+</code></pre></div></div>
+<p>Con este simple <code class="language-plaintext highlighter-rouge">docker</code> es lo unico que se necesita para instalar <strong>Matrix</strong>, no como lo tenia yo <a href="/docker/matrix/2025/03/25/instal-config-matrix.html" target="_blank">antes</a> que eso si que era complicado, ahora si que ya teniamos todas las herramientas para hacer funcionar a <strong>Matrix</strong>, o eso creia yo.</p>
+
+<p>Una vez que ya tenia el <strong>docker</strong>, lo unico que me quedaba era probarlo, porque esta nueva manera de instalación, era mucho más sencilla que la que yo tenia antes. Pues aqui vamos a ver que resultado obtenemos:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">usuari@debian:~$</span><span class="w"> </span>docker compose up <span class="nt">-d</span> conduit
+</code></pre></div></div>
+<p>Después de la instalación, todo funcionaba correctamente, pero seguia con el problema de que las notificaciones no me llegaban al movil.</p>
+
+<p>Aqui busque ayuda de todo el mundo, para saber el porque seguia sin funcionarme las notificaciones, tambien probe <strong>Synapse</strong>, pero con el mismo resultado, tambien llame a todas las puertas y todas me las encontraba cerradas o miraban la mirilla, pero no me abrianla puerta ;), hasta que al final pedi ayuda a <strong>atareao</strong> que muy amablemente se ofrecio a ver si conseguiamos llevar a buen puerto este problema que tenia, porque el, con esta misma configuración, no tenia problemas.</p>
+
+<p>Os pongo un resumen de todo fue todo, porque sino seria muy largo todo y os dareis cuenta de lo que una pequeña cosa, los problemas que puede llegar a dar:</p>
+<blockquote>
+  <p><strong>atareao:</strong> Cuantos usuarios tienes en Matrix?<br />
+<strong>yo:</strong> Uno solo, que es el adm que soy yo<br />
+<strong>atareao:</strong> Crea otro usuario y manda los mensajes con el otro usuario<br /></p>
+</blockquote>
+
+<p>Y aqui es cuando llegamos al final de todo, con mi cerebro ya habia explosionado en mil trozitos y pidiendo a <strong>@atareao</strong> me que lance por un barranco 🥹<br /></p>
+<blockquote>
+  <p><strong>yo:</strong> @atareao Tienes cerca alguna cuerda larga y un barranco?<br />
+<strong>yo:</strong> Para que me ates y me lances por ese barranco<br />
+<strong>yo:</strong> He hecho lo que has comentado<br />
+<strong>yo:</strong> He creado un usuario que es el administrador de los canales y luego me he creado mi usuario.<br />
+<strong>yo:</strong> Entonces el adm me ha invitado a los canales y con el script que te he pasado estoy enviando mensajes a la sala y me aparecen las notificaciones<br />
+<strong>yo:</strong> Por eso, yo me ato de pies y manos y tu solo tienes que empujarme hacia el barranco<br />
+<strong>atareao:</strong> Ya… Tiene lógica que si te envías a ti mismo un mensaje no te notifique que tienes un mensaje nuevo<br /></p>
+</blockquote>
+
+<p>Llevaba 1 mes con este problema al que no le encontraba solución, y todo era por culpa de que solamente tenia un unico usuario, y por eso las notifiaciones no me llegaban. Que si te pones a pensar, tiene su logica, porque uno envia un mensaje al canal, para que el resto de usuarios les llegue la notificaciones. Pero claro es una cosa que no piensas, hasta que alguien te hace caer en ello.</p>
+
+<p>Gracias <strong>atareao</strong> por toda la ayuda que me has dado.</p>
+
+<p>Y ahora si que si, tengo a pleno rendimiento mi servidor de matrix para poder usarlo para las notificaciones de todos mis servicios.</p>
+
+<p>De momento, tengo en funcionamiento:</p>
+<ul>
+  <li>El envio de notificaciones cuando se general los archivos <code class="language-plaintext highlighter-rouge">XML</code> de los podcast que descargo.</li>
+  <li>Las notificaciones de la ejecución de las copias de seguridad, que lo podreis ver en este <a href="" target="_blank">articulo</a>.</li>
+</ul>
+
+<p>Me queda pendiente las notificaciones:</p>
+<ul>
+  <li>Notificaciones de <strong>unRaid</strong></li>
+  <li>Notificaciones de <strong>flexGet</strong></li>
+</ul>
+
+<p>Pero con estas tendre que pelearme un poco más porque tengo que usar <strong>pushBits</strong>, tal como explique en este <a href="/docker/matrix/2025/03/28/pushbits.html" target="_blank">articulo</a>.</p>
+
+<p>Y alguna cosa más de la que me gustaria estar informado, pero para eso tengo que investigar si se puede hacer o no. Ya os ire informando de los progresos que voy teniendo.</p>
+
+<h4 id="referencia">Referencia</h4>
+<p><a href="https://github.com/atareao/self-hosted/tree/main/matrix" target="_blank">atareao - gitHub</a></p>]]></content><author><name>VSANTOS</name></author><category term="Docker" /><category term="Matrix" /><category term="Gotify" /><category term="Docker" /><category term="Matrix" /><category term="Gotify" /><summary type="html"><![CDATA[Como ya explique en este articulo, ante la imposibilidad de usar Matrix me pase a Gotify aunque me negue a dejar de lado a Matrix y segui investigando, el porque no funcionaba correctamente y asi llegado el momento, poderlo usar o sino, tener una alternativa Gotify.]]></summary></entry><entry><title type="html">Restic + Backrest + MiniO - 1</title><link href="https://vctrsnts.github.io/debian%20gnu/linux/docker/2025/05/22/restic-copias-locales-1.html" rel="alternate" type="text/html" title="Restic + Backrest + MiniO - 1" /><published>2025-05-22T00:00:00+00:00</published><updated>2025-05-22T00:00:00+00:00</updated><id>https://vctrsnts.github.io/debian%20gnu/linux/docker/2025/05/22/restic-copias-locales-1</id><content type="html" xml:base="https://vctrsnts.github.io/debian%20gnu/linux/docker/2025/05/22/restic-copias-locales-1.html"><![CDATA[<p>Lo primero y antes de nada, tengo que dar las gracias a <strong>Lázaro</strong> de <a href="https://elblogdelazaro.org" target="_blank">El Blog de Lázaro</a> y a <strong>Lorenzo</strong> de <a href="https://atareao.es" target="_blank">Atareao</a>, por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.</p>
 
 <!-- more -->
 
