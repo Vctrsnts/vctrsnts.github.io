@@ -7,6 +7,8 @@
         <title>Matrix - 1. Instalación y configuración - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
 <meta name="fediverse:creator" content="@vsantos@mastodon.online">
 
+<meta property="og:image" content="/images/logo_post.jpg" >
+
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -219,7 +221,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">modulename</span><span class="p">:</span><span class="w"> </span><span class="l">github.com/soulbalz/traefik-real-ip</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l">v1.0.3</span></span></span></code></pre></div></div>
 <p>A continuación la modificación que se tiene que hacer en <code>dynamic.yml</code>:</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -273,7 +275,7 @@
 <p>Lo primero es ver que si envias un mensaje desde la consola, este llegue correctamente a tu servidor y aqui es cuando empezaron mis problemas y eso que el script es facil. Encontre miles de los scripts. Pero la diferencia que habia entre unos y otros, es que unos hacian uso de <em>POST</em>, que es la versión antigua para enviar los mensajes, y otros usaban el <em>PUT</em> que es la versión más actual y que todos los servidores de <em>matrix</em> acceptan.</p>
 <p>No os podeis imaginar la de problemas que tenia.</p>
 <p>Llegue hasta un punto de eliminar el servidor de <strong>Conduit</strong> y probar con <strong>Synapse</strong> a ver si el problema radicaba es eso. Tambien hice multiples modificaciones a los ficheros de traefik (<code>traefik.yml</code> y <code>dynamic.yml</code>) y no conseguia que nada funcionase. El problema no estaba en el servidor que utilizase, sino más bien, en el <em>script</em>. Aqui fue donde si que pedi ayuda a <em>Lorenzo</em> porque no sabia por donde salir y fue cuando me paso el <em>script</em> que lo soluciono todo y que pongo a continuación:</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
