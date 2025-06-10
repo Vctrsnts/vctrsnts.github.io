@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Debian GNULinux on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/categories/debian-gnulinux/</link>
+    <link>https://vctrsnts.github.io/book/categories/debian-gnulinux/</link>
     <description>Recent content in Debian GNULinux on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Mon, 13 Jan 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/categories/debian-gnulinux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/book/categories/debian-gnulinux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Historia del cambio de terminal</title>
-      <link>https://vctrsnts.github.io/2025-01-13-cambiando-a-wezterm/</link>
+      <link>https://vctrsnts.github.io/book/2025-01-13-cambiando-a-wezterm/</link>
       <pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-01-13-cambiando-a-wezterm/</guid>
+      <guid>https://vctrsnts.github.io/book/2025-01-13-cambiando-a-wezterm/</guid>
       <description>&lt;p&gt;Este es un articulo, que como puedes ver, es un articulo muy parecido a los que he ha escrito &lt;strong&gt;Lorenzo&lt;/strong&gt;, de &lt;a href=&#34;https://atareao.es&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Atareao&lt;/a&gt;, porque es algo, que si te pones a pensar es una de las aplicaciones que más se utilizan en &lt;em&gt;GNU/Linux&lt;/em&gt; pero a la que no se le da mucha importacia.&lt;/p&gt;&#xA;&lt;p&gt;Nos estamos refiriendo a la terminal.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mis aplicaciones por defecto 2024</title>
-      <link>https://vctrsnts.github.io/2024-12-11-mis-aplicaciones-2024/</link>
+      <link>https://vctrsnts.github.io/book/2024-12-11-mis-aplicaciones-2024/</link>
       <pubDate>Wed, 11 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-12-11-mis-aplicaciones-2024/</guid>
+      <guid>https://vctrsnts.github.io/book/2024-12-11-mis-aplicaciones-2024/</guid>
       <description>&lt;p&gt;Siguiendo la iniciativa de &lt;a href=&#34;https://elblogdelazaro.org/posts/2024-12-09-mis-aplicaciones-por-defecto-2024&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Lazaro&lt;/a&gt;, pues tambien pondre mi granito de arena a esta buena idea, porque asi, la gente puede descubrir nuevas aplicaciones que nunca habrias pensado que existieran, y de esta manera, pues&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Recuperando Grub</title>
-      <link>https://vctrsnts.github.io/2023-05-05-recuperando-grub/</link>
+      <link>https://vctrsnts.github.io/book/2023-05-05-recuperando-grub/</link>
       <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-05-05-recuperando-grub/</guid>
+      <guid>https://vctrsnts.github.io/book/2023-05-05-recuperando-grub/</guid>
       <description>&lt;p&gt;No se si os ha pasado muchas veces eso de perder el arranque de GNU/Linux &lt;em&gt;&lt;strong&gt;GRUB&lt;/strong&gt;&lt;/em&gt;, pero a mi, me esta pasando muchas veces ultimamente y no se si es porque tengo mala suerte o porque tengo mal configurado el inicio entre Linux y Windows, asi que al final, me he tenido que buscar la vida, para saber como se puede solucionar, porque sino, tengo que volver a reinstalarlo todo y ahora que el sistema lo tengo como yo quiero, pues &amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Solucionar error i915 en grafica Intel</title>
-      <link>https://vctrsnts.github.io/2021-06-09-solucionar-error-i915/</link>
+      <link>https://vctrsnts.github.io/book/2021-06-09-solucionar-error-i915/</link>
       <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-06-09-solucionar-error-i915/</guid>
+      <guid>https://vctrsnts.github.io/book/2021-06-09-solucionar-error-i915/</guid>
       <description>&lt;p&gt;Desde que &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; saco la versión del kernel 5.4 en mi portatil fue recurrente los flashes en la pantalla y el siguiente error:&lt;/p&gt;&#xA;&lt;div class=&#34;code-block code-line-numbers open&#34; style=&#34;counter-reset: code-block 0&#34;&gt;&#xA;    &lt;div class=&#34;code-header language-bash&#34;&gt;&#xA;        &lt;span class=&#34;code-title&#34;&gt;&lt;i class=&#34;arrow fas fa-angle-right fa-fw&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&lt;/span&gt;&#xA;        &lt;span class=&#34;ellipses&#34;&gt;&lt;i class=&#34;fas fa-ellipsis-h fa-fw&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&lt;/span&gt;&#xA;        &lt;span class=&#34;copy&#34; title=&#34;Copiar al portapapeles&#34;&gt;&lt;i class=&#34;far fa-copy fa-fw&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&lt;/span&gt;&#xA;    &lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;drm:intel_cpu_fifo_underrun_irq_handler &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;i915&lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt; *ERROR* CPU pipe A FIFO underrun&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&#xA;&lt;p&gt;La solución que todo el mundo me decia era eliminar el paquete del driver de &lt;em&gt;xserver-xorg-video-intel&lt;/em&gt; y usar el por defecto del kernel. Pero lo entendia que significaba eso (realmente era asi), no sabia como se tenia que hacer, porque si hacia eso perdia todo el &lt;strong&gt;XORG&lt;/strong&gt;, al final en este &lt;a href=&#34;https://forums.debian.net/viewtopic.php?f=7&amp;amp;t=149472&amp;amp;p=737807#p737807&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;hilo&lt;/a&gt; me indicaron que si hacia esto, solo se borraba el metapaquete de &lt;strong&gt;xserver-xorg-video-all&lt;/strong&gt; pero nada más.&lt;/p&gt;&#xA;&lt;p&gt;Al final di con la solución en el foro de &lt;a href=&#34;https://exdebian.org/foro/como-solucionar-drmi965irqhandler-i915-error-cpu-pipe-fifo-underrun-solucionado&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;exDebian.org&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>TIP sobre SUDO en GNU/Linux</title>
-      <link>https://vctrsnts.github.io/2019-11-11-tip-sudo-debian/</link>
+      <link>https://vctrsnts.github.io/book/2019-11-11-tip-sudo-debian/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2019-11-11-tip-sudo-debian/</guid>
+      <guid>https://vctrsnts.github.io/book/2019-11-11-tip-sudo-debian/</guid>
       <description>&lt;p&gt;Después de mucho tiempo, pongo un &lt;strong&gt;TIP&lt;/strong&gt; para que no se me olvide en caso de necesitarlo.&lt;/p&gt;&#xA;&lt;p&gt;A lo mejor pongo más de uno, porque después me cuesta mucho buscarlos de nuevo. Así que aqui va el primero.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Los mejores repositorios para Debian GNU/Linux</title>
-      <link>https://vctrsnts.github.io/2015-05-08-repositorios-debian/</link>
+      <link>https://vctrsnts.github.io/book/2015-05-08-repositorios-debian/</link>
       <pubDate>Fri, 08 May 2015 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2015-05-08-repositorios-debian/</guid>
+      <guid>https://vctrsnts.github.io/book/2015-05-08-repositorios-debian/</guid>
       <description>&lt;p&gt;Cuando se está utilizando un sistema &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt;, una de las cosas que más se disfrutan es la herramienta para administración de paquetes &lt;code&gt;APT&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
   </channel>

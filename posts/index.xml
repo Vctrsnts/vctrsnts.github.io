@@ -1,88 +1,88 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Todos los Artículos - Si lo haces, hazlo bien!</title>
-        <link>https://vctrsnts.github.io/posts/</link>
+        <link>https://vctrsnts.github.io/book/posts/</link>
         <description>Todos los Artículos | Si lo haces, hazlo bien!</description>
-        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Mon, 09 Jun 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Mon, 09 Jun 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/book/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Cambiando a Hugo</title>
-    <link>https://vctrsnts.github.io/2025-06-09-cambiando-hugo/</link>
+    <link>https://vctrsnts.github.io/book/2025-06-09-cambiando-hugo/</link>
     <pubDate>Mon, 09 Jun 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-06-09-cambiando-hugo/</guid>
+    <guid>https://vctrsnts.github.io/book/2025-06-09-cambiando-hugo/</guid>
     <description><![CDATA[<p>Antes de seguir con nuestro ultimo articulo sobre las copias de seguridad (<em>Restic, Backrest y Minio</em>) y seguramente  ya lo habreis notado si visitais este blog, es que ha habido un cambio sustancial en su diseño.</p>]]></description>
 </item>
 <item>
     <title>Restic &#43; Backrest &#43; MiniO - 2</title>
-    <link>https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2/</link>
+    <link>https://vctrsnts.github.io/book/2025-05-22-restic-copias-locales-2/</link>
     <pubDate>Tue, 27 May 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2/</guid>
+    <guid>https://vctrsnts.github.io/book/2025-05-22-restic-copias-locales-2/</guid>
     <description><![CDATA[<p>Continuamos con esta segunda parte donde explicaremos como sacar provecho de estas 3 aplicaciones, en este caso, explicare el script que estoy usando para realizar las copia, que es una variación de uno que tiene <strong>Lorenzo</strong> en su <a href="https://github.com/atareao/dotfiles/blob/main/.local/bin/backup.sh.jinja" target="_blank" rel="noopener noreffer ">gitHub</a>, pero que en mi caso, en vez de ser un fichero <strong>jinja</strong>, es un fichero en bash a pelo.</p>]]></description>
 </item>
 <item>
     <title>Matrix - 4. De vuelta al inicio, de Gotify a Matrix</title>
-    <link>https://vctrsnts.github.io/2025-05-22-gotify-matrix/</link>
+    <link>https://vctrsnts.github.io/book/2025-05-22-gotify-matrix/</link>
     <pubDate>Sun, 25 May 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-05-22-gotify-matrix/</guid>
+    <guid>https://vctrsnts.github.io/book/2025-05-22-gotify-matrix/</guid>
     <description><![CDATA[<p>Como ya explique en este <a href="/2025-05-19-matrix-gotify" rel="">articulo</a>, ante la imposibilidad de usar <strong>Matrix</strong> me pase a <strong>Gotify</strong> aunque me negue a dejar de lado a <em>Matrix</em> y segui investigando, el porque no funcionaba correctamente y asi llegado el momento, poderlo usar o sino, tener una alternativa <em>Gotify</em>.</p>]]></description>
 </item>
 <item>
     <title>Restic &#43; Backrest &#43; MiniO - 1</title>
-    <link>https://vctrsnts.github.io/2025-05-21-restic-copias-locales-1/</link>
+    <link>https://vctrsnts.github.io/book/2025-05-21-restic-copias-locales-1/</link>
     <pubDate>Thu, 22 May 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-05-21-restic-copias-locales-1/</guid>
+    <guid>https://vctrsnts.github.io/book/2025-05-21-restic-copias-locales-1/</guid>
     <description><![CDATA[<p>Lo primero y antes de nada, tengo que dar las gracias a <strong>Lázaro</strong> de <a href="https://elblogdelazaro.org" target="_blank" rel="noopener noreffer ">El Blog de Lázaro</a> y a <strong>Lorenzo</strong> de <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a>, por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.</p>]]></description>
 </item>
 <item>
     <title>Matrix - 3. De Matrix a Gotify</title>
-    <link>https://vctrsnts.github.io/2025-05-19-matrix-gotify/</link>
+    <link>https://vctrsnts.github.io/book/2025-05-19-matrix-gotify/</link>
     <pubDate>Tue, 20 May 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-05-19-matrix-gotify/</guid>
+    <guid>https://vctrsnts.github.io/book/2025-05-19-matrix-gotify/</guid>
     <description><![CDATA[<p>Como bien sabeis, porque lo explique en este <a href="/2025-03-25-instal-config-matrix" rel="">articulo</a> y en este <a href="/2025-03-27-pushbits" rel="">otro</a>, estaba usando <strong>Matrix</strong> como servidor de comunicación entre mis servidores y un servidor. Pero mientras más lo usaba, más desesperación me producia, porque, puede parecer una tonteria, pero en el movil, no recibia las notificaciones de los mensajes que me llegaban al cliente de <strong>Matrix</strong>, que en este caso era <strong>FluffyChat</strong>.</p>]]></description>
 </item>
 <item>
     <title>Modificaciones en el servidor - 3</title>
-    <link>https://vctrsnts.github.io/2025-04-20-modificaciones-servidor-3/</link>
+    <link>https://vctrsnts.github.io/book/2025-04-20-modificaciones-servidor-3/</link>
     <pubDate>Sun, 20 Apr 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-04-20-modificaciones-servidor-3/</guid>
+    <guid>https://vctrsnts.github.io/book/2025-04-20-modificaciones-servidor-3/</guid>
     <description><![CDATA[<p>Este nuevo articulo no sabia si llamarlo <strong>Modificaciones en el servidor - 3</strong> o <strong>La imaginación humana no tiene limites</strong>, porque una vez que hayais leido este articulo pensareis lo mismo que yo.</p>]]></description>
 </item>
 <item>
     <title>Matrix - 2. PushBits, la pasarela que faltaba</title>
-    <link>https://vctrsnts.github.io/2025-03-27-pushbits/</link>
+    <link>https://vctrsnts.github.io/book/2025-03-27-pushbits/</link>
     <pubDate>Fri, 28 Mar 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-03-27-pushbits/</guid>
+    <guid>https://vctrsnts.github.io/book/2025-03-27-pushbits/</guid>
     <description><![CDATA[<p>Como bien explique en el anterior <a href="/2025-03-25-instal-config-matrix" rel="">articulo</a>, explicaba la instalación y configuración, nada facil, de mi servidor de <strong>matrix</strong> ahora os vengo a traer el siguiente articulo, donde explico el uso que le he dado y los problemeas que me he encontrado asi como los planes de futuro.</p>]]></description>
 </item>
 <item>
     <title>Matrix - 1. Instalación y configuración</title>
-    <link>https://vctrsnts.github.io/2025-03-25-instal-config-matrix/</link>
+    <link>https://vctrsnts.github.io/book/2025-03-25-instal-config-matrix/</link>
     <pubDate>Tue, 25 Mar 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-03-25-instal-config-matrix/</guid>
+    <guid>https://vctrsnts.github.io/book/2025-03-25-instal-config-matrix/</guid>
     <description><![CDATA[<p>A partir de unos articulos de <a href="https://atareao.es/?s=matrix" target="_blank" rel="noopener noreffer ">Lorenzo</a> y de <a href="https://ugeek.github.io" target="_blank" rel="noopener noreffer ">uGeek</a> (podeis encontrar más información en la referencia), me pico la sobre como seria tener mi propio servidor de mensajeria y poderlo utilizar para enviar las notificaciones de mis servicios y asi no depender tanto de <em>Telegram</em>.</p>
 <p>De hay viene este nuevo articulo, donde explicare todo el proceso de instalación y uso de mi nuevo servidor <strong>Matrix</strong> en mi VPS y os aviso que no ha sido nada sencillo.</p>]]></description>
 </item>
 <item>
     <title>Historia del cambio de terminal</title>
-    <link>https://vctrsnts.github.io/2025-01-13-cambiando-a-wezterm/</link>
+    <link>https://vctrsnts.github.io/book/2025-01-13-cambiando-a-wezterm/</link>
     <pubDate>Mon, 13 Jan 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-01-13-cambiando-a-wezterm/</guid>
+    <guid>https://vctrsnts.github.io/book/2025-01-13-cambiando-a-wezterm/</guid>
     <description><![CDATA[<p>Este es un articulo, que como puedes ver, es un articulo muy parecido a los que he ha escrito <strong>Lorenzo</strong>, de <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a>, porque es algo, que si te pones a pensar es una de las aplicaciones que más se utilizan en <em>GNU/Linux</em> pero a la que no se le da mucha importacia.</p>
 <p>Nos estamos refiriendo a la terminal.</p>]]></description>
 </item>
 <item>
     <title>Propositos 2025</title>
-    <link>https://vctrsnts.github.io/2025-01-11-propositos-2025/</link>
+    <link>https://vctrsnts.github.io/book/2025-01-11-propositos-2025/</link>
     <pubDate>Sat, 11 Jan 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-01-11-propositos-2025/</guid>
+    <guid>https://vctrsnts.github.io/book/2025-01-11-propositos-2025/</guid>
     <description><![CDATA[<p>Como a buen principio de año y que me gustaria conversar en los siguientes años, es poner un listado de las cosas que me gustaria conseguir este año con referencia a mi servidor, docker, etc&hellip; O sea, todo lo que tiene que ver con el mundo de la tecnologia y la informatica.</p>]]></description>
 </item>
 </channel>

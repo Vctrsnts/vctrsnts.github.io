@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>FreeBSD on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/tags/freebsd/</link>
+    <link>https://vctrsnts.github.io/book/tags/freebsd/</link>
     <description>Recent content in FreeBSD on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Mon, 11 Nov 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/tags/freebsd/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/book/tags/freebsd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Actualizar FreeBSD (STABLE)</title>
-      <link>https://vctrsnts.github.io/2017-11-11-actualizar-freebsd-stable/</link>
+      <link>https://vctrsnts.github.io/book/2017-11-11-actualizar-freebsd-stable/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2017-11-11-actualizar-freebsd-stable/</guid>
+      <guid>https://vctrsnts.github.io/book/2017-11-11-actualizar-freebsd-stable/</guid>
       <description>&lt;p&gt;Aqui va otra entrada con respecto a &lt;strong&gt;FreeBSD&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;En este caso, es como se puede hacer la actualización del sistema &lt;strong&gt;STABLE&lt;/strong&gt;, es la que estoy usando yo en estos momentos.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mi configuración en FreeBSD</title>
-      <link>https://vctrsnts.github.io/2017-11-11-mi-configuracion-freebsd/</link>
+      <link>https://vctrsnts.github.io/book/2017-11-11-mi-configuracion-freebsd/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2017-11-11-mi-configuracion-freebsd/</guid>
+      <guid>https://vctrsnts.github.io/book/2017-11-11-mi-configuracion-freebsd/</guid>
       <description>&lt;p&gt;Siguiendo con mis entradas que hacen referencia a &lt;strong&gt;FreeBSD&lt;/strong&gt;, a continuación dejo la que uso en mi portatil &lt;strong&gt;Lenovo Y700&lt;/strong&gt; y que parece ser que funciona correctamente.&lt;/p&gt;&#xA;&lt;p&gt;A lo mejor en el futuro la voy modificando dependiendo del funcionamiento que vaya teniendo&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Grabar fichero img a USB</title>
-      <link>https://vctrsnts.github.io/2017-05-15-img-usb/</link>
+      <link>https://vctrsnts.github.io/book/2017-05-15-img-usb/</link>
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2017-05-15-img-usb/</guid>
+      <guid>https://vctrsnts.github.io/book/2017-05-15-img-usb/</guid>
       <description>&lt;p&gt;Siguiendo mi aprendizaje con FreeBSD, aqui explico, seguramente en otros sitios diferentes de este basto oceano llamado internet, lo encontrareis mejor explicado, como grabar un fichero &lt;code&gt;*.img&lt;/code&gt; a un prendrive, es una cosa que nunca me acuerdo como se hace y siempre acabo buscandolo.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Utilizar UTF-8 en FreeBSD</title>
-      <link>https://vctrsnts.github.io/2017-05-03-utilizar-utf8-freebsd/</link>
+      <link>https://vctrsnts.github.io/book/2017-05-03-utilizar-utf8-freebsd/</link>
       <pubDate>Wed, 03 May 2017 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2017-05-03-utilizar-utf8-freebsd/</guid>
+      <guid>https://vctrsnts.github.io/book/2017-05-03-utilizar-utf8-freebsd/</guid>
       <description>&lt;p&gt;Una de las cosas que echo en falta a la hora de realizar la instalación de &lt;strong&gt;FreeBSD&lt;/strong&gt; es poder configurar &lt;code&gt;UTF-8&lt;/code&gt; en el instalador.&lt;/p&gt;&#xA;&lt;p&gt;Al igual que muchos sistemas operativo de la familia UNIX, &lt;strong&gt;FreeBSD&lt;/strong&gt; no viene configurado para utilizar la codificación de caracteres &lt;code&gt;UTF-8&lt;/code&gt; por defecto, sin embargo esta totalmente soportado y es facilmente configurable.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cambiar Debian GNU/Linux por FreeBSD?</title>
-      <link>https://vctrsnts.github.io/2016-08-20-cambiar-linux-freebsd/</link>
+      <link>https://vctrsnts.github.io/book/2016-08-20-cambiar-linux-freebsd/</link>
       <pubDate>Sat, 20 Aug 2016 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2016-08-20-cambiar-linux-freebsd/</guid>
+      <guid>https://vctrsnts.github.io/book/2016-08-20-cambiar-linux-freebsd/</guid>
       <description>&lt;div class=&#34;details admonition note open&#34;&gt;&#xA;        &lt;div class=&#34;details-summary admonition-title&#34;&gt;&#xA;            &lt;i class=&#34;icon fas fa-pencil-alt fa-fw&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;Nota&lt;i class=&#34;details-icon fas fa-angle-right fa-fw&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&#34;details-content&#34;&gt;&#xA;            &lt;div class=&#34;admonition-content&#34;&gt;Antes de nada, decir que esto no es una critica a &lt;a href=&#34;https://www.freebsd.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;FreeBSD&lt;/a&gt; ni una guerra de cual es mejor (porque de eso, si buscas en cualquier foro de FreeBSD o de GNU/Linux encontraras muchas y mejores).&lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;    &lt;/div&gt;</description>
     </item>
   </channel>

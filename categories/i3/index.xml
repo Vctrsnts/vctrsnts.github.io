@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>I3 on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/categories/i3/</link>
+    <link>https://vctrsnts.github.io/book/categories/i3/</link>
     <description>Recent content in I3 on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Fri, 13 Jan 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/categories/i3/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/book/categories/i3/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mejoras en mi escritorio (i3-wm)</title>
-      <link>https://vctrsnts.github.io/2023-01-13-mejoras-i3/</link>
+      <link>https://vctrsnts.github.io/book/2023-01-13-mejoras-i3/</link>
       <pubDate>Fri, 13 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-01-13-mejoras-i3/</guid>
-      <description>&lt;p&gt;Después de mucho tiempo usando &lt;a href=&#34;https://vctrsnts.github.io/2020-08-06-usando-i3-wm&#34; rel=&#34;&#34;&gt;i3-wm&lt;/a&gt;, estaba constantemente, cambiando de wallpaper (seguramente ha más de uno le pasa), pense que habria alguna manera de hacer que cada X tiempo, el wallpaper que estoy utilizando cambiara automaticamente, de los que tengo en el directorio donde los guardo.&lt;/p&gt;&#xA;&lt;p&gt;Así que me puse a la busqueda de como se puede hacer.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/book/2023-01-13-mejoras-i3/</guid>
+      <description>&lt;p&gt;Después de mucho tiempo usando &lt;a href=&#34;https://vctrsnts.github.io/book/2020-08-06-usando-i3-wm&#34; rel=&#34;&#34;&gt;i3-wm&lt;/a&gt;, estaba constantemente, cambiando de wallpaper (seguramente ha más de uno le pasa), pense que habria alguna manera de hacer que cada X tiempo, el wallpaper que estoy utilizando cambiara automaticamente, de los que tengo en el directorio donde los guardo.&lt;/p&gt;&#xA;&lt;p&gt;Así que me puse a la busqueda de como se puede hacer.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando i3-wm</title>
-      <link>https://vctrsnts.github.io/2020-08-06-usando-i3-wm/</link>
+      <link>https://vctrsnts.github.io/book/2020-08-06-usando-i3-wm/</link>
       <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-08-06-usando-i3-wm/</guid>
+      <guid>https://vctrsnts.github.io/book/2020-08-06-usando-i3-wm/</guid>
       <description>&lt;p&gt;Aqui va una nueva entrada y en este caso hace referencia a &lt;a href=&#34;https://i3wm.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;i3wm&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Primero un poco de historia con respecto al porque de este post. Desde hace años (cuando &lt;strong&gt;KDE&lt;/strong&gt; se volvio tan pesado y desapareció el paquete kde-minimal) cambie a &lt;strong&gt;XFCE4&lt;/strong&gt; y todo fue bien, hasta que vi que (en mi opinión), se habia estancado, por eso decidi hacer un cambio y hablando con gente de &lt;a href=&#34;https://exdebian.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;exDebian&lt;/a&gt; me aconsejaron probar &lt;strong&gt;i3wm&lt;/strong&gt;. Asi que empeze a buscar información y fue cuando encontre esta colección de 3 videos en &lt;a href=&#34;https://www.youtube.com/playlist?list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Youtube - i3wm&lt;/a&gt; que me abrieron las puertas a &lt;strong&gt;i3wm&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>

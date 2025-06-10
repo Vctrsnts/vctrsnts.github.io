@@ -20,9 +20,11 @@ ssh -T git@github.com
 
 sleep 10
 
-rm -rf .fuse*
+sleep 10
 
-docker exec -it hugoBlog hugo --baseURL="https://vctrsnts.github.io"
+rm -rf .fuse*
+# Actualitzem la baseURL de la web
+docker exec -it hugoBlog hugo --baseURL="https://vctrsnts.github.io/book"
 
 # Comprovem si el directori on ens trobem es un repositori de Git
 if [ ! -d '.git' ]; then

@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>VPS on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/categories/vps/</link>
+    <link>https://vctrsnts.github.io/book/categories/vps/</link>
     <description>Recent content in VPS on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Wed, 17 Apr 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/categories/vps/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/book/categories/vps/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hemos encontrado la solución al desastre el siglo??</title>
-      <link>https://vctrsnts.github.io/2024-04-17-nuevo-vps/</link>
+      <link>https://vctrsnts.github.io/book/2024-04-17-nuevo-vps/</link>
       <pubDate>Wed, 17 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-04-17-nuevo-vps/</guid>
-      <description>&lt;p&gt;Tal como escribi en este &lt;a href=&#34;https://vctrsnts.github.io/2024-04-10-desastre-siglo&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; donde explicaba que, seguramente por error mio, al detener la instancia, esta se perdio y luego fue imposible remontarla, porque no &lt;strong&gt;habia recursos disponibles&lt;/strong&gt;.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/book/2024-04-17-nuevo-vps/</guid>
+      <description>&lt;p&gt;Tal como escribi en este &lt;a href=&#34;https://vctrsnts.github.io/book/2024-04-10-desastre-siglo&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; donde explicaba que, seguramente por error mio, al detener la instancia, esta se perdio y luego fue imposible remontarla, porque no &lt;strong&gt;habia recursos disponibles&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>El desastre del siglo</title>
-      <link>https://vctrsnts.github.io/2024-04-10-desastre-siglo/</link>
+      <link>https://vctrsnts.github.io/book/2024-04-10-desastre-siglo/</link>
       <pubDate>Wed, 10 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-04-10-desastre-siglo/</guid>
-      <description>&lt;p&gt;Si recordais este articulo &lt;a href=&#34;https://vctrsnts.github.io/2023-09-24-VPS-pruebas&#34; rel=&#34;&#34;&gt;Por fin VPS para hacer pruebas&lt;/a&gt; y luego leeis lo que me ha pasado, entedereis porque titulo este articulo como lo titulo.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Porque no es para menos&lt;/strong&gt;.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/book/2024-04-10-desastre-siglo/</guid>
+      <description>&lt;p&gt;Si recordais este articulo &lt;a href=&#34;https://vctrsnts.github.io/book/2023-09-24-VPS-pruebas&#34; rel=&#34;&#34;&gt;Por fin VPS para hacer pruebas&lt;/a&gt; y luego leeis lo que me ha pasado, entedereis porque titulo este articulo como lo titulo.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Porque no es para menos&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Por fin. VPS para hacer pruebas</title>
-      <link>https://vctrsnts.github.io/2023-09-24-vps-pruebas/</link>
+      <link>https://vctrsnts.github.io/book/2023-09-24-vps-pruebas/</link>
       <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-09-24-vps-pruebas/</guid>
+      <guid>https://vctrsnts.github.io/book/2023-09-24-vps-pruebas/</guid>
       <description>&lt;p&gt;Hacia mucho tiempo (minimo 2 años), que habia escuchado que Oracle te daba &lt;em&gt;gratuitamente&lt;/em&gt; la posibilidad de tener un VPS para poderlo usar, eso si, con unas ciertas limitaciones:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;1 vCPUs x86 - 1Gb Ram&lt;/li&gt;&#xA;&lt;li&gt;4 vCPUs ARM - 24Gb Ram&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Asi que si anteriormente, en un RaspberryPi con 1Gb de Ram y una unica CPU podia tener amule, transmission las 24 horas del dia y el sistema iba sobrado, la elección seria facil.&lt;/p&gt;&#xA;&lt;p&gt;La elección era lo más facil, lo dificil fue conseguir darse de alta. Y cuando digo dificil, me refiero a dificil.&lt;/p&gt;</description>
     </item>
   </channel>

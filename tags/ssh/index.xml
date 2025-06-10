@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SSH on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/tags/ssh/</link>
+    <link>https://vctrsnts.github.io/book/tags/ssh/</link>
     <description>Recent content in SSH on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Mon, 04 Apr 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/book/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Raspberry Pi. Acceso a traves de ssh</title>
-      <link>https://vctrsnts.github.io/2016-04-04-rpi-acceso-traves-ssh/</link>
+      <link>https://vctrsnts.github.io/book/2016-04-04-rpi-acceso-traves-ssh/</link>
       <pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2016-04-04-rpi-acceso-traves-ssh/</guid>
+      <guid>https://vctrsnts.github.io/book/2016-04-04-rpi-acceso-traves-ssh/</guid>
       <description>&lt;p&gt;Una vez que ya tenemos nuestra Raspberry en marcha y funcionando ahora viene la parte divertida, como acceder a ella desde el exterior. En mi caso desde otra ubicación y además con un poco de seguridad para que nadie pueda acceder a ella (recordar que esto se tiene que hacer desde el equipo que se va a conectar a la Raspberry).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sustituir una clave antigua de known_hosts</title>
-      <link>https://vctrsnts.github.io/2011-08-19-substituir-known-hosts/</link>
+      <link>https://vctrsnts.github.io/book/2011-08-19-substituir-known-hosts/</link>
       <pubDate>Fri, 19 Aug 2011 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2011-08-19-substituir-known-hosts/</guid>
+      <guid>https://vctrsnts.github.io/book/2011-08-19-substituir-known-hosts/</guid>
       <description>&lt;p&gt;Es posible que más de una vez nos hayamos encontrado con un mensaje donde nuestro sistema nos indica que la clave publica de nuestro servidor, o del servidor al que nos queremos conectar ha cambiado o a otras posibilidades que ya indicaremos más adelante.&lt;/p&gt;</description>
     </item>
   </channel>
