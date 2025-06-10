@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Seguridad on Si lo haces, hazlo bien!</title>
-    <link>http://192.6.0.40:1313/tags/seguridad/</link>
+    <link>https://vctrsnts.github.io/tags/seguridad/</link>
     <description>Recent content in Seguridad on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Sun, 08 Nov 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://192.6.0.40:1313/tags/seguridad/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/tags/seguridad/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Raspberry Pi. Instalar y configurar fail2ban</title>
-      <link>http://192.6.0.40:1313/2020-11-08-rpi-usando-fail2ban/</link>
+      <link>https://vctrsnts.github.io/2020-11-08-rpi-usando-fail2ban/</link>
       <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2020-11-08-rpi-usando-fail2ban/</guid>
-      <description>&lt;p&gt;Siguiendo con mis capitulos con respecto a la configuración y uso de mi RPI4 (tambien explicado en este otro &lt;a href=&#34;http://192.6.0.40:1313/2020-10-30-rpi-cambiando-equipo&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, pues ahora pasamos a añadir una protección más y que en  todos los sitios donde explican su configuración, se preguntan, porque no esta instalada por defecto en todos los sistemas GNU/Linux.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2020-11-08-rpi-usando-fail2ban/</guid>
+      <description>&lt;p&gt;Siguiendo con mis capitulos con respecto a la configuración y uso de mi RPI4 (tambien explicado en este otro &lt;a href=&#34;https://vctrsnts.github.io/2020-10-30-rpi-cambiando-equipo&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, pues ahora pasamos a añadir una protección más y que en  todos los sitios donde explican su configuración, se preguntan, porque no esta instalada por defecto en todos los sistemas GNU/Linux.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

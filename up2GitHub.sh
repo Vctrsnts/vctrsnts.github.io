@@ -22,7 +22,7 @@ sleep 10
 
 rm -rf .fuse*
 
-docker exec -it hugoBook hugo --baseURL="https://vctrsnts.github.io"
+docker exec -it hugoBlog hugo --baseURL="https://vctrsnts.github.io"
 
 # Comprovem si el directori on ens trobem es un repositori de Git
 if [ ! -d '.git' ]; then
