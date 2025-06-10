@@ -20,8 +20,6 @@ ssh -T git@github.com
 
 sleep 10
 
-sleep 10
-
 rm -rf .fuse*
 # Actualitzem la baseURL de la web
 docker exec -it hugoBlog hugo --baseURL="https://vctrsnts.github.io"
