@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Historia del cambio de terminal - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2025-01-13-cambiando-a-wezterm/" /><link rel="prev" href="http://192.6.0.40:1313/2025-01-11-propositos-2025/" /><link rel="next" href="http://192.6.0.40:1313/2025-03-25-instal-config-matrix/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Historia del cambio de terminal",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2025-01-13-cambiando-a-wezterm\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Debian GNULinux","wordcount":  1928 ,
+        "url": "http:\/\/192.6.0.40:1313\/2025-01-13-cambiando-a-wezterm\/","datePublished": "2025-01-13T00:00:00+00:00","dateModified": "2025-01-13T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Historia del cambio de terminal</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/debian-gnulinux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Debian GNULinux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="13-01-2025">13-01-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1928 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;10 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Este es un articulo, que como puedes ver, es un articulo muy parecido a los que he ha escrito <strong>Lorenzo</strong>, de <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a>, porque es algo, que si te pones a pensar es una de las aplicaciones que más se utilizan en <em>GNU/Linux</em> pero a la que no se le da mucha importacia.</p>
+<p>Nos estamos refiriendo a la terminal.</p>
+<p>Esa aplicación, en mi caso, no era una cosa a la que le diera mucha importancia. Siempre usaba la que venia por defecto en el <em>Desktop</em> que instalaba en ese momento, <em>konsole</em> en el caso de <strong>KDE</strong>, <em>xfce4-terminal</em> en el caso de <strong>XFCE</strong>, o sino en el caso de usar los <em>Windows Tiling Manager</em> que el mejor ejemplo, se podria decir que es <strong>i3-WM</strong>, tambien usaba <em>xfce4-terminal</em>. Pero al usar los que venian por defecto, siempre, en mi caso, me encontraba un poco limitado porque si quieres trabajar con diferentes <em>paneles</em> o <em>escritorios</em>, tienes que usar diferentes pestañas y tienes que ir saltando de pestaña en pestaña y eso era un poco rollo.</p>
+<p>Pero todo cambio, a partir de un <a href="https://www.youtube.com/watch?v=7gmpjacFoHM" target="_blank" rel="noopener noreffer ">video</a> del <strong>PeladoNerd</strong> donde explicaba el uso de <strong>TMUX</strong>. Un famoso <em>multiplexor</em> donde podias tener varios <em>terminales</em> en la misma ventana.</p>
+<p>Esto era una mejora en mi manera de trabajar con respecto a lo que tenia antes. Pero aun habia un pequeño problema que seguia existiendo, que aunque habia logrado una mejora muy sustancial con respecto a lo que tenia antes, tenia que seguir utilizando 2 aplicaciones:</p>
+<ul>
+<li>La terminal que habia instalado.</li>
+<li><em>Tmux</em> para disponer de estas mejoras.</li>
+</ul>
+<p>Aqui os pongo la configuración del fichero <code>tmux.conf</code> que estaba usando en ese momento. Nunca se sabe si os puede ser de utilidad:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">### Configuració per defecte</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -g assume-paste-time <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Iniciem les pestanyes de TMUX per 1 en comptes de 0</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -g base-index <span class="m">1</span>
+</span></span><span class="line"><span class="cl">setw -g main-pane-width <span class="m">126</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#setw -g aggressive-resize off</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -g status on
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -g history-limit <span class="m">10000</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#set -g pane-border-format &#34;#P: #{pane_current_command}&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -g mouse on
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### Canviem la keybind per defecte</span>
+</span></span><span class="line"><span class="cl">unbind C-b
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -g prefix C-a
+</span></span><span class="line"><span class="cl"><span class="nb">bind</span> C-a send-prefix
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># custom bindings</span>
+</span></span><span class="line"><span class="cl">bind-key H resize-pane -L <span class="m">5</span>
+</span></span><span class="line"><span class="cl">bind-key L resize-pane -R <span class="m">5</span>
+</span></span><span class="line"><span class="cl">bind-key j <span class="k">select</span>-pane -t :.-
+</span></span><span class="line"><span class="cl">bind-key x swap-pane -t :.0 <span class="se">\;</span> <span class="k">select</span>-pane -t :.0
+</span></span><span class="line"><span class="cl">bind-key k kill-pane <span class="se">\;</span> <span class="k">select</span>-layout main-vertical
+</span></span><span class="line"><span class="cl">bind-key v split-window -v <span class="se">\;</span> <span class="k">select</span>-layout main-vertical <span class="se">\;</span> swap-pane -t :.0 <span class="se">\;</span> <span class="k">select</span>-pane -t :.0
+</span></span><span class="line"><span class="cl"><span class="c1"># EXECUTEM SCRIPT</span>
+</span></span><span class="line"><span class="cl">bind-key r run-shell <span class="s2">&#34;~/.tmux/scripts/resize-adaptable.sh -l main-vertical -p 60&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">### Configuracio de diferents accions programades</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Es recarrega la configuració de tmux</span>
+</span></span><span class="line"><span class="cl">bind-key R source-file ~/.tmux.conf <span class="se">\;</span> display-message <span class="s2">&#34;Config reloaded&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Es pasa a opcio &#34;paste-buffer&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#bind-key p paste-buffer</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Es pasa a opció &#34;copy-mode&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#bind-key c copy-mode</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### Configuració del Status Bar</span>
+</span></span><span class="line"><span class="cl">set-window-option -g window-status-format <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">set-window-option -g window-status-current-format <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### Configuració del color del Status Bar</span>
+</span></span><span class="line"><span class="cl">set-option -g status-bg colour235 <span class="c1">#base02</span>
+</span></span><span class="line"><span class="cl">set-option -g status-fg yellow <span class="c1">#yellow</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### Es visualitzar la adreça IP</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -g status-left-length <span class="m">178</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Configuració per a la visualització de la adreça IP</span>
+</span></span><span class="line"><span class="cl"><span class="nv">DEFAULT_GW</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>ip route <span class="p">|</span> grep <span class="s1">&#39;default&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $3}&#39;</span><span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -g status-left <span class="s2">&#34;#[fg=green][#P] #[fg=yellow]#(ip address | grep &#39;enp3s0&#39; | grep &#39;inet &#39; | awk &#39;{print \&#34;inet \&#34;</span><span class="nv">$2</span><span class="s2">}&#39;)#[fg=red]#(ip address | grep &#39;wlp8s0&#39; | grep &#39;inet &#39; | awk &#39;{print \&#34;inet \&#34;</span><span class="nv">$2</span><span class="s2">}&#39;) #[fg=white]208.67.222.222 (#(ping -c1 208.67.222.222 | grep time | cut -f4 -d&#39;=&#39;)) #[fg=white]#(ip route | grep &#39;default&#39; | awk &#39;{print \&#34;gateway \&#34;</span><span class="nv">$3</span><span class="s2">}&#39;) (#(ping -c1 </span><span class="nv">$DEFAULT_GW</span><span class="s2"> | grep time | cut -f4 -d&#39;=&#39;))&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -g status-right-length <span class="m">60</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -g status-right <span class="s2">&#34;#[fg=yellow]%d %b %Y #[fg=green]%H:%M&#34;</span></span></span></code></pre></div></div>
+<p>Si os fijais, hay un script (que os pongo a continuación) que lo que hacia es redimensionar el tamaño del panel al de la pantalla, porque no habia forma de que esto se hiciera automaticamente:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">lflag</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="nv">pflag</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="nv">tflag</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="nb">getopts</span> l:p:t: name<span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nv">$name</span> in
+</span></span><span class="line"><span class="cl">    l<span class="o">)</span>    <span class="nv">lflag</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">layout_name</span><span class="o">=</span><span class="nv">$OPTARG</span><span class="p">;;</span>
+</span></span><span class="line"><span class="cl">    p<span class="o">)</span>    <span class="nv">pflag</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">          <span class="nv">percentage</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$OPTARG</span><span class="s2">&#34;</span><span class="p">;;</span>
+</span></span><span class="line"><span class="cl">    t<span class="o">)</span>    <span class="nv">tflag</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">          <span class="nv">target</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$OPTARG</span><span class="s2">&#34;</span><span class="p">;;</span>
+</span></span><span class="line"><span class="cl">    ?<span class="o">)</span>   <span class="nb">printf</span> <span class="s2">&#34;Usage: %s: [-l layout-name] [-p percentage] [-t target-window]\n&#34;</span> <span class="nv">$0</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">exit</span> 2<span class="p">;;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">esac</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -z <span class="s2">&#34;</span><span class="nv">$pflag</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> ! <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$percentage</span><span class="s2">&#34;</span> -eq <span class="s2">&#34;</span><span class="nv">$percentage</span><span class="s2">&#34;</span> <span class="o">]</span> 2&gt; /dev/null<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">printf</span> <span class="s2">&#34;Percentage (-p) must be an integer&#34;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -z <span class="s2">&#34;</span><span class="nv">$lflag</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">[</span> <span class="nv">$layout_name</span> !<span class="o">=</span> <span class="s1">&#39;main-horizontal&#39;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nv">$layout_name</span> !<span class="o">=</span> <span class="s1">&#39;main-vertical&#39;</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">printf</span> <span class="s2">&#34;layout name must be main-horizontal or main-vertical&#34;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$layout_name</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;main-vertical&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">MAIN_PANE_SIZE</span><span class="o">=</span><span class="k">$(</span>expr <span class="k">$(</span>tmux display -p <span class="s1">&#39;#{window_width}&#39;</span><span class="k">)</span> <span class="se">\*</span> <span class="nv">$percentage</span> <span class="se">\/</span> 100<span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">MAIN_SIZE_OPTION</span><span class="o">=</span><span class="s1">&#39;main-pane-width&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$layout_name</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;main-horizontal&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">MAIN_PANE_SIZE</span><span class="o">=</span><span class="k">$(</span>expr <span class="k">$(</span>tmux display -p <span class="s1">&#39;#{window_height}&#39;</span><span class="k">)</span> <span class="se">\*</span> <span class="nv">$percentage</span> <span class="se">\/</span> 100<span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">MAIN_SIZE_OPTION</span><span class="o">=</span><span class="s1">&#39;main-pane-height&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -z <span class="s2">&#34;</span><span class="nv">$target</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    tmux setw -t <span class="nv">$target</span> <span class="nv">$MAIN_SIZE_OPTION</span> <span class="nv">$MAIN_PANE_SIZE</span><span class="p">;</span> tmux <span class="k">select</span>-layout -t <span class="nv">$target</span> <span class="nv">$layout_name</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">    tmux setw <span class="nv">$MAIN_SIZE_OPTION</span> <span class="nv">$MAIN_PANE_SIZE</span><span class="p">;</span> tmux <span class="k">select</span>-layout <span class="nv">$layout_name</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">exit</span> <span class="m">0</span></span></span></code></pre></div></div>
+<p>Con esta configuración estuve un monton de tiempo porque desconocia que más alla de esto habian más cosas.</p>
+<p>Todo esto cambio, cuando descubri a <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Lorenzo</a> donde en uno de sus <a href="https://atareao.es/podcast/kitty-el-mejor-terminal-para-linux" target="_blank" rel="noopener noreffer ">articulos</a> explicaba que habia encontrado una nueva terminal donde todo lo que, en mi caso necesitaba, ya estaba implementado por defecto. Y esta aplicación, no era otra que <a href="https://sw.kovidgoyal.net/kitty" target="_blank" rel="noopener noreffer ">Kitty</a>. Teniendo en cuenta que las opiniones de <strong>Lorenzo</strong> las tengo en muy alta estima, pues decidi probar esta nueva <em>terminal</em>.</p>
+<p>Desde el momento que la instale y la configure, aqui teneis el fichero de configuración de <code>kitty.conf</code>:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># vim:fileencoding=utf-8:ft=conf:foldmethod=marker</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#: Fonts {</span>
+</span></span><span class="line"><span class="cl">  font_family      Fira Code
+</span></span><span class="line"><span class="cl">  bold_font        auto
+</span></span><span class="line"><span class="cl">  italic_font      auto
+</span></span><span class="line"><span class="cl">  bold_italic_font auto
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  font_size 10.0
+</span></span><span class="line"><span class="cl"><span class="c1">#: }</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#: Cursor customization {</span>
+</span></span><span class="line"><span class="cl">  cursor <span class="c1">#f19618</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#: }</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#: Scrollback {</span>
+</span></span><span class="line"><span class="cl">  scrollback_lines <span class="m">2000</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#: }</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#: Mouse {</span>
+</span></span><span class="line"><span class="cl">  detect_urls yes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  copy_on_select yes
+</span></span><span class="line"><span class="cl"><span class="c1">#: }</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#: Terminal bell {</span>
+</span></span><span class="line"><span class="cl">  enable_audio_bell silence
+</span></span><span class="line"><span class="cl"><span class="c1">#: }</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#: Window layout {</span>
+</span></span><span class="line"><span class="cl">  enabled_layouts tall
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  window_border_width 5.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  window_padding_width 3.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  hide_window_decorations no
+</span></span><span class="line"><span class="cl"><span class="c1">#: }</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#: Color scheme {</span>
+</span></span><span class="line"><span class="cl">  foreground <span class="c1">#e5e1cf</span>
+</span></span><span class="line"><span class="cl">  background <span class="c1">#0e1419</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  background_opacity 0.8
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  selection_foreground <span class="c1">#0e1419</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  selection_background <span class="c1">#243340</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  color0 <span class="c1">#000000</span>
+</span></span><span class="line"><span class="cl">  color8 <span class="c1">#323232</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">#: black</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  color1 <span class="c1">#ff3333</span>
+</span></span><span class="line"><span class="cl">  color9 <span class="c1">#ff6565</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">#: red</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  color2  <span class="c1">#b8cc52</span>
+</span></span><span class="line"><span class="cl">  color10 <span class="c1">#e9fe83</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">#: green</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  color3  <span class="c1">#e6c446</span>
+</span></span><span class="line"><span class="cl">  color11 <span class="c1">#fff778</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">#: yellow</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  color4  <span class="c1">#36a3d9</span>
+</span></span><span class="line"><span class="cl">  color12 <span class="c1">#68d4ff</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">#: blue</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  color5  <span class="c1">#f07078</span>
+</span></span><span class="line"><span class="cl">  color13 <span class="c1">#ffa3aa</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">#: magenta</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  color6  <span class="c1">#95e5cb</span>
+</span></span><span class="line"><span class="cl">  color14 <span class="c1">#c7fffc</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">#: cyan</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  color7  <span class="c1">#ffffff</span>
+</span></span><span class="line"><span class="cl">  color15 <span class="c1">#ffffff</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#: }</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#: Advanced {</span>
+</span></span><span class="line"><span class="cl">  allow_remote_control yes
+</span></span><span class="line"><span class="cl"><span class="c1">#: }</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#: Keyboard shortcuts {</span>
+</span></span><span class="line"><span class="cl">  kitty_mod ctrl+shift
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">#: Clipboard {</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  map kitty_mod+c copy_to_clipboard
+</span></span><span class="line"><span class="cl"><span class="c1">#: }</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#: Window management {</span>
+</span></span><span class="line"><span class="cl">  map kitty_mod+enter new_window
+</span></span><span class="line"><span class="cl"><span class="c1">#: }</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#: Font sizes {</span>
+</span></span><span class="line"><span class="cl">  map kitty_mod+plus      change_font_size all +2.0
+</span></span><span class="line"><span class="cl">  map kitty_mod+minus     change_font_size all -2.0
+</span></span><span class="line"><span class="cl">  map kitty_mod+backspace change_font_size all <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#: }</span></span></span></code></pre></div></div>
+<p>Me encanto su funcionamiento y su facilidad de uso, eso si, después de que te hayas acostumbrado a las combinaciones de teclas que se tiene que usar, pero en mi caso, eran pocas, asi que no tuve ningun problema en adaptarme a ellas.</p>
+<p>Pero como dice el refran, <em>todo lo bueno se acaba</em> y eso me paso. Un dia, en una actualización de <em>kitty</em>, todo dejo de funcionar. Dejar de funciona no es la palabra correcta, lo que paso, es que todo se fue a la 💩.</p>
+<p>El problema que tenia, es que mientras lo estaba usando, me aparecian simbolos en la terminal como si se estuviera pulsando teclas aleatoriamente, sin ningun motivo, cuando esto no era asi. Podia dejar de usar el teclado y los caracteres seguian apareciendo en la pantalla.</p>
+<p>Lo primero que hice fue borrar la configuración que tenia hasta el momento, a ver si habia habido algun cambio y por eso tenia este problema, pero todo seguia igual. Tambien borre el paquete y lo volvi a instalar, pero sin ningun cambio.</p>
+<p>Busque información, tanto en la web de <em>kitty</em> como en la web de <em>Debian GNU/Linux</em> para ser si alguien habia reportado este fallo. Pero lo unico que encontre es a 2 personas que si que lo habian reportado, pero en una versión anterior a la que yo estaba usando, el problema se habia solucionado, pero eso habia pasado hace un par de años. Asi que esa no era mi solución. Pues viendo los problemas que tenia, me puse a buscar otra terminal que me diera las misma cosas que habia tenido hasta ahora con <em>kitty</em> pero sin este molesto problema.</p>
+<p>Que hacemos cuando tienes un problema de este tipo, pues preguntas al <strong>profesor Lorenzo</strong>, porque el ya habia hecho una lista de todos los posibles candidatos.</p>
+<p>Me paso esta pagina <a href="https://github.com/cdleon/awesome-terminals" target="_blank" rel="noopener noreffer ">web</a>, que a el le habia ayudado mucho en su elección donde podias ver todas las ventajas e inconvenientes de cada opción. Al final me decidi usar <a href="https://github.com/wez/wezterm" target="_blank" rel="noopener noreffer ">wezterm</a> que ofrecia lo mismo que <em>kitty</em>.</p>
+<p>La unica pega que tiene es que para instalar el paquete en <em>Debian GNU/Linux</em>, tienes que <a href="https://wezfurlong.org/wezterm/install/linux.html#__tabbed_1_3" target="_blank" rel="noopener noreffer ">instarlo</a> por fuera del sistema. Una cosa que no me gusta mucho. Tambien tienes la opción de instalarlo a traves de <em>AppImage</em>, <em>Flatpak</em>, pero para segun que aplicaciones, las prefiero tener instaladas correctamente en el sistema.</p>
+<p>El fichero de configuración que estoy usando actualmente es el siguiente:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-lua">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-lua" data-lang="lua"><span class="line"><span class="cl"><span class="c1">-- Configuración básica para WezTerm</span>
+</span></span><span class="line"><span class="cl"><span class="kd">local</span> <span class="n">wezterm</span> <span class="o">=</span> <span class="n">require</span> <span class="s1">&#39;wezterm&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">local</span> <span class="n">act</span> <span class="o">=</span> <span class="n">wezterm.action</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">-- Actualiza la barra de estado cada 1 segundo</span>
+</span></span><span class="line"><span class="cl">  <span class="n">status_update_interval</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">  <span class="c1">-- Fuente</span>
+</span></span><span class="line"><span class="cl">  <span class="n">font</span> <span class="o">=</span> <span class="n">wezterm.font</span><span class="p">(</span><span class="s2">&#34;Fira Code&#34;</span><span class="p">),</span> <span class="c1">-- Cambia esto a la fuente que prefieras</span>
+</span></span><span class="line"><span class="cl">  <span class="n">font_size</span> <span class="o">=</span> <span class="mf">10.5</span><span class="p">,</span> <span class="c1">-- Tamaño de la fuente</span>
+</span></span><span class="line"><span class="cl">  <span class="n">default_cursor_style</span> <span class="o">=</span> <span class="s2">&#34;BlinkingBar&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">-- Ligaduras tipográficas</span>
+</span></span><span class="line"><span class="cl">  <span class="n">font_rules</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">intensity</span> <span class="o">=</span> <span class="s2">&#34;Bold&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">font</span> <span class="o">=</span> <span class="n">wezterm.font_with_fallback</span><span class="p">({</span><span class="s2">&#34;Fira Code&#34;</span><span class="p">,</span> <span class="s2">&#34;Monospace&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">-- Colores</span>
+</span></span><span class="line"><span class="cl">  <span class="n">color_scheme</span> <span class="o">=</span> <span class="s2">&#34;Dracula&#34;</span><span class="p">,</span> <span class="c1">-- Cambia esto por el esquema que más te guste</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">-- Estilo de la ventana</span>
+</span></span><span class="line"><span class="cl">  <span class="n">window_padding</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">left</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="c1">-- Espaciado desde la izquierda</span>
+</span></span><span class="line"><span class="cl">    <span class="n">right</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="c1">-- Espaciado desde la derecha</span>
+</span></span><span class="line"><span class="cl">    <span class="n">top</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="c1">-- Espaciado superior</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bottom</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="c1">-- Espaciado inferior</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">-- Establecer el esquema de la barra de título</span>
+</span></span><span class="line"><span class="cl">  <span class="n">window_background_opacity</span> <span class="o">=</span> <span class="mf">0.98</span><span class="p">,</span> <span class="c1">-- Opacidad de la ventana</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">-- Activar ligaduras de fuentes</span>
+</span></span><span class="line"><span class="cl">  <span class="n">use_fancy_tab_bar</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">-- Mostrar una barra de pestañas con los nombres de las pestañas</span>
+</span></span><span class="line"><span class="cl">  <span class="n">tab_bar_at_bottom</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">-- Coloca la barra de pestañas en la parte superior (cambiar a `true` si prefieres abajo)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">hide_tab_bar_if_only_one_tab</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">-- Comportamiento de las pestañas</span>
+</span></span><span class="line"><span class="cl">  <span class="n">default_prog</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;/bin/bash&#34;</span><span class="p">},</span> <span class="c1">-- Cambia por tu shell preferido (zsh, fish, etc.)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">inactive_pane_hsb</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">saturation</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">brightness</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="c1">-- Teclas de acceso rápido</span>
+</span></span><span class="line"><span class="cl">  <span class="n">keys</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">-- Dividir el terminal</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="n">key</span><span class="o">=</span><span class="s2">&#34;v&#34;</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="s2">&#34;CTRL|SUPER&#34;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">act</span><span class="p">{</span><span class="n">SplitVertical</span><span class="o">=</span><span class="p">{</span><span class="n">domain</span><span class="o">=</span><span class="s2">&#34;CurrentPaneDomain&#34;</span><span class="p">}}},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="n">key</span><span class="o">=</span><span class="s2">&#34;h&#34;</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="s2">&#34;CTRL|SUPER&#34;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">act</span><span class="p">{</span><span class="n">SplitHorizontal</span><span class="o">=</span><span class="p">{</span><span class="n">domain</span><span class="o">=</span><span class="s2">&#34;CurrentPaneDomain&#34;</span><span class="p">}}},</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">-- Crear una nueva pestaña</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="n">key</span><span class="o">=</span><span class="s2">&#34;t&#34;</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="s2">&#34;CTRL|SHIFT&#34;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">wezterm.action</span><span class="p">{</span><span class="n">SpawnTab</span><span class="o">=</span><span class="s2">&#34;CurrentPaneDomain&#34;</span><span class="p">}},</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">-- Cambiar entre pestañas</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="n">key</span><span class="o">=</span><span class="s2">&#34;LeftArrow&#34;</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="s2">&#34;CTRL|SUPER&#34;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">act</span><span class="p">{</span><span class="n">ActivatePaneDirection</span><span class="o">=</span><span class="s2">&#34;Next&#34;</span><span class="p">}},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="n">key</span><span class="o">=</span><span class="s2">&#34;RightArrow&#34;</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="s2">&#34;CTRL|SUPER&#34;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">act</span><span class="p">{</span><span class="n">ActivatePaneDirection</span><span class="o">=</span><span class="s2">&#34;Prev&#34;</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">-- Habilitar el &#34;scrollback&#34; (historial de la terminal)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">scrollback_lines</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span> <span class="c1">-- Aumenta el número de líneas del historial de la terminal</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">-- Configuración avanzada para la terminal</span>
+</span></span><span class="line"><span class="cl">  <span class="n">window_decorations</span> <span class="o">=</span> <span class="s2">&#34;NONE&#34;</span><span class="p">,</span> <span class="c1">-- Puedes elegir entre &#34;NONE&#34;, &#34;TITLE&#34;, &#34;RESIZE&#34;, etc.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">mouse_bindings</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="n">event</span><span class="o">=</span><span class="p">{</span><span class="n">Up</span><span class="o">=</span><span class="p">{</span><span class="n">streak</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="s2">&#34;Right&#34;</span><span class="p">}},</span> <span class="n">mods</span><span class="o">=</span><span class="s2">&#34;NONE&#34;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">wezterm.action</span><span class="p">{</span><span class="n">PasteFrom</span><span class="o">=</span><span class="s2">&#34;PrimarySelection&#34;</span><span class="p">}},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>Tal como yo lo tengo configurado, me funciona perfectamente para las necesidades que tengo y lo más extraño, es que no tengo los problemas con las pulsaciones fantasma que me ocurria con <em>kitty</em>, porque tambien habia pensado que el portatil se habia roto, pero claro, sino con otra terminal el problema no aparece, pues, el problema esta en <em>kitty</em>.</p>
+<p>Aun asi, intente darle una nueva oportunidad a <em>kitty</em>, para ver si con alguna nueva actualización, se habia solucionado el problema de las pulsaciones, pero el problema seguia persistiendo. Hasta intente usar <em>kitty</em> con el fichero minimo de configuración necesario para su funcionamiento, pero ni aun asi, el error seguia.</p>
+<p>Asi, que no me quedo otra cosa, que volver a <em>wezterm</em> que tan buen sabor de boca me habia dejado y por eso, aun lo sigo usando hasta este momento y que espero que sea para mucho tiempo.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=7gmpjacFoHM" target="_blank" rel="noopener noreffer ">POR QUE LOS SRE USAN MAC ? Mis herramientas de trabajo (Parte 2)</a></li>
+<li><a href="https://github.com/tmux/tmux" target="_blank" rel="noopener noreffer ">Tmux</a></li>
+<li><a href="https://atareao.es/podcast/kitty-el-mejor-terminal-para-linux" target="_blank" rel="noopener noreffer ">253 - Kitty, el mejor terminal para Linux</a></li>
+<li><a href="https://atareao.es/podcast/las-aplicaciones-imprescindibles-en-linux-en-2024" target="_blank" rel="noopener noreffer ">560 - Las aplicaciones imprescindibles en Linux en 2024</a></li>
+<li><a href="https://atareao.es/podcast/batalla-de-terminales-en-linux-wezterm" target="_blank" rel="noopener noreffer ">571 - Batalla de terminales en Linux. Wezterm</a></li>
+<li><a href="https://github.com/cdleon/awesome-terminals" target="_blank" rel="noopener noreffer ">awesome-terminals</a></li>
+<li><a href="https://github.com/wez/wezterm" target="_blank" rel="noopener noreffer ">Wezterm</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 13-01-2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debian-gnulinux/">Debian GNULinux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2025-01-11-propositos-2025/" class="prev" rel="prev" title="Propositos 2025"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Propositos 2025</a>
+            <a href="/2025-03-25-instal-config-matrix/" class="next" rel="next" title="Matrix - 1. Instalación y configuración">Matrix - 1. Instalación y configuración<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

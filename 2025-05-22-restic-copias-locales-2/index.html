@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Restic &#43; Backrest &#43; MiniO - 2 - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2025-05-22-restic-copias-locales-2/" /><link rel="prev" href="http://192.6.0.40:1313/2025-05-22-gotify-matrix/" /><link rel="next" href="http://192.6.0.40:1313/2025-06-09-cambiando-hugo/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Restic + Backrest + MiniO - 2",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2025-05-22-restic-copias-locales-2\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Debian GNULinux, Docker","wordcount":  1256 ,
+        "url": "http:\/\/192.6.0.40:1313\/2025-05-22-restic-copias-locales-2\/","datePublished": "2025-05-27T00:00:00+00:00","dateModified": "2025-05-27T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Restic + Backrest + MiniO - 2</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="27-05-2025">27-05-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1256 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Continuamos con esta segunda parte donde explicaremos como sacar provecho de estas 3 aplicaciones, en este caso, explicare el script que estoy usando para realizar las copia, que es una variación de uno que tiene <strong>Lorenzo</strong> en su <a href="https://github.com/atareao/dotfiles/blob/main/.local/bin/backup.sh.jinja" target="_blank" rel="noopener noreffer ">gitHub</a>, pero que en mi caso, en vez de ser un fichero <strong>jinja</strong>, es un fichero en bash a pelo.</p>
+<div class="details admonition question open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-question-circle fa-fw" aria-hidden="true"></i>Pregunta<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">No entiendo el sentido que tiene de utilizar los ficheros <strong>jinja</strong>. Se que es una plantilla para la creación de un fichero al vuelo, pero como utilizarlos, es lo que se me escapa. Ya le preguntaremos a <strong>Lorenzo</strong> su función o a ver si tiene algun <em>podcast</em> donde lo explique.</div>
+        </div>
+    </div>
+<p>Aqui teneis el <em>script</em> que estoy usando ahora mismo (versionado del original de <strong>atareao</strong>) pero para mis necesidades.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Esta primera parte, es la función del <code>script</code> el cual se encarga de enviar las notificaciones, ahora si, a mi servidor de <strong>Matrix</strong>.</div>
+        </div>
+    </div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Funció per a notificar les accions del script</span>
+</span></span><span class="line"><span class="cl">enviarNotificacions<span class="o">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">local</span> <span class="nv">repository</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">local</span> <span class="nv">action</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$2</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">local</span> <span class="nv">data</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$3</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">local</span> <span class="nv">result</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">local</span> <span class="nv">formatted_message</span><span class="o">=</span><span class="s2">&#34;&lt;strong&gt;📢 Resumen de respaldo:&lt;/strong&gt;&lt;br&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">formatted_message</span><span class="o">+=</span><span class="s2">&#34;&lt;strong&gt;🗂 Repositorio:&lt;/strong&gt; </span><span class="si">${</span><span class="nv">repository</span><span class="si">}</span><span class="s2">&lt;br&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">formatted_message</span><span class="o">+=</span><span class="s2">&#34;&lt;strong&gt;⚡ Acción:&lt;/strong&gt; </span><span class="si">${</span><span class="nv">action</span><span class="si">}</span><span class="s2">&lt;br&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">formatted_message</span><span class="o">+=</span><span class="s2">&#34;&lt;strong&gt;📦 Archivos procesados:&lt;/strong&gt;&lt;br&gt;&lt;pre&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="nb">read</span> -r line<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">        <span class="o">[[</span> -n <span class="s2">&#34;</span><span class="nv">$line</span><span class="s2">&#34;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nv">result</span><span class="o">+=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">line</span><span class="si">}</span><span class="s2">&lt;br /&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">done</span> &lt; &lt;<span class="o">(</span><span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$data</span><span class="s2">&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">formatted_message</span><span class="o">+=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">result</span><span class="si">}</span><span class="s2">&lt;/pre&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Tria el final de cada missatge segons l&#39;acció que s&#39;ha dut a terme</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="s2">&#34;</span><span class="nv">$action</span><span class="s2">&#34;</span> in
+</span></span><span class="line"><span class="cl">        create<span class="o">)</span> <span class="nv">formatted_message</span><span class="o">+=</span><span class="s2">&#34;&lt;strong&gt;💾 End backup at </span><span class="si">${</span><span class="nv">repository</span><span class="si">}</span><span class="s2">&lt;/strong&gt;&#34;</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        check<span class="o">)</span> <span class="nv">formatted_message</span><span class="o">+=</span><span class="s2">&#34;&lt;strong&gt;🔍 End check at </span><span class="si">${</span><span class="nv">repository</span><span class="si">}</span><span class="s2">&lt;/strong&gt;&#34;</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        prune<span class="o">)</span> <span class="nv">formatted_message</span><span class="o">+=</span><span class="s2">&#34;&lt;strong&gt;🗑️ End prune at </span><span class="si">${</span><span class="nv">repository</span><span class="si">}</span><span class="s2">&lt;/strong&gt;&#34;</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        snapshots<span class="o">)</span> <span class="nv">formatted_message</span><span class="o">+=</span><span class="s2">&#34;&lt;strong&gt;📸 End snapshots at </span><span class="si">${</span><span class="nv">repository</span><span class="si">}</span><span class="s2">&lt;/strong&gt;&#34;</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">esac</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Escapar caracters especials adequadament</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">formatted_message</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$formatted_message</span><span class="s2">&#34;</span> <span class="p">|</span> sed -E <span class="s1">&#39;s/&#34;/\\&#34;/g&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Construcció manual del JSON verificant que tot estigui en una sola linia</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">json_payload</span><span class="o">=</span><span class="k">$(</span><span class="nb">printf</span> <span class="s1">&#39;{&#34;msgtype&#34;:&#34;m.text&#34;,&#34;format&#34;:&#34;org.matrix.custom.html&#34;,&#34;formatted_body&#34;:&#34;%s&#34;}&#39;</span> <span class="s2">&#34;</span><span class="nv">$formatted_message</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Enviem la notificació fent servir CURL</span>
+</span></span><span class="line"><span class="cl">    curl -X PUT <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -H <span class="s2">&#34;Authorization: Bearer </span><span class="si">${</span><span class="nv">MATRIX_TOKEN</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -d <span class="s2">&#34;</span><span class="nv">$json_payload</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="s2">&#34;</span><span class="si">${</span><span class="nv">MATRIX_SERVER</span><span class="si">}</span><span class="s2">/_matrix/client/v3/rooms/</span><span class="si">${</span><span class="nv">MATRIX_ROOM</span><span class="si">}</span><span class="s2">/send/m.room.message/</span><span class="k">$(</span>date <span class="s1">&#39;+%s%3N&#39;</span><span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Consejo<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Esta segunda parte del <code>script</code>, es la que si se encarga de llevar a cabo las copias de seguridad en mi equipo local.</div>
+        </div>
+    </div>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1"># -*- coding: utf-8 -*-</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Carrega les variables d&#39;entorn que estan en el fitxer backup.env</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># En cas d&#39;error donar un missatge</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ENV_FILE</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.local/bin/backup.env&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="nv">$ENV_FILE</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span> -a
+</span></span><span class="line"><span class="cl">    <span class="nb">source</span> <span class="s2">&#34;</span><span class="nv">$ENV_FILE</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span> +a
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Error: No se encuentra el archivo </span><span class="nv">$ENV_FILE</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Amb els valors del fitxer backup.env, les pasem a variables per fer-les servir més endavant</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Configuración de Restic</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">RESTIC_PASSWORD</span><span class="o">=</span><span class="si">${</span><span class="nv">RESTIC_PASSWORD</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="si">${</span><span class="nv">SERVER_AWS_ACCESS_KEY_ID</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="si">${</span><span class="nv">SERVER_AWS_SECRET_ACCESS_KEY</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Aqui tenim les ubicacions dels repositoris</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Com veus tinc la del servidor local</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># I més endavant anira la del VPS</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Configuración de repositorios</span>
+</span></span><span class="line"><span class="cl"><span class="nv">REPOS</span><span class="o">=(</span>
+</span></span><span class="line"><span class="cl">     <span class="s2">&#34;s3:</span><span class="si">${</span><span class="nv">SERVER_MINIO_URL</span><span class="si">}</span><span class="s2">/minio_repositori&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Directoris dels que volem copies de seguretat</span>
+</span></span><span class="line"><span class="cl"><span class="nv">DIRECTORIOS</span><span class="o">=(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;/home/user/.config&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;/home/user/.fonts&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;/home/user/.icons&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;/home/user/.local/bin&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;/home/user/.ssh&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;/home/user/.themes&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;/home/user/.signature&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;/home/user/.bashrc&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;/home/user/Mail&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;/home/user/Projects&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;/home/user/Varios/Novela&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Aqui informem de els fitxers amb les extensions excloses</span>
+</span></span><span class="line"><span class="cl"><span class="nv">EXCLUSIONES</span><span class="o">=(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;--exclude=*.tmp&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;--exclude=*.mkv&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;--exclude=*.mp4&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;--exclude=*.mp3&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;--exclude=*.avi&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;--exclude=*.log&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;--exclude=*.AppImage&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Ara si que ve la festa</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Es realitzar les copies de seguretat a cada repositori</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Una vegada finalitzat, s&#39;enviar notificació</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> REPO in <span class="s2">&#34;</span><span class="si">${</span><span class="nv">REPOS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">create_output</span><span class="o">=</span><span class="k">$(</span>restic -r <span class="s2">&#34;</span><span class="nv">$REPO</span><span class="s2">&#34;</span> backup <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                    --tag <span class="si">${</span><span class="nv">TAG_1</span><span class="si">}</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                    --tag <span class="si">${</span><span class="nv">TAG_2</span><span class="si">}</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                    --host <span class="si">${</span><span class="nv">HOST</span><span class="si">}</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                    --verbose <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                    --skip-if-unchanged <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                    <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DIRECTORIOS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                    <span class="s2">&#34;</span><span class="si">${</span><span class="nv">EXCLUSIONES</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">ok</span><span class="o">=</span><span class="nv">$?</span>
+</span></span><span class="line"><span class="cl">    enviarNotificacions <span class="s2">&#34;</span><span class="nv">$REPO</span><span class="s2">&#34;</span> <span class="s2">&#34;create&#34;</span> <span class="s2">&#34;</span><span class="nv">$create_output</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$ok</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Es realitzar una verifició de la copia de seguretat</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># També, una vegada finalitzat el procediment, s&#39;envia una notificació</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> REPO in <span class="s2">&#34;</span><span class="si">${</span><span class="nv">REPOS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">check_output</span><span class="o">=</span><span class="k">$(</span>restic -r <span class="s2">&#34;</span><span class="nv">$REPO</span><span class="s2">&#34;</span> check<span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">ok</span><span class="o">=</span><span class="nv">$?</span>
+</span></span><span class="line"><span class="cl">    enviarNotificacions <span class="s2">&#34;</span><span class="nv">$REPO</span><span class="s2">&#34;</span> <span class="s2">&#34;check&#34;</span> <span class="s2">&#34;</span><span class="nv">$check_output</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$ok</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># S&#39;esborren les copies de seguretat que sobrepassen el limit que em informt</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># En aquest cas es el següent:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  7 diaries</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  4 setmanals</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  6 mensuals</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># També s&#39;envia una notificació a la finalització del procediment</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> REPO in <span class="s2">&#34;</span><span class="si">${</span><span class="nv">REPOS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">prune_output</span><span class="o">=</span><span class="k">$(</span>restic -r <span class="s2">&#34;</span><span class="nv">$REPO</span><span class="s2">&#34;</span> forget <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                    --prune <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                    --keep-daily <span class="m">7</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                    --keep-weekly <span class="m">4</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                    --keep-monthly 6<span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">ok</span><span class="o">=</span><span class="nv">$?</span>
+</span></span><span class="line"><span class="cl">    enviarNotificacions <span class="s2">&#34;</span><span class="nv">$REPO</span><span class="s2">&#34;</span> <span class="s2">&#34;prune&#34;</span> <span class="s2">&#34;</span><span class="nv">$prune_output</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$ok</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># S&#39;obte un llistat de les copies que tenim en cada repositori</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># També s&#39;envia una notificació a la finalització del procediment</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> REPO in <span class="s2">&#34;</span><span class="si">${</span><span class="nv">REPOS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">snapshots_output</span><span class="o">=</span><span class="k">$(</span>restic -r <span class="s2">&#34;</span><span class="nv">$REPO</span><span class="s2">&#34;</span> snapshots -c<span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">ok</span><span class="o">=</span><span class="nv">$?</span>
+</span></span><span class="line"><span class="cl">    enviarNotificacions <span class="s2">&#34;</span><span class="nv">$REPO</span><span class="s2">&#34;</span> <span class="s2">&#34;snapshots&#34;</span> <span class="s2">&#34;</span><span class="nv">$snapshots_output</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$ok</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span></span></span></code></pre></div></div>
+<p>Una de las partes más importantes del proceso para hacer las copias de seguridad ya lo tenemos en marcha, el <code>script</code> que realiza las copias de seguridad y las envia a nuestro servidor (<strong>S3</strong>) de copias de seguridad. Recordad que en nuestro caso, el servidor que tenemos instalado en <strong>MiniO</strong>.</p>
+<p>Con esto ya podrias dar por finalizado el procedimiento de copias de seguridad. Pero recordando un docker, que habia conocido gracias a <strong>Lazaro</strong> que no es otro que <strong>backrest</strong>, era el encargado de realizar las copias de seguridad de mi servidor local y subirlas a <strong>Mega</strong>, pero todo se fue 💩, en el momento que empezaron a fallar los HDD por culpa de la <a href="/2025-04-20-modificaciones-servidor-3" rel="">alimentación</a>, asi que lo deje de lado.</p>
+<p>Para hacer un breve resumen de lo que es <strong>backrest</strong> es un <em>cliente grafico</em> de <strong>restic</strong>, y si eso era asi, podia utilizarlo, como cliente de mis copias de seguridad situadas en el servidor local. Lo unico que tenia que hacer, era informar donde estaban estas copias y que tipo de servicio estaba usando (<strong>S3</strong>).</p>
+<div class="details admonition warning open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i>Advertencia<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Con respecto a <strong>backrest</strong>, os recomiendo que vayais a leer el <a href="https://elblogdelazaro.org/backrest-backups-en-nubes-s3" target="_blank" rel="noopener noreffer ">articulo</a> de <strong>Lazaro</strong> que tiene en su pagina web.</div>
+        </div>
+    </div>
+<p>Asi mismo, si os fijais, en el script, concretamente en la parte que se encarga de hacer las copias de seguridad, tenemos estas 2 variables u opciones <strong>TAG_1</strong> y <strong>TAG_2</strong> que:</p>
+<ul>
+<li><strong>TAG_1</strong> identifica la copia de seguridad</li>
+<li><strong>TAG_2</strong> identifica el creador de la copia de seguridad</li>
+</ul>
+<p>Esto por si solo no hace nada, pero a la hora de ir a <strong>backrest</strong>, en vez de ver que tal copia pertenece a <em><em>unsigned</em></em> que puede hacer un poco de daño a los ojos 😎 lo tenemos identificado por el <strong>TAG_1</strong> y cuando visualizamos la información de las copias vemos el creador de las mismas, que es el <strong>TAG_2</strong>, quedando de la siguiente manera:</p>
+<p><figure><a class="lightgallery" href="/images/backrest_02.jpg" title="/images/backrest_02.jpg" data-thumbnail="/images/backrest_02.jpg" data-sub-html="<h2>BackRest</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/backrest_02.jpg"
+            data-srcset="/images/backrest_02.jpg, /images/backrest_02.jpg 1.5x, /images/backrest_02.jpg 2x"
+            data-sizes="auto"
+            alt="/images/backrest_02.jpg" />
+    </a><figcaption class="image-caption">BackRest</figcaption>
+    </figure></p>
+<p>Una vez que tenia esto, todo lo demás es bien sencillo.</p>
+<p>Ahora si que tengo la unión perfecta de los 3 mundos:</p>
+<ul>
+<li><strong>Restic</strong> se encarga de realizar las copias de seguridad de mi equipo local a mi servidor <strong>S3</strong></li>
+<li><strong>MiniO</strong> es mi servidor de copias de seguridad (<strong>S3</strong>)</li>
+<li><strong>Backrest</strong> mi cliente grafico, para visualizar las copias de seguridad que voy haciendo y asi tenerlas controladas</li>
+</ul>
+<p>Aqui podria añadir un mundo más que seria <strong>Matrix</strong> que es el encargado de notificarme las acciones que se van haciendo mientras se realiza la copia de seguridad.</p>
+<p>Lo unico que hay que tener en cuenta con <strong>Backrest</strong>, es lo siguiente:</p>
+<ul>
+<li>Trabajando de esta manera, cuando nos conectamos a el, no refresca, o yo no he sabido como hacerlo, los snapshost, asi que solamente tenemos que ir a nuestra sección de repositorios y refrescar el indice de estos y ya nos aparecen las copias de seguridad</li>
+<li>En el momento que queramos recuperar algun archivo, no lo hace contra mi equipo local, no te aparece el fichero y tu lo descargas y listo, sino que lo recupera en el servidor local, asi que una vez que se ha recuperado, tienes que ir al directorio donde lo ha dejado y moverlo a tu equipo local. Como alternativa, es recuperar desde tu equipo local el archivo que necesitas y entonces si que funcionara.</li>
+</ul>
+<p>Hasta aqui hemos llegado la segunda parte de este articulo, nos queda la ultima y no por ello la menos importante.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.org/tags/restic" target="_blank" rel="noopener noreffer ">El Blog de Lázaro - Restic</a></li>
+<li><a href="https://atareao.es/podcast/no-pierdas-tus-datos-backups-infalibles" target="_blank" rel="noopener noreffer ">677 - No pierdas tus datos. Backups infalibles</a></li>
+<li><a href="https://atareao.es/podcast/backups-en-android-con-restic" target="_blank" rel="noopener noreffer ">680 - Backups en Android con Restic</a></li>
+<li><a href="https://geekland.eu/copias-de-seguridad-con-restic-de-forma-automatica" target="_blank" rel="noopener noreffer ">Como hacer copias de seguridad cifradas con Restic de forma automática</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 27-05-2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debian-gnulinux/">Debian GNULinux</a>,&nbsp;<a href="/tags/docker/">Docker</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2025-05-22-gotify-matrix/" class="prev" rel="prev" title="Matrix - 4. De vuelta al inicio, de Gotify a Matrix"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Matrix - 4. De vuelta al inicio, de Gotify a Matrix</a>
+            <a href="/2025-06-09-cambiando-hugo/" class="next" rel="next" title="Cambiando a Hugo">Cambiando a Hugo<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Como funciona esta web y su creación - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2023-08-10-como-funciona-esta-web/" /><link rel="prev" href="http://192.6.0.40:1313/2023-08-01-de-nuevo-cambiando-servidor/" /><link rel="next" href="http://192.6.0.40:1313/2023-09-11-substitutos-portatil/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Como funciona esta web y su creación",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2023-08-10-como-funciona-esta-web\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Debian GNULinux, Blog","wordcount":  1213 ,
+        "url": "http:\/\/192.6.0.40:1313\/2023-08-10-como-funciona-esta-web\/","datePublished": "2023-08-02T00:00:00+00:00","dateModified": "2023-08-02T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Como funciona esta web y su creación</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/blog/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Blog</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="02-08-2023">02-08-2023</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1213 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Después de leer el <a href="https://elblogdelazaro.org/posts/2023-05-08-como-publico-este-blog" target="_blank" rel="noopener noreffer ">articulo</a> que habia publicado <strong>Lazaro</strong> en su blog, pense, que porque no hacer lo mismo con el mio.</p>
+<p>Eso si, tengo que indicar antes, que su articulo, es mucho mejor que el mio, porque el funcionamiento de mi pagina web es muy parecido a la suya, pero con alguna diferencias. La primera y más importante, es que yo no uso <strong>Emacs</strong> ni <strong>Org-Mode</strong>.</p>
+<p>Mi web es mucho más simple, pero eso si, intentaremos seguir un poco la guia que puso <strong>Lazaro</strong>, para que sea facil seguir la mia.</p>
+<h3 id="hardware">Hardware</h3>
+<p>Es un poco subjetivo, en mi caso decir <strong>Hardware</strong>, porque en mi caso, todo depende de 2 ordenadores. El primero es mi portatil de uso normal (personal) que es desde donde escribo los articulos gracias a <code>markdown</code> y esto lo hago a traves de <a href="https://www.geany.org" target="_blank" rel="noopener noreffer ">Geany</a>, si ahora es cuando todos me vais a echar en cara que habia dicho en este <a href="2022-12-19-cambiando-de-editor-neovim.md" rel="">articulo</a> que estaba usando <code>nvim</code> y que esta decisión, habia venido después de ver el video de <a href="https://www.youtube.com/watch?v=SoDjVPr5_Go&amp;list=PL3lTiK2rXrUEL52KOZcTBsoLMndfFBV2Q" target="_blank" rel="noopener noreffer ">Atareao</a> donde explicaba que habia echo el cambio de <code>vim</code> a <code>neovim</code> para mejorar su productividad.</p>
+<p>Yo hice lo mismo, pero después de unos meses de usarlo, me he dado cuenta, que en mi caso, para el uso que le doy a <code>neovim</code>, que es solo para los articulos de mi blog, me resultaba todo más lento y esto es porque aun me falta mucho por aprender de <code>vim</code> y de <code>neovim</code> y como no le voy a dar todo el uso que tendria que darle, pues la curva de aprendizaje seria muy lenta y sobretodo, tediosa porque como digo, no voy a sacarle todo el partido, por ese motivo, me he tirado a <code>Geany</code> que es lo más parecido a <code>notepad++</code> que era el que usaba cuando estaba programando y con el que estuve más comodo.</p>
+<p>Pero no nos vayamos por las ramas y volvamos al <strong>hardware</strong>, como he dicho antes, para escribir los articulos uso mi portatil personal y que gracias a las ideas que saque del articulo de Lazaro, lo sincronizo con mi <a href="2023-08-01-de-nuevo-cambiando-servidor.md" rel="">servidor</a> que junto con el container, docker, de Jekyll veo el resultado de como quedara todo.</p>
+<p>Una vez, hechas todas las comprobaciones y validaciones, uso otro script, tambien en bash, que actualiza mi arbol del projecto de <em><strong>GitHub</strong></em> que es donde tengo alojada mi web.</p>
+<p>Como veis, uso 2 ordenadores, seguramente podria usar uso solo, pero de momento, estoy comodo con este funcionamiento.</p>
+<h3 id="scripts">Scripts</h3>
+<p>Como he dicho antes, tengo 2 scripts para la sincronización de los articulos con el servidor y luego otro para sincronizar con el arbol de GitHub.</p>
+<p>El primero de estos scripts, el de sincronizar con el servidor funciona a traves <code>rsync</code> de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>rsync -azvhP --rsh<span class="o">=</span><span class="s1">&#39;ssh -pPORT&#39;</span> --exclude<span class="o">=</span><span class="s1">&#39;draff&#39;</span> DIRECTORI_ORIGEN USUARI@IP_SERVIDOR:/DIRECTORI_DESTI</span></span></code></pre></div></div>
+<p>Usando este script, hay que tener en cuentas unas cosas (como yo lo tengo configurado):</p>
+<ul>
+<li><strong>PORT</strong>: Es el puerto que uses para comunicarte con el servidor, en mi caso, no uso el por defecto de <code>SSH</code></li>
+<li><strong>exclude</strong>: el / los directorios que quieres excluir a la hora de sincronizar los directorios.</li>
+<li><strong>DIRECTORI_ORIGEN</strong>: Es el directorio donde tenemos los ficheros <code>origen</code></li>
+<li><strong>USUARI@IP_SERVIDOR</strong>: El usuario y ip del servidor al que nos tenemos que conectar</li>
+<li><strong>DIRECTORI_DESTI</strong>: Directorio de destino, es el que <code>rsync</code> actualizara los archivos que esten en el directorio de origen.</li>
+</ul>
+<p>El segundo script, tambien en bash, sirve para sincronizar el projecto que tengo en local con el projecto que tengo en GitHub.</p>
+<p>Lo primero que hay que tener en cuenta, es que para usarlo, lo que se tiene que hacer, tal como yo lo tengo, es que el servidor tenga las claves <code>SSH</code> dadas de alta en GitHub para que asi, no tengas que estar insertando todo el rato el usuario y el password.</p>
+<p>Si esto ya lo tienes, ahora solo falta el script:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1"># UpToGit 0.1</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Actualiza facilmente tu repositorio Git</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># (CC) 2011 Alfonso Saavedra &#34;Son Link&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># http://sonlinkblog.blogspot.com</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Bajo licencia GNU/GPL</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Modo de uso: copia o mueve este script a /usr/bin o /usr/local/bin y desde el directorio donde se encuentre la copia de un repo git, ejecútalo de esta manera:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># uptogit &lt;ficheros&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Comprobamos si el directorio en el que estamos es de un repositorio git</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -d <span class="s1">&#39;.git&#39;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">&#39;Esta carpeta no contiene un repositorio Git&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">exit</span> -1
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Ahora comprobamos si se le paso algun parametro</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> <span class="o">==</span> <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;UpToGit: ¡Error! No se le a pasado ningún parámetro&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;uptogit fichero1 fichero2 ... ficheroN&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">exit</span> -1
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Recorremos los parametros para comprobar si son ficheros o directorios</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> file in <span class="nv">$*</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">[</span> ! -e <span class="nv">$file</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">echo</span> <span class="s2">&#34;UpToGit: El archivo o directorio </span><span class="nv">$file</span><span class="s2"> no existe&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">exit</span> -1
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">  <span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Si llegamos hasta aquí, indicamos a Git los archivos a subir</span>
+</span></span><span class="line"><span class="cl">  git add <span class="nv">$*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Esto nos pedira el mensaje del commit</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;Introduce el mensaje del commit:&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">read</span> TXT
+</span></span><span class="line"><span class="cl">  git commit -m <span class="s2">&#34;</span><span class="nv">$TXT</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Y terminamos subiendo los archivos</span>
+</span></span><span class="line"><span class="cl">  git push --force origin master
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">fi</span></span></span></code></pre></div></div>
+<p>Este script, tal como he dicho antes, actualiza nuestro repositorio de GitHub. Para su uso se ejecuta de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~<span class="nv">$sh</span> up2Git.sh arxiu1, arxiu2, etc...</span></span></code></pre></div></div>
+<p>Donde:</p>
+<ul>
+<li><code>arxiu1, arxiu2, etc...</code>: Son los archivos que quieres sincronizar. Si pones el <code>.</code> estas indicando que quieres sincronizar todo el directorio.</li>
+<li><code>Introduce el mensaje del commit</code>: Nos esta pindiendo un mensaje para describir la acción que vamos a llevar a cabo (yo lo entiendo asi).</li>
+</ul>
+<p>Con esto, ya tenemos actualizado nuestro repositorio con GitHub.</p>
+<h3 id="publicación">Publicación</h3>
+<p>Para la publicación, se puede decir, que ya se ha hecho con el segundo de los scripts que antes he puesto.</p>
+<p>Lo unico que falta, es otro script, esta vez hecho en <code>python</code>, de factoria tambien de <a href="https://elblogdelazaro.org/posts/2021-08-16-bot-en-python-para-publicar-un-feed-de-forma-aleatorios-en-twitter-y-mastodom" target="_blank" rel="noopener noreffer ">Lazaro</a> que lo que hace es crear un toot en <strong>Mastodon</strong> con el ultimo articulo publicado en nuestro blog.</p>
+<p>En el articulo, puedes ver como se hace tanto para <code>Twitter</code> como para <code>Mastodon</code>, pero en mi caso yo solo uso <code>Mastodon</code>.</p>
+<p>El script es el siguiente:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env python</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -*- coding: utf-8 -*-</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># script que lee el feed rss de un blog y publica el ultimo articulo creado en Mastodon</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Tienes que tener instaladas las librerias feedparser, Twython, Mastodon</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Autor: Carlos M.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># https://elblogdelazaro.org</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Llama los modulos Python</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">feedparser</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">twython</span> <span class="kn">import</span> <span class="n">Twython</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">mastodon</span> <span class="kn">import</span> <span class="n">Mastodon</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Llamando a las llaves del Diccionario (Twitter)</span>
+</span></span><span class="line"><span class="cl"><span class="n">CONSUMER_KEY</span> <span class="o">=</span> <span class="s2">&#34;xxxxxxxxx&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">CONSUMER_SECRET</span> <span class="o">=</span> <span class="s2">&#34;xxxxxxxxx&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">ACCESS_KEY</span> <span class="o">=</span> <span class="s2">&#34;xxxxxxxxx&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">ACCESS_SECRET</span> <span class="o">=</span><span class="s2">&#34;xxxxxxxxx&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Seleccionamos el Feed</span>
+</span></span><span class="line"><span class="cl"><span class="n">feed</span> <span class="o">=</span> <span class="s1">&#39;ADREÇA DEL FEED&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Parseamos el Feed</span>
+</span></span><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="n">feedparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">feed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Inicializa la API de Twitter, escribe el nuevo estado y salimos d[&#39;entries&#39;][0] es el último articulo publicado</span>
+</span></span><span class="line"><span class="cl"><span class="n">status_text</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;entries&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;entries&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;link&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">articulo</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;Ultimo articulo publicado:&#34;</span> <span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">status_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Publica en mastodon</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Token y url de la Instancia</span>
+</span></span><span class="line"><span class="cl"><span class="n">mastodon</span> <span class="o">=</span> <span class="n">Mastodon</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">access_token</span> <span class="o">=</span> <span class="s1">&#39;TOKEN_MASTODON&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">api_base_url</span> <span class="o">=</span> <span class="s1">&#39;https://URL_TU_MASTODON/&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">mastodon</span><span class="o">.</span><span class="n">status_post</span><span class="p">(</span><span class="n">articulo</span><span class="p">)</span></span></span></code></pre></div></div>
+<p>Con esto, esta explicado todo el funcionamiento desde la creación del articulo hasta la publicitación de dicho articulo en Mastodon. Seguramente, el articulo de <strong>Lazaro</strong> le da mil vueltas al mio, pero&hellip;</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.org/posts/2023-05-08-como-publico-este-blog" target="_blank" rel="noopener noreffer ">Como publico este blog - el blob de lazaro</a></li>
+<li><a href="https://www.geany.org" target="_blank" rel="noopener noreffer ">Geany</a></li>
+<li><a href="https://sonlinkblog.blogspot.com" target="_blank" rel="noopener noreffer ">Actualiza facilmente tu repositorio de GitHub</a></li>
+<li><a href="https://elblogdelazaro.org/posts/2021-08-16-bot-en-python-para-publicar-un-feed-de-forma-aleatorios-en-twitter-y-mastodom" target="_blank" rel="noopener noreffer ">Script para publicar el ultimo articulo en Mastodon</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 02-08-2023</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debian-gnulinux/">Debian GNULinux</a>,&nbsp;<a href="/tags/blog/">Blog</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2023-08-01-de-nuevo-cambiando-servidor/" class="prev" rel="prev" title="De nuevo, cambiando de servidor local"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>De nuevo, cambiando de servidor local</a>
+            <a href="/2023-09-11-substitutos-portatil/" class="next" rel="next" title="Equipo en la recamara">Equipo en la recamara<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

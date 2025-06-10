@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Matrix - 1. Instalación y configuración - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2025-03-25-instal-config-matrix/" /><link rel="prev" href="http://192.6.0.40:1313/2025-01-13-cambiando-a-wezterm/" /><link rel="next" href="http://192.6.0.40:1313/2025-03-27-pushbits/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Matrix - 1. Instalación y configuración",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2025-03-25-instal-config-matrix\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Docker, Matrix","wordcount":  1736 ,
+        "url": "http:\/\/192.6.0.40:1313\/2025-03-25-instal-config-matrix\/","datePublished": "2025-03-25T00:00:00+00:00","dateModified": "2025-03-25T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Matrix - 1. Instalación y configuración</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="25-03-2025">25-03-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1736 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>A partir de unos articulos de <a href="https://atareao.es/?s=matrix" target="_blank" rel="noopener noreffer ">Lorenzo</a> y de <a href="https://ugeek.github.io" target="_blank" rel="noopener noreffer ">uGeek</a> (podeis encontrar más información en la referencia), me pico la sobre como seria tener mi propio servidor de mensajeria y poderlo utilizar para enviar las notificaciones de mis servicios y asi no depender tanto de <em>Telegram</em>.</p>
+<p>De hay viene este nuevo articulo, donde explicare todo el proceso de instalación y uso de mi nuevo servidor <strong>Matrix</strong> en mi VPS y os aviso que no ha sido nada sencillo.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>Pero antes, tengo que tirarle un poco de las orejas a <strong>Lorenzo</strong>, porque la información que tiene puesto en su <strong>pagina web</strong> o en su repositorio de <strong>GitHub</strong> es muy floja con respecto a la instalación y configuración de todo lo que se necesita para su correcto uso, y eso me ha lastrado mucho a la hora de realizar toda la instalación y configuración.</p>
+<p>Porque cuando tienes algo por donde empezar, todo se hace más facil y no como esta vez que ha sido como tirarte a la piscina sin saber nadar y sin flotador. Que si, he aprendido mucho, pero no es lo más recomendable.</p>
+<p>Que conste que no es ninguna recriminación hacia <strong>Lorenzo</strong>, porque seguro que tendra algun motivo para no haberlo subido a su repositorio, pero es que ha sido como un dolor de muelas todo el proceso. 😭</p>
+</div>
+        </div>
+    </div>
+<p>Después del tiron de orejas, viene lo bueno, la explicación de todo lo necesario para tener un servidor de <strong>Matrix</strong> en marcha y a pleno rendimiento, aunque aun le faltan algunas cosas que explicare en proximos articulos.</p>
+<p>Lo primero es decidir que servidor de <em>Matrix</em> utilizar. Como he dicho, <strong>uGeek</strong> y <strong>Lorenzo</strong> 2 muy diferentes entre ellos, te recomiendo que leas los articulos que hablan de ello porque son muy interesantes, y estos servidores son:</p>
+<ul>
+<li><em>uGeek</em>: <a href="https://github.com/matrix-org/synapse" target="_blank" rel="noopener noreffer ">Synapse</a></li>
+<li><em>Lorenzo</em>: <a href="https://conduit.rs" target="_blank" rel="noopener noreffer ">Conduit</a></li>
+</ul>
+<p>En principio, el que recomienda <strong>Matrix</strong> es que se use <em>Synapse</em>, pero es un poco pesado de usar para las cosas, que en mi caso quiero hacer, que son basicamente:</p>
+<ul>
+<li>Un solo usuario 😁</li>
+<li>Solo enviara notificaciones de los servicios que tengo activos tanto en mi servidor domestico como de mi VPS.</li>
+<li>El volumen de notificaciones que tendra que enviar es muy bajo.</li>
+</ul>
+<p>En este caso, para este tipo de uso, segun lo que he podido leer, y <strong>atareao</strong> pone mucho enfasis en este punto, el mejor es <strong>conduit</strong> por los pocos recursos que necesita asi como los que consume.</p>
+<p>Asi que en primera instancia me fui a por la instalación de <strong>Conduit</strong> como servidor de <strong>Matrix</strong> y como he dicho, <strong>Lorenzo</strong> no lo ha puesto nada facil, porque no habia subido a su repositorio, como siempre hace, el <code>docker-compose</code> para la instalación, y ha sido una tarea ardua y nada sencilla.</p>
+<p>Eso si, lo cortes no quita lo valiente, y tengo que decir que <em>Lorenzo</em> si que puso el <code>docker-compose</code> en este <a href="https://atareao.es/podcast/crear-bots-en-matrix" target="_blank" rel="noopener noreffer ">articulo</a>, para instalar el servidor de <em>Matrix</em> y el cliente <em>Cinny</em>, pero no de la manera que nos tiene acostumbrados.
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Consejo<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Opinión Persona: Con respecto a los articulos y más concretamente los videos de <em>Lorenzo</em>, antes si explicaba todo el proceso de instalación, <em>en plan rapido y explicaba un poco por encima lo que hace cada cosa</em>, pero ya era algo por donde empezar, ahora en los nuevos videos esto no lo hace y se hace un poco más dificil ver y entender todo el conjunto. Que si, de esta manera aprendes más, pero el inicio es más cuesta arriba.</div>
+        </div>
+    </div></p>
+<p>Pues como iba diciendo, tenia un <code>docker-compose.yml</code> por el que empezar a trastear y en mi caso quedo de la siguiente manera:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">cinny</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">ajbura/cinny:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">init</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">matrixCinny</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">internal</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="c"># Es el GitHub de Cinny podeu trobar un config.json per començar</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">${HOME}/config/matrix/cinny/config.json:/app/config.json</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.enable=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.services.cinny.loadbalancer.server.port=80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.cinny-secure.entrypoints=websecure</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.cinny-secure.rule=Host(`${CINNY_SERVER}`)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.cinny-secure.tls=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="c"># En aquest cas, vaig trobar a falta informació respecte al que fa exactament aquests 2 middlewares.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="c"># Més o menys ara tinc que clar fan, pero...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.cinny-secure.middlewares=traefik-real-ip@file,http2https@file</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.cinny-secure.tls.certresolver=letsencrypt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">conduit</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">matrixconduit/matrix-conduit:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">matrixConduit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">init</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">${HOME}/config/matrix/db:/var/lib/matrix-conduit/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">${HOME}/config/matrix/conduit.toml:/conduit.toml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">CONDUIT_CONFIG</span><span class="p">:</span><span class="w"> </span><span class="l">/conduit.toml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">RUST_BACKTRACE</span><span class="p">:</span><span class="w"> </span><span class="l">full</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span>- <span class="l">internal</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">traefik.enable=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">traefik.http.services.conduit.loadbalancer.server.port=6167</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">traefik.http.routers.conduit-secure.entrypoints=websecure</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">traefik.http.routers.conduit-secure.rule=Host(`${MATRIX_SERVER}`)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">traefik.http.routers.conduit-secure.tls=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">traefik.http.routers.conduit-secure.tls.certresolver=letsencrypt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">traefik.http.routers.conduit-secure.middlewares=cors-headers@docker</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">traefik.http.middlewares.cors-headers.headers.accessControlAllowOriginList=*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">traefik.http.middlewares.cors-headers.headers.accessControlAllowHeaders=Origin, X-Requested-With, Content-Type, Accept, Authorization</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">traefik.http.middlewares.cors-headers.headers.accessControlAllowMethods=GET, POST, PUT, DELETE, OPTIONS</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">well-known</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">matrixNginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">internal</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">${HOME}/config/matrix/nginx/matrix.conf:/etc/nginx/conf.d/matrix.conf</span><span class="w"> </span><span class="c"># the config to serve the .well-known/matrix files</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">${HOME}/config/matrix/nginx/www:/var/www/</span><span class="w"> </span><span class="c"># location of the client and server .well-known-files</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.enable=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.to-matrix-wellknown.rule=Host(`${MATRIX_SERVER}`) &amp;&amp; PathPrefix(`/.well-known/matrix`)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.to-matrix-wellknown.tls=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.to-matrix-wellknown.tls.certresolver=letsencrypt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.to-matrix-wellknown.middlewares=cors-headers@docker</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.middlewares.cors-headers.headers.accessControlAllowOriginList=*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.middlewares.cors-headers.headers.accessControlAllowHeaders=Origin, X-Requested-With, Content-Type, Accept, Authorization</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.middlewares.cors-headers.headers.accessControlAllowMethods=GET, POST, PUT, DELETE, OPTIONS</span></span></span></code></pre></div></div>
+<p>Esto es el <code>docker-compose.yml</code> como ya he dicho, para <em>Cinny</em>, <em>Conduit</em> y <em>WellKnown</em> (Nginx), este ultimo, por lo que he ido leyendo, entiendo que se usa más para todas las funcionalidades de cuando tu servidor de <em>matrix</em> esta federado con el resto de servidores, pero que en teoria, para un uso normal no haria falta, pero si lo usa <em>Lorenzo</em> seguramente algo se me escapa. <em>Donde manda patron, no manda marinero</em>.</p>
+<p>Asi mismo, a parte del <code>docker-compose.yml</code> tambien se tienen que hacer unas modificaciones en el <strong>proxy</strong> que estes utilizando, que en mi caso es <strong>traefik</strong>. Las modificaciones que se tienen que hacer en el fichero <code>traefik.yml</code> son:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">experimental</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">plugins</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">geoBlock</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">moduleName</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;github.com/PascalMinder/geoblock&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;v0.2.5&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">traefik-real-ip</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">modulename</span><span class="p">:</span><span class="w"> </span><span class="l">github.com/soulbalz/traefik-real-ip</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l">v1.0.3</span></span></span></code></pre></div></div>
+<p>A continuación la modificación que se tiene que hacer en <code>dynamic.yml</code>:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">http</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">middlewares</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">http2https</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">redirectScheme</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">scheme</span><span class="p">:</span><span class="w"> </span><span class="l">https</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">permanent</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">traefik-real-ip</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">plugin</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">traefik-real-ip</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">excludednets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="s2">&#34;1.1.1.1/24&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cors-headers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">headers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">accessControlAllowOriginList</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;*&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">accessControlAllowHeaders</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Origin&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;X-Requested-With&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Content-Type&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Accept&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Authorization&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">accessControlAllowMethods</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;GET&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;POST&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;PUT&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;DELETE&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;OPTIONS&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">routers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">conduit-secure</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">rule</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Host(`${MATRIX_SERVER}`)&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">entryPoints</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="s2">&#34;websecure&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Servico docker del Servidor de Matrix, en mi caso, Conduit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;conduit&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">tls</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">certResolver</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;letsencrypt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">conduit</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">loadBalancer</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">servers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="c"># URL del servicio de Conduit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;http://conduit:6167&#34;</span></span></span></code></pre></div></div>
+<p>Con esto, ya tendria que funcionar sin ningun problema nuestro <em>servidor de Matrix</em>. En principio es asi, pero ahora es cuando te das de bruzes con la realidad.</p>
+<p>Lo primero es ver que si envias un mensaje desde la consola, este llegue correctamente a tu servidor y aqui es cuando empezaron mis problemas y eso que el script es facil. Encontre miles de los scripts. Pero la diferencia que habia entre unos y otros, es que unos hacian uso de <em>POST</em>, que es la versión antigua para enviar los mensajes, y otros usaban el <em>PUT</em> que es la versión más actual y que todos los servidores de <em>matrix</em> acceptan.</p>
+<p>No os podeis imaginar la de problemas que tenia.</p>
+<p>Llegue hasta un punto de eliminar el servidor de <strong>Conduit</strong> y probar con <strong>Synapse</strong> a ver si el problema radicaba es eso. Tambien hice multiples modificaciones a los ficheros de traefik (<code>traefik.yml</code> y <code>dynamic.yml</code>) y no conseguia que nada funcionase. El problema no estaba en el servidor que utilizase, sino más bien, en el <em>script</em>. Aqui fue donde si que pedi ayuda a <em>Lorenzo</em> porque no sabia por donde salir y fue cuando me paso el <em>script</em> que lo soluciono todo y que pongo a continuación:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#! /bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">MATRIX_SERVER</span><span class="o">=</span><span class="s2">&#34;https://matrix.myserver.org&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TOKEN</span><span class="o">=</span><span class="s2">&#34;TOKEN_MATRIX&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ROOM_ID</span><span class="o">=</span><span class="s2">&#34;ROOM_ID:matrix.myserver.org&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">curl -XPUT <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Authorization: Bearer </span><span class="si">${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&#34;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-Type: application/json&#34;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s1">&#39;{&#34;msgtype&#34;:&#34;m.text&#34;,&#34;body&#34;:&#34;hello world&#34;}&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://</span><span class="si">${</span><span class="nv">MATRIX_SERVER</span><span class="si">}</span><span class="s2">/_matrix/client/v3/rooms/</span><span class="si">${</span><span class="nv">ROOM_ID</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">MATRIX_SERVER</span><span class="si">}</span><span class="s2">/send/m.room.message/</span><span class="k">$(</span>date <span class="s1">&#39;+%s%3N&#39;</span><span class="k">)</span><span class="s2">&#34;</span></span></span></code></pre></div></div>
+<p>Con este simple <em>script</em> todo volvio a la vida y yo por fin podia ver la luz al final del camino.</p>
+<p>No pare de enviar mensajes desde la consola al cliente, desde el cliente al movil, desde el movil al cliente y ahora si, todo funcionaba correctamente.</p>
+<p>Lo unico que no me acababa de funcionar bien, era el tema de enviar imagenes, esto viene porque en una de las tareas que quiero usar, es necesario enviar imagenes, y no habia manera de que el cliente del portatil se pudieran ver las imagenes. En cambio en el movil si que las veia.</p>
+<p>Para que veais lo frustante que es, llegue a probar todos los clientes habidos y por haber a traves de web y en todos me pasaba lo mismo. Me pase 3 dias peleando contra esto y en todos me daba de bruces contra la pared. Hasta que se me ocurrio la brillante idea 💡, porque no lo hice antes, de preguntar en el foro de <em>Conduit</em>. Lo que me respondieron era para darme de collejas hasta en el carnet de identidad. La pregunta era muy simple, <em>tienes el navegador en modo incognito</em> 🤯</p>
+<p>No me lo podia creer, no podia ser que por estar con esta configuración no se vieran las imagenes, pues ya os lo podeis imaginar. Si por esta tonteria no se pueden ver las imagenes. Desactive esa opción y las imagenes que enviaba las podia ver si problemas en el cliente de mi portatil 🤬.</p>
+<p>Llevaba 3 dias intentando solucionar este problema y todo era por culpa del navegador <em>Firefox</em> que me estaba apuñalando por la espalda. Que es culpa mia porque podia haberlo preguntado antes, pero quien iba a pensar que por estar en <em>modo incognito</em> se bloquearan las imagenes. Una cosa más que ya tenia solucionada.</p>
+<p>Lo unico que me faltaba era que los servicios pudieran enviar imagenes pero esto, ya os puedo decir que hasta donde yo se, no es posible, porque por lo que he llegado a entender, y eso que he hecho miles de pruebas, y he leido mucho sobre este tema, es que primero se tiene que enviar la imagen al servidor de <em>matrix</em>, para que te de una especie de <em>URL</em>, más concretamente un <strong>MXC</strong> y luego con esta dirección tu ya puedes enviar un mensaje con esa imagen adjunta. Y no todos los servicios con los que se puede usar <em>matrix</em> tienen ese tipo de funcionalidad implementada.</p>
+<p>Aunque <em>matrix</em> mismo podria cambiar esta manera de funcionar y funcionar de la misma manera de <em>Telegram</em>, <em>Discord</em> o <em>Slack</em>.</p>
+<p>Pero bueno, ya podia hacer funcionar correctamente mi servidor de matrix y podia enviar y recibir mensajes entre mis diferentes dispositivos.</p>
+<p>Ahora solamente queda la opción de sacarle jugo al nuevo servico. Pero esto ya lo explicare en otro articulo que este me parece que ya se esta haciendo muy largo. Porque también os tengo que decir que tuve que sudar sangre y lagrimas para conseguir lo que yo queria.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://atareao.es/podcast/crear-bots-en-matrix" target="_blank" rel="noopener noreffer ">535 - Crear bots en Matrix</a></li>
+<li><a href="https://atareao.es/podcast/de-mattermost-a-matrix" target="_blank" rel="noopener noreffer ">522 - De Mattermost a Matrix</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2022-07-11-conduit-el-matrix-escrito-en-rust.html" target="_blank" rel="noopener noreffer ">Conduit. El matrix escrito en rust</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2021-01-28-servidor-de-mensajeria-matrix-synapse-en-raspberry-ubuntu-debian--con-docker.html" target="_blank" rel="noopener noreffer ">Servidor de mensajería Matrix Synapse, en Raspberry, Ubuntu, Debian… con Docker</a></li>
+<li><a href="https://cinny.in" target="_blank" rel="noopener noreffer ">Cinny</a></li>
+<li><a href="https://github.com/matrix-org/synapse" target="_blank" rel="noopener noreffer ">Synapse</a></li>
+<li><a href="https://conduit.rs" target="_blank" rel="noopener noreffer ">Conduit</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 25-03-2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/matrix/">Matrix</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2025-01-13-cambiando-a-wezterm/" class="prev" rel="prev" title="Historia del cambio de terminal"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Historia del cambio de terminal</a>
+            <a href="/2025-03-27-pushbits/" class="next" rel="next" title="Matrix - 2. PushBits, la pasarela que faltaba">Matrix - 2. PushBits, la pasarela que faltaba<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

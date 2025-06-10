@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Usando Traefik - 2 - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2024-05-13-usando-traefik-2/" /><link rel="prev" href="http://192.6.0.40:1313/2024-05-06-usando-traefik-1/" /><link rel="next" href="http://192.6.0.40:1313/2024-05-24-cambios-blog-1/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Usando Traefik - 2",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2024-05-13-usando-traefik-2\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Docker, VPS","wordcount":  933 ,
+        "url": "http:\/\/192.6.0.40:1313\/2024-05-13-usando-traefik-2\/","datePublished": "2024-05-13T00:00:00+00:00","dateModified": "2024-05-13T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Usando Traefik - 2</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="13-05-2024">13-05-2024</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;933 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>De nuevo, con otro articulo de <strong>Traefik</strong>, en este caso, como se instala / activa el plugin <strong>GeoBlock</strong> para asi, tal como indica su nombre, <strong>Traefik</strong> en base al pais de origen de la <strong>IP</strong>, lo bloquea o no.</p>
+<p>En este caso, igual que en el anterior articulo, partimos de la base de que tambien me encontre con problemas a la hora de poder usar este plugin, tanto en su instalación, como en su configuración. Pero como ya tenia la experiencia de instalar y activar toda la sección  de la redirección, esta vez, me resulto un poco más facil, solo un poco, todo porque ya entendia, más o menos como funcionaba <strong>traefik</strong>.</p>
+<p>Hay que tener en cuenta, que la información, o el hilo del que tirar lo encontre gracias a nuestro querido Lorenzo (<a href="https://atareao.es" target="_blank" rel="noopener noreffer ">atareao</a>) y en especial de este <a href="https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik" target="_blank" rel="noopener noreffer ">articulo</a>.</p>
+<p>Para activar este plugin, lo primero es acceder a nuestra web de configuración de <strong>traefik</strong> e iremos a la sección de <strong>plugins</strong> y buscamos el que queremos instalar, que en este caso es <strong>GeoBlock</strong>. Aqui hay que tener una cosa en mente, si buscamos, nos apareceran 2 plugins pero con una pequeña diferencia. La versión de cada uno:</p>
+<ul>
+<li>GeoBlock v0.2.2</li>
+<li>GeoBlock v0.2.8</li>
+</ul>
+<p>En nuestro caso, iremos a por la documentación de la versión <strong>v0.2.8</strong>, pero utilizaremos una version anterior para que nuestro sistema sea más estable (en mi caso, he usado la versión <strong>v0.2.5</strong>). Lo que si que podemos hacer, es cuando veamos que todo funciona correctamente, es pasar a una versión superior (<strong>v0.2.6 - 7</strong>).</p>
+<p>Ahora es cuando viene la parte más importante, como <strong>instalar</strong> este plugin. Para ello, nos tenemos que ir al archivo de configuración de <code>traefik.yml</code>:</p>
+<h4 id="traefikyml">traefik.yml</h4>
+<p>Añadimos las lineas que <strong>instalan</strong> y <strong>activan</strong> este plugin:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">experimental</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">plugins</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">geoBlock</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">moduleName</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;github.com/PascalMinder/geoblock&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;v0.2.5&#34;</span></span></span></code></pre></div></div>
+<p>Con esto indicamos lo siguiente:</p>
+<ul>
+<li>Queremos que use el plugin que se encuentra en <strong>github.com/PascalMinder</strong>
+<ul>
+<li>Esto es asi, porque tambien tenemos la posibilidad de instalar este plugin desde local.</li>
+</ul>
+</li>
+<li>La versión que usaremos, que en este caso es la versión <strong>v0.2.5</strong></li>
+</ul>
+<p>Aqui lo importante es el nombre que le hemos dado en la configuración de <code>GeoBlock</code>, porque más adelante lo usaremos y si no ponemos el mismo, tendremos problemas.</p>
+<p>Una vez, ya tenemos hecho esto, pasamos a la configuración del plugin en si, que se hace desde el archivo <code>dynamic.yml</code>:</p>
+<h4 id="dynamicyml">dynamic.yml</h4>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>Información<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Recordar que ya habiamos añadido la configuración del usuario y password para los servicios que nos interesan, la configuración de <strong>GeoBlock</strong> se añade a continuación:</div>
+        </div>
+    </div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">http</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># EL NOMBRE DE LA SECCIÓN DE CONFIGURACIÓN DE GEOBLOCK</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">myGeoBlock</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">plugin</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># EL MISMO NOMBRE QUE TENEMOS EN EL ARCHIVO TRAEFIK.YML</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">geoBlock</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">silentStartUp</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">allowLocalRequests</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">logLocalRequests</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">logAllowedRequests</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">logApiRequests</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">api</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://get.geojs.io/v1/ip/country/{ip}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">cacheSize</span><span class="p">:</span><span class="w"> </span><span class="m">15</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">forceMonthlyUpdate</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">allowUnknownCountries</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">unknownCountryApiResponse</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;nil&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">countries</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="l">PAISES QUE TIENEN ACCESO A NUESTROS SERVICIOS</span></span></span></code></pre></div></div>
+<p>Esta sección tiene muchas posibilidades para añadir, pero en mi caso, siguiendo las pautas de <strong>Lorenzo</strong> he usado las siguientes:</p>
+<ul>
+<li><strong>Countries</strong>: Los paises que tienen acceso a este proxy.</li>
+<li><strong>API</strong>: Con esta opción, es desde donde a partir de la IP que accede a nuestro proxy, saber de que pais es y bloquear en caso de que no sea de uno de los paises escogidos 😉</li>
+</ul>
+<p>Estan son en grandres rasgos las más importantes, las otras opciones podeis buscar para que sirven.</p>
+<p>Una vez, que ya tenemos <strong>GeoBlock</strong> configurado, en principio, ya esta todo listo para funcionar. Pero os recomiendo que detengais el docker de <strong>traefik</strong> y lo volvais a iniciar para asegurar de que coge la nueva configuración.</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Consejo<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>Antes de nada, voy a hacer un inciso porque, para ver si todo el sistema funciona correctamente, tenemos que acceder a los logs de <strong>traefik</strong> para ver que hace. En este caso, tenemos 2 opciones:</p>
+<ul>
+<li>Acceder directamente al contenedor de traefik y monitorizar los archivos de configuración <code>access.log</code>, <code>traefik.log</code>.</li>
+<li>Usar un pequeño script que, de nuevo tengo que darle las gracias a <strong>Lorenzo</strong> nos permite visualizar los logs mediante una pequeña instrucción y de un contenedor</li>
+</ul></div>
+        </div>
+    </div>
+<p>El script es cuestión se llama <code>dless</code> que es una variante del <code>less</code> original.</p>
+<h4 id="localbindless">./local/bin/dless</h4>
+<p>Que contiene lo siguiente:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">    <span class="nv">command</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">[[</span> -n <span class="s2">&#34;</span><span class="nv">$command</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> <span class="s2">&#34;</span><span class="nv">$command</span><span class="s2">&#34;</span> <span class="o">==</span> *<span class="s2">&#34;:&#34;</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">container</span><span class="o">=</span><span class="si">${</span><span class="nv">command</span><span class="p">%:*</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">filepath</span><span class="o">=</span><span class="si">${</span><span class="nv">command</span><span class="p">##*:</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        docker <span class="nb">exec</span> -it <span class="s2">&#34;</span><span class="nv">$container</span><span class="s2">&#34;</span> tail -f <span class="s2">&#34;</span><span class="nv">$filepath</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span></span></span></code></pre></div></div>
+<p>En mi caso, lo he configurado para que haga un <strong>tail -f</strong> del archivo en cuestión, tu puedes poner la instrucción que más te guste. Yo tengo <strong>tail</strong>, porque asi puedo hacer un seguimiento del archivo en cuestión.</p>
+<p>Para poderlo usar, antes tenemos que modificar nuestro fichero <code>.bashrc</code> para añadir la ubicación del script de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># AFEGIM DLESS</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>~/.local/bin:<span class="nv">$PATH</span></span></span></code></pre></div></div>
+<p>Para usarlo hacemos lo siguiente:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~dless traefik:/var/log/traefik/access.log</span></span></code></pre></div></div>
+<p>Donde:</p>
+<ul>
+<li><strong>traefik</strong>: Es el contenedor al que queremos acceder</li>
+<li><code>/var/log/traefik/access.log</code>: La ruta y el archivo que queremos controlar.</li>
+</ul>
+<p>Yo, en mi caso, hice unas cuantas pruebas para ver si funcionaba correctamente. Como tengo una VPN (plugin) en el navegador, lo que hice fue activarla y indicar que a partir de ese momento, salia desde un pais no permitido para ver que pasaba. Y funcionaba correctamente, porque me denegaba el acceso, después, desconectaba la VPN o indicaba que salia de uno de los <strong>paises permitidos</strong> no tenia ningun problema y podia acceder a los servicios que tengo en este servidor.</p>
+<p>Pues ya tenemos un nivel más de protección para nuestro servidor.</p>
+<p>Ahora solo me falta poder <strong>activar</strong> el plugin de <strong>crowdsec</strong> para traefik, pero eso ya es otro cantar. Es para el niveles avanzados y yo ahora mismo estoy en nivel intermedio, pero buscando la información necesaria para llegar a ese nivel 😉</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik" target="_blank" rel="noopener noreffer ">532 - Exprimiendo tu proxy inverso Traefik</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 13-05-2024</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/vps/">VPS</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2024-05-06-usando-traefik-1/" class="prev" rel="prev" title="Usando Traefik - 1"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Usando Traefik - 1</a>
+            <a href="/2024-05-24-cambios-blog-1/" class="next" rel="next" title="Cambios en el blog - 1">Cambios en el blog - 1<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

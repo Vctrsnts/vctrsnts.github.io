@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Cambiando a UnRAID - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2024-03-07-cambiando-unraid/" /><link rel="prev" href="http://192.6.0.40:1313/2024-02-12-usando-homepage-1/" /><link rel="next" href="http://192.6.0.40:1313/2024-04-10-desastre-siglo/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Cambiando a UnRAID",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2024-03-07-cambiando-unraid\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "unRAID","wordcount":  1251 ,
+        "url": "http:\/\/192.6.0.40:1313\/2024-03-07-cambiando-unraid\/","datePublished": "2024-03-07T00:00:00+00:00","dateModified": "2024-03-07T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Cambiando a UnRAID</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/unraid/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>UnRAID</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="07-03-2024">07-03-2024</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1251 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Este mes de marzo ha traido un cambio inesperado en mi servidor.</p>
+<p>Lo primero de todo, vi una oferta de un Lenovo m910x (el que dispone de una ranura para puerto PCI) en Wallapop que venia completo (tarjeta grafica, SSD, RAM, transformador de 135w), o sea, una perita en dulce. Asi que me lance de cabeza a el. Y junto con los 2 HDD que ya tenia en funcionamiento (18Tb y otro de 12Tb) en mi <a href="/2023-08-01-de-nuevo-cambiando-servidor" rel="">antiguo servidor</a> más otro que estaba en stand-by de 16Tb, y aprovechando el <a href="https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x" target="_blank" rel="noopener noreffer ">mod</a> que se le puede hacer a los Tiny (sobre todo a los m910x), pense en aprovechar los 3 HDD y tener un <strong>peazo</strong> servidor que no se lo saltase un galgo.</p>
+<p>La unica duda que tenia, era como sacarle partido a todo el hard que tengo a mi disposición?</p>
+<p>Pero antes de pensar en sacarle provecho al hard, tenia que hacer una operación quirurgica al nuevo servidor, para aprovechar las ventajas del m910x. Y esta modificación, consiste en:</p>
+<ul>
+<li>Soldar 3 cables a la placa base, para sacar la alimentación para los HDD.
+<ul>
+<li>Los puntos que tienes que soldar, los puedes encontrar en esta <a href="https://media.printables.com/media/prints/571792/images/4573825_5c9533df-9369-43f3-adfb-a8e3ec3e6bcc/thumbs/inside/1280x960/jpeg/noard-pinout-voltages.webp" target="_blank" rel="noopener noreffer ">image</a> del mod donde indica donde se tienen que hacer las soldaduras. El problema es si no tienes mucha experiencia o ninguna, entonces la cosa se complica. Yo he tenido de recordar los 5 años que me pase soldando cuando estaba haciendo el FP. de electronica industrial, asi que&hellip;</li>
+</ul>
+</li>
+<li>Encontrar todo el material necesario para poder conectar los cables SATA a la PCI del Tiny. En la web de <strong>homelabs.club</strong> los encontraras.</li>
+<li>He ampliado la RAM del Tiny a 32Gb</li>
+<li>He cambiado la CPU que venia por defecto, <strong>Intel i5 - 6500T</strong> por una un poco mejor <strong>Intel i5 - 6600T</strong>.
+<ul>
+<li>Tengo en el almacen una <strong>Intel i5 - 7500T</strong>, pero no se si seria mucho hablando en terminos de consumo electrico.</li>
+</ul>
+</li>
+</ul>
+<p>Una vez realizada la parte más dificil, ahora solamente toca decidir que <strong>Sistema Operativo</strong> ponerle. En principio queria volver a poner <strong>Debian GNU/Linux</strong> tal como tenia antes en mi anterior servidor. Pero en el canal de telegram de <strong>HomeLabs.club</strong> todo el mundo comentaba las bondades de <a href="https://unraid.net" target="_blank" rel="noopener noreffer ">UnRAID</a> y me decidi a probarlo a ver que tal era y si era tan bueno como decian.</p>
+<p>Antes de nada, tenia que conseguir una licencia. Lo bueno que tiene <strong>UnRAID</strong>, es que tiene una licencia de prueba de <code>30 dias</code>. El <strong>Sistema Operativo</strong> tiene muy bien. Todo esta bien cuidado y bien ordenado, aunque al principio cuesta encontrar las cosas, pero eso es como todo.</p>
+<p>Pero por mi experiencia, antes de nada y para que no te lleves ningun susto o te encuentres perdido, te recomiendo que le des un vistado a los siguientes videos:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=00zfs3U21GY" target="_blank" rel="noopener noreffer ">Guía de Primeros Pasos en UnRAID (parte1)</a></li>
+<li><a href="https://www.youtube.com/watch?v=Aq6ssRuMQVo" target="_blank" rel="noopener noreffer ">Guía de Primeros Pasos en UnRAID (parte2)</a></li>
+<li><a href="https://www.youtube.com/watch?v=B5jpsmV1Mjg" target="_blank" rel="noopener noreffer ">Guía de Primeros Pasos en UnRAID (parte3)</a></li>
+<li><a href="https://www.youtube.com/watch?v=GRjWusI3fj8" target="_blank" rel="noopener noreffer ">Guía de Primeros Pasos en UnRAID (parte4)</a></li>
+</ul>
+<p>Estos videos van muy bien, porque te pone en situación y te ayudan en la primera instalación y configuración del sistema. Es muy sencillo, pero como siempre pasa, el principio cuesta todo.
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Cuando llegues a la sección de configuración del Array o vayas a instalar los HDD al sistema, y si antes ya has visto los videos, no es todo tan bonito como parece, piensa antes lo que vas a hacer, porque yo me lance al huerto con el <strong>PreClear</strong> de un HDD de 18Tb y tarde <strong>90 horas</strong>, se dice pronto, en tenerlo disponible para añadirlo al sistema. Pero bueno, me sirvio como aprendizaje para saber lo que es aconsejable y lo que no.</div>
+        </div>
+    </div>
+Otra cosa que tambien me aconsejaron, fue que me apuntara al canal de <strong>Discord de UnRAID_ES</strong>, porque ya pedir ayuda, consejo, etc&hellip; siempre estan disponibles. Son mis angeles de la guardia.</p>
+<p>Con todo esto, ya podia a empezar a hacer las pruebas con el sistema, probando configuraciones, plugins, dockers, etc&hellip; Y es hay, cuando en el canal de Discord, salta la noticia de que las licencias que hay en ese momento disponibles en <strong>UnRAID</strong> van a cambiar a subscripciónes anuales. Todo el mundo, en el canal de <strong>Discord</strong> se volvio loco,  y recomendaron, que lo mejor, era comprar ya, una licencia tal como estan ahora (de por vida) para asi, al menos quedar cubierto para lo que pueda suceder en un futuro, y viendo que el sistema me empezaba a interesar y que tenia posibilidades, pues me decidi a comprar una licencia <strong>basica</strong>. Eso si, lo que recomiendan, es que vayas directamente a la licencia <strong>PRO</strong> porque con eso te <code>aseguras</code> de que no tengas problemas en un futuro, a parte de que puedes conectar dispositivos (entendemos como HDD) ilimitados.</p>
+<p>Hay que puntualizar una cosa con referencia a lo de dispositivos <strong>ilimitados</strong> que salio en el mismo podcast donde se hablo de las licencias. El tema es que los famosos ilimitados queda muy bonito, pero que ahora mismo, <strong>UnRAID</strong> solo soporta 24 dispositivos, si son muchos, pero no es ilimitado. En mi caso, yo con 3 HDD, para que os hagais una idea, tengo unos 50Tb disponibles. Más que suficiente para mi servidor.
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Consejo<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>Tambien, hay que tener en cuenta, esto es una opinion mia y personal, es que puedes tener la <em>más mejor</em> de las licencias, que si la empresa que hay detras de UnRAID dice que anula todas las licencias anteriores, no servira de nada decir que tenias una <strong>PRO</strong> y que <strong>era para toda la vida</strong>, a parte de que cuestan una pasta.</p>
+<p>Mucha gente opina, que si la empresa que hay detras de <strong>UnRAID</strong> hiciera eso, la comunidad entera se les echaria encima y abandonarian el barco en masa, con las consecuencias que eso podria tener para la empresa.</p>
+</div>
+        </div>
+    </div></p>
+<p>Después de haber resuelto el tema de la licencia me puse a instalar todo lo que tenia en el anterior servidor, que es lo siguiente:</p>
+<ul>
+<li>Jellyfin</li>
+<li>Flexget</li>
+<li>Transmission</li>
+<li>aMule</li>
+<li>Gotify</li>
+<li>Caddy</li>
+<li>DuckDns</li>
+<li>Jackett</li>
+<li>Scruttiny</li>
+<li>Wireguard
+<ul>
+<li>No hace falta instalar nada, porque ya va instalado en el propio UnRAID</li>
+</ul>
+</li>
+<li>Navidrome</li>
+<li>Glances</li>
+<li>HomePage</li>
+<li>PiHole</li>
+</ul>
+<p>Aun me faltan algunas cosas para estar al 100%, pero hay andamos.</p>
+<p>Si nos ponemos a hablar de las pegas que, en mi caso, le encuentro, serian las siguientes:</p>
+<ul>
+<li>Consume muchos recursos, a mi modo de ver, y si encima vienes de una <strong>Debian GNU/Linux</strong> con 16Gb, pues.
+<ul>
+<li>Esto viene porque segun para que cosas, sobre todo copiar archivos, y eso que no tengo el HDD de paridad (que daria para hablar otro articulo), es un proceso que requiere mucha CPU, y esto lo digo con conocimiento de causa, porque antes tenia los HDD conectados a traves de USB y no notaba tanto consumo de CPU como ahora, que estan conectados a traves de SATA.</li>
+</ul>
+</li>
+<li>Al consumir tantos recursos, hace, en mi caso, que la CPU se caliente más de lo que me gustaria, llega hasta unos agradables 65º. Una temperatura que no es de mi agrado.</li>
+</ul>
+<p>Como veis, son unicamente 2, pero seguramente, si es que me lee alguien, dira que soy un exagerado y que a ellos, eso no les pasa. Pero claro, por lo que he visto en el canal de <strong>Discord</strong> mi servidor parece de pobre, porque segun parece todos en el canal, tienen servidores industriales 😉</p>
+<p>Hasta aqui hemos llegado, ya seguire explicando como va mi experiencia y sensaciones con UnRAID.
+<div class="details admonition question open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-question-circle fa-fw" aria-hidden="true"></i>Pregunta<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Si llegase el momento de que <strong>UnRAID</strong> cambiase su politica de licencias, que opción escogerias tu.</div>
+        </div>
+    </div></p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x" target="_blank" rel="noopener noreffer ">Cambios y modificaciones compatibles con los tiny’s M910Q/M710Q/M910X</a></li>
+<li><a href="https://unraid.net" target="_blank" rel="noopener noreffer ">UnRAID</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLVJ0-m0_zw1iM5w6oDHrEwMW87JnC_2pR" target="_blank" rel="noopener noreffer ">Tutoriales UnRAID_ES</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 07-03-2024</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/unraid/">UnRAID</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2024-02-12-usando-homepage-1/" class="prev" rel="prev" title="Usando HomePage. El Dashboard"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Usando HomePage. El Dashboard</a>
+            <a href="/2024-04-10-desastre-siglo/" class="next" rel="next" title="El desastre del siglo">El desastre del siglo<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

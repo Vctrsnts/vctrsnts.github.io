@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Usando Nginx-Proxy-Manager en la Raspberry - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2021-05-07-rpi-nginx-proxy-manager/" /><link rel="prev" href="http://192.6.0.40:1313/2021-04-08-rpi-caddy-proxy-manager/" /><link rel="next" href="http://192.6.0.40:1313/2021-04-01-rpi-spotify/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Usando Nginx-Proxy-Manager en la Raspberry",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2021-05-07-rpi-nginx-proxy-manager\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Docker, Raspberry Pi","wordcount":  553 ,
+        "url": "http:\/\/192.6.0.40:1313\/2021-05-07-rpi-nginx-proxy-manager\/","datePublished": "2021-05-07T00:00:00+00:00","dateModified": "2021-05-07T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Usando Nginx-Proxy-Manager en la Raspberry</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="07-05-2021">07-05-2021</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;553 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Aqui tenemos otra entrada más que hace referencia a mi RPI y a ese inmenso oceano que se ha abierto al descubrir Docker.</p>
+<p>Una vez que tienes tu propio <strong>Spotify</strong>, el siguiente paso que quieres hacer, es acceder a el desde exterior y para hacer esto tienes 2 maneras de hacerlo:</p>
+<ul>
+<li>Abrir directamente el puerto de tu <em>Spotify</em> con el riesgo que conlleva.</li>
+<li>Utilizar un <em>Proxy</em> para que a traves de <em>https</em>, junto a un certificado SSL para darle más seguridad, acceder a este servicio sintiendote un poco más seguro.</li>
+</ul>
+<p>Entonces, para hacer esto (segunda opción), no vayamos a ponerle las cosas faciles a los <strong>crackers</strong>, tenemos varias opciones (voy a poner las que he usado) y todas disponibles con Docker:</p>
+<ul>
+<li><strong>Traefik</strong>: Muy buena opción, pero de dificil configuración, a mi modo de ver.</li>
+<li><strong>Nginx-Proxy-Manager</strong>: El más vistoso (incluye GUI) desde la que puedes hacerlo todo.</li>
+<li><strong>Caddy</strong>: El más facil de usar.</li>
+</ul>
+<p>Al principio use <strong>Traefik</strong>, es muy poderoso y tiene muchas opciones de configuración, pero por ese mismo motivo, porque tiene muchas opciones, lo hace más dificil de usar.</p>
+<p>Después me decante por <a href="/2021-04-08-rpi-caddy-proxy-manager" rel="">Caddy</a> porque todo lo tenia al alcance de la mano, con un simple fichero de texto y era una maravilla su simpleza, pero todo cambio, cuando sacaron una nueva versión de Caddy que me arruino el chiringuito o fue <strong>duckdns</strong> no lo tengo aun del todo claro (tendre que seguir haciendo pruebas).</p>
+<p>A lo que me vengo a referir es que en caddy (versiones antiguas) tenia una <code>url</code> parecida a esta <code>https://music.midominio.duckdns.org</code> pero algo cambio en caddy o en duckdns que que ya no acceptaba este tipo de url, y tuve que cambiar a una de este estilo <code>http://music-midominio.duckdns.org</code> a parte que tampoco me creaba los certificados (por eso digo, que no se si era culpa de Caddy o de duckdns).</p>
+<p>Pero no podia estar si acceso a mi <strong>Spotify</strong> privado y después de investigar (aunque ya habia hecho un par de pruebas para ver como funcionaba) me decante por <strong>Nginx-Proxy-Manager</strong>, no iba a volver a <strong>traefik</strong> si me fui de el por su complejidad, asi que <strong>npm</strong> fue mi salvación, por la ayuda que te da a la hora de toda la configuración con sus diferentes pantallas que tienes a tu disposición (tanto para crear los dominios, como para crear los certificados).</p>
+<p>Para usarlo en Docker utilice la siguiente configuración:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm:
+</span></span><span class="line"><span class="cl"> image: jc21/nginx-proxy-manager:latest
+</span></span><span class="line"><span class="cl"> container_name: npm
+</span></span><span class="line"><span class="cl"> restart: unless-stopped
+</span></span><span class="line"><span class="cl"> ports:
+</span></span><span class="line"><span class="cl">   - <span class="s1">&#39;80:80&#39;</span>
+</span></span><span class="line"><span class="cl">   - <span class="s1">&#39;81:81&#39;</span>
+</span></span><span class="line"><span class="cl">   - <span class="s1">&#39;443:443&#39;</span>
+</span></span><span class="line"><span class="cl"> volumes:
+</span></span><span class="line"><span class="cl">   - <span class="si">${</span><span class="nv">STORAGE</span><span class="si">}</span>/config/npm/data:/data
+</span></span><span class="line"><span class="cl">   - <span class="si">${</span><span class="nv">STORAGE</span><span class="si">}</span>/config/npm/letsencrypt:/etc/letsencrypt</span></span></code></pre></div></div>
+<p>Hay que tener en cuenta una cosa, en algunos sitios, te indican que tienes que tener, a parte de <strong>npm</strong>, tienes que tener un <em>gestor de BBDD</em>, pero yo he podido comprobar, y es como lo tengo actualmente, que no hace falta tener ningun gestor de BBDD (a lo mejor las nuevas versiones de npm ya lo tengan incorporado).</p>
+<p>Una vez, instalado, accedemos a traves (en mi caso) del puerto 81 y con las siguintes credenciales:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Username: admin@example.com
+</span></span><span class="line"><span class="cl">Password: changeme</span></span></code></pre></div></div>
+<p>Cuando accedemos al sistema, lo primero que hacemos es cambiar el usuario y el password de acceso y ya lo tenemos preparado para poderlo usar.</p>
+<p>Con los videos que hay en la <strong>Referencia</strong> podras configurarlo sin ningun problema.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=0n9DLj2ndo4" target="_blank" rel="noopener noreffer ">Certificados AUTOMÁTICOS y GRATIS para CUALQUIER SERVIDOR - Nginx Proxy Manager</a></li>
+<li><del><a href="https://www.youtube.com/watch?v=J7gpQYJ8bjU" target="_blank" rel="noopener noreffer ">Instalar NGINX PROXY MANAGER en una RASPBERRY Pi 4</a></del></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 07-05-2021</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/raspberry-pi/">Raspberry Pi</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021-04-08-rpi-caddy-proxy-manager/" class="prev" rel="prev" title="Cambiando Traefik por Caddy"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Cambiando Traefik por Caddy</a>
+            <a href="/2021-04-01-rpi-spotify/" class="next" rel="next" title="Creando tu propio Servidor de Musica privada">Creando tu propio Servidor de Musica privada<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

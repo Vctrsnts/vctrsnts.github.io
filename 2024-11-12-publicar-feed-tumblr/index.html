@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Publicar feed en Tumblr - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2024-11-12-publicar-feed-tumblr/" /><link rel="prev" href="http://192.6.0.40:1313/2024-10-28-script-actualizar-docker/" /><link rel="next" href="http://192.6.0.40:1313/2024-12-10-publicar-redes-sociales/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Publicar feed en Tumblr",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2024-11-12-publicar-feed-tumblr\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Debian GNULinux, Python","wordcount":  847 ,
+        "url": "http:\/\/192.6.0.40:1313\/2024-11-12-publicar-feed-tumblr\/","datePublished": "2024-11-12T00:00:00+00:00","dateModified": "2024-11-12T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Publicar feed en Tumblr</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="12-11-2024">12-11-2024</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;847 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Este articulo, podria decirse que es una continuación de este <a href="/2022-11-14-publicar-feed-mastodon" rel="">articulo</a> pero en este caso, es para <a href="https://www.tumblr.com" target="_blank" rel="noopener noreffer ">Tumblr</a>.</p>
+<p>La idea es la misma, pero para otra red social. Eso si, más pequeña y desconocida o al menos para mi. Nunca habia oido de ella, pero nunca se sabe y asi ya estoy en ella, aunque sea solamente para publicar los articulos que voy añadiendo a mi web / blog.</p>
+<p>Partimos de la base que antes de empezar tenemos que tener instalado:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~$ pip install --user pytumblr</span></span></code></pre></div></div>
+<p>Tambien tenemos que tener <code>feedparser</code> que se usa para el tratamiento de los <em>XML</em> que si tienes este mismo <strong>script</strong> pero para <em>Mastodon</em>, seguramente ya lo tienes. Sino te tocara instalarlo.</p>
+<p>El siguiente paso, es dar de alta <em>tu aplicación</em> en el <em>API</em> de <em>Tumblr</em>. Esto es un poco confuso, porque es dificil de encontrar, pero son los siguientes:</p>
+<ul>
+<li><a href="https://www.tumblr.com/oauth/register" target="_blank" rel="noopener noreffer ">Darse de alta</a></li>
+<li><a href="https://api.tumblr.com/console/calls/user/info" target="_blank" rel="noopener noreffer ">Autentificar la aplicació</a></li>
+</ul>
+<p>Tener en cuenta una cosa, primero os aconsejo que os creeis la cuenta en <em>Tumblr</em> y que luego accedais a estos links, sino os pedira usuario y password.</p>
+<p>En el momento de dar de alta la aplicación se obtiene:</p>
+<ul>
+<li><em>Consumer_key</em></li>
+<li><em>Consumer_secret</em></li>
+</ul>
+<p>Luego, cuando se autentifica la aplicación se obtiene:</p>
+<ul>
+<li><em>Oauth_token</em></li>
+<li><em>Oauth_token_secret</em></li>
+</ul>
+<p>Para poder publicar en esta red. Después solamente tienes que tener el <em>script</em> en <code>Python</code> para publicar.</p>
+<p>En este caso, pondre el que yo estoy utilizando ahora mismo, aunque estoy estudiando hacerle unos cambios para añadir más información. Pero con esto ya teneis un principio.</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">  <span class="c1">#!/usr/bin/env python</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># -*- coding: utf-8 -*-</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># script que lee el feed rss de un blog y publica un articulo de forma aleatoria en twitter y mastodon</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Tienes que tener instaladas las librerias feedparser, Twython, Mastodon</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Autor: Victor Santos y un poco de ChatGPT</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># https://vctrsnts.github.io</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Llama a los modulos Python</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">import</span> <span class="nn">feedparser</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">import</span> <span class="nn">pytumblr</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">import</span> <span class="nn">random</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="nn">ET</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">consumer_key</span> <span class="o">=</span> <span class="s1">&#39;xxxxxxxxxxxxxxx&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">consumer_secret</span> <span class="o">=</span> <span class="s1">&#39;xxxxxxxxxxxxxxx&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">oauth_token</span> <span class="o">=</span> <span class="s1">&#39;xxxxxxxxxxxxxxx&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">oauth_secret</span> <span class="o">=</span> <span class="s1">&#39;xxxxxxxxxxxxxxx&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Authenticate and create a client</span>
+</span></span><span class="line"><span class="cl">  <span class="n">client</span> <span class="o">=</span> <span class="n">pytumblr</span><span class="o">.</span><span class="n">TumblrRestClient</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="n">consumer_key</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">consumer_secret</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">oauth_token</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">oauth_secret</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Per extreure les categories del Feed</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">extract_categories_from_specific_entry</span><span class="p">(</span><span class="n">feed_url</span><span class="p">,</span> <span class="n">entry_index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># Parse the feed using feedparser</span>
+</span></span><span class="line"><span class="cl">      <span class="n">feed</span> <span class="o">=</span> <span class="n">feedparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">feed_url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="c1"># If feed.entries is empty, we attempt to return categories from the first entry (index 0)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="ow">not</span> <span class="n">feed</span><span class="o">.</span><span class="n">entries</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="n">get_categories_from_entry</span><span class="p">(</span><span class="n">feed</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Return categories from index 0, if possible</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="c1"># If the feed has entries, extract from the specified index</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">feed</span><span class="o">.</span><span class="n">entries</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">entry_index</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">          <span class="n">entry</span> <span class="o">=</span> <span class="n">feed</span><span class="o">.</span><span class="n">entries</span><span class="p">[</span><span class="n">entry_index</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">          <span class="c1"># Extract categories (tags) from the entry and add &#39;&#34;&#39; around each category</span>
+</span></span><span class="line"><span class="cl">          <span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="n">category</span><span class="o">.</span><span class="n">term</span> <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="p">[])]</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="s2">&#34;,&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Error: Feed has less than </span><span class="si">{</span><span class="n">entry_index</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> entries, returning categories from index 0.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="n">get_categories_from_entry</span><span class="p">(</span><span class="n">feed</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Return categories from index 0</span>
+</span></span><span class="line"><span class="cl">          
+</span></span><span class="line"><span class="cl">  <span class="c1"># Helper function to get categories from the first entry (index 0)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">get_categories_from_entry</span><span class="p">(</span><span class="n">feed</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">feed</span><span class="o">.</span><span class="n">entries</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">index</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">          <span class="n">entry</span> <span class="o">=</span> <span class="n">feed</span><span class="o">.</span><span class="n">entries</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">          <span class="c1"># Extract categories (tags) from the entry and add &#39;&#34;&#39; around each category</span>
+</span></span><span class="line"><span class="cl">          <span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="n">category</span><span class="o">.</span><span class="n">term</span> <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="p">[])]</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="s2">&#34;,&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="s2">&#34;&#34;</span>  <span class="c1"># Return empty string if no tags found</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Seleccionamos el Feed</span>
+</span></span><span class="line"><span class="cl">  <span class="n">feed</span> <span class="o">=</span> <span class="s1">&#39;tu dirección web hacia el feed.xml&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Parseamos el Feed</span>
+</span></span><span class="line"><span class="cl">  <span class="n">d</span> <span class="o">=</span> <span class="n">feedparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">feed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Extrae la longitud del Feed y aleatoreamente selecciona un articulo</span>
+</span></span><span class="line"><span class="cl">  <span class="n">feedlen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;entries&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">  <span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">feedlen</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Inicializa la API de Twitter, escribe el nuevo estado y salimos d[&#39;entries&#39;][0] es el último  articulo publicado</span>
+</span></span><span class="line"><span class="cl">  <span class="n">link</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;entries&#39;</span><span class="p">][</span><span class="n">num</span><span class="p">][</span><span class="s1">&#39;link&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="n">title</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;entries&#39;</span><span class="p">][</span><span class="n">num</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="n">status_text</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;entries&#39;</span><span class="p">][</span><span class="n">num</span><span class="p">][</span><span class="s1">&#39;summary_detail&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="n">description</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;&lt;strong&gt;Recordando articulos publicados:&lt;/strong&gt;&#34;</span> <span class="o">+</span> <span class="s2">&#34;&lt;br&gt;&#34;</span> <span class="o">+</span> <span class="n">status_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">tags</span> <span class="o">=</span> <span class="n">extract_categories_from_specific_entry</span><span class="p">(</span><span class="n">feed</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Replace &#39;your-blog-name&#39; with your actual Tumblr blog name</span>
+</span></span><span class="line"><span class="cl">  <span class="n">blogName</span> <span class="o">=</span> <span class="s2">&#34;tuNombreDeBlog&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Create the post</span>
+</span></span><span class="line"><span class="cl">  <span class="n">client</span><span class="o">.</span><span class="n">create_link</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">blogName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">url</span><span class="o">=</span><span class="n">link</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="n">tag</span> <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">tags</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;,&#34;</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span></span></span></code></pre></div></div>
+<p>En este <em>script</em> hay que tener en cuenta unas cosas:</p>
+<ul>
+<li><em>blogName</em>: Cuando te distes de alta en este red social, el nombre de usuario, es el nombre de tu blog y es el que tienes que poner aqui.</li>
+<li><em>feed</em>: Es el fichero <em>xml</em> que quieres usar</li>
+<li><em>consumer_key</em>: La primera clave que necesitas</li>
+<li><em>consumer_secret</em>: La segunda clave que necesitas</li>
+<li><em>oauth_token</em>: La tercera clave que necesitas</li>
+<li><em>oauth_token_secret</em>: La ultima de las 4 claves que necesitas</li>
+</ul>
+<p>Una vez, tengas el fichero creado, si quieres hacer pruebas, tienes que hacerlo de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">   usuari@debian:~$ python3 nombreDelArchivo.py</span></span></code></pre></div></div>
+<p>Entonces, si no has tenido ningun problema, a tu cuenta de <em>Tumblr</em> te llegara un articulo aleatorio de tu web.</p>
+<p>Como he dicho, aun lo tengo que mejorar, porque quiero añadir la imagen de la web, etc&hellip; Pero esto esta en estudio.</p>
+<p>Después de hacer las pruebas que creas oportunas, solo te quedara configurar el cron, para que se ejecute cuando tu quieras.</p>
+<p>Tambien, tengo otro <em>script</em> que publica el ultimo articulo publicado. Se puede utilizar este mismo script, pero tienes que hacer algunas modificaciones:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Aixo ja no fa falta</span>
+</span></span><span class="line"><span class="cl">import random
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Aixo tampoc fa falta</span>
+</span></span><span class="line"><span class="cl"><span class="nv">feedlen</span> <span class="o">=</span> len<span class="o">(</span>d<span class="o">[</span><span class="s1">&#39;entries&#39;</span><span class="o">])</span>
+</span></span><span class="line"><span class="cl"><span class="nv">num</span> <span class="o">=</span> random.randint<span class="o">(</span>0, feedlen<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#Aqui en comptes de &#39;num&#39; ha de ser &#39;0&#39; quedan aixi</span>
+</span></span><span class="line"><span class="cl"><span class="nv">status_text</span> <span class="o">=</span> d<span class="o">[</span><span class="s1">&#39;entries&#39;</span><span class="o">][</span>0<span class="o">][</span><span class="s1">&#39;title&#39;</span><span class="o">]</span> + <span class="s1">&#39;&lt;br&gt;&#39;</span> + d<span class="o">[</span><span class="s1">&#39;entries&#39;</span><span class="o">][</span>0<span class="o">][</span><span class="s1">&#39;link&#39;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">articulo</span> <span class="o">=</span> <span class="o">(</span><span class="s2">&#34;&lt;trong&gt;Ultimo artículo publicado:&lt;/strong&gt;&#34;</span> + <span class="s1">&#39;&lt;br&gt;&#39;</span> + status_text<span class="o">)</span></span></span></code></pre></div></div>
+<p>El resto de codigo para publicar es el mismo.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://github.com/tumblr/pytumblr" target="_blank" rel="noopener noreffer ">tumblr/pytumblr</a></li>
+<li><a href="https://pypi.org/project/PyTumblr2" target="_blank" rel="noopener noreffer ">PyTumblr2 0.2.4</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 12-11-2024</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debian-gnulinux/">Debian GNULinux</a>,&nbsp;<a href="/tags/python/">Python</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2024-10-28-script-actualizar-docker/" class="prev" rel="prev" title="Servicio para actualizar imagenes docker"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Servicio para actualizar imagenes docker</a>
+            <a href="/2024-12-10-publicar-redes-sociales/" class="next" rel="next" title="Publicando nuevos articulos en RRSS">Publicando nuevos articulos en RRSS<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

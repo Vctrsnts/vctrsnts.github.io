@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4 - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2022-01-07-debian-raspberrypi/" /><link rel="prev" href="http://192.6.0.40:1313/2021-06-09-crear-fichero-log-bash/" /><link rel="next" href="http://192.6.0.40:1313/2022-01-15-configurar-fichero-bashrc/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2022-01-07-debian-raspberrypi\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Debian GNULinux, Raspberry Pi","wordcount":  689 ,
+        "url": "http:\/\/192.6.0.40:1313\/2022-01-07-debian-raspberrypi\/","datePublished": "2022-01-07T00:00:00+00:00","dateModified": "2022-01-07T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/raspberry-pi/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Raspberry Pi</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="07-01-2022">07-01-2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;689 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Cuando tienes una Raspberry Pi y ves que el <strong>SO</strong> recomendado es Raspberry Pi OS (antigua Raspbian), siempre me queda la cosa de no poder instalar <strong>Debian GNU/Linux</strong> ARM64. Pero desde que actualizaron la versión del firmware y <strong>Debian GNU/Linux</strong> empezo a tener versiones más estables, eso ya ha pasado a posible.</p>
+<p>Asi que ahora voy a explicar los pasos que he hecho, en mi caso, para poder realizar y usar <strong>Debian GNU/Linux</strong> ARM64 en una Raspberry Pi 4 (4Gb).</p>
+<p>Antes de empezar, lo que necesitas es lo siguiente:</p>
+<ul>
+<li>Imagen ISO de <a href="https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/" target="_blank" rel="noopener noreffer ">Debian GNU/Linux 11 ARM64</a></li>
+<li>La ultima versión del <a href="https://github.com/pftf/RPi4/releases" target="_blank" rel="noopener noreffer ">firmware UEFI para la Raspberry Pi 4</a></li>
+<li>Que la <strong>EEPROM</strong> de nuestra Raspberry Pi este a la ultima versión. Esto ultimo, se puede saber si al iniciar la Raspberry Pi, nos aparece un codigo <strong>QR</strong> a la derecha de la pantalla.</li>
+</ul>
+<p><figure><a class="lightgallery" href="/images/last_eeprom.png" title="/images/last_eeprom.png" data-thumbnail="/images/last_eeprom.png" data-sub-html="<h2>Last EEPROM</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/last_eeprom.png"
+            data-srcset="/images/last_eeprom.png, /images/last_eeprom.png 1.5x, /images/last_eeprom.png 2x"
+            data-sizes="auto"
+            alt="/images/last_eeprom.png" />
+    </a><figcaption class="image-caption">Last EEPROM</figcaption>
+    </figure></p>
+<p>En el caso, del <strong>firmware UEFI</strong>, (100% libre) nos obliga a usar <strong>GPT</strong> en vez de <strong>MBR</strong> y tambien tenemos que usar <strong>ESP</strong> (EFI System Partition) en lugar de la <strong>msftdata</strong>.</p>
+<p>Después de tener claro estos matices, vamos a realitzar el particionado de nuestro HDD, en mi caso, lo he realizado con GPARTED, donde todo lo que tenemos que hacer es más facil.</p>
+<p>Los pasos a realizar son los siguientes:</p>
+<ul>
+<li>Asegurarnos que nuestra tabla de partición del HDD esta en GPT (con GPARTED, es facil realizar el cambio).</li>
+<li>Creamos una partición de como minimo 648Mb y la formateamos en FAT32 (más adelante, explico como reducir esta partición al minimo necesario).</li>
+<li>En mi caso, cree otra partición del 20Gb que es donde instalare el sistema base de <strong>Debian GNU/Linux</strong></li>
+<li>Tambien, cree otra partición, en este caso, de 1Gb para la memoria SWAP.</li>
+</ul>
+<p>Una vez, tenemos esto echo, más tarde volveremos para acabar, descomprimimos el <strong>firmware UEFI</strong> en la primera partición que hemos creado, la cual, sin tocar nada y sin crear ningun directorio.</p>
+<p>Después de descomprimir el firmware, vamos a <strong>descomprimir</strong> la imagen ISO de <strong>Debian GNU/Linux</strong> en esta misma partición (por eso, hago una partición de 648Mb), para realizar podemos hacerlo de la siguiente manera:</p>
+<p>Creamos un directorio donde montaremos nuestra imagen:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@raspberry:~$ sudo mount -o loop /home/tuUsuario/imagen_debian.iso /directorio/destino</span></span></code></pre></div></div>
+<p>Una vez montado la imagen, tenemos que copiar todo el contenido de este directorio a la primera partición, incluido el directorio <strong>.disk</strong>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@raspberry:~$ sudo cp -r /directorio/destino /directorio/primera_particion</span></span></code></pre></div></div>
+<p>Una vez, hemos realizado esto, es lo que hice yo, porque sino, SO live (xubuntu) no me detectaba la primera partición, volvemos a nuestro GPARTED, seleccionamos la primera partición, seleccionamos los <strong>flags</strong> de la partición y marcamos <strong>boot</strong> y <strong>esp</strong>.</p>
+<p><figure><a class="lightgallery" href="/images/gparted_flags.png" title="/images/gparted_flags.png" data-thumbnail="/images/gparted_flags.png" data-sub-html="<h2>GParted</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/gparted_flags.png"
+            data-srcset="/images/gparted_flags.png, /images/gparted_flags.png 1.5x, /images/gparted_flags.png 2x"
+            data-sizes="auto"
+            alt="/images/gparted_flags.png" />
+    </a><figcaption class="image-caption">GParted</figcaption>
+    </figure></p>
+<p>Ahora, ya tenemos preparado nuestro HDD para instalar <strong>Debian GNU/Linux</strong>.</p>
+<p>Procedemos a conectar el HDD a la Raspberry Pi y si todo ha ido bien, podemos ver, la pantalla de instalación de <strong>Debian GNU/Linux</strong> de toda la vida.</p>
+<p>Una vez finalizada la instalación, solamente nos queda disfrutar de nuestra <strong>Debian GNU/Linux</strong> de toda la vida.</p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>Información<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Al finalizar la instalació, lo que yo hice, fue reducir la partición de 648Mb a 260Mb para asi, después añadir ese espacio extra a a partición del sistema. 260Mb es el minimo que (en mi caso) GPARTED no me transformaba la primera partición de <strong>FAT32</strong> a <strong>FAT16</strong>.</div>
+        </div>
+    </div>
+<p>Para llevar a cabo esto, en mi caso, borre todo lo que se habia añadido a la hora de <em>descomprimir</em> la ISO de <strong>Debian GNU/Linux</strong>. El <em>firmware UEFI</em> tambien lo dejo. En total todo el espacio ocupado (en mi caso) son 15.6Mb.</p>
+<p>En el caso de tener una Raspberry Pi de 4Gb o más, el sistema esta configurado, para que solamente aproveche 3Gb de RAM, para usar toda la RAM que tenemos, tenemos que desactivar un parametro del <strong>boot</strong> de <strong>UEFI</strong>, se hace de la siguiente manera:</p>
+<ul>
+<li>Reiniciamos la Raspberry</li>
+<li>Accedemos a las opciones de UEFI apretando la tecla <em>ESC</em>.</li>
+<li>Vamos a la opción <em>Device Manager &gt; Raspberry Pi Configuration &gt; Advanced Configuration</em></li>
+<li><strong>Desactivamos</strong> la opción <em>Limit RAM to 3Gb</em>.</li>
+</ul>
+<p>Con esto ya tenemos a nuestra disposición, toda la RAM de nuestro dispositivo.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://www.wifi-libre.com/topic-1624-instalacion-debian-buster-vainilla-en-raspberry-pi-4.html" target="_blank" rel="noopener noreffer ">Instalación Debian buster &ldquo;vainilla&rdquo; en Raspberry Pi 4</a></li>
+<li><a href="https://forums.raspberrypi.com/viewtopic.php?t=282839" target="_blank" rel="noopener noreffer ">Guide: Installation of <em>VANILLA</em> Debian 11 (or later) on a Raspberry Pi 4</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 07-01-2022</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debian-gnulinux/">Debian GNULinux</a>,&nbsp;<a href="/tags/raspberry-pi/">Raspberry Pi</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021-06-09-crear-fichero-log-bash/" class="prev" rel="prev" title="Crear fichero de logs en bash"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Crear fichero de logs en bash</a>
+            <a href="/2022-01-15-configurar-fichero-bashrc/" class="next" rel="next" title="Configurar el fichero .bashrc para descomprimir ficheros">Configurar el fichero .bashrc para descomprimir ficheros<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

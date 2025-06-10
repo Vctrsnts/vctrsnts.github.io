@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Restic &#43; Backrest &#43; MiniO - 1 - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2025-05-21-restic-copias-locales-1/" /><link rel="prev" href="http://192.6.0.40:1313/2025-05-19-matrix-gotify/" /><link rel="next" href="http://192.6.0.40:1313/2025-05-22-gotify-matrix/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Restic + Backrest + MiniO - 1",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2025-05-21-restic-copias-locales-1\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Debian GNULinux, Docker","wordcount":  816 ,
+        "url": "http:\/\/192.6.0.40:1313\/2025-05-21-restic-copias-locales-1\/","datePublished": "2025-05-22T00:00:00+00:00","dateModified": "2025-05-22T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Restic + Backrest + MiniO - 1</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="22-05-2025">22-05-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;816 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Lo primero y antes de nada, tengo que dar las gracias a <strong>Lázaro</strong> de <a href="https://elblogdelazaro.org" target="_blank" rel="noopener noreffer ">El Blog de Lázaro</a> y a <strong>Lorenzo</strong> de <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a>, por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.</p>
+<p>Ahora vamos a explicar como gracias a estas 2 increibles personas, he creado mi perfecto (para mi), sistema de copias de seguridad.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Tengo que decir que me falta la parte de externalizar las copias, pero es muy parecido a lo que tengo ahora, asi que no debe de haber muchos problemas.</div>
+        </div>
+    </div>
+<p>Lo primero y más basico, es explicar lo que quiero hacer:</p>
+<ul>
+<li>Mediante <strong>restic</strong>, hacer las copias de seguridad de mi equipo personal y llevarlas al servidor local con <strong>unRaid</strong>.</li>
+<li><strong>Atareao</strong> explica que lo correcto es hacer una copia de seguridad en local, otra al servidor local y una al VPS externo.
+<ul>
+<li>Yo entiendo que las copias en local, si te falla el HDD / SDD del equipo no sirven de nada, que mejor hacer solo copia de seguridad en servidor local (que ya tengo implementado) y otra en VPS externo (que me falta por implementar).</li>
+</ul>
+</li>
+<li>Mantener la regla de <em>7 copias diarias</em>, <em>4 semanales</em>, <em>6 mensuales</em>. Me parece un poco excesivo, pero nunca se sabe, más vale prevenir que curar.</li>
+</ul>
+<p>Asi que me puse a ello. Pero lo primero era tener un HDD para guardar las copias de seguridad, y eso, ahora mismo, con mi nuevo <a href="/2025-04-20-modificaciones-servidor-3" rel="">servidor</a> es muy sencillo realizar esta ampliación, solamente he aprovechado un HDD de 1Tb que tenia por aqui tirado, lo he conectado a <em>unRaid</em> y a funcionar. De nuevo, tengo que dar las gracias a <strong>@Mr. H</strong>, por el increible diseño que ha hecho.</p>
+<p>Una vez que ya tenia mi disco para las copias de seguridad, venia el momento de instalar <strong>restic</strong> en mi equipo personal y en Debian GNU/Linux, con un simple <strong>APT</strong> lo tienes instalado:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>usuari@debian:~$ sudo apt install restic</code></pre></div>
+<p>Ya esta instalado.</p>
+<p>Ahora pasamos a las cosas más complicadas, la instalación de <strong>backrest</strong> y de <strong>MiniO</strong>.</p>
+<p>Pero complicado si no estas en <strong>unRaid</strong>, sino es tan facil como ir a la sección <strong>Apps</strong>, buscar <strong>backrest</strong> e instalar. No voy a explicar como se hace la instalación en <strong>unRaid</strong>, primero, porque es muy sencilla y porque solamente tienes que configurar que te aparece, y si no hay suficiente con esto, tienes esta otra, porque <strong>Lázaro</strong>, ha hecho un <a href="https://elblogdelazaro.org/backrest-una-interfaz-web-para-restic-backup" target="_blank" rel="noopener noreffer ">articulo</a> donde lo explica mucho mejor, asi que, porque inventar la rueda si ya esta inventada.</p>
+<p><figure><a class="lightgallery" href="/images/backrest_01.jpg" title="/images/backrest_01.jpg" data-thumbnail="/images/backrest_01.jpg" data-sub-html="<h2>Backrest</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/backrest_01.jpg"
+            data-srcset="/images/backrest_01.jpg, /images/backrest_01.jpg 1.5x, /images/backrest_01.jpg 2x"
+            data-sizes="auto"
+            alt="/images/backrest_01.jpg" />
+    </a><figcaption class="image-caption">Backrest</figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="/images/minio.png" title="/images/minio.png" data-thumbnail="/images/minio.png" data-sub-html="<h2>MiniO</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/minio.png"
+            data-srcset="/images/minio.png, /images/minio.png 1.5x, /images/minio.png 2x"
+            data-sizes="auto"
+            alt="/images/minio.png" />
+    </a><figcaption class="image-caption">MiniO</figcaption>
+    </figure></p>
+<p>Una vez, tenemos <strong>backrest</strong>, solamente nos falta la instalación de <strong>MiniO</strong> y como antes, mejor leer el <a href="https://atareao.es/podcast/no-pierdas-tus-datos-backups-infalibles" target="_blank" rel="noopener noreffer ">articulo</a> de <strong>Lorenzo</strong> que tambien lo explica muy bien.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Lo que hay que tener en cuenta a la hora de instalar <strong>MiniO</strong> es la nota que añade el creador de este docker, para cuando se usa en <strong>unRaid</strong></div>
+        </div>
+    </div>
+<div class="details admonition warning open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i>Advertencia<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Attention: Unfortunately due to changes in Minio, the unRAID file system is no longer supported. The only way to get Minio to work on unRAID now is by mapping a single disk directly or setting up a V-Disk.</div>
+        </div>
+    </div>
+<p>En mi caso, no he tenido ningun problema, porque solamente tengo un HDD para las copias de seguridad, pero siempre hay que tenerlo en cuenta.</p>
+<h3 id="a-tener-en-cuenta-en-la-configuración-de-nuestro-repositorio-en-backrest">A tener en cuenta en la configuración de nuestro repositorio en backrest</h3>
+<p>A la hora de realizar la instalación de <strong>backrest</strong>, tenemos que tener en cuenta, que la <strong>Ip local</strong> tiene que ser la de nuestro servidor, es el que recibe las copias de seguridad de <strong>restic</strong> de nuestro equipo local.</p>
+<p>Asi mismo, en mi caso, no tengo configurado ningun plan de gestión de copias, porque eso se encarga el script de <code>bash</code> que tengo en mi equipo local haciendo las copias de seguridad.</p>
+<p>Después de este pequeño apunte, voy a explicar algunas cosas sobre el uso y funcionamiento de <strong>restic</strong> que nos pueden venir bien para más adelante.</p>
+<h3 id="1-saber-el-estado-de-las-copias">1. Saber el estado de las copias:</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>usuari@debian:~$ restic -r /path/to/backup snapshots</code></pre></div>
+<h4 id="2-para-crear-copias-de-seguridad-de-varios-directorios">2. Para crear copias de seguridad de varios directorios</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>usuari@debian:~$ restic -r /path/to/backup backup /dir_1 /dir_2 etc....</code></pre></div>
+<h4 id="3-para-restaurar-copia-de-seguridad">3. para restaurar copia de seguridad</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>usuari@debian:~$ restic -r /path/to/backup restore latest --target /dir_recuperar</code></pre></div>
+<h4 id="4-borrar-repositorios-para-solo-mantener-x-repositorios">4. Borrar repositorios para solo mantener X repositorios</h4>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Consejo<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">En este caso, como ejemplo, hemos puesto 6 (en este caso hemos puesto 6)</div>
+        </div>
+    </div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>usuari@debian:~$ restic -r /path/to/backup forget --keep-last 6 prune</code></pre></div>
+<h3 id="5-borrar-backups-de-más-de-30-dias">5. Borrar backups de más de 30 dias</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>usuari@debian:~$ restic -r /path/to/backup forget --keep-within 30d</code></pre></div>
+<p>Ahora vendria la parte más interesante, el como hacer uso de estas 3 aplicaciones para manejar nuestras copias de seguridad, pero esto lo explicare en el siguiente <a href="/2025-05-22-restic-copias-locales-2" rel="">articulo</a>, porque sino, este puede salir muy largo y volverme muy pesado.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.org/tags/restic" target="_blank" rel="noopener noreffer ">El Blog de Lázaro - Restic</a></li>
+<li><a href="https://atareao.es/podcast/no-pierdas-tus-datos-backups-infalibles" target="_blank" rel="noopener noreffer ">677 - No pierdas tus datos. Backups infalibles</a></li>
+<li><a href="https://atareao.es/podcast/backups-en-android-con-restic" target="_blank" rel="noopener noreffer ">680 - Backups en Android con Restic</a></li>
+<li><a href="https://geekland.eu/copias-de-seguridad-con-restic-de-forma-automatica" target="_blank" rel="noopener noreffer ">Como hacer copias de seguridad cifradas con Restic de forma automática</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 22-05-2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debian-gnulinux/">Debian GNULinux</a>,&nbsp;<a href="/tags/docker/">Docker</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2025-05-19-matrix-gotify/" class="prev" rel="prev" title="Matrix - 3. De Matrix a Gotify"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Matrix - 3. De Matrix a Gotify</a>
+            <a href="/2025-05-22-gotify-matrix/" class="next" rel="next" title="Matrix - 4. De vuelta al inicio, de Gotify a Matrix">Matrix - 4. De vuelta al inicio, de Gotify a Matrix<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

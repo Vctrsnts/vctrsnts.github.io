@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Copias de Seguridad. Annexo - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2024-02-06-copias-seguridad-annexo/" /><link rel="prev" href="http://192.6.0.40:1313/2024-01-10-searxng-uno-todo/" /><link rel="next" href="http://192.6.0.40:1313/2024-02-12-usando-homepage-1/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Copias de Seguridad. Annexo",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2024-02-06-copias-seguridad-annexo\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Debian GNULinux, Docker","wordcount":  1048 ,
+        "url": "http:\/\/192.6.0.40:1313\/2024-02-06-copias-seguridad-annexo\/","datePublished": "2024-02-06T00:00:00+00:00","dateModified": "2024-02-06T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Copias de Seguridad. Annexo</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="06-02-2024">06-02-2024</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1048 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Se que ha pasado 1 mes desde la ultima vez que publique algo, pero he estado un poco liado con todo, pero ahora vuelvo al ruedo y a ver, si me pongo las pilas con el <strong>Blog</strong>.</p>
+<p>Tal como se puede ver en estos 2 articulos que ya habia escrito:</p>
+<ul>
+<li><a href="/2021-01-17-rpi-copias-seguridad" rel="">Raspberry Pi. Haciendo copias de seguridad</a></li>
+<li><a href="/2021-01-18-rpi-externalizando-copias-seguridad" rel="">Raspberry Pi. Externalizando copias de seguridad</a></li>
+</ul>
+<p>Donde explicaba, en el primer articulo, que mediante el docker de <strong>rsnapshot</strong> realizaba las copia de seguridad de los ficheros más importantes de  mi servidor y, en el segundo articulo, explicaba, que a traves, tambien al docker de <strong>megacmd</strong> pasaba estas copias de seguridad a <a href="https://mega.nz" target="_blank" rel="noopener noreffer ">Mega</a> para tener una doble seguridad, una copia en el servidor y otra copia fuera de el. Todo funcionaba correctamente, pero la segunda parte no era de mi agrado, porque tenia un docker muy desactualizado y que no me daba mucha confianza.</p>
+<p>Pero todo cambio cuando escuche este <a href="https://www.ivoox.com/google-stadia-copias-seguridad-revision-del-audios-mp3_rf_96963743_1.html" target="_blank" rel="noopener noreffer ">podcast</a> de <strong>Desahogo Geek</strong> donde explicaba la manera que el hacia sus copias de seguridad de sus servidores. Y me intereso, asi que me puse a ver como se podia hacer.</p>
+<p>La manera que lo hacia <strong>AlexPro</strong> se basaba en 2 funcionalidades, 3 en mi caso, que son las siguientes:</p>
+<ul>
+<li>Usar <strong>rsnapshot</strong> que ya lo estoy utilizando y me funciona correctamente.</li>
+<li>Usar <strong>rclone</strong> para <strong>montar</strong> como una unidad más del sistema en el servidor del espacio que tengo en <strong>Mega</strong> (50Gb) que hasta ese momento, no estaba dandole mucho uso.</li>
+<li>Automatizar mediante un script en <strong>bash</strong> las copias de seguridad, que en mi caso, serian las que hago mediante <strong>rsnapshot</strong>.</li>
+</ul>
+<p>Con respecto a las 2 primeras, <strong>rsnapshot</strong> no lo voy a volver a explicar, porque podeis ir al <a href="/2021-01-17-rpi-copias-seguridad" rel="">articulo</a> que tengo publicado donde lo explico detalladamente, con respecto a como se tiene que configurar <strong>rclone</strong>, en vez de explicarlo yo aqui, que seguramente no contemplaria todas las opciones posibles, recomiendo que mireis estos <a href="https://alexpro.sytes.net/rclone" target="_blank" rel="noopener noreffer ">articulos</a> que a escrito <strong>AlexPro</strong> que explica todas las opciones posibles y en el que yo me he basado para configurar mi <strong>rclone</strong>.</p>
+<p>Lo que si que voy a explicar, es el script en <strong>bash</strong> (modificando el que habian hecho anteriormente <a href="https://juncotic.com/megafuse-realizando-backups-mega-linux" target="_blank" rel="noopener noreffer ">Diego Cordoba</a> y que a su vez, fue modificado por <a href="https://github.com/luisurbinanet/megafuse-backup-script" target="_blank" rel="noopener noreffer ">Luis Urbina</a> y que modifique a mis necesidades para hacer las copias de seguridad a <strong>Mega</strong>. El script es el siguiente:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1"># Victor Santos Garcia / https://vctrsnts.github.io</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Creado Diego Cordoba, modificat per Luis Urbina</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># DADES DEL SERVIDOR I NECESSARIES</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SERVER</span><span class="o">=</span><span class="s2">&#34;nomEquip&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># PER VISUALITZAR ELS MISSATGES (TRUE ES VISUALIZEN, FALSE NO)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">DEBUG</span><span class="o">=</span><span class="s2">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ON ESTA EL FITXER DE CONFIGURACIÓ DE RCLONE (JO LAGAFO DEL DOCKER DE RCLONE)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">RCLONE_CONFIG</span><span class="o">=</span><span class="s2">&#34;/config/rclone.conf&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># DIES QUE MANTENIM LES COPIES</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TMP_DIR</span><span class="o">=</span><span class="s2">&#34;/tmp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># DIES PER OBTINDRE ELS BACKUPS, AMB EL VALOR 0, SAGAFA LULTIM BACKUP</span>
+</span></span><span class="line"><span class="cl"><span class="nv">DAYS_TO_BACKUP</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># DIES QUE ES MANTENEN ELS BACKUPS A MEGA ABANS DESBORRAR</span>
+</span></span><span class="line"><span class="cl"><span class="nv">DAYS_TO_DELETE</span><span class="o">=</span><span class="m">7</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># TEMPS DESPERA PER A QUE FINALITZI LA COPIA ENTRE EL SERVIDOR I MEGA</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># SI EL SERVIDOR ESTA A INTERNET, AMB 120 SEGONS (2 MINUTS) ES MÉS QUE SUFICIENT</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="nv">STANDBY_SECONDS</span><span class="o">=</span><span class="m">120</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ESPECIFIQUEM EL DIRECTORI ON ESTAN ELS BACKUPS DE RSNAPSHOT</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># I EL DIRECTORI DE MEGA</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ORIGEN_DIR</span><span class="o">=</span><span class="s2">&#34;/mnt/backup&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">MEGA_DIR</span><span class="o">=</span><span class="s2">&#34;/mnt/mediaefs&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># OBTENIM LA DATA DEL SISTEMA</span>
+</span></span><span class="line"><span class="cl"><span class="nv">DATE</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>date +%Y%m%d<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ES COMENÇA A REALITZAR EL BACKUP</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DEBUG</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;true&#34;</span> <span class="o">]</span> 
+</span></span><span class="line"><span class="cl"><span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;\_ Inici del Backup a Mega&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># BACKUP DE LES COPIES DE SEGURETAT</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># EN AQUESTA CAS, SEMPRE BUSQUEM EL DAILY.0 GENERAT PER RSNAPSHOT</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> dir in <span class="k">$(</span>find <span class="si">${</span><span class="nv">ORIGEN_DIR</span><span class="si">}</span> -mindepth <span class="m">1</span> -maxdepth <span class="m">1</span> -type d -daystart -mtime <span class="si">${</span><span class="nv">DAYS_TO_BACKUP</span><span class="si">}</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">cd</span> <span class="k">$(</span>dirname <span class="si">${</span><span class="nv">dir</span><span class="si">}</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DEBUG</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;true&#34;</span> <span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">then</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">echo</span> <span class="s2">&#34;  \__: Iniciem la creació del fitxer comprimit&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DEBUG</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;true&#34;</span> <span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">then</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">echo</span> <span class="s2">&#34;  \___: </span><span class="si">${</span><span class="nv">dir</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># ES CREAR EL FITXER COMPRIMIT (TAR.GZ) DE LA COPIA DE RSNAPSHOT</span>
+</span></span><span class="line"><span class="cl">    tar czf <span class="si">${</span><span class="nv">TMP_DIR</span><span class="si">}</span>/<span class="k">$(</span>basename <span class="si">${</span><span class="nv">dir</span><span class="si">}</span><span class="k">)</span>_<span class="si">${</span><span class="nv">DATE</span><span class="si">}</span>.tar.gz <span class="k">$(</span>basename <span class="si">${</span><span class="nv">dir</span><span class="si">}</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DEBUG</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;true&#34;</span> <span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">then</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">echo</span> <span class="s2">&#34;  \__: Finalització de la creació del fitxer comprimit&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">cd</span> - &gt; /dev/null
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ESBORROR LES COPIES DE SEGURETAT QUE TENEN MÉS DE 7 DIES DANTIGUITAT A MEGA</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">rclone --config <span class="si">${</span><span class="nv">RCLONE_CONFIG</span><span class="si">}</span> delete --min-age <span class="si">${</span><span class="nv">DAYS_TO_DELETE</span><span class="si">}</span>d dmega_cifrado:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DEBUG</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;true&#34;</span> <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;\_ Busquem els arxius amb més de 7 dies dantiguitat per esborrar&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># INICEM LA COPIA DELS FITXERS DE SEGURETAT COMPRIMITS A LA UNITAT XIFRADA DE MEGA</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DEBUG</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;true&#34;</span> <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;\_ Iniciem la copia dels fitxers de seguretat (comprimits) a DMEGA_CIFRADO&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">rclone --config <span class="si">${</span><span class="nv">RCLONE_CONFIG</span><span class="si">}</span> move <span class="si">${</span><span class="nv">TMP_DIR</span><span class="si">}</span>/* dmega_cifrado:
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ESPEREM UN TEMPS PERQUE ES REALITZI CORRECTAMENT LA COPIA</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DEBUG</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;true&#34;</span> <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;  \_: Temps despera de </span><span class="nv">$STANDBY_SECONDS</span><span class="s2"> segons&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">sleep <span class="nv">$STANDBY_SECONDS</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DEBUG</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;true&#34;</span> <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;\_ Es realitza neteja de fitxers i ja finalitzem&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ESBORREM EL FITXER TAR.GZ CREAT PER PUJAR A MEGA</span>
+</span></span><span class="line"><span class="cl">rm -rf <span class="si">${</span><span class="nv">TMP_DIR</span><span class="si">}</span>/*
+</span></span><span class="line"><span class="cl"><span class="c1"># ES NETEJA LA PAPERERA DE MEGA</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DEBUG</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;true&#34;</span> <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;\_ Es neteja la paperera de Mega&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">rclone --config <span class="si">${</span><span class="nv">RCLONE_CONFIG</span><span class="si">}</span> cleanup dmega_cifrado:</span></span></code></pre></div></div>
+<p>Con este script, que tengo que dar las gracias a <strong>Diego Cordoba</strong> y a <strong>Luis Urbina</strong>, porque me dieron la base, para luego, yo poder hacer este script, consigo, que:</p>
+<ul>
+<li>Se localize la copia más actual realizada por <strong>rsnapshot</strong>, que en este caso, siempre sera <code>daily.0</code>.</li>
+<li>Luego, se crea un fichero comprimir en <code>tar.gz</code> con la fecha de la copia.</li>
+<li>Se muevo este fichero a la unidad cifrada de <strong>Mega</strong> donde se pierde cualquier posibilidad de saber que contiene dicho fichero.</li>
+<li>Borramos de la papelera de <strong>Mega</strong> las copias más antiguas, porque solamente conservamos las ultimas 7.</li>
+</ul>
+<p>Con esto, he explicado, como en mi caso, gracias a diferentes personas, realizo yo las copias de seguridad de mi servidor local. Faltaria implementarlo en el servidor de Oracle que tengo, pero como de momento, no tengo mucha cosa en el, pues no me merece la pena.</p>
+<p>Aunque, como ahora, tiene mi sitio web, donde pongo los libros que he ido leyendo, no se si merece la pensa ya pensar en ello. Es una cosa que estoy estudiando.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://www.ivoox.com/google-stadia-copias-seguridad-revision-del-audios-mp3_rf_96963743_1.html" target="_blank" rel="noopener noreffer ">Google Stadia, copias de seguridad y revisión del coche</a></li>
+<li><a href="https://juncotic.com/megafuse-realizando-backups-mega-linux" target="_blank" rel="noopener noreffer ">MegaFuse: realizando backups en MEGA desde Linux</a></li>
+<li><a href="https://github.com/luisurbinanet/megafuse-backup-script" target="_blank" rel="noopener noreffer ">megafuse-backup-script</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 06-02-2024</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debian-gnulinux/">Debian GNULinux</a>,&nbsp;<a href="/tags/docker/">Docker</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2024-01-10-searxng-uno-todo/" class="prev" rel="prev" title="Searxng. Uno para controlarlos a todos"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Searxng. Uno para controlarlos a todos</a>
+            <a href="/2024-02-12-usando-homepage-1/" class="next" rel="next" title="Usando HomePage. El Dashboard">Usando HomePage. El Dashboard<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

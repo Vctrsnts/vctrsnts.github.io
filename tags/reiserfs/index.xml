@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ReiserFS on Si lo haces, hazlo bien!</title>
+    <link>http://192.6.0.40:1313/tags/reiserfs/</link>
+    <description>Recent content in ReiserFS on Si lo haces, hazlo bien!</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Mon, 27 Apr 2009 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://192.6.0.40:1313/tags/reiserfs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recuperar Archivos en ReiserFS</title>
+      <link>http://192.6.0.40:1313/2009-04-27-recuperar-archivos-reiserfs/</link>
+      <pubDate>Mon, 27 Apr 2009 00:00:00 +0000</pubDate>
+      <guid>http://192.6.0.40:1313/2009-04-27-recuperar-archivos-reiserfs/</guid>
+      <description>&lt;p&gt;A continuación explicare los pasos necesarios para recuperar un archivo/s eliminado de una partición creada con &lt;strong&gt;ReiserFS&lt;/strong&gt;, que en principio funciona correctamente en &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

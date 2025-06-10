@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Modificaciones en el servidor - 2 - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2024-10-19-modificando-servidor-2/" /><link rel="prev" href="http://192.6.0.40:1313/2024-09-18-modificando-servidor-1/" /><link rel="next" href="http://192.6.0.40:1313/2024-10-20-controlado-temperatura-servidor/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Modificaciones en el servidor - 2",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2024-10-19-modificando-servidor-2\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Hardware","wordcount":  858 ,
+        "url": "http:\/\/192.6.0.40:1313\/2024-10-19-modificando-servidor-2\/","datePublished": "2024-10-19T00:00:00+00:00","dateModified": "2024-10-19T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Modificaciones en el servidor - 2</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/hardware/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Hardware</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="19-10-2024">19-10-2024</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;858 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Se ha venido una nueva modificación en el servidor, y una más, pero esta vez, ha sido más a nivel de hardware que de software.</p>
+<p>Como sabreis, si no os habeis dado cuenta leyendo algunos de mis articulos, estoy subscrito al canal de telegram de <a href="https://homelabs.club" target="_blank" rel="noopener noreffer ">HomeLabs.club</a>, donde siempre tienen alguna nueva cosa para liarte la manta a la cabeza.</p>
+<p>Una de estas cosas, fue un sorteo que hicieron entre los miembros VIP del canal y como nunca tengo muchas esperanzas en este tipo de sorteos, pues me apunte. Nunca se sabe lo que puede pasar.</p>
+<p>Lo que paso fue increible, habian muchas cosas por sortear, televisores, Tiny&rsquo;s, telefonos, hubs, etc&hellip; Y yo junto con unos pocos fui uno de los agraciados con que me tocase un Tiny, en concreto un M710q y seguramente muchos direis, uff que poca cosa, pero si os digo lo que llevaba en sus extrañas ya no direis lo mismo.</p>
+<p>Este M710q, llevaba un <a href="https://www.intel.la/content/www/xl/es/products/sku/192993/intel-xeon-e2286m-processor-16m-cache-2-40-ghz/specifications.html" target="_blank" rel="noopener noreffer ">Intel® Xeon® E-2286M</a>, con las siguientes caracteristicas (resumen):</p>
+<ul>
+<li>Cantidad de núcleos: 8</li>
+<li>Total de subprocesos: 16</li>
+<li>Frecuencia turbo máxima: 5.00 GHz</li>
+<li>Frecuencia básica del procesador: 2.40 GHz</li>
+<li>Caché: 16 MB Intel® Smart Cache</li>
+<li>Tamaño de memoria máximo (depende del tipo de memoria): 128 GB</li>
+</ul>
+<p>Un <strong>Xeon</strong> junto con <strong>32Gb</strong> de RAM y una entrada de ethernet conectada a la WIFI (que no se que voy hacer con eso). Para que os hagais una idea, el Tiny lleva el maximo de lo que su socket puede llevar.</p>
+<p>No me lo podia creer cuando me dijeron que habia ganado esto y eso, como ya de dicho con anterioridad, soy esceptico en estos sorteos porque nunca me ha tocada nada, pero bueno, un dia es un dia.</p>
+<p>Después de la noticia, tenia que ponerme a pensar que iba hacer eso ese equipo. En principio no necesitaba ningun equipo más porque voy servido. Asi que me vino a la cabeza, y si le pongo el <strong>Xeon</strong> al servidor. Seguramente os echareis las manos a la cabeza de que eso no es posible. No es la primera vez que lo hago, porque tengo en reserva otro Tiny con otro <strong>Xeon</strong> que sera mi futuro PC cuando el portatil que tengo ahora mismo muera, y por lo que veo, no tardara mucho, porque ultimamente me hace mucho el tonto. Asi que de vuelta al ruedo de los mods.</p>
+<p>Eso si, me volvi a ver este <a href="https://www.youtube.com/watch?v=ZDUWrwq1PXE" target="_blank" rel="noopener noreffer ">video</a> donde explica detalladamente todos los pasos que se tienen que hacer para modificar la BIOS de un Tiny para que accepte un <strong>Xeon</strong>.</p>
+<p>El proceso es facil, pero hay que ir con cuidado, porque lo primero es leer la <em>BIOS</em> del Tiny, luego modificarla y luego volverla a poner en el Tiny. Ya os digo que tengo experiencia, pero es una cosa que me da mucho respeto, porque nunca se sabe lo que puede pasar 🤯.</p>
+<p>El proceso en si, dura como 30 minutos, pero que 30 minutos, siempre piensas que se va a estropear todo y que ya no volvera a funcionar.</p>
+<p>Pero todo funciono correctamente 😁 y ya tenia en mi servidor el <strong>Xeon</strong> quedando con la siguiente configuración:</p>
+<ul>
+<li>Intel Xeon e2286M</li>
+<li>32Gb de RAM</li>
+<li>4 HDD&rsquo;s
+<ul>
+<li>1 de 18Tb</li>
+<li>1 de 16Tb</li>
+<li>1 de 12Tb</li>
+<li>1 HDD de 1Tb
+<ul>
+<li>Este lo uso para copias de seguridad</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>En pocas palabras un servidor que nunca me voy a acabar. Lo unico que puede pasar es que revienten los HDD, pero el resto tengo para toda una vida.</p>
+<p>Todo estaba ya estaba listo para conectar y hacerlo funcionar. Y el resultado fue todo un exito, todo funcionando correctamente y sin ningun problema a excepción de la temperatura del <strong>Xeon</strong> y del ventilador que cuando se le da un poco de caña se nota que esta hay presente.</p>
+<p>Como no puede ser de otra manera, <strong>HomeLabs</strong> lo habia previsto y tenia una especie de <a href="https://t.me/c/1410082468/127" target="_blank" rel="noopener noreffer ">pequeño manual</a>, para hacer <strong>downgrade</strong> al <strong>Xeon</strong> y asi reducir tanto el rango de trabajo del mismo como la temperatura que con todo ello conlleva que se reduce el ruido del ventilador.</p>
+<p>Pero aun asi, todavia, cuando le pedias caña al <strong>Xeon</strong> hacia acto de presencia, pues me aconsejaron que lo mejor en estos casos, es quitar el <strong>Turbo Bost</strong> de la CPU. Y eso que hice. Le desactive esa opción y ahora todo funciona con una mejor temperatura.</p>
+<p>Mucha gente me dira que para eso no tengas un <strong>Xeon</strong> pero hay que tener en cuenta que el sistema de refrigeración no es el correcto, lleva el ventilador, de cobre para disipar mejor, pero es un simple ventilador. Además si en vez de <em>5Ghz</em> me va a <em>2.4Ghz</em> tampoco voy a notar mucha diferencia.</p>
+<p>Es mi servidor personal, no uno de la nasa. Con esto ya estoy servido.</p>
+<p>Lo unico que me faltaba por hacer era visualizar la temperatura tanto de la CPU como de la placa base en unRaid que era una cosa que nunca habia conseguido hacer, la de la CPU si, pero la placa base no.</p>
+<p>Pero eso sera en otro <a href="/2024-10-20-controlado-temperatura-servidor" rel="">articulo</a>.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=ZDUWrwq1PXE" target="_blank" rel="noopener noreffer ">Como modificar la bios de tu Lenovo m710q, m910q o m910x tiny para usar CPUs no soportadas</a></li>
+<li><a href="https://t.me/c/1410082468/127" target="_blank" rel="noopener noreffer ">Hacer downgrade a Xeon</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 19-10-2024</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/hardware/">Hardware</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2024-09-18-modificando-servidor-1/" class="prev" rel="prev" title="Modificaciones en el servidor - 1"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Modificaciones en el servidor - 1</a>
+            <a href="/2024-10-20-controlado-temperatura-servidor/" class="next" rel="next" title="Controlando la temperatura del servidor">Controlando la temperatura del servidor<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

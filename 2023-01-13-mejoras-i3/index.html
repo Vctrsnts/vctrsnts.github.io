@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Mejoras en mi escritorio (i3-wm) - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2023-01-13-mejoras-i3/" /><link rel="prev" href="http://192.6.0.40:1313/2023-01-12-problemas-y700-17isk/" /><link rel="next" href="http://192.6.0.40:1313/2023-01-19-mis-nuevos-juguetes/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Mejoras en mi escritorio (i3-wm)",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2023-01-13-mejoras-i3\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Debian GNULinux, i3","wordcount":  935 ,
+        "url": "http:\/\/192.6.0.40:1313\/2023-01-13-mejoras-i3\/","datePublished": "2023-01-13T00:00:00+00:00","dateModified": "2023-01-13T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Mejoras en mi escritorio (i3-wm)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/i3/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>I3</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="13-01-2023">13-01-2023</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;935 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Después de mucho tiempo usando <a href="/2020-08-06-usando-i3-wm" rel="">i3-wm</a>, estaba constantemente, cambiando de wallpaper (seguramente ha más de uno le pasa), pense que habria alguna manera de hacer que cada X tiempo, el wallpaper que estoy utilizando cambiara automaticamente, de los que tengo en el directorio donde los guardo.</p>
+<p>Así que me puse a la busqueda de como se puede hacer.</p>
+<p>Encontre unas cuantas maneras de hacer lo que yo queria :</p>
+<ul>
+<li>Primer <a href="https://forum.codeselfstudy.com/t/desktop-background-switcher-for-i3wm/1044" target="_blank" rel="noopener noreffer ">script</a></li>
+<li>Segundo <a href="https://github.com/levinit/i3wm-config/blob/master/i3/wallpaper.sh" target="_blank" rel="noopener noreffer ">script</a></li>
+</ul>
+<p>Yo me quede con la idea del segundo script, aunque le añadi la posibilidad de enviar notificaciones al escritorio de los cambios de fondos de pantalla a través del <code>notify-send</code>.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">shopt</span> -s nullglob
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> -z <span class="k">$(</span>which feh<span class="k">)</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;wallpaper err: Can not found command feh.&#34;</span> &gt; ~/i3wm-wallpaper.err
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">127</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># DIRECTORI ON ESTAN ELS FONTS DE PANTALLA</span>
+</span></span><span class="line"><span class="cl"><span class="nv">path</span><span class="o">=</span>~/.config/wallpapers
+</span></span><span class="line"><span class="cl"><span class="c1"># TEMPS / INTERVAL ENTRE ELS CANVIS DE FONS DE PANTALLA</span>
+</span></span><span class="line"><span class="cl"><span class="nv">interval</span><span class="o">=</span>59m
+</span></span><span class="line"><span class="cl"><span class="c1"># INICI DE L&#39;SCRIPT</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> <span class="nv">$path</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># INICIEM EL BUCLE DE L&#39;SCRIPT</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">files</span><span class="o">=()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> i in *.jpg *.png<span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="o">[[</span> -f <span class="nv">$i</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nv">files</span><span class="o">+=(</span><span class="s2">&#34;</span><span class="nv">$i</span><span class="s2">&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">done</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">range</span><span class="o">=</span><span class="si">${#</span><span class="nv">files</span><span class="p">[@]</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nv">CURRENT_WALLPAPER</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">files</span><span class="p">[RANDOM % range]</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nv">CURRENT_IMAGE</span><span class="o">=</span><span class="nv">$path</span><span class="s2">&#34;/&#34;</span><span class="nv">$CURRENT_WALLPAPER</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">((</span>range<span class="o">))</span> <span class="o">&amp;&amp;</span> feh --bg-scale <span class="nv">$CURRENT_WALLPAPER</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">#</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># ENVIEM LA NOTIFICACIÓ AL SISTEMA, PERQUE ES VEGI PER PANTALLA</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">#</span>
+</span></span><span class="line"><span class="cl">  notify-send -i <span class="s2">&#34;</span><span class="nv">$CURRENT_IMAGE</span><span class="s2">&#34;</span> <span class="s1">&#39;Desktop Changed&#39;</span> <span class="k">$(</span>basename -- <span class="s2">&#34;</span><span class="nv">$CURRENT_WALLPAPER</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  sleep <span class="nv">$interval</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span></span></span></code></pre></div></div>
+<p>El script en esencia es muy simple. Lo unico que hace, es poner en un <code>array</code> todos los archivos del directorio que le indicas donde estaran las imagenes (<code>wallpapers</code>) para que cada X minutos (<code>interval</code>) que le hayas configurado haga el cambio de fondo de pantalla y que te notifique (<code>notify-send</code>) de dicho cambio, se necesita el paquete <strong>libnotify-bin</strong> para que te avise del cambio.</p>
+<p>Lo unico que queda, es configurar el fichero de configuración de <code>i3-wm</code> para que :</p>
+<ul>
+<li>Haga la carga inicial del wallpaper</li>
+<li>Inicie el script del cambio de wallpaper, que a su vez, tomara el control y que cada X tiempo (segun tengas configurado) ira realizando el cambio de fondo de pantalla.</li>
+</ul>
+<p>Para que funcione, tienes que añadir lo siguiente en el fichero de configuración:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># PARA VISUALIZAR EL FONDO DE PANTALLA</span>
+</span></span><span class="line"><span class="cl">exec_always --no-startup-id feh --bg-scale --no-fehbg ~/.config/wallpapers/Wallpaper_10.jpg
+</span></span><span class="line"><span class="cl"><span class="c1"># AQUI ES CONFIGURA EL CANVI AUTOMATIC DEL WALLPAPER</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> --no-startup-id  ~/.config/i3/scripts/wallpaper.sh <span class="p">&amp;</span></span></span></code></pre></div></div>
+<p>La otra modificación que he realizado, ha sido la de que en la barra de <code>i3-wm</code> (<code>i3block</code>) me informe de los paquetes que se tienen que actualizar, era una información que me gustaba tener y después de mucho buscar, encontré el <a href="https://github.com/vivien/i3blocks-contrib" target="_blank" rel="noopener noreffer ">comando / instrucción</a> que me daba lo que necesitada.</p>
+<p>Lo primero, necesitas el script <code>apt-upgrades</code> y descargarlo en algún sitio desde donde puedas tener acceso. En mi caso, lo he dejado en el directorio del <code>i3-wm/script</code>, que es donde tengo todos los scripts que uso para <code>i3-wm</code>.</p>
+<p>El script en cuestión (tener en cuenta que depende de <strong>aptitude</strong>) hace lo siguiente :</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Copyright (C) 2015 James Murphy</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Licensed under the terms of the GNU GPL v2 only.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># i3blocks blocklet script to display pending system upgrades</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># FontAwesome refresh symbol, change if you do not want to install FontAwesome</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#PENDING_SYMBOL=${PENDING_SYMBOL:-&#34;\uf021 &#34;}</span>
+</span></span><span class="line"><span class="cl"><span class="nv">PENDING_SYMBOL</span><span class="o">=</span><span class="si">${</span><span class="nv">PENDING_SYMBOL</span><span class="k">:-</span><span class="s2">&#34;&#34;</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># By default, show both the symbol and the numbers</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SYMBOL_ONLY</span><span class="o">=</span><span class="si">${</span><span class="nv">SYMBOL_ONLY</span><span class="k">:-</span><span class="nv">0</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># By default, show something when no upgrades are pending</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ALWAYS_PRINT</span><span class="o">=</span><span class="si">${</span><span class="nv">ALWAYS_PRINT</span><span class="k">:-</span><span class="nv">1</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Colors for when there is/isn&#39;t a pending upgrade</span>
+</span></span><span class="line"><span class="cl"><span class="nv">PENDING_COLOR</span><span class="o">=</span><span class="si">${</span><span class="nv">PENDING_COLOR</span><span class="k">:-</span><span class="s2">&#34;#FF0000&#34;</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl"><span class="nv">NONPENDING_COLOR</span><span class="o">=</span><span class="si">${</span><span class="nv">NONPENDING_COLOR</span><span class="k">:-</span><span class="s2">&#34;#FFFFFF&#34;</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="nb">getopts</span> s:oc:n:Nh opt<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="s2">&#34;</span><span class="nv">$opt</span><span class="s2">&#34;</span> in
+</span></span><span class="line"><span class="cl">        s<span class="o">)</span> <span class="nv">PENDING_SYMBOL</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$OPTARG</span><span class="s2">&#34;</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        o<span class="o">)</span> <span class="nv">SYMBOL_ONLY</span><span class="o">=</span><span class="m">1</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        c<span class="o">)</span> <span class="nv">PENDING_COLOR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$OPTARG</span><span class="s2">&#34;</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        n<span class="o">)</span> <span class="nv">NONPENDING_COLOR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$OPTARG</span><span class="s2">&#34;</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        N<span class="o">)</span> <span class="nv">ALWAYS_PRINT</span><span class="o">=</span><span class="m">0</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        h<span class="o">)</span> <span class="nb">printf</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="s2">&#34;Usage: apt-upgrades [-s pending_symbol] [-o] [-c pending_color] [-N|-n nonpending_color] [-h]
+</span></span></span><span class="line"><span class="cl"><span class="s2">Options:
+</span></span></span><span class="line"><span class="cl"><span class="s2">-s\tSpecify a refresh symbol. Default: \&#34;\\\\uf021 \&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">-o\tShow refresh symbol only, but no numbers.
+</span></span></span><span class="line"><span class="cl"><span class="s2">-c\tColor when upgrade is pending. Default:  #00FF00
+</span></span></span><span class="line"><span class="cl"><span class="s2">-n\tColor when no upgrade is pending. Default: #FFFFFF
+</span></span></span><span class="line"><span class="cl"><span class="s2">-N\tOnly display text if upgrade is pending (supercedes -n)
+</span></span></span><span class="line"><span class="cl"><span class="s2">-h\tShow this help text\n&#34;</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span> 0<span class="p">;;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">esac</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">read</span> upgraded new removed held &lt; &lt;<span class="o">(</span>
+</span></span><span class="line"><span class="cl">aptitude full-upgrade --simulate --assume-yes <span class="p">|</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    grep -m1 <span class="s1">&#39;^[0-9]\+ packages upgraded,&#39;</span> <span class="p">|</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    tr -cd <span class="s1">&#39;0-9 &#39;</span> <span class="p">|</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    tr <span class="s1">&#39; &#39;</span> <span class="s1">&#39;\n&#39;</span> <span class="p">|</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    grep <span class="s1">&#39;[0-9]\+&#39;</span> <span class="p">|</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    xargs <span class="nb">echo</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> <span class="nv">$upgraded</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv">$new</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv">$removed</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv">$held</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">color</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PENDING_COLOR</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">[[</span> <span class="nv">$SYMBOL_ONLY</span> <span class="o">==</span> <span class="m">1</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="nv">$PENDING_SYMBOL</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="nv">$PENDING_SYMBOL</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="nv">$PENDING_SYMBOL$upgraded</span><span class="s2">/</span><span class="nv">$new</span><span class="s2">/</span><span class="nv">$removed</span><span class="s2">/</span><span class="nv">$held</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="nv">$PENDING_SYMBOL$upgraded</span><span class="s2">/</span><span class="nv">$new</span><span class="s2">/</span><span class="nv">$removed</span><span class="s2">/</span><span class="nv">$held</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="nv">$color</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="o">[[</span> <span class="nv">$ALWAYS_PRINT</span> <span class="o">==</span> <span class="m">1</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">color</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$NONPENDING_COLOR</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="nv">$PENDING_SYMBOL$upgraded</span><span class="s2">/</span><span class="nv">$new</span><span class="s2">/</span><span class="nv">$removed</span><span class="s2">/</span><span class="nv">$held</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> -e <span class="s2">&#34;</span><span class="nv">$PENDING_SYMBOL$upgraded</span><span class="s2">/</span><span class="nv">$new</span><span class="s2">/</span><span class="nv">$removed</span><span class="s2">/</span><span class="nv">$held</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="nv">$color</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span></span></span></code></pre></div></div>
+<p>Una vez tengas el script, vamos a la configuración del archivo de <code>i3block.conf</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>apt_upgrades<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">command</span><span class="o">=</span>/home/usuari/.config/i3/scripts/apt-upgrades
+</span></span><span class="line"><span class="cl"><span class="c1"># l&#39;script s&#39;executara cada dia (el valor es refereix a minuts)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">interval</span><span class="o">=</span><span class="m">1440</span>
+</span></span><span class="line"><span class="cl"><span class="nv">signal</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">label</span><span class="o">=</span></span></span></code></pre></div></div>
+<p>Cuando ya tenemos configurado toda la parte del usuario, solamente nos queda configurar la parte de <strong>root</strong> (que es el encargado de realizar el <code>aptitude update</code> para actualizar los paquetes y que a su vez, hace que el script obtenga los paquetes a actualizar.</p>
+<p>Para eso, tenemos que hacer lo siguiente (a través de <code>sudo</code>, en mi caso):</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># obtenim acces a nivell de root</span>
+</span></span><span class="line"><span class="cl">usuari@debian:~#sudo -i</span></span></code></pre></div></div>
+<p>Una vez, tenemos acceso a la consola de <code>root</code> pasamos a configurar el <code>cron</code> que lo puedes hacer de la siguiente manera para evitar al maximo cualquier error posible:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~#crontab -e</span></span></code></pre></div></div>
+<p>Ahora pasamos a la creación de nuestro cron:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">@daily aptitude update</span></span></code></pre></div></div>
+<p>Y con este sencillo script obtenemos la siguiente información:</p>
+<ul>
+<li>Los paquetes a actualizar.</li>
+<li>Los nuevos paquetes que se van a instalar.</li>
+<li>Los paquetes que se van a eliminar.</li>
+<li>Los paquetes que no se actualizar.</li>
+</ul>
+<p>Todo esto, claro esta, siempre que realices la actualización.</p>
+<p>En pantalla quedaría de la siguiente manera:</p>
+<p><figure><a class="lightgallery" href="/images/apt-upgrades.png" title="/images/apt-upgrades.png" data-thumbnail="/images/apt-upgrades.png" data-sub-html="<h2>APT Upgrade</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/apt-upgrades.png"
+            data-srcset="/images/apt-upgrades.png, /images/apt-upgrades.png 1.5x, /images/apt-upgrades.png 2x"
+            data-sizes="auto"
+            alt="/images/apt-upgrades.png" />
+    </a><figcaption class="image-caption">APT Upgrade</figcaption>
+    </figure></p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://forum.codeselfstudy.com/t/desktop-background-switcher-for-i3wm/1044" target="_blank" rel="noopener noreffer ">Primera versión del script</a></li>
+<li><a href="https://github.com/levinit/i3wm-config/blob/master/i3/wallpaper.sh" target="_blank" rel="noopener noreffer ">Segunda versión del script</a></li>
+<li><a href="https://github.com/levinit/i3wm-config/blob/master/i3/config" target="_blank" rel="noopener noreffer ">Modificación en el config</a></li>
+<li><a href="https://github.com/vivien/i3blocks-contrib" target="_blank" rel="noopener noreffer ">apt-upgrades</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 13-01-2023</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debian-gnulinux/">Debian GNULinux</a>,&nbsp;<a href="/tags/i3/">I3</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2023-01-12-problemas-y700-17isk/" class="prev" rel="prev" title="Funcionamiento extraño con mi portatil (Ideapad Y700 - 17ISK)"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Funcionamiento extraño con mi portatil (Ideapad Y700 - 17ISK)</a>
+            <a href="/2023-01-19-mis-nuevos-juguetes/" class="next" rel="next" title="Mis nuevos juguetes">Mis nuevos juguetes<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

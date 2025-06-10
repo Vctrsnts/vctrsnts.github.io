@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hardware on Si lo haces, hazlo bien!</title>
+    <link>http://192.6.0.40:1313/tags/hardware/</link>
+    <description>Recent content in Hardware on Si lo haces, hazlo bien!</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Sun, 20 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://192.6.0.40:1313/tags/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Modificaciones en el servidor - 3</title>
+      <link>http://192.6.0.40:1313/2025-04-20-modificaciones-servidor-3/</link>
+      <pubDate>Sun, 20 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://192.6.0.40:1313/2025-04-20-modificaciones-servidor-3/</guid>
+      <description>&lt;p&gt;Este nuevo articulo no sabia si llamarlo &lt;strong&gt;Modificaciones en el servidor - 3&lt;/strong&gt; o &lt;strong&gt;La imaginación humana no tiene limites&lt;/strong&gt;, porque una vez que hayais leido este articulo pensareis lo mismo que yo.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Controlando la temperatura del servidor</title>
+      <link>http://192.6.0.40:1313/2024-10-20-controlado-temperatura-servidor/</link>
+      <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://192.6.0.40:1313/2024-10-20-controlado-temperatura-servidor/</guid>
+      <description>&lt;p&gt;Como ya comente en el anterior &lt;a href=&#34;http://192.6.0.40:1313/2024-10-19-modificando-servidor-2&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; donde explicaba que habia puesto un &lt;strong&gt;Xeon&lt;/strong&gt; en mi servidor y todo lo referente a la temperatura.&lt;/p&gt;&#xA;&lt;p&gt;Pero claro, eso me gustaria verlo reflejado en &lt;strong&gt;unRAID&lt;/strong&gt;, porque hasta ahora, solamente habia podido visualizar la temperatura de la CPU, de la placa base era imposible cuando teoricamente los Tiny son equipos con componentes muy normales y comunes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Modificaciones en el servidor - 2</title>
+      <link>http://192.6.0.40:1313/2024-10-19-modificando-servidor-2/</link>
+      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://192.6.0.40:1313/2024-10-19-modificando-servidor-2/</guid>
+      <description>&lt;p&gt;Se ha venido una nueva modificación en el servidor, y una más, pero esta vez, ha sido más a nivel de hardware que de software.&lt;/p&gt;&#xA;&lt;p&gt;Como sabreis, si no os habeis dado cuenta leyendo algunos de mis articulos, estoy subscrito al canal de telegram de &lt;a href=&#34;https://homelabs.club&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;HomeLabs.club&lt;/a&gt;, donde siempre tienen alguna nueva cosa para liarte la manta a la cabeza.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Modificaciones en el servidor - 1</title>
+      <link>http://192.6.0.40:1313/2024-09-18-modificando-servidor-1/</link>
+      <pubDate>Wed, 18 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://192.6.0.40:1313/2024-09-18-modificando-servidor-1/</guid>
+      <description>&lt;p&gt;Durante estas vacaciones he modificado un poco el aspecto de mi servidor con la finalidad de que todo estuviera un poco más ordenado y más homogeneo, porque por una banda, tenia mi &lt;a href=&#34;http://192.6.0.40:1313/2024-03-07-cambiando-unraid&#34; rel=&#34;&#34;&gt;servidor&lt;/a&gt; por un lado y por otro, en un caddy metalico de discos comprado en Aliexpress, los HDD al que le habia puesto este &lt;a href=&#34;https://www.amazon.es/dp/B09SLPRYYZ&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;ventilador&lt;/a&gt; para bajar la temperatura de los mismos.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Funcionamiento extraño con mi portatil (Ideapad Y700 - 17ISK)</title>
+      <link>http://192.6.0.40:1313/2023-01-12-problemas-y700-17isk/</link>
+      <pubDate>Thu, 12 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://192.6.0.40:1313/2023-01-12-problemas-y700-17isk/</guid>
+      <description>&lt;p&gt;Desde hace un par de dias, no se si desde que actualize la BIOS al portatil (Lenovo Ideapad Y700 17ISK, versión &lt;strong&gt;CDCN54WW&lt;/strong&gt;), y me ha pasado una cosa muy extraña. El teclado en el momento de iniciarse el sistema ha dejado de funcionar.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mi nuevo mediacenter - Thinkcenter m710q</title>
+      <link>http://192.6.0.40:1313/2022-11-08-cambiando-mediacenter/</link>
+      <pubDate>Tue, 08 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>http://192.6.0.40:1313/2022-11-08-cambiando-mediacenter/</guid>
+      <description>&lt;p&gt;Como ya mencione en al articulo que hablaba sobre el cambio de servidor &lt;a href=&#34;http://192.6.0.40:1313/2022-05-26-nuevo-servidor&#34; rel=&#34;&#34;&gt;Mi nuevo servidor&lt;/a&gt;, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mi nuevo servidor</title>
+      <link>http://192.6.0.40:1313/2022-05-26-nuevo-servidor/</link>
+      <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
+      <guid>http://192.6.0.40:1313/2022-05-26-nuevo-servidor/</guid>
+      <description>&lt;p&gt;Se que llevo mucho tiempo si publicar nada, pero he estado liado haciendos cambios en el servidor (RPI4).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Raspberry Pi. Cambiando el equipo</title>
+      <link>http://192.6.0.40:1313/2020-10-30-rpi-cambiando-equipo/</link>
+      <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>http://192.6.0.40:1313/2020-10-30-rpi-cambiando-equipo/</guid>
+      <description>&lt;p&gt;Ante la noticia de que iban a sacar una nueva &lt;a href=&#34;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/?resellerType=home&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Raspberry Pi&lt;/a&gt; con varias mejores (más vale tarde que nunca que ya hablaremos más adelante) y pense si ya era hora de cambiar mi Raspberry Pi 3b por la nueva versión.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>TIP Sobre Raspbian / Raspberry</title>
+      <link>http://192.6.0.40:1313/2019-12-13-tip-raspbian-raspberry/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>http://192.6.0.40:1313/2019-12-13-tip-raspbian-raspberry/</guid>
+      <description>&lt;p&gt;A continuación pongo unos cuantos &lt;strong&gt;TIPS&lt;/strong&gt; más con respecto a Raspbian, mayormente para que no se me olviden para más adelanta 😉&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Raspberry Pi. Iniciar desde un HDD externo</title>
+      <link>http://192.6.0.40:1313/2016-04-03-rpi-iniciar-hd-externo/</link>
+      <pubDate>Sun, 03 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>http://192.6.0.40:1313/2016-04-03-rpi-iniciar-hd-externo/</guid>
+      <description>&lt;p&gt;Después de haber configurado la red, ahora pasare a explicar como extraer la información de la raiz &lt;code&gt;/&lt;/code&gt; de la SD para pasarla a un HDD externo y así alargar la vida de nuestra &lt;em&gt;SD&lt;/em&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Raspberry Pi. Mi pequeño nuevo juguete</title>
+      <link>http://192.6.0.40:1313/2013-11-25-rpi-peque%C3%B1o-juguete/</link>
+      <pubDate>Mon, 25 Nov 2013 00:00:00 +0000</pubDate>
+      <guid>http://192.6.0.40:1313/2013-11-25-rpi-peque%C3%B1o-juguete/</guid>
+      <description>&lt;p&gt;Pues nada. Desde hace un par de meses, tengo a mi disposición un nuevo juguete. La Raspberry modelo B, con las las siguientes caracteristicas:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>USB se monta sólo como lectura</title>
+      <link>http://192.6.0.40:1313/2013-11-24-usb-lectura/</link>
+      <pubDate>Sat, 23 Nov 2013 00:00:00 +0000</pubDate>
+      <guid>http://192.6.0.40:1313/2013-11-24-usb-lectura/</guid>
+      <description>&lt;p&gt;Por si a alguien le vuelve a pasar lo mismo que a mi, aquí pongo una pequeña ayuda de lo que se puede hacer antes de tirar a la basura un USB, que, cada vez que lo montas, esta como lectura&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Deshabilitar tarjeta NVIDIA Optimus en Debian GNU/Linux</title>
+      <link>http://192.6.0.40:1313/2012-11-11-optimus-debian/</link>
+      <pubDate>Sun, 11 Nov 2012 00:00:00 +0000</pubDate>
+      <guid>http://192.6.0.40:1313/2012-11-11-optimus-debian/</guid>
+      <description>&lt;p&gt;Después de mucho buscar al final, pude encontrar un sitio &lt;del&gt;&lt;a href=&#34;https://pedrobonilla.blogspot.com.es/2011/11/deshabilitar-tarjeta-nvidia-en-sistema.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;aqui&lt;/a&gt;&lt;/del&gt; donde te explicaba como desactivar la tarjeta grafica Nvidia de mi portatil Dell XPS 15. Estaba ya cansado de escuchar el ventilador funcionando todo el rato por culpa de una tarjeta grafica que no utilizaba. Así que lo pongo a continuación porque así se difunde más facilmente y lo guardo para mi como apuntes&amp;hellip;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

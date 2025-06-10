@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Cambiando a Hugo - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2025-06-09-cambiando-hugo/" /><link rel="prev" href="http://192.6.0.40:1313/2025-05-22-restic-copias-locales-2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Cambiando a Hugo",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2025-06-09-cambiando-hugo\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Blog","wordcount":  2225 ,
+        "url": "http:\/\/192.6.0.40:1313\/2025-06-09-cambiando-hugo\/","datePublished": "2025-06-09T00:00:00+00:00","dateModified": "2025-06-09T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Cambiando a Hugo</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/blog/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Blog</a>&nbsp;<a href="/categories/hugo/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Hugo</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="09-06-2025">09-06-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2225 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;11 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Antes de seguir con nuestro ultimo articulo sobre las copias de seguridad (<em>Restic, Backrest y Minio</em>) y seguramente  ya lo habreis notado si visitais este blog, es que ha habido un cambio sustancial en su diseño.</p>
+<p>Como informaba en este <a href="/2024-05-30-cambios-blog-2" rel="">articulo</a>, informba de los cambios que le habia hecho a mi blog esperando que fuera el ultimo cambio que hiciera, pero como pasa siempre, nunca digas <strong>que de este agua no bebere</strong>. Porque es lo que ha pasado.</p>
+<p>Todo empezo mientras veia los articulos que iba publicando <a href="https://elblogdelazaro.org" target="_blank" rel="noopener noreffer ">Lazaro</a>, donde explicaba como era el funcionamiento de <strong>Hugo</strong> y el porque el habia efectuado el cambio. En principio, después de leer sus articulos, me parecia que todo era igual a <strong>Jekyll</strong> que era lo que estaba usando en ese momento y asi se lo pregunte.</p>
+<p>Me dijo que en principio, todo era igual, pero con una mejora muy sustancial, que en el caso de <strong>Jekyll</strong>, cuando instalas un tema, se tienen que descargar <em>modulos</em> que necesita el tema para su correcto funcionamiento, y en el caso de <strong>Hugo</strong> esto no es asi, porque todo el tema ya tiene implementado todo lo que va a necesitar y no necesitas descargar nada externo. Y como soy un culo inquieto, pues me puse a investigar como es realmente el funcionamiento de <strong>Hugo</strong> en comparación de <strong>Jekyll</strong>.</p>
+<p>Entonces, me propuse cambiar mi blog personal de <strong>Jekyll</strong> a <strong>Hugo</strong> y ver como iba todo y como tengo el servidor local, pues que mejor sitio para hacer pruebas y no estropear nada de lo que ya tengo en funcionamiento.</p>
+<p>La instalació de <strong>Hugo</strong> en mi servidor local, no la voy a explicar, porque teneis este <a href="https://elblogdelazaro.org/hugo-server-en-lugar-de-nginx-o-apache-para-autoalojar-tu-sitio-web" target="_blank" rel="noopener noreffer ">articulo</a>, lo que si que tengo que puntualizar, es que sino tienes creado el fichero <code>config.yml</code> o <code>hugo.toml</code> junto con cualquier tema, puedes poner el que quiera, porque lo necesita <strong>Hugo</strong> para iniciar, porque sino te da error.</p>
+<p>Despues de iniciar el servidor, accedemos al contenedor:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~$ docker <span class="nb">exec</span> -it hugoBlog sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/app:~ hugo new site .</span></span></code></pre></div></div>
+<p>Es posible, que a la hora de usar esta instrucción, te da error porque te indica que ya existe un <em>sitio</em>, entonces, lo que yo hago, sin detener el contenedor, es borrar el fichero de configuración del tema, en mi caso es <code>hugo.toml</code> y entonces vuelvo a hacer la instrucción de antes, pero con la coletilla de <code>--force</code>, para que <em>si o si</em> me cree el nuevo sitio.</p>
+<p>Una vez que se hace esto, se crea toda la estructura de directorios del nuevo sitio. Y aqui es cuando ya tienes a tu disposición el servidor <strong>Hugo</strong> con la siguiente estructura:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="p">|</span>- archetypes
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- assets
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- content
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- data
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- i18n
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- layouts
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- public
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- resources
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- static
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- themes
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>- LoveIt
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- hugo.toml</span></span></code></pre></div></div>
+<p>Entonces, en el directorio <code>themes</code>, descargas el tema que quieres utilizar (en mi caso después de probar muchos el que más me ha gustado es <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer ">LoveIt</a>.</p>
+<p>Una vez que ya tenemos nuestro tema preferido, ahora es cuando nos ponemos realmente a configurar el tema a nuestro gusto.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Esta es la parte más dificl, porque hasta que no te habituas al fichero de configuración de <strong>Hugo</strong> vas un poco perdido. Es extraño que esto no me pasase con Jekyll, veia más ameno la configuración de este ultimo.</div>
+        </div>
+    </div>
+<p>Eso si, una vez que entiendes más o menos con va todo y para que sirve cada opción, se avanza más rapidamente.</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Consejo<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Lo que si que hay que tener en cuenta, es la versión de <strong>Hugo</strong> que estas utilizando, porque no todos los temas estan actualizados para las nuevas versiones.</div>
+        </div>
+    </div>
+<p>Lo primero que hice, fue modificar la configuración del buscador, por defecto utiliza <strong>algolia</strong>, pero cuando hice pruebas, en mmi caso, no funcionaba nada bien, no se si la culpa es porque comente algun codigo que era necesario anteriormente.. En este caso, lo que yo hice fue usar <strong>lunr</strong>, que en mi caso me funciona perfectamente y me gusta más.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Search config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">[</span><span class="l">params.search]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">enable = true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># type of search engine [&#34;lunr&#34;, &#34;algolia&#34;]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">type = &#34;lunr&#34;</span></span></span></code></pre></div></div>
+<p>Otras de las modificaciones que yo he realizado y se que esta como petición en la web del tema, es que se pueda desactivar la opción de cambiar el tema (blanco a negro), yo en mi caso, he modificar el siguiente fichero <code>header.html</code> y listo.</p>
+<p>En mi caso, como usuario de <em>Mastodon</em> y <em>BlueSky</em> tambien me interesa tener disponibles el acceso desde la web a estas redes sociales. La de <strong>Mastodon</strong> es la más facil, porque el fichero de configuración, ya esta preparado para su configuración, lo que no esta disponible, es la de <strong>BlueSky</strong>, per en este caso, es muy facil, porque hay un <a href="https://github.com/dillonzq/LoveIt/discussions/887" target="_blank" rel="noopener noreffer ">Pull Request</a>, que hace referencia a esta petición y una persona explica las modificaciones que se tienen que hacer, que son las siguiente:</p>
+<p>Para implementar <strong>BlueSky</strong> en el tema, lo primero, es descargar el icono, <a href="https://simpleicons.org/?q=blues" target="_blank" rel="noopener noreffer ">simpleicons</a> en formato svg y ponerlo en la siguiente ruta <code>/assets/lib/simple-icons/icons/bluesky.svg</code>, una vez que ya hemos descargado el icono procedemos a modificar el fichero <code>social.yml</code> añadiendo lo siguiente:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Bluesky</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">bluesky</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Weight</span><span class="p">:</span><span class="w"> </span><span class="m">73</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Title</span><span class="p">:</span><span class="w"> </span><span class="l">Bluesky</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Icon</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Simpleicons</span><span class="p">:</span><span class="w"> </span><span class="l">bluesky</span></span></span></code></pre></div></div>
+<p>En este caso, sustituye el icono que viene por defecto en el fichero <code>social.yml</code> por este, yo lo cambie por el 5 que era el de FaceBook 😁 y con esto, ya hemos añadido <strong>BlueSky</strong> a nuestro tema.
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Cuando digo que me gusta mucho este tema es por estas cosas, porque el proyecto aunque parece que esta abanadonado no lo esta.</div>
+        </div>
+    </div></p>
+<p>Para finalizar, siguiendo otro de los muchos y fantasticos articulos que puedes encontrar en el <a href="https://elblogdelazaro.org/adi%C3%B3s-a-google-analitycs-con-umami" target="_blank" rel="noopener noreffer ">blogdelazaro</a> que tiene como me gusta usar <strong>Umami</strong> para saber quien accede a mi sitio web, podeis estar tranquilos, porque es el sistema menos intrusivo de <em>analizadores</em> que por defecto no esta implementado en el tema y que yo iba a hacer añadiendo el script en el <em>header</em> de la web y listo. Pero de nuevo, cada vez, me gusta más este tema, alguien, tambien habia hecho la petición y habia implementado un <a href="https://github.com/dillonzq/LoveIt/pull/761/files" target="_blank" rel="noopener noreffer ">Pull Request</a> sobre esta petición donde explicaba todas las modificaciones necesarias para activar esta nueva funcionalidad.</p>
+<p>Lo primero, es añadir esto en el fichero de configuración <code>hugo.toml</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Umami Analytics</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">[</span><span class="l">params.analytics.umami]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Es el servidor de umami</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">src = &#34;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Identificador</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">dataWebsiteId = &#34;&#34;</span></span></span></code></pre></div></div>
+<p>Luego unicamente nos queda añadir el script en si en el siguiente fichero <code>layouts/partials/plugin/analytics.html</code> con el siguiente codigo:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-html">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{- /* Umami Analytics */ -}}
+</span></span><span class="line"><span class="cl">{{- with $analytics.umami.src -}}
+</span></span><span class="line"><span class="cl">    {{- dict &#34;Source&#34; $analytics.umami.src &#34;Async&#34; true &#34;Defer&#34; true &#34;Attr&#34; ($analytics.umami.dataWebsiteId | printf `data-website-id=&#34;%v&#34;`) | partial &#34;plugin/script.html&#34; -}}
+</span></span><span class="line"><span class="cl">{{- end -}}</span></span></code></pre></div></div>
+<p>Después de añadir estas nuevas funcionalidades, ya pase a revisar los errores que me daba <strong>Hugo</strong> y los más graves era que no encontraba los siguientes ficheros donde tenian que estar:</p>
+<ul>
+<li><code>themes/LoveIt/layouts/_default/_markup</code> - aqui se tienen que modificar los siguientes ficheros:
+<ul>
+<li><code>render-codeblock-goat.html</code></li>
+<li><code>render-codeblock-mermaid.html</code></li>
+<li><code>render-codeblock.html</code></li>
+<li><code>render-image.html</code></li>
+<li><code>render-link.html</code></li>
+</ul>
+</li>
+<li><code>themes/LoveIt/layouts/partials/internal</code> - aqui se tienen que modificar los siguientes ficheros:
+<ul>
+<li><code>x.html</code></li>
+<li><code>x_simple.html</code></li>
+</ul>
+</li>
+<li><code>themes/LoveIt/layouts/shortcodes</code> - aqui se tienen que modificar los siguientes ficheros:
+<ul>
+<li><code>x.html</code></li>
+<li><code>x_simple.html</code></li>
+</ul>
+</li>
+</ul>
+<p>Para solucionar el problema, lo que hice fue comentar el codigo que hacia la llamada a estos ficheros y todo se soluciono, se que no es lo correcte, pero a ver si en la proxima actualización del tema, esto se soluciona y como todo esta integrado en el tema, pues se solucionara solo.</p>
+<p>Después de estas modificaciones, ya lo tenia todo para que funcionase todo correctamente, a parte, de tener que realizar las modificaciones necesarias en los ficheros <code>markdown</code> de los posts para el correcto funcionamiento con este tema.</p>
+<p>Una vez realizada todas las modificaciones necesarias, el arbol de directorio con respecto al tema, quedaba de la siguiente manera:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="p">|</span>- assets
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>- data <span class="c1"># donde se encuentra el fichero social.yml que hemos modificado para BlueSky</span>
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>- images <span class="c1"># donde ponemos el logo de nuestra web</span>
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>- libs
+</span></span><span class="line"><span class="cl">    <span class="p">|</span>- simple-icon
+</span></span><span class="line"><span class="cl">      <span class="p">|</span>- icon <span class="c1"># donde ponenos el icono / imagen de BlueSky</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- content
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>- posts <span class="c1"># donde tenemos los articulos de nuestra web</span>
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>- images <span class="c1"># las imagenes que utilizamos en nuestra web, no confundir con el logo ni con favicon</span>
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>- about <span class="c1"># nuestro fichero about</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- data
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- i18n
+</span></span><span class="line"><span class="cl"><span class="p">|</span>-layouts
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>- _default <span class="c1"># ya lo explicare más adelante</span>
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>- partial
+</span></span><span class="line"><span class="cl">    <span class="p">|</span>- head <span class="c1"># donde esta el fichero meta.html y que lo utilizo para añadir la opción de fediverse:creator</span>
+</span></span><span class="line"><span class="cl">    <span class="p">|</span>- plugin <span class="c1"># donde esta el fichero analytics.html para umami</span>
+</span></span><span class="line"><span class="cl">    <span class="p">|</span>- header.html <span class="c1"># lo hemos modificado para desactivar la opción de cambiar el estilo de la web</span>
+</span></span><span class="line"><span class="cl">    <span class="p">|</span>- footer.html <span class="c1"># lo hemos modificado para añadir la opción de mastodonRelme</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- public
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- resource
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- static <span class="c1"># donde se encuentran los iconos de la web (favicon)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>- theme
+</span></span><span class="line"><span class="cl">  <span class="p">|</span>- LoveIt</span></span></code></pre></div></div>
+<p>Lo que si que tengo que decir que lo que más me gusta, es que para sobreescribir los ficheros del tema original, no tienes que modificar los ficheros del tema original, sino que creas un fichero igual pero con las modificaciones que quieres dentro del directorio <code>layouts</code> y este sobreescribe a los ficheros del tema original. Esto es lo que más me gusta, porque en el caso de que actualizes el tema original, estas modificaciones no las pierdes.</p>
+<p>En principio, con todo esto, ya pensaba que tenia en marcha mi nuevo sitio web (local), con el que podria hacer pruebas para ver como se maneja todo.</p>
+<p>Entonces me di cuenta, que todo lo referente a los <strong>Tags</strong> (etiquetas) y <strong>Categorias</strong> no funcionaba tal como tenia que ser, a parte de que esta era una parte que no acababa de entender muy bien su funcionamiento, lo que provoco que me volviere literalmente me volvi loco buscando información de como se tenia que configurar. Ya me veis preguntando a <strong>Copilot</strong> como tenia que ir, y como siempre, la <strong>IA</strong> divagando, que lo hace con buena intención 😆 pero a veces lia más que otra cosa. Y se que tenia que funcionar, porque cuando hacia pruebas con otros temas, todo el tema de las <strong>etiquetas</strong> y las <strong>categorias</strong> funcionaban correctamente. Porque en este tema en concreto no iba.</p>
+<p>Lo que si que me dejo claro la <strong>IA</strong> es que todo el tema de las <strong>etiquetas</strong> y <strong>categorias</strong> se controla con, en principio, con 2 unicos ficheros:</p>
+<ul>
+<li><code>list.html</code>: Es la pagina que se encarga de hacer las listas, tanto de categorias como de etiquetas en <strong>Hugo</strong> en este tema en concreto.</li>
+<li><code>term.html</code>: Es la pagina que te muestra los articulos que concuerdan con el <strong>Tag / Categoria</strong> que has seleccionado en este tema en concreto.</li>
+</ul>
+<p>Miles de cambios, miles de configuraciones, modificaciones de ficheros, de nombres y sin conseguir nada. Lo unico que conseguia era como maximo un <em>404 - Not Found</em> o una pantalla en blanco, y se que tenia que funcionar, porque el ejemplo de <strong>LoveIt</strong> funciona correctamente.</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Consejo<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Eso si, tengo que decir, que el ejemplo que ponen en los temas, lia un poco, porque no concuerda con la estructura que luego tu tienes, pero como base, sirve.</div>
+        </div>
+    </div>
+<p>Hasta que ayer, no se si la inspiración vino en mi ayuda, y eso fue, cuando la <strong>IA</strong> me dijo, que en las nuevas versiones de <strong>Hugo</strong>, los 2 ficheros que se encargan de las <em>Etiquetas</em> y las <em>Categorias</em> se tienen que ubicar en el directorio <code>_default</code>. Ya no perdia nada, asi que lo probe. Y funciono a la primera. No se porque antes no habia funcionado correctamente, porque esta misma prueba ya la habia hecho anteriormente, eso si, como modificaciones en el fichero <code>hugo.toml</code>, y no se si era por eso que no funcionaba, pero ahora, todo funcionaba perfectamente.</p>
+<p>Aqui si que fue, cuando vi la luz al final del tunel, ya tenia el nuevo tema en <strong>Hugo</strong> y funcionando a las mil maravillas. Y que quereis que os diga, me gusta mucho porque, tiene todo lo que yo necesito, la maxima amplitud de la pantalla con el texto del articulo, porque eso de que los articulos ocupen tan poco, no me gusta nada. Además, los enlaces, sin que tu tengas que hacer nada, ya te los abre en una nueva pestaña. O sea que tiene todo lo que yo necesito.</p>
+<p>Además, como tiene, que el lo que más me gusta, que en eso si que tengo que darle la razon a <strong>Lazaro</strong>, no necesitas instalar nada nuevo, todo lo que necesitas esta en el tema. Pues&hellip;</p>
+<p>Cuando veais este articulo, significara que ya he hecho la migración de <strong>Jekyll</strong> a <strong>Hugo</strong>, aunque la unica parte que vosotros veis es el resultado en <strong>HTML</strong> que es el que subo a <strong>GitHub</strong>.</p>
+<p>Pero al menos, ya tengo nuevos conocimientos, que primero nunca estan de más y segundo, me abre nuevas puertas para cambiar mi otra pagina <a href="https://vsantos.envs.net" target="_blank" rel="noopener noreffer ">web</a> utilizando el servidor <strong>Hugo</strong>, porque lo que tambien me gusta, es que no tengo que usar nada ajeno a <strong>unRaid</strong> sino que el container esta en la tienda de aplicaciones, no como <strong>Jekyll</strong> que tenia que instalarlo a traves de un <code>docker-compose</code> y que nunca actualizaba por miedo a estroperar alguna cosa.</p>
+<p>Pues bueno, aqui teneis como ha ido mi odisea en el cambio de <strong>Jekyll</strong> a <strong>Hugo</strong> y tengo que darle las gracias a <strong>Lazaro</strong> por todos los articulos que ha ido subiendo hablando sobre este ultimo y que me han ayudado mucho en esta migración.</p>
+<p>Muchas gracias <strong>Lazaro</strong>.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.org/tags/hugo" target="_blank" rel="noopener noreffer ">Hugo</a></li>
+<li><a href="https://github.com/dillonzq/LoveIt/pull/761/files" target="_blank" rel="noopener noreffer ">Added supported for umami</a></li>
+<li><a href="https://github.com/dillonzq/LoveIt/discussions/887" target="_blank" rel="noopener noreffer ">How to add bluesky icon and to show a pdf file</a></li>
+<li><a href="https://simpleicons.org/?q=blues" target="_blank" rel="noopener noreffer ">Icon BlueSky</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 09-06-2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/blog/">Blog</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2025-05-22-restic-copias-locales-2/" class="prev" rel="prev" title="Restic &#43; Backrest &#43; MiniO - 2"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Restic + Backrest + MiniO - 2</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

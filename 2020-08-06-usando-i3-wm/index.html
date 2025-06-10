@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Usando i3-wm - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2020-08-06-usando-i3-wm/" /><link rel="prev" href="http://192.6.0.40:1313/2020-04-12-usando-calibre-web/" /><link rel="next" href="http://192.6.0.40:1313/2020-08-29-mover-ficheros-directorio/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Usando i3-wm",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2020-08-06-usando-i3-wm\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Debian GNULinux, i3","wordcount":  2215 ,
+        "url": "http:\/\/192.6.0.40:1313\/2020-08-06-usando-i3-wm\/","datePublished": "2020-08-06T00:00:00+00:00","dateModified": "2020-08-06T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Usando i3-wm</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/i3/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>I3</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="06-08-2020">06-08-2020</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2215 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;11 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Aqui va una nueva entrada y en este caso hace referencia a <a href="https://i3wm.org" target="_blank" rel="noopener noreffer ">i3wm</a></p>
+<p>Primero un poco de historia con respecto al porque de este post. Desde hace años (cuando <strong>KDE</strong> se volvio tan pesado y desapareció el paquete kde-minimal) cambie a <strong>XFCE4</strong> y todo fue bien, hasta que vi que (en mi opinión), se habia estancado, por eso decidi hacer un cambio y hablando con gente de <a href="https://exdebian.org" target="_blank" rel="noopener noreffer ">exDebian</a> me aconsejaron probar <strong>i3wm</strong>. Asi que empeze a buscar información y fue cuando encontre esta colección de 3 videos en <a href="https://www.youtube.com/playlist?list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf" target="_blank" rel="noopener noreffer ">Youtube - i3wm</a> que me abrieron las puertas a <strong>i3wm</strong></p>
+<p>Y gracias a estos videos, me puse manos a la obra. Pero como siempre me pasa, soy un culo inquieto y también me canse, aunque creo que más que cansanció fue ganas de buscar otra cosa o probar cosas nuevas. Asi que aprovechando que me compre un <a href="https://www.samsung.com/semiconductor/minisite/ssd/product/consumer/860evo/" target="_blank" rel="noopener noreffer ">SSD - Samsung Evo 860</a> volvi a XFCE4.</p>
+<p>Pero fue mi mayor error. Porque con el recuerdo de i3wm en la mente, queria tener la misma funcionalidad en XFCE4 y eso no podia ser (algunas cosas si, pero otras no). Hasta que me canse y he vuelto a i3wm para (en principio) quedarme con el. Asi que aqui voy a explicar todo el proceso de instalación y configuración que he usado para mi i3wm.</p>
+<h3 id="1-instalar-en-debian-gnulinux">1. Instalar en Debian GNU/Linux</h3>
+<p>Es la parte más sencilla de todo el proceso y sobretodo en <strong>Debian GNU/Linux</strong>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~$ sudo aptitude install i3-wm i3blocks i3status</span></span></code></pre></div></div>
+<p>Con esta instrucción tan sencilla, ya tenemos los basico y necesario para usar i3-wm, ahora solo falta lanzarlo (en mi caso uso <strong>lightdm</strong>).</p>
+<h3 id="2-configuración-del-entorno">2. Configuración del entorno</h3>
+<p>Una vez que accedemos, nos aparece una pantalla, no os espereis una gran cosa, parece más que sea de consola, nos pide elegir el <code>modkey</code> queremos usar. En mi caso, uso la tecla de <code>windows</code> porque se  no usa para nada en caso de tener <strong>Debian GNU/Linux</strong>. Tambien nos da opción de usar la tecla <code>Alt</code>, aunque yo no recomiendo esta. Con este simple paso se puede decir que hemos realizado el primer paso de la configuración de <code>i3-wm</code>. Ahora viene lo más dificil (al principio lo parece, pero luego no es tanto) la configuració del resto del entorno. El fichero de configuración lo encontramos <code>~/.config/i3/config</code></p>
+<h3 id="3-instalar-programas-basicos">3. Instalar programas basicos</h3>
+<p>Para poder usar un poco más holgadamente <code>i3-wm</code> os recomiendo que instaleis las siguientes aplicaciones que os facilitaran un poco la vida:</p>
+<ul>
+<li>Obtener información sobre la bateria: <code>ACPI</code>.</li>
+<li>Información sobre el volumen: Yo uso <code>ALSA-UTILS</code>, aunque seguramente otro tambien sirve.</li>
+<li>Lanzador de aplicaciones: Puede usar el que recomienda que es <code>dmenu</code>, pero es mejor <code>ROFI</code>.</li>
+<li>Para el fondo de pantalla: Yo uso <code>FEH</code>.</li>
+<li>Para el control del sonido: Yo uso <code>PAVUCONTROL</code> y <code>PULSE</code></li>
+<li>Para visualizar información de la papelera en la barra de estado: Yo uso <code>TRASH</code>, que se puede encontrar en esta <a href="https://github.com/Anachron/i3blocks" target="_blank" rel="noopener noreffer ">pagina</a>.</li>
+<li>Apariencia: Yo me he decantado por <code>LXAPPEARENCE</code>, es facil de usar y no necesita muchas cosas para su uso. Con el puedes configurar iconos, temas, fuentes (que hablare más adelante), etc&hellip;</li>
+<li>Barra de estado: Yo uso <code>I3BLOCK</code>, es facil de usar y de configurar y tiene multiples opciones.</li>
+</ul>
+<h3 id="4-configurar-las-fuentes-a-usar">4. Configurar las fuentes a usar</h3>
+<p>Una de las cosas que es util de hacer (porque no es facil) es configurar manualmente las fuentes que vas a usar. En principio son dos.</p>
+<ul>
+<li><a href="https://github.com/FortAwesome/Font-Awesome" target="_blank" rel="noopener noreffer ">Font Awesome</a>: Para los iconos que puedes usar en la barra de estado (i3block)</li>
+<li><a href="https://github.com/supermarin/YosemiteSanFranciscoFont" target="_blank" rel="noopener noreffer ">System San Francisco</a>: Que emula las letras de MACOSX y que quedan bien (aunque tu puedes usar otras).</li>
+</ul>
+<p>Una vez que las hayas descargado, solamente tienes que crear un directorio <code>~/.fonts</code> donde copiaras los <code>ttf</code> que has descargado y ya estaran listos para su uso.</p>
+<p>La segunda parte es la modificación de los siguientes ficheros para que <code>lxappearence</code> y con ello todo el sistema use las fuentes.</p>
+<p>Estos dos ficheros son:</p>
+<ul>
+<li><code>~/.gtkrc-2.0</code>: En la opción <code>gtk-font-name=</code> tienes que poner <code>&quot;System San Francisco Display 10&quot;</code></li>
+<li><code>~/.config/gtk-3.0</code>: En la opción <code>gtk-font-name</code> tienes que poner <code>System San Francisco Display 10</code></li>
+</ul>
+<p>Y con esto tendras configurado el sistema para que use esta fuente.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Se podria hacer a traves de <code>lxappearence</code>, pero no detecta esta fuente y no la podras seleccionar, por eso modificamos directamente los ficheros anteriores.</div>
+        </div>
+    </div>
+<h3 id="mi-escritorio">Mi Escritorio</h3>
+<p>Después de la instalación y si le dedicas un poco de tiempo, te puede quedar algo parecido al mio (o mejor) eso depende del gusto de cada uno.</p>
+<p><figure><a class="lightgallery" href="/images/screenshot_002.jpg" title="/images/screenshot_002.jpg" data-thumbnail="/images/screenshot_002.jpg" data-sub-html="<h2>ScreenShot</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/screenshot_002.jpg"
+            data-srcset="/images/screenshot_002.jpg, /images/screenshot_002.jpg 1.5x, /images/screenshot_002.jpg 2x"
+            data-sizes="auto"
+            alt="/images/screenshot_002.jpg" />
+    </a><figcaption class="image-caption">ScreenShot</figcaption>
+    </figure></p>
+<h3 id="mi-configuración">Mi Configuración</h3>
+<p>A continuación, siendo la parte más interesante, la configuración, os pongo la que yo uso (que seguro que en un futuro ire mejorando) pero que os puede servir como base de inicio.</p>
+<ul>
+<li>Mi configuración de i3-wm</li>
+<li>Mi configuración de i3blocks</li>
+</ul>
+<h4 id="configi3config">.config/i3/config:</h4>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># This file has been auto-generated by i3-config-wizard(1).</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># It will not be overwritten, so edit it as you like.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Should you change your keyboard layout some time, delete</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># this file and re-run i3-config-wizard(1).</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># i3 config file (v4)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Please see https://i3wm.org/docs/userguide.html for a complete reference!</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$mod</span> Mod4
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># VARIABLES DEL SISTEMA - COLORS</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$bg</span>-color            <span class="c1">#2f343f</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$inactive</span>-bg-color   <span class="c1">#2f343f</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$text</span>-color          <span class="c1">#f3f4f5</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$inactive</span>-text-color <span class="c1">#676E7D</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$urgent</span>-bg-color     <span class="c1">#E53935</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># VARIABLES DEL SISTEMA - COLORS PER A LES FINESTRES</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   border              background         text                 indicator</span>
+</span></span><span class="line"><span class="cl">client.focused          <span class="nv">$bg</span>-color           <span class="nv">$bg</span>-color          <span class="nv">$text</span>-color          <span class="c1">#00ff00</span>
+</span></span><span class="line"><span class="cl">client.unfocused        <span class="nv">$inactive</span>-bg-color  <span class="nv">$inactive</span>-bg-color <span class="nv">$inactive</span>-text-color <span class="c1">#00ff00</span>
+</span></span><span class="line"><span class="cl">client.focused_inactive <span class="nv">$inactive</span>-bg-color  <span class="nv">$inactive</span>-bg-color <span class="nv">$inactive</span>-text-color <span class="c1">#00ff00</span>
+</span></span><span class="line"><span class="cl">client.urgent           <span class="nv">$urgent</span>-bg-color    <span class="nv">$urgent</span>-bg-color   <span class="nv">$text</span>-color          <span class="c1">#00ff00</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Font for window titles. Will also be used by the bar unless a different font</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># is used in the bar {} block below.</span>
+</span></span><span class="line"><span class="cl">font pango:System San Francisco Display <span class="m">9</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># VORES DE LES PANTALLES MES PRIMES</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">hide_edge_borders both
+</span></span><span class="line"><span class="cl"><span class="c1"># This font is widely installed, provides lots of unicode glyphs, right-to-left</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># text rendering and scalability on retina/hidpi displays (thanks to pango).</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># font pango:DejaVu Sans Mono 8</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Before i3 v4.8, we used to recommend this one as the default:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># The font above is very space-efficient, that is, it looks good, sharp and</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># clear in small sizes. However, its unicode glyph coverage is limited, the old</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># X core fonts rendering does not support right-to-left and this being a bitmap</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># font, it doesn’t scale on retina/hidpi displays.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Use Mouse+$mod to drag floating windows to their wanted position</span>
+</span></span><span class="line"><span class="cl">floating_modifier <span class="nv">$mod</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># start a terminal</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Return <span class="nb">exec</span> --no-startup-id xfce4-terminal
+</span></span><span class="line"><span class="cl"><span class="c1"># kill focused window</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+q <span class="nb">kill</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># start dmenu (a program launcher)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#bindsym $mod+d exec dmenu_run</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#bindsym $mod+d exec --no-startup-id rofi -show run -theme onedark -lines 3 -eh 2 -bw 0 -bc &#34;$bg-color&#34; -bg &#34;$bg-color&#34; -fg &#34;$text-color&#34; -hlbg &#34;$bg-color&#34; -hlfg &#34;#9575cd&#34; -font &#34;System San Francisco Display 12&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># AQUEST ES LA PRIMERA VERSIO</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu=&#39;rofi -theme custom-nord -dmenu -lines 5 -eh 2 -bw 0 -font &#34;System San Francisco Display 12&#34; -i sort&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># EL QUE ESTIC FENT SERVIR ARA</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+d <span class="nb">exec</span> <span class="s2">&#34;rofi -show drun -sidebar-mode -theme custom-nord -modi drun,window,ssh -show-icons&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># There also is the (new) i3-dmenu-desktop which only displays applications</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># shipping a .desktop file. It is a wrapper around dmenu, so you need that</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># installed.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># bindsym $mod+d exec --no-startup-id i3-dmenu-desktop</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># change focus</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+j focus left
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+k focus down
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+l focus up
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+ntilde focus right
+</span></span><span class="line"><span class="cl"><span class="c1"># alternatively, you can use the cursor keys:</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Left focus left
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Down focus down
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Up focus up
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Right focus right
+</span></span><span class="line"><span class="cl"><span class="c1"># move focused window</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+j move left
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+k move down
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+l move up
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+ntilde move right
+</span></span><span class="line"><span class="cl"><span class="c1"># alternatively, you can use the cursor keys:</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+Left move left
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+Down move down
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+Up move up
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+Right move right
+</span></span><span class="line"><span class="cl"><span class="c1"># split in horizontal orientation</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+h split h
+</span></span><span class="line"><span class="cl"><span class="c1"># split in vertical orientation</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+v split v
+</span></span><span class="line"><span class="cl"><span class="c1"># enter fullscreen mode for the focused container</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+f fullscreen toggle
+</span></span><span class="line"><span class="cl"><span class="c1"># change container layout (stacked, tabbed, toggle split)</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+s layout stacking
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+w layout tabbed
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+e layout toggle split
+</span></span><span class="line"><span class="cl"><span class="c1"># toggle tiling / floating</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+space floating toggle
+</span></span><span class="line"><span class="cl"><span class="c1"># change focus between tiling / floating windows</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+space focus mode_toggle
+</span></span><span class="line"><span class="cl"><span class="c1"># focus the parent container</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+a focus parent
+</span></span><span class="line"><span class="cl"><span class="c1"># focus the child container</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#bindsym $mod+d focus child</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Define names for default workspaces for which we configure key bindings later on.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># We use variables to avoid repeating the names in multiple places.</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$ws1</span> <span class="s2">&#34;1: Web &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$ws2</span> <span class="s2">&#34;2: Terminal &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$ws3</span> <span class="s2">&#34;3: File Manager &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$ws4</span> <span class="s2">&#34;4: Music &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$ws5</span> <span class="s2">&#34;5: VirtualBox &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$ws6</span> <span class="s2">&#34;6: Email &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$ws7</span> <span class="s2">&#34;7: Filezilla &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$ws8</span> <span class="s2">&#34;8: Calibre &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$ws9</span> <span class="s2">&#34;9: Misc &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">$ws10</span> <span class="s2">&#34;10: Misc &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># switch to workspace</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+1 workspace <span class="nv">$ws1</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+2 workspace <span class="nv">$ws2</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+3 workspace <span class="nv">$ws3</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+4 workspace <span class="nv">$ws4</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+5 workspace <span class="nv">$ws5</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+6 workspace <span class="nv">$ws6</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+7 workspace <span class="nv">$ws7</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+8 workspace <span class="nv">$ws8</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+9 workspace <span class="nv">$ws9</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+0 workspace <span class="nv">$ws10</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># move focused container to workspace</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+1 move container to workspace <span class="nv">$ws1</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+2 move container to workspace <span class="nv">$ws2</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+3 move container to workspace <span class="nv">$ws3</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+4 move container to workspace <span class="nv">$ws4</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+5 move container to workspace <span class="nv">$ws5</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+6 move container to workspace <span class="nv">$ws6</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+7 move container to workspace <span class="nv">$ws7</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+8 move container to workspace <span class="nv">$ws8</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+9 move container to workspace <span class="nv">$ws9</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+0 move container to workspace <span class="nv">$ws10</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ASSIGNACIÓ DAPLICACIONS A LES FINESTRES PER DEFECTE</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># NECESSITES X11-UTILS, PER SAPIGER QUINA &#34;class&#34; I AIXI PODER CONFIGURAR AQUESTA SECCIÓ</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># virtualbox (mod+winkey+v)</span>
+</span></span><span class="line"><span class="cl">assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&#34;Firefox&#34;</span> <span class="o">]</span> <span class="nv">$ws1</span>
+</span></span><span class="line"><span class="cl">assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&#34;Xfce4-terminal&#34;</span> <span class="o">]</span> <span class="nv">$ws2</span>
+</span></span><span class="line"><span class="cl">assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&#34;Thunar&#34;</span> <span class="o">]</span> <span class="nv">$ws3</span>
+</span></span><span class="line"><span class="cl">assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&#34;Chromium&#34;</span> <span class="o">]</span> <span class="nv">$ws4</span>
+</span></span><span class="line"><span class="cl">assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&#34;VirtualBox Manager&#34;</span> <span class="o">]</span> <span class="nv">$ws5</span>
+</span></span><span class="line"><span class="cl">assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&#34;Claws-mail&#34;</span> <span class="o">]</span> <span class="nv">$ws6</span>
+</span></span><span class="line"><span class="cl">assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&#34;Filezilla&#34;</span> <span class="o">]</span> <span class="nv">$ws7</span>
+</span></span><span class="line"><span class="cl">assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&#34;calibre&#34;</span> <span class="o">]</span> <span class="nv">$ws8</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&#34;(?i)lxappearance&#34;</span> <span class="o">]</span> floating <span class="nb">enable</span>
+</span></span><span class="line"><span class="cl">for_window <span class="o">[</span><span class="nv">title</span><span class="o">=</span><span class="s2">&#34;(?i)pulseaudio multiband EQ&#34;</span> <span class="o">]</span> floating <span class="nb">enable</span>
+</span></span><span class="line"><span class="cl">for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&#34;(?i)pavucontrol&#34;</span> <span class="o">]</span> floating enable, move position mouse
+</span></span><span class="line"><span class="cl">for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&#34;(?i)nm-connection-editor&#34;</span> <span class="o">]</span> floating <span class="nb">enable</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># reload the configuration file</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+c reload
+</span></span><span class="line"><span class="cl"><span class="c1"># restart i3 inplace (preserves your layout/session, can be used to upgrade i3)</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+r restart
+</span></span><span class="line"><span class="cl"><span class="c1"># exit i3 (logs you out of your X session)</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+Shift+e <span class="nb">exec</span> <span class="s2">&#34;i3-nagbar -t warning -m &#39;You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.&#39; -b &#39;Yes, exit i3&#39; &#39;i3-msg exit&#39;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># resize window (you can also use the mouse for that)</span>
+</span></span><span class="line"><span class="cl">mode <span class="s2">&#34;resize&#34;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1"># These bindings trigger as soon as you enter the resize mode</span>
+</span></span><span class="line"><span class="cl">   <span class="c1"># Pressing left will shrink the window’s width.</span>
+</span></span><span class="line"><span class="cl">   <span class="c1"># Pressing right will grow the window’s width.</span>
+</span></span><span class="line"><span class="cl">   <span class="c1"># Pressing up will shrink the window’s height.</span>
+</span></span><span class="line"><span class="cl">   <span class="c1"># Pressing down will grow the window’s height.</span>
+</span></span><span class="line"><span class="cl">   bindsym j resize shrink width <span class="m">10</span> px or <span class="m">10</span> ppt
+</span></span><span class="line"><span class="cl">   bindsym k resize grow height <span class="m">10</span> px or <span class="m">10</span> ppt
+</span></span><span class="line"><span class="cl">   bindsym l resize shrink height <span class="m">10</span> px or <span class="m">10</span> ppt
+</span></span><span class="line"><span class="cl">   bindsym ntilde resize grow width <span class="m">10</span> px or <span class="m">10</span> ppt
+</span></span><span class="line"><span class="cl">   <span class="c1"># same bindings, but for the arrow keys</span>
+</span></span><span class="line"><span class="cl">   bindsym Left resize shrink width <span class="m">10</span> px or <span class="m">10</span> ppt
+</span></span><span class="line"><span class="cl">   bindsym Down resize grow height <span class="m">10</span> px or <span class="m">10</span> ppt
+</span></span><span class="line"><span class="cl">   bindsym Up resize shrink height <span class="m">10</span> px or <span class="m">10</span> ppt
+</span></span><span class="line"><span class="cl">   bindsym Right resize grow width <span class="m">10</span> px or <span class="m">10</span> ppt
+</span></span><span class="line"><span class="cl">   <span class="c1"># back to normal: Enter or Escape or $mod+r</span>
+</span></span><span class="line"><span class="cl">   bindsym Return mode <span class="s2">&#34;default&#34;</span>
+</span></span><span class="line"><span class="cl">   bindsym Escape mode <span class="s2">&#34;default&#34;</span>
+</span></span><span class="line"><span class="cl">   bindsym <span class="nv">$mod</span>+r mode <span class="s2">&#34;default&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">bindsym <span class="nv">$mod</span>+r mode <span class="s2">&#34;resize&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Start i3bar to display a workspace bar (plus the system information i3status</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># finds out, if available)</span>
+</span></span><span class="line"><span class="cl">bar <span class="o">{</span>
+</span></span><span class="line"><span class="cl">       status_command i3blocks -c /home/vsantos/.config/i3/i3blocks.conf
+</span></span><span class="line"><span class="cl">       position top
+</span></span><span class="line"><span class="cl">       separator_symbol <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">       colors <span class="o">{</span>
+</span></span><span class="line"><span class="cl">               background        <span class="nv">$bg</span>-color
+</span></span><span class="line"><span class="cl">               separator         <span class="c1">#757575</span>
+</span></span><span class="line"><span class="cl">               <span class="c1">#                  border             background         text</span>
+</span></span><span class="line"><span class="cl">               focused_workspace  <span class="nv">$bg</span>-color          <span class="nv">$bg</span>-color          <span class="nv">$text</span>-color
+</span></span><span class="line"><span class="cl">               inactive_workspace <span class="nv">$inactive</span>-bg-color <span class="nv">$inactive</span>-bg-color <span class="nv">$inactive</span>-text-color
+</span></span><span class="line"><span class="cl">               urgent_workspace   <span class="nv">$urgent</span>-bg-color   <span class="nv">$urgent</span>-bg-color   <span class="nv">$text</span>-color
+</span></span><span class="line"><span class="cl">       <span class="o">}</span>
+</span></span><span class="line"><span class="cl">       font pango:Source Code Pro <span class="k">for</span> Powerline, FontAwesome Regular, Icons <span class="m">9</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># APLICACIONS QUE SEXECUTAN A LINICI</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># BROWSER</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> --no-startup-id firefox
+</span></span><span class="line"><span class="cl">for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">&#34;Firefox&#34;</span> <span class="o">]</span> focus
+</span></span><span class="line"><span class="cl"><span class="c1"># TERMINAL</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> --no-startup-id xfce4-terminal
+</span></span><span class="line"><span class="cl"><span class="c1"># CORREO</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> --no-startup-id claws-mail
+</span></span><span class="line"><span class="cl"><span class="c1"># CHROMIUM / MUSICA</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> --no-startup-id chromium
+</span></span><span class="line"><span class="cl"><span class="c1"># GESTOR FITXER</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> --no-startup-id thunar
+</span></span><span class="line"><span class="cl"><span class="c1"># GESTOR FTP</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> --no-startup-id filezilla
+</span></span><span class="line"><span class="cl"><span class="c1"># VIRTUAL BOX</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> --no-startup-id virtualbox
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># PER A CONFIGURAR LA CONNEXIO (ETHERNET / WIFI)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">exec_always --no-startup-id nm-applet
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># PER A BLOQUEJA LA PANTALLA</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#bindsym $mod+shift+x exec ~/.config/scripts/lock.sh</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># PER A VISUALITZAR ELS FONS DE PANTALLA</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">exec_always --no-startup-id feh --bg-scale --no-fehbg ~/.config/wallpapers/Wallpaper_08.jpg
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># EXECUTAR SEMPRE COMPTON (PROGRAMA PER AL MENU)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">exec_always --no-startup-id compton -f
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Pulse Audio controls</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">bindsym XF86AudioRaiseVolume <span class="nb">exec</span> --no-startup-id pactl set-sink-volume <span class="m">0</span> +5% <span class="c1">#increase sound volume</span>
+</span></span><span class="line"><span class="cl">bindsym XF86AudioLowerVolume <span class="nb">exec</span> --no-startup-id pactl set-sink-volume <span class="m">0</span> -5% <span class="c1">#decrease sound volume</span>
+</span></span><span class="line"><span class="cl">bindsym XF86AudioMute <span class="nb">exec</span> --no-startup-id pactl set-sink-mute <span class="m">0</span> toggle <span class="c1"># mute sound</span></span></span></code></pre></div></div>
+<h4 id="configi3i3blocksconf">.config/i3/i3blocks.conf</h4>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># i3blocks config file</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Please see man i3blocks for a complete reference!</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># The man page is also hosted at http://vivien.github.io/i3blocks</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># List of valid properties:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># align</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># color</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># command</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># full_text</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># instance</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># interval</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># label</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># min_width</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># name</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># separator</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># separator_block_width</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># short_text</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># signal</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># urgent</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Global properties</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># The top properties below are applied to every block, but can be overridden.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Each block command defaults to the script name to avoid boilerplate.</span>
+</span></span><span class="line"><span class="cl"><span class="nv">command</span><span class="o">=</span>/usr/share/i3blocks/<span class="nv">$BLOCK_NAME</span>
+</span></span><span class="line"><span class="cl"><span class="nv">separator_block_width</span><span class="o">=</span><span class="m">15</span>
+</span></span><span class="line"><span class="cl"><span class="nv">markup</span><span class="o">=</span>none
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>volume<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">label</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="nv">instance</span><span class="o">=</span>Master
+</span></span><span class="line"><span class="cl"><span class="nv">interval</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">signal</span><span class="o">=</span><span class="m">10</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>disk<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">label</span><span class="o">=</span> home:
+</span></span><span class="line"><span class="cl"><span class="nv">interval</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>trash<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">label</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="nv">interval</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>load_average<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">label</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="nv">interval</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>battery<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">label</span><span class="o">=</span>⚡
+</span></span><span class="line"><span class="cl"><span class="nv">interval</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>time<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">label</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="nv">command</span><span class="o">=</span>date <span class="s1">&#39;+%d %b %H:%M&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">interval</span><span class="o">=</span><span class="m">1</span></span></span></code></pre></div></div>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://sergioquijanorey.github.io/i3/linux/programacion/administracion/2018/09/09/configuraci%C3%B3n-i3wm.html" target="_blank" rel="noopener noreffer ">Mi configuración I3</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf" target="_blank" rel="noopener noreffer ">Youtube I3wm</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 06-08-2020</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debian-gnulinux/">Debian GNULinux</a>,&nbsp;<a href="/tags/i3/">I3</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020-04-12-usando-calibre-web/" class="prev" rel="prev" title="Usando Calibre-Web"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Usando Calibre-Web</a>
+            <a href="/2020-08-29-mover-ficheros-directorio/" class="next" rel="next" title="Mover ficheros de un arbol de directorios a un directorio">Mover ficheros de un arbol de directorios a un directorio<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

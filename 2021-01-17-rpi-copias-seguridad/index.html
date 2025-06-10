@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Raspberry Pi. Haciendo copias de seguridad - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2021-01-17-rpi-copias-seguridad/" /><link rel="prev" href="http://192.6.0.40:1313/2020-12-14-crear-imagen-docker/" /><link rel="next" href="http://192.6.0.40:1313/2021-01-18-rpi-externalizando-copias-seguridad/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Raspberry Pi. Haciendo copias de seguridad",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2021-01-17-rpi-copias-seguridad\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Docker, Raspberry Pi","wordcount":  608 ,
+        "url": "http:\/\/192.6.0.40:1313\/2021-01-17-rpi-copias-seguridad\/","datePublished": "2021-01-17T00:00:00+00:00","dateModified": "2021-01-17T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Raspberry Pi. Haciendo copias de seguridad</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="17-01-2021">17-01-2021</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;608 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Otro capitulo más con respecto a la configuración de de mi RPI4, en este caso son las copias de seguridad de la información más importante.</p>
+<p>Tal como he dicho en otros articulos, desde que conoci Docker, se abrio un nuevo mundo y para esto, no iba a ser menos.</p>
+<p>Para realizar las copias de seguridad queria usar esta imagen <a href="https://hub.docker.com/r/pablokbs/rsnapshot-cron/tags?page=1&amp;ordering=last_updated" target="_blank" rel="noopener noreffer ">rsnapshot</a>, hecha por PeladoNerd, pero no funciona. No esta compilada para ARM, le di un toque por octubre, pero supongo que por trabajo, no ha podido solucionar el problema, asi que tuve que buscarme otras opciones. Y como no, salio al rescate <a href="https://hub.docker.com/r/linuxserver/rsnapshot" target="_blank" rel="noopener noreffer ">linuxserver</a>.</p>
+<p>Lo bueno que tiene <strong>rsnapshot</strong> es que solamente te copia los ficheros que se modifican. Al principio, si que hace una copia de todo, porque no tiene nada con que comprarar, pero a partir de ese momento, solo hace las copias de los ficheros que se modifican.</p>
+<p>Asi, que nos pusimos a ello. Lo primero fue decidir que información es la importante, luego como la vamos a estructurar (donde estara el directorio). En mi caso, la cosa quedo de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">### DIRECTORIO DONDE SE ALMACENAN LAS COPIAS DE SEGURIDAD</span>
+</span></span><span class="line"><span class="cl">/mnt/seguretat
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### DIRECTORIOS DE LOS QUE QUIERO COPIAS DE SEGURIDAD</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># el directorio de mi usuario (junto con el docker-compose de docker)</span>
+</span></span><span class="line"><span class="cl">/home
+</span></span><span class="line"><span class="cl"><span class="c1"># el directorio donde estan las configuraciones del servidor que son importantes</span>
+</span></span><span class="line"><span class="cl">/etc
+</span></span><span class="line"><span class="cl"><span class="c1"># el directorio donde tengo las configuraciones de las imagenes de docker</span>
+</span></span><span class="line"><span class="cl">/mnt/config</span></span></code></pre></div></div>
+<p>Una vez ya tenemos decido la información a salvaguardar, pasamos a la creación del <strong>docker-compose</strong>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rsnapshot:
+</span></span><span class="line"><span class="cl">  image: ghcr.io/linuxserver/rsnapshot
+</span></span><span class="line"><span class="cl">   container_name: rsnapshot
+</span></span><span class="line"><span class="cl">   restart: unless-stopped
+</span></span><span class="line"><span class="cl">   volumes:
+</span></span><span class="line"><span class="cl">    - /mnt/config/rsnapshot:/config
+</span></span><span class="line"><span class="cl">    - /mnt/seguretat:/snapshots
+</span></span><span class="line"><span class="cl">    - /etc:/data/etc
+</span></span><span class="line"><span class="cl">    - /home/pi:/data/home/pi
+</span></span><span class="line"><span class="cl">    - /mnt/config:/data/config
+</span></span><span class="line"><span class="cl">   environment:
+</span></span><span class="line"><span class="cl">    - <span class="nv">PUID</span><span class="o">=</span><span class="m">1000</span>
+</span></span><span class="line"><span class="cl">    - <span class="nv">PGID</span><span class="o">=</span><span class="m">1000</span>
+</span></span><span class="line"><span class="cl">    - <span class="nv">TZ</span><span class="o">=</span>Europe/Madrid</span></span></code></pre></div></div>
+<p>Después de crear el docker, solamente nos quedar ejecutar la magica instruccion que nos lo pondra en marcha todo:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@raspberry:~$ docker-compose up -d rsnapshot</span></span></code></pre></div></div>
+<p>Ahora nos queda la ultima parte, que es configurar los ficheros de configuración de rsnapshot. En mi caso lo hago dentro del mismo docker. Es posible que se pudiera hacer a traves de los ficheros de configuración que estan en el host del docker, pero prefiero acceder para hacer la configuración. Que en mi caso estan en <code>/mnt/config/rsnapshot</code> y a configuración la tengo de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@raspberry:~$ <span class="nb">cd</span> dockerCompose
+</span></span><span class="line"><span class="cl">usuari@raspberry:~/dockerCompose $ docker-compose <span class="nb">exec</span> rsnapshot sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### EDITO LOS FICHEROS RSNAPSHOT.CONF DE LA SIGUIENTE MANERA</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># DIRECTORIO QUE CONTIENE LAS COPIAS (QUE LO HABRAS CONFIGURADO EN EL</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># DOCKER-COMPOSE)</span>
+</span></span><span class="line"><span class="cl">rsnapshpot_root   /snapshots
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### SON LOS INTERVALOS QUE SE SALVAN</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># SE MANTIENEN 7 COPIAS DIARIAS</span>
+</span></span><span class="line"><span class="cl">retain    daily   <span class="m">7</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># SE MANTIENEN 4 COPIAS SEMANALES</span>
+</span></span><span class="line"><span class="cl">retain    weekly  <span class="m">4</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># SE MANTIENEN 3 COPIAS MENSUALES</span>
+</span></span><span class="line"><span class="cl">retain    monthly <span class="m">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># FICHERO DE LOGS  </span>
+</span></span><span class="line"><span class="cl">logfile   /config/rsnapshot.log
+</span></span><span class="line"><span class="cl"><span class="c1"># DIRECTORIO A COPIAR - EN MI CASO, DENTRO DE DATA, TENGO LOS DIRECTORIOS</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># A SALVAGUARDAR</span>
+</span></span><span class="line"><span class="cl">backup    /data/    localhost/</span></span></code></pre></div></div>
+<p>El siguiente fichero que hay que configurar, es el de cron (propio de rsnapshot), que se encarga de ejecutar las copias:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># AUN SIGO DENTRO DEL CONTAINER</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> crontabs
+</span></span><span class="line"><span class="cl">vi root</span></span></code></pre></div></div>
+<p>Ahora modificamos el archivo:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># AHORA PASAMOS A LA EDICIÓN DEL FICHERO</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># min   hour    day   month   weekday   command</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># SE EJECUTA CADA DIA A LAS 2 DE LA MAÑANA</span>
+</span></span><span class="line"><span class="cl"><span class="m">0</span>       <span class="m">2</span>       *     *       *         rsnapshot daily
+</span></span><span class="line"><span class="cl"><span class="c1"># SE EJECUTA CADA LUNES (WEEKDAY - 1) A LAS 4 DE LA MAÑANA</span>
+</span></span><span class="line"><span class="cl"><span class="m">0</span>       <span class="m">4</span>       *     *       <span class="m">1</span>         rsnapshot weekly
+</span></span><span class="line"><span class="cl"><span class="c1"># SE EJECUTA CADA DIA 1 DE CADA MES A LAS 6 DE LA MAÑANA</span>
+</span></span><span class="line"><span class="cl"><span class="m">0</span>       <span class="m">6</span>       <span class="m">1</span>     *       *         rsnapshot monthly</span></span></code></pre></div></div>
+<p>Con esto, ya tenemos configurado <strong>rsnapshot</strong>, ahora solamente hay que dejarlo que funcione y listo.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=gxJqpBsPseM" target="_blank" rel="noopener noreffer ">Backups faciles con Docker! - V2M / Rsnapshot</a></li>
+<li><a href="https://hub.docker.com/r/pablokbs/rsnapshot-cron/tags?page=1&amp;ordering=last_updated" target="_blank" rel="noopener noreffer ">PabloKbs - Rsnapshot</a></li>
+<li><a href="https://hub.docker.com/r/linuxserver/rsnapshot" target="_blank" rel="noopener noreffer ">LinuxServer - Rsnapshot</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 17-01-2021</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/raspberry-pi/">Raspberry Pi</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020-12-14-crear-imagen-docker/" class="prev" rel="prev" title="Crear imagenes en docker"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Crear imagenes en docker</a>
+            <a href="/2021-01-18-rpi-externalizando-copias-seguridad/" class="next" rel="next" title="Raspberry Pi. Externalizando copias de seguridad">Raspberry Pi. Externalizando copias de seguridad<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

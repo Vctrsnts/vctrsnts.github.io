@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Usando Traefik - 4 - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2024-07-26-usando-traefik-4/" /><link rel="prev" href="http://192.6.0.40:1313/2024-06-23-opinion-unraid-2/" /><link rel="next" href="http://192.6.0.40:1313/2024-09-18-modificando-servidor-1/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Usando Traefik - 4",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2024-07-26-usando-traefik-4\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Docker, VPS","wordcount":  1775 ,
+        "url": "http:\/\/192.6.0.40:1313\/2024-07-26-usando-traefik-4\/","datePublished": "2024-07-26T00:00:00+00:00","dateModified": "2024-07-26T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Usando Traefik - 4</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="26-07-2024">26-07-2024</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1775 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Tal como indique en este <a href="/2024-04-19-traefik" rel="">articulo</a>, lo unico que me faltaba por añadir a <strong>traefik</strong> para tener mi VPS lo más seguro posible era <strong>crowdsec</strong> y por fin, ya lo tengo instalado.</p>
+<p>Antes de lanzarte a la piscina directamente, te aconsejo que les eches un vistazo a este <a href="https://atareao.es/podcast/mas-herramientas-para-proteger-tu-linux" target="_blank" rel="noopener noreffer ">articulo</a> de <strong>atareao</strong> donde habla de <em>crowdsec</em> y tambien a este <a href="https://www.youtube.com/watch?v=-GxUP6bNxF0" target="_blank" rel="noopener noreffer ">video</a>, que me ha servido como guia en todo el proceso.</p>
+<p>Si sigues leyendo este articulo, es que ya has revisado los articulos y el video que te he aconsejado antes, asi que ya podemos empezar. Para empezar, partimos de la configuración inicial que tengo en <strong>traefik</strong> y que podeis ver en los diferentes articulos, podemos empezar con la instalación de <strong>crowdsec</strong>.</p>
+<p>Lo primero y antes de nada, hice una pequeña modificación a la configuración de <strong>traefik</strong> para asi tener mejor identificado el volumen que esta utilizando. Ahora mismo, el <code>docker-compose</code> donde tengo <strong>traefik</strong> lo tengo de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">traefik</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span>- <span class="l">traefik_log:/var/log/traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">traefik_log</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik_log</span></span></span></code></pre></div></div>
+<p>De esta manera, tal como comento, tengo mejor identificado el <code>volumen</code> de <em>traefik</em>.</p>
+<p>Después de esto ya podemos pasar a la instalación de <strong>crowdsec</strong>. Tengo que informar antes de empezar, que la instalación se divide en varias fases y que hay que ir, con un poco de cuidado, porque sino&hellip;</p>
+<p>La primera de ellas es la creación de los directorios y archivos que nos haran falta para el correcto funcionamiento de <strong>crowdsec</strong> y <strong>bouncer-traefik</strong>.</p>
+<p>Lo primero es crear el directorio <strong>crowdsec</strong>. Yo lo tengo en el mismo directorio donde tengo la configuración de <strong>traefik</strong> quedando de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">|-- config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">|---- traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">|---- crowdsec</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">|------ acquis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">|-------- ssh.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">|------ acquis.yml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">|------ mywhitelist.yml</span></span></span></code></pre></div></div>
+<p>Donde tendremos:</p>
+<h3 id="acquissshyaml">acquis/ssh.yaml</h3>
+<p>Que es el encargado de controlar las conexiones <strong>ssh</strong> a nuestro servidor y asi, hacemos que <strong>crowdsec</strong> tambien las controle (ya explicaremos como).</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">filenames</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span>- <span class="l">/logs/auth.log</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span>- <span class="l">/logs/syslog</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">syslog</span></span></span></code></pre></div></div>
+<h3 id="acquisyml">acquis.yml</h3>
+<p>Los ficheros <em>log</em> de <strong>traefik</strong>, tanto el <code>access.log</code> como el <code>traefik.log</code>.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">filenames</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">/var/log/traefik/*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span></span></span></code></pre></div></div>
+<p>Por ultimo</p>
+<h3 id="mywhitelistyml">mywhitelist.yml</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">crowdsecurity/whitelists</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Whitelist events from my ip addresses&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">whitelist</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">reason</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;my ip ranges&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ip</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s2">&#34;XXX.XXX.XXX.XXX&#34;</span></span></span></code></pre></div></div>
+<p>Que es el fichero donde indicaremos a <strong>crowdsec</strong> las <strong>IP</strong> que son de confianza. Yo he puesto, la ip desde la que siempre me conecto al <em>VPS</em> para que asi no la tenga encuenta, aunque más adelante haremos una prueba para ver el funcionamiento de <strong>crowdsec</strong> con respecto a esta <em>IP</em>.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Antes de nada, informar que en el fichero de <code>docker-compose.yml</code> donde tengo <strong>traefik</strong> tambien tengo la configuración de <strong>crowdsec</strong>, porque me ha resultado más facil, si lo haces con diferentes ficheros <code>yml</code> hay que tener un par de cosas en cuenta que ya os informare llegado el momento.</div>
+        </div>
+    </div>
+<p>Una vez que tenemos esto claro, empezamos añadiendo a nuestro fichero de <code>docker-compose.yml</code> lo necesario para <strong>crowdsec</strong>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># CROWDSEC - SEGURETAT PER A TRAEFIK I EL SERVIDOR</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">crowdsec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">crowdsecurity/crowdsec:v1.6.2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">crowdsec</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">proxy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">init</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">GID</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;${GID-1000}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">COLLECTIONS</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;crowdsecurity/linux crowdsecurity/traefik crowdsecurity/sshd&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">${HOME}/config/crowdsec/acquis.yml:/etc/crowdsec/acquis.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">${HOME}/config/crowdsec/mywhitelists.yml:/etc/crowdsec/parsers/s02-enrich/mywhitelists.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">${HOME}/config/crowdsec/acquis/:/etc/crowdsec/acquis.d/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">crowdsec-db:/var/lib/crowdsec/data/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">crowdsec-config:/etc/crowdsec/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik_log:/var/log/traefik/:ro</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">/var/log/auth.log:/logs/auth.log:ro</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">/var/log/syslog.log:/logs/syslog.log:ro</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik</span></span></span></code></pre></div></div>
+<p>En la configuración hay que tener en cuenta un par de cosas:</p>
+<ul>
+<li><code>depedens_on:</code> Aqui le indicamos a <strong>crowdsec</strong> que no puede iniciarse sino esta antes <strong>traefik</strong> en funcionamiento. Es como una medida de seguridad.</li>
+<li><code>COLLECTIONS: &quot;crowdsecurity/linux crowdsecurity/traefik crowdsecurity/sshd&quot;</code>
+<ul>
+<li>Yo lo entiendo, como las alertas o lo que tiene que <em>tener en cuentra</em> <strong>crowdsec</strong> para luego tomar las acciones necesarias. Hay muchas más opciones que puedes ir añadiendo. Las puedes encontrar <a href="https://app.crowdsec.net/hub/collections" target="_blank" rel="noopener noreffer ">aqui</a>. En mi caso he puesto:
+<ul>
+<li><code>crowdsecurity/linux</code> para los posibles <strong>bugs</strong> que pueda tener <strong>Linux</strong></li>
+<li><code>crowdsecurity/traefik</code> para los posibles <strong>bugs</strong> de <strong>traefik</strong></li>
+<li><code>crowdsecurity/sshd</code> para los posibles <strong>bugs</strong> de <strong>ssh</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>networks</code> tanto <em>traefik</em>, <em>crowdsec</em> y <em>bounces-traefik</em>, que lo explicare más adelante, tienen que estar en la misma <em>red</em> para que se puedan comunicar entre ellos.</li>
+<li>Tambien tenemos que tener en cuenta los <em>volumenes</em> que vamos a usar en <strong>crowdsec</strong>, que en este caso son los que pongo a continuación:</li>
+</ul>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">crowdsec-db</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">crowdsec-db</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">crowdsec-config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">crowdsec-config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">traefik_log</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik_log</span></span></span></code></pre></div></div>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Si os fijais, he puesto el mismo nombre de volumen para los logs que tengo en <em>traefik</em> a <em>crowdsec</em> porque comparten el mismo fichero de <code>docker-compose.yml</code>, pero aqui hay que tener una cosa en cuenta, en caso de que lo tengas en <em>ficheros / stacks</em> diferentes tienes que añadir, en el caso de los <em>logs</em> de <em>crowdsec</em> que afectan a <em>traefik</em>, la opción <code>external: true</code> porque indicas que los <em>logs</em> estan en otro <em>docker-compose</em>, si se puede decir asi, quedando de la siguiente manera:</div>
+        </div>
+    </div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">crowdsec-db</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">crowdsec-db</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">crowdsec-config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">crowdsec-config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">traefik_log</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik_log</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span></span></span></code></pre></div></div>
+<p>Una vez que tenemos esto, ya podemos <em>activar</em> la primera fase de <em>crowdsec</em>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~<span class="nv">$docker</span> compose up -d crowdsec</span></span></code></pre></div></div>
+<p>Despues de esto, podemos revisar los <em>logs</em> de <em>crowdsec</em> para ver si de momento vamos por buen camino y tambien podemos verificar si <em>traefik</em> aun esta vivo.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~<span class="nv">$docker</span> logs -f crowdsec</span></span></code></pre></div></div>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Si has llegado hasta aqui, el unico fallo que puedes tener es que los <em>logs</em> de <em>traefik</em> no esten accesibles a <em>crowdsec</em>, para eso fijate bien en como <em>montas</em> los volumenes.</div>
+        </div>
+    </div>
+<p>Otra pruebas que puedes hacer es acceder a <em>crowdsec</em> y ver si tienes acceso directo a los ficheros de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~<span class="nv">$docker</span> <span class="nb">exec</span> -it crowdsec sh
+</span></span><span class="line"><span class="cl">crowdsec:~ <span class="nb">cd</span> /var/log/</span></span></code></pre></div></div>
+<p>Si llegado a este punto, no ves el directorio de <strong>traefik</strong> es que el error lo tienes en los volumenes. Aqui te tocara investigar un poco 😀 pero en cambio si ves el log de <strong>crowdsec</strong> puedes seguir adelanta con el siguiente paso.</p>
+<p>El siguiente paso, es <em>actualizar</em> el sistema de alertas o <em>bugs</em> que tiene que controlar <strong>crowdsec</strong>. Para hacer esto, se hace de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~<span class="nv">$docker</span> <span class="nb">exec</span> crowdsec cscli hub update</span></span></code></pre></div></div>
+<p>Por ultimo, es aplicar estas actualizaciones a la <strong>base de datos</strong> de <strong>crowdsec</strong> a traves de:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~<span class="nv">$docker</span> <span class="nb">exec</span> crowdsec cscli hub upgrade</span></span></code></pre></div></div>
+<p>Lo que podemos hacer con las actualizaciones de las alertas, es ponerlo en el cron, para que cada dia, en mi caso, se actualize esta <strong>BBDD</strong>. Tu lo puedes poner como quieros, como dice el refran, <em>para gustos, colores</em>.</p>
+<p>Después de esto, viene la parte más importate de todo, instalar, el contenedor de <em>bouncer-traefik</em> o en pocas palabras, el que comunicara <em>traefik</em> con <em>crowdsec</em>. A lo mejor lo que digo, no es del todo cierto, pero yo lo entiendo de esta manera.</p>
+<p>Para hacer esto, solamente necesitamos lo siguiente (yo sigo en el mismo <code>docker-compose.yml</code> donde tengo <em>traefik</em> y <em>crowdsec</em>):</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">bouncer-traefik</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">docker.io/fbonalair/traefik-crowdsec-bouncer:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">bouncer-traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">proxy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">init</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">CROWDSEC_BOUNCER_API_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">XXXXXXXXXXXXXXX</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">CROWDSEC_AGENT_HOST</span><span class="p">:</span><span class="w"> </span><span class="l">crowdsec:8080</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">crowdsec</span></span></span></code></pre></div></div>
+<p>Aqui a parte del <code>depends_on</code>, donde indicamos a <strong>bouncer-traefik</strong> que no se puede iniciar si antes no esta <strong>crowdsec</strong>, <code>networks</code>, lo mismo que con <strong>crowdsec</strong> y <strong>traefik</strong>, los 3 en la misma red.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">En este contenedor, lo más importante y con lo que tenemos que tener más cuidado es con <code>CROWDSEC_BOUNCER_API_KEY</code>. Es la <em>API</em> que nos da <em>crowdsec</em> para <em>bouncer-traefik</em> y solo aparece una vez, sino te apuntas este codigo, en pocas palabras, tendras que volver a realizar la instalación de <em>traefik</em>, <em>crowdsec</em> y <em>bouncer-traefik</em>. Te lo digo por experiencia. Seguramente hay alguna manera de evitar esto, pero yo no lo he encontrado. Y a demás, asi se aprende algo nuevo.</div>
+        </div>
+    </div>
+<p>Para obtener el codigo de la <strong>API</strong> se hace a traves de la siguiente instrucción:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~<span class="nv">$docker</span> <span class="nb">exec</span> crowdsec cscli bouncers add bouncer-traefik</span></span></code></pre></div></div>
+<p>Que, tal como he dicho antes, nos da el codigo una unica vez y no más. Si quieres lo que puedes hacer primero es guardarlo y luego lo añades donde toca, o sino, lo pones en el fichero <code>variables.yml</code> o sino en <code>.env</code> para utilizarlo aqui.</p>
+<p>Después solamente nos queda <em>activar</em> el contenedor:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~<span class="nv">$docker</span> compose up -d bouncer-traefik</span></span></code></pre></div></div>
+<p>Como siempre, pueder verificar los <em>logs</em> de <strong>traefik</strong> y <strong>crowdsec</strong> para ver si todo sigue funcionando correctamente o intentando acceder a los servicios. Si puedes, de momento todo va bien.</p>
+<p>Ahora lo unico que nos queda es indicar a <strong>traefik</strong> que tiene instalado <strong>crowdsec</strong> y <strong>bouncer-traefik</strong> y que haga uso de ellos. Esto se consigue modificando los siguientes ficheros:</p>
+<h3 id="dynamicyml">dynamic.yml</h3>
+<p>Le indicamos a <strong>traefik</strong> que tiene <em>bouncer-traefik</em> en funcionamiento y que puede hacer las consultas mediante la dirección <code>http://bouncer-traefik:8080/api/v1/forwardAuth</code>.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">http</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">middlewares</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">crowdsec-bouncer</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">forwardauth</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l">http://bouncer-traefik:8080/api/v1/forwardAuth</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">trustForwardHeader</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span></span></span></code></pre></div></div>
+<h3 id="traefikyml">traefik.yml</h3>
+<p>En el fichero <code>traefik.yml</code> le indicamos en que <em>consultas</em> tiene que usar <strong>crowdsec</strong> y esto se hace de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">api</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">dashboard</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">entryPoints</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">web</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:80&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">http</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">middlewares</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">crowdsec-bouncer@file</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">websecure</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:443&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">http</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">middlewares</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">crowdsec-bouncer@file</span></span></span></code></pre></div></div>
+<p>Le estamos indicando que tanto en consultas <code>http</code> como en <code>https</code> haga las consultas a <strong>crowdsec</strong>.</p>
+<p>Cuando ya tenemos <strong>traefik</strong> configurado, solamente nos quedara <em>recrear</em> el contenedor de <strong>traefik</strong>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~<span class="nv">$docker</span> compose up -d traefik --force-recreate</span></span></code></pre></div></div>
+<p>Si volvemos a revisar los <em>logs</em> de <strong>traefik</strong> y todo sigue funcionando correctamente es que lo hemos conseguido. Otra prueba que podemos hacer es acceder a los servicios que tenemos en el servidor que si todo funciona bien, tendremos acceso, sino, la hemos cagado 💩</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Ahora pasamos a ver el funcionamiento de <strong>crowdsec</strong> en vivo, esto lo podemos hacer de la siguiente, pero os informo, queda a vuestra libre elección. Esta prueba, consiste en bloquear nuestra ip de acceso al servidor. Esto se hace de la siguiente manera:</div>
+        </div>
+    </div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~<span class="nv">$docker</span> <span class="nb">exec</span> crowdsec cscli decisions add --ip nuestra_ip_de_acceso</span></span></code></pre></div></div>
+<p>Una vez que <em>hemos baneado nuestra propia ip</em>, para asegurarnos de ello, pasamos a verificar que es asi mediante:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~<span class="nv">$docker</span> <span class="nb">exec</span> crowdsec cscli decisions list</span></span></code></pre></div></div>
+<p>Donde veremos que, ciertamente, hemos baneado nuestra ip. Y para ver como funciona, nos conectamos a los servicios que tenemos alojados en el VPS / servidor y nos tiene que aparecer el mensaje de <strong>forbidden</strong>. Pero tranquilo, no te asustes para revertir este <em>baneo</em> tenemos que hacer la instruccion contraria:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~<span class="nv">$docker</span> <span class="nb">exec</span> crowdsec cscli decisions delete --ip nuestra_ip_de_acceso</span></span></code></pre></div></div>
+<p>Si volvemos a ejecutar la orden:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~<span class="nv">$docker</span> <span class="nb">exec</span> crowdsec cscli decisions list</span></span></code></pre></div></div>
+<p>Nos tiene que aparecer el mensaje de <em>No active decisions</em>. Ya puedes respirar 🥳.</p>
+<p>Tambien, puedes ver un poco lo que esta haciendo <strong>crowdsec</strong> y <strong>traefik</strong>, para ello puedes usar las siguientes instrucciones:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">### CONTROLAS LAS OPCIONES ACTIVADAS QUE TIENE CROWDSEC</span>
+</span></span><span class="line"><span class="cl">usuari@debian:~<span class="nv">$docker</span> <span class="nb">exec</span> crowdsec cscli metrics</span></span></code></pre></div></div>
+<p>Con esto:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">### CONTROLAS LOS BANEOS QUE SE HAN PRODUCIDO EN TU SERVIDOR</span>
+</span></span><span class="line"><span class="cl">usuari@debian:~<span class="nv">$docker</span> <span class="nb">exec</span> crowdsec cscli alerts list</span></span></code></pre></div></div>
+<p>Con esto podemos dar por concluida la instalación de <strong>crowdsec</strong> y <strong>bouncer-traefik</strong> juntamente con <strong>traefik</strong> en nuestro <em>servidor / VPS</em>.</p>
+<p>Espero que te sirva y que puedas aprender tanto como he aprendido yo.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://technotim.live/posts/crowdsec-traefik" target="_blank" rel="noopener noreffer ">Documentación - CrowdSec &amp; Traefik Tutorial</a></li>
+<li><a href="https://www.youtube.com/watch?v=-GxUP6bNxF0" target="_blank" rel="noopener noreffer ">Video - CrowdSec &amp; Traefik Tutorial</a></li>
+<li><a href="https://atareao.es/podcast/mas-herramientas-para-proteger-tu-linux/" target="_blank" rel="noopener noreffer ">528 - Más herramientas para proteger tu Linux</a></li>
+<li><a href="https://github.com/atareao/self-hosted/blob/main/traefik/traefik.yml" target="_blank" rel="noopener noreffer ">GitHub Atareao - Traefik</a></li>
+<li><a href="https://github.com/atareao/self-hosted/blob/main/crowdsec/docker-compose.yml" target="_blank" rel="noopener noreffer ">GitHub Atareao - Crowdsec</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 26-07-2024</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/vps/">VPS</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2024-06-23-opinion-unraid-2/" class="prev" rel="prev" title="Opinión Personal sobre unRaid - 2"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Opinión Personal sobre unRaid - 2</a>
+            <a href="/2024-09-18-modificando-servidor-1/" class="next" rel="next" title="Modificaciones en el servidor - 1">Modificaciones en el servidor - 1<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

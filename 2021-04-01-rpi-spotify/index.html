@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Creando tu propio Servidor de Musica privada - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2021-04-01-rpi-spotify/" /><link rel="prev" href="http://192.6.0.40:1313/2021-05-07-rpi-nginx-proxy-manager/" /><link rel="next" href="http://192.6.0.40:1313/2021-05-30-flexget-podcast/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Creando tu propio Servidor de Musica privada",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2021-04-01-rpi-spotify\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Docker, Raspberry Pi","wordcount":  495 ,
+        "url": "http:\/\/192.6.0.40:1313\/2021-04-01-rpi-spotify\/","datePublished": "2021-05-08T00:00:00+00:00","dateModified": "2021-05-08T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Creando tu propio Servidor de Musica privada</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="08-05-2021">08-05-2021</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;495 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Cuando tienes un servidor de bajo consumo como una Raspberry y empiezas a usar docker, a parte de descubrir un nuevo mundo (no me canso de decirlo), tambien descubres nuevas formas de torturar tu mente.</p>
+<p>Porque digo eso, porque cuando piensas que ya has conseguido todo lo que necesitas, tu cabezita piensa &ldquo;aprovechate de tu servidor y escucha tu musica en el movil&rdquo;.</p>
+<p><figure><a class="lightgallery" href="/images/cerebro.jpg" title="/images/cerebro.jpg" data-thumbnail="/images/cerebro.jpg" data-sub-html="<h2>Pensando</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/cerebro.jpg"
+            data-srcset="/images/cerebro.jpg, /images/cerebro.jpg 1.5x, /images/cerebro.jpg 2x"
+            data-sizes="auto"
+            alt="/images/cerebro.jpg" />
+    </a><figcaption class="image-caption">Pensando</figcaption>
+    </figure></p>
+<p>Ahi es cuando te dices, porque no me pongo a investigar si existe esta posibilidad??</p>
+<p>Solamente falta que sigas a <a href="https://ugeek.github.io" target="_blank" rel="noopener noreffer ">uGeek Podcast</a> (increible todo lo que llega a hacer con su servidor) y ya te mete el gusanito en el cuerpo de <em>si el puedo, porque yo no</em> y ya la tenemos liada.</p>
+<p>He seguido todos sus cambios de contenedores que el ha hecho y los he probado todos:</p>
+<ul>
+<li><a href="https://github.com/spl0k/supysonic" target="_blank" rel="noopener noreffer ">Supysonic</a>: El primero que use y estuvo bien, hasta que&hellip;</li>
+<li><a href="https://github.com/sentriz/gonic" target="_blank" rel="noopener noreffer ">Gonic</a>: Uno de los mejores que he usado, pero no se, encuentro que le falta algo, pero no se que es&hellip;</li>
+<li><a href="https://github.com/navidrome/navidrome" target="_blank" rel="noopener noreffer ">Navidrome</a>: Junto a Gonic el mejor y este si que tiene un noseque que siempre vuelvo a el (sera la web, desde el que puedes escuchar musica)</li>
+</ul>
+<p>El mejor, en mi opinion, como he dicho antes <strong>navidrome</strong>, no se que es, pero me encanta, su simpleza, los pocos recursos que consume del servidor. Lo tiene todo. Eso si, no tiene nada que echarle en cara a <strong>Gonic</strong>, pero a este ultimo le falta algo que no se que es y eso que es igual de facil y consume tan pocos recursos como <strong>navidrome</strong>.</p>
+<p>Despúes de esta breve explicación, pasamos a la instalación y configuración de mi <strong>Spotify</strong> privado.</p>
+<p>Como todo en docker, solamente se tiene que añadir en tu fichero <code>docker-compose.yml</code> la configuración necesaria para instalar <strong>navidrome</strong> que en mi caso es la siguiente:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">navidrome:
+</span></span><span class="line"><span class="cl"> image: deluan/navidrome:latest
+</span></span><span class="line"><span class="cl"> container_name: navidrome
+</span></span><span class="line"><span class="cl"> user: 1000:1000 
+</span></span><span class="line"><span class="cl"> ports:
+</span></span><span class="line"><span class="cl">   - <span class="s2">&#34;4533:4533&#34;</span>
+</span></span><span class="line"><span class="cl"> restart: unless-stopped
+</span></span><span class="line"><span class="cl"> environment:
+</span></span><span class="line"><span class="cl">   ND_TRANSCODINGCACHESIZE: 100MB
+</span></span><span class="line"><span class="cl">   ND_SCANSCHEDULE: <span class="s2">&#34;@every 1h&#34;</span>
+</span></span><span class="line"><span class="cl">   ND_SESSIONTIMEOUT: 24h
+</span></span><span class="line"><span class="cl">   ND_LASTFM_ENABLED: <span class="s2">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">   ND_LASTFM_APIKEY: <span class="s2">&#34;API DE LASTFM&#34;</span>
+</span></span><span class="line"><span class="cl">   ND_LASTFM_SECRET: <span class="s2">&#34;API DE LASTFM&#34;</span>
+</span></span><span class="line"><span class="cl">   ND_LASTFM_LANGUAGE: <span class="s2">&#34;es&#34;</span>
+</span></span><span class="line"><span class="cl">   ND_SPOTIFY_ID: <span class="s2">&#34;API DE SPOTIFY&#34;</span>
+</span></span><span class="line"><span class="cl">   ND_SPOTIFY_SECRET: <span class="s2">&#34;API DE SPOTIFY&#34;</span>
+</span></span><span class="line"><span class="cl"> volumes:
+</span></span><span class="line"><span class="cl">   - <span class="si">${</span><span class="nv">STORAGE</span><span class="si">}</span>/config/navidrome:/data
+</span></span><span class="line"><span class="cl">   - <span class="si">${</span><span class="nv">MEDIA</span><span class="si">}</span>/audio/Music:/music:ro</span></span></code></pre></div></div>
+<p>Yo he puesto las opciones de configuración que uso o las que más me interesan que son:</p>
+<ul>
+<li><code>ND_SCANSCHEDULE</code>: Cada cuando actualiza la biblioteca</li>
+<li><code>ND_LASTFM_ENABLED</code>: Si quiero usar la api de LastFM (para que me de una descripción de los artistas que tengo)</li>
+<li><code>ND_SPOTIFY_ID</code>: Si quiero usar la api de Spotify  (lo mismo que en el caso de LastFM)</li>
+</ul>
+<p>Ahora solamente queda levantar el contenedor:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@raspberry:/# docker-compose up -d navidrome</span></span></code></pre></div></div>
+<p>Aqui es cuando se hace la magia. A lo mejor tarda un poco en estar disponible, porque esta escaneando toda la musica que tienes, pero cuando digo tardar, son un par de segundos. Porque lo escanea todo a una velocidad increible.</p>
+<p>Lo unico que te queda es instalar una app en tu movil, en mi caso <a href="https://substreamerapp.com" target="_blank" rel="noopener noreffer ">substreamer</a>, conectarte a tu servidor, que en este caso, te viene bien tener configurado un <a href="/2021-05-07-rpi-nginx-proxy-manager" rel="">proxy server</a> con su correspondiente certificado y disfrutar.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://ugeek.github.io/blog/post/2020-09-16-navidrome-la-alternativa-a-airsonic-desarrollada-en-go.html" target="_blank" rel="noopener noreffer ">Navidrome</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2020-05-06-gonic-el-mejor-y-mas-ligero-servidor-de-musica-con-api-subsonic.html" target="_blank" rel="noopener noreffer ">Gonic</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2019-12-31-supysonic-0-5-0-total-compatibilidad-con-todos-los-clientes-subsonic.html" target="_blank" rel="noopener noreffer ">Supysonic</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 08-05-2021</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/raspberry-pi/">Raspberry Pi</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021-05-07-rpi-nginx-proxy-manager/" class="prev" rel="prev" title="Usando Nginx-Proxy-Manager en la Raspberry"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Usando Nginx-Proxy-Manager en la Raspberry</a>
+            <a href="/2021-05-30-flexget-podcast/" class="next" rel="next" title="Descargar Podcast a traves de Flexget">Descargar Podcast a traves de Flexget<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

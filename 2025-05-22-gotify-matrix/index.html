@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Matrix - 4. De vuelta al inicio, de Gotify a Matrix - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2025-05-22-gotify-matrix/" /><link rel="prev" href="http://192.6.0.40:1313/2025-05-21-restic-copias-locales-1/" /><link rel="next" href="http://192.6.0.40:1313/2025-05-22-restic-copias-locales-2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Matrix - 4. De vuelta al inicio, de Gotify a Matrix",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2025-05-22-gotify-matrix\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Docker, Matrix, Gotify","wordcount":  770 ,
+        "url": "http:\/\/192.6.0.40:1313\/2025-05-22-gotify-matrix\/","datePublished": "2025-05-25T00:00:00+00:00","dateModified": "2025-05-25T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Matrix - 4. De vuelta al inicio, de Gotify a Matrix</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="25-05-2025">25-05-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;770 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Como ya explique en este <a href="/2025-05-19-matrix-gotify" rel="">articulo</a>, ante la imposibilidad de usar <strong>Matrix</strong> me pase a <strong>Gotify</strong> aunque me negue a dejar de lado a <em>Matrix</em> y segui investigando, el porque no funcionaba correctamente y asi llegado el momento, poderlo usar o sino, tener una alternativa <em>Gotify</em>.</p>
+<p>Aqui si que tengo que dar las gracias a <strong>Lorenzo</strong> de <strong>atareao</strong>, por toda la ayuda que me ofrecio para resolver el problema que tenia 👏.</p>
+<p>Lo primero fue facilitarme el <code>docker-compose.yml</code> que el estaba usando para <strong>Matrix</strong>, os lo pongo  continuación por si os sirve de ayuda, pero modificado para mis necesidades:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">conduit</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">matrixconduit/matrix-conduit:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">matrixConduit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">${HOME}/config/matrix/db:/var/lib/matrix-conduit/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">RUST_BACKTRACE</span><span class="p">:</span><span class="w"> </span><span class="l">full</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">CONDUIT_LOG</span><span class="p">:</span><span class="w"> </span><span class="l">warn</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">CONDUIT_SERVER_NAME</span><span class="p">:</span><span class="w"> </span><span class="l">matrix.servidor.org</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">CONDUIT_DATABASE_PATH</span><span class="p">:</span><span class="w"> </span><span class="l">/var/lib/matrix-conduit/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">CONDUIT_DATABASE_BACKEND</span><span class="p">:</span><span class="w"> </span><span class="l">rocksdb</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">CONDUIT_PORT</span><span class="p">:</span><span class="w"> </span><span class="m">6167</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">CONDUIT_MAX_REQUEST_SIZE</span><span class="p">:</span><span class="w"> </span><span class="l">20_000_000</span><span class="w"> </span><span class="c"># in bytes, ~20 MB</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">CONDUIT_ALLOW_REGISTRATION</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">CONDUIT_ALLOW_FEDERATION</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">CONDUIT_ALLOW_CHECK_FOR_UPDATES</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">CONDUIT_ENABLE_LIGHTNING_BOLT</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">CONDUIT_TRUSTED_SERVERS</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;[&#34;matrix.org&#34; ]&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">CONDUIT_ADDRESS</span><span class="p">:</span><span class="w"> </span><span class="m">0.0.0.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">CONDUIT_CONFIG</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w"> </span><span class="c"># Ignore this</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">proxy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.enable=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.services.conduit.loadbalancer.server.port=6167</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.conduit.entrypoints=websecure</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.conduit.rule=Host(`${MATRIX_SERVER}`)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.conduit-secure.tls=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.conduit-secure.tls.certresolver=letsencrypt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.conduit.middlewares=cors-headers@docker</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.middlewares.cors-headers.headers.accessControlAllowOriginList=*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.middlewares.cors-headers.headers.accessControlAllowHeaders=Origin, X-Requested-With, Content-Type, Accept, Authorization</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.middlewares.cors-headers.headers.accessControlAllowMethods=GET, POST, PUT, DELETE, OPTIONS</span></span></span></code></pre></div></div>
+<p>Con este simple <code>docker</code> es lo unico que se necesita para instalar <strong>Matrix</strong>, no como lo tenia yo <a href="/2025-03-25-instal-config-matrix" rel="">antes</a> que eso si que era complicado, ahora si que ya teniamos todas las herramientas para hacer funcionar a <strong>Matrix</strong>, o eso creia yo.</p>
+<p>Una vez que ya tenia el <strong>docker</strong>, lo unico que me quedaba era probarlo, porque esta nueva manera de instalación, era mucho más sencilla que la que yo tenia antes. Pues aqui vamos a ver que resultado obtenemos:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~$ docker compose up -d conduit</span></span></code></pre></div></div>
+<p>Después de la instalación, todo funcionaba correctamente, pero seguia con el problema de que las notificaciones no me llegaban al movil.</p>
+<p>Aqui busque ayuda de todo el mundo, para saber el porque seguia sin funcionarme las notificaciones, tambien probe <strong>Synapse</strong>, pero con el mismo resultado, tambien llame a todas las puertas y todas me las encontraba cerradas o miraban la mirilla, pero no me abrianla puerta ;), hasta que al final pedi ayuda a <strong>atareao</strong> que muy amablemente se ofrecio a ver si conseguiamos llevar a buen puerto este problema que tenia, porque el, con esta misma configuración, no tenia problemas.</p>
+<p>Os pongo un resumen de todo fue todo, porque sino seria muy largo todo y os dareis cuenta de lo que una pequeña cosa, los problemas que puede llegar a dar:
+<div class="details admonition succes open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i><i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><strong>atareao:</strong> Cuantos usuarios tienes en Matrix?<br />
+<strong>yo:</strong> Uno solo, que es el adm que soy yo<br />
+<strong>atareao:</strong> Crea otro usuario y manda los mensajes con el otro usuario<br /></div>
+        </div>
+    </div></p>
+<p>Aqui fue cuando mi cerebro explosiono en mil trozitos y pidiendo a <strong>@Atareao</strong> que acabe con mi sufrimiento 🥹<br />
+<div class="details admonition succes open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i><i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><strong>yo:</strong> <em>@atareao</em> Tienes cerca alguna cuerda larga y un barranco?<br />
+<strong>yo:</strong> Para que me ates y me lances por ese barranco<br />
+<strong>yo:</strong> He hecho lo que has comentado<br />
+<strong>yo:</strong> He creado un usuario que es el administrador de los canales y luego me he creado mi usuario.<br />
+<strong>yo:</strong> Entonces el adm me ha invitado a los canales y con el script que te he pasado estoy enviando mensajes a la sala y me aparecen las notificaciones<br />
+<strong>yo:</strong> Por eso, yo me ato de pies y manos y tu solo tienes que empujarme hacia el barranco<br />
+<strong>atareao:</strong> Ya&hellip; Tiene lógica que si te envías a ti mismo un mensaje no te notifique que tienes un mensaje nuevo<br /></div>
+        </div>
+    </div>
+Llevaba 1 mes con este problema al que no le encontraba solución, y todo era por culpa de que solamente tenia un unico usuario, y por eso las notifiaciones no me llegaban. Que si te pones a pensar, tiene su logica, porque uno envia un mensaje al canal, para que el resto de usuarios les llegue la notificaciones. Pero claro es una cosa que no piensas, hasta que alguien te hace caer en ello.</p>
+<p>Gracias <strong>atareao</strong> por toda la ayuda que me has dado.</p>
+<p>Ahora si que si, tengo a pleno rendimiento mi servidor de matrix para poder usarlo para las notificaciones de todos mis servicios.</p>
+<p>De momento, tengo en funcionamiento:</p>
+<ul>
+<li>El envio de notificaciones cuando se general los archivos <code>XML</code> de los podcast que descargo.</li>
+<li>Las notificaciones de la ejecución de las copias de seguridad, que lo podreis ver en este <a href="/2025-05-22-restic-copias-locales-2" rel="">articulo</a>.</li>
+</ul>
+<p>Me queda pendiente las notificaciones:</p>
+<ul>
+<li>Notificaciones de <strong>unRaid</strong></li>
+<li>Notificaciones de <strong>flexGet</strong></li>
+</ul>
+<p>Pero con estas tendre que pelearme un poco más porque tengo que usar <strong>pushBits</strong>, tal como explique en este <a href="/2025-03-27-pushbits" rel="">articulo</a>.</p>
+<p>Alguna cosa más de la que me gustaria estar informado, pero para eso tengo que investigar si se puede hacer o no. Ya os ire informando de los progresos que voy teniendo.</p>
+<h4 id="referencia">Referencia</h4>
+<p><a href="https://github.com/atareao/self-hosted/tree/main/matrix" target="_blank" rel="noopener noreffer ">atareao - gitHub</a></p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 25-05-2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/matrix/">Matrix</a>,&nbsp;<a href="/tags/gotify/">Gotify</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2025-05-21-restic-copias-locales-1/" class="prev" rel="prev" title="Restic &#43; Backrest &#43; MiniO - 1"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Restic + Backrest + MiniO - 1</a>
+            <a href="/2025-05-22-restic-copias-locales-2/" class="next" rel="next" title="Restic &#43; Backrest &#43; MiniO - 2">Restic + Backrest + MiniO - 2<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

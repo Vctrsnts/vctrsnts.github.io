@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Por fin. VPS para hacer pruebas - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2023-09-24-vps-pruebas/" /><link rel="prev" href="http://192.6.0.40:1313/2023-09-11-substitutos-portatil/" /><link rel="next" href="http://192.6.0.40:1313/2024-01-05-que-nos-depara-2024/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Por fin. VPS para hacer pruebas",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2023-09-24-vps-pruebas\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Docker, VPS","wordcount":  698 ,
+        "url": "http:\/\/192.6.0.40:1313\/2023-09-24-vps-pruebas\/","datePublished": "2023-09-24T00:00:00+00:00","dateModified": "2023-09-24T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Por fin. VPS para hacer pruebas</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/vps/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>VPS</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="24-09-2023">24-09-2023</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;698 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Hacia mucho tiempo (minimo 2 años), que habia escuchado que Oracle te daba <em>gratuitamente</em> la posibilidad de tener un VPS para poderlo usar, eso si, con unas ciertas limitaciones:</p>
+<ul>
+<li>1 vCPUs x86 - 1Gb Ram</li>
+<li>4 vCPUs ARM - 24Gb Ram</li>
+</ul>
+<p>Asi que si anteriormente, en un RaspberryPi con 1Gb de Ram y una unica CPU podia tener amule, transmission las 24 horas del dia y el sistema iba sobrado, la elección seria facil.</p>
+<p>La elección era lo más facil, lo dificil fue conseguir darse de alta. Y cuando digo dificil, me refiero a dificil.</p>
+<p>Tarde como unos 2 años a conseguir darme de alta en el servicio. No se porque, pero me era imposible conseguir darme de alta, probe con todo tipo de emails (que tengo), tambien probe con emails ficticios (de los que duran 10 minutos), tambien probe con diferentes tipos de tarjetas de debito / credito, pero no habia ninguna manera de conseguir acceder al servicio, también probe de preguntar al <em>servició de ayuda</em> que habia disponible, pero como todos los servicios de ayuda, era como darse cabezazos contra una pared. No servian para nada.</p>
+<p>Pero no se porque, antes de vacaciones, lo volvi a intentar y por fin lo consegui, no se como, pero funciono. Porque volvi a hacer lo mismo que habia echo las anteriores veces. A lo mejor fue porque el sistema estaba menos saturado, no se, pero me funciono.</p>
+<p>Asi fue como consegui mi VPS, limitado eso si, pero no necesitaba nada más para hacer mis pruebas y usarlo como yo queria, pues me venia de perlas. Para que necesitar más.</p>
+<p>Lo primero era crear la maquina virtual con las necesidades maximas (dentro del <code>Free Tier</code>):</p>
+<ul>
+<li>Arquitectura ARM (4 vCPUs)</li>
+<li>24Gb de Ram</li>
+<li>SO. Ubuntu ARM (muy parecido a Raspbian <strong>Debian GNU/Linux</strong>, etc&hellip;)</li>
+</ul>
+<p>Ahora solamente faltaba crear la maquina y configurarla, pero de eso no voy a explicar nada, porque hay miles de videos por internet donde lo explican mejor de lo que yo lo podria explicar.</p>
+<p>Eso si, cuando tuve el sistema apunto y actualizado y minimamente <a href="/2020-11-08-rpi-usando-fail2ban" rel="">securizado</a>, le instale <strong>Docker</strong> siguiendo mi propia <a href="/2020-03-08-rpi-usando-docker" rel="">guia de instalación</a> y ya lo tengo todo preparado para hacer mis cosas :)</p>
+<p>Le instale los siguientes contenedores:</p>
+<ul>
+<li><a href="2021-04-08-rpi-caddy-proxy-manager.md" rel="">Caddy</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2023-03-20-searxng-buscador-privado.html" target="_blank" rel="noopener noreffer ">Searxng</a>
+<ul>
+<li>Este ultimo lo estoy usando como mi buscador principal y pasa por delante de <strong>duckduckGo</strong> y a <strong>Google</strong>.</li>
+</ul>
+</li>
+<li><a href="https://elblogdelazaro.org/posts/2020-02-03-monitorix-monitoriza-tu-sistema" target="_blank" rel="noopener noreffer ">Monitorix</a>
+<ul>
+<li>Lo tengo para tener una monitorización del servidor por los puntos mas importantes a tener en cuenta.</li>
+</ul>
+</li>
+<li><a href="2020-10-30-rpi-cambiando-equipo.md" rel="">DuckDns</a>
+<ul>
+<li>No voy a explicar como se instala, porque usando docker es superfacil. Además a traves de este <a href="https://www.youtube.com/watch?v=MLjKbake8HM" target="_blank" rel="noopener noreffer ">video</a> de mi argentino preferido esta mejor explicado. Eso si, ultimamente ha decaido mucho (en mi opinion) en la tematica de los videos y ya no es como antes.</li>
+</ul>
+</li>
+<li><a href="https://llibres.ahnenerbe.duckdns.org" target="_blank" rel="noopener noreffer ">Jekyll</a>
+<ul>
+<li>Aqui es donde tengo otra pagina web (diferente a la que tengo en GitHub), pero que ya hablare en otro articulo.</li>
+</ul>
+</li>
+</ul>
+<p>Si os dais cuenta, estoy poniendo muchos de mis articulos donde comento en como se instalan diferentes aplicaciones / programas / containers en una <strong>RaspberryPi</strong>, pero como todo es <em><strong>ARM</strong></em> y los sistemas operativos que uso, son derivados de <strong>Debian GNU/Linux</strong>, pues no hay ningun problema en la instalación.</p>
+<p>A parte de lo instalado, también tengo puesto este <a href="https://ugeek.github.io/blog/post/2023-04-10-neveridle-vps-de-oracle-nunca-inactivo.html" target="_blank" rel="noopener noreffer ">script</a> que en pocas palabras (para más información leer en completo articulo de uGeek) explica que si las maquinas virtuales estan sin utilizar Oracle las desactiva y las borra. El <strong>script</strong> lo que hace, es consumir recursos (lo que tu hayas marcado en el fichero de configuración) para asi dar la sensación, de que el servidor se esta usando y evitar cualquier problema de que te lo desactiven o borren.</p>
+<p>Esto es mi odisea para tener un VPS, seguramente muchos direis que se le puede sacar más partido. Tengo ideas que me gustaria probar en el servidor, servidor de musica, de podcast, etc&hellip;, pero no se si es aconsejable porque a lo mejor podria tener problemas y me podrian cerrar el chiringuito.</p>
+<p>En el caso de que alguno de los que me lee lo tenga, que usos le dais al VPS de Oracle. Es para conseguir nuevas ideas.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://ugeek.github.io/blog/post/2023-04-10-neveridle-vps-de-oracle-nunca-inactivo.html" target="_blank" rel="noopener noreffer ">uGeek - NeverIdle</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2023-03-20-searxng-buscador-privado.html" target="_blank" rel="noopener noreffer ">Searxng</a></li>
+<li><a href="https://elblogdelazaro.org/posts/2020-02-03-monitorix-monitoriza-tu-sistema" target="_blank" rel="noopener noreffer ">El Blog de Lazaro - Monitorix</a></li>
+<li><a href="https://www.youtube.com/watch?v=MLjKbake8HM" target="_blank" rel="noopener noreffer ">PeladoNerd - DuckDns</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 24-09-2023</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/vps/">VPS</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2023-09-11-substitutos-portatil/" class="prev" rel="prev" title="Equipo en la recamara"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Equipo en la recamara</a>
+            <a href="/2024-01-05-que-nos-depara-2024/" class="next" rel="next" title="Que nos depara este año 2024??">Que nos depara este año 2024??<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

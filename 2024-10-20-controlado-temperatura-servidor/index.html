@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Controlando la temperatura del servidor - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2024-10-20-controlado-temperatura-servidor/" /><link rel="prev" href="http://192.6.0.40:1313/2024-10-19-modificando-servidor-2/" /><link rel="next" href="http://192.6.0.40:1313/2024-10-21-podcast-escucho/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Controlando la temperatura del servidor",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2024-10-20-controlado-temperatura-servidor\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Hardware, unRAID","wordcount":  682 ,
+        "url": "http:\/\/192.6.0.40:1313\/2024-10-20-controlado-temperatura-servidor\/","datePublished": "2024-10-20T00:00:00+00:00","dateModified": "2024-10-20T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Controlando la temperatura del servidor</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/unraid/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>UnRAID</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="20-10-2024">20-10-2024</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;682 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Como ya comente en el anterior <a href="/2024-10-19-modificando-servidor-2" rel="">articulo</a> donde explicaba que habia puesto un <strong>Xeon</strong> en mi servidor y todo lo referente a la temperatura.</p>
+<p>Pero claro, eso me gustaria verlo reflejado en <strong>unRAID</strong>, porque hasta ahora, solamente habia podido visualizar la temperatura de la CPU, de la placa base era imposible cuando teoricamente los Tiny son equipos con componentes muy normales y comunes.</p>
+<p>Pues en este caso, de comunes lo tienen todo menos los sensores de control de la temperatura. Además <strong>unRAID</strong> no ayudaba mucho con ello. Seguramente muchos direis, y por que no instalas el plugin <strong>Dynamix System Temperature</strong> y problema solucionado.</p>
+<p>Ya lo tengo instalado y aun así, lo unico que podia visualizar era la temperatura de la CPU:</p>
+<p><figure><a class="lightgallery" href="/images/configure_temperature_01.jpg" title="/images/configure_temperature_01.jpg" data-thumbnail="/images/configure_temperature_01.jpg" data-sub-html="<h2>Configurando Temperatura</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/configure_temperature_01.jpg"
+            data-srcset="/images/configure_temperature_01.jpg, /images/configure_temperature_01.jpg 1.5x, /images/configure_temperature_01.jpg 2x"
+            data-sizes="auto"
+            alt="/images/configure_temperature_01.jpg" />
+    </a><figcaption class="image-caption">Configurando Temperatura</figcaption>
+    </figure></p>
+<p>Eso que teoricamente <em>sensors</em> funcionaba correctamente. Eso creia yo.</p>
+<p>Asi que después de instalar el <strong>Xeon</strong> me propuse visualizar todas las temperaturas posibles para asi controlar mejor el servidor, porque no es lo mismo tener un <em>i5-6500T</em> que un <strong>Xeon</strong> y lo primero de todo era saber que <strong>sensor</strong> se tenian que usar para poder visualizar la información de ellos. y resulto que me toco el peor de todos, el que es más complicado de hacer funcionar. Ni más ni menos que el <strong>nct6683</strong>.</p>
+<p>En todos los sitios que encontraba información, porque me resulto muy dificil, decian que no era nada facil hacerlo funcionar en GNU/Linux, pero yo segui buscando hasta que encontre la siguiente <a href="https://fun2ex.com/fixed-z370m-pro4-unraid-temperature-problem" target="_blank" rel="noopener noreffer ">web</a>, donde explicaban que se tenia que hacer para hacer funcionar los sensores del <strong>nct6683</strong>.</p>
+<p>Lo que habia que hacer es ejecutar lo siguiente:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">root@unRaid: modprobe coretemp
+</span></span><span class="line"><span class="cl">root@unRaid: modprobe -r nct6683
+</span></span><span class="line"><span class="cl">root@unRaid: modprobe nct6683 <span class="nv">force</span><span class="o">=</span><span class="m">1</span></span></span></code></pre></div></div>
+<p>Lo probe, y mira por donde que dio resultado. Podia ver todos los sensores disponibles en la placa, incluido la velocidad del ventilador.</p>
+<p><figure><a class="lightgallery" href="/images/configure_temperature_02.jpg" title="/images/configure_temperature_02.jpg" data-thumbnail="/images/configure_temperature_02.jpg" data-sub-html="<h2>Configurando Temperatura</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/configure_temperature_02.jpg"
+            data-srcset="/images/configure_temperature_02.jpg, /images/configure_temperature_02.jpg 1.5x, /images/configure_temperature_02.jpg 2x"
+            data-sizes="auto"
+            alt="/images/configure_temperature_02.jpg" />
+    </a><figcaption class="image-caption">Configurando Temperatura</figcaption>
+    </figure></p>
+<p>Asi que me dije, pues mira, no ha sido tan dificil como parecia.</p>
+<p>Ingenuo de mi. <strong>UnRAID</strong> no hace nada para facilitar las cosas, sino todo lo contrario, las complica y cada vez, me estoy dando cuenta de ello.</p>
+<p>Lo que pasa es que si reinicias <strong>unRAID</strong> todo se pierde y ya no detecta nada. Asi que tenia que buscar una manera de que esta configuración fuera permanente. Busque información sobre que hacer en estos casos en <strong>unRAID</strong> y un <a href="https://forums.unraid.net/topic/18959-script-to-enable-sata-controllers-without-kernel-modification/" target="_blank" rel="noopener noreffer ">hilo</a> decia, que si pones un fichero <code>bash</code> en <code>/boot/config</code> el sistema lo ejecuta cuando se inicia. Pero no pasaba asi y si queria que los sensores volvieran a funcionar, tenia que volver a ejecutar las 3 instrucciones de nuevo.</p>
+<p>En otro <a href="https://forums.unraid.net/topic/143931-how-can-i-get-modules-to-load-on-reboot-automatically/" target="_blank" rel="noopener noreffer ">hilo</a>, que si lo pones en <code>/boot/custom/scripts</code> tambien funcionaba, pero en mi caso, ninguno de los 2 casos era el correcto.</p>
+<p>No veia la manera de como solucionar la cosa, hasta que recorde, que tengo un <code>script</code> que se ejecuta cada vez que se inician los arrays, que me instala las aplicaciones necesarias para hacer publicaciones en <em>Mastodon</em>, y pense, porque no, si ejecuto el <code>bash</code> cada vez que se inicia el array, tendria que funcionar sin ningun problema.</p>
+<p>No tenia nada que perder, y lo probe. Y resulto perfecto. Ya podia visualizar correctamente la temperatura de la CPU, de la placa base y la velocidad del ventilador. Que más se podia pedir. Pero eso si, tener que recurrir a scripts para hacer esto, me parece un poco 😡</p>
+<p>Asi se puede ver como queda actualmente:</p>
+<p><figure><a class="lightgallery" href="/images/configure_temperature_03.jpg" title="/images/configure_temperature_03.jpg" data-thumbnail="/images/configure_temperature_03.jpg" data-sub-html="<h2>Configurando Temperatura</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/configure_temperature_03.jpg"
+            data-srcset="/images/configure_temperature_03.jpg, /images/configure_temperature_03.jpg 1.5x, /images/configure_temperature_03.jpg 2x"
+            data-sizes="auto"
+            alt="/images/configure_temperature_03.jpg" />
+    </a><figcaption class="image-caption">Configurando Temperatura</figcaption>
+    </figure></p>
+<p>Un pasito más que he dado para tener mi servidor como a mi me gusta.</p>
+<p>Ahora estoy pensando en conseguir que pueda enviar mis copias de seguridad de mi movil al servidor. He oido que hay un docker que se llama <strong>Syncthing</strong> que hace algo parecido, pero tengo que estudiarlo más.</p>
+<p>Vosotros que servicios de docker teneis y que penseis que son indispensables de tener en un servidor???</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://fun2ex.com/fixed-z370m-pro4-unraid-temperature-problem" target="_blank" rel="noopener noreffer ">Resolve the issue of the ASRock Z370M-Pro4 motherboard not being able to obtain fan speed in Unraid</a></li>
+<li><a href="https://forums.unraid.net/topic/115301-%E6%B8%A9%E5%BA%A6%E6%A3%80%E6%B5%8B%E6%8F%92%E4%BB%B6%E6%97%A0%E6%B3%95%E6%A3%80%E6%B5%8B%E5%88%B0%E4%B8%BB%E6%9D%BF%E9%A3%8E%E6%89%87%E7%9A%84%E8%BD%AC%E9%80%9F" target="_blank" rel="noopener noreffer ">El complemento de detección de temperatura no puede detectar la velocidad del ventilador de la placa base, <strong>web en chino</strong></a></li>
+<li><a href="https://forums.unraid.net/topic/18959-script-to-enable-sata-controllers-without-kernel-modification/" target="_blank" rel="noopener noreffer ">Script to enable SATA Controllers without kernel modification</a></li>
+<li><a href="https://forums.unraid.net/topic/143931-how-can-i-get-modules-to-load-on-reboot-automatically/" target="_blank" rel="noopener noreffer ">How can I get modules to load on reboot automatically?</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 20-10-2024</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/hardware/">Hardware</a>,&nbsp;<a href="/tags/unraid/">UnRAID</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2024-10-19-modificando-servidor-2/" class="prev" rel="prev" title="Modificaciones en el servidor - 2"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Modificaciones en el servidor - 2</a>
+            <a href="/2024-10-21-podcast-escucho/" class="next" rel="next" title="Los podcast que escucho">Los podcast que escucho<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

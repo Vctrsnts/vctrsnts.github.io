@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Crear RSS de los podcast que sigo - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2023-07-23-crear-rss-podcast/" /><link rel="prev" href="http://192.6.0.40:1313/2023-05-05-recuperando-grub/" /><link rel="next" href="http://192.6.0.40:1313/2023-08-01-de-nuevo-cambiando-servidor/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Crear RSS de los podcast que sigo",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2023-07-23-crear-rss-podcast\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Debian GNULinux, Docker, Python","wordcount":  879 ,
+        "url": "http:\/\/192.6.0.40:1313\/2023-07-23-crear-rss-podcast\/","datePublished": "2023-07-23T00:00:00+00:00","dateModified": "2023-07-23T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Crear RSS de los podcast que sigo</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="23-07-2023">23-07-2023</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;879 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>No se vosotros, pero no os habeis fijado que estos ultimos meses ha habido un auge con respecto a los podcast? No se si es porque la calidad ha subido o porque hay más, pero&hellip;</p>
+<p>Yo siempre he escuchado un programa de radio de <em><strong>Catalunya Radio</strong></em> que trata sobre la historia en general y como soy un entusiasta de la historia, pues este programa no podia faltar, pero claro, me lo programan a unas horas, que es imposible seguirlo. Asi que decidi mirar si tenian la opcion de descargar los programas en formato podcast, y resulto que si era posible.</p>
+<p>Asi mismo, tambien empece a seguir a unos podcaster que hablan sobre tecnologia (<a href="https://ugeek.github.io" target="_blank" rel="noopener noreffer ">uGeek</a>, <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a>, <a href="https://papafriki.gitlab.io/podcast" target="_blank" rel="noopener noreffer ">PapaFriki</a>, etc&hellip;) y me he aficionado a ellos, asi que tambien los puse en la lista de seguimiento. Pero claro, yo los puedo escuchar cuando puedo y este año (2023) ha sido un poco dificil, porque he tenido un año muy complicado.</p>
+<p>Entonces empece a investigar la manera de descargar los podcast automaticamente y si que existe, más información en este <a href="/2021-05-30-flexget-podcast" rel="">articulo</a>. Y que además, tambien se puede hacer lo mismo con los otros podcast, mientras tengan un fichero <em><strong>RSS</strong></em>, se puede descargar. Asi que lo más importante, conseguir los podcast ya estaba echo. Pero claro, ahora faltaba la parte de poderlos escuchar.</p>
+<p><div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Antes un pequeño inciso sobre mi manera de tratar los ficheros de podcast. Al principio, los podcast los trataba como si fueran ficheros de musica normales y corrientes, pero siempre intentaba tenerlos separados de la musica, en un directorio los podcast y en otro la musica, pero a la hora de escuchar, siempre acababan juntandose en la aplicación del movil que usaba (<strong>D-Sub</strong>, <strong>Tempo</strong>, etc&hellip;), asi que me puse a investigar y gracias a unos de los podcast, valga la redundancia, de <a href="https://ugeek.github.io/post/2022-12-07-charla-con-atareao-sobre-servicios-y-mucho-mas.html" target="_blank" rel="noopener noreffer ">uGeek</a>, donde explicaba que el estaba intentando crear su propio feed de los podcast que seguia, para que asi, a traves del movil o cualquier otra aplicacion, poderlos escuchar cuando fuera posible.</div>
+        </div>
+    </div>
+Esa idea me gusto mucho y me puse a investigar, porque los conocimientos que tengo yo de bash son muy pocos y llegar al nivel para hacer lo que estaba explicando <strong>uGeek</strong> seria muy complicado.</p>
+<p>Despues de mucho buscar y probar, encontre este <a href="https://github.com/amsehili/genRSS" target="_blank" rel="noopener noreffer ">proyecto</a> en github, que a traves de un fichero python, se crea automaticament el fichero RSS del directorio que tu le indicabas junto con el titulo y descripción y después, este mismo fichero RSS, lo puedes exponer a internet, para que cualquier aplicacion lectora de RSS (sobre todo las aplicaciones de podcast que funcionan a traves de ellos) pudiera tener acceso a estos podcast.</p>
+<p>Aqui pongo un ejemplo de como uso yo este fichero:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~<span class="nv">$python3</span> /home/usuari/genRSS/genRSS.py -e mp3 -d directorio_podcast -H http://ip_servidor:puerto -i https://imagen_de_la_caratula.jpg -t <span class="s2">&#34;Titulo_del_Podcast&#34;</span> -p <span class="s2">&#34;Descripción del Podcast&#34;</span> -C -r -o fichero.rss.rss</span></span></code></pre></div></div>
+<p>Hay que tener un par de cosas a la hora de usar este fichero:</p>
+<ul>
+<li>Las caratulas de los podcast tiene que ser externa. No puedes tener la imagen en el servidor. Al menos en mi caso, yo no he conseguido que funcionen con imagenes de dentro del servidor.</li>
+<li>Yo tengo varias lineas (una por cada podcast que sigo) y asi me generar un RSS, y todo lo tengo en un fichero bash que cada dia se ejecuta para actualizar los RSS con los nuevos podcast que se han descargado.</li>
+</ul>
+<p>Ahora, solo faltaba elegir un buen podcaster, creo que se llaman asi, para poder escuchar mis podcast, y me decidi por <em><strong>AntennaPod</strong></em> donde se podia añadir los RSS creados por mi mismo y poderlos escuchar.</p>
+<p>Tengo que añadir, que para tener acceso a los ficheros RSS que habia creado en mi servidor, tenia que tener acceso a ellos y, en mi caso, esto lo hacia a traves de <em><strong>WEBDAV</strong></em> (como contenedor de docker), si quereis saber como se puede configurar, <em><strong>uGeek</strong></em> tiener un buen <a href="https://ugeek.github.io/blog/post/2019-10-22-docker-servidor-webdav.html" target="_blank" rel="noopener noreffer ">articulo</a> donde explica como se hace y como hacerlo, especificamente en docker.</p>
+<p>Tengo que decir que funcionaba todo perfectamente, pero eso si, abierto al peligroso mundo de internet y más, después de escuchar este <a href="https://ugeek.github.io/post/2023-07-31-seguridad-en-mis-servicios.html" target="_blank" rel="noopener noreffer ">episodio</a> de <strong>uGeek</strong> que habla sobre la seguridad de nuestros servidores abiertos al mundo y se te ponen los pelos de punta.</p>
+<p>La solución que daba, era usar una VPN (wireguard que ya tengo montada), en este <a href="https://ugeek.github.io/blog/post/2021-05-28-el-modo-mas-facil-de-instalar-administrar-wireguard.html" target="_blank" rel="noopener noreffer ">articulo</a> podeis encontrar como se puede hacer y asi poder conectar a nuestro servidor y simular como si estuvieramos en nuestra propia red pero sin estarlo.</p>
+<p>Tengo que decir que, ahora mismo, es como lo tengo funcionando y funciona a la perfección. Sin ningun corte ni nada, todo perfecto. Y para más inri, tambien tengo la musica en mi servidor y accedo a ella a traves de la VPN y sin problemas.</p>
+<p>O sea, todo perfecto y funcionando a las mil maravillas, pero como ya se sabe, nunca se puede decir que todo esta perfecto, porque no es asi. Ahora estoy buscando información de como unificar las 2 aplicaciones (<em>AntennaPOD</em> y <em>Tempo</em>) para asi, poder escuchar todo (aunque sea por separado) pero en una sola aplicacion.</p>
+<p>Asi que ya os explicare como acaba la cosa.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://ugeek.github.io/blog/post/2019-10-22-docker-servidor-webdav.html" target="_blank" rel="noopener noreffer ">WebDav - uGeek</a></li>
+<li><a href="https://ugeek.github.io/post/2023-07-31-seguridad-en-mis-servicios.html" target="_blank" rel="noopener noreffer ">Seguridad en mis servicios - uGeek</a></li>
+<li><a href="https://ugeek.github.io/post/2022-12-07-charla-con-atareao-sobre-servicios-y-mucho-mas.html" target="_blank" rel="noopener noreffer ">Charla con Atareao y algo más - uGeek</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2021-05-28-el-modo-mas-facil-de-instalar-administrar-wireguard.html" target="_blank" rel="noopener noreffer ">El modo más facil de instalar y administrar Wireguard - uGeek</a></li>
+<li><a href="https://github.com/amsehili/genRSS" target="_blank" rel="noopener noreffer ">genRSS</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 23-07-2023</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debian-gnulinux/">Debian GNULinux</a>,&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/python/">Python</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2023-05-05-recuperando-grub/" class="prev" rel="prev" title="Recuperando Grub"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Recuperando Grub</a>
+            <a href="/2023-08-01-de-nuevo-cambiando-servidor/" class="next" rel="next" title="De nuevo, cambiando de servidor local">De nuevo, cambiando de servidor local<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

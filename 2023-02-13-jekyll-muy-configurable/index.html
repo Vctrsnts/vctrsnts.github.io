@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Mastodon, Jekyll y Github. Una combinación perfecta. - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2023-02-13-jekyll-muy-configurable/" /><link rel="prev" href="http://192.6.0.40:1313/2023-01-25-usando-watchtower/" /><link rel="next" href="http://192.6.0.40:1313/2023-02-19-actualizacion-watchtower/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Mastodon, Jekyll y Github. Una combinación perfecta.",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2023-02-13-jekyll-muy-configurable\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Blog, Docker","wordcount":  974 ,
+        "url": "http:\/\/192.6.0.40:1313\/2023-02-13-jekyll-muy-configurable\/","datePublished": "2023-02-13T00:00:00+00:00","dateModified": "2023-02-13T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Mastodon, Jekyll y Github. Una combinación perfecta.</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="13-02-2023">13-02-2023</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;974 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Desde que di el salto de <strong>wordpress</strong> a <strong>Github</strong>, lo más logico, si mi profesion, pasion hace referencia a la tecnologia y que tambien influyo que <strong>wordpress</strong> empezaba a tener muchos problemas con la creación y gestión del blog.</p>
+<p>Todo empezo a mediados del 2021 cuando cada vez tenia más problemas a la hora de crear articulos y subirlos a <strong>wordpress</strong>, aunque ahora le estoy dado otro <a href="https://vsantos.wordpress.com" target="_blank" rel="noopener noreffer ">uso</a>, asi que me puse a investigar y la mayoria de personas a las que sigo, lo tienen alojado en <strong>Github</strong> o <strong>Gitlab</strong>.</p>
+<p>Investigue que diferencia habia entre los dos, pero no encontre ninguna a nivel de uso personal, asi que lance la moneda al aire y salio <strong>Github</strong>, me puse a ello. Después de investigar me cree mi repositorio.</p>
+<p>Al principio me costo mucho entender como funciona <strong>Github</strong>, para que os hagais una idea, me las tuve y desee para crear mi primer repositorio, era dar un pasito hacia adelante y dos hacia atras, si lo reconozco, no he leido la documentación del funcionamiento y uso de <strong>Github</strong>, pero bueno, creo que asi he aprendido mucho más. Porque he tenido que aprender a lo bestia y descubrir las cosas que te puede ofrecer <strong>Github</strong> poco a poco. Y no me ha parecido mal.</p>
+<p>Mis progresos han sido lentos, porque todo lo que hacia era la primera vez, e iba más a prueba y error y volver a repetir hasta que entendia lo que pasaba. Después de tener mi repositorio <strong>personal</strong>, fue tener en mi repositorio todos los ficheros del tema que iba a usar e ir subiendo o creando los ficheros <code>markdown</code> y ponerlos en donde indicaba la documentación del tema si entender bien que pasaba.</p>
+<p>Después entendi lo que hacia <strong>Github</strong>, que era <code>compilar</code> (si se le puede decir asi) los archivos <code>markdown</code> y generar automaticamente el fichero <code>html</code>, segui investigando a ver si eso se podia hacer en local y resulto que si que se podia hacer, pero claro, para hacer eso, necesitabas tener un servidor <strong>Jekyll</strong> para que se realizase la compilación y solamente tener que subir los ficheros <code>compilados</code> y tener en mi poder, el codigo fuente del blog.</p>
+<p>Sigo pensando que no me equivoque, porque gracias a ello, aprendi como crear un docker (mi primer docker). Era un <a href="https://hub.docker.com/r/vctrsnts/jekyll-git" target="_blank" rel="noopener noreffer ">Docker</a> que tiene un servidor jekyll para poder realizar las compilaciones de los <code>markdown</code>. Tambien tengo que decir que no funciona muy bien, pero bueno, como primera experiencia en crear un docker, no me fue mal, porque entiendi mejor como funcionan los docker.</p>
+<p>Cuando vi que la cosa no funcionaba correctamente, la idea era interesante, pero el resultado no era muy satisfactorio, me puse a buscar un docker ya creado y que fuera mejor que el mio. Y di con el.</p>
+<p>Su autor es <a href="https://github.com/BretFisher/jekyll-serve" target="_blank" rel="noopener noreffer ">bretfisher</a>, tengo que informar que es un poco lioso de usar, porque tiene 2 contenedores:</p>
+<ul>
+<li><a href="https://hub.docker.com/r/bretfisher/jekyll" target="_blank" rel="noopener noreffer ">Jekyll</a></li>
+<li><a href="https://github.com/BretFisher/jekyll-serve" target="_blank" rel="noopener noreffer ">Jekyll-serve</a></li>
+</ul>
+<p>El unico que te tiene que importar es es el contenedor que hacer de <strong>jekyll-serve</strong>.</p>
+<p>La configuración que tengo para usar la imagen de docker es la siguiente:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">jekyll</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">bretfisher/jekyll-serve</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">jekyll</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># port d&#39;access a traves de la web</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="m">4000</span><span class="p">:</span><span class="m">4000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># on esta el codi font del blog</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">../blog:/site</span></span></span></code></pre></div></div>
+<p>Cuando ya tenia este contenedor en marcha, ya pude empezar con la creación de mis articulos y es aqui, después de esta pequeña historia, donde explico la idea principal de este articulo. Unir <strong>Jekyll</strong>, <strong>Mastodon</strong> y <strong>Github</strong> y todo lo que me podia ofrecer este ultimo y una de estas posibilidades es la de publicar mis articulos a traves de un <a href="2022-11-14-publicar-feed-mastodon.md" rel="">bot</a>.</p>
+<p>Pero lo que echaba de menos, porque no se veia ninguna imagen en la publicación en <strong>Mastodon</strong>, cuando lei uno de los toots de <a href="https://mastodon.online/@elblogdelazaro@mastodon.social" target="_blank" rel="noopener noreffer ">elBlogdeLazaro</a>, que sigo y que me ha dado el punto de inicio por donde empezar, se podia visualizar una imagen, o mejor dicho, el logo de su web.</p>
+<p>Yo queria hacer lo mismo, pero no encontraba ninguna información donde se explicase como se tenia que hacer o como configurar <strong>Mastodon</strong>, después descubri que las modificaciones necesarias las tenia que hacer en los archivos de mi blog, y gracias a una pista que, como ya he dicho, me dio <em>Carlos. M</em> conseguir descubrir como hacerlo.</p>
+<p>La pista fue (<em>Lazaro</em> usa Hugo, otra alternativa a Jekyll), me comento, que en su caso, esto es automatico y que a traves de <code>:EXPORT_hugo_custom_front_matter+: :image /images/......</code> es la manera que se muestra el logo en las publicaciones de <strong>Mastodon</strong>, pero ya era algo.</p>
+<p>Me puse a buscar todo lo referente a la pista que me habia dado y que se podia hacer en <strong>Hugo</strong> y al final la encontre en esta <a href="https://sherblog.pro/compartiendo-contenido-de-hugo-en-mastodon" target="_blank" rel="noopener noreffer ">pagina</a>, encontre la gran pista que me llevaria hacia mi objetivo.</p>
+<p>Todo consiste, en que <strong>Mastodon</strong> utiliza <strong>OpenGraph</strong> para todo el tratamiento de las publicaciones (seguramente es más complicado que esto), pero en mi caso me dio la pista definitiva que necesitaba. Lo que tenia que hacer, es buscar como poner en mi blog una imagen del tipo <code>og:image</code> en la pantilla. La solución la encontre en la siguiente <a href="https://gist.github.com/davidensinger/5431869" target="_blank" rel="noopener noreffer ">pagina</a>, donde se puede ver, el codigo necesario para usar <code>imagenes og</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-javascript">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">content</span><span class="o">=</span><span class="s2">&#34;site.url/assets/img/posts/page.image&#34;</span> <span class="nx">property</span><span class="o">=</span><span class="s2">&#34;og:image&#34;</span><span class="o">&gt;</span></span></span></code></pre></div></div>
+<p>Gracias a este codigo y después de modificarlo para poderlo usar en mi plantilla, la modificación la he hecho en <code>_layouts/default.html</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-javascript">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">site</span><span class="p">.</span><span class="nx">lightavatar</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">content</span><span class="o">=</span><span class="s2">&#34;site.lightavatar | relative_url&#34;</span> <span class="nx">property</span><span class="o">=</span><span class="s2">&#34;og:image&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">content</span><span class="o">=</span><span class="s2">&#34;site.darkavatar | relative_url&#34;</span> <span class="nx">property</span><span class="o">=</span><span class="s2">&#34;og:image&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">endif</span></span></span></code></pre></div></div>
+<p>Consegui hacer lo que yo queria, porque ahora, a falta de más pruebas, he conseguido que cada vez, que se envia una publicación a <strong>Mastodon</strong> a traves del <strong>bot automatico</strong> se puede ver el logo de mi pagina web. Un logo simple, pero es el que más me gusta, porque mezcla mis 2 grandes pasiones.</p>
+<p><strong>Egipto y GNU/Linux</strong></p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://gist.github.com/davidensinger/5431869" target="_blank" rel="noopener noreffer ">Opciones og:image</a></li>
+<li><a href="https://stackoverflow.com/questions/57493239/opengraph-link-previews-in-jekyll" target="_blank" rel="noopener noreffer ">Opengraph link previews in Jekyll</a></li>
+<li><a href="https://brianbunke.com/blog/2017/09/06/twitter-cards-on-jekyll" target="_blank" rel="noopener noreffer ">Twitter Cards on Jekyll</a></li>
+<li><a href="https://sherblog.pro/compartiendo-contenido-de-hugo-en-mastodon" target="_blank" rel="noopener noreffer ">Compartiendo contenido de Hugo en Mastodon</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 13-02-2023</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/blog/">Blog</a>,&nbsp;<a href="/tags/docker/">Docker</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2023-01-25-usando-watchtower/" class="prev" rel="prev" title="Usando Watchtower"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Usando Watchtower</a>
+            <a href="/2023-02-19-actualizacion-watchtower/" class="next" rel="next" title="Cambiando watchtower por diun y vuelta a watchtower">Cambiando watchtower por diun y vuelta a watchtower<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

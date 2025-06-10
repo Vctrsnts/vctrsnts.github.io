@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Raspberry Pi. Instalar y configurar fail2ban - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2020-11-08-rpi-usando-fail2ban/" /><link rel="prev" href="http://192.6.0.40:1313/2020-10-30-rpi-cambiando-equipo/" /><link rel="next" href="http://192.6.0.40:1313/2020-12-14-crear-imagen-docker/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Raspberry Pi. Instalar y configurar fail2ban",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2020-11-08-rpi-usando-fail2ban\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Raspberry Pi, Seguridad","wordcount":  558 ,
+        "url": "http:\/\/192.6.0.40:1313\/2020-11-08-rpi-usando-fail2ban\/","datePublished": "2020-11-08T00:00:00+00:00","dateModified": "2020-11-08T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Raspberry Pi. Instalar y configurar fail2ban</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/raspberry-pi/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Raspberry Pi</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="08-11-2020">08-11-2020</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;558 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Siguiendo con mis capitulos con respecto a la configuración y uso de mi RPI4 (tambien explicado en este otro <a href="/2020-10-30-rpi-cambiando-equipo" rel="">articulo</a>, pues ahora pasamos a añadir una protección más y que en  todos los sitios donde explican su configuración, se preguntan, porque no esta instalada por defecto en todos los sistemas GNU/Linux.</p>
+<p>Esta protección es <strong>fail2ban</strong>.</p>
+<p>Su funcionalidad es la de monitorizar todos los intentos de conexión a los servicios que hayas indicado en el fichero de configuración,  <code>jail.local</code> y cuando ve que una <code>IP</code> intenta hacer más de un intento fallido, <em>bloquea - banea</em> durante el tiempo que tu hayas indicado.</p>
+<p>Ahora, pasamos a explicar unos cuantos conceptos del fichero de configuración:</p>
+<ul>
+<li><strong>maxretry</strong>: Cuantos intentos de conexión se aceptan antes del bloqueo / baneo.</li>
+<li><strong>fintime</strong>: Es durante cuanto tiempo se monitoriza una IP antes de activarse la opcion <strong>maxretry</strong></li>
+<li><strong>bantime</strong>: Cuanto tiempo permanecera baneada la ip de donde ha venido el intento de conexión. En el caso de que quieras ser agresivo, puedes poner más tiempo. En mi caso lo tengo con que el baneo sea de 1 dia (86.400 segundos).</li>
+<li><strong>ignoreip</strong>: Para ignorar los intentos de conexión fallidos que vienen de nuestra propia red.</li>
+</ul>
+<p>Ahora pasamos a su modificación.</p>
+<p>Lo que he leido en todos sitios con respecto a <strong>fail2ban</strong>, es que lo mejor es copiar el fichero <code>jail.conf</code> a <code>jail.local</code>.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@raspberry:~$ <span class="nb">cd</span> /etc
+</span></span><span class="line"><span class="cl">usuari@raspberry:~$ sudo cp jail.conf jail.local</span></span></code></pre></div></div>
+<p>Una vez hecho esto, ya lo podemos editar con las opciones que más nos interesan que en mi caso son las siguiente:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># descomentar la opción ignoreip para que no tenga en cuenta los accesos</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># que vienen de nuestra propia red</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ignoreip</span> <span class="o">=</span> 127.0.0.1/8::1
+</span></span><span class="line"><span class="cl"><span class="c1"># descomentamos la opción bantime y en mi caso he puesto 86400</span>
+</span></span><span class="line"><span class="cl"><span class="nv">bantime</span> <span class="o">=</span> <span class="m">86400</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># descomentamos la opcion fintime y yo he dejado el valor por defeccto</span>
+</span></span><span class="line"><span class="cl"><span class="nv">fintime</span> <span class="o">=</span> 10m</span></span></code></pre></div></div>
+<p>Ahora pasamos a activar los modulos que nos interesa que en mi caso es el modulo de <code>sshd</code>. Los modulos se encuentran a partir de la opción <code>JAILS</code>.</p>
+<p>Se activan con la opción <code>enabled = true</code>. Y en mi caso el modulo de <code>SSHD</code> queda de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">enabled</span> <span class="o">=</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl"><span class="nv">filter</span> <span class="o">=</span> sshd
+</span></span><span class="line"><span class="cl"><span class="c1"># Aqui es donde ponemos los puertos a controlar. Si ponemos ssh,</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># se monitoriza el puerto por defecto de ssh (22), pero</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># tambien podemos poner otros puertos.</span>
+</span></span><span class="line"><span class="cl"><span class="nv">port</span> <span class="o">=</span> ssh, xxxx</span></span></code></pre></div></div>
+<p>Si revisas los modulos disponibles, ves que hay un monto, por ejemplo <code>dropbear</code>, <code>apache</code>, <code>nginx</code>, <code>lighttpd</code> y unos cuantos más.</p>
+<p>De esta manera ya tenemos configurado <strong>fail2ban</strong>, ahora solamente falta activarlo:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@raspberry:~$ sudo /etc/init.d/fail2ban start</span></span></code></pre></div></div>
+<p>Ahora, nos toca disfrutar de los baneos, que puedes ver en el fichero de los:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@raspberry:~$ sudo tail -f /var/log/fail2ban.log</span></span></code></pre></div></div>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Consejo<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Que como dice un youtuber famoso <a href="https://www.youtube.com/channel/UCrBzBOMcUVV8ryyAU_c6P5g" target="_blank" rel="noopener noreffer ">PeladoNerd</a>, es un ejercicio muy saludable.</div>
+        </div>
+    </div>
+<p>Asi mismo, tambien pongo el codigo necesario para poder <code>desbanear</code> nuestra ip de acceso a la raspberry (me ha pasado más de una vez), lo que se tiene que hacer es lo siguiente:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@raspberry:~$ fail2ban-client <span class="nb">set</span> sshd unbanip x.x.x.x
+</span></span><span class="line"><span class="cl"><span class="c1"># Donde x.x.x.x es la ip</span></span></span></code></pre></div></div>
+<p>Ten en cuenta, que esto lo tienes que hacer desde otro PC, porque desde el que tienes acceso normalmente no te dejara acceder, si es que no le cambias la ip.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.gitlab.io/2017-10-05-fail2ban-raspberry" target="_blank" rel="noopener noreffer ">fail2ban en una Raspberry Pi</a></li>
+<li><a href="https://www.youtube.com/watch?v=PAK7I1cKwzA" target="_blank" rel="noopener noreffer ">ESTO TENDRIA QUE VENIR POR DEFECTO EN LINUX - V2M / fail2ban</a></li>
+<li><a href="https://support.moonpoint.com/os/unix/linux/fail2ban-unban.php" target="_blank" rel="noopener noreffer ">Desbanear IP</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 08-11-2020</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/raspberry-pi/">Raspberry Pi</a>,&nbsp;<a href="/tags/seguridad/">Seguridad</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020-10-30-rpi-cambiando-equipo/" class="prev" rel="prev" title="Raspberry Pi. Cambiando el equipo"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Raspberry Pi. Cambiando el equipo</a>
+            <a href="/2020-12-14-crear-imagen-docker/" class="next" rel="next" title="Crear imagenes en docker">Crear imagenes en docker<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

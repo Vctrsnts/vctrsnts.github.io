@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Matrix - 2. PushBits, la pasarela que faltaba - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2025-03-27-pushbits/" /><link rel="prev" href="http://192.6.0.40:1313/2025-03-25-instal-config-matrix/" /><link rel="next" href="http://192.6.0.40:1313/2025-04-20-modificaciones-servidor-3/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Matrix - 2. PushBits, la pasarela que faltaba",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2025-03-27-pushbits\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Docker, Matrix","wordcount":  1861 ,
+        "url": "http:\/\/192.6.0.40:1313\/2025-03-27-pushbits\/","datePublished": "2025-03-28T00:00:00+00:00","dateModified": "2025-03-28T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Matrix - 2. PushBits, la pasarela que faltaba</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="28-03-2025">28-03-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1861 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Como bien explique en el anterior <a href="/2025-03-25-instal-config-matrix" rel="">articulo</a>, explicaba la instalación y configuración, nada facil, de mi servidor de <strong>matrix</strong> ahora os vengo a traer el siguiente articulo, donde explico el uso que le he dado y los problemeas que me he encontrado asi como los planes de futuro.</p>
+<p>Después de la instalación de <em>matrix</em> ahora tenia que configurar los servicios para que pudiera utilizar este nuevo servicio que he instalado y aqui es donde me he encontrado algunos problemas, porque no todos los servicios que tengo actualmente incluyendo a <em>unRaid</em> no estan del todo preparados para su uso. Ya lo ireis viendo si seguiis leyendo.</p>
+<p>El primer servicio que queria que utilizar <em>matrix</em> es <a href="https://www.flexget.com" target="_blank" rel="noopener noreffer ">flexget</a>, y asi en vez de usar <em>telegram</em> usaria <em>matrix</em>. Segun la documentación de <a href="https://flexget.com/en/Plugins/Notifiers/matrix" target="_blank" rel="noopener noreffer ">flexget</a>, este servicio estaba soportado, aunque tengo que decir, que la documentación, siento usar estas palabras, es un poco penosa, no se como pueden poner esa información. Podrian explicar que tipo de mensajes soporta esta aplicación, de que manera se tienen que enviar, etc&hellip; cosas que te pueden servir de ayuda para tu después utilizarlo de la manera que quiereas.</p>
+<p>Pero lo unico que te indican es lo siguiente:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">notify</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">entries</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">via</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">matrix</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://matrix.org&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l">senders token</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">room_id</span><span class="p">:</span><span class="w"> </span><span class="l">room identifier</span></span></span></code></pre></div></div>
+<p>Nada más. Eso si, te explican que es cada cosa (<em>server</em>, <em>token</em> y <em>room_id</em>), pero ya esta. Lo siento, pero para mi esto no es una documentación, más bien son los apuntes de alguien.</p>
+<p>Siento decir que esto solo es el principio, porque cuando me puse a hacer las pruebas, no habia manera de hacerlo funcionar con la instalación de <em>Conduit</em> que yo tenia. No funcionaba ni para atras. Cambiando script, haciendo pruebas con todo lo que me encontrada por internet, haciendo preguntas a <em>Copilot</em>, que teoricamente tiene acceso a todo lo de <em>GitHub</em> y <em>flexget</em> esta hay. Cambiando de <em>Conduit</em> a <em>Synapse</em>, pero ni con esas habia manera de enviar un simple mensaje a mi servidor de <em>matrix</em>.</p>
+<p>La unica respuesta que obtenia de <em>flexget</em> era lo siguiente:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">root@08aa614bcf06:/config# Error <span class="k">while</span> sending notification to <span class="sb">`</span>matrix<span class="sb">`</span>: <span class="m">404</span> Client Error: Not Found <span class="k">for</span> url: https://matrix.myServer.org/_matrix/client/r0/rooms/roomID/send/m.room.message?access_token<span class="o">=</span>TOKEN</span></span></code></pre></div></div>
+<p>Al final después de muchas preguntas al <em>Slack</em> de <em>flexget</em>, consegui que me respondieran, y lo que me dijeron de que el problema, por el mensaje que me estaba dando <em>flexget</em>, era de que este estaba utilizando la antigua versión del envio de mensajes <code>r0</code>, en vez de la más actual que ya implemtan todos los servidores de <em>matrix</em> asi como todos los clientes 😱.</p>
+<p>Es una cosa que pude comprobar yo mismo, porque encontre el archivo que utiliza <em>flexget</em> para manejar las notificaciones, y se podia ver claramente como los envios se hacen mediante una versión anterior a la que se usa actualmente en <em>matrix</em>. Pues empezamos bien. La primera en la frente.</p>
+<p>Tambien queria usar <em>matrix</em> para que mi servidor de <em>unRaid</em> me enviara todas las notificaciones, y aqui va la segunda en la frente, <em>unRaid</em> no esta preparado, de momento, para hacer uso de <em>matrix</em>. Que bien empezamos. Con lo que habia sufrido para instalar <em>matrix</em> y voy y me encuentro que las 2 primeras cosas que quiero usar <em>matrix</em> no estan soportadas. Asi, que iba hacer ahora. Desinstalar <em>matrix</em> y volver a <em>telegram</em>.
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Como decia <a href="https://es.wikipedia.org/wiki/George_Patton" target="_blank" rel="noopener noreffer ">Geoge S. Patton</a> <strong>Nunca estás vencido hasta que lo admites</strong>.</div>
+        </div>
+    </div></p>
+<p>Asi que me puse a investigar por la opción más importante y <em>necesaria</em>, hacer que <em>unRaid</em> pudiera enviar las notificaciones a <em>matrix</em>. Después de mucho investigar, encontre esta <a href="https://forums.unraid.net/topic/122107-matrix-notification-agent" target="_blank" rel="noopener noreffer ">pregunta</a> en el foro de <em>unRaid</em>, que al principio no acababa de entender, pero me explicaron, que hay un servicio en docker, que se llama <a href="https://www.pushbits.io" target="_blank" rel="noopener noreffer ">PushBits</a> que hace de puente entre <em>matrix</em> y cualquier otro servicio, porque <strong>simula</strong> que estas enviando los mensajes a un servidor de <strong>Gotify</strong> y actualmente hay muchos más que pueden enviar notificaciones a <em>Gotify</em> que a <em>matrix</em>, y uno de estos es <em>unRaid</em> que a parte poder enviar las notificaciones a un servidor <em>Gotify</em> tambien permite el envio de notificaciones a <em>PushBits</em>.
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Tengo que decir que esto mismo lo hace <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">atareao</a> pero a traves de <strong>webhooks</strong>, creo que se dicen, pero es un tema que no acabo de entender del todo, asi que de momento voy por este camino. Eso no quiere decir que en el momento que entienda más del tema haga el cambio.</div>
+        </div>
+    </div></p>
+<p>Pues ya tenia todo lo necesario, para que tanto <em>unRaid</em> como <em>flexget</em>, pueden enviar mensajes a <em>Gotify</em>. Seguro que lo tenia todo? Faltaba la parte más dificil de todas, la instalatación y configuración. Y aqui se viene otro baño de realidad. En el repositorio de <a href="https://github.com/pushbits/server" target="_blank" rel="noopener noreffer ">Pushbits</a> no encontraba nada de como hacer posible la instalacion a traves de <code>docker-compose.yml</code> y como usarlo después.</p>
+<p>Asi que de nuevo a investigar. Nunca se va acabar esto de investigar 😓. Lo unico que me alegra, es que cuando deje de investigar solamente sera por 2 posibilidades, o soy tan listo que lo se todo 🤣, cosa dificil, o es que estoy muerto 💀.</p>
+<p>Pero lo que es la vida, no se como, pero encontre la web de <em>PushBits</em> donde te puede llevar tanto al repositorio como a la documentación, no se como no lo vi antes, y en la documentación, aqui si, es donde obtuvo lo primero, el fichero del <code>docker-compose</code> para poderlo usar:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">pushbits</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">ghcr.io/pushbits/server:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">matrixPushbits</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">proxy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">/etc/localtime:/etc/localtime:ro</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">/etc/timezone:/etc/timezone:ro</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">${HOME}/config/matrix/pushbits:/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">PUSHBITS_DATABASE_DIALECT</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;sqlite3&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">PUSHBITS_ADMIN_MATRIXID</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;@user:matrix.myServer.org&#39;</span><span class="w"> </span><span class="c"># The Matrix account on which the admin will receive their notifications.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">PUSHBITS_ADMIN_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;passwordAdmin&#39;</span><span class="w"> </span><span class="c"># The login password of the admin account. Default username is &#39;admin&#39;.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">PUSHBITS_MATRIX_USERNAME</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;userMatrix&#39;</span><span class="w"> </span><span class="c"># The Matrix account from which notifications are sent to all users.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">PUSHBITS_MATRIX_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;passwordMatrix&#39;</span><span class="w"> </span><span class="c"># The password of the above account.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.enable=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.services.pushbits.loadbalancer.server.port=5050</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.pushbits.entrypoints=websecure</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.pushbits.rule=Host(`${NOTIFY_SERVER}`)</span></span></span></code></pre></div></div>
+<p>Luego me faltaba entender su funcionamiento, y siento decir que la documentación a excepción de su instalación, tambien peca un poco, o a lo mejor soy yo que no encuentro las cosas, que tambien puede ser.</p>
+<p>Pero de nuevo la suerte fue mi aliada, que seria de mi, sin las incidencias que entra la gente, porque encontre esta <a href="https://github.com/pushbits/server/issues/71" target="_blank" rel="noopener noreffer ">incidencia</a> donde explicaba todo lo que se tiene que hacer para usar <em>PushBits</em>, pero en ese caso, fallaba, pero para mi ya era algo. Habia conseguido toda la información necesaria para usar este nuevo servicio.</p>
+<p>A parte de saber como se tiene que usar, tambien tienes que tener el fichero de configuración, que puedes obtener un ejemplo del repositorio, aunque yo pongo el que estoy utilizando ahora mismo y que me funciona perfectamente:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># A sample configuration for PushBits.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Populated fields contain their default value.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Required fields are marked with [required].</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">debug</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">http</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The address to listen on. If empty, listens on all available IP addresses of the system.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">listenaddress</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The port to listen on.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">5050</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># What proxies to trust.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">trustedproxies</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Filename of the TLS certificate.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">certfile</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Filename of the TLS private key.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">keyfile</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">database</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Currently sqlite3, mysql, and postgres are supported.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">dialect</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;sqlite3&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># - For sqlite3, specify the database file.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># - For mysql specify the connection string. See details at https://github.com/go-sql-driver/mysql#dsn-data-source-name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># - For postgres, see https://github.com/jackc/pgx.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">#   Also consider the canonical docs at https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">connection</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;pushbits.db&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">admin</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The username of the initial admin.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;admin&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The password of the initial admin.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;passWord&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The Matrix ID of the initial admin, where notifications for that admin are sent to.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># [required]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matrixid</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;@user:matrix.myServer.org&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">matrix</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The Matrix server to use for sending notifications.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">homeserver</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;https://matrix.myServer.org&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The username of the Matrix account to send notifications from.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># [required]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;userMatrix&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The password of the Matrix account to send notifications from.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># [required]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;passwordMatrix&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">security</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Wether or not to check for weak passwords using HIBP.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">checkhibp</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">crypto</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Configuration of the KDF for password storage. Do not change unless you know what you are doing!</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">argon2</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="m">131072</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">iterations</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">parallelism</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">saltlength</span><span class="p">:</span><span class="w"> </span><span class="m">16</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">keylength</span><span class="p">:</span><span class="w"> </span><span class="m">32</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">formatting</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Whether to use colored titles based on the message priority (&lt;0: grey, 0-3: default, 4-10: yellow, 10-20: orange, &gt;20: red).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">coloredtitle</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># This settings are only relevant if you want to use PushBits with alertmanager</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">alertmanager</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The name of the entry in the alerts annotations or lables that should be used for the title</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">annotationtitle</span><span class="p">:</span><span class="w"> </span><span class="l">title</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The name of the entry in the alerts annotations or labels that should be used for the message</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">annotationmessage</span><span class="p">:</span><span class="w"> </span><span class="l">message</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">repairbehavior</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Reset the room&#39;s name to what was initially set by PushBits.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">resetroomname</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Reset the room&#39;s topic to what was initially set by PushBits.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">resetroomtopic</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span></span></span></code></pre></div></div>
+<p>A parte del fichero de configuración, tambien necesitas crear una <em>sala / aplicación</em> (yo asimilo sala de <em>matrix</em>, con aplicación de <em>PushBits</em>), donde primero tienes que dar de alta la aplicación, del que obtendras un <strong>TOKEN</strong> que podras usar para identificar quien esta enviando los mensajes a <em>matrix</em>. Y esto se consigue de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~$ docker <span class="nb">exec</span> -it matrixPushbits sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># VISUALITZEM LES SALES / APLICACIONS QUE TENIM ACTUALMENTE</span>
+</span></span><span class="line"><span class="cl">/app $ pbcli application list --url http://172.20.0.5:8080 --username admin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># En el cas de que en vulguessim crear una sala / aplicació, haures de fer el següent</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># En aquest cas, estic creant una sala / aplicació per a flexget</span>
+</span></span><span class="line"><span class="cl">/app $ pbcli application create flexget --url http://172.20.0.5:8080 --username admin</span></span></code></pre></div></div>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Cuando pongais la <strong>URL</strong> tener en cuenta que es la url del contenedor donde esta corriendo pushbits</div>
+        </div>
+    </div>
+<p>Cuando tengas creada la sala / aplicación, obtendras un <strong>token</strong> que sera el que tendras que utilizar para validarte con <em>Pushbits</em> y a su vez, este se comunicara con la sala de <em>matrix</em>. Y te puedo asegurar que funciona a la perfección 🎉.</p>
+<p>Ya solo nos queda configurar, <em>unRaid</em> para que se envien las notificaciones y como este, esta preparado para <em>PushBits</em> pues todo perfecto:</p>
+<p><figure><a class="lightgallery" href="/images/PushBits.png" title="/images/PushBits.png" data-thumbnail="/images/PushBits.png" data-sub-html="<h2>PushBits</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/PushBits.png"
+            data-srcset="/images/PushBits.png, /images/PushBits.png 1.5x, /images/PushBits.png 2x"
+            data-sizes="auto"
+            alt="/images/PushBits.png" />
+    </a><figcaption class="image-caption">PushBits</figcaption>
+    </figure></p>
+<p>De la misma manera que <em>unRaid</em> funciona con <em>PushBits</em>, <em>flexget</em>, como tiene la posibilidad de enviar notificaciones a traves de <em>Gotify</em> y <em>PushBits</em> puede <em>simular</em> a este, pues nada más sencillo:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">notify-all</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">notify</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">entries</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Nou Video&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="p">|+</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">        *Titol:* { original_title | replace(&#39;.XXX.720p.HEVC.x265.PRT&#39;, &#39;&#39;) | replace(&#39;.XXX.720p.HD.WEBRip.x264-TGxXX&#39;, &#39;&#39;) | asciify | strip_symbols }
+</span></span></span><span class="line"><span class="cl"><span class="sd">        # Aixo son provas per enviar images a matrix, pero que de moment no funcionant.
+</span></span></span><span class="line"><span class="cl"><span class="sd">        [Image](https://img.freepik.com/free-photo/side-view-woman-bdsm-aesthetics_23-2151117274.jpg)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">via</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">gotify</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># Adreça de PushBits</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{? credencials.gotify.server ?}&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>*<span class="w"> </span><span class="l">Token que ens ha donat al donar d&#39;alta l&#39;aplicació</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{? credencials.gotify.token ?}&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># Prioritat del missatge. Aqui et recomano que revisis la documentación de Gotify</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># En el meu cas, jo tinc possat el valor 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">priority</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{? credencials.gotify.priority ?}&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c"># Format dels missatges</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">content_type</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;text/markdown&#39;</span></span></span></code></pre></div></div>
+<p>Ahora si que podemos decir que todo lo que yo queria ya lo tengo en funcionamiento. Aunque tengo que seguir investigando la posibilidad de poder enviar imagenes como mensajes adjuntos, pero esto ya lo dejo para más adelante. Lo siguiente es hacer, como tiene en funcionamiento <em>atareao</em> un <em>bot de matrix</em> para que me vaya informando de los mails que voy recibiendo y luego, el tiempo ya dira&hellip;</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://www.pushbits.io" target="_blank" rel="noopener noreffer ">PushBits</a></li>
+<li><a href="https://github.com/pushbits/server/issues/71" target="_blank" rel="noopener noreffer ">Request failed at creating new application</a></li>
+<li><a href="https://forums.unraid.net/topic/122107-matrix-notification-agent" target="_blank" rel="noopener noreffer ">Matrix notification agent</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 28-03-2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/matrix/">Matrix</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2025-03-25-instal-config-matrix/" class="prev" rel="prev" title="Matrix - 1. Instalación y configuración"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Matrix - 1. Instalación y configuración</a>
+            <a href="/2025-04-20-modificaciones-servidor-3/" class="next" rel="next" title="Modificaciones en el servidor - 3">Modificaciones en el servidor - 3<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

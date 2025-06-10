@@ -10,7 +10,7 @@
 # bash up2Git.sh <fitxers>
 
 # Actualitzem els permisos dels fitxers de _site
-chown -R nobody:users /mnt/user/appdata/jekyll_blog/_site
+chown -R nobody:users /mnt/user/appdata/hugo/blog/public
 
 # Actualitzem la clau publica de GitHub
 eval "$(ssh-agent -s)"
@@ -20,12 +20,9 @@ ssh -T git@github.com
 
 sleep 10
 
-# a traves de docker, actualitzem el fitxer RSS
-docker exec jekyll_blog bundle exec jekyll build
-
-sleep 10
-
 rm -rf .fuse*
+
+docker exec -it hugoBook hugo --baseURL="https://vctrsnts.github.io"
 
 # Comprovem si el directori on ens trobem es un repositori de Git
 if [ ! -d '.git' ]; then
@@ -37,7 +34,7 @@ fi
 git config --global user.email "vctrsnts@gmail.com"
 git config --global user.name "Vctrsnts"
 
-git config --global --add safe.directory /mnt/user/appdata/jekyll_blog/_site
+git config --global --add safe.directory /mnt/user/appdata/hugo/blog/public
 
 # Ara validem si hem rebut cap parametre
 if [ $# == 0 ]; then

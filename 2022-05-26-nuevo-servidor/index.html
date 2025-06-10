@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Mi nuevo servidor - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2022-05-26-nuevo-servidor/" /><link rel="prev" href="http://192.6.0.40:1313/2022-01-15-configurar-fichero-bashrc/" /><link rel="next" href="http://192.6.0.40:1313/2022-11-08-cambiando-mediacenter/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Mi nuevo servidor",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2022-05-26-nuevo-servidor\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Debian GNULinux, Hardware","wordcount":  815 ,
+        "url": "http:\/\/192.6.0.40:1313\/2022-05-26-nuevo-servidor\/","datePublished": "2022-05-26T00:00:00+00:00","dateModified": "2022-05-26T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Mi nuevo servidor</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/hardware/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Hardware</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="26-05-2022">26-05-2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;815 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Se que llevo mucho tiempo si publicar nada, pero he estado liado haciendos cambios en el servidor (RPI4).</p>
+<p>Como sabeis, antes tenia una Raspberry Pi 4 de 4Gb, pero para algunas cosas, se me quedaba pillado y pense que podia usarla como mediacenter, y cambiar la RPI3 que tenia por esta.</p>
+<p>Como estoy en el grupo de Telegram de Thinkpads (unos frikis de cuidado) pues a un compañero del canal, que tenia un Dell a la venta, se lo compre. Y como siempre, cuando me llego, me senti como un niño con zapatos nuevos.</p>
+<p>Asi que me lie la manta a la cabeza y el cambio lo hice a lo bestia, ya que hago un cambio, porque no la lio, y ahora tengo un Dell Optiplex 3050 con 8Gb con un i5-7500. O sea un maquinon que no me lo  voy a acabar nunca.</p>
+<p><figure><a class="lightgallery" href="/images/dell_3050.png" title="/images/dell_3050.png" data-thumbnail="/images/dell_3050.png" data-sub-html="<h2>Dell Optiplex 3050</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/dell_3050.png"
+            data-srcset="/images/dell_3050.png, /images/dell_3050.png 1.5x, /images/dell_3050.png 2x"
+            data-sizes="auto"
+            alt="/images/dell_3050.png" />
+    </a><figcaption class="image-caption">Dell Optiplex 3050</figcaption>
+    </figure></p>
+<p>Junto con el Dell y algunas cosas que tenia en casa pues me he montado lo siguiente:</p>
+<ul>
+<li>SDD crucial de 250Gb para el Sistema Operativo</li>
+<li><strong>Debian GNU/Linux STABLE</strong> para no tener ningun problema (cuando es un servidor, prefiero la estabilidad a la novedad)</li>
+<li>El HDD externo de 8Tb (Western Digital) que tenia conectado a la RPI4 que se lo he contectado al servidor</li>
+</ul>
+<p>Ahora solo queda hacer el cambio de la RPI4B que tenia haciendo las funciones de servidor y poner el Tiny y de paso, aprovechar (aqui no nada se tira), la RPI4 y ponerla en substitución de la RPI3B que tengo ahora.</p>
+<p>Nos pusimos a ello junto mi inseparable <strong>Debian GNU/Linux STABLE</strong>, no quiero jugar a ser dios con <strong>UNSTABLE</strong> en un servidor, y previa actualización del HDD por un SSD Crucial de 250Gb nos pusimos con la instalación.</p>
+<p>La instalación no cambia en <strong>Debian GNU/Linux</strong>, sin ningun problema, aunque tuve dudas de que manera particionar el SSD para sacarle el maximo rendimiento. Después de pensar lo deje de la siguiente manera (seguramente hay otra mejor, pero no se me ha ocurrido):</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">filesystem   mount point   size
+</span></span><span class="line"><span class="cl">----------   -----------   ----
+</span></span><span class="line"><span class="cl">/dev/sdb1    /             200Gb
+</span></span><span class="line"><span class="cl">/dev/sdb2    swap          4Gb
+</span></span><span class="line"><span class="cl">/dev/sdb5    /home         40Gb</span></span></code></pre></div></div>
+<p>Se que en un PC con 8Gb de RAM, poner swap no tiene ningun sentido, pero, nunca se sabe&hellip;</p>
+<p>Llegados a este punto y sin ningun problema a la hora de la instalación, añadi todo lo que tenia en la RPI4B al Tiny (que no era poco):</p>
+<ul>
+<li><a href="" rel="">Nginx Proxy Manager</a></li>
+<li><a href="https://hub.docker.com/r/deluan/navidrome" target="_blank" rel="noopener noreffer ">Navidrome</a></li>
+<li><a href="https://hub.docker.com/r/linuxserver/duckdns" target="_blank" rel="noopener noreffer ">Duckdns</a></li>
+<li><a href="https://hub.docker.com/r/flexget/flexget" target="_blank" rel="noopener noreffer ">Flexget</a></li>
+<li><a href="https://hub.docker.com/r/linuxserver/transmission" target="_blank" rel="noopener noreffer ">Transmission</a></li>
+<li><a href="https://hub.docker.com/r/ngosang/amule" target="_blank" rel="noopener noreffer ">aMule</a></li>
+<li><a href="https://hub.docker.com/r/linuxserver/jackett" target="_blank" rel="noopener noreffer ">Jackett</a></li>
+<li><a href="https://hub.docker.com/r/dperson/samba" target="_blank" rel="noopener noreffer ">Samba</a></li>
+</ul>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><a href="https://www.github.com/Vctrsnts/dot_files" target="_blank" rel="noopener noreffer ">aqui</a> podreis encontrar los ficheros de configuración que estoy usando.</div>
+        </div>
+    </div>
+<p>Más unos cosas nuevas que he ido aprendiendo por el camino (y todo a traves de Docker):</p>
+<ul>
+<li><code>Pi-Hole</code>: Bloquear toda la publicidad cuando navegas por cualquier sitio.</li>
+<li><code>Wireguard</code>: VPN para poder acceder a tu servidor desde cualquier sitio.</li>
+<li><code>Jellyfin</code>: Queria una especie de biblioteca para saber que tengo (peliculas y series) pero sin necesidad de tener que conectar el HTC. Se que a lo mejor es excesivo, pero no he encontrado nada parecido a lo que quiero, aunque sigo investigando a ver si encuentro algo igual pero más liviano (no necesito todo lo que lleva consigo jellyfin).</li>
+<li><code>Jekyll</code>: Servidor jekyll (GitHub) para crear tu propio blog en local y luego transformar los archivos <code>markdown</code> en paginas html y subir a GitHub.</li>
+</ul>
+<p>Como no puede ser de otra manera, ya esta todo funcionando y sin ningun problema. No esperaba menos de <strong>Debian GNU/Linux</strong> y menos siendo <strong>STABLE</strong>.</p>
+<p>Por eso digo, que tengo servidor para rato y que nunca me lo acabare. A parte de que quiero probar nuevas cosas que voy viendo en los blogs que sigo:</p>
+<ul>
+<li><a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareado</a></li>
+<li><a href="https://ugeek.github.io" target="_blank" rel="noopener noreffer ">uGeek</a></li>
+<li><a href="https://elblogdelazaro.org/" target="_blank" rel="noopener noreffer ">El Blog de Lázaro</a></li>
+</ul>
+<p>Que sorpresas nos esperan con este nuevo servidor??</p>
+<p>Como ya he dicho antes, aprovechando que teniamos a la RPI4B libre, hemos substituido el antiguo mediacenter (RPI3B) por esta más nueva, porque como todo en la informatica, todo avanza, pero esto lo explicare en otro <a href="/2022-11-08-cambiando-mediacenter" rel="">articulo</a> que estoy preparando (y ya os digo que no son buenas noticias).</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Después de estos meses de uso, no me puedo quejar, porque el servidor es una maquinon en toda regla, pero ante el aumento de la luz y que a veces, pienso que lo estoy infrautilizando, que no le saco todo el partido y toda la potencia que el Dell me puede dar, me esta rondando por la cabeza, que no se si me he excedido utilizando este servidor. Que a lo mejor, con la RPI4 tendria más que suficiente, para todo lo que tiene que hacer, que aun es poco, pero es la duda que tengo, no se si el Dell esta desaprovechado y derrochando el dinero y en cambio, si pongo la RPI4, no se quedara colgada por todas las cosas que quiero hacer ante la limitación evidente de la Raspberry. Es una cosa que quiero estudiar a fondo, preguntar, ver mirar, etc&hellip; y sacar conclusiones.</div>
+        </div>
+    </div>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=qc8mkWtwY9c" target="_blank" rel="noopener noreffer ">Configurar y usar Pi-Hole - PeladoNerd</a></li>
+<li><a href="https://www.youtube.com/watch?v=G_Pv9XEzfUY" target="_blank" rel="noopener noreffer ">Configurar y usar Wireguard - PeladoNerd</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 26-05-2022</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debian-gnulinux/">Debian GNULinux</a>,&nbsp;<a href="/tags/hardware/">Hardware</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2022-01-15-configurar-fichero-bashrc/" class="prev" rel="prev" title="Configurar el fichero .bashrc para descomprimir ficheros"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Configurar el fichero .bashrc para descomprimir ficheros</a>
+            <a href="/2022-11-08-cambiando-mediacenter/" class="next" rel="next" title="Mi nuevo mediacenter - Thinkcenter m710q">Mi nuevo mediacenter - Thinkcenter m710q<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

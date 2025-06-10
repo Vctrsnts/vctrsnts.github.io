@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Publicar feed en Mastodon / Twitter - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2022-11-14-publicar-feed-mastodon/" /><link rel="prev" href="http://192.6.0.40:1313/2022-11-08-cambiando-mediacenter/" /><link rel="next" href="http://192.6.0.40:1313/2022-11-22-script-update-git/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Publicar feed en Mastodon / Twitter",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2022-11-14-publicar-feed-mastodon\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Debian GNULinux, Python","wordcount":  597 ,
+        "url": "http:\/\/192.6.0.40:1313\/2022-11-14-publicar-feed-mastodon\/","datePublished": "2022-11-14T00:00:00+00:00","dateModified": "2022-11-14T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Publicar feed en Mastodon / Twitter</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="14-11-2022">14-11-2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;597 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Descubri a traves del <a href="https://elblogdelazaro.org" target="_blank" rel="noopener noreffer ">Blog de Lazaro</a>, que si tienes cuenta en <code>Mastodon</code>, quien no tiene cuenta ahora tal como van las cosas en <code>Twitter</code>,  que puedes enviar de forma aleatoria alguno de los articulos que tienes publicados en tu web.</p>
+<p>Asi que después de leer su articulo y ver si yo podia hacer lo mismo, me lie la manta a la cabeza y al lio.</p>
+<p>Lo primero, es tener una cuenta y después tienes que crear un aplicación en <code>Mastodon</code> de igual forma que se puede crear en Twitter (explicación más adelante ).</p>
+<p>Aprovechando que en el servidor ya tengo Python instalado, hare que se ejecute en el mismo servidor. Eso si, también tienes que instalar:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~$ pip install --user feedparser mastodon</span></span></code></pre></div></div>
+<p>Para que Python pueda realizar el tratamiento del fichero <code>xml</code>.</p>
+<p>Una vez que ya tienes la aplicación creada, tienes que crear un fichero en <code>Python</code> que tiene que tener la siguiente estructura:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env python</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -*- coding: utf-8 -*-</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># el fitxer original es de Carlos M. (https://elblogdelazaro.org )</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Tens que tindre instalats les llibreries feedparser, Mastodon</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Realitzem la crida als moduls de Python</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">feedparser</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">random</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">mastodon</span> <span class="kn">import</span> <span class="n">Mastodon</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Reallitzem la crida a les claus del Diccionari</span>
+</span></span><span class="line"><span class="cl"><span class="n">CUSTOMER_KEY</span> <span class="o">=</span> <span class="s1">&#39;xxxxxxxxxxxxxxx&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">CUSTOMER_SECRET</span> <span class="o">=</span> <span class="s1">&#39;xxxxxxxxxxxxxxxxx&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">ACCESS_TOKEN</span> <span class="o">=</span> <span class="s1">&#39;xxxxxxxxxxxx&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">ACCESS_TOKEN_SECRET</span> <span class="o">=</span> <span class="s1">&#39;xxxxxxxxxxxxxxxxxxx&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Informem de l&#39;adreça del feed</span>
+</span></span><span class="line"><span class="cl"><span class="n">feed</span> <span class="o">=</span> <span class="s1">&#39;tu dirección web hacia el feed.xml&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Descodifiquem el feed (arxiu XML)</span>
+</span></span><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="n">feedparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">feed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Obtenim la longitud del feed i aleatoriament seleccionem un article</span>
+</span></span><span class="line"><span class="cl"><span class="n">feedlen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;entries&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">feedlen</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Iniciem l&#39;API de Mastodon, i escribim l&#39;estat</span>
+</span></span><span class="line"><span class="cl"><span class="n">status_text</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;entries&#39;</span><span class="p">][</span><span class="n">num</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;entries&#39;</span><span class="p">][</span><span class="n">num</span><span class="p">][</span><span class="s1">&#39;link&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">articulo</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;Recordando artículos publicados:&#34;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">status_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Token y url de la Instancia</span>
+</span></span><span class="line"><span class="cl"><span class="n">mastodon</span> <span class="o">=</span> <span class="n">Mastodon</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl"> <span class="n">access_token</span> <span class="o">=</span> <span class="s1">&#39;XXXXXXXXXXXXXXXXXXXXXXX&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="n">api_base_url</span> <span class="o">=</span> <span class="s1">&#39;https://mastodon.online/&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Publiquem a Mastodon</span>
+</span></span><span class="line"><span class="cl"><span class="n">mastodon</span><span class="o">.</span><span class="n">status_post</span><span class="p">(</span><span class="n">articulo</span><span class="p">)</span></span></span></code></pre></div></div>
+<p>Lo que tienes que tener en cuenta, es informar correctamente de:</p>
+<ul>
+<li><strong>CUSTOMER_KEY</strong></li>
+<li><strong>CUSTOMER_SECRET</strong></li>
+<li><strong>ACCESS_TOKEN</strong></li>
+<li><strong>ACCESS_TOKEN_SECRET</strong></li>
+<li><strong>feed</strong></li>
+</ul>
+<p>Una vez, tengas el fichero creado, si quieres hacer pruebas, tienes que hacerlo de la siguiente manera :</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~$ python3 nombreDelArchivo.py</span></span></code></pre></div></div>
+<p>Entonces, si no has tenido ningun problema, a tu cuenta de Mastodon te llegara un articulo aleatorio de tu web.</p>
+<p>Después de hacer las pruebas que creas oportunas, solo te quedara configurar el cron, para que se ejecute cuando tu quieras.</p>
+<p>Yo lo tengo a que lo haga una vez a la semana, pero me estoy replanteando cambiarlo a que lo haga 3 veces por semana, porque a veces, añado articulos, que a lo mejor cuestan mucho a que salgan. Se que hay otro script, que lo que hace es publicar los ultimos articulos creados. Pero eso lo tengo que estudiar.</p>
+<p>También tengo en cuenta, que si lo hago 3 veces a la semana (publicar toot) creare muchos mensajes, pero lo que también se puede hacer, es configurar Mastodon, para que elimine todos los toot con más de 6 meses de antigüedad (o menos).</p>
+<p>Para la configuración del <code>CRON</code> lo tengo de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">@weekly /usr/bin/python3 /home/tu_usuario/lugar_donde_tengas_el_script/botMastodonPythonRss.py</span></span></code></pre></div></div>
+<p>En el caso de que lo quisieras hacer funcionar en <code>Twitter</code> tienes que tener en cuenta las siguientes modificaciones al archivo de <code>Python</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># En vez de usar la libreria &#34;Mastodon&#34; de Python, tienes que usar &#34;Twython&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">twython</span> <span class="kn">import</span> <span class="n">Twython</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">api</span> <span class="o">=</span> <span class="n">Twython</span><span class="p">(</span><span class="n">CONSUMER_KEY</span><span class="p">,</span><span class="n">CONSUMER_SECRET</span><span class="p">,</span><span class="n">ACCESS_KEY</span><span class="p">,</span><span class="n">ACCESS_SECRET</span><span class="p">)</span></span></span></code></pre></div></div>
+<p>Luego, solamente tienes que añadir la siguiente linea para publicar el articulo en <code>Twitter</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">api</span><span class="o">.</span><span class="n">update_status</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">articulo</span><span class="p">)</span></span></span></code></pre></div></div>
+<p>Espero que te sirva tanto como me ha servido a mi. Y eso si, no se te olvide darle las gracias a <a href="https://elblogdelazaro.org" target="_blank" rel="noopener noreffer ">Carlos M</a> por el increible articulo en que me he basado yo.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.org/posts/2021-08-16-bot-en-python-para-publicar-un-feed-de-forma-aleatorios-en-twitter-y-mastodom/" target="_blank" rel="noopener noreffer ">Script de Python</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 14-11-2022</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debian-gnulinux/">Debian GNULinux</a>,&nbsp;<a href="/tags/python/">Python</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2022-11-08-cambiando-mediacenter/" class="prev" rel="prev" title="Mi nuevo mediacenter - Thinkcenter m710q"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Mi nuevo mediacenter - Thinkcenter m710q</a>
+            <a href="/2022-11-22-script-update-git/" class="next" rel="next" title="Script para actualizar tu GitHub">Script para actualizar tu GitHub<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>

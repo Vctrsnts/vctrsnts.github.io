@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Usando HomePage. El Dashboard - 2 - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2024-06-03-usando-homepage-2/" /><link rel="prev" href="http://192.6.0.40:1313/2024-05-30-cambios-blog-2/" /><link rel="next" href="http://192.6.0.40:1313/2024-06-05-opinion-unraid/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Usando HomePage. El Dashboard - 2",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2024-06-03-usando-homepage-2\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Docker, unRAID","wordcount":  1220 ,
+        "url": "http:\/\/192.6.0.40:1313\/2024-06-03-usando-homepage-2\/","datePublished": "2024-06-03T00:00:00+00:00","dateModified": "2024-06-03T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Usando HomePage. El Dashboard - 2</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="03-06-2024">03-06-2024</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1220 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Como ya comente en el anterior <a href="/2024-02-12-usando-homepage-1" rel="">articulo</a>  donde hablaba de que estaba usando <strong>HomePage</strong> con una configuración <em>normal</em> y muy <em>simple</em>, pero que a la vez era funcional, por no decir basica para cuando te inicias, pero me faltaba algo, en resumen, queria algo más&hellip;</p>
+<p>Entonces buscando información, acabe en el <a href="https://www.github.com/gethomepage" target="_blank" rel="noopener noreffer ">github</a>, que es lo que tenia que haber echo desde el principio, descubri esta <a href="https://github.com/gethomepage/homepage/discussions/473" target="_blank" rel="noopener noreffer ">hilo</a> donde la gente, compartia sus <em>dashboards</em> junto con los ficheros de configuración. Y tengo que decir que habia cosas muy chulas y muy curradas y lo más importante, cosas que no sabia que se podian hacer.</p>
+<p>Mirando lo que la gente subia, encontre uno, no fui el unico que pregunto, que era increible y muy funcional porque tenias al alcance toda la información que necesitabas.</p>
+<p>Asi que toda la gente, le pidio si podia pasar 😁 los ficheros de configuración que usaba y le tengo que estar muy agradecido porque subio los ficheros de configuración que el usaba y que me sirvio para <em>estudiar</em> como lo tenia todo montado. Asi que lo adapte a mis necesidades quedando de la siguiente manera (en mi caso):</p>
+<h3 id="pestaña-home">Pestaña Home</h3>
+<p><figure><a class="lightgallery" href="/images/screenshot_004.png" title="/images/screenshot_004.png" data-thumbnail="/images/screenshot_004.png" data-sub-html="<h2>ScreenShot</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/screenshot_004.png"
+            data-srcset="/images/screenshot_004.png, /images/screenshot_004.png 1.5x, /images/screenshot_004.png 2x"
+            data-sizes="auto"
+            alt="/images/screenshot_004.png" />
+    </a><figcaption class="image-caption">ScreenShot</figcaption>
+    </figure></p>
+<h3 id="pestaña-glances">Pestaña Glances</h3>
+<p><figure><a class="lightgallery" href="/images/screenshot_005.png" title="/images/screenshot_005.png" data-thumbnail="/images/screenshot_005.png" data-sub-html="<h2>ScreenShot</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/screenshot_005.png"
+            data-srcset="/images/screenshot_005.png, /images/screenshot_005.png 1.5x, /images/screenshot_005.png 2x"
+            data-sizes="auto"
+            alt="/images/screenshot_005.png" />
+    </a><figcaption class="image-caption">ScreenShot</figcaption>
+    </figure></p>
+<p>Como se puede ver, uso dos <em>pestañas</em> donde en la primera pestaña se puede visualizar:</p>
+<ul>
+<li>La información de todos los <em>dockers</em> que uso junto con los links a las webs que más uso.</li>
+<li>Toda la información (graficas) de los 2 servidores, que tengo ahora mismo.</li>
+</ul>
+<p>En el <code>settings.yaml</code> es donde se configuran los <em>tabs</em> o mejor dicho, las <em>pestañas</em>. Esto se consigue a traves de la variable <strong>tab</strong>, que es donde indicamos a que pestaña pertenece cada <em>sección</em>. Para que quede más claro, se puede decir que en la pestaña <code>tab: Home</code> tendremos lo siguiente:</p>
+<ul>
+<li>Virtualization</li>
+<li>Monitoring</li>
+<li>Media</li>
+<li>Network</li>
+</ul>
+<p>En cambio, en la pestaña <code>tab: Glances</code> tendremos lo siguiente:</p>
+<ul>
+<li>Graficas <em>Servidor 1</em></li>
+<li>Graficas <em>Servidor 2</em></li>
+</ul>
+<p>Ahora viene lo más importante, los ficheros de configuración que estoy usando:</p>
+<h4 id="settingsyaml">settings.yaml</h4>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c">#### Customization</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">headerStyle</span><span class="p">:</span><span class="w"> </span><span class="l">clean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">cardBlur</span><span class="p">:</span><span class="w"> </span><span class="l">md</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">theme</span><span class="p">:</span><span class="w"> </span><span class="l">dark</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="l">zinc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">quicklaunch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">searchDescriptions</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hideInternetSearch</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">showSearchSuggestions</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hideVisitURL</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#### Group layouts</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">layout</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">### Homepage</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Virtualization</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tab</span><span class="p">:</span><span class="w"> </span><span class="l">Home</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">mdi-desktop-classic</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Monitoring</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tab</span><span class="p">:</span><span class="w"> </span><span class="l">Home</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">mdi-message-alert</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Media</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tab</span><span class="p">:</span><span class="w"> </span><span class="l">Home</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">mdi-video-vintage</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Network</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tab</span><span class="p">:</span><span class="w"> </span><span class="l">Home</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">mdi-lan</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">### Glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Servidor 1 (unRaid)</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tab</span><span class="p">:</span><span class="w"> </span><span class="l">Glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">useEqualHeights</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">style</span><span class="p">:</span><span class="w"> </span><span class="l">row</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">columns</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">initiallyCollapsed</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Servidor 2 (Contabo)</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tab</span><span class="p">:</span><span class="w"> </span><span class="l">Glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">useEqualHeights</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">style</span><span class="p">:</span><span class="w"> </span><span class="l">row</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">columns</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">initiallyCollapsed</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">### Bookmarks</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Blogs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">si-blogger</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Compres</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">mdi-shopping-outline</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Comunicacio</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">mdi-newspaper</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Videos</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">mdi-movie-open-edit-outline</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">VPS</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">mdi-google-cloud</span></span></span></code></pre></div></div>
+<p>Es en el archivo <code>services.yaml</code> donde definimos lo que contiene cada <strong>sección</strong> (<em>Virtualization</em>, <em>Monitoring</em>, etc..).</p>
+<h4 id="servicesyaml">services.yaml</h4>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl">- <span class="nt">Virtualization</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">unRaid</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">unraid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ping</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">siteMonitor</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">Monitoring</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">What&#39;s Up Docker?</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">whats-up-docker-light.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Notifications for New Container Version Releases</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ping</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">siteMonitor</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">whatsupdocker</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span>{{<span class="l">HOMEPAGE_VAR_WUDUSER}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span>{{<span class="l">HOMEPAGE_VAR_WUDPASS}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Scrutiny</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">https://repository-images.githubusercontent.com/289524449/fc01e480-e6ab-11ea-9e20-53257df6f326</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">S.M.A.R.T. Monitoring Dashboard</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ping</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">siteMonitor</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">container</span><span class="p">:</span><span class="w"> </span><span class="l">scrutiny</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">scrutiny</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">fields</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;passed&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;failed&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Gotify</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">gotify.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Simple, HTTP-based Pub-sub Notification Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ping</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">siteMonitor</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">container</span><span class="p">:</span><span class="w"> </span><span class="l">gotify</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">gotify</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span>{{<span class="l">HOMEPAGE_VAR_GOTIFY}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">Media</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Jackett</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">jackett.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Servidor Indexers</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ping</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">siteMonitor</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">container</span><span class="p">:</span><span class="w"> </span><span class="l">jackett</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">jackett</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Transmission</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">transmission.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Servidor Transmission</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ping</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">siteMonitor</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">container</span><span class="p">:</span><span class="w"> </span><span class="l">transmission</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">transmission</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Jellyfin</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">jellyfin.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Servidor Multimedia</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ping</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">jellyfin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span>{{<span class="l">HOMEPAGE_VAR_JELLYFIN}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">enableBlocks</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">enableNowPlaying</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">fields</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;movies&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;series&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;episodes&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Navidrome</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">navidrome</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Servidor Musica</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">container</span><span class="p">:</span><span class="w"> </span><span class="l">navidrome</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">navidrome</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span>{{<span class="l">HOMEPAGE_VAR_NAVUSER}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span>{{<span class="l">HOMEPAGE_VAR_NAVTOKN}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">salt</span><span class="p">:</span><span class="w"> </span>{{<span class="l">HOMEPAGE_VAR_NAVSALT}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Calibre</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">calibre.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Software de gestió de llibres</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ping</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">siteMonitor</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">container</span><span class="p">:</span><span class="w"> </span><span class="l">calibre</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Calibre-Web</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">calibre-web.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Web per a la gestió de llibres (Calibre) i la seva BBDD</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ping</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">siteMonitor</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">container</span><span class="p">:</span><span class="w"> </span><span class="l">calibre-web</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">calibreweb</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span>{{<span class="l">HOMEPAGE_VAR_CALIBREUSER}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span>{{<span class="l">HOMEPAGE_VAR_CALIBREPASS}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">Network</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Traefik</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">traefik.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Open-source Reverse Proxy and Load Balancer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ping</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">siteMonitor</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span>{{<span class="l">HOMEPAGE_VAR_TRAEFIKUSR}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span>{{<span class="l">HOMEPAGE_VAR_TRAEFIKPWD}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">PiHole</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">pi-hole.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Servidor PiHole</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ping</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">siteMonitor</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">container</span><span class="p">:</span><span class="w"> </span><span class="l">pihole</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">pihole</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span>{{<span class="l">HOMEPAGE_VAR_PIHOLE}} </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">dasReich (unRaid)</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">CPU Usage</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">metric</span><span class="p">:</span><span class="w"> </span><span class="l">cpu</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Memory</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">metric</span><span class="p">:</span><span class="w"> </span><span class="l">memory</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Network</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">metric</span><span class="p">:</span><span class="w"> </span><span class="l">network:eth0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Processes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">metric</span><span class="p">:</span><span class="w"> </span><span class="l">process</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Disk I/O</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">metric</span><span class="p">:</span><span class="w"> </span><span class="l">disk:nvme0n1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Disk I/O</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">metric</span><span class="p">:</span><span class="w"> </span><span class="l">disk:sdb</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">Wiking (Contabo)</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">CPU Usage</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">metric</span><span class="p">:</span><span class="w"> </span><span class="l">cpu</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Memory</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">metric</span><span class="p">:</span><span class="w"> </span><span class="l">memory</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Network</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">metric</span><span class="p">:</span><span class="w"> </span><span class="l">network:eth0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Processes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">metric</span><span class="p">:</span><span class="w"> </span><span class="l">process</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Disk Usage</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">metric</span><span class="p">:</span><span class="w"> </span><span class="l">fs:/etc/hostname</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Disk I/O</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">widget</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">metric</span><span class="p">:</span><span class="w"> </span><span class="l">disk:sda</span></span></span></code></pre></div></div>
+<p>Si os fijais, podreis ver que he usado <em>variables</em> del estilo <strong>HOMEPAGE_VAR_CALIBREUSER</strong> o <strong>HOMEPAGE_VAR_PIHOLE</strong>, esto lo usamos, para que el fichero quede los más <strong>limpio</strong> posible de passwords, keys, etc&hellip; que en caso de algun problema queden expuestos.</p>
+<p>Entonces, para hacer esto, lo unico que se tiene que hacer, es crear un fichero <code>.env</code> con las <em>variables</em> que se necesiten, pero siempre tienen que venir precedidas de <code>HOMEPAGE_VAR_...</code> (os pondre las variables que yo he usado), pero aqui vosotros sois libres de crear más:</p>
+<h4 id="env">.env</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># PASSWORDS CALIBRE-WEB</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="nv">HOMEPAGE_VAR_CALIBREUSER</span><span class="o">=[</span>user<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">HOMEPAGE_VAR_CALIBREPASS</span><span class="o">=[</span>password<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># PASSWORD TRANSMISSION</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#HOMEPAGE_VAR_TRANSUSER=[user]</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#HOMEPAGE_VAR_TRANSPASS=[password]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># KEY JELLYFIN</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="nv">HOMEPAGE_VAR_JELLYFIN</span><span class="o">=[</span>key<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># KEY GOTIFY</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="nv">HOMEPAGE_VAR_GOTIFY</span><span class="o">=[</span>key<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># TRAEFIK PASSWORD</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="nv">HOMEPAGE_VAR_TRAEFIKUSR</span><span class="o">=[</span>user<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">HOMEPAGE_VAR_TRAEFIKPWD</span><span class="o">=[</span>password<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># NAVIDROME</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="nv">HOMEPAGE_VAR_NAVUSER</span><span class="o">=[</span>user<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">HOMEPAGE_VAR_NAVTOKN</span><span class="o">=[</span>key<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">HOMEPAGE_VAR_NAVSALT</span><span class="o">=[</span>key<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># WHATS UP MY DOCKERS</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="nv">HOMEPAGE_VAR_WUDUSER</span><span class="o">=[</span>user<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">HOMEPAGE_VAR_WUDPASS</span><span class="o">=[</span>password<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># PIHOLE</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="nv">HOMEPAGE_VAR_PIHOLE</span><span class="o">=[</span>key<span class="o">]</span></span></span></code></pre></div></div>
+<h4 id="widgetsyaml">widgets.yaml</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl">- <span class="nt">logo</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">glances</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">label]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">mem</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">expanded</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">disk</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/etc/hostname</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">glances</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">glances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">label]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">mem</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">expanded</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">disk</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/etc/hostname</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">search</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l">custom</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">focus</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l">_blank</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">datetime</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">locale</span><span class="p">:</span><span class="w"> </span><span class="l">nl</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">text_size</span><span class="p">:</span><span class="w"> </span><span class="l">xs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">format</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">dateStyle</span><span class="p">:</span><span class="w"> </span><span class="l">short</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">timeStyle</span><span class="p">:</span><span class="w"> </span><span class="l">short</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">hourCycle</span><span class="p">:</span><span class="w"> </span><span class="l">h23</span></span></span></code></pre></div></div>
+<h4 id="bookmarksyaml">bookmarks.yaml</h4>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl">- <span class="nt">Blogs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Personal</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">github-light.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Desenvolupament</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">github-light.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Llibres</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">wordpress.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">uGeek</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">blogger.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Lazaro</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">blogger.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Atareao</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">blogger.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">Compres</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Amazon</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">amazon.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Aliexpress</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">aliexpress.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">Comunicacio</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Mastodon</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">mastodon.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Telegram</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">telegram.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">RiseUp</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">mailu.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">EruenPlay</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">youtube.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">Videos</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Hispamula</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">HDOlimpo</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Xbytes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">DonTorrent</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">YouTube</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">youtube.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">VPS</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Contabo</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">contabo.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Google Cloud</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">GitHub</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">url]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">github-light.png</span></span></span></code></pre></div></div>
+<p>Espero que os pueda servir de ayuda esta información. A parte, asi la tengo tambien disponible para mi, cuando me explote el servidor 😁 y pierda toda la configuración que tengo ahora mismo.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://github.com/gethomepage/homepage/discussions/473" target="_blank" rel="noopener noreffer ">Github - Share your homepage</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 03-06-2024</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/unraid/">UnRAID</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2024-05-30-cambios-blog-2/" class="prev" rel="prev" title="Cambios en el blog - 2"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Cambios en el blog - 2</a>
+            <a href="/2024-06-05-opinion-unraid/" class="next" rel="next" title="Opinión Personal sobre unRaid">Opinión Personal sobre unRaid<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.8">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">vsantos</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>
