@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Raspberry Pi on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/book/categories/raspberry-pi/</link>
+    <link>https://vctrsnts.github.io/categories/raspberry-pi/</link>
     <description>Recent content in Raspberry Pi on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Fri, 07 Jan 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/book/categories/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/categories/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4</title>
-      <link>https://vctrsnts.github.io/book/2022-01-07-debian-raspberrypi/</link>
+      <link>https://vctrsnts.github.io/2022-01-07-debian-raspberrypi/</link>
       <pubDate>Fri, 07 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/book/2022-01-07-debian-raspberrypi/</guid>
+      <guid>https://vctrsnts.github.io/2022-01-07-debian-raspberrypi/</guid>
       <description>&lt;p&gt;Cuando tienes una Raspberry Pi y ves que el &lt;strong&gt;SO&lt;/strong&gt; recomendado es Raspberry Pi OS (antigua Raspbian), siempre me queda la cosa de no poder instalar &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; ARM64. Pero desde que actualizaron la versión del firmware y &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; empezo a tener versiones más estables, eso ya ha pasado a posible.&lt;/p&gt;&#xA;&lt;p&gt;Asi que ahora voy a explicar los pasos que he hecho, en mi caso, para poder realizar y usar &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; ARM64 en una Raspberry Pi 4 (4Gb).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Instalar y configurar fail2ban</title>
-      <link>https://vctrsnts.github.io/book/2020-11-08-rpi-usando-fail2ban/</link>
+      <link>https://vctrsnts.github.io/2020-11-08-rpi-usando-fail2ban/</link>
       <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/book/2020-11-08-rpi-usando-fail2ban/</guid>
-      <description>&lt;p&gt;Siguiendo con mis capitulos con respecto a la configuración y uso de mi RPI4 (tambien explicado en este otro &lt;a href=&#34;https://vctrsnts.github.io/book/2020-10-30-rpi-cambiando-equipo&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, pues ahora pasamos a añadir una protección más y que en  todos los sitios donde explican su configuración, se preguntan, porque no esta instalada por defecto en todos los sistemas GNU/Linux.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2020-11-08-rpi-usando-fail2ban/</guid>
+      <description>&lt;p&gt;Siguiendo con mis capitulos con respecto a la configuración y uso de mi RPI4 (tambien explicado en este otro &lt;a href=&#34;https://vctrsnts.github.io/2020-10-30-rpi-cambiando-equipo&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, pues ahora pasamos a añadir una protección más y que en  todos los sitios donde explican su configuración, se preguntan, porque no esta instalada por defecto en todos los sistemas GNU/Linux.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Actualizando a Jessie</title>
-      <link>https://vctrsnts.github.io/book/2016-04-02-rpi-actualizando-jessie/</link>
+      <link>https://vctrsnts.github.io/2016-04-02-rpi-actualizando-jessie/</link>
       <pubDate>Sat, 02 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/book/2016-04-02-rpi-actualizando-jessie/</guid>
+      <guid>https://vctrsnts.github.io/2016-04-02-rpi-actualizando-jessie/</guid>
       <description>&lt;p&gt;Tal como habia explicado en el anterior capitulo, después de tener mi RPI con Whezzy y viendo que habian sacado una nueva versión &lt;a href=&#34;https://www.raspberrypi.org/downloads/raspbian&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Jessie-Lite&lt;/a&gt; de Raspbian decidi realizar un &lt;code&gt;full-upgrade&lt;/code&gt; para actualizar el sistema.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Configurando la Raspberry</title>
-      <link>https://vctrsnts.github.io/book/2016-04-02-rpi-configurando-raspberry/</link>
+      <link>https://vctrsnts.github.io/2016-04-02-rpi-configurando-raspberry/</link>
       <pubDate>Sat, 02 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/book/2016-04-02-rpi-configurando-raspberry/</guid>
+      <guid>https://vctrsnts.github.io/2016-04-02-rpi-configurando-raspberry/</guid>
       <description>&lt;p&gt;Después de la instalación viene la configuración y en mi caso hice lo siguiente.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Funcionamiento de la RPI</title>
-      <link>https://vctrsnts.github.io/book/2016-04-02-rpi-funcionamiento-raspberry/</link>
+      <link>https://vctrsnts.github.io/2016-04-02-rpi-funcionamiento-raspberry/</link>
       <pubDate>Sat, 02 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/book/2016-04-02-rpi-funcionamiento-raspberry/</guid>
+      <guid>https://vctrsnts.github.io/2016-04-02-rpi-funcionamiento-raspberry/</guid>
       <description>&lt;p&gt;De nuevo en la brecha. Después de tanto tiempo si publicar nada, aqui vuelvo.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Instalando Jessie-Lite</title>
-      <link>https://vctrsnts.github.io/book/2016-04-02-rpi-instalando-jessie-lite/</link>
+      <link>https://vctrsnts.github.io/2016-04-02-rpi-instalando-jessie-lite/</link>
       <pubDate>Sat, 02 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/book/2016-04-02-rpi-instalando-jessie-lite/</guid>
+      <guid>https://vctrsnts.github.io/2016-04-02-rpi-instalando-jessie-lite/</guid>
       <description>&lt;p&gt;Como dije en el anterior capitulo, despues de recibir mi nuevo juguete:&lt;/p&gt;</description>
     </item>
   </channel>

@@ -1,330 +1,330 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Si lo haces, hazlo bien!</title>
-        <link>https://vctrsnts.github.io/book/</link>
+        <link>https://vctrsnts.github.io/</link>
         <description>Hay 10 tipos de personas en el mundo. Las que saben binario y las que no</description>
         <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Mon, 09 Jun 2025 00:00:00 &#43;0000</lastBuildDate>
-            <atom:link href="https://vctrsnts.github.io/book/index.xml" rel="self" type="application/rss+xml" />
+            <atom:link href="https://vctrsnts.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Cambiando a Hugo</title>
-    <link>https://vctrsnts.github.io/book/2025-06-09-cambiando-hugo/</link>
+    <link>https://vctrsnts.github.io/2025-06-09-cambiando-hugo/</link>
     <pubDate>Mon, 09 Jun 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2025-06-09-cambiando-hugo/</guid>
+    <guid>https://vctrsnts.github.io/2025-06-09-cambiando-hugo/</guid>
     <description><![CDATA[<p>Antes de seguir con nuestro ultimo articulo sobre las copias de seguridad (<em>Restic, Backrest y Minio</em>) y seguramente  ya lo habreis notado si visitais este blog, es que ha habido un cambio sustancial en su diseño.</p>]]></description>
 </item>
 <item>
     <title>Restic &#43; Backrest &#43; MiniO - 2</title>
-    <link>https://vctrsnts.github.io/book/2025-05-22-restic-copias-locales-2/</link>
+    <link>https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2/</link>
     <pubDate>Tue, 27 May 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2025-05-22-restic-copias-locales-2/</guid>
+    <guid>https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2/</guid>
     <description><![CDATA[<p>Continuamos con esta segunda parte donde explicaremos como sacar provecho de estas 3 aplicaciones, en este caso, explicare el script que estoy usando para realizar las copia, que es una variación de uno que tiene <strong>Lorenzo</strong> en su <a href="https://github.com/atareao/dotfiles/blob/main/.local/bin/backup.sh.jinja" target="_blank" rel="noopener noreffer ">gitHub</a>, pero que en mi caso, en vez de ser un fichero <strong>jinja</strong>, es un fichero en bash a pelo.</p>]]></description>
 </item>
 <item>
     <title>Matrix - 4. De vuelta al inicio, de Gotify a Matrix</title>
-    <link>https://vctrsnts.github.io/book/2025-05-22-gotify-matrix/</link>
+    <link>https://vctrsnts.github.io/2025-05-22-gotify-matrix/</link>
     <pubDate>Sun, 25 May 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2025-05-22-gotify-matrix/</guid>
+    <guid>https://vctrsnts.github.io/2025-05-22-gotify-matrix/</guid>
     <description><![CDATA[<p>Como ya explique en este <a href="/2025-05-19-matrix-gotify" rel="">articulo</a>, ante la imposibilidad de usar <strong>Matrix</strong> me pase a <strong>Gotify</strong> aunque me negue a dejar de lado a <em>Matrix</em> y segui investigando, el porque no funcionaba correctamente y asi llegado el momento, poderlo usar o sino, tener una alternativa <em>Gotify</em>.</p>]]></description>
 </item>
 <item>
     <title>Restic &#43; Backrest &#43; MiniO - 1</title>
-    <link>https://vctrsnts.github.io/book/2025-05-21-restic-copias-locales-1/</link>
+    <link>https://vctrsnts.github.io/2025-05-21-restic-copias-locales-1/</link>
     <pubDate>Thu, 22 May 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2025-05-21-restic-copias-locales-1/</guid>
+    <guid>https://vctrsnts.github.io/2025-05-21-restic-copias-locales-1/</guid>
     <description><![CDATA[<p>Lo primero y antes de nada, tengo que dar las gracias a <strong>Lázaro</strong> de <a href="https://elblogdelazaro.org" target="_blank" rel="noopener noreffer ">El Blog de Lázaro</a> y a <strong>Lorenzo</strong> de <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a>, por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.</p>]]></description>
 </item>
 <item>
     <title>Matrix - 3. De Matrix a Gotify</title>
-    <link>https://vctrsnts.github.io/book/2025-05-19-matrix-gotify/</link>
+    <link>https://vctrsnts.github.io/2025-05-19-matrix-gotify/</link>
     <pubDate>Tue, 20 May 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2025-05-19-matrix-gotify/</guid>
+    <guid>https://vctrsnts.github.io/2025-05-19-matrix-gotify/</guid>
     <description><![CDATA[<p>Como bien sabeis, porque lo explique en este <a href="/2025-03-25-instal-config-matrix" rel="">articulo</a> y en este <a href="/2025-03-27-pushbits" rel="">otro</a>, estaba usando <strong>Matrix</strong> como servidor de comunicación entre mis servidores y un servidor. Pero mientras más lo usaba, más desesperación me producia, porque, puede parecer una tonteria, pero en el movil, no recibia las notificaciones de los mensajes que me llegaban al cliente de <strong>Matrix</strong>, que en este caso era <strong>FluffyChat</strong>.</p>]]></description>
 </item>
 <item>
     <title>Modificaciones en el servidor - 3</title>
-    <link>https://vctrsnts.github.io/book/2025-04-20-modificaciones-servidor-3/</link>
+    <link>https://vctrsnts.github.io/2025-04-20-modificaciones-servidor-3/</link>
     <pubDate>Sun, 20 Apr 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2025-04-20-modificaciones-servidor-3/</guid>
+    <guid>https://vctrsnts.github.io/2025-04-20-modificaciones-servidor-3/</guid>
     <description><![CDATA[<p>Este nuevo articulo no sabia si llamarlo <strong>Modificaciones en el servidor - 3</strong> o <strong>La imaginación humana no tiene limites</strong>, porque una vez que hayais leido este articulo pensareis lo mismo que yo.</p>]]></description>
 </item>
 <item>
     <title>Matrix - 2. PushBits, la pasarela que faltaba</title>
-    <link>https://vctrsnts.github.io/book/2025-03-27-pushbits/</link>
+    <link>https://vctrsnts.github.io/2025-03-27-pushbits/</link>
     <pubDate>Fri, 28 Mar 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2025-03-27-pushbits/</guid>
+    <guid>https://vctrsnts.github.io/2025-03-27-pushbits/</guid>
     <description><![CDATA[<p>Como bien explique en el anterior <a href="/2025-03-25-instal-config-matrix" rel="">articulo</a>, explicaba la instalación y configuración, nada facil, de mi servidor de <strong>matrix</strong> ahora os vengo a traer el siguiente articulo, donde explico el uso que le he dado y los problemeas que me he encontrado asi como los planes de futuro.</p>]]></description>
 </item>
 <item>
     <title>Matrix - 1. Instalación y configuración</title>
-    <link>https://vctrsnts.github.io/book/2025-03-25-instal-config-matrix/</link>
+    <link>https://vctrsnts.github.io/2025-03-25-instal-config-matrix/</link>
     <pubDate>Tue, 25 Mar 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2025-03-25-instal-config-matrix/</guid>
+    <guid>https://vctrsnts.github.io/2025-03-25-instal-config-matrix/</guid>
     <description><![CDATA[<p>A partir de unos articulos de <a href="https://atareao.es/?s=matrix" target="_blank" rel="noopener noreffer ">Lorenzo</a> y de <a href="https://ugeek.github.io" target="_blank" rel="noopener noreffer ">uGeek</a> (podeis encontrar más información en la referencia), me pico la sobre como seria tener mi propio servidor de mensajeria y poderlo utilizar para enviar las notificaciones de mis servicios y asi no depender tanto de <em>Telegram</em>.</p>
 <p>De hay viene este nuevo articulo, donde explicare todo el proceso de instalación y uso de mi nuevo servidor <strong>Matrix</strong> en mi VPS y os aviso que no ha sido nada sencillo.</p>]]></description>
 </item>
 <item>
     <title>Historia del cambio de terminal</title>
-    <link>https://vctrsnts.github.io/book/2025-01-13-cambiando-a-wezterm/</link>
+    <link>https://vctrsnts.github.io/2025-01-13-cambiando-a-wezterm/</link>
     <pubDate>Mon, 13 Jan 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2025-01-13-cambiando-a-wezterm/</guid>
+    <guid>https://vctrsnts.github.io/2025-01-13-cambiando-a-wezterm/</guid>
     <description><![CDATA[<p>Este es un articulo, que como puedes ver, es un articulo muy parecido a los que he ha escrito <strong>Lorenzo</strong>, de <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a>, porque es algo, que si te pones a pensar es una de las aplicaciones que más se utilizan en <em>GNU/Linux</em> pero a la que no se le da mucha importacia.</p>
 <p>Nos estamos refiriendo a la terminal.</p>]]></description>
 </item>
 <item>
     <title>Propositos 2025</title>
-    <link>https://vctrsnts.github.io/book/2025-01-11-propositos-2025/</link>
+    <link>https://vctrsnts.github.io/2025-01-11-propositos-2025/</link>
     <pubDate>Sat, 11 Jan 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2025-01-11-propositos-2025/</guid>
+    <guid>https://vctrsnts.github.io/2025-01-11-propositos-2025/</guid>
     <description><![CDATA[<p>Como a buen principio de año y que me gustaria conversar en los siguientes años, es poner un listado de las cosas que me gustaria conseguir este año con referencia a mi servidor, docker, etc&hellip; O sea, todo lo que tiene que ver con el mundo de la tecnologia y la informatica.</p>]]></description>
 </item>
 <item>
     <title>Opinión Personal sobre unRaid - Final</title>
-    <link>https://vctrsnts.github.io/book/2024-07-17-opini%C3%B3n-unraid-final/</link>
+    <link>https://vctrsnts.github.io/2024-07-17-opini%C3%B3n-unraid-final/</link>
     <pubDate>Fri, 03 Jan 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-07-17-opini%C3%B3n-unraid-final/</guid>
+    <guid>https://vctrsnts.github.io/2024-07-17-opini%C3%B3n-unraid-final/</guid>
     <description><![CDATA[<p>Como primer articulo de este nuevo año, os pongo el articulo final que me faltaba sobre <strong>mi opinión personal - final</strong> con respecto a <strong>unRaid</strong>, pero he estado un poco liado y por eso me he retrasado un poco, pero ahora vamos al articulo final con respecto a lo que <strong>yo</strong> pienso.</p>]]></description>
 </item>
 <item>
     <title>Nuevo sitio web</title>
-    <link>https://vctrsnts.github.io/book/2024-12-23-nueva-web/</link>
+    <link>https://vctrsnts.github.io/2024-12-23-nueva-web/</link>
     <pubDate>Mon, 23 Dec 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-12-23-nueva-web/</guid>
+    <guid>https://vctrsnts.github.io/2024-12-23-nueva-web/</guid>
     <description><![CDATA[<p>Que no cunda el panico ante el titulo de este articulo.</p>
 <p>No voy a hacer ningun cambio en este web ni voy a borrarlo todo e irme de hermitaño a una cueva 🤣</p>
 <p>Solamente es para informar, que como tenia <strong>wordpress</strong> una pagina web donde iba subiendo los libros que he ido leyendo durante estos años, pues &hellip;</p>]]></description>
 </item>
 <item>
     <title>Mis aplicaciones por defecto 2024</title>
-    <link>https://vctrsnts.github.io/book/2024-12-11-mis-aplicaciones-2024/</link>
+    <link>https://vctrsnts.github.io/2024-12-11-mis-aplicaciones-2024/</link>
     <pubDate>Wed, 11 Dec 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-12-11-mis-aplicaciones-2024/</guid>
+    <guid>https://vctrsnts.github.io/2024-12-11-mis-aplicaciones-2024/</guid>
     <description><![CDATA[<p>Siguiendo la iniciativa de <a href="https://elblogdelazaro.org/posts/2024-12-09-mis-aplicaciones-por-defecto-2024" target="_blank" rel="noopener noreffer ">Lazaro</a>, pues tambien pondre mi granito de arena a esta buena idea, porque asi, la gente puede descubrir nuevas aplicaciones que nunca habrias pensado que existieran, y de esta manera, pues&hellip;</p>]]></description>
 </item>
 <item>
     <title>Publicando nuevos articulos en RRSS</title>
-    <link>https://vctrsnts.github.io/book/2024-12-10-publicar-redes-sociales/</link>
+    <link>https://vctrsnts.github.io/2024-12-10-publicar-redes-sociales/</link>
     <pubDate>Tue, 10 Dec 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-12-10-publicar-redes-sociales/</guid>
+    <guid>https://vctrsnts.github.io/2024-12-10-publicar-redes-sociales/</guid>
     <description><![CDATA[<p>Este nuevo articulo, se puede decir que es la fusión de este <a href="/2022-11-14-publicar-feed-mastodon" rel="">articulo</a> y este <a href="/2024-11-12-publicar-feed-tumblr" rel="">otro</a> donde explicaba como dar publicidad o informar en las diferentes redes sociales que estoy, <strong>Mastodon</strong>, <strong>Tumblr</strong> y ahora <strong>BlueSky</strong> de los articulos nuevos que voy añadiendo asi como de los antiguos, porque nunca se sabe si algun articulo anterior puede servir de ayuda a alguna persona.</p>]]></description>
 </item>
 <item>
     <title>Publicar feed en Tumblr</title>
-    <link>https://vctrsnts.github.io/book/2024-11-12-publicar-feed-tumblr/</link>
+    <link>https://vctrsnts.github.io/2024-11-12-publicar-feed-tumblr/</link>
     <pubDate>Tue, 12 Nov 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-11-12-publicar-feed-tumblr/</guid>
+    <guid>https://vctrsnts.github.io/2024-11-12-publicar-feed-tumblr/</guid>
     <description><![CDATA[<p>Este articulo, podria decirse que es una continuación de este <a href="/2022-11-14-publicar-feed-mastodon" rel="">articulo</a> pero en este caso, es para <a href="https://www.tumblr.com" target="_blank" rel="noopener noreffer ">Tumblr</a>.</p>
 <p>La idea es la misma, pero para otra red social. Eso si, más pequeña y desconocida o al menos para mi. Nunca habia oido de ella, pero nunca se sabe y asi ya estoy en ella, aunque sea solamente para publicar los articulos que voy añadiendo a mi web / blog.</p>]]></description>
 </item>
 <item>
     <title>Servicio para actualizar imagenes docker</title>
-    <link>https://vctrsnts.github.io/book/2024-10-28-script-actualizar-docker/</link>
+    <link>https://vctrsnts.github.io/2024-10-28-script-actualizar-docker/</link>
     <pubDate>Mon, 28 Oct 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-10-28-script-actualizar-docker/</guid>
+    <guid>https://vctrsnts.github.io/2024-10-28-script-actualizar-docker/</guid>
     <description><![CDATA[<p>Como he tenido malas experencias a la hora de usar servicios para mantener las imagenes actualizadas, he cambiado el servició que tenia actualmente <strong>whatsup</strong> por <strong>cup</strong>.</p>]]></description>
 </item>
 <item>
     <title>Los podcast que escucho</title>
-    <link>https://vctrsnts.github.io/book/2024-10-21-podcast-escucho/</link>
+    <link>https://vctrsnts.github.io/2024-10-21-podcast-escucho/</link>
     <pubDate>Mon, 21 Oct 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-10-21-podcast-escucho/</guid>
+    <guid>https://vctrsnts.github.io/2024-10-21-podcast-escucho/</guid>
     <description><![CDATA[<p>Este va a ser un articulo como muchos otros, donde la gente explica que podcast sigue o escucha, pero antes de eso, lo primero es felicitar a <strong>Jose</strong> de <a href="https://www.ivoox.com/podcast-frente-al-cliente_sq_f1819687_1.html" target="_blank" rel="noopener noreffer ">Frente al Cliente</a> por el premio, merecidisimo, que le otrogaron en las <strong>JPOD 2024</strong>.</p>
 <p>Lo que me extraña es que no fuera a buscarlo. Sera por esa mala costumbre que tienen los camareros de trabajar los fines de semana 😜.</p>
 <p>Muchas felicidades <strong>Jose</strong></p>]]></description>
 </item>
 <item>
     <title>Controlando la temperatura del servidor</title>
-    <link>https://vctrsnts.github.io/book/2024-10-20-controlado-temperatura-servidor/</link>
+    <link>https://vctrsnts.github.io/2024-10-20-controlado-temperatura-servidor/</link>
     <pubDate>Sun, 20 Oct 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-10-20-controlado-temperatura-servidor/</guid>
+    <guid>https://vctrsnts.github.io/2024-10-20-controlado-temperatura-servidor/</guid>
     <description><![CDATA[<p>Como ya comente en el anterior <a href="/2024-10-19-modificando-servidor-2" rel="">articulo</a> donde explicaba que habia puesto un <strong>Xeon</strong> en mi servidor y todo lo referente a la temperatura.</p>
 <p>Pero claro, eso me gustaria verlo reflejado en <strong>unRAID</strong>, porque hasta ahora, solamente habia podido visualizar la temperatura de la CPU, de la placa base era imposible cuando teoricamente los Tiny son equipos con componentes muy normales y comunes.</p>]]></description>
 </item>
 <item>
     <title>Modificaciones en el servidor - 2</title>
-    <link>https://vctrsnts.github.io/book/2024-10-19-modificando-servidor-2/</link>
+    <link>https://vctrsnts.github.io/2024-10-19-modificando-servidor-2/</link>
     <pubDate>Sat, 19 Oct 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-10-19-modificando-servidor-2/</guid>
+    <guid>https://vctrsnts.github.io/2024-10-19-modificando-servidor-2/</guid>
     <description><![CDATA[<p>Se ha venido una nueva modificación en el servidor, y una más, pero esta vez, ha sido más a nivel de hardware que de software.</p>
 <p>Como sabreis, si no os habeis dado cuenta leyendo algunos de mis articulos, estoy subscrito al canal de telegram de <a href="https://homelabs.club" target="_blank" rel="noopener noreffer ">HomeLabs.club</a>, donde siempre tienen alguna nueva cosa para liarte la manta a la cabeza.</p>]]></description>
 </item>
 <item>
     <title>Modificaciones en el servidor - 1</title>
-    <link>https://vctrsnts.github.io/book/2024-09-18-modificando-servidor-1/</link>
+    <link>https://vctrsnts.github.io/2024-09-18-modificando-servidor-1/</link>
     <pubDate>Wed, 18 Sep 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-09-18-modificando-servidor-1/</guid>
+    <guid>https://vctrsnts.github.io/2024-09-18-modificando-servidor-1/</guid>
     <description><![CDATA[<p>Durante estas vacaciones he modificado un poco el aspecto de mi servidor con la finalidad de que todo estuviera un poco más ordenado y más homogeneo, porque por una banda, tenia mi <a href="/2024-03-07-cambiando-unraid" rel="">servidor</a> por un lado y por otro, en un caddy metalico de discos comprado en Aliexpress, los HDD al que le habia puesto este <a href="https://www.amazon.es/dp/B09SLPRYYZ" target="_blank" rel="noopener noreffer ">ventilador</a> para bajar la temperatura de los mismos.</p>]]></description>
 </item>
 <item>
     <title>Usando Traefik - 4</title>
-    <link>https://vctrsnts.github.io/book/2024-07-26-usando-traefik-4/</link>
+    <link>https://vctrsnts.github.io/2024-07-26-usando-traefik-4/</link>
     <pubDate>Fri, 26 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-07-26-usando-traefik-4/</guid>
+    <guid>https://vctrsnts.github.io/2024-07-26-usando-traefik-4/</guid>
     <description><![CDATA[<p>Tal como indique en este <a href="/2024-04-19-traefik" rel="">articulo</a>, lo unico que me faltaba por añadir a <strong>traefik</strong> para tener mi VPS lo más seguro posible era <strong>crowdsec</strong> y por fin, ya lo tengo instalado.</p>
 <p>Antes de lanzarte a la piscina directamente, te aconsejo que les eches un vistazo a este <a href="https://atareao.es/podcast/mas-herramientas-para-proteger-tu-linux" target="_blank" rel="noopener noreffer ">articulo</a> de <strong>atareao</strong> donde habla de <em>crowdsec</em> y tambien a este <a href="https://www.youtube.com/watch?v=-GxUP6bNxF0" target="_blank" rel="noopener noreffer ">video</a>, que me ha servido como guia en todo el proceso.</p>]]></description>
 </item>
 <item>
     <title>Opinión Personal sobre unRaid - 2</title>
-    <link>https://vctrsnts.github.io/book/2024-06-23-opinion-unraid-2/</link>
+    <link>https://vctrsnts.github.io/2024-06-23-opinion-unraid-2/</link>
     <pubDate>Sun, 23 Jun 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-06-23-opinion-unraid-2/</guid>
+    <guid>https://vctrsnts.github.io/2024-06-23-opinion-unraid-2/</guid>
     <description><![CDATA[<p>Tal como explique en este <a href="/2024-06-05-opinion-unraid" rel="">articulo</a> comente que iba a dar mi opinión con respecto a <strong>unRaid</strong> y aqui va el segundo de los 2 articulos que tenia planeado escribir dando mi opinión con respecto a las cosas positivas y negativas, y hoy toca hablar de las cosas negativas que le he encontrado, y siento decir que son más que las positivas que negativas.</p>]]></description>
 </item>
 <item>
     <title>Opinión Personal sobre unRaid - 1</title>
-    <link>https://vctrsnts.github.io/book/2024-06-13-opinion-unraid-1/</link>
+    <link>https://vctrsnts.github.io/2024-06-13-opinion-unraid-1/</link>
     <pubDate>Thu, 13 Jun 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-06-13-opinion-unraid-1/</guid>
+    <guid>https://vctrsnts.github.io/2024-06-13-opinion-unraid-1/</guid>
     <description><![CDATA[<p>Tal como explique en este <a href="/2024-06-05-opinion-unraid" rel="">articulo</a> comente que iba a dar mi opinión con respecto a <strong>unRaid</strong> y aqui va el primero de los 2 articulos que tenia planeado escribir dando mi opinión con respecto a las cosas positivas y negativas.  y aqui la el primero de los 2 articulos. Vamos a hablar de las cosas positivas que le he encontrado.</p>]]></description>
 </item>
 <item>
     <title>Usando Traefik - 3</title>
-    <link>https://vctrsnts.github.io/book/2024-06-06-usando-traefik-3/</link>
+    <link>https://vctrsnts.github.io/2024-06-06-usando-traefik-3/</link>
     <pubDate>Thu, 06 Jun 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-06-06-usando-traefik-3/</guid>
+    <guid>https://vctrsnts.github.io/2024-06-06-usando-traefik-3/</guid>
     <description><![CDATA[<p>Como recordais hice 2 articulos donde en el <a href="/2024-05-06-usando-traefik-1" rel="">primero articulo</a> explicaba como se podia usar <strong>traefik</strong> con otros servicios de docker y en el <a href="2024-05-13-usando-traefik-2.md" rel="">segundo articulo</a>, explicaba como se le podia añadir una capa más de seguridad a nuestro servicio de <em>traefik</em> que consistia en bloquear las peticiones de paises de nuestra lista negra.</p>
 <p>En este 3º articulo, explicare unas modificaciones que, como siempre me pasa, no acabe de entender al leer el articulo principal de <a href="https://www.atareao.es" target="_blank" rel="noopener noreffer ">atareao</a>{:target=&quot;_blank} y que gracias, no se si por inspiración divida de <em>Lorenzo</em> he acabado de entender.</p>]]></description>
 </item>
 <item>
     <title>Opinión Personal sobre unRaid</title>
-    <link>https://vctrsnts.github.io/book/2024-06-05-opinion-unraid/</link>
+    <link>https://vctrsnts.github.io/2024-06-05-opinion-unraid/</link>
     <pubDate>Wed, 05 Jun 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-06-05-opinion-unraid/</guid>
+    <guid>https://vctrsnts.github.io/2024-06-05-opinion-unraid/</guid>
     <description><![CDATA[<p>Tal como explique en este <a href="/2024-03-07-cambiando-unraid" rel="">articulo</a> empece a usar <strong>unRaid</strong> y puedo decir que después 3 meses (algunos podeis pensar que es poco tiempo), ya me he hecho una opinión sobre este SO y la voy a exponer.</p>
 <p>Repito es mi opinión personal y se que este articulo puede levantar ampollas, pero como digo, es mi opinión y a quien no le guste <em>que s&rsquo;hi posi fulles</em>.</p>]]></description>
 </item>
 <item>
     <title>Usando HomePage. El Dashboard - 2</title>
-    <link>https://vctrsnts.github.io/book/2024-06-03-usando-homepage-2/</link>
+    <link>https://vctrsnts.github.io/2024-06-03-usando-homepage-2/</link>
     <pubDate>Mon, 03 Jun 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-06-03-usando-homepage-2/</guid>
+    <guid>https://vctrsnts.github.io/2024-06-03-usando-homepage-2/</guid>
     <description><![CDATA[<p>Como ya comente en el anterior <a href="/2024-02-12-usando-homepage-1" rel="">articulo</a>  donde hablaba de que estaba usando <strong>HomePage</strong> con una configuración <em>normal</em> y muy <em>simple</em>, pero que a la vez era funcional, por no decir basica para cuando te inicias, pero me faltaba algo, en resumen, queria algo más&hellip;</p>]]></description>
 </item>
 <item>
     <title>Cambios en el blog - 2</title>
-    <link>https://vctrsnts.github.io/book/2024-05-30-cambios-blog-2/</link>
+    <link>https://vctrsnts.github.io/2024-05-30-cambios-blog-2/</link>
     <pubDate>Thu, 30 May 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-05-30-cambios-blog-2/</guid>
+    <guid>https://vctrsnts.github.io/2024-05-30-cambios-blog-2/</guid>
     <description><![CDATA[<p>Como ya explique en el anterior <a href="/2024-05-24-cambios-blog-1" rel="">articulo</a>, comentaba que habia actualizado mi <strong>Blog / Pagina Web</strong> con un nuevo tema gracias a <em>Jekyll</em> y al final hice el cambio, con unos cuantos problemas pero lo hice. Y aqui podeis ver el resultado&hellip;</p>]]></description>
 </item>
 <item>
     <title>Cambios en el blog - 1</title>
-    <link>https://vctrsnts.github.io/book/2024-05-24-cambios-blog-1/</link>
+    <link>https://vctrsnts.github.io/2024-05-24-cambios-blog-1/</link>
     <pubDate>Fri, 24 May 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-05-24-cambios-blog-1/</guid>
+    <guid>https://vctrsnts.github.io/2024-05-24-cambios-blog-1/</guid>
     <description><![CDATA[<p>Se que llevo un par de semanas sin escribir ningun articulo, pero he estado un poco liado dandole un poco chapa y pintura a este blog que se traduce en lo que estais viendo ahora.</p>]]></description>
 </item>
 <item>
     <title>Usando Traefik - 2</title>
-    <link>https://vctrsnts.github.io/book/2024-05-13-usando-traefik-2/</link>
+    <link>https://vctrsnts.github.io/2024-05-13-usando-traefik-2/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-05-13-usando-traefik-2/</guid>
+    <guid>https://vctrsnts.github.io/2024-05-13-usando-traefik-2/</guid>
     <description><![CDATA[<p>De nuevo, con otro articulo de <strong>Traefik</strong>, en este caso, como se instala / activa el plugin <strong>GeoBlock</strong> para asi, tal como indica su nombre, <strong>Traefik</strong> en base al pais de origen de la <strong>IP</strong>, lo bloquea o no.</p>
 <p>En este caso, igual que en el anterior articulo, partimos de la base de que tambien me encontre con problemas a la hora de poder usar este plugin, tanto en su instalación, como en su configuración. Pero como ya tenia la experiencia de instalar y activar toda la sección  de la redirección, esta vez, me resulto un poco más facil, solo un poco, todo porque ya entendia, más o menos como funcionaba <strong>traefik</strong>.</p>
 <p>Hay que tener en cuenta, que la información, o el hilo del que tirar lo encontre gracias a nuestro querido Lorenzo (<a href="https://atareao.es" target="_blank" rel="noopener noreffer ">atareao</a>) y en especial de este <a href="https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik" target="_blank" rel="noopener noreffer ">articulo</a>.</p>]]></description>
 </item>
 <item>
     <title>Usando Traefik - 1</title>
-    <link>https://vctrsnts.github.io/book/2024-05-06-usando-traefik-1/</link>
+    <link>https://vctrsnts.github.io/2024-05-06-usando-traefik-1/</link>
     <pubDate>Mon, 06 May 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-05-06-usando-traefik-1/</guid>
+    <guid>https://vctrsnts.github.io/2024-05-06-usando-traefik-1/</guid>
     <description><![CDATA[<p>Como os explique en este <a href="/2024-04-19-traefik" rel="">articulo</a>, aprovechando que tenia nuevo VPS, queria sacarle el maximo partido y después de haber instalado <strong>traefik</strong> aun tenia más ganas.</p>
 <p>Y aqui es donde os aviso, he estado 3 dias intentando hacerlo funcionar correctamente y hasta que al final, me vino una <strong>inspiración</strong> y pude conseguir que funcionara correctamente.</p>]]></description>
 </item>
 <item>
     <title>Instalación de docker. Annexo</title>
-    <link>https://vctrsnts.github.io/book/2024-04-20-instalacion-docker-anexo/</link>
+    <link>https://vctrsnts.github.io/2024-04-20-instalacion-docker-anexo/</link>
     <pubDate>Sat, 20 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-04-20-instalacion-docker-anexo/</guid>
+    <guid>https://vctrsnts.github.io/2024-04-20-instalacion-docker-anexo/</guid>
     <description><![CDATA[<p>Ya habia escrito un <a href="/2020-03-08-rpi-usando-docker" rel="">articulo</a> sobre la instalación de docker, pero lo explicaba para hacer la instalación en una Raspberry, pero ahora lo voy a explicar para su instalación en un equipo normal y corriente. Más concretamente en <strong>Debian GNU/Linux</strong> y asi, lo tengo más a mano y no tengo que volverme loco buscando esta información en internet, porque si sigo el de la Raspberry, al final no funciona correctamente.</p>]]></description>
 </item>
 <item>
     <title>Instalando y configurando Traefik</title>
-    <link>https://vctrsnts.github.io/book/2024-04-19-traefik/</link>
+    <link>https://vctrsnts.github.io/2024-04-19-traefik/</link>
     <pubDate>Fri, 19 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-04-19-traefik/</guid>
+    <guid>https://vctrsnts.github.io/2024-04-19-traefik/</guid>
     <description><![CDATA[<p>Aprovenchando que tengo el <a href="/2024-04-17-nuevo-VPS" rel="">nuevo VPS</a> queria ponerle <a href="/2024-04-19-traefik" rel="">traefik</a> y que además se puede hacer a traves de docker y asi poder aprovechar todas las posibilidades que nos da. Al final (cuando estoy escribiendo esto) lo tengo todo en funcionamiento, pero me ha costado horrores y aqui os explico mi odisea.</p>]]></description>
 </item>
 <item>
     <title>Hemos encontrado la solución al desastre el siglo??</title>
-    <link>https://vctrsnts.github.io/book/2024-04-17-nuevo-vps/</link>
+    <link>https://vctrsnts.github.io/2024-04-17-nuevo-vps/</link>
     <pubDate>Wed, 17 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-04-17-nuevo-vps/</guid>
+    <guid>https://vctrsnts.github.io/2024-04-17-nuevo-vps/</guid>
     <description><![CDATA[<p>Tal como escribi en este <a href="/2024-04-10-desastre-siglo" rel="">articulo</a> donde explicaba que, seguramente por error mio, al detener la instancia, esta se perdio y luego fue imposible remontarla, porque no <strong>habia recursos disponibles</strong>.</p>]]></description>
 </item>
 <item>
     <title>RSS-Funnel. Uno para controlarlos a todos</title>
-    <link>https://vctrsnts.github.io/book/2024-04-13-uno-juntarlos-todos/</link>
+    <link>https://vctrsnts.github.io/2024-04-13-uno-juntarlos-todos/</link>
     <pubDate>Sat, 13 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-04-13-uno-juntarlos-todos/</guid>
+    <guid>https://vctrsnts.github.io/2024-04-13-uno-juntarlos-todos/</guid>
     <description><![CDATA[<p>No se si lo habreis notado vosotros, pero escuchar podcast sobre tecnologia, informatica y dockers puede ser perjudicial para la salud y por extensión para vuestros servidores, o es solo una cosa que me pasa a mi solo?</p>
 <p>Si os preguntareis a que viene esta afirmación, podeis seguir leyendo y todo quedara aclarado.</p>]]></description>
 </item>
 <item>
     <title>El desastre del siglo</title>
-    <link>https://vctrsnts.github.io/book/2024-04-10-desastre-siglo/</link>
+    <link>https://vctrsnts.github.io/2024-04-10-desastre-siglo/</link>
     <pubDate>Wed, 10 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-04-10-desastre-siglo/</guid>
+    <guid>https://vctrsnts.github.io/2024-04-10-desastre-siglo/</guid>
     <description><![CDATA[<p>Si recordais este articulo <a href="/2023-09-24-VPS-pruebas" rel="">Por fin VPS para hacer pruebas</a> y luego leeis lo que me ha pasado, entedereis porque titulo este articulo como lo titulo.</p>
 <p><strong>Porque no es para menos</strong>.</p>]]></description>
 </item>
 <item>
     <title>Cambiando a UnRAID</title>
-    <link>https://vctrsnts.github.io/book/2024-03-07-cambiando-unraid/</link>
+    <link>https://vctrsnts.github.io/2024-03-07-cambiando-unraid/</link>
     <pubDate>Thu, 07 Mar 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-03-07-cambiando-unraid/</guid>
+    <guid>https://vctrsnts.github.io/2024-03-07-cambiando-unraid/</guid>
     <description><![CDATA[<p>Este mes de marzo ha traido un cambio inesperado en mi servidor.</p>
 <p>Lo primero de todo, vi una oferta de un Lenovo m910x (el que dispone de una ranura para puerto PCI) en Wallapop que venia completo (tarjeta grafica, SSD, RAM, transformador de 135w), o sea, una perita en dulce. Asi que me lance de cabeza a el. Y junto con los 2 HDD que ya tenia en funcionamiento (18Tb y otro de 12Tb) en mi <a href="/2023-08-01-de-nuevo-cambiando-servidor" rel="">antiguo servidor</a> más otro que estaba en stand-by de 16Tb, y aprovechando el <a href="https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x" target="_blank" rel="noopener noreffer ">mod</a> que se le puede hacer a los Tiny (sobre todo a los m910x), pense en aprovechar los 3 HDD y tener un <strong>peazo</strong> servidor que no se lo saltase un galgo.</p>]]></description>
 </item>
 <item>
     <title>Usando HomePage. El Dashboard</title>
-    <link>https://vctrsnts.github.io/book/2024-02-12-usando-homepage-1/</link>
+    <link>https://vctrsnts.github.io/2024-02-12-usando-homepage-1/</link>
     <pubDate>Mon, 12 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-02-12-usando-homepage-1/</guid>
+    <guid>https://vctrsnts.github.io/2024-02-12-usando-homepage-1/</guid>
     <description><![CDATA[<p>Despúes de escuchar el <a href="https://ugeek.github.io/post/2021-05-24-homer-mi-dashboard-favorito.html" target="_blank" rel="noopener noreffer ">podcast</a> de <strong>uGeek</strong> donde hablaba de los <strong>dashboard</strong> y en especial del que el usaba, <strong>Homer</strong>, me decidi a probarlo a ver que tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Asi que me decidi a instalar y probar <strong>Homer</strong>.</p>]]></description>
 </item>
 <item>
     <title>Copias de Seguridad. Annexo</title>
-    <link>https://vctrsnts.github.io/book/2024-02-06-copias-seguridad-annexo/</link>
+    <link>https://vctrsnts.github.io/2024-02-06-copias-seguridad-annexo/</link>
     <pubDate>Tue, 06 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-02-06-copias-seguridad-annexo/</guid>
+    <guid>https://vctrsnts.github.io/2024-02-06-copias-seguridad-annexo/</guid>
     <description><![CDATA[<p>Se que ha pasado 1 mes desde la ultima vez que publique algo, pero he estado un poco liado con todo, pero ahora vuelvo al ruedo y a ver, si me pongo las pilas con el <strong>Blog</strong>.</p>
 <p>Tal como se puede ver en estos 2 articulos que ya habia escrito:</p>
 <ul>
@@ -334,28 +334,28 @@
 </item>
 <item>
     <title>Searxng. Uno para controlarlos a todos</title>
-    <link>https://vctrsnts.github.io/book/2024-01-10-searxng-uno-todo/</link>
+    <link>https://vctrsnts.github.io/2024-01-10-searxng-uno-todo/</link>
     <pubDate>Wed, 10 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-01-10-searxng-uno-todo/</guid>
+    <guid>https://vctrsnts.github.io/2024-01-10-searxng-uno-todo/</guid>
     <description><![CDATA[<p>Como ha he dicho muchas veces, docker te abre un mundo de infinitas posibilidades y entre una de estas posibilidades es tener tu propio buscador web y esto se consegui gracias a <strong>SearxNG</strong>.</p>]]></description>
 </item>
 <item>
     <title>Que nos depara este año 2024??</title>
-    <link>https://vctrsnts.github.io/book/2024-01-05-que-nos-depara-2024/</link>
+    <link>https://vctrsnts.github.io/2024-01-05-que-nos-depara-2024/</link>
     <pubDate>Fri, 05 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2024-01-05-que-nos-depara-2024/</guid>
+    <guid>https://vctrsnts.github.io/2024-01-05-que-nos-depara-2024/</guid>
     <description><![CDATA[<p>Pues ya tenemos el 2024 encima.</p>
 <p>Ya os puedo decir, que este año, a nivel de salud, no ha empezado tal como me hubiera gustado, pero espero que todo se solucione con el tiempo.</p>
 <p>Ahora falta saber que nos deparara tanto a nivel de soft como a nivel de hard.</p>]]></description>
 </item>
 <item>
     <title>Por fin. VPS para hacer pruebas</title>
-    <link>https://vctrsnts.github.io/book/2023-09-24-vps-pruebas/</link>
+    <link>https://vctrsnts.github.io/2023-09-24-vps-pruebas/</link>
     <pubDate>Sun, 24 Sep 2023 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2023-09-24-vps-pruebas/</guid>
+    <guid>https://vctrsnts.github.io/2023-09-24-vps-pruebas/</guid>
     <description><![CDATA[<p>Hacia mucho tiempo (minimo 2 años), que habia escuchado que Oracle te daba <em>gratuitamente</em> la posibilidad de tener un VPS para poderlo usar, eso si, con unas ciertas limitaciones:</p>
 <ul>
 <li>1 vCPUs x86 - 1Gb Ram</li>
@@ -366,189 +366,189 @@
 </item>
 <item>
     <title>Equipo en la recamara</title>
-    <link>https://vctrsnts.github.io/book/2023-09-11-substitutos-portatil/</link>
+    <link>https://vctrsnts.github.io/2023-09-11-substitutos-portatil/</link>
     <pubDate>Mon, 11 Sep 2023 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2023-09-11-substitutos-portatil/</guid>
+    <guid>https://vctrsnts.github.io/2023-09-11-substitutos-portatil/</guid>
     <description><![CDATA[<p>Como ya decia en el anterior <a href="/2023-08-01-de-nuevo-cambiando-servidor" rel="">articulo</a>, donde hablaba sobre el  nuevo cambio de servidor que habia hecho, el canal de <a href="https://homelabs.club" target="_blank" rel="noopener noreffer ">HomeLabs.Club</a> es una mala influencia, teneis que hacerme caso y ahora lo entendereis mejor.</p>]]></description>
 </item>
 <item>
     <title>Como funciona esta web y su creación</title>
-    <link>https://vctrsnts.github.io/book/2023-08-10-como-funciona-esta-web/</link>
+    <link>https://vctrsnts.github.io/2023-08-10-como-funciona-esta-web/</link>
     <pubDate>Wed, 02 Aug 2023 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2023-08-10-como-funciona-esta-web/</guid>
+    <guid>https://vctrsnts.github.io/2023-08-10-como-funciona-esta-web/</guid>
     <description><![CDATA[<p>Después de leer el <a href="https://elblogdelazaro.org/posts/2023-05-08-como-publico-este-blog" target="_blank" rel="noopener noreffer ">articulo</a> que habia publicado <strong>Lazaro</strong> en su blog, pense, que porque no hacer lo mismo con el mio.</p>]]></description>
 </item>
 <item>
     <title>De nuevo, cambiando de servidor local</title>
-    <link>https://vctrsnts.github.io/book/2023-08-01-de-nuevo-cambiando-servidor/</link>
+    <link>https://vctrsnts.github.io/2023-08-01-de-nuevo-cambiando-servidor/</link>
     <pubDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2023-08-01-de-nuevo-cambiando-servidor/</guid>
+    <guid>https://vctrsnts.github.io/2023-08-01-de-nuevo-cambiando-servidor/</guid>
     <description><![CDATA[<p>Tal como avise en este <a href="/2023-01-19-mis-nuevos-juguetes" rel="">articulo</a> o en este otro <a href="/2022-05-26-nuevo-servidor" rel="">articulo</a>, decia de que habia cambiado de servidor y que, a parte, tenia unos juguetes nuevos. Pero quereis un consejo, alejaros de los canales de telegram, en especial de <a href="https://homelabs.club" target="_blank" rel="noopener noreffer ">este</a>.</p>]]></description>
 </item>
 <item>
     <title>Crear RSS de los podcast que sigo</title>
-    <link>https://vctrsnts.github.io/book/2023-07-23-crear-rss-podcast/</link>
+    <link>https://vctrsnts.github.io/2023-07-23-crear-rss-podcast/</link>
     <pubDate>Sun, 23 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2023-07-23-crear-rss-podcast/</guid>
+    <guid>https://vctrsnts.github.io/2023-07-23-crear-rss-podcast/</guid>
     <description><![CDATA[<p>No se vosotros, pero no os habeis fijado que estos ultimos meses ha habido un auge con respecto a los podcast? No se si es porque la calidad ha subido o porque hay más, pero&hellip;</p>]]></description>
 </item>
 <item>
     <title>Recuperando Grub</title>
-    <link>https://vctrsnts.github.io/book/2023-05-05-recuperando-grub/</link>
+    <link>https://vctrsnts.github.io/2023-05-05-recuperando-grub/</link>
     <pubDate>Fri, 05 May 2023 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2023-05-05-recuperando-grub/</guid>
+    <guid>https://vctrsnts.github.io/2023-05-05-recuperando-grub/</guid>
     <description><![CDATA[<p>No se si os ha pasado muchas veces eso de perder el arranque de GNU/Linux <em><strong>GRUB</strong></em>, pero a mi, me esta pasando muchas veces ultimamente y no se si es porque tengo mala suerte o porque tengo mal configurado el inicio entre Linux y Windows, asi que al final, me he tenido que buscar la vida, para saber como se puede solucionar, porque sino, tengo que volver a reinstalarlo todo y ahora que el sistema lo tengo como yo quiero, pues &hellip;</p>]]></description>
 </item>
 <item>
     <title>Donde digo dije, digo Diego</title>
-    <link>https://vctrsnts.github.io/book/2023-04-29-donde-dije-digo-digo-diego/</link>
+    <link>https://vctrsnts.github.io/2023-04-29-donde-dije-digo-digo-diego/</link>
     <pubDate>Sat, 29 Apr 2023 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2023-04-29-donde-dije-digo-digo-diego/</guid>
+    <guid>https://vctrsnts.github.io/2023-04-29-donde-dije-digo-digo-diego/</guid>
     <description><![CDATA[<p>Mucha gente pensara que me he vuelto loco al poner este titulo a este articulo y más siendo un blog de tecnologia, pero cuando llegueis al final lo entendereis.</p>]]></description>
 </item>
 <item>
     <title>Cambiando watchtower por diun y vuelta a watchtower</title>
-    <link>https://vctrsnts.github.io/book/2023-02-19-actualizacion-watchtower/</link>
+    <link>https://vctrsnts.github.io/2023-02-19-actualizacion-watchtower/</link>
     <pubDate>Sun, 19 Feb 2023 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2023-02-19-actualizacion-watchtower/</guid>
+    <guid>https://vctrsnts.github.io/2023-02-19-actualizacion-watchtower/</guid>
     <description><![CDATA[<p>Tal como habia indicado en este <a href="/2023-01-25-usando-watchtower" rel="">post</a>, explica como empece usar <strong>watchtower</strong> pero con resultados muy extraños.</p>]]></description>
 </item>
 <item>
     <title>Mastodon, Jekyll y Github. Una combinación perfecta.</title>
-    <link>https://vctrsnts.github.io/book/2023-02-13-jekyll-muy-configurable/</link>
+    <link>https://vctrsnts.github.io/2023-02-13-jekyll-muy-configurable/</link>
     <pubDate>Mon, 13 Feb 2023 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2023-02-13-jekyll-muy-configurable/</guid>
+    <guid>https://vctrsnts.github.io/2023-02-13-jekyll-muy-configurable/</guid>
     <description><![CDATA[<p>Desde que di el salto de <strong>wordpress</strong> a <strong>Github</strong>, lo más logico, si mi profesion, pasion hace referencia a la tecnologia y que tambien influyo que <strong>wordpress</strong> empezaba a tener muchos problemas con la creación y gestión del blog.</p>]]></description>
 </item>
 <item>
     <title>Usando Watchtower</title>
-    <link>https://vctrsnts.github.io/book/2023-01-25-usando-watchtower/</link>
+    <link>https://vctrsnts.github.io/2023-01-25-usando-watchtower/</link>
     <pubDate>Wed, 25 Jan 2023 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2023-01-25-usando-watchtower/</guid>
+    <guid>https://vctrsnts.github.io/2023-01-25-usando-watchtower/</guid>
     <description><![CDATA[<p>Si quieres echarle la culpa tendreis que mirar a <a href="https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html" target="_blank" rel="noopener noreffer ">Angel de uGeek</a>, a <a href="https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente" target="_blank" rel="noopener noreffer ">Lorenzo de Atareao.es</a> y por ultimo a <a href="https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker" target="_blank" rel="noopener noreffer ">ElBlogdeLazaro</a> porque ellos son los culpables de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación <strong>watchtower</strong> es una de ellas 😉</p>]]></description>
 </item>
 <item>
     <title>Mis nuevos juguetes</title>
-    <link>https://vctrsnts.github.io/book/2023-01-19-mis-nuevos-juguetes/</link>
+    <link>https://vctrsnts.github.io/2023-01-19-mis-nuevos-juguetes/</link>
     <pubDate>Mon, 23 Jan 2023 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2023-01-19-mis-nuevos-juguetes/</guid>
+    <guid>https://vctrsnts.github.io/2023-01-19-mis-nuevos-juguetes/</guid>
     <description><![CDATA[<p>A través de este <a href="https://podcastlinux.com/posts/podcastlinux/129-Podcast-Linux" target="_blank" rel="noopener noreffer ">podcast</a> que escuche hace algún tiempo, siempre me quedo el gusanito de tener uno, y eso que estoy muy contento con mi <strong>Lenovo Ideapad Y700</strong>, pero siempre me quedo esa espina clavada&hellip;</p>]]></description>
 </item>
 <item>
     <title>Mejoras en mi escritorio (i3-wm)</title>
-    <link>https://vctrsnts.github.io/book/2023-01-13-mejoras-i3/</link>
+    <link>https://vctrsnts.github.io/2023-01-13-mejoras-i3/</link>
     <pubDate>Fri, 13 Jan 2023 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2023-01-13-mejoras-i3/</guid>
+    <guid>https://vctrsnts.github.io/2023-01-13-mejoras-i3/</guid>
     <description><![CDATA[<p>Después de mucho tiempo usando <a href="/2020-08-06-usando-i3-wm" rel="">i3-wm</a>, estaba constantemente, cambiando de wallpaper (seguramente ha más de uno le pasa), pense que habria alguna manera de hacer que cada X tiempo, el wallpaper que estoy utilizando cambiara automaticamente, de los que tengo en el directorio donde los guardo.</p>
 <p>Así que me puse a la busqueda de como se puede hacer.</p>]]></description>
 </item>
 <item>
     <title>Funcionamiento extraño con mi portatil (Ideapad Y700 - 17ISK)</title>
-    <link>https://vctrsnts.github.io/book/2023-01-12-problemas-y700-17isk/</link>
+    <link>https://vctrsnts.github.io/2023-01-12-problemas-y700-17isk/</link>
     <pubDate>Thu, 12 Jan 2023 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2023-01-12-problemas-y700-17isk/</guid>
+    <guid>https://vctrsnts.github.io/2023-01-12-problemas-y700-17isk/</guid>
     <description><![CDATA[<p>Desde hace un par de dias, no se si desde que actualize la BIOS al portatil (Lenovo Ideapad Y700 17ISK, versión <strong>CDCN54WW</strong>), y me ha pasado una cosa muy extraña. El teclado en el momento de iniciarse el sistema ha dejado de funcionar.</p>]]></description>
 </item>
 <item>
     <title>Creando tu propi Spotify privado - Annexo</title>
-    <link>https://vctrsnts.github.io/book/2022-12-31-rpi-spotity/</link>
+    <link>https://vctrsnts.github.io/2022-12-31-rpi-spotity/</link>
     <pubDate>Sat, 31 Dec 2022 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2022-12-31-rpi-spotity/</guid>
+    <guid>https://vctrsnts.github.io/2022-12-31-rpi-spotity/</guid>
     <description><![CDATA[<p>Tal como explique en este articulo <a href="/2021-04-01-rpi-spotify" rel="">creando tu propio servidor de musica</a> cuando tienes un servidor en tu casa, empiezas a tener ideas locas de que podrias hacer con el.</p>]]></description>
 </item>
 <item>
     <title>Volviendo a Caddy desde Nginx Proxy Manager</title>
-    <link>https://vctrsnts.github.io/book/2022-12-25-rpi-caddy-proxy-manager/</link>
+    <link>https://vctrsnts.github.io/2022-12-25-rpi-caddy-proxy-manager/</link>
     <pubDate>Sun, 25 Dec 2022 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2022-12-25-rpi-caddy-proxy-manager/</guid>
+    <guid>https://vctrsnts.github.io/2022-12-25-rpi-caddy-proxy-manager/</guid>
     <description><![CDATA[<p>Como ya sabreis, <a href="/2021-05-07-rpi-nginx-proxy-manager" rel="">anteriormente</a> usaba <strong>Nginx Proxy Manager</strong> porque habia tenido muchos problemas con <strong>Caddy</strong>, no se de donde venian estos problemas, si de <strong>Caddy</strong> o de <strong>duckdns.org</strong>, asi que hice el cambio a <strong>npm</strong> para los amigos.</p>]]></description>
 </item>
 <item>
     <title>Cambiando de editor. Neovim</title>
-    <link>https://vctrsnts.github.io/book/2022-12-19-cambiando-de-editor-neovim/</link>
+    <link>https://vctrsnts.github.io/2022-12-19-cambiando-de-editor-neovim/</link>
     <pubDate>Mon, 19 Dec 2022 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2022-12-19-cambiando-de-editor-neovim/</guid>
+    <guid>https://vctrsnts.github.io/2022-12-19-cambiando-de-editor-neovim/</guid>
     <description><![CDATA[<p>Cansado un poco de tener que siempre usar editores faciles (estilo <code>mousepad</code>) o que dejaban de tener soporte (<code>Atom</code>) y que además no me hacian la vida facil para integrarse con GitHub, intente buscar un nuevo editor que lo tuviera todo y mirando los videos de <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a> me fije en que tenia una guia de instalación y de uso de <code>Neovim</code>, clonico de Vim, y me puse con ello.</p>]]></description>
 </item>
 <item>
     <title>Script para actualizar tu GitHub</title>
-    <link>https://vctrsnts.github.io/book/2022-11-22-script-update-git/</link>
+    <link>https://vctrsnts.github.io/2022-11-22-script-update-git/</link>
     <pubDate>Tue, 22 Nov 2022 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2022-11-22-script-update-git/</guid>
+    <guid>https://vctrsnts.github.io/2022-11-22-script-update-git/</guid>
     <description><![CDATA[<p>Buscando maneras de facilitarme el trabajo con <a href="https://www.github.com" target="_blank" rel="noopener noreffer ">GitHub</a> que es donde tengo alojada mi web (más bien son mis projectos, apuntes y cosas por es estilo) porque para subir cualquier cosa a <code>GitHub</code> era una tocada de huevos en mi caso.</p>]]></description>
 </item>
 <item>
     <title>Publicar feed en Mastodon / Twitter</title>
-    <link>https://vctrsnts.github.io/book/2022-11-14-publicar-feed-mastodon/</link>
+    <link>https://vctrsnts.github.io/2022-11-14-publicar-feed-mastodon/</link>
     <pubDate>Mon, 14 Nov 2022 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2022-11-14-publicar-feed-mastodon/</guid>
+    <guid>https://vctrsnts.github.io/2022-11-14-publicar-feed-mastodon/</guid>
     <description><![CDATA[<p>Descubri a traves del <a href="https://elblogdelazaro.org" target="_blank" rel="noopener noreffer ">Blog de Lazaro</a>, que si tienes cuenta en <code>Mastodon</code>, quien no tiene cuenta ahora tal como van las cosas en <code>Twitter</code>,  que puedes enviar de forma aleatoria alguno de los articulos que tienes publicados en tu web.</p>]]></description>
 </item>
 <item>
     <title>Mi nuevo mediacenter - Thinkcenter m710q</title>
-    <link>https://vctrsnts.github.io/book/2022-11-08-cambiando-mediacenter/</link>
+    <link>https://vctrsnts.github.io/2022-11-08-cambiando-mediacenter/</link>
     <pubDate>Tue, 08 Nov 2022 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2022-11-08-cambiando-mediacenter/</guid>
+    <guid>https://vctrsnts.github.io/2022-11-08-cambiando-mediacenter/</guid>
     <description><![CDATA[<p>Como ya mencione en al articulo que hablaba sobre el cambio de servidor <a href="/2022-05-26-nuevo-servidor" rel="">Mi nuevo servidor</a>, me di cuenta que me quedaba con la RPI4 de 4Gb sin utilizar.</p>]]></description>
 </item>
 <item>
     <title>Mi nuevo servidor</title>
-    <link>https://vctrsnts.github.io/book/2022-05-26-nuevo-servidor/</link>
+    <link>https://vctrsnts.github.io/2022-05-26-nuevo-servidor/</link>
     <pubDate>Thu, 26 May 2022 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2022-05-26-nuevo-servidor/</guid>
+    <guid>https://vctrsnts.github.io/2022-05-26-nuevo-servidor/</guid>
     <description><![CDATA[<p>Se que llevo mucho tiempo si publicar nada, pero he estado liado haciendos cambios en el servidor (RPI4).</p>]]></description>
 </item>
 <item>
     <title>Configurar el fichero .bashrc para descomprimir ficheros</title>
-    <link>https://vctrsnts.github.io/book/2022-01-15-configurar-fichero-bashrc/</link>
+    <link>https://vctrsnts.github.io/2022-01-15-configurar-fichero-bashrc/</link>
     <pubDate>Sat, 15 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2022-01-15-configurar-fichero-bashrc/</guid>
+    <guid>https://vctrsnts.github.io/2022-01-15-configurar-fichero-bashrc/</guid>
     <description><![CDATA[<p>A continuación, explicare como tengo configurado mi <code>.bashrc</code> para que a la hora de descomprimir archivos todo me sea más facil y rapido.</p>
 <p>Esto se consigue añadiendo un <strong>alias</strong> con las opciones / programas más comunes para la compresión y descompresión de archivos.</p>]]></description>
 </item>
 <item>
     <title>Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4</title>
-    <link>https://vctrsnts.github.io/book/2022-01-07-debian-raspberrypi/</link>
+    <link>https://vctrsnts.github.io/2022-01-07-debian-raspberrypi/</link>
     <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2022-01-07-debian-raspberrypi/</guid>
+    <guid>https://vctrsnts.github.io/2022-01-07-debian-raspberrypi/</guid>
     <description><![CDATA[<p>Cuando tienes una Raspberry Pi y ves que el <strong>SO</strong> recomendado es Raspberry Pi OS (antigua Raspbian), siempre me queda la cosa de no poder instalar <strong>Debian GNU/Linux</strong> ARM64. Pero desde que actualizaron la versión del firmware y <strong>Debian GNU/Linux</strong> empezo a tener versiones más estables, eso ya ha pasado a posible.</p>
 <p>Asi que ahora voy a explicar los pasos que he hecho, en mi caso, para poder realizar y usar <strong>Debian GNU/Linux</strong> ARM64 en una Raspberry Pi 4 (4Gb).</p>]]></description>
 </item>
 <item>
     <title>Crear fichero de logs en bash</title>
-    <link>https://vctrsnts.github.io/book/2021-06-09-crear-fichero-log-bash/</link>
+    <link>https://vctrsnts.github.io/2021-06-09-crear-fichero-log-bash/</link>
     <pubDate>Wed, 09 Jun 2021 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2021-06-09-crear-fichero-log-bash/</guid>
+    <guid>https://vctrsnts.github.io/2021-06-09-crear-fichero-log-bash/</guid>
     <description><![CDATA[<p>A veces tienes la necesidad de crear un fichero de log para saber cuando se ejecuta un proceso en un script que puedes haber creado, aqui pongo el que yo uso.</p>]]></description>
 </item>
 <item>
     <title>Solucionar error i915 en grafica Intel</title>
-    <link>https://vctrsnts.github.io/book/2021-06-09-solucionar-error-i915/</link>
+    <link>https://vctrsnts.github.io/2021-06-09-solucionar-error-i915/</link>
     <pubDate>Wed, 09 Jun 2021 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2021-06-09-solucionar-error-i915/</guid>
+    <guid>https://vctrsnts.github.io/2021-06-09-solucionar-error-i915/</guid>
     <description><![CDATA[<p>Desde que <strong>Debian GNU/Linux</strong> saco la versión del kernel 5.4 en mi portatil fue recurrente los flashes en la pantalla y el siguiente error:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
@@ -561,44 +561,44 @@
 </item>
 <item>
     <title>Descargar Podcast a traves de Flexgetx - Annexo</title>
-    <link>https://vctrsnts.github.io/book/2021-06-07-flexget-podcast-annexo/</link>
+    <link>https://vctrsnts.github.io/2021-06-07-flexget-podcast-annexo/</link>
     <pubDate>Mon, 07 Jun 2021 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2021-06-07-flexget-podcast-annexo/</guid>
+    <guid>https://vctrsnts.github.io/2021-06-07-flexget-podcast-annexo/</guid>
     <description><![CDATA[<p>Como habia explicado en este <a href="/2020-12-14-crear-imagen-docker" rel="">articulo</a> o en este otro <a href="/2021-05-30-flexget-podcast" rel="">articulo</a>, explicaba como crear una imagen de <code>docker</code> o como usar dicha imagen, <strong>flexget</strong>, para descargar podcast a traves de los <code>RSS</code> que puedes conseguir.</p>]]></description>
 </item>
 <item>
     <title>Descargar Podcast a traves de Flexget</title>
-    <link>https://vctrsnts.github.io/book/2021-05-30-flexget-podcast/</link>
+    <link>https://vctrsnts.github.io/2021-05-30-flexget-podcast/</link>
     <pubDate>Sun, 30 May 2021 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2021-05-30-flexget-podcast/</guid>
+    <guid>https://vctrsnts.github.io/2021-05-30-flexget-podcast/</guid>
     <description><![CDATA[<p>Gracias que tengo docker puedo usar la imagen que he creado de <a href="https://flexget.com" target="_blank" rel="noopener noreffer ">Flexget</a>, una aplicación que a traves de un fichero <strong>yaml</strong>, permite descargar lo que quieras incluidos podcast.</p>
 <p>En principio me gustan los que tengas que ver con la tecnologia y sobre todo lo que tenga que ver con GNU/Linux. Pero a parte de estos tambien tengo un podcast de historia que me encanta mucho y cuando me acuerdo lo escucho. Este podcast se llama <a href="https://www.ccma.cat/catradio/en-guardia" target="_blank" rel="noopener noreffer ">En Guàrdia</a>.</p>
 <p>Y buscando información al final consegui averiguar que a traves de <strong>Flexget</strong> se pueden descargar Podcast asi que me puse a ello y gracias a un script para dicho proposito ya puedo descargar los podcast de este programa sin preocuparme.</p>]]></description>
 </item>
 <item>
     <title>Creando tu propio Servidor de Musica privada</title>
-    <link>https://vctrsnts.github.io/book/2021-04-01-rpi-spotify/</link>
+    <link>https://vctrsnts.github.io/2021-04-01-rpi-spotify/</link>
     <pubDate>Sat, 08 May 2021 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2021-04-01-rpi-spotify/</guid>
+    <guid>https://vctrsnts.github.io/2021-04-01-rpi-spotify/</guid>
     <description><![CDATA[<p>Cuando tienes un servidor de bajo consumo como una Raspberry y empiezas a usar docker, a parte de descubrir un nuevo mundo (no me canso de decirlo), tambien descubres nuevas formas de torturar tu mente.</p>]]></description>
 </item>
 <item>
     <title>Usando Nginx-Proxy-Manager en la Raspberry</title>
-    <link>https://vctrsnts.github.io/book/2021-05-07-rpi-nginx-proxy-manager/</link>
+    <link>https://vctrsnts.github.io/2021-05-07-rpi-nginx-proxy-manager/</link>
     <pubDate>Fri, 07 May 2021 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2021-05-07-rpi-nginx-proxy-manager/</guid>
+    <guid>https://vctrsnts.github.io/2021-05-07-rpi-nginx-proxy-manager/</guid>
     <description><![CDATA[<p>Aqui tenemos otra entrada más que hace referencia a mi RPI y a ese inmenso oceano que se ha abierto al descubrir Docker.</p>]]></description>
 </item>
 <item>
     <title>Cambiando Traefik por Caddy</title>
-    <link>https://vctrsnts.github.io/book/2021-04-08-rpi-caddy-proxy-manager/</link>
+    <link>https://vctrsnts.github.io/2021-04-08-rpi-caddy-proxy-manager/</link>
     <pubDate>Thu, 08 Apr 2021 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2021-04-08-rpi-caddy-proxy-manager/</guid>
+    <guid>https://vctrsnts.github.io/2021-04-08-rpi-caddy-proxy-manager/</guid>
     <description><![CDATA[<p>Anteriomente venia usando Traefik, pero como ya he comentado, era muy dificil de mantener y de configurar, a parte de las multiples opciones que tiene. Ante esto, me resultaba muy tedioso su uso, asi que decidir buscar otra alternativa más facil.</p>
 <p>Después de buscar y leer a mis blogueros preferidos:</p>
 <ul>
@@ -608,171 +608,171 @@
 </item>
 <item>
     <title>Montar imagen ISO desde consola en GNU/Linux</title>
-    <link>https://vctrsnts.github.io/book/2021-03-25-montar-imagen-iso-consola/</link>
+    <link>https://vctrsnts.github.io/2021-03-25-montar-imagen-iso-consola/</link>
     <pubDate>Thu, 25 Mar 2021 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2021-03-25-montar-imagen-iso-consola/</guid>
+    <guid>https://vctrsnts.github.io/2021-03-25-montar-imagen-iso-consola/</guid>
     <description><![CDATA[<p>Vamos a explicar como a traves de la consola de GNU/Linux se puede montar una imagen / archivo ISO.</p>
 <p>No se si os ha pasado alguna vez a vosotros, pero llega un dia, que teneis una <strong>ISO</strong> y os encontrais sin CD para gravar y el lector y no sabeis que hacer en ese momento (me ha pasado más de una vez), hasta que he encontrado este sencillo metodo para resolver el problema.</p>]]></description>
 </item>
 <item>
     <title>Raspberry Pi. Externalizando copias de seguridad</title>
-    <link>https://vctrsnts.github.io/book/2021-01-18-rpi-externalizando-copias-seguridad/</link>
+    <link>https://vctrsnts.github.io/2021-01-18-rpi-externalizando-copias-seguridad/</link>
     <pubDate>Mon, 18 Jan 2021 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2021-01-18-rpi-externalizando-copias-seguridad/</guid>
+    <guid>https://vctrsnts.github.io/2021-01-18-rpi-externalizando-copias-seguridad/</guid>
     <description><![CDATA[<p>Este articulo es una continuación al que hice hace un par de dias con respecto a realizar copias de seguridad en mi RPI4 con <a href="/2021-01-17-rpi-copias-seguridad" rel="">rsnapshot</a>.</p>]]></description>
 </item>
 <item>
     <title>Raspberry Pi. Haciendo copias de seguridad</title>
-    <link>https://vctrsnts.github.io/book/2021-01-17-rpi-copias-seguridad/</link>
+    <link>https://vctrsnts.github.io/2021-01-17-rpi-copias-seguridad/</link>
     <pubDate>Sun, 17 Jan 2021 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2021-01-17-rpi-copias-seguridad/</guid>
+    <guid>https://vctrsnts.github.io/2021-01-17-rpi-copias-seguridad/</guid>
     <description><![CDATA[<p>Otro capitulo más con respecto a la configuración de de mi RPI4, en este caso son las copias de seguridad de la información más importante.</p>]]></description>
 </item>
 <item>
     <title>Crear imagenes en docker</title>
-    <link>https://vctrsnts.github.io/book/2020-12-14-crear-imagen-docker/</link>
+    <link>https://vctrsnts.github.io/2020-12-14-crear-imagen-docker/</link>
     <pubDate>Mon, 14 Dec 2020 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2020-12-14-crear-imagen-docker/</guid>
+    <guid>https://vctrsnts.github.io/2020-12-14-crear-imagen-docker/</guid>
     <description><![CDATA[<p>Esto es una cosa que queria hacer desde que he empezado a utilizar <code>docker</code> porque siempre va bien tenerlos apuntado por si algun momento hace falta y si además te has hecho algun par de containers propios, pues nunca esta de más.</p>
 <p>La parte más dificil de crear una imagen docker, es el <code>Dockerfile</code>, este fichero es todo lo que contendra y hara la imagen docker cuando se cree (sobre que base funciona, que puertos, volumenes, etc&hellip;).</p>]]></description>
 </item>
 <item>
     <title>Raspberry Pi. Instalar y configurar fail2ban</title>
-    <link>https://vctrsnts.github.io/book/2020-11-08-rpi-usando-fail2ban/</link>
+    <link>https://vctrsnts.github.io/2020-11-08-rpi-usando-fail2ban/</link>
     <pubDate>Sun, 08 Nov 2020 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2020-11-08-rpi-usando-fail2ban/</guid>
+    <guid>https://vctrsnts.github.io/2020-11-08-rpi-usando-fail2ban/</guid>
     <description><![CDATA[<p>Siguiendo con mis capitulos con respecto a la configuración y uso de mi RPI4 (tambien explicado en este otro <a href="/2020-10-30-rpi-cambiando-equipo" rel="">articulo</a>, pues ahora pasamos a añadir una protección más y que en  todos los sitios donde explican su configuración, se preguntan, porque no esta instalada por defecto en todos los sistemas GNU/Linux.</p>]]></description>
 </item>
 <item>
     <title>Raspberry Pi. Cambiando el equipo</title>
-    <link>https://vctrsnts.github.io/book/2020-10-30-rpi-cambiando-equipo/</link>
+    <link>https://vctrsnts.github.io/2020-10-30-rpi-cambiando-equipo/</link>
     <pubDate>Fri, 30 Oct 2020 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2020-10-30-rpi-cambiando-equipo/</guid>
+    <guid>https://vctrsnts.github.io/2020-10-30-rpi-cambiando-equipo/</guid>
     <description><![CDATA[<p>Ante la noticia de que iban a sacar una nueva <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/?resellerType=home" target="_blank" rel="noopener noreffer ">Raspberry Pi</a> con varias mejores (más vale tarde que nunca que ya hablaremos más adelante) y pense si ya era hora de cambiar mi Raspberry Pi 3b por la nueva versión.</p>]]></description>
 </item>
 <item>
     <title>Crear directorios a partir de un fichero de texto</title>
-    <link>https://vctrsnts.github.io/book/2020-08-31-crear-directorios-lista/</link>
+    <link>https://vctrsnts.github.io/2020-08-31-crear-directorios-lista/</link>
     <pubDate>Mon, 31 Aug 2020 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2020-08-31-crear-directorios-lista/</guid>
+    <guid>https://vctrsnts.github.io/2020-08-31-crear-directorios-lista/</guid>
     <description><![CDATA[<p>A veces tengo que crear unos cuantos directorios (normalmente para musica). Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.</p>]]></description>
 </item>
 <item>
     <title>Copiar un archivo a varios directores</title>
-    <link>https://vctrsnts.github.io/book/2020-08-30-copiar-archivo-varios-directorios/</link>
+    <link>https://vctrsnts.github.io/2020-08-30-copiar-archivo-varios-directorios/</link>
     <pubDate>Sun, 30 Aug 2020 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2020-08-30-copiar-archivo-varios-directorios/</guid>
+    <guid>https://vctrsnts.github.io/2020-08-30-copiar-archivo-varios-directorios/</guid>
     <description><![CDATA[<p>A veces tengo que copiar un fichero (normalmente una caratula para la musica) a varios directorios. Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.</p>]]></description>
 </item>
 <item>
     <title>Mover ficheros de un arbol de directorios a un directorio</title>
-    <link>https://vctrsnts.github.io/book/2020-08-29-mover-ficheros-directorio/</link>
+    <link>https://vctrsnts.github.io/2020-08-29-mover-ficheros-directorio/</link>
     <pubDate>Sat, 29 Aug 2020 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2020-08-29-mover-ficheros-directorio/</guid>
+    <guid>https://vctrsnts.github.io/2020-08-29-mover-ficheros-directorio/</guid>
     <description><![CDATA[<p>A veces tengo que mover varios ficheros (normalmente epub - libros electronicos). Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.</p>]]></description>
 </item>
 <item>
     <title>Usando i3-wm</title>
-    <link>https://vctrsnts.github.io/book/2020-08-06-usando-i3-wm/</link>
+    <link>https://vctrsnts.github.io/2020-08-06-usando-i3-wm/</link>
     <pubDate>Thu, 06 Aug 2020 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2020-08-06-usando-i3-wm/</guid>
+    <guid>https://vctrsnts.github.io/2020-08-06-usando-i3-wm/</guid>
     <description><![CDATA[<p>Aqui va una nueva entrada y en este caso hace referencia a <a href="https://i3wm.org" target="_blank" rel="noopener noreffer ">i3wm</a></p>
 <p>Primero un poco de historia con respecto al porque de este post. Desde hace años (cuando <strong>KDE</strong> se volvio tan pesado y desapareció el paquete kde-minimal) cambie a <strong>XFCE4</strong> y todo fue bien, hasta que vi que (en mi opinión), se habia estancado, por eso decidi hacer un cambio y hablando con gente de <a href="https://exdebian.org" target="_blank" rel="noopener noreffer ">exDebian</a> me aconsejaron probar <strong>i3wm</strong>. Asi que empeze a buscar información y fue cuando encontre esta colección de 3 videos en <a href="https://www.youtube.com/playlist?list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf" target="_blank" rel="noopener noreffer ">Youtube - i3wm</a> que me abrieron las puertas a <strong>i3wm</strong></p>]]></description>
 </item>
 <item>
     <title>Usando Calibre-Web</title>
-    <link>https://vctrsnts.github.io/book/2020-04-12-usando-calibre-web/</link>
+    <link>https://vctrsnts.github.io/2020-04-12-usando-calibre-web/</link>
     <pubDate>Sun, 12 Apr 2020 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2020-04-12-usando-calibre-web/</guid>
+    <guid>https://vctrsnts.github.io/2020-04-12-usando-calibre-web/</guid>
     <description><![CDATA[<p>Después del descubrimiento de <strong>docker</strong>, tal como dije en otra entrada se ha abierto un nuevo mundo de posibilidades por explorar. Y en este caso hemos descubierto <strong>calibre-web</strong>.</p>
 <p>La idea me gusto, porque así, voy quitando peso al portátil y doy más uso a la RPI3b (de momento a la espera de cambiar a una 4) y además, con el <em>HDD de 4Tb</em> que viene en camino, pues nos pusimos a ello.</p>]]></description>
 </item>
 <item>
     <title>Raspberry Pi. Pasos para instalar Docker en Raspbian</title>
-    <link>https://vctrsnts.github.io/book/2020-03-08-rpi-usando-docker/</link>
+    <link>https://vctrsnts.github.io/2020-03-08-rpi-usando-docker/</link>
     <pubDate>Sun, 08 Mar 2020 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2020-03-08-rpi-usando-docker/</guid>
+    <guid>https://vctrsnts.github.io/2020-03-08-rpi-usando-docker/</guid>
     <description><![CDATA[<p>Siempre me pasa lo mismo, me hago mis chuletas y apuntes, pero nunca me pongo como se realiza la instalación sobre la cual funcionan las chuletas.</p>]]></description>
 </item>
 <item>
     <title>TIP Sobre Docker</title>
-    <link>https://vctrsnts.github.io/book/2020-02-16-tip-docker/</link>
+    <link>https://vctrsnts.github.io/2020-02-16-tip-docker/</link>
     <pubDate>Sun, 16 Feb 2020 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2020-02-16-tip-docker/</guid>
+    <guid>https://vctrsnts.github.io/2020-02-16-tip-docker/</guid>
     <description><![CDATA[<p>Últimamente me he metido en el mundo de <strong>Docker</strong> para mi <strong>Raspberry</strong> y se me ha abierto un mundo nuevo de posibilidades infinitas.</p>
 <p>A continuación pongo un TIP sobre Docker y el mantenimiento (eliminación) de volúmenes / imágenes que ya no se utilizan.</p>]]></description>
 </item>
 <item>
     <title>TIP Sobre Raspbian / Raspberry</title>
-    <link>https://vctrsnts.github.io/book/2019-12-13-tip-raspbian-raspberry/</link>
+    <link>https://vctrsnts.github.io/2019-12-13-tip-raspbian-raspberry/</link>
     <pubDate>Fri, 13 Dec 2019 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2019-12-13-tip-raspbian-raspberry/</guid>
+    <guid>https://vctrsnts.github.io/2019-12-13-tip-raspbian-raspberry/</guid>
     <description><![CDATA[<p>A continuación pongo unos cuantos <strong>TIPS</strong> más con respecto a Raspbian, mayormente para que no se me olviden para más adelanta 😉</p>]]></description>
 </item>
 <item>
     <title>Actualizar FreeBSD (STABLE)</title>
-    <link>https://vctrsnts.github.io/book/2017-11-11-actualizar-freebsd-stable/</link>
+    <link>https://vctrsnts.github.io/2017-11-11-actualizar-freebsd-stable/</link>
     <pubDate>Mon, 11 Nov 2019 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2017-11-11-actualizar-freebsd-stable/</guid>
+    <guid>https://vctrsnts.github.io/2017-11-11-actualizar-freebsd-stable/</guid>
     <description><![CDATA[<p>Aqui va otra entrada con respecto a <strong>FreeBSD</strong>.</p>
 <p>En este caso, es como se puede hacer la actualización del sistema <strong>STABLE</strong>, es la que estoy usando yo en estos momentos.</p>]]></description>
 </item>
 <item>
     <title>Mi configuración en FreeBSD</title>
-    <link>https://vctrsnts.github.io/book/2017-11-11-mi-configuracion-freebsd/</link>
+    <link>https://vctrsnts.github.io/2017-11-11-mi-configuracion-freebsd/</link>
     <pubDate>Mon, 11 Nov 2019 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2017-11-11-mi-configuracion-freebsd/</guid>
+    <guid>https://vctrsnts.github.io/2017-11-11-mi-configuracion-freebsd/</guid>
     <description><![CDATA[<p>Siguiendo con mis entradas que hacen referencia a <strong>FreeBSD</strong>, a continuación dejo la que uso en mi portatil <strong>Lenovo Y700</strong> y que parece ser que funciona correctamente.</p>
 <p>A lo mejor en el futuro la voy modificando dependiendo del funcionamiento que vaya teniendo&hellip;</p>]]></description>
 </item>
 <item>
     <title>TIP sobre SUDO en GNU/Linux</title>
-    <link>https://vctrsnts.github.io/book/2019-11-11-tip-sudo-debian/</link>
+    <link>https://vctrsnts.github.io/2019-11-11-tip-sudo-debian/</link>
     <pubDate>Mon, 11 Nov 2019 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2019-11-11-tip-sudo-debian/</guid>
+    <guid>https://vctrsnts.github.io/2019-11-11-tip-sudo-debian/</guid>
     <description><![CDATA[<p>Después de mucho tiempo, pongo un <strong>TIP</strong> para que no se me olvide en caso de necesitarlo.</p>
 <p>A lo mejor pongo más de uno, porque después me cuesta mucho buscarlos de nuevo. Así que aqui va el primero.</p>]]></description>
 </item>
 <item>
     <title>Grabar fichero img a USB</title>
-    <link>https://vctrsnts.github.io/book/2017-05-15-img-usb/</link>
+    <link>https://vctrsnts.github.io/2017-05-15-img-usb/</link>
     <pubDate>Wed, 15 May 2019 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2017-05-15-img-usb/</guid>
+    <guid>https://vctrsnts.github.io/2017-05-15-img-usb/</guid>
     <description><![CDATA[<p>Siguiendo mi aprendizaje con FreeBSD, aqui explico, seguramente en otros sitios diferentes de este basto oceano llamado internet, lo encontrareis mejor explicado, como grabar un fichero <code>*.img</code> a un prendrive, es una cosa que nunca me acuerdo como se hace y siempre acabo buscandolo.</p>]]></description>
 </item>
 <item>
     <title>Utilizar UTF-8 en FreeBSD</title>
-    <link>https://vctrsnts.github.io/book/2017-05-03-utilizar-utf8-freebsd/</link>
+    <link>https://vctrsnts.github.io/2017-05-03-utilizar-utf8-freebsd/</link>
     <pubDate>Wed, 03 May 2017 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2017-05-03-utilizar-utf8-freebsd/</guid>
+    <guid>https://vctrsnts.github.io/2017-05-03-utilizar-utf8-freebsd/</guid>
     <description><![CDATA[<p>Una de las cosas que echo en falta a la hora de realizar la instalación de <strong>FreeBSD</strong> es poder configurar <code>UTF-8</code> en el instalador.</p>
 <p>Al igual que muchos sistemas operativo de la familia UNIX, <strong>FreeBSD</strong> no viene configurado para utilizar la codificación de caracteres <code>UTF-8</code> por defecto, sin embargo esta totalmente soportado y es facilmente configurable.</p>]]></description>
 </item>
 <item>
     <title>Cambiar Debian GNU/Linux por FreeBSD?</title>
-    <link>https://vctrsnts.github.io/book/2016-08-20-cambiar-linux-freebsd/</link>
+    <link>https://vctrsnts.github.io/2016-08-20-cambiar-linux-freebsd/</link>
     <pubDate>Sat, 20 Aug 2016 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2016-08-20-cambiar-linux-freebsd/</guid>
+    <guid>https://vctrsnts.github.io/2016-08-20-cambiar-linux-freebsd/</guid>
     <description><![CDATA[<div class="details admonition note open">
         <div class="details-summary admonition-title">
             <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
@@ -784,172 +784,172 @@
 </item>
 <item>
     <title>Raspberry Pi. Acceso a traves de ssh</title>
-    <link>https://vctrsnts.github.io/book/2016-04-04-rpi-acceso-traves-ssh/</link>
+    <link>https://vctrsnts.github.io/2016-04-04-rpi-acceso-traves-ssh/</link>
     <pubDate>Mon, 04 Apr 2016 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2016-04-04-rpi-acceso-traves-ssh/</guid>
+    <guid>https://vctrsnts.github.io/2016-04-04-rpi-acceso-traves-ssh/</guid>
     <description><![CDATA[<p>Una vez que ya tenemos nuestra Raspberry en marcha y funcionando ahora viene la parte divertida, como acceder a ella desde el exterior. En mi caso desde otra ubicación y además con un poco de seguridad para que nadie pueda acceder a ella (recordar que esto se tiene que hacer desde el equipo que se va a conectar a la Raspberry).</p>]]></description>
 </item>
 <item>
     <title>Raspberry Pi. Configurar la red</title>
-    <link>https://vctrsnts.github.io/book/2016-04-03-rpi-configurar-red/</link>
+    <link>https://vctrsnts.github.io/2016-04-03-rpi-configurar-red/</link>
     <pubDate>Sun, 03 Apr 2016 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2016-04-03-rpi-configurar-red/</guid>
+    <guid>https://vctrsnts.github.io/2016-04-03-rpi-configurar-red/</guid>
     <description><![CDATA[<p>Ahora que ya tenemos configurado y funcionando nuestra Raspberry, ahora le toca el turno a la red (en mi caso, quiero ip fija).</p>]]></description>
 </item>
 <item>
     <title>Raspberry Pi. Iniciar desde un HDD externo</title>
-    <link>https://vctrsnts.github.io/book/2016-04-03-rpi-iniciar-hd-externo/</link>
+    <link>https://vctrsnts.github.io/2016-04-03-rpi-iniciar-hd-externo/</link>
     <pubDate>Sun, 03 Apr 2016 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2016-04-03-rpi-iniciar-hd-externo/</guid>
+    <guid>https://vctrsnts.github.io/2016-04-03-rpi-iniciar-hd-externo/</guid>
     <description><![CDATA[<p>Después de haber configurado la red, ahora pasare a explicar como extraer la información de la raiz <code>/</code> de la SD para pasarla a un HDD externo y así alargar la vida de nuestra <em>SD</em>.</p>]]></description>
 </item>
 <item>
     <title>Raspberry Pi. Actualizando a Jessie</title>
-    <link>https://vctrsnts.github.io/book/2016-04-02-rpi-actualizando-jessie/</link>
+    <link>https://vctrsnts.github.io/2016-04-02-rpi-actualizando-jessie/</link>
     <pubDate>Sat, 02 Apr 2016 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2016-04-02-rpi-actualizando-jessie/</guid>
+    <guid>https://vctrsnts.github.io/2016-04-02-rpi-actualizando-jessie/</guid>
     <description><![CDATA[<p>Tal como habia explicado en el anterior capitulo, después de tener mi RPI con Whezzy y viendo que habian sacado una nueva versión <a href="https://www.raspberrypi.org/downloads/raspbian" target="_blank" rel="noopener noreffer ">Jessie-Lite</a> de Raspbian decidi realizar un <code>full-upgrade</code> para actualizar el sistema.</p>]]></description>
 </item>
 <item>
     <title>Raspberry Pi. Configurando la Raspberry</title>
-    <link>https://vctrsnts.github.io/book/2016-04-02-rpi-configurando-raspberry/</link>
+    <link>https://vctrsnts.github.io/2016-04-02-rpi-configurando-raspberry/</link>
     <pubDate>Sat, 02 Apr 2016 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2016-04-02-rpi-configurando-raspberry/</guid>
+    <guid>https://vctrsnts.github.io/2016-04-02-rpi-configurando-raspberry/</guid>
     <description><![CDATA[<p>Después de la instalación viene la configuración y en mi caso hice lo siguiente.</p>]]></description>
 </item>
 <item>
     <title>Raspberry Pi. Funcionamiento de la RPI</title>
-    <link>https://vctrsnts.github.io/book/2016-04-02-rpi-funcionamiento-raspberry/</link>
+    <link>https://vctrsnts.github.io/2016-04-02-rpi-funcionamiento-raspberry/</link>
     <pubDate>Sat, 02 Apr 2016 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2016-04-02-rpi-funcionamiento-raspberry/</guid>
+    <guid>https://vctrsnts.github.io/2016-04-02-rpi-funcionamiento-raspberry/</guid>
     <description><![CDATA[<p>De nuevo en la brecha. Después de tanto tiempo si publicar nada, aqui vuelvo.</p>]]></description>
 </item>
 <item>
     <title>Raspberry Pi. Instalando Jessie-Lite</title>
-    <link>https://vctrsnts.github.io/book/2016-04-02-rpi-instalando-jessie-lite/</link>
+    <link>https://vctrsnts.github.io/2016-04-02-rpi-instalando-jessie-lite/</link>
     <pubDate>Sat, 02 Apr 2016 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2016-04-02-rpi-instalando-jessie-lite/</guid>
+    <guid>https://vctrsnts.github.io/2016-04-02-rpi-instalando-jessie-lite/</guid>
     <description><![CDATA[<p>Como dije en el anterior capitulo, despues de recibir mi nuevo juguete:</p>]]></description>
 </item>
 <item>
     <title>Los mejores repositorios para Debian GNU/Linux</title>
-    <link>https://vctrsnts.github.io/book/2015-05-08-repositorios-debian/</link>
+    <link>https://vctrsnts.github.io/2015-05-08-repositorios-debian/</link>
     <pubDate>Fri, 08 May 2015 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2015-05-08-repositorios-debian/</guid>
+    <guid>https://vctrsnts.github.io/2015-05-08-repositorios-debian/</guid>
     <description><![CDATA[<p>Cuando se está utilizando un sistema <strong>Debian GNU/Linux</strong>, una de las cosas que más se disfrutan es la herramienta para administración de paquetes <code>APT</code>.</p>]]></description>
 </item>
 <item>
     <title>Crear imagen ISO desde la consola de Debian GNU/Linux</title>
-    <link>https://vctrsnts.github.io/book/2014-01-03-crear-imagen-iso/</link>
+    <link>https://vctrsnts.github.io/2014-01-03-crear-imagen-iso/</link>
     <pubDate>Fri, 03 Jan 2014 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2014-01-03-crear-imagen-iso/</guid>
+    <guid>https://vctrsnts.github.io/2014-01-03-crear-imagen-iso/</guid>
     <description><![CDATA[<p>A veces, cuando intento realizar una ISO de un CD, no encuentro la manera de hacerlo a traves de <a href="https://goodies.xfce.org/projects/applications/xfburn" target="_blank" rel="noopener noreffer ">Xfburn</a>, aunque al final si que descubri como se tenia que hacer. Es aqui cuando me hago un lio y busco desesperadamente como se puede hacer. Pero nunca se me ocurre buscar la manera de como hacerlo a traves de consola.</p>]]></description>
 </item>
 <item>
     <title>Raspberry Pi. Mi pequeño nuevo juguete</title>
-    <link>https://vctrsnts.github.io/book/2013-11-25-rpi-peque%C3%B1o-juguete/</link>
+    <link>https://vctrsnts.github.io/2013-11-25-rpi-peque%C3%B1o-juguete/</link>
     <pubDate>Mon, 25 Nov 2013 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2013-11-25-rpi-peque%C3%B1o-juguete/</guid>
+    <guid>https://vctrsnts.github.io/2013-11-25-rpi-peque%C3%B1o-juguete/</guid>
     <description><![CDATA[<p>Pues nada. Desde hace un par de meses, tengo a mi disposición un nuevo juguete. La Raspberry modelo B, con las las siguientes caracteristicas:</p>]]></description>
 </item>
 <item>
     <title>Renombrar masivamente ficheros en Thunar</title>
-    <link>https://vctrsnts.github.io/book/2013-11-24-renombrar-ficheros-thunar/</link>
+    <link>https://vctrsnts.github.io/2013-11-24-renombrar-ficheros-thunar/</link>
     <pubDate>Sun, 24 Nov 2013 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2013-11-24-renombrar-ficheros-thunar/</guid>
+    <guid>https://vctrsnts.github.io/2013-11-24-renombrar-ficheros-thunar/</guid>
     <description><![CDATA[<p>Como siempre va bien, tener estas notas, por si las volvemos a necesitar&hellip;</p>]]></description>
 </item>
 <item>
     <title>USB se monta sólo como lectura</title>
-    <link>https://vctrsnts.github.io/book/2013-11-24-usb-lectura/</link>
+    <link>https://vctrsnts.github.io/2013-11-24-usb-lectura/</link>
     <pubDate>Sat, 23 Nov 2013 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2013-11-24-usb-lectura/</guid>
+    <guid>https://vctrsnts.github.io/2013-11-24-usb-lectura/</guid>
     <description><![CDATA[<p>Por si a alguien le vuelve a pasar lo mismo que a mi, aquí pongo una pequeña ayuda de lo que se puede hacer antes de tirar a la basura un USB, que, cada vez que lo montas, esta como lectura&hellip;</p>]]></description>
 </item>
 <item>
     <title>Cambiar dinamicamente el fondo de pantalla en XFCE</title>
-    <link>https://vctrsnts.github.io/book/2013-01-09-fondo-pantalla-xfce/</link>
+    <link>https://vctrsnts.github.io/2013-01-09-fondo-pantalla-xfce/</link>
     <pubDate>Wed, 09 Jan 2013 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2013-01-09-fondo-pantalla-xfce/</guid>
+    <guid>https://vctrsnts.github.io/2013-01-09-fondo-pantalla-xfce/</guid>
     <description><![CDATA[<p>Después de hacer limpieza de mi portatil (borrar ese espacio en el HD que no utilizaba para nada), he instalado de nuevo mi querido <strong>Debian GNU/Linux</strong>, y como estaba un poco cansado de KDE, lleno de programas que no utilizo, me decidi probar XFCE.</p>]]></description>
 </item>
 <item>
     <title>Deshabilitar tarjeta NVIDIA Optimus en Debian GNU/Linux</title>
-    <link>https://vctrsnts.github.io/book/2012-11-11-optimus-debian/</link>
+    <link>https://vctrsnts.github.io/2012-11-11-optimus-debian/</link>
     <pubDate>Sun, 11 Nov 2012 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2012-11-11-optimus-debian/</guid>
+    <guid>https://vctrsnts.github.io/2012-11-11-optimus-debian/</guid>
     <description><![CDATA[<p>Después de mucho buscar al final, pude encontrar un sitio <del><a href="https://pedrobonilla.blogspot.com.es/2011/11/deshabilitar-tarjeta-nvidia-en-sistema.html" target="_blank" rel="noopener noreffer ">aqui</a></del> donde te explicaba como desactivar la tarjeta grafica Nvidia de mi portatil Dell XPS 15. Estaba ya cansado de escuchar el ventilador funcionando todo el rato por culpa de una tarjeta grafica que no utilizaba. Así que lo pongo a continuación porque así se difunde más facilmente y lo guardo para mi como apuntes&hellip;</p>]]></description>
 </item>
 <item>
     <title>Dividir / Unir Fichero en GNU/Linux</title>
-    <link>https://vctrsnts.github.io/book/2012-03-07-divdir-unir-ficheros/</link>
+    <link>https://vctrsnts.github.io/2012-03-07-divdir-unir-ficheros/</link>
     <pubDate>Wed, 07 Mar 2012 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2012-03-07-divdir-unir-ficheros/</guid>
+    <guid>https://vctrsnts.github.io/2012-03-07-divdir-unir-ficheros/</guid>
     <description><![CDATA[<p>Un truco nuevo, en mi caso, pero que seguro que mucha gente lo conoce, pero que nunca esta de más tenerlo a mano por si se necesita&hellip;</p>]]></description>
 </item>
 <item>
     <title>Error respawning en consola</title>
-    <link>https://vctrsnts.github.io/book/2011-09-23-respawning-consola/</link>
+    <link>https://vctrsnts.github.io/2011-09-23-respawning-consola/</link>
     <pubDate>Fri, 23 Sep 2011 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2011-09-23-respawning-consola/</guid>
+    <guid>https://vctrsnts.github.io/2011-09-23-respawning-consola/</guid>
     <description><![CDATA[<p>No se si os ha pasado a vosotros, pero después de una instalación limpia de <strong>Debian GNU/Linux</strong>, siempre me aparecía en la consola (antes de instalar KDE). Al final me canse de visualizar este error <strong>INIT: ID &ldquo;co&rdquo; respawning too fast: disabled for 5 minutes</strong>, porque llega a ser cansino.</p>]]></description>
 </item>
 <item>
     <title>Sustituir una clave antigua de known_hosts</title>
-    <link>https://vctrsnts.github.io/book/2011-08-19-substituir-known-hosts/</link>
+    <link>https://vctrsnts.github.io/2011-08-19-substituir-known-hosts/</link>
     <pubDate>Fri, 19 Aug 2011 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2011-08-19-substituir-known-hosts/</guid>
+    <guid>https://vctrsnts.github.io/2011-08-19-substituir-known-hosts/</guid>
     <description><![CDATA[<p>Es posible que más de una vez nos hayamos encontrado con un mensaje donde nuestro sistema nos indica que la clave publica de nuestro servidor, o del servidor al que nos queremos conectar ha cambiado o a otras posibilidades que ya indicaremos más adelante.</p>]]></description>
 </item>
 <item>
     <title>Ya tenemos KDE4</title>
-    <link>https://vctrsnts.github.io/book/2009-06-06-tenemos-kde4/</link>
+    <link>https://vctrsnts.github.io/2009-06-06-tenemos-kde4/</link>
     <pubDate>Sat, 06 Jun 2009 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2009-06-06-tenemos-kde4/</guid>
+    <guid>https://vctrsnts.github.io/2009-06-06-tenemos-kde4/</guid>
     <description><![CDATA[<p>Pues si, después de una instalación no tan traumatica como me esperaba, ya hemos instalado KDE 4.2.</p>
 <p>Aqui podeis ver un screenshot de como le sienta esta nueva versión de KDE a mi equipo.</p>]]></description>
 </item>
 <item>
     <title>Recuperar Archivos en ReiserFS</title>
-    <link>https://vctrsnts.github.io/book/2009-04-27-recuperar-archivos-reiserfs/</link>
+    <link>https://vctrsnts.github.io/2009-04-27-recuperar-archivos-reiserfs/</link>
     <pubDate>Mon, 27 Apr 2009 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2009-04-27-recuperar-archivos-reiserfs/</guid>
+    <guid>https://vctrsnts.github.io/2009-04-27-recuperar-archivos-reiserfs/</guid>
     <description><![CDATA[<p>A continuación explicare los pasos necesarios para recuperar un archivo/s eliminado de una partición creada con <strong>ReiserFS</strong>, que en principio funciona correctamente en <strong>Debian GNU/Linux</strong></p>]]></description>
 </item>
 <item>
     <title>KDE 4.2 ha entrado en SID</title>
-    <link>https://vctrsnts.github.io/book/2009-04-09-kd4-sid/</link>
+    <link>https://vctrsnts.github.io/2009-04-09-kd4-sid/</link>
     <pubDate>Thu, 09 Apr 2009 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2009-04-09-kd4-sid/</guid>
+    <guid>https://vctrsnts.github.io/2009-04-09-kd4-sid/</guid>
     <description><![CDATA[<p>Todos los usuarios de <strong>Debian GNU/Linux</strong> estan de enhorabuena (me incluyo yo mismo).</p>
 <p>Como diria mucha gente <em>ja l&rsquo;ha tenim aqui</em>, pero en este caso es nuestro querido <strong>KDE 4.2</strong>.</p>]]></description>
 </item>
 <item>
     <title>¡Hola Mundo!</title>
-    <link>https://vctrsnts.github.io/book/2008-07-02-primer-post/</link>
+    <link>https://vctrsnts.github.io/2008-07-02-primer-post/</link>
     <pubDate>Wed, 02 Jul 2008 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/book/2008-07-02-primer-post/</guid>
+    <guid>https://vctrsnts.github.io/2008-07-02-primer-post/</guid>
     <description><![CDATA[<p>Ese mensaje típico al que mucho programadores estamos acostumbrados al iniciarnos en algún lenguaje nuevo 😃</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
