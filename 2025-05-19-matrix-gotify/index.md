@@ -8,7 +8,7 @@ Lo habia instalado tanto de **F-Droid** como de la **PlayStore** y en los 2 caso
 
 Investigue por todos sitios, *gitHub* de *Conduit*, matrix de *Conduit* y siempre con los mismos resultados, o no me respondian, o no entendian el motivo del porque no funcionaba.
 
-Al final ya no sabia que hacer, hasta que [Lazaro](https://elblogdelazaro.org/gu%C3%ADa-paso-a-paso-c%C3%B3mo-instalar-gotify-en-unraid) publico un nuevo articulo de como instalar **Gotify** en **unRaid**, en mi caso no seria en **unRaid**, porque sino, tengo que abrir el servidor al mundo entero y es una cosa que quiero evitar, pero como tengo el VPS, pues decidi instalarlo ahi. 
+Al final ya no sabia que hacer, hasta que [Carlos M.](https://elblogdelazaro.org/gu%C3%ADa-paso-a-paso-c%C3%B3mo-instalar-gotify-en-unraid) publico un nuevo articulo de como instalar **Gotify** en **unRaid**, en mi caso no seria en **unRaid**, porque sino, tengo que abrir el servidor al mundo entero y es una cosa que quiero evitar, pero como tengo el VPS, pues decidi instalarlo ahi. 
 
 Tengo que decir que yo ya jugaba con un poco de ventaja con respecto a **Gotify**, porque hace un par de años, antes de usar **Telegram** como servidor de notificaciones de mis servicios y de **unRaid**, lo habia utilizado, pero no me acabada de convencer, porque eso de tener 2 aplicaciones abiertas en el movil, *telegram* y a la vez *gotify* para recibir las notificaciones, pues me parecia un derroche de bateria, asi que al final lo acabe poniendo todo el *telegram* porque era la que más usaba.
 

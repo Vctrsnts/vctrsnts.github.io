@@ -6,22 +6,8 @@
     <description>Recent content in Raspberry Pi on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
-    <lastBuildDate>Sat, 31 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Nov 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vctrsnts.github.io/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Creando tu propi Spotify privado - Annexo</title>
-      <link>https://vctrsnts.github.io/2022-12-31-rpi-spotity/</link>
-      <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2022-12-31-rpi-spotity/</guid>
-      <description>&lt;p&gt;Tal como explique en este articulo &lt;a href=&#34;https://vctrsnts.github.io/2021-04-01-rpi-spotify&#34; rel=&#34;&#34;&gt;creando tu propio servidor de musica&lt;/a&gt; cuando tienes un servidor en tu casa, empiezas a tener ideas locas de que podrias hacer con el.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Volviendo a Caddy desde Nginx Proxy Manager</title>
-      <link>https://vctrsnts.github.io/2022-12-25-rpi-caddy-proxy-manager/</link>
-      <pubDate>Sun, 25 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2022-12-25-rpi-caddy-proxy-manager/</guid>
-      <description>&lt;p&gt;Como ya sabreis, &lt;a href=&#34;https://vctrsnts.github.io/2021-05-07-rpi-nginx-proxy-manager&#34; rel=&#34;&#34;&gt;anteriormente&lt;/a&gt; usaba &lt;strong&gt;Nginx Proxy Manager&lt;/strong&gt; porque habia tenido muchos problemas con &lt;strong&gt;Caddy&lt;/strong&gt;, no se de donde venian estos problemas, si de &lt;strong&gt;Caddy&lt;/strong&gt; o de &lt;strong&gt;duckdns.org&lt;/strong&gt;, asi que hice el cambio a &lt;strong&gt;npm&lt;/strong&gt; para los amigos.&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Mi nuevo mediacenter - Thinkcenter m710q</title>
       <link>https://vctrsnts.github.io/2022-11-08-cambiando-mediacenter/</link>
@@ -98,6 +84,13 @@
       <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
       <guid>https://vctrsnts.github.io/2020-10-30-rpi-cambiando-equipo/</guid>
       <description>&lt;p&gt;Ante la noticia de que iban a sacar una nueva &lt;a href=&#34;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/?resellerType=home&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Raspberry Pi&lt;/a&gt; con varias mejores (más vale tarde que nunca que ya hablaremos más adelante) y pense si ya era hora de cambiar mi Raspberry Pi 3b por la nueva versión.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Usando Calibre-Web</title>
+      <link>https://vctrsnts.github.io/2020-04-12-usando-calibre-web/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2020-04-12-usando-calibre-web/</guid>
+      <description>&lt;p&gt;Después del descubrimiento de &lt;strong&gt;docker&lt;/strong&gt;, tal como dije en otra entrada se ha abierto un nuevo mundo de posibilidades por explorar. Y en este caso hemos descubierto &lt;strong&gt;calibre-web&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;La idea me gusto, porque así, voy quitando peso al portátil y doy más uso a la RPI3b (de momento a la espera de cambiar a una 4) y además, con el &lt;em&gt;HDD de 4Tb&lt;/em&gt; que viene en camino, pues nos pusimos a ello.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Pasos para instalar Docker en Raspbian</title>

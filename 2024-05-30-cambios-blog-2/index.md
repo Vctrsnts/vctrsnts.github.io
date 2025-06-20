@@ -101,7 +101,7 @@ Pero yo no queria esta chapuza, por llamarlo de alguna manera. Yo queria utiliza
 Aqui fue donde explique que usaba un archivo sh, este en [concreto](/2023-08-10-como-funciona-esta-web) que hacia las siguientes funciones:
 - Construir el sitio añadiendo los nuevos posts, recordar que yo todo esto lo tengo en docker:
 ```bash
-   docker exec jekyll bundle exec jekyll serve build
+docker exec jekyll bundle exec jekyll serve build
 ```
 - Subir los archivos `html` a **GitHub**.
 

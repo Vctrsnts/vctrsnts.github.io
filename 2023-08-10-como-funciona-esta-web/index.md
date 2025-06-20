@@ -1,6 +1,6 @@
 # Como funciona esta web y su creación
 
-Después de leer el [articulo](https://elblogdelazaro.org/posts/2023-05-08-como-publico-este-blog) que habia publicado **Lazaro** en su blog, pense, que porque no hacer lo mismo con el mio.
+Después de leer el [articulo](https://elblogdelazaro.org/posts/2023-05-08-como-publico-este-blog) que habia publicado **Carlos M.** en su blog, pense, que porque no hacer lo mismo con el mio.
 
 <!--more-->
 
@@ -99,7 +99,7 @@ Con esto, ya tenemos actualizado nuestro repositorio con GitHub.
 ### Publicación
 Para la publicación, se puede decir, que ya se ha hecho con el segundo de los scripts que antes he puesto.
 
-Lo unico que falta, es otro script, esta vez hecho en `python`, de factoria tambien de [Lazaro](https://elblogdelazaro.org/posts/2021-08-16-bot-en-python-para-publicar-un-feed-de-forma-aleatorios-en-twitter-y-mastodom) que lo que hace es crear un toot en **Mastodon** con el ultimo articulo publicado en nuestro blog.
+Lo unico que falta, es otro script, esta vez hecho en `python`, de factoria tambien de [Carlos M.](https://elblogdelazaro.org/posts/2021-08-16-bot-en-python-para-publicar-un-feed-de-forma-aleatorios-en-twitter-y-mastodom) que lo que hace es crear un toot en **Mastodon** con el ultimo articulo publicado en nuestro blog.
 
 En el articulo, puedes ver como se hace tanto para `Twitter` como para `Mastodon`, pero en mi caso yo solo uso `Mastodon`.
 

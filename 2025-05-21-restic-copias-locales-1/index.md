@@ -1,6 +1,6 @@
 # Restic + Backrest + MiniO - 1
 
-Lo primero y antes de nada, tengo que dar las gracias a **Lázaro** de [El Blog de Lázaro](https://elblogdelazaro.org) y a **Lorenzo** de [Atareao](https://atareao.es), por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.
+Lo primero y antes de nada, tengo que dar las gracias a **Carlos M.** de [El Blog de Lázaro](https://elblogdelazaro.org) y a **Lorenzo** de [Atareao](https://atareao.es), por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.
 
 <!--more-->
 

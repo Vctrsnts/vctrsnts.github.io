@@ -3,9 +3,24 @@
         <title>Si lo haces, hazlo bien!</title>
         <link>https://vctrsnts.github.io/</link>
         <description>Hay 10 tipos de personas en el mundo. Las que saben binario y las que no</description>
-        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Mon, 09 Jun 2025 00:00:00 &#43;0000</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Fri, 20 Jun 2025 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://vctrsnts.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Adios GCalendar. Hola Radicale</title>
+    <link>https://vctrsnts.github.io/2025-06-20-radicale-etar/</link>
+    <pubDate>Fri, 20 Jun 2025 00:00:00 &#43;0000</pubDate>
+    <author>vsantos</author>
+    <guid>https://vctrsnts.github.io/2025-06-20-radicale-etar/</guid>
+    
+    
+    <category term="VPS" />
+    
+    <category term="Docker" />
+    
+    <description><![CDATA[<p>A partir de este <a href="https://elblogdelazaro.org/sincronizar-gnome-calendar-con-un-servidor-caldav" target="_blank" rel="noopener noreffer ">articulo</a> de <strong>Carlos M.</strong> del que sigo tanto su <a href="https://elblogdelazaro.org/" target="_blank" rel="noopener noreffer ">blog</a> como su canal de mastodon, me pico la curiosidad de si yo tambien podria tener un calendario ajeno al control de Google y si le sacaria todo el partido para ello.</p>
+<p>Pues que quereis que os diga, si con el <em>calendario de Google</em> que lo uso para apuntar 3 notas, porque no voy a sacarle partido a mi propio calendario, pero controlado por mi. A parte, de que tambien permite tener tu propia agenda de contactos y que esta no este al alcance de <em>Google</em>.</p>]]></description>
+</item>
+<item>
     <title>Cambiando a Hugo</title>
     <link>https://vctrsnts.github.io/2025-06-09-cambiando-hugo/</link>
     <pubDate>Mon, 09 Jun 2025 00:00:00 &#43;0000</pubDate>
@@ -14,8 +29,6 @@
     
     
     <category term="Blog" />
-    
-    <category term="Hugo" />
     
     <description><![CDATA[<p>Antes de seguir con nuestro ultimo articulo sobre las copias de seguridad (<em>Restic, Backrest y Minio</em>) y seguramente  ya lo habreis notado si visitais este blog, es que ha habido un cambio sustancial en su diseño.</p>]]></description>
 </item>
@@ -27,7 +40,7 @@
     <guid>https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2/</guid>
     
     
-    <category term="Docker" />
+    <category term="unRAID" />
     
     <description><![CDATA[<p>Continuamos con esta segunda parte donde explicaremos como sacar provecho de estas 3 aplicaciones, en este caso, explicare el script que estoy usando para realizar las copia, que es una variación de uno que tiene <strong>Lorenzo</strong> en su <a href="https://github.com/atareao/dotfiles/blob/main/.local/bin/backup.sh.jinja" target="_blank" rel="noopener noreffer ">gitHub</a>, pero que en mi caso, en vez de ser un fichero <strong>jinja</strong>, es un fichero en bash a pelo.</p>]]></description>
 </item>
@@ -39,7 +52,7 @@
     <guid>https://vctrsnts.github.io/2025-05-22-gotify-matrix/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>Como ya explique en este <a href="/2025-05-19-matrix-gotify" rel="">articulo</a>, ante la imposibilidad de usar <strong>Matrix</strong> me pase a <strong>Gotify</strong> aunque me negue a dejar de lado a <em>Matrix</em> y segui investigando, el porque no funcionaba correctamente y asi llegado el momento, poderlo usar o sino, tener una alternativa <em>Gotify</em>.</p>]]></description>
 </item>
@@ -51,9 +64,9 @@
     <guid>https://vctrsnts.github.io/2025-05-21-restic-copias-locales-1/</guid>
     
     
-    <category term="Docker" />
+    <category term="unRAID" />
     
-    <description><![CDATA[<p>Lo primero y antes de nada, tengo que dar las gracias a <strong>Lázaro</strong> de <a href="https://elblogdelazaro.org" target="_blank" rel="noopener noreffer ">El Blog de Lázaro</a> y a <strong>Lorenzo</strong> de <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a>, por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.</p>]]></description>
+    <description><![CDATA[<p>Lo primero y antes de nada, tengo que dar las gracias a <strong>Carlos M.</strong> de <a href="https://elblogdelazaro.org" target="_blank" rel="noopener noreffer ">El Blog de Lázaro</a> y a <strong>Lorenzo</strong> de <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a>, por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.</p>]]></description>
 </item>
 <item>
     <title>Matrix - 3. De Matrix a Gotify</title>
@@ -63,7 +76,7 @@
     <guid>https://vctrsnts.github.io/2025-05-19-matrix-gotify/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>Como bien sabeis, porque lo explique en este <a href="/2025-03-25-instal-config-matrix" rel="">articulo</a> y en este <a href="/2025-03-27-pushbits" rel="">otro</a>, estaba usando <strong>Matrix</strong> como servidor de comunicación entre mis servidores y un servidor. Pero mientras más lo usaba, más desesperación me producia, porque, puede parecer una tonteria, pero en el movil, no recibia las notificaciones de los mensajes que me llegaban al cliente de <strong>Matrix</strong>, que en este caso era <strong>FluffyChat</strong>.</p>]]></description>
 </item>
@@ -87,7 +100,7 @@
     <guid>https://vctrsnts.github.io/2025-03-27-pushbits/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>Como bien explique en el anterior <a href="/2025-03-25-instal-config-matrix" rel="">articulo</a>, explicaba la instalación y configuración, nada facil, de mi servidor de <strong>matrix</strong> ahora os vengo a traer el siguiente articulo, donde explico el uso que le he dado y los problemeas que me he encontrado asi como los planes de futuro.</p>]]></description>
 </item>
@@ -99,7 +112,7 @@
     <guid>https://vctrsnts.github.io/2025-03-25-instal-config-matrix/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>A partir de unos articulos de <a href="https://atareao.es/?s=matrix" target="_blank" rel="noopener noreffer ">Lorenzo</a> y de <a href="https://ugeek.github.io" target="_blank" rel="noopener noreffer ">uGeek</a> (podeis encontrar más información en la referencia), me pico la sobre como seria tener mi propio servidor de mensajeria y poderlo utilizar para enviar las notificaciones de mis servicios y asi no depender tanto de <em>Telegram</em>.</p>
 <p>De hay viene este nuevo articulo, donde explicare todo el proceso de instalación y uso de mi nuevo servidor <strong>Matrix</strong> en mi VPS y os aviso que no ha sido nada sencillo.</p>]]></description>
@@ -165,7 +178,7 @@
     
     <category term="Debian GNULinux" />
     
-    <description><![CDATA[<p>Siguiendo la iniciativa de <a href="https://elblogdelazaro.org/posts/2024-12-09-mis-aplicaciones-por-defecto-2024" target="_blank" rel="noopener noreffer ">Lazaro</a>, pues tambien pondre mi granito de arena a esta buena idea, porque asi, la gente puede descubrir nuevas aplicaciones que nunca habrias pensado que existieran, y de esta manera, pues&hellip;</p>]]></description>
+    <description><![CDATA[<p>Siguiendo la iniciativa de <a href="https://elblogdelazaro.org/posts/2024-12-09-mis-aplicaciones-por-defecto-2024" target="_blank" rel="noopener noreffer ">Carlos M.</a>, pues tambien pondre mi granito de arena a esta buena idea, porque asi, la gente puede descubrir nuevas aplicaciones que nunca habrias pensado que existieran, y de esta manera, pues&hellip;</p>]]></description>
 </item>
 <item>
     <title>Publicando nuevos articulos en RRSS</title>
@@ -200,7 +213,7 @@
     <guid>https://vctrsnts.github.io/2024-10-28-script-actualizar-docker/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>Como he tenido malas experencias a la hora de usar servicios para mantener las imagenes actualizadas, he cambiado el servició que tenia actualmente <strong>whatsup</strong> por <strong>cup</strong>.</p>]]></description>
 </item>
@@ -226,7 +239,7 @@
     <guid>https://vctrsnts.github.io/2024-10-20-controlado-temperatura-servidor/</guid>
     
     
-    <category term="unRAID" />
+    <category term="Hardware" />
     
     <description><![CDATA[<p>Como ya comente en el anterior <a href="/2024-10-19-modificando-servidor-2" rel="">articulo</a> donde explicaba que habia puesto un <strong>Xeon</strong> en mi servidor y todo lo referente a la temperatura.</p>
 <p>Pero claro, eso me gustaria verlo reflejado en <strong>unRAID</strong>, porque hasta ahora, solamente habia podido visualizar la temperatura de la CPU, de la placa base era imposible cuando teoricamente los Tiny son equipos con componentes muy normales y comunes.</p>]]></description>
@@ -264,7 +277,7 @@
     <guid>https://vctrsnts.github.io/2024-07-26-usando-traefik-4/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>Tal como indique en este <a href="/2024-04-19-traefik" rel="">articulo</a>, lo unico que me faltaba por añadir a <strong>traefik</strong> para tener mi VPS lo más seguro posible era <strong>crowdsec</strong> y por fin, ya lo tengo instalado.</p>
 <p>Antes de lanzarte a la piscina directamente, te aconsejo que les eches un vistazo a este <a href="https://atareao.es/podcast/mas-herramientas-para-proteger-tu-linux" target="_blank" rel="noopener noreffer ">articulo</a> de <strong>atareao</strong> donde habla de <em>crowdsec</em> y tambien a este <a href="https://www.youtube.com/watch?v=-GxUP6bNxF0" target="_blank" rel="noopener noreffer ">video</a>, que me ha servido como guia en todo el proceso.</p>]]></description>
@@ -301,7 +314,7 @@
     <guid>https://vctrsnts.github.io/2024-06-06-usando-traefik-3/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>Como recordais hice 2 articulos donde en el <a href="/2024-05-06-usando-traefik-1" rel="">primero articulo</a> explicaba como se podia usar <strong>traefik</strong> con otros servicios de docker y en el <a href="2024-05-13-usando-traefik-2.md" rel="">segundo articulo</a>, explicaba como se le podia añadir una capa más de seguridad a nuestro servicio de <em>traefik</em> que consistia en bloquear las peticiones de paises de nuestra lista negra.</p>
 <p>En este 3º articulo, explicare unas modificaciones que, como siempre me pasa, no acabe de entender al leer el articulo principal de <a href="https://www.atareao.es" target="_blank" rel="noopener noreffer ">atareao</a>{:target=&quot;_blank} y que gracias, no se si por inspiración divida de <em>Lorenzo</em> he acabado de entender.</p>]]></description>
@@ -327,7 +340,7 @@
     <guid>https://vctrsnts.github.io/2024-06-03-usando-homepage-2/</guid>
     
     
-    <category term="Docker" />
+    <category term="unRAID" />
     
     <description><![CDATA[<p>Como ya comente en el anterior <a href="/2024-02-12-usando-homepage-1" rel="">articulo</a>  donde hablaba de que estaba usando <strong>HomePage</strong> con una configuración <em>normal</em> y muy <em>simple</em>, pero que a la vez era funcional, por no decir basica para cuando te inicias, pero me faltaba algo, en resumen, queria algo más&hellip;</p>]]></description>
 </item>
@@ -363,7 +376,7 @@
     <guid>https://vctrsnts.github.io/2024-05-13-usando-traefik-2/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>De nuevo, con otro articulo de <strong>Traefik</strong>, en este caso, como se instala / activa el plugin <strong>GeoBlock</strong> para asi, tal como indica su nombre, <strong>Traefik</strong> en base al pais de origen de la <strong>IP</strong>, lo bloquea o no.</p>
 <p>En este caso, igual que en el anterior articulo, partimos de la base de que tambien me encontre con problemas a la hora de poder usar este plugin, tanto en su instalación, como en su configuración. Pero como ya tenia la experiencia de instalar y activar toda la sección  de la redirección, esta vez, me resulto un poco más facil, solo un poco, todo porque ya entendia, más o menos como funcionaba <strong>traefik</strong>.</p>
@@ -377,7 +390,7 @@
     <guid>https://vctrsnts.github.io/2024-05-06-usando-traefik-1/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>Como os explique en este <a href="/2024-04-19-traefik" rel="">articulo</a>, aprovechando que tenia nuevo VPS, queria sacarle el maximo partido y después de haber instalado <strong>traefik</strong> aun tenia más ganas.</p>
 <p>Y aqui es donde os aviso, he estado 3 dias intentando hacerlo funcionar correctamente y hasta que al final, me vino una <strong>inspiración</strong> y pude conseguir que funcionara correctamente.</p>]]></description>
@@ -402,7 +415,7 @@
     <guid>https://vctrsnts.github.io/2024-04-19-traefik/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>Aprovenchando que tengo el <a href="/2024-04-17-nuevo-VPS" rel="">nuevo VPS</a> queria ponerle <a href="/2024-04-19-traefik" rel="">traefik</a> y que además se puede hacer a traves de docker y asi poder aprovechar todas las posibilidades que nos da. Al final (cuando estoy escribiendo esto) lo tengo todo en funcionamiento, pero me ha costado horrores y aqui os explico mi odisea.</p>]]></description>
 </item>
@@ -426,7 +439,7 @@
     <guid>https://vctrsnts.github.io/2024-04-13-uno-juntarlos-todos/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>No se si lo habreis notado vosotros, pero escuchar podcast sobre tecnologia, informatica y dockers puede ser perjudicial para la salud y por extensión para vuestros servidores, o es solo una cosa que me pasa a mi solo?</p>
 <p>Si os preguntareis a que viene esta afirmación, podeis seguir leyendo y todo quedara aclarado.</p>]]></description>
@@ -465,7 +478,7 @@
     <guid>https://vctrsnts.github.io/2024-02-12-usando-homepage-1/</guid>
     
     
-    <category term="Docker" />
+    <category term="unRAID" />
     
     <description><![CDATA[<p>Despúes de escuchar el <a href="https://ugeek.github.io/post/2021-05-24-homer-mi-dashboard-favorito.html" target="_blank" rel="noopener noreffer ">podcast</a> de <strong>uGeek</strong> donde hablaba de los <strong>dashboard</strong> y en especial del que el usaba, <strong>Homer</strong>, me decidi a probarlo a ver que tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Asi que me decidi a instalar y probar <strong>Homer</strong>.</p>]]></description>
 </item>
@@ -477,7 +490,7 @@
     <guid>https://vctrsnts.github.io/2024-02-06-copias-seguridad-annexo/</guid>
     
     
-    <category term="Docker" />
+    <category term="Debian GNULinux" />
     
     <description><![CDATA[<p>Se que ha pasado 1 mes desde la ultima vez que publique algo, pero he estado un poco liado con todo, pero ahora vuelvo al ruedo y a ver, si me pongo las pilas con el <strong>Blog</strong>.</p>
 <p>Tal como se puede ver en estos 2 articulos que ya habia escrito:</p>
@@ -494,7 +507,7 @@
     <guid>https://vctrsnts.github.io/2024-01-10-searxng-uno-todo/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>Como ha he dicho muchas veces, docker te abre un mundo de infinitas posibilidades y entre una de estas posibilidades es tener tu propio buscador web y esto se consegui gracias a <strong>SearxNG</strong>.</p>]]></description>
 </item>
@@ -538,7 +551,7 @@
     <guid>https://vctrsnts.github.io/2023-09-11-substitutos-portatil/</guid>
     
     
-    <category term="Thinkcenter" />
+    <category term="Hardware" />
     
     <description><![CDATA[<p>Como ya decia en el anterior <a href="/2023-08-01-de-nuevo-cambiando-servidor" rel="">articulo</a>, donde hablaba sobre el  nuevo cambio de servidor que habia hecho, el canal de <a href="https://homelabs.club" target="_blank" rel="noopener noreffer ">HomeLabs.Club</a> es una mala influencia, teneis que hacerme caso y ahora lo entendereis mejor.</p>]]></description>
 </item>
@@ -552,7 +565,7 @@
     
     <category term="Blog" />
     
-    <description><![CDATA[<p>Después de leer el <a href="https://elblogdelazaro.org/posts/2023-05-08-como-publico-este-blog" target="_blank" rel="noopener noreffer ">articulo</a> que habia publicado <strong>Lazaro</strong> en su blog, pense, que porque no hacer lo mismo con el mio.</p>]]></description>
+    <description><![CDATA[<p>Después de leer el <a href="https://elblogdelazaro.org/posts/2023-05-08-como-publico-este-blog" target="_blank" rel="noopener noreffer ">articulo</a> que habia publicado <strong>Carlos M.</strong> en su blog, pense, que porque no hacer lo mismo con el mio.</p>]]></description>
 </item>
 <item>
     <title>De nuevo, cambiando de servidor local</title>
@@ -562,7 +575,7 @@
     <guid>https://vctrsnts.github.io/2023-08-01-de-nuevo-cambiando-servidor/</guid>
     
     
-    <category term="Thinkcenter" />
+    <category term="Hardware" />
     
     <description><![CDATA[<p>Tal como avise en este <a href="/2023-01-19-mis-nuevos-juguetes" rel="">articulo</a> o en este otro <a href="/2022-05-26-nuevo-servidor" rel="">articulo</a>, decia de que habia cambiado de servidor y que, a parte, tenia unos juguetes nuevos. Pero quereis un consejo, alejaros de los canales de telegram, en especial de <a href="https://homelabs.club" target="_blank" rel="noopener noreffer ">este</a>.</p>]]></description>
 </item>
@@ -598,7 +611,7 @@
     <guid>https://vctrsnts.github.io/2023-04-29-donde-dije-digo-digo-diego/</guid>
     
     
-    <category term="Docker" />
+    <category term="Debian GNULinux" />
     
     <description><![CDATA[<p>Mucha gente pensara que me he vuelto loco al poner este titulo a este articulo y más siendo un blog de tecnologia, pero cuando llegueis al final lo entendereis.</p>]]></description>
 </item>
@@ -610,7 +623,7 @@
     <guid>https://vctrsnts.github.io/2023-02-19-actualizacion-watchtower/</guid>
     
     
-    <category term="Docker" />
+    <category term="Debian GNULinux" />
     
     <description><![CDATA[<p>Tal como habia indicado en este <a href="/2023-01-25-usando-watchtower" rel="">post</a>, explica como empece usar <strong>watchtower</strong> pero con resultados muy extraños.</p>]]></description>
 </item>
@@ -634,9 +647,9 @@
     <guid>https://vctrsnts.github.io/2023-01-25-usando-watchtower/</guid>
     
     
-    <category term="Docker" />
+    <category term="Debian GNULinux" />
     
-    <description><![CDATA[<p>Si quieres echarle la culpa tendreis que mirar a <a href="https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html" target="_blank" rel="noopener noreffer ">Angel de uGeek</a>, a <a href="https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente" target="_blank" rel="noopener noreffer ">Lorenzo de Atareao.es</a> y por ultimo a <a href="https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker" target="_blank" rel="noopener noreffer ">ElBlogdeLazaro</a> porque ellos son los culpables de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación <strong>watchtower</strong> es una de ellas 😉</p>]]></description>
+    <description><![CDATA[<p>Si quieres echarle la culpa tendreis que mirar a <a href="https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html" target="_blank" rel="noopener noreffer ">Angel de uGeek</a>, a <a href="https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente" target="_blank" rel="noopener noreffer ">Lorenzo de Atareao.es</a> y por ultimo a <strong>Carlos M.</strong> de <a href="https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker" target="_blank" rel="noopener noreffer ">ElBlogdeLazaro</a> porque ellos son los culpables de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación <strong>watchtower</strong> es una de ellas 😉</p>]]></description>
 </item>
 <item>
     <title>Mis nuevos juguetes</title>
@@ -646,7 +659,7 @@
     <guid>https://vctrsnts.github.io/2023-01-19-mis-nuevos-juguetes/</guid>
     
     
-    <category term="Thinkpads" />
+    <category term="Hardware" />
     
     <description><![CDATA[<p>A través de este <a href="https://podcastlinux.com/posts/podcastlinux/129-Podcast-Linux" target="_blank" rel="noopener noreffer ">podcast</a> que escuche hace algún tiempo, siempre me quedo el gusanito de tener uno, y eso que estoy muy contento con mi <strong>Lenovo Ideapad Y700</strong>, pero siempre me quedo esa espina clavada&hellip;</p>]]></description>
 </item>
@@ -658,7 +671,7 @@
     <guid>https://vctrsnts.github.io/2023-01-13-mejoras-i3/</guid>
     
     
-    <category term="i3" />
+    <category term="i3wm" />
     
     <description><![CDATA[<p>Después de mucho tiempo usando <a href="/2020-08-06-usando-i3-wm" rel="">i3-wm</a>, estaba constantemente, cambiando de wallpaper (seguramente ha más de uno le pasa), pense que habria alguna manera de hacer que cada X tiempo, el wallpaper que estoy utilizando cambiara automaticamente, de los que tengo en el directorio donde los guardo.</p>
 <p>Así que me puse a la busqueda de como se puede hacer.</p>]]></description>
@@ -683,7 +696,7 @@
     <guid>https://vctrsnts.github.io/2022-12-31-rpi-spotity/</guid>
     
     
-    <category term="Docker" />
+    <category term="Debian GNULinux" />
     
     <description><![CDATA[<p>Tal como explique en este articulo <a href="/2021-04-01-rpi-spotify" rel="">creando tu propio servidor de musica</a> cuando tienes un servidor en tu casa, empiezas a tener ideas locas de que podrias hacer con el.</p>]]></description>
 </item>
@@ -695,7 +708,7 @@
     <guid>https://vctrsnts.github.io/2022-12-25-rpi-caddy-proxy-manager/</guid>
     
     
-    <category term="Docker" />
+    <category term="Debian GNULinux" />
     
     <description><![CDATA[<p>Como ya sabreis, <a href="/2021-05-07-rpi-nginx-proxy-manager" rel="">anteriormente</a> usaba <strong>Nginx Proxy Manager</strong> porque habia tenido muchos problemas con <strong>Caddy</strong>, no se de donde venian estos problemas, si de <strong>Caddy</strong> o de <strong>duckdns.org</strong>, asi que hice el cambio a <strong>npm</strong> para los amigos.</p>]]></description>
 </item>
@@ -805,7 +818,7 @@
     <guid>https://vctrsnts.github.io/2021-06-09-solucionar-error-i915/</guid>
     
     
-    <category term="Debian GNULinux" />
+    <category term="Hardware" />
     
     <description><![CDATA[<p>Desde que <strong>Debian GNU/Linux</strong> saco la versión del kernel 5.4 en mi portatil fue recurrente los flashes en la pantalla y el siguiente error:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
@@ -825,7 +838,7 @@
     <guid>https://vctrsnts.github.io/2021-06-07-flexget-podcast-annexo/</guid>
     
     
-    <category term="Docker" />
+    <category term="Raspberry Pi" />
     
     <description><![CDATA[<p>Como habia explicado en este <a href="/2020-12-14-crear-imagen-docker" rel="">articulo</a> o en este otro <a href="/2021-05-30-flexget-podcast" rel="">articulo</a>, explicaba como crear una imagen de <code>docker</code> o como usar dicha imagen, <strong>flexget</strong>, para descargar podcast a traves de los <code>RSS</code> que puedes conseguir.</p>]]></description>
 </item>
@@ -837,7 +850,7 @@
     <guid>https://vctrsnts.github.io/2021-05-30-flexget-podcast/</guid>
     
     
-    <category term="Docker" />
+    <category term="Raspberry Pi" />
     
     <description><![CDATA[<p>Gracias que tengo docker puedo usar la imagen que he creado de <a href="https://flexget.com" target="_blank" rel="noopener noreffer ">Flexget</a>, una aplicación que a traves de un fichero <strong>yaml</strong>, permite descargar lo que quieras incluidos podcast.</p>
 <p>En principio me gustan los que tengas que ver con la tecnologia y sobre todo lo que tenga que ver con GNU/Linux. Pero a parte de estos tambien tengo un podcast de historia que me encanta mucho y cuando me acuerdo lo escucho. Este podcast se llama <a href="https://www.ccma.cat/catradio/en-guardia" target="_blank" rel="noopener noreffer ">En Guàrdia</a>.</p>
@@ -851,7 +864,7 @@
     <guid>https://vctrsnts.github.io/2021-04-01-rpi-spotify/</guid>
     
     
-    <category term="Docker" />
+    <category term="Raspberry Pi" />
     
     <description><![CDATA[<p>Cuando tienes un servidor de bajo consumo como una Raspberry y empiezas a usar docker, a parte de descubrir un nuevo mundo (no me canso de decirlo), tambien descubres nuevas formas de torturar tu mente.</p>]]></description>
 </item>
@@ -863,7 +876,7 @@
     <guid>https://vctrsnts.github.io/2021-05-07-rpi-nginx-proxy-manager/</guid>
     
     
-    <category term="Docker" />
+    <category term="Raspberry Pi" />
     
     <description><![CDATA[<p>Aqui tenemos otra entrada más que hace referencia a mi RPI y a ese inmenso oceano que se ha abierto al descubrir Docker.</p>]]></description>
 </item>
@@ -875,7 +888,7 @@
     <guid>https://vctrsnts.github.io/2021-04-08-rpi-caddy-proxy-manager/</guid>
     
     
-    <category term="Docker" />
+    <category term="Raspberry Pi" />
     
     <description><![CDATA[<p>Anteriomente venia usando Traefik, pero como ya he comentado, era muy dificil de mantener y de configurar, a parte de las multiples opciones que tiene. Ante esto, me resultaba muy tedioso su uso, asi que decidir buscar otra alternativa más facil.</p>
 <p>Después de buscar y leer a mis blogueros preferidos:</p>
@@ -905,7 +918,7 @@
     <guid>https://vctrsnts.github.io/2021-01-18-rpi-externalizando-copias-seguridad/</guid>
     
     
-    <category term="Docker" />
+    <category term="Raspberry Pi" />
     
     <description><![CDATA[<p>Este articulo es una continuación al que hice hace un par de dias con respecto a realizar copias de seguridad en mi RPI4 con <a href="/2021-01-17-rpi-copias-seguridad" rel="">rsnapshot</a>.</p>]]></description>
 </item>
@@ -917,7 +930,7 @@
     <guid>https://vctrsnts.github.io/2021-01-17-rpi-copias-seguridad/</guid>
     
     
-    <category term="Docker" />
+    <category term="Raspberry Pi" />
     
     <description><![CDATA[<p>Otro capitulo más con respecto a la configuración de de mi RPI4, en este caso son las copias de seguridad de la información más importante.</p>]]></description>
 </item>
@@ -954,7 +967,7 @@
     <guid>https://vctrsnts.github.io/2020-10-30-rpi-cambiando-equipo/</guid>
     
     
-    <category term="Hardware" />
+    <category term="Raspberry Pi" />
     
     <description><![CDATA[<p>Ante la noticia de que iban a sacar una nueva <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/?resellerType=home" target="_blank" rel="noopener noreffer ">Raspberry Pi</a> con varias mejores (más vale tarde que nunca que ya hablaremos más adelante) y pense si ya era hora de cambiar mi Raspberry Pi 3b por la nueva versión.</p>]]></description>
 </item>
@@ -1002,7 +1015,7 @@
     <guid>https://vctrsnts.github.io/2020-08-06-usando-i3-wm/</guid>
     
     
-    <category term="i3" />
+    <category term="i3wm" />
     
     <description><![CDATA[<p>Aqui va una nueva entrada y en este caso hace referencia a <a href="https://i3wm.org" target="_blank" rel="noopener noreffer ">i3wm</a></p>
 <p>Primero un poco de historia con respecto al porque de este post. Desde hace años (cuando <strong>KDE</strong> se volvio tan pesado y desapareció el paquete kde-minimal) cambie a <strong>XFCE4</strong> y todo fue bien, hasta que vi que (en mi opinión), se habia estancado, por eso decidi hacer un cambio y hablando con gente de <a href="https://exdebian.org" target="_blank" rel="noopener noreffer ">exDebian</a> me aconsejaron probar <strong>i3wm</strong>. Asi que empeze a buscar información y fue cuando encontre esta colección de 3 videos en <a href="https://www.youtube.com/playlist?list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf" target="_blank" rel="noopener noreffer ">Youtube - i3wm</a> que me abrieron las puertas a <strong>i3wm</strong></p>]]></description>
@@ -1015,7 +1028,7 @@
     <guid>https://vctrsnts.github.io/2020-04-12-usando-calibre-web/</guid>
     
     
-    <category term="Docker" />
+    <category term="Raspberry Pi" />
     
     <description><![CDATA[<p>Después del descubrimiento de <strong>docker</strong>, tal como dije en otra entrada se ha abierto un nuevo mundo de posibilidades por explorar. Y en este caso hemos descubierto <strong>calibre-web</strong>.</p>
 <p>La idea me gusto, porque así, voy quitando peso al portátil y doy más uso a la RPI3b (de momento a la espera de cambiar a una 4) y además, con el <em>HDD de 4Tb</em> que viene en camino, pues nos pusimos a ello.</p>]]></description>
@@ -1028,7 +1041,7 @@
     <guid>https://vctrsnts.github.io/2020-03-08-rpi-usando-docker/</guid>
     
     
-    <category term="Docker" />
+    <category term="Raspberry Pi" />
     
     <description><![CDATA[<p>Siempre me pasa lo mismo, me hago mis chuletas y apuntes, pero nunca me pongo como se realiza la instalación sobre la cual funcionan las chuletas.</p>]]></description>
 </item>
@@ -1053,7 +1066,7 @@
     <guid>https://vctrsnts.github.io/2019-12-13-tip-raspbian-raspberry/</guid>
     
     
-    <category term="Hardware" />
+    <category term="Raspberry Pi" />
     
     <description><![CDATA[<p>A continuación pongo unos cuantos <strong>TIPS</strong> más con respecto a Raspbian, mayormente para que no se me olviden para más adelanta 😉</p>]]></description>
 </item>
@@ -1148,7 +1161,7 @@
     <guid>https://vctrsnts.github.io/2016-04-04-rpi-acceso-traves-ssh/</guid>
     
     
-    <category term="SSH" />
+    <category term="Raspberry Pi" />
     
     <description><![CDATA[<p>Una vez que ya tenemos nuestra Raspberry en marcha y funcionando ahora viene la parte divertida, como acceder a ella desde el exterior. En mi caso desde otra ubicación y además con un poco de seguridad para que nadie pueda acceder a ella (recordar que esto se tiene que hacer desde el equipo que se va a conectar a la Raspberry).</p>]]></description>
 </item>
@@ -1160,7 +1173,7 @@
     <guid>https://vctrsnts.github.io/2016-04-03-rpi-configurar-red/</guid>
     
     
-    <category term="Ethernet" />
+    <category term="Raspberry Pi" />
     
     <description><![CDATA[<p>Ahora que ya tenemos configurado y funcionando nuestra Raspberry, ahora le toca el turno a la red (en mi caso, quiero ip fija).</p>]]></description>
 </item>
@@ -1172,7 +1185,7 @@
     <guid>https://vctrsnts.github.io/2016-04-03-rpi-iniciar-hd-externo/</guid>
     
     
-    <category term="Hardware" />
+    <category term="Raspberry Pi" />
     
     <description><![CDATA[<p>Después de haber configurado la red, ahora pasare a explicar como extraer la información de la raiz <code>/</code> de la SD para pasarla a un HDD externo y así alargar la vida de nuestra <em>SD</em>.</p>]]></description>
 </item>
@@ -1256,7 +1269,7 @@
     <guid>https://vctrsnts.github.io/2013-11-25-rpi-peque%C3%B1o-juguete/</guid>
     
     
-    <category term="Hardware" />
+    <category term="Raspberry Pi" />
     
     <description><![CDATA[<p>Pues nada. Desde hace un par de meses, tengo a mi disposición un nuevo juguete. La Raspberry modelo B, con las las siguientes caracteristicas:</p>]]></description>
 </item>

@@ -3,7 +3,22 @@
         <title>Todos los Artículos - Si lo haces, hazlo bien!</title>
         <link>https://vctrsnts.github.io/posts/</link>
         <description>Todos los Artículos | Si lo haces, hazlo bien!</description>
-        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Mon, 09 Jun 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Fri, 20 Jun 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Adios GCalendar. Hola Radicale</title>
+    <link>https://vctrsnts.github.io/2025-06-20-radicale-etar/</link>
+    <pubDate>Fri, 20 Jun 2025 00:00:00 &#43;0000</pubDate>
+    <author>vsantos</author>
+    <guid>https://vctrsnts.github.io/2025-06-20-radicale-etar/</guid>
+    
+    
+    <category term="VPS" />
+    
+    <category term="Docker" />
+    
+    <description><![CDATA[<p>A partir de este <a href="https://elblogdelazaro.org/sincronizar-gnome-calendar-con-un-servidor-caldav" target="_blank" rel="noopener noreffer ">articulo</a> de <strong>Carlos M.</strong> del que sigo tanto su <a href="https://elblogdelazaro.org/" target="_blank" rel="noopener noreffer ">blog</a> como su canal de mastodon, me pico la curiosidad de si yo tambien podria tener un calendario ajeno al control de Google y si le sacaria todo el partido para ello.</p>
+<p>Pues que quereis que os diga, si con el <em>calendario de Google</em> que lo uso para apuntar 3 notas, porque no voy a sacarle partido a mi propio calendario, pero controlado por mi. A parte, de que tambien permite tener tu propia agenda de contactos y que esta no este al alcance de <em>Google</em>.</p>]]></description>
+</item>
+<item>
     <title>Cambiando a Hugo</title>
     <link>https://vctrsnts.github.io/2025-06-09-cambiando-hugo/</link>
     <pubDate>Mon, 09 Jun 2025 00:00:00 &#43;0000</pubDate>
@@ -12,8 +27,6 @@
     
     
     <category term="Blog" />
-    
-    <category term="Hugo" />
     
     <description><![CDATA[<p>Antes de seguir con nuestro ultimo articulo sobre las copias de seguridad (<em>Restic, Backrest y Minio</em>) y seguramente  ya lo habreis notado si visitais este blog, es que ha habido un cambio sustancial en su diseño.</p>]]></description>
 </item>
@@ -25,7 +38,7 @@
     <guid>https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2/</guid>
     
     
-    <category term="Docker" />
+    <category term="unRAID" />
     
     <description><![CDATA[<p>Continuamos con esta segunda parte donde explicaremos como sacar provecho de estas 3 aplicaciones, en este caso, explicare el script que estoy usando para realizar las copia, que es una variación de uno que tiene <strong>Lorenzo</strong> en su <a href="https://github.com/atareao/dotfiles/blob/main/.local/bin/backup.sh.jinja" target="_blank" rel="noopener noreffer ">gitHub</a>, pero que en mi caso, en vez de ser un fichero <strong>jinja</strong>, es un fichero en bash a pelo.</p>]]></description>
 </item>
@@ -37,7 +50,7 @@
     <guid>https://vctrsnts.github.io/2025-05-22-gotify-matrix/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>Como ya explique en este <a href="/2025-05-19-matrix-gotify" rel="">articulo</a>, ante la imposibilidad de usar <strong>Matrix</strong> me pase a <strong>Gotify</strong> aunque me negue a dejar de lado a <em>Matrix</em> y segui investigando, el porque no funcionaba correctamente y asi llegado el momento, poderlo usar o sino, tener una alternativa <em>Gotify</em>.</p>]]></description>
 </item>
@@ -49,9 +62,9 @@
     <guid>https://vctrsnts.github.io/2025-05-21-restic-copias-locales-1/</guid>
     
     
-    <category term="Docker" />
+    <category term="unRAID" />
     
-    <description><![CDATA[<p>Lo primero y antes de nada, tengo que dar las gracias a <strong>Lázaro</strong> de <a href="https://elblogdelazaro.org" target="_blank" rel="noopener noreffer ">El Blog de Lázaro</a> y a <strong>Lorenzo</strong> de <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a>, por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.</p>]]></description>
+    <description><![CDATA[<p>Lo primero y antes de nada, tengo que dar las gracias a <strong>Carlos M.</strong> de <a href="https://elblogdelazaro.org" target="_blank" rel="noopener noreffer ">El Blog de Lázaro</a> y a <strong>Lorenzo</strong> de <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a>, por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.</p>]]></description>
 </item>
 <item>
     <title>Matrix - 3. De Matrix a Gotify</title>
@@ -61,7 +74,7 @@
     <guid>https://vctrsnts.github.io/2025-05-19-matrix-gotify/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>Como bien sabeis, porque lo explique en este <a href="/2025-03-25-instal-config-matrix" rel="">articulo</a> y en este <a href="/2025-03-27-pushbits" rel="">otro</a>, estaba usando <strong>Matrix</strong> como servidor de comunicación entre mis servidores y un servidor. Pero mientras más lo usaba, más desesperación me producia, porque, puede parecer una tonteria, pero en el movil, no recibia las notificaciones de los mensajes que me llegaban al cliente de <strong>Matrix</strong>, que en este caso era <strong>FluffyChat</strong>.</p>]]></description>
 </item>
@@ -85,7 +98,7 @@
     <guid>https://vctrsnts.github.io/2025-03-27-pushbits/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>Como bien explique en el anterior <a href="/2025-03-25-instal-config-matrix" rel="">articulo</a>, explicaba la instalación y configuración, nada facil, de mi servidor de <strong>matrix</strong> ahora os vengo a traer el siguiente articulo, donde explico el uso que le he dado y los problemeas que me he encontrado asi como los planes de futuro.</p>]]></description>
 </item>
@@ -97,7 +110,7 @@
     <guid>https://vctrsnts.github.io/2025-03-25-instal-config-matrix/</guid>
     
     
-    <category term="Docker" />
+    <category term="VPS" />
     
     <description><![CDATA[<p>A partir de unos articulos de <a href="https://atareao.es/?s=matrix" target="_blank" rel="noopener noreffer ">Lorenzo</a> y de <a href="https://ugeek.github.io" target="_blank" rel="noopener noreffer ">uGeek</a> (podeis encontrar más información en la referencia), me pico la sobre como seria tener mi propio servidor de mensajeria y poderlo utilizar para enviar las notificaciones de mis servicios y asi no depender tanto de <em>Telegram</em>.</p>
 <p>De hay viene este nuevo articulo, donde explicare todo el proceso de instalación y uso de mi nuevo servidor <strong>Matrix</strong> en mi VPS y os aviso que no ha sido nada sencillo.</p>]]></description>
@@ -114,18 +127,6 @@
     
     <description><![CDATA[<p>Este es un articulo, que como puedes ver, es un articulo muy parecido a los que he ha escrito <strong>Lorenzo</strong>, de <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a>, porque es algo, que si te pones a pensar es una de las aplicaciones que más se utilizan en <em>GNU/Linux</em> pero a la que no se le da mucha importacia.</p>
 <p>Nos estamos refiriendo a la terminal.</p>]]></description>
-</item>
-<item>
-    <title>Propositos 2025</title>
-    <link>https://vctrsnts.github.io/2025-01-11-propositos-2025/</link>
-    <pubDate>Sat, 11 Jan 2025 00:00:00 &#43;0000</pubDate>
-    <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-01-11-propositos-2025/</guid>
-    
-    
-    <category term="Blog" />
-    
-    <description><![CDATA[<p>Como a buen principio de año y que me gustaria conversar en los siguientes años, es poner un listado de las cosas que me gustaria conseguir este año con referencia a mi servidor, docker, etc&hellip; O sea, todo lo que tiene que ver con el mundo de la tecnologia y la informatica.</p>]]></description>
 </item>
 </channel>
 </rss>

@@ -12,7 +12,7 @@ De la misma manera que me paso antes, cuando di el salto a **GitHub** para tener
 
 A parte de toda la creación de los articulos, donde sigo usando **Jekyll** para la generación del sitio estatico, tambien me ha servido para aprender como es el funcionamiento de **GitLab**. Eso si, tengo que decir que es muy diferente a **GitHub** en todo, o en casi todo.
 
-Lo veo todo más lioso y más confuso, me resulto más facil **GitHub**, pero eso si tengo que decir que los [articulos](https://elblogdelazaro.org/search/?q=GitLab) de **Lazaro** me sirvieron de punta de lanza para resolver todas las dudas que me iban surgiendo con respecto a funcionamiento y creación de un sitio en **GitLab**. 
+Lo veo todo más lioso y más confuso, me resulto más facil **GitHub**, pero eso si tengo que decir que los [articulos](https://elblogdelazaro.org/search/?q=GitLab) de **Carlos M.** me sirvieron de punta de lanza para resolver todas las dudas que me iban surgiendo con respecto a funcionamiento y creación de un sitio en **GitLab**. 
 
 De nuevo **gracias Lazaro por tus articulos**.
 

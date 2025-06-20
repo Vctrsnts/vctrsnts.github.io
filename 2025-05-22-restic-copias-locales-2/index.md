@@ -174,7 +174,7 @@ Con esto ya podrias dar por finalizado el procedimiento de copias de seguridad. 
 Para hacer un breve resumen de lo que es **backrest** es un *cliente grafico* de **restic**, y si eso era asi, podia utilizarlo, como cliente de mis copias de seguridad situadas en el servidor local. Lo unico que tenia que hacer, era informar donde estaban estas copias y que tipo de servicio estaba usando (**S3**).
 
 {{< admonition warning >}}
-Con respecto a **backrest**, os recomiendo que vayais a leer el [articulo](https://elblogdelazaro.org/backrest-backups-en-nubes-s3) de **Lazaro** que tiene en su pagina web.
+Con respecto a **backrest**, os recomiendo que vayais a leer el [articulo](https://elblogdelazaro.org/backrest-backups-en-nubes-s3) de **Carlos M.** que tiene en su pagina web.
 {{< /admonition >}}
 
 Asi mismo, si os fijais, en el script, concretamente en la parte que se encarga de hacer las copias de seguridad, tenemos estas 2 variables u opciones **TAG_1** y **TAG_2** que:

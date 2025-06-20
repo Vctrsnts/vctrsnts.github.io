@@ -1,6 +1,6 @@
 # Mis aplicaciones por defecto 2024
 
-Siguiendo la iniciativa de [Lazaro](https://elblogdelazaro.org/posts/2024-12-09-mis-aplicaciones-por-defecto-2024), pues tambien pondre mi granito de arena a esta buena idea, porque asi, la gente puede descubrir nuevas aplicaciones que nunca habrias pensado que existieran, y de esta manera, pues... 
+Siguiendo la iniciativa de [Carlos M.](https://elblogdelazaro.org/posts/2024-12-09-mis-aplicaciones-por-defecto-2024), pues tambien pondre mi granito de arena a esta buena idea, porque asi, la gente puede descubrir nuevas aplicaciones que nunca habrias pensado que existieran, y de esta manera, pues... 
 
 <!--more-->
 
@@ -13,8 +13,8 @@ Pues aqui esta mi lista:
 - 📮 Servidor de correo: Riseup y GMail
 - 📨 Cliente de correo: Claws Mail (en escritorio) y K9-Mail (Pixel)
 - 📸 Camara de fotos: Camara del Pixel
-- 🖼️ Gestor de fotos: Immich (autoalojado) y que descubri hace poco gracias a [Lazaro](https://elblogdelazaro.org/posts/2024-11-18-marcos-de-fotos-digitales-con-immich-kiosk)
-- 🗃️ Copias de seguridad: Backrest y restic (autoalojado) y que descubri gracias a [Lazaro](https://elblogdelazaro.org/posts/2024-06-24-backrest-una-interfaz-web-para-restic-backup)
+- 🖼️ Gestor de fotos: Immich (autoalojado) y que descubri hace poco gracias a [Carlos M.](https://elblogdelazaro.org/posts/2024-11-18-marcos-de-fotos-digitales-con-immich-kiosk)
+- 🗃️ Copias de seguridad: Backrest y restic (autoalojado) y que descubri gracias a [Carlos M.](https://elblogdelazaro.org/posts/2024-06-24-backrest-una-interfaz-web-para-restic-backup)
 - 🔎 Navegador: Librewolf
 - 💬 Chat: Telegram y WhatsApp
 - 📝 Editor de texto: Geany

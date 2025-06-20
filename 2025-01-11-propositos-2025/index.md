@@ -19,7 +19,7 @@ La lista que me gustaria poder conseguir a finales de este año, seria la siguie
 
 Aqui tenemos la lista que en principio son los puntos fuertes que me gustaria ver cumplido, pero nunca se sabe, porque estas listas son variables y donde digo que me gustaria hacer una cosa, luego no se cumple pero se añade un nuevo tema que me inspara más o ideas que voy viendo escuchando o leyendo los articulos de los podcasters que sigo actualmente:
 - [Atareao](https://atareao.es)
-- [Lazaro](https://elblogdelazaro.org)
+- [Carlos M.](https://elblogdelazaro.org)
 - [uGeek](https://ugeek.github.io)
 
 A parte de que este mundo de la tecnologia y la informatica, es como una *caja de bombones*, nunca sabes lo que te va a tocar.
@@ -28,6 +28,6 @@ Sobretodo, a ver cuantas de estos puntos de esta lista, se ven cumplidas a final
 #### Referencia
 - [Codeberg](https://codeberg.org)
 - [Atareao](https://atareao.es)
-- [Lazaro](https://elblogdelazaro.org)
+- [Carlos M.](https://elblogdelazaro.org)
 - [uGeek](https://ugeek.github.io)
 

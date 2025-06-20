@@ -37,6 +37,27 @@
       <description>&lt;p&gt;Durante estas vacaciones he modificado un poco el aspecto de mi servidor con la finalidad de que todo estuviera un poco más ordenado y más homogeneo, porque por una banda, tenia mi &lt;a href=&#34;https://vctrsnts.github.io/2024-03-07-cambiando-unraid&#34; rel=&#34;&#34;&gt;servidor&lt;/a&gt; por un lado y por otro, en un caddy metalico de discos comprado en Aliexpress, los HDD al que le habia puesto este &lt;a href=&#34;https://www.amazon.es/dp/B09SLPRYYZ&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;ventilador&lt;/a&gt; para bajar la temperatura de los mismos.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Equipo en la recamara</title>
+      <link>https://vctrsnts.github.io/2023-09-11-substitutos-portatil/</link>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2023-09-11-substitutos-portatil/</guid>
+      <description>&lt;p&gt;Como ya decia en el anterior &lt;a href=&#34;https://vctrsnts.github.io/2023-08-01-de-nuevo-cambiando-servidor&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, donde hablaba sobre el  nuevo cambio de servidor que habia hecho, el canal de &lt;a href=&#34;https://homelabs.club&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;HomeLabs.Club&lt;/a&gt; es una mala influencia, teneis que hacerme caso y ahora lo entendereis mejor.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>De nuevo, cambiando de servidor local</title>
+      <link>https://vctrsnts.github.io/2023-08-01-de-nuevo-cambiando-servidor/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2023-08-01-de-nuevo-cambiando-servidor/</guid>
+      <description>&lt;p&gt;Tal como avise en este &lt;a href=&#34;https://vctrsnts.github.io/2023-01-19-mis-nuevos-juguetes&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; o en este otro &lt;a href=&#34;https://vctrsnts.github.io/2022-05-26-nuevo-servidor&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, decia de que habia cambiado de servidor y que, a parte, tenia unos juguetes nuevos. Pero quereis un consejo, alejaros de los canales de telegram, en especial de &lt;a href=&#34;https://homelabs.club&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;este&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mis nuevos juguetes</title>
+      <link>https://vctrsnts.github.io/2023-01-19-mis-nuevos-juguetes/</link>
+      <pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2023-01-19-mis-nuevos-juguetes/</guid>
+      <description>&lt;p&gt;A través de este &lt;a href=&#34;https://podcastlinux.com/posts/podcastlinux/129-Podcast-Linux&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;podcast&lt;/a&gt; que escuche hace algún tiempo, siempre me quedo el gusanito de tener uno, y eso que estoy muy contento con mi &lt;strong&gt;Lenovo Ideapad Y700&lt;/strong&gt;, pero siempre me quedo esa espina clavada&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Funcionamiento extraño con mi portatil (Ideapad Y700 - 17ISK)</title>
       <link>https://vctrsnts.github.io/2023-01-12-problemas-y700-17isk/</link>
       <pubDate>Thu, 12 Jan 2023 00:00:00 +0000</pubDate>
@@ -56,6 +77,13 @@
       <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
       <guid>https://vctrsnts.github.io/2022-05-26-nuevo-servidor/</guid>
       <description>&lt;p&gt;Se que llevo mucho tiempo si publicar nada, pero he estado liado haciendos cambios en el servidor (RPI4).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Solucionar error i915 en grafica Intel</title>
+      <link>https://vctrsnts.github.io/2021-06-09-solucionar-error-i915/</link>
+      <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2021-06-09-solucionar-error-i915/</guid>
+      <description>&lt;p&gt;Desde que &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; saco la versión del kernel 5.4 en mi portatil fue recurrente los flashes en la pantalla y el siguiente error:&lt;/p&gt;&#xA;&lt;div class=&#34;code-block code-line-numbers open&#34; style=&#34;counter-reset: code-block 0&#34;&gt;&#xA;    &lt;div class=&#34;code-header language-bash&#34;&gt;&#xA;        &lt;span class=&#34;code-title&#34;&gt;&lt;i class=&#34;arrow fas fa-angle-right fa-fw&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&lt;/span&gt;&#xA;        &lt;span class=&#34;ellipses&#34;&gt;&lt;i class=&#34;fas fa-ellipsis-h fa-fw&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&lt;/span&gt;&#xA;        &lt;span class=&#34;copy&#34; title=&#34;Copiar al portapapeles&#34;&gt;&lt;i class=&#34;far fa-copy fa-fw&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&lt;/span&gt;&#xA;    &lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;drm:intel_cpu_fifo_underrun_irq_handler &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;i915&lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt; *ERROR* CPU pipe A FIFO underrun&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&#xA;&lt;p&gt;La solución que todo el mundo me decia era eliminar el paquete del driver de &lt;em&gt;xserver-xorg-video-intel&lt;/em&gt; y usar el por defecto del kernel. Pero lo entendia que significaba eso (realmente era asi), no sabia como se tenia que hacer, porque si hacia eso perdia todo el &lt;strong&gt;XORG&lt;/strong&gt;, al final en este &lt;a href=&#34;https://forums.debian.net/viewtopic.php?f=7&amp;amp;t=149472&amp;amp;p=737807#p737807&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;hilo&lt;/a&gt; me indicaron que si hacia esto, solo se borraba el metapaquete de &lt;strong&gt;xserver-xorg-video-all&lt;/strong&gt; pero nada más.&lt;/p&gt;&#xA;&lt;p&gt;Al final di con la solución en el foro de &lt;a href=&#34;https://exdebian.org/foro/como-solucionar-drmi965irqhandler-i915-error-cpu-pipe-fifo-underrun-solucionado&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;exDebian.org&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Cambiando el equipo</title>

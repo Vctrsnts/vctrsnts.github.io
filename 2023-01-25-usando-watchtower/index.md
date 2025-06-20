@@ -1,6 +1,6 @@
 # Usando Watchtower
 
-Si quieres echarle la culpa tendreis que mirar a [Angel de uGeek](https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html), a [Lorenzo de Atareao.es](https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente) y por ultimo a [ElBlogdeLazaro](https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker) porque ellos son los culpables de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación **watchtower** es una de ellas 😉
+Si quieres echarle la culpa tendreis que mirar a [Angel de uGeek](https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html), a [Lorenzo de Atareao.es](https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente) y por ultimo a **Carlos M.** de [ElBlogdeLazaro](https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker) porque ellos son los culpables de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación **watchtower** es una de ellas 😉
 
 <!--more-->
 

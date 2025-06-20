@@ -18,7 +18,7 @@ Yo lo resumo en como tener un sistema de RAID's con los consiguientes discos esp
 Lo unico que hay que tener en cuenta es la parte de la *paridad* del HDD de respaldo que has de tener, pero eso implica que, si todos tus HDD suman 32Tb de información o es el maximo a lo que podrias llegar, necesitas un HDD de esa capacidad, *incorrecto*, o más para cubrir esa paridad. Que si quieres no es obligatorio tenerlo, yo en mi caso no lo tengo, porque para las 4 cosas que tengo no me merece la pena, pero nunca se sabe.
 
 {{< admonition note >}}
-Tengo que hacer un inciso en este apartado que me ha corregido [Lazaro](https://elblogdelazaro.org) con respecto a esta afirmación por parte mia. El ejemplo que me dice, es que si tienes 10 HDD de 4Tb cada uno, en total 40Tb, solo necesitaras un unico HDD de 4Tb para hacer el de paridad. 
+Tengo que hacer un inciso en este apartado que me ha corregido [Carlos M.](https://elblogdelazaro.org) con respecto a esta afirmación por parte mia. El ejemplo que me dice, es que si tienes 10 HDD de 4Tb cada uno, en total 40Tb, solo necesitaras un unico HDD de 4Tb para hacer el de paridad. 
 
 Pero claro, esto si lo tienes configurado de esta manera o de alguna manera similar, pero en el caso, como tengo yo, que tengo 2 HDD, uno de 18Tb y otro de 16Tb, entiendo que tendre que tener un HDD de como minimo 18Tb. Que es aqui donde yo he cometido el error, pensando que tendrias que tener un HDD con la capacidad maxima (en mi caso, 32Tb). Fallo mio. 😰
 {{< /admonition >}}

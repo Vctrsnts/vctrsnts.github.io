@@ -38,7 +38,7 @@ jekyll:
  ```
 Cuando ya tenia este contenedor en marcha, ya pude empezar con la creación de mis articulos y es aqui, después de esta pequeña historia, donde explico la idea principal de este articulo. Unir **Jekyll**, **Mastodon** y **Github** y todo lo que me podia ofrecer este ultimo y una de estas posibilidades es la de publicar mis articulos a traves de un [bot](2022-11-14-publicar-feed-mastodon.md).
 
-Pero lo que echaba de menos, porque no se veia ninguna imagen en la publicación en **Mastodon**, cuando lei uno de los toots de [elBlogdeLazaro](https://mastodon.online/@elblogdelazaro@mastodon.social), que sigo y que me ha dado el punto de inicio por donde empezar, se podia visualizar una imagen, o mejor dicho, el logo de su web.
+Pero lo que echaba de menos, porque no se veia ninguna imagen en la publicación en **Mastodon**, cuando lei uno de los toots de **Carlos M** de [elBlogdeLazaro](https://mastodon.online/@elblogdelazaro@mastodon.social), que sigo y que me ha dado el punto de inicio por donde empezar, se podia visualizar una imagen, o mejor dicho, el logo de su web.
 
 Yo queria hacer lo mismo, pero no encontraba ninguna información donde se explicase como se tenia que hacer o como configurar **Mastodon**, después descubri que las modificaciones necesarias las tenia que hacer en los archivos de mi blog, y gracias a una pista que, como ya he dicho, me dio *Carlos. M* conseguir descubrir como hacerlo.
 

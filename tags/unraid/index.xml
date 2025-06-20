@@ -6,8 +6,29 @@
     <description>Recent content in UnRAID on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 03 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vctrsnts.github.io/tags/unraid/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Restic &#43; Backrest &#43; MiniO - 2</title>
+      <link>https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2/</link>
+      <pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2/</guid>
+      <description>&lt;p&gt;Continuamos con esta segunda parte donde explicaremos como sacar provecho de estas 3 aplicaciones, en este caso, explicare el script que estoy usando para realizar las copia, que es una variación de uno que tiene &lt;strong&gt;Lorenzo&lt;/strong&gt; en su &lt;a href=&#34;https://github.com/atareao/dotfiles/blob/main/.local/bin/backup.sh.jinja&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;gitHub&lt;/a&gt;, pero que en mi caso, en vez de ser un fichero &lt;strong&gt;jinja&lt;/strong&gt;, es un fichero en bash a pelo.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Restic &#43; Backrest &#43; MiniO - 1</title>
+      <link>https://vctrsnts.github.io/2025-05-21-restic-copias-locales-1/</link>
+      <pubDate>Thu, 22 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2025-05-21-restic-copias-locales-1/</guid>
+      <description>&lt;p&gt;Lo primero y antes de nada, tengo que dar las gracias a &lt;strong&gt;Carlos M.&lt;/strong&gt; de &lt;a href=&#34;https://elblogdelazaro.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;El Blog de Lázaro&lt;/a&gt; y a &lt;strong&gt;Lorenzo&lt;/strong&gt; de &lt;a href=&#34;https://atareao.es&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Atareao&lt;/a&gt;, por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Modificaciones en el servidor - 3</title>
+      <link>https://vctrsnts.github.io/2025-04-20-modificaciones-servidor-3/</link>
+      <pubDate>Sun, 20 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2025-04-20-modificaciones-servidor-3/</guid>
+      <description>&lt;p&gt;Este nuevo articulo no sabia si llamarlo &lt;strong&gt;Modificaciones en el servidor - 3&lt;/strong&gt; o &lt;strong&gt;La imaginación humana no tiene limites&lt;/strong&gt;, porque una vez que hayais leido este articulo pensareis lo mismo que yo.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Opinión Personal sobre unRaid - Final</title>
       <link>https://vctrsnts.github.io/2024-07-17-opini%C3%B3n-unraid-final/</link>
@@ -16,11 +37,39 @@
       <description>&lt;p&gt;Como primer articulo de este nuevo año, os pongo el articulo final que me faltaba sobre &lt;strong&gt;mi opinión personal - final&lt;/strong&gt; con respecto a &lt;strong&gt;unRaid&lt;/strong&gt;, pero he estado un poco liado y por eso me he retrasado un poco, pero ahora vamos al articulo final con respecto a lo que &lt;strong&gt;yo&lt;/strong&gt; pienso.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Publicando nuevos articulos en RRSS</title>
+      <link>https://vctrsnts.github.io/2024-12-10-publicar-redes-sociales/</link>
+      <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2024-12-10-publicar-redes-sociales/</guid>
+      <description>&lt;p&gt;Este nuevo articulo, se puede decir que es la fusión de este &lt;a href=&#34;https://vctrsnts.github.io/2022-11-14-publicar-feed-mastodon&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; y este &lt;a href=&#34;https://vctrsnts.github.io/2024-11-12-publicar-feed-tumblr&#34; rel=&#34;&#34;&gt;otro&lt;/a&gt; donde explicaba como dar publicidad o informar en las diferentes redes sociales que estoy, &lt;strong&gt;Mastodon&lt;/strong&gt;, &lt;strong&gt;Tumblr&lt;/strong&gt; y ahora &lt;strong&gt;BlueSky&lt;/strong&gt; de los articulos nuevos que voy añadiendo asi como de los antiguos, porque nunca se sabe si algun articulo anterior puede servir de ayuda a alguna persona.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Publicar feed en Tumblr</title>
+      <link>https://vctrsnts.github.io/2024-11-12-publicar-feed-tumblr/</link>
+      <pubDate>Tue, 12 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2024-11-12-publicar-feed-tumblr/</guid>
+      <description>&lt;p&gt;Este articulo, podria decirse que es una continuación de este &lt;a href=&#34;https://vctrsnts.github.io/2022-11-14-publicar-feed-mastodon&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; pero en este caso, es para &lt;a href=&#34;https://www.tumblr.com&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Tumblr&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;La idea es la misma, pero para otra red social. Eso si, más pequeña y desconocida o al menos para mi. Nunca habia oido de ella, pero nunca se sabe y asi ya estoy en ella, aunque sea solamente para publicar los articulos que voy añadiendo a mi web / blog.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Controlando la temperatura del servidor</title>
       <link>https://vctrsnts.github.io/2024-10-20-controlado-temperatura-servidor/</link>
       <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://vctrsnts.github.io/2024-10-20-controlado-temperatura-servidor/</guid>
       <description>&lt;p&gt;Como ya comente en el anterior &lt;a href=&#34;https://vctrsnts.github.io/2024-10-19-modificando-servidor-2&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; donde explicaba que habia puesto un &lt;strong&gt;Xeon&lt;/strong&gt; en mi servidor y todo lo referente a la temperatura.&lt;/p&gt;&#xA;&lt;p&gt;Pero claro, eso me gustaria verlo reflejado en &lt;strong&gt;unRAID&lt;/strong&gt;, porque hasta ahora, solamente habia podido visualizar la temperatura de la CPU, de la placa base era imposible cuando teoricamente los Tiny son equipos con componentes muy normales y comunes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Modificaciones en el servidor - 2</title>
+      <link>https://vctrsnts.github.io/2024-10-19-modificando-servidor-2/</link>
+      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2024-10-19-modificando-servidor-2/</guid>
+      <description>&lt;p&gt;Se ha venido una nueva modificación en el servidor, y una más, pero esta vez, ha sido más a nivel de hardware que de software.&lt;/p&gt;&#xA;&lt;p&gt;Como sabreis, si no os habeis dado cuenta leyendo algunos de mis articulos, estoy subscrito al canal de telegram de &lt;a href=&#34;https://homelabs.club&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;HomeLabs.club&lt;/a&gt;, donde siempre tienen alguna nueva cosa para liarte la manta a la cabeza.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Modificaciones en el servidor - 1</title>
+      <link>https://vctrsnts.github.io/2024-09-18-modificando-servidor-1/</link>
+      <pubDate>Wed, 18 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2024-09-18-modificando-servidor-1/</guid>
+      <description>&lt;p&gt;Durante estas vacaciones he modificado un poco el aspecto de mi servidor con la finalidad de que todo estuviera un poco más ordenado y más homogeneo, porque por una banda, tenia mi &lt;a href=&#34;https://vctrsnts.github.io/2024-03-07-cambiando-unraid&#34; rel=&#34;&#34;&gt;servidor&lt;/a&gt; por un lado y por otro, en un caddy metalico de discos comprado en Aliexpress, los HDD al que le habia puesto este &lt;a href=&#34;https://www.amazon.es/dp/B09SLPRYYZ&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;ventilador&lt;/a&gt; para bajar la temperatura de los mismos.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Opinión Personal sobre unRaid - 2</title>

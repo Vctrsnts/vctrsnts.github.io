@@ -46,7 +46,7 @@ Vosotros, seguramente pensareis de una manera diferente a la mia o no, pero en e
 Nunca se sabe, a lo mejor mi manera de ver a *unRaid* cambia, porque voy descubriendo cosas nuevas que hacen que mi visión vaya cambiando. No consiste en eso el aprender?
 {{< /admonition >}}
 
-Eso si, tengo que dar las gracias a **Lazaro** de [El blog de Lázaro](https://elblogdelazaro.org) porque gracias a el, cada dia voy descubriendo cosas nuevas sobre **unRaid** que van haciendo que poco a poco, mi opinión vaya cambiando, no todas, pero algunas si. **Gracias Lazaro 👏**
+Eso si, tengo que dar las gracias a **Carlos M.** de [El blog de Lázaro](https://elblogdelazaro.org) porque gracias a el, cada dia voy descubriendo cosas nuevas sobre **unRaid** que van haciendo que poco a poco, mi opinión vaya cambiando, no todas, pero algunas si. **Gracias Lazaro 👏**
 #### Referencia
 - [Integrar métricas de Unraid en Homepage](https://elblogdelazaro.org/posts/2024-12-02-integrar-metricas-de-unraid-en-homepage)
 - [Backrest, backups en nubes S3](https://elblogdelazaro.org/posts/2024-07-29-backrest-backups-en-nubes-s3)

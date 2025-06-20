@@ -4,7 +4,7 @@ Despúes de escuchar el [podcast](https://ugeek.github.io/post/2021-05-24-homer-
 
 <!--more-->
 
-Al principio, no necesitaba nada más, pero poco a poco, cuanto más te adentras en el mundo de los **dashboards**, ves las infinitas posibilidades que tienes a tu alcance y que en el caso de **Homer** no me lo daba. Asi que, me decibi a buscar otros que pudieran ampliar la información que me podian mostrar y no encontraba el más adecuado hasta que lei el [articulo](https://elblogdelazaro.org/posts/2023-06-21-docker-homepage-dashboard/) de **Lazaro** donde hablaba de [HomePage](https://github.com/gethomepage/homepage) y de las multiples opciones que tenia. Y puedo decir que si, tiene muchas opciones de configuración que te pueden ayudar a visualizar toda la información que puedas necesitar.
+Al principio, no necesitaba nada más, pero poco a poco, cuanto más te adentras en el mundo de los **dashboards**, ves las infinitas posibilidades que tienes a tu alcance y que en el caso de **Homer** no me lo daba. Asi que, me decibi a buscar otros que pudieran ampliar la información que me podian mostrar y no encontraba el más adecuado hasta que lei el [articulo](https://elblogdelazaro.org/posts/2023-06-21-docker-homepage-dashboard/) de **Carlos M.** donde hablaba de [HomePage](https://github.com/gethomepage/homepage) y de las multiples opciones que tenia. Y puedo decir que si, tiene muchas opciones de configuración que te pueden ayudar a visualizar toda la información que puedas necesitar.
 
 Como además, **Homer** tambien tiene esta posibilidad, se podia usar a traves de **docker** que más se podia pedir. Asi que me dispuse a crear el container de **HomePage**. En mi caso, todo lo tengo concentrado en un fichero `yaml` que contine todos los dockers que uso:
 ```yaml

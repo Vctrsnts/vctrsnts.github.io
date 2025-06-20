@@ -6,7 +6,7 @@ Antes de seguir con nuestro ultimo articulo sobre las copias de seguridad (*Rest
 
 Como informaba en este [articulo](/2024-05-30-cambios-blog-2), informba de los cambios que le habia hecho a mi blog esperando que fuera el ultimo cambio que hiciera, pero como pasa siempre, nunca digas **que de este agua no bebere**. Porque es lo que ha pasado.
 
-Todo empezo mientras veia los articulos que iba publicando [Lazaro](https://elblogdelazaro.org), donde explicaba como era el funcionamiento de **Hugo** y el porque el habia efectuado el cambio. En principio, después de leer sus articulos, me parecia que todo era igual a **Jekyll** que era lo que estaba usando en ese momento y asi se lo pregunte.
+Todo empezo mientras veia los articulos que iba publicando [Carlos M.](https://elblogdelazaro.org), donde explicaba como era el funcionamiento de **Hugo** y el porque el habia efectuado el cambio. En principio, después de leer sus articulos, me parecia que todo era igual a **Jekyll** que era lo que estaba usando en ese momento y asi se lo pregunte.
 
 Me dijo que en principio, todo era igual, pero con una mejora muy sustancial, que en el caso de **Jekyll**, cuando instalas un tema, se tienen que descargar *modulos* que necesita el tema para su correcto funcionamiento, y en el caso de **Hugo** esto no es asi, porque todo el tema ya tiene implementado todo lo que va a necesitar y no necesitas descargar nada externo. Y como soy un culo inquieto, pues me puse a investigar como es realmente el funcionamiento de **Hugo** en comparación de **Jekyll**.
 
