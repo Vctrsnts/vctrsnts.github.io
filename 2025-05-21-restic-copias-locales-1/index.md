@@ -65,7 +65,7 @@ usuari@debian:~$ restic -r /path/to/backup restore latest --target /dir_recupera
 ```
 #### 4. Borrar repositorios para solo mantener X repositorios
 {{< admonition tip >}}
-En este caso, como ejemplo, hemos puesto 6 (en este caso hemos puesto 6)
+En este caso, como ejemplo, hemos puesto 6.
 {{< /admonition >}}
 
 ```

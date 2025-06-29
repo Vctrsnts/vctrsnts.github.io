@@ -3,7 +3,21 @@
         <title>Todos los Artículos - Si lo haces, hazlo bien!</title>
         <link>https://vctrsnts.github.io/posts/</link>
         <description>Todos los Artículos | Si lo haces, hazlo bien!</description>
-        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Fri, 20 Jun 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Mon, 30 Jun 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Usando HomePage. El Dashboard - 3</title>
+    <link>https://vctrsnts.github.io/2025-06-20-usando-homepage-3/</link>
+    <pubDate>Sat, 21 Jun 2025 00:00:00 &#43;0000</pubDate>
+    <author>vsantos</author>
+    <guid>https://vctrsnts.github.io/2025-06-20-usando-homepage-3/</guid>
+    
+    
+    <category term="unRAID" />
+    
+    <category term="Docker" />
+    
+    <description><![CDATA[<p>Un nuevo articulo hablando sobre <strong>homepage</strong>, este magnifico <em>dashboard</em> al que le tengo mucho cariño y que hace un tiempo, realizo una actualización en su configuración y que en mi caso, usuario de portatil no me funcionaba correctamente, porque las <strong>5 columnas</strong> que yo utilizo no se veian correctamente, abri un <em>issue</em> sobre este problema y parece ser que con la ultima actualización, ha solucionado este problema y ahora explicare como lo he hecho.</p>]]></description>
+</item>
+<item>
     <title>Adios GCalendar. Hola Radicale</title>
     <link>https://vctrsnts.github.io/2025-06-20-radicale-etar/</link>
     <pubDate>Fri, 20 Jun 2025 00:00:00 &#43;0000</pubDate>
@@ -114,19 +128,6 @@
     
     <description><![CDATA[<p>A partir de unos articulos de <a href="https://atareao.es/?s=matrix" target="_blank" rel="noopener noreffer ">Lorenzo</a> y de <a href="https://ugeek.github.io" target="_blank" rel="noopener noreffer ">uGeek</a> (podeis encontrar más información en la referencia), me pico la sobre como seria tener mi propio servidor de mensajeria y poderlo utilizar para enviar las notificaciones de mis servicios y asi no depender tanto de <em>Telegram</em>.</p>
 <p>De hay viene este nuevo articulo, donde explicare todo el proceso de instalación y uso de mi nuevo servidor <strong>Matrix</strong> en mi VPS y os aviso que no ha sido nada sencillo.</p>]]></description>
-</item>
-<item>
-    <title>Historia del cambio de terminal</title>
-    <link>https://vctrsnts.github.io/2025-01-13-cambiando-a-wezterm/</link>
-    <pubDate>Mon, 13 Jan 2025 00:00:00 &#43;0000</pubDate>
-    <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-01-13-cambiando-a-wezterm/</guid>
-    
-    
-    <category term="Debian GNULinux" />
-    
-    <description><![CDATA[<p>Este es un articulo, que como puedes ver, es un articulo muy parecido a los que he ha escrito <strong>Lorenzo</strong>, de <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a>, porque es algo, que si te pones a pensar es una de las aplicaciones que más se utilizan en <em>GNU/Linux</em> pero a la que no se le da mucha importacia.</p>
-<p>Nos estamos refiriendo a la terminal.</p>]]></description>
 </item>
 </channel>
 </rss>
