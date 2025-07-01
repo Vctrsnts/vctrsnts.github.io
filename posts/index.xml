@@ -4,6 +4,18 @@
         <link>https://vctrsnts.github.io/posts/</link>
         <description>Todos los Artículos | Si lo haces, hazlo bien!</description>
         <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Mon, 30 Jun 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Restic &#43; Backrest &#43; MiniO - 3</title>
+    <link>https://vctrsnts.github.io/2025-05-23-restic-copias-locales-3/</link>
+    <pubDate>Mon, 30 Jun 2025 00:00:00 &#43;0000</pubDate>
+    <author>vsantos</author>
+    <guid>https://vctrsnts.github.io/2025-05-23-restic-copias-locales-3/</guid>
+    
+    
+    <category term="unRAID" />
+    
+    <description><![CDATA[<p>Este sera el tercer y utlimo articulo (en principio), donde explico la manera en que se estoy realizando mis copias de seguridad. Seguramente hay metodos mejores, pero este es el que mejor se adapta a mis necesidades. Tal como dije en el anterior <a href="/2025-05-22-restic-copias-locales-2" rel="">articulo</a>, unicamente me faltaba realizar la configuración de las copias de seguridad a mi servidor externo (VPS), pero antes de meternos de lleno con este tema.</p>]]></description>
+</item>
+<item>
     <title>Usando HomePage. El Dashboard - 3</title>
     <link>https://vctrsnts.github.io/2025-06-20-usando-homepage-3/</link>
     <pubDate>Sat, 21 Jun 2025 00:00:00 &#43;0000</pubDate>
@@ -115,19 +127,6 @@
     <category term="VPS" />
     
     <description><![CDATA[<p>Como bien explique en el anterior <a href="/2025-03-25-instal-config-matrix" rel="">articulo</a>, explicaba la instalación y configuración, nada facil, de mi servidor de <strong>matrix</strong> ahora os vengo a traer el siguiente articulo, donde explico el uso que le he dado y los problemeas que me he encontrado asi como los planes de futuro.</p>]]></description>
-</item>
-<item>
-    <title>Matrix - 1. Instalación y configuración</title>
-    <link>https://vctrsnts.github.io/2025-03-25-instal-config-matrix/</link>
-    <pubDate>Tue, 25 Mar 2025 00:00:00 &#43;0000</pubDate>
-    <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-03-25-instal-config-matrix/</guid>
-    
-    
-    <category term="VPS" />
-    
-    <description><![CDATA[<p>A partir de unos articulos de <a href="https://atareao.es/?s=matrix" target="_blank" rel="noopener noreffer ">Lorenzo</a> y de <a href="https://ugeek.github.io" target="_blank" rel="noopener noreffer ">uGeek</a> (podeis encontrar más información en la referencia), me pico la sobre como seria tener mi propio servidor de mensajeria y poderlo utilizar para enviar las notificaciones de mis servicios y asi no depender tanto de <em>Telegram</em>.</p>
-<p>De hay viene este nuevo articulo, donde explicare todo el proceso de instalación y uso de mi nuevo servidor <strong>Matrix</strong> en mi VPS y os aviso que no ha sido nada sencillo.</p>]]></description>
 </item>
 </channel>
 </rss>

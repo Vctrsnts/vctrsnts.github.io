@@ -118,5 +118,5 @@ Ahora solo falta reiniciar el contenedor de **homepage** y todo volvera a funcio
 #### Referencia
 - [Meet Homepage - Your HomeLab Services Dashboard](https://www.youtube.com/watch?v=mC3tjysJ01E)
 - [Pihole V6 widget API authentication error](https://github.com/gethomepage/homepage/discussions/5061)
-- [pdated pi-hole from 5 to 6 and the API key does not work anymore](https://github.com/gethomepage/homepage/discussions/4818)
+- [Updated pi-hole from 5 to 6 and the API key does not work anymore](https://github.com/gethomepage/homepage/discussions/4818)
 

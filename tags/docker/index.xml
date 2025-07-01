@@ -6,8 +6,15 @@
     <description>Recent content in Docker on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 27 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vctrsnts.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Restic &#43; Backrest &#43; MiniO - 3</title>
+      <link>https://vctrsnts.github.io/2025-05-23-restic-copias-locales-3/</link>
+      <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2025-05-23-restic-copias-locales-3/</guid>
+      <description>&lt;p&gt;Este sera el tercer y utlimo articulo (en principio), donde explico la manera en que se estoy realizando mis copias de seguridad. Seguramente hay metodos mejores, pero este es el que mejor se adapta a mis necesidades. Tal como dije en el anterior &lt;a href=&#34;https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, unicamente me faltaba realizar la configuración de las copias de seguridad a mi servidor externo (VPS), pero antes de meternos de lleno con este tema.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Restic &#43; Backrest &#43; MiniO - 2</title>
       <link>https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2/</link>

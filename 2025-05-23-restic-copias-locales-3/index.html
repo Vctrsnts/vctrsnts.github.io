@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Restic &#43; Backrest &#43; MiniO - 3 - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta property="og:image" content="/images/logo_post.jpg" >
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://vctrsnts.github.io/2025-05-23-restic-copias-locales-3/" /><link rel="prev" href="https://vctrsnts.github.io/2025-06-20-usando-homepage-3/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Restic + Backrest + MiniO - 3",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/vctrsnts.github.io\/2025-05-23-restic-copias-locales-3\/"
+        },"image": ["https:\/\/vctrsnts.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "unRAID, Docker","wordcount":  1745 ,
+        "url": "https:\/\/vctrsnts.github.io\/2025-05-23-restic-copias-locales-3\/","datePublished": "2025-06-30T00:00:00+00:00","dateModified": "2025-06-30T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/vctrsnts.github.io\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Restic + Backrest + MiniO - 3</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/unraid/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>UnRAID</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="30-06-2025">30-06-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1745 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Este sera el tercer y utlimo articulo (en principio), donde explico la manera en que se estoy realizando mis copias de seguridad. Seguramente hay metodos mejores, pero este es el que mejor se adapta a mis necesidades. Tal como dije en el anterior <a href="/2025-05-22-restic-copias-locales-2" rel="">articulo</a>, unicamente me faltaba realizar la configuración de las copias de seguridad a mi servidor externo (VPS), pero antes de meternos de lleno con este tema.</p>
+<p>Quiero ampliar como se realizan la configuración de las copias de seguridad, esta explicación sirve tanto para las copias de seguridad en el servidor local como en uno externo.</p>
+<p>Esto ha venido al caso, porque a la hora de seguir mi propia guia para realizar la configuración de las copias externas he visto que habia puntos que no habia explicado y quedaba todo un poco ambiguo.</p>
+<p>Lo primero y antes de nada, es la instalación de <strong>MinIO</strong> en el <em>VPS</em>, porque como no tengo <strong>unRAID</strong>, pues la instalación, se tiene que hacer a traves de nuestro querido <code>docker-compose</code> que pongo a continuación:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">  </span><span class="nt">minio</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">minio/minio:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">minio</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">server /data --console-address &#34;:9001&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;9000:9000&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;9001:9001&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MINIO_ROOT_USER</span><span class="p">:</span><span class="w"> </span><span class="l">ROOTNAME</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MINIO_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">CHANGEME123</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">${HOME}/backup:/data</span></span></span></code></pre></div></div>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Tengo que decir que esta información no esta, o yo al menos no he sabido como encontrarla en la web de <strong>MinIO</strong>, en teoria hay un fichero <a href="https://github.com/minio/minio/tree/master/docs/orchestration/docker-compose" target="_blank" rel="noopener noreffer ">docker-compose</a> que nos tendria que facilitar la vida a la hora de realizar la instalación, pero que en realidad nos la complica porque añade cosas, que para la gran mayoria, como es mi caso no es necesario. Asi que gracias a otra fuente, he podido encontrar un <a href="https://thanhtunguet.info/posts/install-minio-using-docker-compose" target="_blank" rel="noopener noreffer ">docker-compose</a> que en mi caso me ha ido muy bien tengo y que gracias a ese fichero,  ya tengo mi contenedor de <strong>MinIO</strong> en marcha.</div>
+        </div>
+    </div>
+<p>Tambien te añado los <strong>labels</strong> necesarios en caso de que tengas <strong>traefik</strong> para su configuración:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span>- <span class="l">traefik.enable=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="c"># ACCESO A LA CONSOLA WEBGUI ( 9001 )</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span>- <span class="l">traefik.http.services.minio.loadbalancer.server.port=9001</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span>- <span class="l">traefik.http.routers.minio.entrypoints=websecure</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span>- <span class="l">traefik.http.routers.minio.rule=Host(`${MINIO_CONSOLE}`)</span></span></span></code></pre></div></div>
+<p>Con esto ya tendriamos nuestro contenedor <strong>MinIO</strong> para nuestras copias de seguridad.</p>
+<p>Pero llegado el momento de utilizarlo, me he encontrado el primer problema que no me esperaba. Cuando he accedido a la web, para la creación de las claves de acceso, no sabia donde hacerlo. Habia cambiado todo el menu. Que comienzo 😵 Segun parece han modificado algo que deshabilita esas funciones y no se como activarlas, si es que se puede.</p>
+<p>En <strong>unRAID</strong> esas modificaciones tambien se habian implementado y no tenia acceso a eliminar un <strong>buckett</strong> que habia creado de prueba para ver si de esta manera tenia acceso a las claves de acceso a traves de la <strong>API</strong>.</p>
+<p>Que se hace en estos casos, la mejor solución, es volver a una versión anterior donde si que se tiene acceso a esas mejoras y quedarte ahi. En mi caso, estoy utilizando la versión <strong>RELEASE.2025-04-22T22-12-26Z</strong>, lo que hace que mi <code>docker-compose.yml</code> para <strong>MinIO</strong> quede de la siguiente manera:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">  </span><span class="nt">minio</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">minio/minio:RELEASE.2025-04-22T22-12-01Z</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">minio</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">server /data --console-address &#34;:9001&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#    ports:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#      - &#34;9000:9000&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#      - &#34;9001:9001&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MINIO_ROOT_USER</span><span class="p">:</span><span class="w"> </span><span class="l">ROOTNAME</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MINIO_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">CHANGEME123</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">${HOME}/backup:/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">traefik.enable=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># ACCESO A LA CONSOLA WEBGUI ( 9001 )</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">traefik.http.services.minio.loadbalancer.server.port=9001</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">traefik.http.routers.minio.entrypoints=websecure</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">traefik.http.routers.minio.rule=Host(`${MINIO_CONSOLE}`)</span></span></span></code></pre></div></div>
+<p>El segundo problema que me encontre es que <strong>MinIO</strong> utiliza 2 puertos para poder ser utilizado:</p>
+<ul>
+<li><strong>9000</strong>: Es el puerto de la API que se utiliza para las copias de seguridad</li>
+<li><strong>9001</strong>: Es el puerto de acceso para la GUI.
+<ul>
+<li>Con este puerto no tenia ningun problema, porque es el que ya habia configurado con <em>traefik</em>.</li>
+</ul>
+</li>
+</ul>
+<p>Pero claro, como se implementa esto en <code>docker</code> y mas exactamente en <strong>traefik</strong>, aqui de nuevo tuve que tirar de IA y esta me dio la respuesta correcta. Todo consiste en tener <strong>2 services</strong>, uno para cada puerto quedando de la siguiente manera:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">minio</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">minio/minio:RELEASE.2025-04-22T22-12-01Z</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">minio</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">server --console-address :9001 /data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">proxy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">${HOME}/backup:/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">MINIO_ROOT_USER</span><span class="p">:</span><span class="w"> </span><span class="l">${MINIO_USR}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">MINIO_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">${MINIO_PWD}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.enable=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="c"># ACCESO A LA CONSOLA WEBGUI ( 9001 )</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.services.minio_console.loadbalancer.server.port=9001</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.minio_console.entrypoints=websecure</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.minio_console.rule=Host(`${MINIO_CONSOLE}`)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.minio_console.service=minio_console</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="c"># ACCESO A LA API ( 9000 )</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.services.minio_api.loadbalancer.server.port=9000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.minio_api.entrypoints=websecure</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.minio_api.rule=Host(`${MINIO_API}`)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.minio_api.service=minio_api</span></span></span></code></pre></div></div>
+<p>Como veis, tengo el <em>servicio</em> <strong>minio_console</strong> para acceder a la web de <strong>MinIO</strong> y asi poder hacer las configuraciones necesarios y otro <em>servicio</em> que es <strong>minio_api</strong> que es el que se usa para acceder a la <strong>API</strong> de <strong>MinIO</strong>. Seguramente tiene que haber otra manera de hacer esto, o no, pero es la que me funciona a mi. Ahora si, ya estamos en marcha. Ya tenia mis claves de acceso y mi <strong>buckett</strong> creado.</p>
+<p>Como ahora iba a tener 2 servidores de copias de seguridad (local y el VPS), tenia que hacer algunas modificaciones al <a href="/2025-05-22-restic-copias-locales-2" rel="">script</a> de copias de seguridad para que contemplara esta nueva funcionalidad. Tambien tiene que tener en cuenta que para cada servidor, tiene sus claves de acceso propias, lo que hace que tenga que utilizar la de cada servidor a la hora de las copias de seguridad.</p>
+<p>Esto es lo que me ha llevado un poco más de trabajo, pero gracias a la <strong>Copilot</strong>, las modificaciones que se tienen que añadir son las siguientes:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  <span class="c1"># Configuració de Restic Local</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">export</span> <span class="nv">RESTIC_PASSWORD</span><span class="o">=</span><span class="si">${</span><span class="nv">RESTIC_PASSWORD</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># DECLARACIÓ DEL ARRAY REPOS</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">declare</span> -A REPOS
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Configuración de repositorios</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">REPOS</span><span class="o">=(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;s3:</span><span class="si">${</span><span class="nv">SERVER_MINIO_URL</span><span class="si">}</span><span class="s2">/backup|</span><span class="si">${</span><span class="nv">SERVER_AWS_ACCESS_KEY_ID</span><span class="si">}</span><span class="s2">|</span><span class="si">${</span><span class="nv">SERVER_AWS_SECRET_ACCESS_KEY</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;s3:</span><span class="si">${</span><span class="nv">VPS_MINIO_URL</span><span class="si">}</span><span class="s2">/backup|</span><span class="si">${</span><span class="nv">VPS_AWS_ACCESS_KEY_ID</span><span class="si">}</span><span class="s2">|</span><span class="si">${</span><span class="nv">VPS_AWS_SECRET_ACCESS_KEY</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">)</span></span></span></code></pre></div></div>
+<p>Aqui indicamos en el array <code>REPOS</code> las dos <em>URL</em> de los servidores con <strong>MinIO</strong> junto con las claves <strong>AWS_ACCESS_KEY_ID</strong> y <strong>AWS_SECRET_ACCESS_KEY</strong> separado por <strong>|</strong>, para que esta información, se cargue directamente cada vez que acceda a un servidor para enviar las copias de seguridad.</p>
+<p>La otra modificación que se tiene que hacer es en los <strong>for</strong> donde realizara la tarea de <em>crear las copias</em>, <em>verificar</em>, <em>eliminar</em> las antiguas en cada servidor y esto se hace a traves de:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  <span class="k">for</span> entry in <span class="s2">&#34;</span><span class="si">${</span><span class="nv">REPOS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">IFS</span><span class="o">=</span><span class="s1">&#39;|&#39;</span> <span class="nb">read</span> -r REPO AWS_KEY AWS_SECRET <span class="o">&lt;&lt;&lt;</span> <span class="s2">&#34;</span><span class="nv">$entry</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">export</span> <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$AWS_KEY</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">export</span> <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$AWS_SECRET</span><span class="s2">&#34;</span></span></span></code></pre></div></div>
+<p>Lo que hace, es <em>cargar</em> en las variables <strong>AWS_ACCESS_KEY</strong> y <strong>AWS_SECRET_ACCESS_KEY</strong> los parametros que le hemos enviado anteriormente y con esto tenemos acceso a los servidores, tanto local como externo.</p>
+<p>Tambien hay que tener en cuenta, que el fichero <code>backup.env</code>, que es donde almacenamos toda la informacion necesaria para las copias de seguridad se tiene que modificar un poco, para añadir las nuevas claves, quedando de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># MinIO - VPS externo</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VPS_AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&#34;ACCESS_KEY_ID&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VPS_AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&#34;SECRET_ACCESS_KEY&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VPS_MINIO_URL</span><span class="o">=</span><span class="s2">&#34;https://servidor.minio.org&#34;</span></span></span></code></pre></div></div>
+<p>Cuando ya estaba todo preparado y me disponia a realizar las pruebas de todo el sistema de copias, me empezo a dar errores con respecto a que el <em>password</em> de restic no era el correcto. No entendia que me estaba diciendo, hasta que me di cuenta, que a la hora de crear el repositorio en <strong>backrest</strong> habia utilizado otro password y por eso el error. Lo unico que tenia que hacer, era volver a crear un nuevo repositorio con el password correcto <em>perdon, fallo mio</em>.</p>
+<p>Una vez ya solucionado este problema, ahora si que todo funcionaba correctamente. Lo unico que me quedaba era la automatización del sistema de copias.</p>
+<p>Aqui segui el consejo de <a href="https://atareao.es/podcast/no-pierdas-tus-datos-backups-infalibles" target="_blank" rel="noopener noreffer ">Atareao</a> donde explica, que en su caso, igual que el mio, su equipo personal, no esta encendido las 24 horas y por ese motivo no se puede hacer una planificación de las copias, pero lo que si se puede hacer, y es lo que yo tambien he hecho, ha sido, que cada vez que se inicie el sistema y pasados 5 minutos, para asi dar tiempo a que la red este activa (es lo que pasa en un portatil si utilizas <strong>network-manager</strong>, que necesita unos minutos a conectarse). Entonces, pasados esos minutos, se ejecuta el script de copias de seguridad, pero activado por <strong>systemd</strong>.</p>
+<p>La primera versión que hice, fue que el activador de <strong>systemd</strong> estuviera en el sistema, estilo general, en cambio, gracias a un <a href="https://elblogdelazaro.org/restic-automatiza-tus-backups-con-restic-y-systemd" target="_blank" rel="noopener noreffer ">articulo</a> de <strong>Carlos M.</strong> vi que se podia tener lo mismo, pero a nivel de usuario (mucho más facil de implementar y de controlar), siguiendo estos simples pasos:</p>
+<p>Lo primero, era crear la configuración del <em>backup</em> con <em>systemd</em> para usuarios, pero en <strong>Debian GNULinux</strong> y esto se consigue de la siguiente manera:</p>
+<h4 id="1-estructura-de-archivos">1. Estructura de archivos</h4>
+<p>Ubicación de los archivos configurados:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">    ~/.config/systemd/user/backup.timer → Timer para ejecutar el backup <span class="m">5</span> min después del arranque.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    ~/.config/systemd/user/backup.service → Servicio que ejecuta el script de backup.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    ~/.local/bin/backupRestic.sh → Script de backup con Restic.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    ~/.local/bin/backup.env → Variables de entorno necesarias para el backup.</span></span></code></pre></div></div>
+<h4 id="2-configuración-del-timer-configsystemduserbackuptimer">2. Configuración del Timer (<code>~/.config/systemd/user/backup.timer</code>)</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-ini">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[Unit]</span>
+</span></span><span class="line"><span class="cl"><span class="na">Description</span><span class="o">=</span><span class="s">Ejecuta backupRestic.sh después de cada arranque</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[Timer]</span>
+</span></span><span class="line"><span class="cl"><span class="na">OnBootSec</span><span class="o">=</span><span class="s">5m</span>
+</span></span><span class="line"><span class="cl"><span class="na">Persistent</span><span class="o">=</span><span class="s">true</span>
+</span></span><span class="line"><span class="cl"><span class="na">Unit</span><span class="o">=</span><span class="s">backup.service</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[Install]</span>
+</span></span><span class="line"><span class="cl"><span class="na">WantedBy</span><span class="o">=</span><span class="s">timers.target</span></span></span></code></pre></div></div>
+<h4 id="3-configuración-del-servicio-configsystemduserbackupservice">3. Configuración del Servicio (<code>~/.config/systemd/user/backup.service</code>)</h4>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-ini">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[Unit]</span>
+</span></span><span class="line"><span class="cl"><span class="na">Description</span><span class="o">=</span><span class="s">Restic Backup</span>
+</span></span><span class="line"><span class="cl"><span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[Service]</span>
+</span></span><span class="line"><span class="cl"><span class="na">Type</span><span class="o">=</span><span class="s">oneshot</span>
+</span></span><span class="line"><span class="cl"><span class="na">EnvironmentFile</span><span class="o">=</span><span class="s">%h/.local/bin/backup.env</span>
+</span></span><span class="line"><span class="cl"><span class="na">ExecStart</span><span class="o">=</span><span class="s">/bin/bash %h/.local/bin/backupRestic.sh</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[Install]</span>
+</span></span><span class="line"><span class="cl"><span class="na">WantedBy</span><span class="o">=</span><span class="s">default.target</span></span></span></code></pre></div></div>
+<h4 id="4-activación-del-servicio-y-timer">4. Activación del servicio y timer</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-console">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">systemctl --user daemon-reload
+</span></span></span><span class="line"><span class="cl"><span class="go">systemctl --user enable backup.service
+</span></span></span><span class="line"><span class="cl"><span class="go">systemctl --user enable backup.timer
+</span></span></span><span class="line"><span class="cl"><span class="go">systemctl --user start backup.timer
+</span></span></span><span class="line"><span class="cl"><span class="go">systemctl --user list-timers --all | grep backup
+</span></span></span></code></pre></div></div>
+<h4 id="5-verificación-de-la-ejecución">5. Verificación de la ejecución</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-console">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">systemctl --user status backup.service
+</span></span></span><span class="line"><span class="cl"><span class="go">journalctl --user -u backup.service --no-pager | tail -20
+</span></span></span><span class="line"><span class="cl"><span class="go">restic snapshots
+</span></span></span></code></pre></div></div>
+<h4 id="6-solución-de-problemas">6. Solución de problemas</h4>
+<p>En caso de que a la hora de realizar las copias de seguridad, <strong>systemd</strong> este dando un error, lo podemos visualizar con la siguiente instrucción:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-console">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">systemctl --user restart backup.timer
+</span></span></span><span class="line"><span class="cl"><span class="go">systemctl --user status backup.service
+</span></span></span><span class="line"><span class="cl"><span class="go">journalctl --user -u backup.service --no-pager | tail -20
+</span></span></span><span class="line"><span class="cl"><span class="go">systemctl --user daemon-reload
+</span></span></span></code></pre></div></div>
+<h4 id="7-notas-finales">7. Notas finales</h4>
+<ul>
+<li><code>backup.timer</code> ejecutará <code>backup.service</code> automáticamente 5 minutos después de cada inicio del sistema.</li>
+<li><code>backup.service</code> se ejecuta como <code>oneshot</code>, por lo que solo corre una vez y luego se detiene (eso es lo que dice la teoria).</li>
+<li>Para verificar la ejecución, revisa los logs o consulta los snapshots de <code>backrest</code>.</li>
+</ul>
+<p>Con esto ya tengo implementado mi sistema de copias de seguridad. Pero aun asi, quiero añadir una capa más de seguridad que es, aprovechando que tengo <a href="https://mega.io" target="_blank" rel="noopener noreffer ">Mega</a>, me gustaria enviarlas aqui, para tener una copia fuera, lo podemos llamar asi, de mi control, eso si, con la información encriptada, por si pasa algo tanto con el servidor local como con el VPS y que la pueda recuperar llegado el momento.</p>
+<div class="details admonition warning open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i>Advertencia<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Con respecto a la modificación del menu por parte de <strong>MinIO</strong>, parece ser que ha sido una <a href="https://www.reddit.com/r/minio/comments/1kuzugc/administrator_panel_missing_on_docker_desktop" target="_blank" rel="noopener noreffer ">decisión</a> de solamente dar soporte de seguridad a la versión <em>comunity</em>, por eso y gracias al canal de <strong>atareao</strong>, he descubierto esta <a href="https://kopia.io/docs/reference/command-line/common/repository-connect-s3" target="_blank" rel="noopener noreffer ">aplicación</a>, que tendre que investigar quien no dice que use esta para substituir a <strong>MinIO</strong>.
+El tiempo lo dira.</div>
+        </div>
+    </div>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.org/tags/restic" target="_blank" rel="noopener noreffer ">El Blog de Lázaro - Restic</a></li>
+<li><a href="https://atareao.es/podcast/no-pierdas-tus-datos-backups-infalibles" target="_blank" rel="noopener noreffer ">677 - No pierdas tus datos. Backups infalibles</a></li>
+<li><a href="https://atareao.es/podcast/backups-en-android-con-restic" target="_blank" rel="noopener noreffer ">680 - Backups en Android con Restic</a></li>
+<li><a href="https://geekland.eu/copias-de-seguridad-con-restic-de-forma-automatica" target="_blank" rel="noopener noreffer ">Como hacer copias de seguridad cifradas con Restic de forma automática</a></li>
+<li><a href="https://thanhtunguet.info/posts/install-minio-using-docker-compose" target="_blank" rel="noopener noreffer ">Setting Up MinIO with Docker Compose</a></li>
+<li><a href="https://kopia.io/docs/reference/command-line/common/repository-connect-s3" target="_blank" rel="noopener noreffer ">KOPIA</a></li>
+<li><a href="https://www.reddit.com/r/minio/comments/1kuzugc/administrator_panel_missing_on_docker_desktop" target="_blank" rel="noopener noreffer ">Administrator panel missing on docker desktop</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 30-06-2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/unraid/">UnRAID</a>,&nbsp;<a href="/tags/docker/">Docker</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2025-06-20-usando-homepage-3/" class="prev" rel="prev" title="Usando HomePage. El Dashboard - 3"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Usando HomePage. El Dashboard - 3</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.9">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="c512a056-cf0b-43ad-9f5e-b4cda9a0eedf"></script></body>
+</html>
