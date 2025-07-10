@@ -16,6 +16,20 @@
       <description>&lt;p&gt;Este sera el tercer y utlimo articulo (en principio), donde explico la manera en que se estoy realizando mis copias de seguridad. Seguramente hay metodos mejores, pero este es el que mejor se adapta a mis necesidades. Tal como dije en el anterior &lt;a href=&#34;https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, unicamente me faltaba realizar la configuración de las copias de seguridad a mi servidor externo (VPS), pero antes de meternos de lleno con este tema.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Usando HomePage. El Dashboard - 3</title>
+      <link>https://vctrsnts.github.io/2025-06-20-usando-homepage-3/</link>
+      <pubDate>Sat, 21 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2025-06-20-usando-homepage-3/</guid>
+      <description>&lt;p&gt;Un nuevo articulo hablando sobre &lt;strong&gt;homepage&lt;/strong&gt;, este magnifico &lt;em&gt;dashboard&lt;/em&gt; al que le tengo mucho cariño y que hace un tiempo, realizo una actualización en su configuración y que en mi caso, usuario de portatil no me funcionaba correctamente, porque las &lt;strong&gt;5 columnas&lt;/strong&gt; que yo utilizo no se veian correctamente, abri un &lt;em&gt;issue&lt;/em&gt; sobre este problema y parece ser que con la ultima actualización, ha solucionado este problema y ahora explicare como lo he hecho.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Adios GCalendar. Hola Radicale</title>
+      <link>https://vctrsnts.github.io/2025-06-20-radicale-etar/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2025-06-20-radicale-etar/</guid>
+      <description>&lt;p&gt;A partir de este &lt;a href=&#34;https://elblogdelazaro.org/sincronizar-gnome-calendar-con-un-servidor-caldav&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;articulo&lt;/a&gt; de &lt;strong&gt;Carlos M.&lt;/strong&gt; del que sigo tanto su &lt;a href=&#34;https://elblogdelazaro.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;blog&lt;/a&gt; como su canal de mastodon, me pico la curiosidad de si yo tambien podria tener un calendario ajeno al control de Google y si le sacaria todo el partido para ello.&lt;/p&gt;&#xA;&lt;p&gt;Pues que quereis que os diga, si con el &lt;em&gt;calendario de Google&lt;/em&gt; que lo uso para apuntar 3 notas, porque no voy a sacarle partido a mi propio calendario, pero controlado por mi. A parte, de que tambien permite tener tu propia agenda de contactos y que esta no este al alcance de &lt;em&gt;Google&lt;/em&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Restic &#43; Backrest &#43; MiniO - 2</title>
       <link>https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2/</link>
       <pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>

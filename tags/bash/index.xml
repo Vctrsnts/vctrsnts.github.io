@@ -6,8 +6,15 @@
     <description>Recent content in Bash on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
-    <lastBuildDate>Sat, 15 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vctrsnts.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mis tips en Debian GNU/Linux</title>
+      <link>https://vctrsnts.github.io/2025-07-08-tips-debian/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2025-07-08-tips-debian/</guid>
+      <description>&lt;p&gt;En mi búsqueda por el ancho y basto oceano de internet por mejorar mi configuración en &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt;, encontré unos tips que me resultaron muy útiles y decidí compartirlos por si a alguien más le sirven.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Configurar el fichero .bashrc para descomprimir ficheros</title>
       <link>https://vctrsnts.github.io/2022-01-15-configurar-fichero-bashrc/</link>

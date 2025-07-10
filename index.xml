@@ -3,9 +3,21 @@
         <title>Si lo haces, hazlo bien!</title>
         <link>https://vctrsnts.github.io/</link>
         <description>Hay 10 tipos de personas en el mundo. Las que saben binario y las que no</description>
-        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Mon, 30 Jun 2025 00:00:00 &#43;0000</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Tue, 08 Jul 2025 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://vctrsnts.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Mis tips en Debian GNU/Linux</title>
+    <link>https://vctrsnts.github.io/2025-07-08-tips-debian/</link>
+    <pubDate>Tue, 08 Jul 2025 00:00:00 &#43;0000</pubDate>
+    <author>vsantos</author>
+    <guid>https://vctrsnts.github.io/2025-07-08-tips-debian/</guid>
+    
+    
+    <category term="Debian GNU/Linux" />
+    
+    <description><![CDATA[<p>En mi búsqueda por el ancho y basto oceano de internet por mejorar mi configuración en <strong>Debian GNU/Linux</strong>, encontré unos tips que me resultaron muy útiles y decidí compartirlos por si a alguien más le sirven.</p>]]></description>
+</item>
+<item>
     <title>Restic &#43; Backrest &#43; MiniO - 3</title>
     <link>https://vctrsnts.github.io/2025-05-23-restic-copias-locales-3/</link>
     <pubDate>Mon, 30 Jun 2025 00:00:00 &#43;0000</pubDate>
@@ -27,8 +39,6 @@
     
     <category term="unRAID" />
     
-    <category term="Docker" />
-    
     <description><![CDATA[<p>Un nuevo articulo hablando sobre <strong>homepage</strong>, este magnifico <em>dashboard</em> al que le tengo mucho cariño y que hace un tiempo, realizo una actualización en su configuración y que en mi caso, usuario de portatil no me funcionaba correctamente, porque las <strong>5 columnas</strong> que yo utilizo no se veian correctamente, abri un <em>issue</em> sobre este problema y parece ser que con la ultima actualización, ha solucionado este problema y ahora explicare como lo he hecho.</p>]]></description>
 </item>
 <item>
@@ -40,8 +50,6 @@
     
     
     <category term="VPS" />
-    
-    <category term="Docker" />
     
     <description><![CDATA[<p>A partir de este <a href="https://elblogdelazaro.org/sincronizar-gnome-calendar-con-un-servidor-caldav" target="_blank" rel="noopener noreffer ">articulo</a> de <strong>Carlos M.</strong> del que sigo tanto su <a href="https://elblogdelazaro.org/" target="_blank" rel="noopener noreffer ">blog</a> como su canal de mastodon, me pico la curiosidad de si yo tambien podria tener un calendario ajeno al control de Google y si le sacaria todo el partido para ello.</p>
 <p>Pues que quereis que os diga, si con el <em>calendario de Google</em> que lo uso para apuntar 3 notas, porque no voy a sacarle partido a mi propio calendario, pero controlado por mi. A parte, de que tambien permite tener tu propia agenda de contactos y que esta no este al alcance de <em>Google</em>.</p>]]></description>
@@ -151,7 +159,7 @@
     <guid>https://vctrsnts.github.io/2025-01-13-cambiando-a-wezterm/</guid>
     
     
-    <category term="Debian GNULinux" />
+    <category term="Debian GNU/Linux" />
     
     <description><![CDATA[<p>Este es un articulo, que como puedes ver, es un articulo muy parecido a los que he ha escrito <strong>Lorenzo</strong>, de <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a>, porque es algo, que si te pones a pensar es una de las aplicaciones que más se utilizan en <em>GNU/Linux</em> pero a la que no se le da mucha importacia.</p>
 <p>Nos estamos refiriendo a la terminal.</p>]]></description>
@@ -202,7 +210,7 @@
     <guid>https://vctrsnts.github.io/2024-12-11-mis-aplicaciones-2024/</guid>
     
     
-    <category term="Debian GNULinux" />
+    <category term="Debian GNU/Linux" />
     
     <description><![CDATA[<p>Siguiendo la iniciativa de <a href="https://elblogdelazaro.org/posts/2024-12-09-mis-aplicaciones-por-defecto-2024" target="_blank" rel="noopener noreffer ">Carlos M.</a>, pues tambien pondre mi granito de arena a esta buena idea, porque asi, la gente puede descubrir nuevas aplicaciones que nunca habrias pensado que existieran, y de esta manera, pues&hellip;</p>]]></description>
 </item>
@@ -516,7 +524,7 @@
     <guid>https://vctrsnts.github.io/2024-02-06-copias-seguridad-annexo/</guid>
     
     
-    <category term="Debian GNULinux" />
+    <category term="Debian GNU/Linux" />
     
     <description><![CDATA[<p>Se que ha pasado 1 mes desde la ultima vez que publique algo, pero he estado un poco liado con todo, pero ahora vuelvo al ruedo y a ver, si me pongo las pilas con el <strong>Blog</strong>.</p>
 <p>Tal como se puede ver en estos 2 articulos que ya habia escrito:</p>
@@ -625,7 +633,7 @@
     <guid>https://vctrsnts.github.io/2023-05-05-recuperando-grub/</guid>
     
     
-    <category term="Debian GNULinux" />
+    <category term="Debian GNU/Linux" />
     
     <description><![CDATA[<p>No se si os ha pasado muchas veces eso de perder el arranque de GNU/Linux <em><strong>GRUB</strong></em>, pero a mi, me esta pasando muchas veces ultimamente y no se si es porque tengo mala suerte o porque tengo mal configurado el inicio entre Linux y Windows, asi que al final, me he tenido que buscar la vida, para saber como se puede solucionar, porque sino, tengo que volver a reinstalarlo todo y ahora que el sistema lo tengo como yo quiero, pues &hellip;</p>]]></description>
 </item>
@@ -637,7 +645,7 @@
     <guid>https://vctrsnts.github.io/2023-04-29-donde-dije-digo-digo-diego/</guid>
     
     
-    <category term="Debian GNULinux" />
+    <category term="Debian GNU/Linux" />
     
     <description><![CDATA[<p>Mucha gente pensara que me he vuelto loco al poner este titulo a este articulo y más siendo un blog de tecnologia, pero cuando llegueis al final lo entendereis.</p>]]></description>
 </item>
@@ -649,7 +657,7 @@
     <guid>https://vctrsnts.github.io/2023-02-19-actualizacion-watchtower/</guid>
     
     
-    <category term="Debian GNULinux" />
+    <category term="Debian GNU/Linux" />
     
     <description><![CDATA[<p>Tal como habia indicado en este <a href="/2023-01-25-usando-watchtower" rel="">post</a>, explica como empece usar <strong>watchtower</strong> pero con resultados muy extraños.</p>]]></description>
 </item>
@@ -673,7 +681,7 @@
     <guid>https://vctrsnts.github.io/2023-01-25-usando-watchtower/</guid>
     
     
-    <category term="Debian GNULinux" />
+    <category term="Debian GNU/Linux" />
     
     <description><![CDATA[<p>Si quieres echarle la culpa tendreis que mirar a <a href="https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html" target="_blank" rel="noopener noreffer ">Angel de uGeek</a>, a <a href="https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente" target="_blank" rel="noopener noreffer ">Lorenzo de Atareao.es</a> y por ultimo a <strong>Carlos M.</strong> de <a href="https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker" target="_blank" rel="noopener noreffer ">ElBlogdeLazaro</a> porque ellos son los culpables de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación <strong>watchtower</strong> es una de ellas 😉</p>]]></description>
 </item>
@@ -722,7 +730,7 @@
     <guid>https://vctrsnts.github.io/2022-12-31-rpi-spotity/</guid>
     
     
-    <category term="Debian GNULinux" />
+    <category term="Debian GNU/Linux" />
     
     <description><![CDATA[<p>Tal como explique en este articulo <a href="/2021-04-01-rpi-spotify" rel="">creando tu propio servidor de musica</a> cuando tienes un servidor en tu casa, empiezas a tener ideas locas de que podrias hacer con el.</p>]]></description>
 </item>
@@ -734,7 +742,7 @@
     <guid>https://vctrsnts.github.io/2022-12-25-rpi-caddy-proxy-manager/</guid>
     
     
-    <category term="Debian GNULinux" />
+    <category term="Debian GNU/Linux" />
     
     <description><![CDATA[<p>Como ya sabreis, <a href="/2021-05-07-rpi-nginx-proxy-manager" rel="">anteriormente</a> usaba <strong>Nginx Proxy Manager</strong> porque habia tenido muchos problemas con <strong>Caddy</strong>, no se de donde venian estos problemas, si de <strong>Caddy</strong> o de <strong>duckdns.org</strong>, asi que hice el cambio a <strong>npm</strong> para los amigos.</p>]]></description>
 </item>
@@ -1130,7 +1138,7 @@
     <guid>https://vctrsnts.github.io/2019-11-11-tip-sudo-debian/</guid>
     
     
-    <category term="Debian GNULinux" />
+    <category term="Debian GNU/Linux" />
     
     <description><![CDATA[<p>Después de mucho tiempo, pongo un <strong>TIP</strong> para que no se me olvide en caso de necesitarlo.</p>
 <p>A lo mejor pongo más de uno, porque después me cuesta mucho buscarlos de nuevo. Así que aqui va el primero.</p>]]></description>
@@ -1271,7 +1279,7 @@
     <guid>https://vctrsnts.github.io/2015-05-08-repositorios-debian/</guid>
     
     
-    <category term="Debian GNULinux" />
+    <category term="Debian GNU/Linux" />
     
     <description><![CDATA[<p>Cuando se está utilizando un sistema <strong>Debian GNU/Linux</strong>, una de las cosas que más se disfrutan es la herramienta para administración de paquetes <code>APT</code>.</p>]]></description>
 </item>

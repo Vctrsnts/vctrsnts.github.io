@@ -3,7 +3,19 @@
         <title>Todos los Artículos - Si lo haces, hazlo bien!</title>
         <link>https://vctrsnts.github.io/posts/</link>
         <description>Todos los Artículos | Si lo haces, hazlo bien!</description>
-        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Mon, 30 Jun 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Tue, 08 Jul 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Mis tips en Debian GNU/Linux</title>
+    <link>https://vctrsnts.github.io/2025-07-08-tips-debian/</link>
+    <pubDate>Tue, 08 Jul 2025 00:00:00 &#43;0000</pubDate>
+    <author>vsantos</author>
+    <guid>https://vctrsnts.github.io/2025-07-08-tips-debian/</guid>
+    
+    
+    <category term="Debian GNU/Linux" />
+    
+    <description><![CDATA[<p>En mi búsqueda por el ancho y basto oceano de internet por mejorar mi configuración en <strong>Debian GNU/Linux</strong>, encontré unos tips que me resultaron muy útiles y decidí compartirlos por si a alguien más le sirven.</p>]]></description>
+</item>
+<item>
     <title>Restic &#43; Backrest &#43; MiniO - 3</title>
     <link>https://vctrsnts.github.io/2025-05-23-restic-copias-locales-3/</link>
     <pubDate>Mon, 30 Jun 2025 00:00:00 &#43;0000</pubDate>
@@ -25,8 +37,6 @@
     
     <category term="unRAID" />
     
-    <category term="Docker" />
-    
     <description><![CDATA[<p>Un nuevo articulo hablando sobre <strong>homepage</strong>, este magnifico <em>dashboard</em> al que le tengo mucho cariño y que hace un tiempo, realizo una actualización en su configuración y que en mi caso, usuario de portatil no me funcionaba correctamente, porque las <strong>5 columnas</strong> que yo utilizo no se veian correctamente, abri un <em>issue</em> sobre este problema y parece ser que con la ultima actualización, ha solucionado este problema y ahora explicare como lo he hecho.</p>]]></description>
 </item>
 <item>
@@ -38,8 +48,6 @@
     
     
     <category term="VPS" />
-    
-    <category term="Docker" />
     
     <description><![CDATA[<p>A partir de este <a href="https://elblogdelazaro.org/sincronizar-gnome-calendar-con-un-servidor-caldav" target="_blank" rel="noopener noreffer ">articulo</a> de <strong>Carlos M.</strong> del que sigo tanto su <a href="https://elblogdelazaro.org/" target="_blank" rel="noopener noreffer ">blog</a> como su canal de mastodon, me pico la curiosidad de si yo tambien podria tener un calendario ajeno al control de Google y si le sacaria todo el partido para ello.</p>
 <p>Pues que quereis que os diga, si con el <em>calendario de Google</em> que lo uso para apuntar 3 notas, porque no voy a sacarle partido a mi propio calendario, pero controlado por mi. A parte, de que tambien permite tener tu propia agenda de contactos y que esta no este al alcance de <em>Google</em>.</p>]]></description>
@@ -115,18 +123,6 @@
     <category term="Hardware" />
     
     <description><![CDATA[<p>Este nuevo articulo no sabia si llamarlo <strong>Modificaciones en el servidor - 3</strong> o <strong>La imaginación humana no tiene limites</strong>, porque una vez que hayais leido este articulo pensareis lo mismo que yo.</p>]]></description>
-</item>
-<item>
-    <title>Matrix - 2. PushBits, la pasarela que faltaba</title>
-    <link>https://vctrsnts.github.io/2025-03-27-pushbits/</link>
-    <pubDate>Fri, 28 Mar 2025 00:00:00 &#43;0000</pubDate>
-    <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-03-27-pushbits/</guid>
-    
-    
-    <category term="VPS" />
-    
-    <description><![CDATA[<p>Como bien explique en el anterior <a href="/2025-03-25-instal-config-matrix" rel="">articulo</a>, explicaba la instalación y configuración, nada facil, de mi servidor de <strong>matrix</strong> ahora os vengo a traer el siguiente articulo, donde explico el uso que le he dado y los problemeas que me he encontrado asi como los planes de futuro.</p>]]></description>
 </item>
 </channel>
 </rss>

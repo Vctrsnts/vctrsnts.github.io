@@ -51,7 +51,7 @@ Cuando instalas la aplicación, se tiene que activar la opción **expert** que t
 
 ![](/images/homepage_01.png "Afegim fitxer .env")
 
-He iniciamos la aplicación. Pero en mi caso, seguia apareciendo el mensaje y eso que habia añadido la variable *HOMEPAGE_ALLOWED_HOSTS* con la ip de servidor y el puerto, esto se tiene que hacer, siempre que no uses el puerto por defecto (3000). Pues nada, a seguir investigando.
+He iniciamos la aplicación. Pero en mi caso, seguia apareciendo el mensaje y eso que habia añadido la variable **HOMEPAGE_ALLOWED_HOSTS** con la ip de servidor y el puerto, esto se tiene que hacer, siempre que no uses el puerto por defecto (3000). Pues nada, a seguir investigando.
 
 Al final he encontrado la solución, que es añadir en la plantilla de **homepage** esta opcion de la siguiente manera:
 
