@@ -107,7 +107,7 @@ Esto es lo que me ha llevado un poco más de trabajo, pero gracias a la **Copilo
   # Configuració de Restic Local
   export RESTIC_PASSWORD=${RESTIC_PASSWORD}
   # DECLARACIÓ DEL ARRAY REPOS
-  declare -A REPOS
+  # declare -A REPOS
 
   # Configuración de repositorios
   REPOS=(
@@ -115,6 +115,10 @@ Esto es lo que me ha llevado un poco más de trabajo, pero gracias a la **Copilo
     "s3:${VPS_MINIO_URL}/backup|${VPS_AWS_ACCESS_KEY_ID}|${VPS_AWS_SECRET_ACCESS_KEY}"
   )
 ```
+{{< admonition note >}}
+He tenido que hacer una correción al script, porque tenia `declare -A REPOS` y lo que hace es indicar que el primer elemento es la clave del array y el segundo element es el valor, por eso solamente me estaba haciendo las copias de seguridad externas (VPS) y no las hacia en mi servidor local.
+{{< /admonition >}}
+
 Aqui indicamos en el array `REPOS` las dos *URL* de los servidores con **MinIO** junto con las claves **AWS_ACCESS_KEY_ID** y **AWS_SECRET_ACCESS_KEY** separado por **|**, para que esta información, se cargue directamente cada vez que acceda a un servidor para enviar las copias de seguridad.
 
 La otra modificación que se tiene que hacer es en los **for** donde realizara la tarea de *crear las copias*, *verificar*, *eliminar* las antiguas en cada servidor y esto se hace a traves de:

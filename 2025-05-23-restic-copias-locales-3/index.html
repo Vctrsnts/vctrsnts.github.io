@@ -24,7 +24,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/vctrsnts.github.io\/2025-05-23-restic-copias-locales-3\/"
-        },"image": ["https:\/\/vctrsnts.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "unRAID, Docker","wordcount":  1745 ,
+        },"image": ["https:\/\/vctrsnts.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "unRAID, Docker","wordcount":  1802 ,
         "url": "https:\/\/vctrsnts.github.io\/2025-05-23-restic-copias-locales-3\/","datePublished": "2025-06-30T00:00:00+00:00","dateModified": "2025-06-30T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "vsantos","logo": {
@@ -98,7 +98,7 @@
     </div><main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Restic + Backrest + MiniO - 3</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/unraid/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>UnRAID</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="30-06-2025">30-06-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1745 palabras&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="30-06-2025">30-06-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1802 palabras&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutos&nbsp;</div>
         </div><div class="content" id="content"><p>Este sera el tercer y utlimo articulo (en principio), donde explico la manera en que se estoy realizando mis copias de seguridad. Seguramente hay metodos mejores, pero este es el que mejor se adapta a mis necesidades. Tal como dije en el anterior <a href="/2025-05-22-restic-copias-locales-2" rel="">articulo</a>, unicamente me faltaba realizar la configuración de las copias de seguridad a mi servidor externo (VPS), pero antes de meternos de lleno con este tema.</p>
 <p>Quiero ampliar como se realizan la configuración de las copias de seguridad, esta explicación sirve tanto para las copias de seguridad en el servidor local como en uno externo.</p>
@@ -218,13 +218,21 @@
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  <span class="c1"># Configuració de Restic Local</span>
 </span></span><span class="line"><span class="cl">  <span class="nb">export</span> <span class="nv">RESTIC_PASSWORD</span><span class="o">=</span><span class="si">${</span><span class="nv">RESTIC_PASSWORD</span><span class="si">}</span>
 </span></span><span class="line"><span class="cl">  <span class="c1"># DECLARACIÓ DEL ARRAY REPOS</span>
-</span></span><span class="line"><span class="cl">  <span class="nb">declare</span> -A REPOS
+</span></span><span class="line"><span class="cl">  <span class="c1"># declare -A REPOS</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="c1"># Configuración de repositorios</span>
 </span></span><span class="line"><span class="cl">  <span class="nv">REPOS</span><span class="o">=(</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;s3:</span><span class="si">${</span><span class="nv">SERVER_MINIO_URL</span><span class="si">}</span><span class="s2">/backup|</span><span class="si">${</span><span class="nv">SERVER_AWS_ACCESS_KEY_ID</span><span class="si">}</span><span class="s2">|</span><span class="si">${</span><span class="nv">SERVER_AWS_SECRET_ACCESS_KEY</span><span class="si">}</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;s3:</span><span class="si">${</span><span class="nv">VPS_MINIO_URL</span><span class="si">}</span><span class="s2">/backup|</span><span class="si">${</span><span class="nv">VPS_AWS_ACCESS_KEY_ID</span><span class="si">}</span><span class="s2">|</span><span class="si">${</span><span class="nv">VPS_AWS_SECRET_ACCESS_KEY</span><span class="si">}</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">)</span></span></span></code></pre></div></div>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">He tenido que hacer una correción al script, porque tenia <code>declare -A REPOS</code> y lo que hace es indicar que el primer elemento es la clave del array y el segundo element es el valor, por eso solamente me estaba haciendo las copias de seguridad externas (VPS) y no las hacia en mi servidor local.</div>
+        </div>
+    </div>
 <p>Aqui indicamos en el array <code>REPOS</code> las dos <em>URL</em> de los servidores con <strong>MinIO</strong> junto con las claves <strong>AWS_ACCESS_KEY_ID</strong> y <strong>AWS_SECRET_ACCESS_KEY</strong> separado por <strong>|</strong>, para que esta información, se cargue directamente cada vez que acceda a un servidor para enviar las copias de seguridad.</p>
 <p>La otra modificación que se tiene que hacer es en los <strong>for</strong> donde realizara la tarea de <em>crear las copias</em>, <em>verificar</em>, <em>eliminar</em> las antiguas en cada servidor y esto se hace a traves de:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
@@ -396,5 +404,5 @@ El tiempo lo dira.</div>
         <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="9f47f0ba-ee02-448a-ae62-d77f2390187c"></script></body>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="0e58815a-40fe-4db7-b84a-82a7640ae335"></script></body>
 </html>
