@@ -24,7 +24,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/vctrsnts.github.io\/2025-03-27-pushbits\/"
-        },"image": ["https:\/\/vctrsnts.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "VPS, Docker, Matrix","wordcount":  1861 ,
+        },"image": ["https:\/\/vctrsnts.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "VPS, Docker, Matrix","wordcount":  1883 ,
         "url": "https:\/\/vctrsnts.github.io\/2025-03-27-pushbits\/","datePublished": "2025-03-28T00:00:00+00:00","dateModified": "2025-03-28T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "vsantos","logo": {
@@ -98,7 +98,7 @@
     </div><main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Matrix - 2. PushBits, la pasarela que faltaba</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/vps/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>VPS</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="28-03-2025">28-03-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1861 palabras&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="28-03-2025">28-03-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1883 palabras&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutos&nbsp;</div>
         </div><div class="content" id="content"><p>Como bien explique en el anterior <a href="/2025-03-25-instal-config-matrix" rel="">articulo</a>, explicaba la instalación y configuración, nada facil, de mi servidor de <strong>matrix</strong> ahora os vengo a traer el siguiente articulo, donde explico el uso que le he dado y los problemeas que me he encontrado asi como los planes de futuro.</p>
 <p>Después de la instalación de <em>matrix</em> ahora tenia que configurar los servicios para que pudiera utilizar este nuevo servicio que he instalado y aqui es donde me he encontrado algunos problemas, porque no todos los servicios que tengo actualmente incluyendo a <em>unRaid</em> no estan del todo preparados para su uso. Ya lo ireis viendo si seguiis leyendo.</p>
@@ -184,29 +184,23 @@
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># A sample configuration for PushBits.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Populated fields contain their default value.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Required fields are marked with [required].</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">debug</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">http</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The address to listen on. If empty, listens on all available IP addresses of the system.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">listenaddress</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The port to listen on.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">5050</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># What proxies to trust.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">trustedproxies</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Filename of the TLS certificate.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">certfile</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Filename of the TLS private key.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">keyfile</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">database</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Currently sqlite3, mysql, and postgres are supported.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">dialect</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;sqlite3&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># - For sqlite3, specify the database file.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># - For mysql specify the connection string. See details at https://github.com/go-sql-driver/mysql#dsn-data-source-name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># - For postgres, see https://github.com/jackc/pgx.</span><span class="w">
@@ -216,25 +210,21 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">admin</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The username of the initial admin.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;admin&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The password of the initial admin.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;passWord&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;admin&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The Matrix ID of the initial admin, where notifications for that admin are sent to.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># [required]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matrixid</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;@user:matrix.myServer.org&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matrixid</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">matrix</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The Matrix server to use for sending notifications.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">homeserver</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;https://matrix.myServer.org&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The username of the Matrix account to send notifications from.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># [required]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;userMatrix&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;@user:matrix.myServer.org&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The password of the Matrix account to send notifications from.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># [required]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;passwordMatrix&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">security</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Wether or not to check for weak passwords using HIBP.</span><span class="w">
@@ -272,6 +262,8 @@
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@debian:~$ docker <span class="nb">exec</span> -it matrixPushbits sh
+</span></span><span class="line"><span class="cl"><span class="c1"># PER SABER LA IP DEL CONTENIDOR DE PUSHBITS, AMB AQUESTA INSTRUCCIÓ ES POT ACONSEGUIR</span>
+</span></span><span class="line"><span class="cl">$ docker inspect &lt;container_name&gt; <span class="p">|</span> grep <span class="s2">&#34;IPAddress&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># VISUALITZEM LES SALES / APLICACIONS QUE TENIM ACTUALMENTE</span>
 </span></span><span class="line"><span class="cl">/app $ pbcli application list --url http://172.20.0.5:8080 --username admin
@@ -356,7 +348,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.1">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.150.0">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div></div>
     </footer></div>
 

@@ -61,3 +61,6 @@ else
 	# I finalitzem pujant els arxius
 	git push origin HEAD:master
 fi
+
+read -p "Dessitga enviar el missatge a les xarxes socials configurades? (s/n): " RESP
+[[ "$RESP" == "s" ]] && python3.11 /mnt/user/personal/bot/botSocialMediaUltim.py

@@ -3,7 +3,19 @@
         <title>Todos los Artículos - Si lo haces, hazlo bien!</title>
         <link>https://vctrsnts.github.io/posts/</link>
         <description>Todos los Artículos | Si lo haces, hazlo bien!</description>
-        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Tue, 08 Jul 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Wed, 10 Sep 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Cambiamos de launcher en el movil?</title>
+    <link>https://vctrsnts.github.io/2025-09-11-cambiando-launcher/</link>
+    <pubDate>Wed, 10 Sep 2025 00:00:00 &#43;0000</pubDate>
+    <author>vsantos</author>
+    <guid>https://vctrsnts.github.io/2025-09-11-cambiando-launcher/</guid>
+    
+    
+    <category term="Android" />
+    
+    <description><![CDATA[<p>De nuevo con más articulos después de unas largas y merecidas vacaciones. Este articulo, se va a parecer mucho a unos que escribio hace tiempo <a href="https://ugeek.github.io" target="_blank" rel="noopener noreffer ">uGeek</a> donde hablaba de los <a href="https://ugeek.github.io/blog/post/2020-12-30-launchers-opensource-para-android.html" target="_blank" rel="noopener noreffer ">launchers</a> que le gustaban o que habia probado o que estaba usando actualmente en su movil. Tambien estaba este <a href="https://ugeek.github.io/post/2021-06-22-fritter-y-kiss.html" target="_blank" rel="noopener noreffer ">podcast</a> donde hablaba de <a href="https://github.com/Neamar/KISS" target="_blank" rel="noopener noreffer ">KISS Launcher</a>.</p>]]></description>
+</item>
+<item>
     <title>Mis tips en Debian GNU/Linux</title>
     <link>https://vctrsnts.github.io/2025-07-08-tips-debian/</link>
     <pubDate>Tue, 08 Jul 2025 00:00:00 &#43;0000</pubDate>
@@ -111,18 +123,6 @@
     <category term="VPS" />
     
     <description><![CDATA[<p>Como bien sabeis, porque lo explique en este <a href="/2025-03-25-instal-config-matrix" rel="">articulo</a> y en este <a href="/2025-03-27-pushbits" rel="">otro</a>, estaba usando <strong>Matrix</strong> como servidor de comunicación entre mis servidores y un servidor. Pero mientras más lo usaba, más desesperación me producia, porque, puede parecer una tonteria, pero en el movil, no recibia las notificaciones de los mensajes que me llegaban al cliente de <strong>Matrix</strong>, que en este caso era <strong>FluffyChat</strong>.</p>]]></description>
-</item>
-<item>
-    <title>Modificaciones en el servidor - 3</title>
-    <link>https://vctrsnts.github.io/2025-04-20-modificaciones-servidor-3/</link>
-    <pubDate>Sun, 20 Apr 2025 00:00:00 &#43;0000</pubDate>
-    <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-04-20-modificaciones-servidor-3/</guid>
-    
-    
-    <category term="Hardware" />
-    
-    <description><![CDATA[<p>Este nuevo articulo no sabia si llamarlo <strong>Modificaciones en el servidor - 3</strong> o <strong>La imaginación humana no tiene limites</strong>, porque una vez que hayais leido este articulo pensareis lo mismo que yo.</p>]]></description>
 </item>
 </channel>
 </rss>

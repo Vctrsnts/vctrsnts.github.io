@@ -76,29 +76,23 @@ A parte de saber como se tiene que usar, tambien tienes que tener el fichero de 
 # A sample configuration for PushBits.
 # Populated fields contain their default value.
 # Required fields are marked with [required].
-
 debug: false
 
 http:
     # The address to listen on. If empty, listens on all available IP addresses of the system.
     listenaddress: ''
-
     # The port to listen on.
     port: 5050
-
     # What proxies to trust.
     trustedproxies: []
-
     # Filename of the TLS certificate.
     certfile: ''
-
     # Filename of the TLS private key.
     keyfile: ''
 
 database:
     # Currently sqlite3, mysql, and postgres are supported.
     dialect: 'sqlite3'
-
     # - For sqlite3, specify the database file.
     # - For mysql specify the connection string. See details at https://github.com/go-sql-driver/mysql#dsn-data-source-name
     # - For postgres, see https://github.com/jackc/pgx.
@@ -108,25 +102,21 @@ database:
 admin:
     # The username of the initial admin.
     name: 'admin'
-
     # The password of the initial admin.
-    password: 'passWord'
-
+    password: 'admin'
     # The Matrix ID of the initial admin, where notifications for that admin are sent to.
     # [required]
-    matrixid: '@user:matrix.myServer.org'
+    matrixid: ''
 
 matrix:
     # The Matrix server to use for sending notifications.
     homeserver: 'https://matrix.myServer.org'
-
     # The username of the Matrix account to send notifications from.
     # [required]
-    username: 'userMatrix'
-
+    username: '@user:matrix.myServer.org'
     # The password of the Matrix account to send notifications from.
     # [required]
-    password: 'passwordMatrix'
+    password: ''
 
 security:
     # Wether or not to check for weak passwords using HIBP.
@@ -161,6 +151,8 @@ repairbehavior:
 A parte del fichero de configuración, tambien necesitas crear una *sala / aplicación* (yo asimilo sala de *matrix*, con aplicación de *PushBits*), donde primero tienes que dar de alta la aplicación, del que obtendras un **TOKEN** que podras usar para identificar quien esta enviando los mensajes a *matrix*. Y esto se consigue de la siguiente manera:
 ```bash
 usuari@debian:~$ docker exec -it matrixPushbits sh
+# PER SABER LA IP DEL CONTENIDOR DE PUSHBITS, AMB AQUESTA INSTRUCCIÓ ES POT ACONSEGUIR
+$ docker inspect <container_name> | grep "IPAddress"
 
 # VISUALITZEM LES SALES / APLICACIONS QUE TENIM ACTUALMENTE
 /app $ pbcli application list --url http://172.20.0.5:8080 --username admin
