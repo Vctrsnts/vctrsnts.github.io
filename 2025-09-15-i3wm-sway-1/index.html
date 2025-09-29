@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>De i3WM ( X11 ) a Sway ( Wayland ) - 1 - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta property="og:image" content="/images/logo_post.jpg" >
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://vctrsnts.github.io/2025-09-15-i3wm-sway-1/" /><link rel="prev" href="https://vctrsnts.github.io/2025-09-11-cambiando-launcher-1/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "De i3WM ( X11 ) a Sway ( Wayland ) - 1",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/vctrsnts.github.io\/2025-09-15-i3wm-sway-1\/"
+        },"image": ["https:\/\/vctrsnts.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Debian GNU\/Linux, I3wm, Sway","wordcount":  1173 ,
+        "url": "https:\/\/vctrsnts.github.io\/2025-09-15-i3wm-sway-1\/","datePublished": "2025-09-12T00:00:00+00:00","dateModified": "2025-09-12T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/vctrsnts.github.io\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">De i3WM ( X11 ) a Sway ( Wayland ) - 1</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/debian-gnu/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Debian GNU/Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="12-09-2025">12-09-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1173 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Como podeis leer en este <a href="/2023-09-11-substitutos-portatil" rel="">articulo</a>, tenia ya a mi disposición un substituto en caso de fallo grave de mi portatil que venia usando hasta ahora. Y eso es lo que ha pasado. El pobre ha pasado a mejor vida.</p>
+<p>Como dice el refran &ldquo;<em>el rey a muerto, viva el rey</em>&rdquo; y esto es que el de reserva ya puede salir a jugar 😂.</p>
+<p>Tengo pensado hacer una serie de 3 articulos que seran los siguientes (incluyendo este):</p>
+<ul>
+<li><a href="" rel="">De i3WM (X11) a Sway (Wayland) - 1</a></li>
+<li><a href="" rel="">De i3WM (X11) a Sway (Wayland) - 2</a></li>
+<li><a href="" rel="">De i3WM (X11) a Sway (Wayland) - 3</a></li>
+</ul>
+<p>Donde explicare todo el proceso de instalación, configuración y refinamiento hasta llegar a donde me encuentro ahora y que seguramente no sera el final, siempre puedes encontrar nuevas ideas para mejorar tu configuración.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">La red es vasta e infinita - Motoko Kusanagi</div>
+        </div>
+    </div>
+<h2 id="introducción">Introducción</h2>
+<p>El porque de este cambio, el al 100% por fallos severos en el hardware. El teclado, USB, bateria, estaban fallando. O sea un fallo a gran escala, además del espacio que ocupaba que eso tambien era un handicap.</p>
+<p>Pero lo que tenia claro es que para hacer el cambio tenia que seguir un par de pautas que eran inamovibles:</p>
+<ul>
+<li>Seguir usando <em>Debian GNU/Linux unstable</em>.</li>
+<li>Seguir usando <em>I3wm</em></li>
+<li>A ser posible cambiar a <em>Wayland</em> para ir empezando a utilizar, lo que teoricamente sera el futuro.</li>
+</ul>
+<p>Partiendo de estas premisas y si queria conseguirlas, tenia un problema que <em>I3wm</em> no esta pensado para funcionar en <em>Wayland</em>, si queria dar el salto, tenia que buscar una alternativa y esta me la dio, en primera instancia, como no puede ser otro <strong>@atareo</strong> con sus diversos <a href="https://atareao.es/?s=sway" target="_blank" rel="noopener noreffer ">articulos</a> hablando de <strong>sway</strong> y sus bondandes (que no han tenido que ser muchas porque rapidamente lo abandono 😇 ) y dio el salto a otros <em>tiling</em>. Pero como bien dice el, para gustos, colores&hellip;</p>
+<p>Pues ya teniamos una cosa más de la lista solucionada. Teniamos <em>Debian</em>, teniamos al substituto de <em>I3wm</em> y teniamos a <em>wayland</em>, pues ya lo teniamos todo, solo me faltaba instalarlo. Pero esta vez, no queria dar un salto de fe, como hice con <em>I3wm</em> en su momento y queria tenerlo todo bien preparado y que el cambio no fuera tan traumatico como lo fue con el anterior cambio.</p>
+<p>Asi que me puse a buscar información del funcionamiento de <em>sway</em> y las opiniones que tenia la gente al respecto, y asi mirando, me encontre con un youtuber, que estoy empezando a seguir donde es uno de sus <a href="https://www.youtube.com/watch?v=sKOWqAm70jc" target="_blank" rel="noopener noreffer ">videos</a>, explicaba, que habia creado un <code>script</code> para la completa instalación y configuración de <em>sway</em>. Y como tenia un portatil, libre (<strong>T480</strong>), pues me decidi a probarlo. Y que quereis que os diga, me gusto como se desenvolvia tanto el script como sway. Pero claro, todo estaba configurado al gusto de <strong>@JustAGuy Linux</strong>. Aqui pense, si el puede hacerse un <code>script</code> para instalar sway, porque no lo puedo hacer yo y todo configurado a mi gusto. Pues me lie la manta a la cabeza y me puse a hacer mi propio script de instalación de sway, pero eso si, adaptado a mis necesidades y sobre todo con la ayuda de <strong>Copilot</strong>.</p>
+<p>Dentro de estas necesidades, que seguramente alguna ya sabreis cual es:</p>
+<ul>
+<li>Instalación base de <em>Debian GNU/Linux unstable</em>.</li>
+<li>Instalación de <em>wayland</em>.</li>
+<li>Instalación de <em>sway</em>.</li>
+<li>Configuración de <em>sway</em> siguiendo los temas que me gustan (Nordic, Nord), o sea, temas oscuros.</li>
+</ul>
+<h2 id="el-script-de-preración">El script de preración</h2>
+<p>Como ya he comentado, a partir de la idea que me habia visto en el video de <strong>@JustAGuy Linux</strong>, cree mi propio script para la instalación y configuración de <strong>sway</strong>. Este procedimiento, esta dividio en <code>3 script</code>, donde cada uno se encarga de una parte del proceso:</p>
+<h3 id="00-preparaciosh"><code>00-preparacio.sh</code></h3>
+<p>Este es el que se encarga desde una instalación basica de <em>Debian GNU/Linux testing</em>, eliminar los paquetes que no son necesarios, procedimiento que siempre sigo después de cada instalación personal de Debian, y luego, salto a la rama <strong>unstable</strong> (que vengo usando desde hace unos 20 años sin ningun problema).</p>
+<p>Os voy a poner las partes más importantes del script para que veais un poco como va. Si quereis en script al completo o el procedimiento de instalación, lo podeis encontrar <a href="https://github.com/Vctrsnts/debian-installer-sway" target="_blank" rel="noopener noreffer ">aqui</a></p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 1. Desactivar la instalacion de paquetes sugeridos y recomendados</span>
+</span></span><span class="line"><span class="cl">log_success <span class="s2">&#34;Configurando APT para evitar la instalacion de paquetes recomendados y sugeridos...&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;APT::Install-Recommends &#34;false&#34;;&#39;</span> <span class="p">|</span> sudo tee /etc/apt/apt.conf.d/99-no-recommends.conf
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;APT::Install-Suggests &#34;false&#34;;&#39;</span> <span class="p">|</span> sudo tee -a /etc/apt/apt.conf.d/99-no-recommends.conf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. Instalar localepurge (es un paquete que considero basico en cualquier instalación de Debian GNU/Linux)</span>
+</span></span><span class="line"><span class="cl">log_success <span class="s2">&#34;Instalando localepurge para limpiar idiomas no deseados...&#34;</span>
+</span></span><span class="line"><span class="cl">sudo apt install -y localepurge
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 3. Preguntar por la version de Debian actual y modificar sources.list</span>
+</span></span><span class="line"><span class="cl"><span class="nb">read</span> -p <span class="s2">&#34;Por favor, introduce el nombre de la version actual de Debian (ej. &#39;forky&#39;): &#34;</span> current_version
+</span></span><span class="line"><span class="cl">log_success <span class="s2">&#34;Modificando /etc/apt/sources.list para apuntar a &#39;testing&#39;...&#34;</span>
+</span></span><span class="line"><span class="cl">sudo sed -i <span class="s2">&#34;s/</span><span class="nv">$current_version</span><span class="s2">/testing/g&#34;</span> /etc/apt/sources.list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">log_success <span class="s2">&#34;Actualizando e instalando paquetes del repositorio &#39;testing&#39;...&#34;</span>
+</span></span><span class="line"><span class="cl">sudo apt -y update <span class="o">&amp;&amp;</span> sudo apt -y upgrade
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 4. Modificar sources.list para usar &#39;unstable&#39; (sid) y actualizar</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Reemplaza &#39;testing&#39; por &#39;unstable&#39;.</span>
+</span></span><span class="line"><span class="cl">sudo sed -i <span class="s1">&#39;s/testing/unstable/g&#39;</span> /etc/apt/sources.list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">log_success <span class="s2">&#34;Actualizando e instalando paquetes del repositorio &#39;unstable&#39; (full-upgrade)...&#34;</span>
+</span></span><span class="line"><span class="cl">log_success <span class="s2">&#34;¡ADVERTENCIA! El siguiente paso podría eliminar paquetes. Revisa la salida de la consola cuidadosamente antes de confirmar.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Nota: Se ha quitado el flag -y para que el usuario pueda revisar los cambios.</span>
+</span></span><span class="line"><span class="cl">sudo apt -y update <span class="o">&amp;&amp;</span> sudo apt -y full-upgrade
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Eliminamos paquetes conocidos, en mi caso, son estos</span>
+</span></span><span class="line"><span class="cl"><span class="nv">pkgs</span><span class="o">=(</span>
+</span></span><span class="line"><span class="cl">  bluez bluetooth debian-faq debian-reference-common 
+</span></span><span class="line"><span class="cl">  debian-reference-es doc-debian manpages manpages-es nano 
+</span></span><span class="line"><span class="cl">  emacsen-common aspell aspell-es dictionaries-common 
+</span></span><span class="line"><span class="cl">  ispanish ispell wspanish task-spanish laptop-detect
+</span></span><span class="line"><span class="cl">  apt-listchanges reportbug python3-reportbug
+</span></span><span class="line"><span class="cl">  python3-apt distro-info-data iso-codes libpython3.13-minimal
+</span></span><span class="line"><span class="cl">  python3-requests python3-debian python3-charset-normalizer 
+</span></span><span class="line"><span class="cl">  python3-urllib3 python3-idna lsb-release python-apt-common
+</span></span><span class="line"><span class="cl">  python3-certifi python3-chardet python3-debconf 
+</span></span><span class="line"><span class="cl">  python3-debianbts python3 libpython3-stdlib python3.13
+</span></span><span class="line"><span class="cl">  libpython3.13-stdlib python3-minimal python3.13-minimal
+</span></span><span class="line"><span class="cl"><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo apt purge -y <span class="s2">&#34;</span><span class="si">${</span><span class="nv">pkgs</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> sudo apt -y autoremove
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># =========================================================================</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Descargamos el ZIP con el resto de archivos / configuraciones necesarias</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># =========================================================================</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Nombre del repositorio en formato usuario/repositorio</span>
+</span></span><span class="line"><span class="cl">log_success <span class="s2">&#34;Iniciem la descarrega dels script&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">REPO</span><span class="o">=</span><span class="s2">&#34;Vctrsnts/debian-installer-sway&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ZIP_FILE</span><span class="o">=</span><span class="s2">&#34;debian-installer-sway.zip&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TARGET_FOLDER</span><span class="o">=</span><span class="s2">&#34;debian-installer-sway&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Descargar el ZIP con nombre personalizado</span>
+</span></span><span class="line"><span class="cl">wget -O <span class="s2">&#34;</span><span class="nv">$ZIP_FILE</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$ZIP_URL</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">log_success <span class="s2">&#34;Se ejecuta la actualización del funcionamiento de los sources&#34;</span>
+</span></span><span class="line"><span class="cl">sudo apt -y modernize-sources
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">log_success <span class="s2">&#34;Eliminamos aplicacion aptitude&#34;</span>
+</span></span><span class="line"><span class="cl">sudo apt purge -y aptitude w3m task-laptop task-spanish <span class="o">&amp;&amp;</span> sudo apt -y autoremove
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">log_success <span class="s2">&#34;Instalem aplicacions wireless&#34;</span>
+</span></span><span class="line"><span class="cl">sudo apt install -y iw wireless-tools wpasupplicant wireless-regdb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">exit</span> <span class="m">0</span></span></span></code></pre></div></div>
+<p>Una vez finaliza este primer script, nos ha dejado el fichero <em>zip</em> donde esta el resto de scripts para seguir. Unicamente, nosotros tenemos que hacer un simple <code>unzip debian-installer-sway.zip</code> y listo.</p>
+<p>Aqui lo dejamos para un siguiente articulo, porque sino, se puede extender mucho y hacerse pesado.</p>
+<p>Hasta la proxima, donde explicare la instalación de <strong>Wayland</strong> junto con <strong>Sway</strong> y todos los paquetes que he instalado para mis necesidades.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://swaywm.org" target="_blank" rel="noopener noreffer ">Sway</a></li>
+<li><a href="https://www.youtube.com/watch?v=sKOWqAm70jc" target="_blank" rel="noopener noreffer ">Sway Installation - New Script</a></li>
+<li><a href="https://www.youtube.com/watch?v=XUdu3xx6iWs" target="_blank" rel="noopener noreffer ">Build a Minimalist Linux Desktop with SwayWM – Part 1</a></li>
+<li><a href="https://www.youtube.com/watch?v=egh43A8Tlh8" target="_blank" rel="noopener noreffer ">Build a Minimalist Linux Desktop with SwayWM – Part 2</a></li>
+<li><a href="https://www.youtube.com/watch?v=zzPJCMl11k4" target="_blank" rel="noopener noreffer ">Build a Minimalist Linux Desktop with SwayWM – Part 3</a></li>
+<li><a href="https://www.youtube.com/watch?v=jFz5gLqv-FM" target="_blank" rel="noopener noreffer ">Linux &amp; Theming - The Ultimate Guide</a></li>
+<li><a href="https://www.youtube.com/watch?v=e7bezUA6G4g" target="_blank" rel="noopener noreffer ">How I Set Up My Sway Window Manager on Debian 12</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 12-09-2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debian-gnu/linux/">Debian GNU/Linux</a>,&nbsp;<a href="/tags/i3wm/">I3wm</a>,&nbsp;<a href="/tags/sway/">Sway</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2025-09-11-cambiando-launcher-1/" class="prev" rel="prev" title="Cambiamos de launcher en el movil - 1?"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Cambiamos de launcher en el movil - 1?</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.150.1">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line">
+                    <a rel="me" href="https://mastodon.online/@vsantos"></a>
+                </div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46"></script></body>
+</html>

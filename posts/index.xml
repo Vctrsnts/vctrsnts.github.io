@@ -3,12 +3,25 @@
         <title>Todos los Artículos - Si lo haces, hazlo bien!</title>
         <link>https://vctrsnts.github.io/posts/</link>
         <description>Todos los Artículos | Si lo haces, hazlo bien!</description>
-        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Wed, 10 Sep 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>Cambiamos de launcher en el movil?</title>
-    <link>https://vctrsnts.github.io/2025-09-11-cambiando-launcher/</link>
+        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Fri, 12 Sep 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>De i3WM ( X11 ) a Sway ( Wayland ) - 1</title>
+    <link>https://vctrsnts.github.io/2025-09-15-i3wm-sway-1/</link>
+    <pubDate>Fri, 12 Sep 2025 00:00:00 &#43;0000</pubDate>
+    <author>vsantos</author>
+    <guid>https://vctrsnts.github.io/2025-09-15-i3wm-sway-1/</guid>
+    
+    
+    <category term="Debian GNU/Linux" />
+    
+    <description><![CDATA[<p>Como podeis leer en este <a href="/2023-09-11-substitutos-portatil" rel="">articulo</a>, tenia ya a mi disposición un substituto en caso de fallo grave de mi portatil que venia usando hasta ahora. Y eso es lo que ha pasado. El pobre ha pasado a mejor vida.</p>
+<p>Como dice el refran &ldquo;<em>el rey a muerto, viva el rey</em>&rdquo; y esto es que el de reserva ya puede salir a jugar 😂.</p>]]></description>
+</item>
+<item>
+    <title>Cambiamos de launcher en el movil - 1?</title>
+    <link>https://vctrsnts.github.io/2025-09-11-cambiando-launcher-1/</link>
     <pubDate>Wed, 10 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-09-11-cambiando-launcher/</guid>
+    <guid>https://vctrsnts.github.io/2025-09-11-cambiando-launcher-1/</guid>
     
     
     <category term="Android" />
@@ -111,18 +124,6 @@
     <category term="unRAID" />
     
     <description><![CDATA[<p>Lo primero y antes de nada, tengo que dar las gracias a <strong>Carlos M.</strong> de <a href="https://elblogdelazaro.org" target="_blank" rel="noopener noreffer ">El Blog de Lázaro</a> y a <strong>Lorenzo</strong> de <a href="https://atareao.es" target="_blank" rel="noopener noreffer ">Atareao</a>, por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.</p>]]></description>
-</item>
-<item>
-    <title>Matrix - 3. De Matrix a Gotify</title>
-    <link>https://vctrsnts.github.io/2025-05-19-matrix-gotify/</link>
-    <pubDate>Tue, 20 May 2025 00:00:00 &#43;0000</pubDate>
-    <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-05-19-matrix-gotify/</guid>
-    
-    
-    <category term="VPS" />
-    
-    <description><![CDATA[<p>Como bien sabeis, porque lo explique en este <a href="/2025-03-25-instal-config-matrix" rel="">articulo</a> y en este <a href="/2025-03-27-pushbits" rel="">otro</a>, estaba usando <strong>Matrix</strong> como servidor de comunicación entre mis servidores y un servidor. Pero mientras más lo usaba, más desesperación me producia, porque, puede parecer una tonteria, pero en el movil, no recibia las notificaciones de los mensajes que me llegaban al cliente de <strong>Matrix</strong>, que en este caso era <strong>FluffyChat</strong>.</p>]]></description>
 </item>
 </channel>
 </rss>
