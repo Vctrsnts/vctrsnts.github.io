@@ -102,7 +102,7 @@ Como veis, tengo el *servicio* **minio_console** para acceder a la web de **MinI
 
 Como ahora iba a tener 2 servidores de copias de seguridad (local y el VPS), tenia que hacer algunas modificaciones al [script](/2025-05-22-restic-copias-locales-2) de copias de seguridad para que contemplara esta nueva funcionalidad. Tambien tiene que tener en cuenta que para cada servidor, tiene sus claves de acceso propias, lo que hace que tenga que utilizar la de cada servidor a la hora de las copias de seguridad.
 
-Esto es lo que me ha llevado un poco más de trabajo, pero gracias a la **Copilot**, las modificaciones que se tienen que añadir son las siguientes:
+Esto es lo que me ha llevado un poco más de trabajo, pero gracias a **Copilot**, las modificaciones que se tienen que añadir son las siguientes:
 ```bash
   # Configuració de Restic Local
   export RESTIC_PASSWORD=${RESTIC_PASSWORD}
@@ -165,7 +165,6 @@ Description=Ejecuta backupRestic.sh después de cada arranque
 
 [Timer]
 OnBootSec=5m
-Persistent=true
 Unit=backup.service
 
 [Install]
@@ -182,37 +181,43 @@ After=network.target
 Type=oneshot
 EnvironmentFile=%h/.local/bin/backup.env
 ExecStart=/bin/bash %h/.local/bin/backupRestic.sh
-
-[Install]
-WantedBy=default.target
 ```
 
-#### 4. Activación del servicio y timer
+#### 4. Desactivación de posibles servicios y timers activos anteriormente
+```console
+systemctl --user stop backup.timer
+systemctl --user disable backup.timer
+systemctl --user disable backup.service
+```
+
+#### 5. Borrar antiguos archivos creados con anterioridad
+```console
+rm ~/.config/systemd/user/backup.service
+rm ~/.config/systemd/user/backup.timer
+```
+#### 6. Activación timer
 ```console
 systemctl --user daemon-reload
-systemctl --user enable backup.service
-systemctl --user enable backup.timer
-systemctl --user start backup.timer
+systemctl --user enable --now backup.timer
 systemctl --user list-timers --all | grep backup
 ```
 
-#### 5. Verificación de la ejecución
+#### 7. Verificación de la ejecución
 ```console
-systemctl --user status backup.service
-journalctl --user -u backup.service --no-pager | tail -20
+systemctl --user status backup.timer
+journalctl --user -u backup.timer --no-pager | tail -20
 restic snapshots
 ```
 
-#### 6. Solución de problemas
+#### 8. Solución de problemas
 En caso de que a la hora de realizar las copias de seguridad, **systemd** este dando un error, lo podemos visualizar con la siguiente instrucción:
 ```console
 systemctl --user restart backup.timer
-systemctl --user status backup.service
-journalctl --user -u backup.service --no-pager | tail -20
+journalctl --user -u backup.timer --no-pager | tail -20
 systemctl --user daemon-reload
 ```
 
-#### 7. Notas finales
+#### 9. Notas finales
 - `backup.timer` ejecutará `backup.service` automáticamente 5 minutos después de cada inicio del sistema.
 - `backup.service` se ejecuta como `oneshot`, por lo que solo corre una vez y luego se detiene (eso es lo que dice la teoria).
 - Para verificar la ejecución, revisa los logs o consulta los snapshots de `backrest`.

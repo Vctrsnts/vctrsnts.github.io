@@ -24,7 +24,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/vctrsnts.github.io\/2025-05-23-restic-copias-locales-3\/"
-        },"image": ["https:\/\/vctrsnts.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "unRAID, Docker","wordcount":  1802 ,
+        },"image": ["https:\/\/vctrsnts.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "unRAID, Docker","wordcount":  1816 ,
         "url": "https:\/\/vctrsnts.github.io\/2025-05-23-restic-copias-locales-3\/","datePublished": "2025-06-30T00:00:00+00:00","dateModified": "2025-06-30T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "vsantos","logo": {
@@ -98,7 +98,7 @@
     </div><main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Restic + Backrest + MiniO - 3</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/unraid/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>UnRAID</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="30-06-2025">30-06-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1802 palabras&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="30-06-2025">30-06-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1816 palabras&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutos&nbsp;</div>
         </div><div class="content" id="content"><p>Este sera el tercer y utlimo articulo (en principio), donde explico la manera en que se estoy realizando mis copias de seguridad. Seguramente hay metodos mejores, pero este es el que mejor se adapta a mis necesidades. Tal como dije en el anterior <a href="/2025-05-22-restic-copias-locales-2" rel="">articulo</a>, unicamente me faltaba realizar la configuración de las copias de seguridad a mi servidor externo (VPS), pero antes de meternos de lleno con este tema.</p>
 <p>Quiero ampliar como se realizan la configuración de las copias de seguridad, esta explicación sirve tanto para las copias de seguridad en el servidor local como en uno externo.</p>
@@ -209,7 +209,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">traefik.http.routers.minio_api.service=minio_api</span></span></span></code></pre></div></div>
 <p>Como veis, tengo el <em>servicio</em> <strong>minio_console</strong> para acceder a la web de <strong>MinIO</strong> y asi poder hacer las configuraciones necesarios y otro <em>servicio</em> que es <strong>minio_api</strong> que es el que se usa para acceder a la <strong>API</strong> de <strong>MinIO</strong>. Seguramente tiene que haber otra manera de hacer esto, o no, pero es la que me funciona a mi. Ahora si, ya estamos en marcha. Ya tenia mis claves de acceso y mi <strong>buckett</strong> creado.</p>
 <p>Como ahora iba a tener 2 servidores de copias de seguridad (local y el VPS), tenia que hacer algunas modificaciones al <a href="/2025-05-22-restic-copias-locales-2" rel="">script</a> de copias de seguridad para que contemplara esta nueva funcionalidad. Tambien tiene que tener en cuenta que para cada servidor, tiene sus claves de acceso propias, lo que hace que tenga que utilizar la de cada servidor a la hora de las copias de seguridad.</p>
-<p>Esto es lo que me ha llevado un poco más de trabajo, pero gracias a la <strong>Copilot</strong>, las modificaciones que se tienen que añadir son las siguientes:</p>
+<p>Esto es lo que me ha llevado un poco más de trabajo, pero gracias a <strong>Copilot</strong>, las modificaciones que se tienen que añadir son las siguientes:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -285,13 +285,12 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">[Timer]</span>
 </span></span><span class="line"><span class="cl"><span class="na">OnBootSec</span><span class="o">=</span><span class="s">5m</span>
-</span></span><span class="line"><span class="cl"><span class="na">Persistent</span><span class="o">=</span><span class="s">true</span>
 </span></span><span class="line"><span class="cl"><span class="na">Unit</span><span class="o">=</span><span class="s">backup.service</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">[Install]</span>
 </span></span><span class="line"><span class="cl"><span class="na">WantedBy</span><span class="o">=</span><span class="s">timers.target</span></span></span></code></pre></div></div>
 <h4 id="3-configuración-del-servicio-configsystemduserbackupservice">3. Configuración del Servicio (<code>~/.config/systemd/user/backup.service</code>)</h4>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-ini">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -303,33 +302,47 @@
 </span></span><span class="line"><span class="cl"><span class="k">[Service]</span>
 </span></span><span class="line"><span class="cl"><span class="na">Type</span><span class="o">=</span><span class="s">oneshot</span>
 </span></span><span class="line"><span class="cl"><span class="na">EnvironmentFile</span><span class="o">=</span><span class="s">%h/.local/bin/backup.env</span>
-</span></span><span class="line"><span class="cl"><span class="na">ExecStart</span><span class="o">=</span><span class="s">/bin/bash %h/.local/bin/backupRestic.sh</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">[Install]</span>
-</span></span><span class="line"><span class="cl"><span class="na">WantedBy</span><span class="o">=</span><span class="s">default.target</span></span></span></code></pre></div></div>
-<h4 id="4-activación-del-servicio-y-timer">4. Activación del servicio y timer</h4>
+</span></span><span class="line"><span class="cl"><span class="na">ExecStart</span><span class="o">=</span><span class="s">/bin/bash %h/.local/bin/backupRestic.sh</span></span></span></code></pre></div></div>
+<h4 id="4-desactivación-de-posibles-servicios-y-timers-activos-anteriormente">4. Desactivación de posibles servicios y timers activos anteriormente</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-console">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">systemctl --user stop backup.timer
+</span></span></span><span class="line"><span class="cl"><span class="go">systemctl --user disable backup.timer
+</span></span></span><span class="line"><span class="cl"><span class="go">systemctl --user disable backup.service
+</span></span></span></code></pre></div></div>
+<h4 id="5-borrar-antiguos-archivos-creados-con-anterioridad">5. Borrar antiguos archivos creados con anterioridad</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-console">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">rm ~/.config/systemd/user/backup.service
+</span></span></span><span class="line"><span class="cl"><span class="go">rm ~/.config/systemd/user/backup.timer
+</span></span></span></code></pre></div></div>
+<h4 id="6-activación-timer">6. Activación timer</h4>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-console">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">systemctl --user daemon-reload
-</span></span></span><span class="line"><span class="cl"><span class="go">systemctl --user enable backup.service
-</span></span></span><span class="line"><span class="cl"><span class="go">systemctl --user enable backup.timer
-</span></span></span><span class="line"><span class="cl"><span class="go">systemctl --user start backup.timer
+</span></span></span><span class="line"><span class="cl"><span class="go">systemctl --user enable --now backup.timer
 </span></span></span><span class="line"><span class="cl"><span class="go">systemctl --user list-timers --all | grep backup
 </span></span></span></code></pre></div></div>
-<h4 id="5-verificación-de-la-ejecución">5. Verificación de la ejecución</h4>
+<h4 id="7-verificación-de-la-ejecución">7. Verificación de la ejecución</h4>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-console">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">systemctl --user status backup.service
-</span></span></span><span class="line"><span class="cl"><span class="go">journalctl --user -u backup.service --no-pager | tail -20
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">systemctl --user status backup.timer
+</span></span></span><span class="line"><span class="cl"><span class="go">journalctl --user -u backup.timer --no-pager | tail -20
 </span></span></span><span class="line"><span class="cl"><span class="go">restic snapshots
 </span></span></span></code></pre></div></div>
-<h4 id="6-solución-de-problemas">6. Solución de problemas</h4>
+<h4 id="8-solución-de-problemas">8. Solución de problemas</h4>
 <p>En caso de que a la hora de realizar las copias de seguridad, <strong>systemd</strong> este dando un error, lo podemos visualizar con la siguiente instrucción:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-console">
@@ -337,11 +350,10 @@
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">systemctl --user restart backup.timer
-</span></span></span><span class="line"><span class="cl"><span class="go">systemctl --user status backup.service
-</span></span></span><span class="line"><span class="cl"><span class="go">journalctl --user -u backup.service --no-pager | tail -20
+</span></span></span><span class="line"><span class="cl"><span class="go">journalctl --user -u backup.timer --no-pager | tail -20
 </span></span></span><span class="line"><span class="cl"><span class="go">systemctl --user daemon-reload
 </span></span></span></code></pre></div></div>
-<h4 id="7-notas-finales">7. Notas finales</h4>
+<h4 id="9-notas-finales">9. Notas finales</h4>
 <ul>
 <li><code>backup.timer</code> ejecutará <code>backup.service</code> automáticamente 5 minutos después de cada inicio del sistema.</li>
 <li><code>backup.service</code> se ejecuta como <code>oneshot</code>, por lo que solo corre una vez y luego se detiene (eso es lo que dice la teoria).</li>

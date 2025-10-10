@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>De i3WM ( X11 ) a Sway ( Wayland ) - 2 - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta property="og:image" content="/images/logo_post.jpg" >
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://192.6.0.40:1313/2025-10-05-i3wm-sway-2/" /><link rel="prev" href="http://192.6.0.40:1313/2025-09-29-cambiando-launcher-2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "De i3WM ( X11 ) a Sway ( Wayland ) - 2",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/192.6.0.40:1313\/2025-10-05-i3wm-sway-2\/"
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Debian GNU\/Linux, I3wm, Sway","wordcount":  1795 ,
+        "url": "http:\/\/192.6.0.40:1313\/2025-10-05-i3wm-sway-2\/","datePublished": "2025-10-05T00:00:00+00:00","dateModified": "2025-10-05T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/192.6.0.40:1313\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">De i3WM ( X11 ) a Sway ( Wayland ) - 2</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/debian-gnu/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Debian GNU/Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="05-10-2025">05-10-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1795 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Después del primer <a href="/2025-09-15-i3wm-sway-1" rel="">articulo</a>, donde explicaba la preparación de mi equipo para posteriormente realizar la instalación de sway. Ahora explicare como hice lo hice.</p>
+<h2 id="script-de-instalación">Script de instalación</h2>
+<p>Este script, es el que se encarga de realizar la instalación completa, o mejor dicho, de todo lo necesario para que en el momento de reinicar el equipo, <strong>sway</strong> funcione correctamente (en mi caso ha sido asi).</p>
+<p>De este script, lo más importante a destacar son los paquetes que instalo:</p>
+<h4 id="01-install-swaysh">01-install-sway.sh</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="nv">pkgs</span><span class="o">=(</span>
+</span></span><span class="line"><span class="cl">  sway swaybg waybar swaylock swayidle
+</span></span><span class="line"><span class="cl">  mako-notifier wayland-protocols xwayland
+</span></span><span class="line"><span class="cl">  wofi polkitd lxpolkit git grim slurp
+</span></span><span class="line"><span class="cl">  nwg-look greetd gtkgreet
+</span></span><span class="line"><span class="cl">  thunar gvfs gvfs-backends udisks2
+</span></span><span class="line"><span class="cl">  pulseaudio pulseaudio-utils pamixer
+</span></span><span class="line"><span class="cl">  xdg-user-dirs xdg-utils pavucontrol
+</span></span><span class="line"><span class="cl">  curl gpg unzip
+</span></span><span class="line"><span class="cl">  libpam0g libseat1 fastfetch
+</span></span><span class="line"><span class="cl">  acpi acpid eza
+</span></span><span class="line"><span class="cl">  gsettings-desktop-schemas
+</span></span><span class="line"><span class="cl">  libnotify-bin bluez bluetooth
+</span></span><span class="line"><span class="cl"><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">apt_install <span class="s2">&#34;</span><span class="si">${</span><span class="nv">pkgs</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">log_success <span class="s2">&#34;Activant servei acpid&#34;</span>
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> acpid</span></span></code></pre></div></div>
+<h2 id="configuración">Configuración</h2>
+<p>Como anteriormente habia mencionado, estuve haciendo pruebas en un portatil que tenia para asi dejar afinado, lo maximo posible, todos los archivos de configuración tanto de sway, mako, waybar, bash, etc&hellip;</p>
+<h4 id="configsway">~/.config/sway</h4>
+<p>La configuración de <strong>sway</strong> la gran mayoria de cosas las he aprovechado de la configuración que tenia en <strong>i3wm</strong>, lo unico que he añadido son unas mejoras o una mejor distribución de los archivos para en un futuro, sea más facil la modificación de los mismos.</p>
+<p>La estructura de directorios que tengo es la siguiente:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sway/
+</span></span><span class="line"><span class="cl">├── config.d/
+</span></span><span class="line"><span class="cl">│   ├── 00-theme
+</span></span><span class="line"><span class="cl">│   ├── 01-inputs
+</span></span><span class="line"><span class="cl">│   ├── 02-workspaces
+</span></span><span class="line"><span class="cl">│   ├── 03-keybinding
+</span></span><span class="line"><span class="cl">│   ├── 04-window_rules
+</span></span><span class="line"><span class="cl">│   ├── 05-bar
+</span></span><span class="line"><span class="cl">│   ├── 06-notifications
+</span></span><span class="line"><span class="cl">│   ├── 07-background
+</span></span><span class="line"><span class="cl">│   ├── 08-idle
+</span></span><span class="line"><span class="cl">│   └── 09-autostart_applications
+</span></span><span class="line"><span class="cl">├── scripts/
+</span></span><span class="line"><span class="cl">│   ├── background-rotater.sh
+</span></span><span class="line"><span class="cl">│   ├── import-gsettngs.sh
+</span></span><span class="line"><span class="cl">│   └── toggle-bt.sh
+</span></span><span class="line"><span class="cl">└── config</span></span></code></pre></div></div>
+<table>
+  <thead>
+      <tr>
+          <th>Elemento</th>
+          <th>Función</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>config.d/00-theme</code></td>
+          <td>Define el tema visual del entorno (colores, iconos, estilo general).</td>
+      </tr>
+      <tr>
+          <td><code>config.d/01-inputs</code></td>
+          <td>Configura dispositivos de entrada como teclado, ratón o touchpad.</td>
+      </tr>
+      <tr>
+          <td><code>config.d/02-workspaces</code></td>
+          <td>Establece la organización de escritorios virtuales o espacios de trabajo.</td>
+      </tr>
+      <tr>
+          <td><code>config.d/03-keybinding</code></td>
+          <td>Atajos de teclado.</td>
+      </tr>
+      <tr>
+          <td><code>config.d/04-window_rules</code></td>
+          <td>Reglas que hacen referencia a las aplicaciones (posición, tamaño, etc.).</td>
+      </tr>
+      <tr>
+          <td><code>config.d/05-bar</code></td>
+          <td>Barra de tareas (en este caso es waybar).</td>
+      </tr>
+      <tr>
+          <td><code>config.d/06-notifications</code></td>
+          <td>Configuración de las notifiaciones (usamos mako).</td>
+      </tr>
+      <tr>
+          <td><code>config.d/07-background</code></td>
+          <td>Configuración del fondo de pantalla inicial.</td>
+      </tr>
+      <tr>
+          <td><code>config.d/08-idle</code></td>
+          <td>Configuración del sistema cuando inactivo.</td>
+      </tr>
+      <tr>
+          <td><code>config.d/09-autostart_applications</code></td>
+          <td>Configuración de las aplicaciones que se inician al iniciar sway.</td>
+      </tr>
+      <tr>
+          <td><code>scripts/background-rotater.sh</code></td>
+          <td>Cambia el fondo de pantalla automáticamente cada cierto tiempo.</td>
+      </tr>
+      <tr>
+          <td><code>scripts/import-gsettngs.sh</code></td>
+          <td>Importa configuraciones de GNOME desde un archivo externo usando el estilo <strong>Nord</strong>.</td>
+      </tr>
+      <tr>
+          <td><code>scripts/toggle-bt.sh</code></td>
+          <td>Activa o desactiva el Bluetooth con un solo comando.</td>
+      </tr>
+      <tr>
+          <td><code>config</code></td>
+          <td>Archivo principal con parámetros globales de configuración.</td>
+      </tr>
+  </tbody>
+</table>
+<p>Las cosas que para mi, son más importantes en la configuración de <strong>sway</strong> son las siguientes:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-ini">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="c1"># ~/.config/sway/config</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Definimos la terminal</span>
+</span></span><span class="line"><span class="cl"><span class="na">set $term wezterm</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Definimos la tecla especial de sway (es igual que en i3wm)</span>
+</span></span><span class="line"><span class="cl"><span class="na">set $mod Mod4</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Definir el lanzador de aplicaciones con wofi</span>
+</span></span><span class="line"><span class="cl"><span class="na">set $menu wofi -c ~/.config/wofi/config -s ~/.config/wofi/style.css -S drun  -i | xargs swaymsg exec --</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Incluir configuración modular (inputs, keybindings, workspaces, etc.)</span>
+</span></span><span class="line"><span class="cl"><span class="na">include ~/.config/sway/config.d/*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ~/.config/sway/config.d/00-theme</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># se encarga de importar el tema a las aplicaciones GTK cuando se inicia sway</span>
+</span></span><span class="line"><span class="cl"><span class="na">exec_always ~/.config/sway/scripts/import-gsettings.sh</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ~/.config/sway/config.d/01-inputs</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Layout del teclado</span>
+</span></span><span class="line"><span class="cl"><span class="na">input * {</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xkb_layout &#34;es&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ~/.config/sway/config.d/03-keybinding</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Se crea un modulo que utilizaremos a la hora de salir del sistema</span>
+</span></span><span class="line"><span class="cl"><span class="na">mode &#34;power&#34; {</span>
+</span></span><span class="line"><span class="cl">  <span class="na">bindsym l exec swaymsg exit</span>
+</span></span><span class="line"><span class="cl">  <span class="na">bindsym r exec systemctl reboot</span>
+</span></span><span class="line"><span class="cl">  <span class="na">bindsym s exec systemctl poweroff</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="na">bindsym Return mode &#34;default&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">bindsym Escape mode &#34;default&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Manteniendo la combinación de teclas y la funcionalidad, dentro de las posibilidades de sway, tiene la misma funcionalidad que tenia en i3wm.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Aqui te sale un pequeño mensaje, que te pide que acción quieres realizar.</span>
+</span></span><span class="line"><span class="cl"><span class="na">bindsym $mod+Shift+e exec &#34;swaynag \</span>
+</span></span><span class="line"><span class="cl">  <span class="na">-t warning \</span>
+</span></span><span class="line"><span class="cl">  <span class="na">-m &#39;⚡ Menú de energía: [l 󰍃] Logout | [r ] Reboot | [s ] Shutdown&#39; \</span>
+</span></span><span class="line"><span class="cl">  <span class="na">--background &#39;#2E3440&#39; \</span>
+</span></span><span class="line"><span class="cl">  <span class="na">--text &#39;#D8DEE9&#39; \</span>
+</span></span><span class="line"><span class="cl">  <span class="na">--border &#39;#88C0D0&#39; \</span>
+</span></span><span class="line"><span class="cl">  <span class="na">--button-background &#39;#3B4252&#39; \</span>
+</span></span><span class="line"><span class="cl">  <span class="na">--button-text &#39;#ECEFF4&#39; \</span>
+</span></span><span class="line"><span class="cl">  <span class="na">--button-border &#39;#81A1C1&#39; \</span>
+</span></span><span class="line"><span class="cl">  <span class="na">-f &#39;FiraCode Nerd Font 12&#39; \</span>
+</span></span><span class="line"><span class="cl">  <span class="na">&amp; swaymsg mode power&#34;</span></span></span></code></pre></div></div>
+<p>Aqui podeis ver, como es el mensaje de salida del sistema
+<figure><a class="lightgallery" href="/images/swaynag.png" title="/images/swaynag.png" data-thumbnail="/images/swaynag.png" data-sub-html="<h2>Swaynag</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/swaynag.png"
+            data-srcset="/images/swaynag.png, /images/swaynag.png 1.5x, /images/swaynag.png 2x"
+            data-sizes="auto"
+            alt="/images/swaynag.png" />
+    </a><figcaption class="image-caption">Swaynag</figcaption>
+    </figure></p>
+<h4 id="configwaybar">~/.config/waybar</h4>
+<p><figure><a class="lightgallery" href="/images/waybar.png" title="/images/waybar.png" data-thumbnail="/images/waybar.png" data-sub-html="<h2>Waybar</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/waybar.png"
+            data-srcset="/images/waybar.png, /images/waybar.png 1.5x, /images/waybar.png 2x"
+            data-sizes="auto"
+            alt="/images/waybar.png" />
+    </a><figcaption class="image-caption">Waybar</figcaption>
+    </figure></p>
+<p>Aqui pongo la configuración que tengo actualmente de <strong>waybar</strong>, como podeis ver, a la izquierda tengo:</p>
+<ul>
+<li>Ethernet</li>
+<li>Información del equipo (CPU, RAM, HDD)</li>
+<li>Temperatura</li>
+</ul>
+<p>En el centro tengo:</p>
+<ul>
+<li>Los espacios de trabajo, que en mi caso, los distingo por los iconos de las aplicaciones que tengo (en cada espacio, unicamente tengo una aplicación).</li>
+</ul>
+<p>A la derecha, tengo:</p>
+<ul>
+<li>Icono del bluetooth</li>
+<li>Paquetes pendientes de actualizar</li>
+<li>Ficheros en la papelera</li>
+<li>Fecha</li>
+<li>Notificaciones</li>
+</ul>
+<p>La estructura del directorio es la siguiente:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">waybar/
+</span></span><span class="line"><span class="cl">├── scripts/
+</span></span><span class="line"><span class="cl">│   ├── bt-status.sh
+</span></span><span class="line"><span class="cl">│   ├── sys-resources.sh
+</span></span><span class="line"><span class="cl">│   ├── sys-thermal.sh
+</span></span><span class="line"><span class="cl">│   ├── sys-trash.sh
+</span></span><span class="line"><span class="cl">│   └── sys-updates.sh
+</span></span><span class="line"><span class="cl">├── config
+</span></span><span class="line"><span class="cl">└── style.css</span></span></code></pre></div></div>
+<table>
+  <thead>
+      <tr>
+          <th>Elemento</th>
+          <th>Función</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>config</code></td>
+          <td>Define las funcionalidades que tendra waybar y donde (izquierda, centro, derecha).</td>
+      </tr>
+      <tr>
+          <td><code>style.css</code></td>
+          <td>Hoja de estilo de waybar.</td>
+      </tr>
+      <tr>
+          <td><code>scripts/bt-status.sh</code></td>
+          <td>Muestra el estado del bluetooth.</td>
+      </tr>
+      <tr>
+          <td><code>scripts/sys-resources.sh</code></td>
+          <td>Muestra el estado del sistema (CPU, RAM, HDD).</td>
+      </tr>
+      <tr>
+          <td><code>scripts/sys-thermal.sh</code></td>
+          <td>Muestra la temperatura de la CPU.</td>
+      </tr>
+      <tr>
+          <td><code>scripts/sys-trash.sh</code></td>
+          <td>Muestra los archivos que hay en la papelera.</td>
+      </tr>
+      <tr>
+          <td><code>scripts/sys-updates.sh</code></td>
+          <td>Me muestra los paquetes que tengo que actualizar.</td>
+      </tr>
+  </tbody>
+</table>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">#</span> <span class="err">~/.config/waybar/config</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;layer&#34;</span><span class="p">:</span> <span class="s2">&#34;top&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;position&#34;</span><span class="p">:</span> <span class="s2">&#34;top&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;height&#34;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;spacing&#34;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Orden de módulos
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nt">&#34;modules-left&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;network&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;custom/resources&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;custom/thermal&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;modules-center&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;sway/workspaces&#34;</span><span class="p">,</span> <span class="s2">&#34;sway/mode&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;modules-right&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;custom/bluetooth&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;custom/updates&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;custom/trash&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;clock&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;tray&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;custom/notifications&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="err">#</span> <span class="err">Aqui</span> <span class="err">vendria</span> <span class="err">el</span> <span class="err">codigo</span> <span class="err">de</span> <span class="err">cada</span> <span class="err">sección</span> <span class="err">que</span> <span class="err">visualizo</span> <span class="err">y</span> <span class="err">que</span> <span class="err">son</span> <span class="s2">&#34;custom&#34;</span> <span class="err">(propios).</span> <span class="err">Los</span> <span class="err">que</span> <span class="err">no</span> <span class="err">vienen</span> <span class="err">con</span> <span class="err">el</span> <span class="err">sistema</span> <span class="err">como</span> <span class="err">network</span><span class="p">,</span> <span class="err">clock,</span> <span class="err">tray</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>Los scripts que uso para la información que visualizo son los siguientes:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ~/.config/waybar/scripts/bt-status.sh</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Dirección MAC de los auriculares</span>
+</span></span><span class="line"><span class="cl"><span class="nv">MAC</span><span class="o">=</span><span class="s2">&#34;IDENTIFICADOR DELS AURICULARS&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Iconos (Nerd Font / Font Awesome)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ICON_ON</span><span class="o">=</span><span class="s2">&#34;&#34;</span>   <span class="c1"># Bluetooth normal</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ICON_OFF</span><span class="o">=</span><span class="s2">&#34;󰂲&#34;</span>  <span class="c1"># Bluetooth tachado</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Verifica si estan conectats o no</span>
+</span></span><span class="line"><span class="cl"><span class="nv">CONNECTED</span><span class="o">=</span><span class="k">$(</span>bluetoothctl info <span class="s2">&#34;</span><span class="nv">$MAC</span><span class="s2">&#34;</span> <span class="p">|</span> grep <span class="s2">&#34;Connected: yes&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$CONNECTED</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">ICON</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$ICON_ON</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">CLASS</span><span class="o">=</span><span class="s2">&#34;on&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Batería desde journalctl</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">BATTERY</span><span class="o">=</span><span class="k">$(</span>journalctl --user -n <span class="m">50</span> <span class="p">|</span> grep <span class="s2">&#34;Battery Level&#34;</span> <span class="p">|</span> tail -n1 <span class="p">|</span> sed -n <span class="s1">&#39;s/.*Battery Level: \([0-9]\+\)%.*/\1/p&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Volumen actual</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">VOLUME</span><span class="o">=</span><span class="k">$(</span>pactl get-sink-volume @DEFAULT_SINK@ <span class="p">|</span> grep -o <span class="s1">&#39;[0-9]\+%&#39;</span> <span class="p">|</span> head -n1<span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># VISUALIZACION DE INFORMACION EN EL TOOLTIP</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">TOOLTIP</span><span class="o">=</span><span class="s2">&#34;Auriculares conectados - </span><span class="si">${</span><span class="nv">BATTERY</span><span class="si">}</span><span class="s2">%  </span><span class="si">${</span><span class="nv">VOLUME</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">ICON</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$ICON_OFF</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">CLASS</span><span class="o">=</span><span class="s2">&#34;off&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">TOOLTIP</span><span class="o">=</span><span class="s2">&#34;Bluetooth no conectado o apagado&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Sortida JSON para waybar</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;{\&#34;text\&#34;: \&#34;</span><span class="nv">$ICON</span><span class="s2">\&#34;, \&#34;tooltip\&#34;: \&#34;</span><span class="nv">$TOOLTIP</span><span class="s2">\&#34;, \&#34;class\&#34;: \&#34;</span><span class="nv">$CLASS</span><span class="s2">\&#34;}&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ~/.config/waybar/scripts/sys-resources.sh</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">cpu</span><span class="o">=</span><span class="k">$(</span>grep <span class="s1">&#39;cpu &#39;</span> /proc/stat <span class="p">|</span> awk <span class="s1">&#39;{usage=($2+$4)*100/($2+$4+$5)} END {printf &#34;%.0f&#34;, usage}&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">mem</span><span class="o">=</span><span class="k">$(</span>free <span class="p">|</span> awk <span class="s1">&#39;/Mem:/ {printf &#34;%.0f&#34;, $3/$2 * 100}&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">disk</span><span class="o">=</span><span class="k">$(</span>df -h /home <span class="p">|</span> awk <span class="s1">&#39;NR==2 {print $4}&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34; </span><span class="si">${</span><span class="nv">cpu</span><span class="si">}</span><span class="s2">%   </span><span class="si">${</span><span class="nv">mem</span><span class="si">}</span><span class="s2">%   </span><span class="si">${</span><span class="nv">disk</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ~/.config/waybar/scripts/sys-thermal.sh</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># CPU temperature (°C)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">temp_raw</span><span class="o">=</span><span class="k">$(</span>cat /sys/class/hwmon/hwmon1/temp1_input 2&gt;/dev/null<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> -n <span class="s2">&#34;</span><span class="nv">$temp_raw</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">temp_c</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$temp_raw</span><span class="s2"> / 1000&#34;</span> <span class="p">|</span> bc<span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">temp_icon</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">temp_c</span><span class="o">=</span><span class="s2">&#34;?&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">temp_icon</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Clase CSS si temperatura alta</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$temp_c</span><span class="s2">&#34;</span> !<span class="o">=</span> <span class="s2">&#34;?&#34;</span> <span class="o">&amp;&amp;</span> <span class="s2">&#34;</span><span class="nv">$temp_c</span><span class="s2">&#34;</span> -ge <span class="m">70</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">class</span><span class="o">=</span><span class="s2">&#34;hot&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">class</span><span class="o">=</span><span class="s2">&#34;normal&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;{\&#34;text\&#34;: \&#34;</span><span class="nv">$temp_icon</span><span class="s2"> </span><span class="si">${</span><span class="nv">temp_c</span><span class="si">}</span><span class="s2">°C\&#34;, \&#34;class\&#34;: \&#34;</span><span class="nv">$class</span><span class="s2">\&#34;}&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ~/.config/waybar/scripts/sys-trash.sh</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">trash_count</span><span class="o">=</span><span class="k">$(</span>find ~/.local/share/Trash/files -type f 2&gt;/dev/null <span class="p">|</span> wc -l<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">icon_full</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">icon_empty</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$trash_count</span><span class="s2">&#34;</span> -gt <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">text</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$icon_full</span><span class="s2"> </span><span class="nv">$trash_count</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$trash_count</span><span class="s2">&#34;</span> -ge <span class="m">10</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">class</span><span class="o">=</span><span class="s2">&#34;many-trash&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">class</span><span class="o">=</span><span class="s2">&#34;default&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">text</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$icon_empty</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">class</span><span class="o">=</span><span class="s2">&#34;normal&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;{\&#34;text\&#34;: \&#34;</span><span class="nv">$text</span><span class="s2">\&#34;, \&#34;class\&#34;: \&#34;</span><span class="nv">$class</span><span class="s2">\&#34;}&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ~/.config/waybar/scripts/sys-updates.sh</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">updates</span><span class="o">=</span><span class="k">$(</span>apt-get --just-print upgrade 2&gt;/dev/null <span class="p">|</span> grep <span class="s2">&#34;^Inst&#34;</span> <span class="p">|</span> wc -l<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">icon_full</span><span class="o">=</span><span class="s2">&#34;󰮏&#34;</span>   <span class="c1"># flecha de descarga</span>
+</span></span><span class="line"><span class="cl"><span class="nv">icon_empty</span><span class="o">=</span><span class="s2">&#34;󱂱&#34;</span>  <span class="c1"># flecha tachada</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$updates</span><span class="s2">&#34;</span> -gt <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">text</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$icon_full</span><span class="s2"> </span><span class="nv">$updates</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$updates</span><span class="s2">&#34;</span> -ge <span class="m">10</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">class</span><span class="o">=</span><span class="s2">&#34;many-updates&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">class</span><span class="o">=</span><span class="s2">&#34;default&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">text</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$icon_empty</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">class</span><span class="o">=</span><span class="s2">&#34;normal&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;{\&#34;text\&#34;: \&#34;</span><span class="nv">$text</span><span class="s2">\&#34;, \&#34;class\&#34;: \&#34;</span><span class="nv">$class</span><span class="s2">\&#34;}&#34;</span></span></span></code></pre></div></div>
+<h4 id="configwoficonfig">~/.config/wofi/config</h4>
+<p>Aqui os pongo la configuración del gestor de menus, que en este caso, se encarga <strong>wofi</strong>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">allow_images=</span><span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="err">image_size=</span><span class="mi">32</span>
+</span></span><span class="line"><span class="cl"><span class="err">width=</span><span class="mi">800</span>
+</span></span><span class="line"><span class="cl"><span class="err">height=</span><span class="mi">1000</span>
+</span></span><span class="line"><span class="cl"><span class="err">insensitive=</span><span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="err">mode=drun,run</span>
+</span></span><span class="line"><span class="cl"><span class="err">columns=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="err">padding:</span><span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="err">lines=</span><span class="mi">10</span></span></span></code></pre></div></div>
+<h4 id="configmakoconfig">~/.config/mako/config</h4>
+<p><strong>Mako</strong> es la aplicación de notificaciones que uso. Se que se podria usar <strong>sway-notification-center</strong>, pero es mucha cosa, para lo que yo quiero. Algo simple y sencillo y <strong>mako</strong> me viene perfecto.</p>
+<p>Aqui teneis la configuración que tengo actualmente. Lo unico que hay que tener en cuenta, es que, el tiempo que permanecen las notificaciones <code>default-timeout=0</code> para asi tenerlas activas y ser yo el que las desactive. No quita que más adelante me canse de esta funcionalidad y pongo un tiempo para su visualización, pero de momento, me gusta verlas.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-json">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">sort=-time</span>
+</span></span><span class="line"><span class="cl"><span class="err">layer=overlay</span>
+</span></span><span class="line"><span class="cl"><span class="err">background-color=#</span><span class="mi">88</span><span class="err">C</span><span class="mi">0</span><span class="err">D</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="err">text-color=#</span><span class="mf">2E3440</span>
+</span></span><span class="line"><span class="cl"><span class="err">border-color=#</span><span class="mf">5E81</span><span class="err">AC</span>
+</span></span><span class="line"><span class="cl"><span class="err">border-size=</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="err">border-radius=</span><span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="err">padding=</span><span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="err">margin=</span><span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="err">width=</span><span class="mi">300</span>
+</span></span><span class="line"><span class="cl"><span class="err">height=</span><span class="mi">110</span>
+</span></span><span class="line"><span class="cl"><span class="err">font=FiraCode</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="err">icons=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="err">max-icon-size=</span><span class="mi">48</span>
+</span></span><span class="line"><span class="cl"><span class="err">default-timeout=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="err">ignore-timeout=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="err">urgency=low</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="err">border-color=#</span><span class="mi">8</span><span class="err">FBCBB</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="err">urgency=normal</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="err">border-color=#</span><span class="mi">81</span><span class="err">A</span><span class="mi">1</span><span class="err">C</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="err">urgency=high</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="err">background-color=#BF</span><span class="mi">616</span><span class="err">A</span>
+</span></span><span class="line"><span class="cl"><span class="err">text-color=#ECEFF</span><span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="err">border-color=#BF</span><span class="mi">616</span><span class="err">A</span>
+</span></span><span class="line"><span class="cl"><span class="err">default-timeout=</span><span class="mi">0</span></span></span></code></pre></div></div>
+<h2 id="gestor-de-inicio-de-sesión">Gestor de inicio de sesión</h2>
+<p>Aqui fue donde tuve muchos problemas, porque entre que <strong>wayland</strong> es nuevo y <strong>sway</strong> tambien, no hay muchos gestores de inicio de funcionen al 100%.</p>
+<p>Ahora es cuando todo el mundo de dice que hay miles y todos funcionan a las mil maravillas. Pues siento contradecir a toda esa gente, porque en mi caso, no fue asi.</p>
+<p>Despues de muchas pruebas, me decidi por usar:</p>
+<ul>
+<li><a href="https://git.sr.ht/~kennylevinsen/greetd" target="_blank" rel="noopener noreffer ">greetd</a>, que siento decir que la documentación de tiene es muy penosa 🤬.</li>
+<li><a href="https://git.sr.ht/~kennylevinsen/gtkgreet" target="_blank" rel="noopener noreffer ">gtkgreet</a>, que tambien deja mucho que desear con respecto a la documentación, por no decir que es inexistente. Tuve que tirar de <strong>Copilot</strong> y de las <em>issues</em> del repositorio para hacerlo funcionar, pero que una vez lo tienes en funcionamiento no da ningun problema, aunque yo mejoraria alguna cosas.</li>
+</ul>
+<p>La estructura del directorio es la siguiente:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/etc/greet/
+</span></span><span class="line"><span class="cl">├── config.toml
+</span></span><span class="line"><span class="cl">├── environments
+</span></span><span class="line"><span class="cl">├── gtkgreet.css
+</span></span><span class="line"><span class="cl">└── sway-config</span></span></code></pre></div></div>
+<table>
+  <thead>
+      <tr>
+          <th>Elemento</th>
+          <th>Función breve</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>/greet/config.toml</code></td>
+          <td>Configuración de greetd</td>
+      </tr>
+      <tr>
+          <td><code>/greet/environments</code></td>
+          <td>Entorno de sesión</td>
+      </tr>
+      <tr>
+          <td><code>/greet/gtkgreet.css</code></td>
+          <td>Estilos visuales de gtkgreet</td>
+      </tr>
+      <tr>
+          <td><code>/greet/sway-config</code></td>
+          <td>Acciones al iniciar o salir del sistema</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p><strong>Notas adicionales:</strong></p>
+<ul>
+<li>En <code>config.toml</code>, comenta agreety y descomenta wlgreet.</li>
+</ul></blockquote>
+<p>Yo lo tengo asi y me funciona perfectamente. Podeis hacer pruebas, pero con esta información, ya teneis un punto de partida por donde empezar.</p>
+<h4 id="etcgreetdconfigtoml">/etc/greetd/config.toml</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-toml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">terminal</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c"># The VT to run the greeter on. Can be &#34;next&#34;, &#34;current&#34; or a number</span>
+</span></span><span class="line"><span class="cl"><span class="c"># designating the VT.</span>
+</span></span><span class="line"><span class="cl"><span class="nx">vt</span> <span class="p">=</span> <span class="mi">7</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># The default session, also known as the greeter.</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">default_session</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># `agreety` is the bundled agetty/login-lookalike. You can replace `/bin/sh`</span>
+</span></span><span class="line"><span class="cl"><span class="c"># with whatever you want started, such as `sway`.</span>
+</span></span><span class="line"><span class="cl"><span class="c">#command = &#34;/usr/sbin/agreety --cmd &#39;${SHELL:-/bin/sh}&#39;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c"># if using wlgreet</span>
+</span></span><span class="line"><span class="cl"><span class="nx">command</span> <span class="p">=</span> <span class="s2">&#34;sway --config /etc/greetd/sway-config&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># The user to run the command as. The privileges this user must have depends</span>
+</span></span><span class="line"><span class="cl"><span class="c"># on the greeter. A graphical greeter may for example require the user to be</span>
+</span></span><span class="line"><span class="cl"><span class="c"># in the `video` group.</span>
+</span></span><span class="line"><span class="cl"><span class="nx">user</span> <span class="p">=</span> <span class="s2">&#34;_greetd&#34;</span></span></span></code></pre></div></div>
+<h4 id="etcgreetdenvironments">/etc/greetd/environments</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-ini">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">sway</span></span></span></code></pre></div></div>
+<h4 id="etcgreetdgtkgreetcss">/etc/greetd/gtkgreet.css</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-css">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">window</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c">/* si quereis usar un fondo de pantalla */</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-image</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="s2">&#34;file:///usr/share/backgrounds/login.jpg&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-size</span><span class="p">:</span> <span class="kc">cover</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-position</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">/* Tipografía general */</span>
+</span></span><span class="line"><span class="cl">  <span class="k">font-family</span><span class="p">:</span> <span class="s2">&#34;JetBrains Mono&#34;</span><span class="p">,</span> <span class="kc">monospace</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">font-size</span><span class="p">:</span> <span class="mi">11</span><span class="kt">pt</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">color</span><span class="p">:</span> <span class="mh">#D8DEE9</span><span class="p">;</span> <span class="c">/* texto claro */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">entry</span><span class="o">,</span> <span class="nt">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#2E3440</span><span class="p">;</span> <span class="c">/* Nordic base */</span>
+</span></span><span class="line"><span class="cl">  <span class="k">color</span><span class="p">:</span> <span class="mh">#D8DEE9</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">button</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#88C0D0</span><span class="p">;</span> <span class="c">/* acento Nordic */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<h4 id="etcgreetdsway-config">/etc/greetd/sway-config</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-toml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">exec</span> <span class="s2">&#34;gtkgreet -l --style /etc/greetd/gtkgreet.css; swaymsg exit&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">bindsym</span> <span class="nx">Mod4</span><span class="err">+</span><span class="nx">Shift</span><span class="err">+</span><span class="nx">e</span> <span class="nx">exec</span> <span class="nx">swaynag</span> <span class="err">\</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">-t</span> <span class="nx">warning</span> <span class="err">\</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">-m</span> <span class="s1">&#39;Que vols fer?&#39;</span> <span class="err">\</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">-b</span> <span class="s1">&#39;Poweroff&#39;</span> <span class="s1">&#39;systemctl poweroff&#39;</span> <span class="err">\</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">-b</span> <span class="s1">&#39;Reboot&#39;</span> <span class="s1">&#39;systemctl reboot&#39;</span></span></span></code></pre></div></div>
+<p>Pues aqui llegamos al final. Podeis ver que he puesto lo basico o lo que yo creo que es lo más importante, porque si llego a poner todos los ficheros de configuración, completo, junto con las hojas de estilo (<em>CSS</em>) el articulo seria muy extenso.</p>
+<p>Si quereis ver todos los archivos de configuración con toda la información, podeis visitar mi <a href="https://github.com/vctrsnts/sway" target="_blank" rel="noopener noreffer ">gitHub</a> donde ahi si que los podreis ver en toda su extensión.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://github.com/Vctrsnts/sway-config" target="_blank" rel="noopener noreffer ">Mi configuración de sway</a></li>
+<li><a href="https://swaywm.org" target="_blank" rel="noopener noreffer ">Sway</a></li>
+<li><a href="https://git.sr.ht/~kennylevinsen/greetd" target="_blank" rel="noopener noreffer ">greetd</a></li>
+<li><a href="https://git.sr.ht/~kennylevinsen/gtkgreet" target="_blank" rel="noopener noreffer ">gtkgreet</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 05-10-2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debian-gnu/linux/">Debian GNU/Linux</a>,&nbsp;<a href="/tags/i3wm/">I3wm</a>,&nbsp;<a href="/tags/sway/">Sway</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2025-09-29-cambiando-launcher-2/" class="prev" rel="prev" title="Cambiamos de launcher en el movil - 2?"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Cambiamos de launcher en el movil - 2?</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.150.1">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line">
+                    <a rel="me" href="https://mastodon.online/@vsantos"></a>
+                </div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46"></script></body>
+</html>

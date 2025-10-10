@@ -2,13 +2,13 @@
 
 Como podeis leer en este [articulo](/2023-09-11-substitutos-portatil), tenia ya a mi disposición un substituto en caso de fallo grave de mi portatil que venia usando hasta ahora. Y eso es lo que ha pasado. El pobre ha pasado a mejor vida.
 
-Como dice el refran "*el rey a muerto, viva el rey*" y esto es que el de reserva ya puede salir a jugar 😂.
+Como dice el refran "*el rey a muerto, viva el rey*" y esto es que el que estaba en el baquillo, ya puede salir a jugar 😂.
 
 <!--more-->
 
 Tengo pensado hacer una serie de 3 articulos que seran los siguientes (incluyendo este):
-- [De i3WM (X11) a Sway (Wayland) - 1]()
-- [De i3WM (X11) a Sway (Wayland) - 2]()
+- [De i3WM (X11) a Sway (Wayland) - 1](/2025-09-15-i3wm-sway-1)
+- [De i3WM (X11) a Sway (Wayland) - 2](/2025-10-05-i3wm-sway-2)
 - [De i3WM (X11) a Sway (Wayland) - 3]()
 
 Donde explicare todo el proceso de instalación, configuración y refinamiento hasta llegar a donde me encuentro ahora y que seguramente no sera el final, siempre puedes encontrar nuevas ideas para mejorar tu configuración.
@@ -37,7 +37,7 @@ Dentro de estas necesidades, que seguramente alguna ya sabreis cual es:
 - Instalación de *sway*.
 - Configuración de *sway* siguiendo los temas que me gustan (Nordic, Nord), o sea, temas oscuros.
 
-## El script de preración
+## El script de preparación
 Como ya he comentado, a partir de la idea que me habia visto en el video de **@JustAGuy Linux**, cree mi propio script para la instalación y configuración de **sway**. Este procedimiento, esta dividio en `3 script`, donde cada uno se encarga de una parte del proceso:
 ### `00-preparacio.sh`
 Este es el que se encarga desde una instalación basica de *Debian GNU/Linux testing*, eliminar los paquetes que no son necesarios, procedimiento que siempre sigo después de cada instalación personal de Debian, y luego, salto a la rama **unstable** (que vengo usando desde hace unos 20 años sin ningun problema). 
