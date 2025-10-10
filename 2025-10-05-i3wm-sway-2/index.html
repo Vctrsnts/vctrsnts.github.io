@@ -24,7 +24,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/192.6.0.40:1313\/2025-10-05-i3wm-sway-2\/"
-        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Debian GNU\/Linux, I3wm, Sway","wordcount":  1795 ,
+        },"image": ["http:\/\/192.6.0.40:1313\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "sway, Debian GNU\/Linux","wordcount":  1795 ,
         "url": "http:\/\/192.6.0.40:1313\/2025-10-05-i3wm-sway-2\/","datePublished": "2025-10-05T00:00:00+00:00","dateModified": "2025-10-05T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "vsantos","logo": {
@@ -97,7 +97,7 @@
         <div id="search-dropdown-mobile"></div>
     </div><main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">De i3WM ( X11 ) a Sway ( Wayland ) - 2</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/debian-gnu/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Debian GNU/Linux</a></span></div>
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/sway/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Sway</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="05-10-2025">05-10-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1795 palabras&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutos&nbsp;</div>
         </div><div class="content" id="content"><p>Después del primer <a href="/2025-09-15-i3wm-sway-1" rel="">articulo</a>, donde explicaba la preparación de mi equipo para posteriormente realizar la instalación de sway. Ahora explicare como hice lo hice.</p>
@@ -105,7 +105,7 @@
 <p>Este script, es el que se encarga de realizar la instalación completa, o mejor dicho, de todo lo necesario para que en el momento de reinicar el equipo, <strong>sway</strong> funcione correctamente (en mi caso ha sido asi).</p>
 <p>De este script, lo más importante a destacar son los paquetes que instalo:</p>
 <h4 id="01-install-swaysh">01-install-sway.sh</h4>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -135,7 +135,7 @@
 <h4 id="configsway">~/.config/sway</h4>
 <p>La configuración de <strong>sway</strong> la gran mayoria de cosas las he aprovechado de la configuración que tenia en <strong>i3wm</strong>, lo unico que he añadido son unas mejoras o una mejor distribución de los archivos para en un futuro, sea más facil la modificación de los mismos.</p>
 <p>La estructura de directorios que tengo es la siguiente:</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -224,7 +224,7 @@
   </tbody>
 </table>
 <p>Las cosas que para mi, son más importantes en la configuración de <strong>sway</strong> son las siguientes:</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-ini">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -369,7 +369,7 @@
       </tr>
   </tbody>
 </table>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-json">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -522,7 +522,7 @@
 <h4 id="configmakoconfig">~/.config/mako/config</h4>
 <p><strong>Mako</strong> es la aplicación de notificaciones que uso. Se que se podria usar <strong>sway-notification-center</strong>, pero es mucha cosa, para lo que yo quiero. Algo simple y sencillo y <strong>mako</strong> me viene perfecto.</p>
 <p>Aqui teneis la configuración que tengo actualmente. Lo unico que hay que tener en cuenta, es que, el tiempo que permanecen las notificaciones <code>default-timeout=0</code> para asi tenerlas activas y ser yo el que las desactive. No quita que más adelante me canse de esta funcionalidad y pongo un tiempo para su visualización, pero de momento, me gusta verlas.</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-json">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -607,7 +607,7 @@
 </ul></blockquote>
 <p>Yo lo tengo asi y me funciona perfectamente. Podeis hacer pruebas, pero con esta información, ya teneis un punto de partida por donde empezar.</p>
 <h4 id="etcgreetdconfigtoml">/etc/greetd/config.toml</h4>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-toml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -638,7 +638,7 @@
         <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">sway</span></span></span></code></pre></div></div>
 <h4 id="etcgreetdgtkgreetcss">/etc/greetd/gtkgreet.css</h4>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-css">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -698,7 +698,7 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/debian-gnu/linux/">Debian GNU/Linux</a>,&nbsp;<a href="/tags/i3wm/">I3wm</a>,&nbsp;<a href="/tags/sway/">Sway</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/sway/">Sway</a>,&nbsp;<a href="/tags/debian-gnu/linux/">Debian GNU/Linux</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
         </section>
