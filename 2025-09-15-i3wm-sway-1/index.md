@@ -37,9 +37,9 @@ Dentro de estas necesidades, que seguramente alguna ya sabreis cual es:
 - Instalación de *sway*.
 - Configuración de *sway* siguiendo los temas que me gustan (Nordic, Nord), o sea, temas oscuros.
 
-## El script de preparación
+### El script de preparación
 Como ya he comentado, a partir de la idea que me habia visto en el video de **@JustAGuy Linux**, cree mi propio script para la instalación y configuración de **sway**. Este procedimiento, esta dividio en `3 script`, donde cada uno se encarga de una parte del proceso:
-### `00-preparacio.sh`
+#### 00-preparacio.sh
 Este es el que se encarga desde una instalación basica de *Debian GNU/Linux testing*, eliminar los paquetes que no son necesarios, procedimiento que siempre sigo después de cada instalación personal de Debian, y luego, salto a la rama **unstable** (que vengo usando desde hace unos 20 años sin ningun problema). 
 
 Os voy a poner las partes más importantes del script para que veais un poco como va. Si quereis en script al completo o el procedimiento de instalación, lo podeis encontrar [aqui](https://github.com/Vctrsnts/debian-installer-sway)

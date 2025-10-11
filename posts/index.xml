@@ -3,7 +3,19 @@
         <title>Todos los Artículos - Si lo haces, hazlo bien!</title>
         <link>https://vctrsnts.github.io/posts/</link>
         <description>Todos los Artículos | Si lo haces, hazlo bien!</description>
-        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Mon, 29 Sep 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Sun, 05 Oct 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>De i3WM ( X11 ) a Sway ( Wayland ) - 2</title>
+    <link>https://vctrsnts.github.io/2025-10-05-i3wm-sway-2/</link>
+    <pubDate>Sun, 05 Oct 2025 00:00:00 &#43;0000</pubDate>
+    <author>vsantos</author>
+    <guid>https://vctrsnts.github.io/2025-10-05-i3wm-sway-2/</guid>
+    
+    
+    <category term="sway" />
+    
+    <description><![CDATA[<p>Después del primer <a href="/2025-09-15-i3wm-sway-1" rel="">articulo</a>, donde explicaba la preparación de mi equipo. Ahora os explicare como hice la instalación de <strong>sway</strong> y los problemas que me encontre. Que si tengo de decirlo, fueron muy pocos.</p>]]></description>
+</item>
+<item>
     <title>Cambiamos de launcher en el movil - 2?</title>
     <link>https://vctrsnts.github.io/2025-09-29-cambiando-launcher-2/</link>
     <pubDate>Mon, 29 Sep 2025 00:00:00 &#43;0000</pubDate>
@@ -113,18 +125,6 @@
     <category term="unRAID" />
     
     <description><![CDATA[<p>Continuamos con esta segunda parte donde explicaremos como sacar provecho de estas 3 aplicaciones, en este caso, explicare el script que estoy usando para realizar las copia, que es una variación de uno que tiene <strong>Lorenzo</strong> en su <a href="https://github.com/atareao/dotfiles/blob/main/.local/bin/backup.sh.jinja" target="_blank" rel="noopener noreffer ">gitHub</a>, pero que en mi caso, en vez de ser un fichero <strong>jinja</strong>, es un fichero en bash a pelo.</p>]]></description>
-</item>
-<item>
-    <title>Matrix - 4. De vuelta al inicio, de Gotify a Matrix</title>
-    <link>https://vctrsnts.github.io/2025-05-22-gotify-matrix/</link>
-    <pubDate>Sun, 25 May 2025 00:00:00 &#43;0000</pubDate>
-    <author>vsantos</author>
-    <guid>https://vctrsnts.github.io/2025-05-22-gotify-matrix/</guid>
-    
-    
-    <category term="VPS" />
-    
-    <description><![CDATA[<p>Como ya explique en este <a href="/2025-05-19-matrix-gotify" rel="">articulo</a>, ante la imposibilidad de usar <strong>Matrix</strong> me pase a <strong>Gotify</strong> aunque me negue a dejar de lado a <em>Matrix</em> y segui investigando, el porque no funcionaba correctamente y asi llegado el momento, poderlo usar o sino, tener una alternativa <em>Gotify</em>.</p>]]></description>
 </item>
 </channel>
 </rss>

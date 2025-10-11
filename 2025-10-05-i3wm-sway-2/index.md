@@ -1,13 +1,11 @@
 # De i3WM ( X11 ) a Sway ( Wayland ) - 2
 
-Después del primer [articulo](/2025-09-15-i3wm-sway-1), donde explicaba la preparación de mi equipo para posteriormente realizar la instalación de sway. Ahora explicare como hice lo hice.
+Después del primer [articulo](/2025-09-15-i3wm-sway-1), donde explicaba la preparación de mi equipo. Ahora os explicare como hice la instalación de **sway** y los problemas que me encontre. Que si tengo de decirlo, fueron muy pocos.
 
 <!--more-->
 
-## Script de instalación
-Este script, es el que se encarga de realizar la instalación completa, o mejor dicho, de todo lo necesario para que en el momento de reinicar el equipo, **sway** funcione correctamente (en mi caso ha sido asi). 
-
-De este script, lo más importante a destacar son los paquetes que instalo:
+### Script de instalación
+Este script, es el que se encarga de realizar la instalación completa, o mejor dicho, de todo lo necesario para que en el momento de reinicar el equipo, **sway** funcione correctamente (podeis encontrar una versión completa en mi [github](https://github.com/Vctrsnts/debian-installer-sway)).
 
 #### 01-install-sway.sh
 ```bash
@@ -33,14 +31,14 @@ log_success "Activant servei acpid"
 sudo systemctl enable acpid
 ```
 
-## Configuración
+### Configuración
 Como anteriormente habia mencionado, estuve haciendo pruebas en un portatil que tenia para asi dejar afinado, lo maximo posible, todos los archivos de configuración tanto de sway, mako, waybar, bash, etc...
 
 #### ~/.config/sway
-La configuración de **sway** la gran mayoria de cosas las he aprovechado de la configuración que tenia en **i3wm**, lo unico que he añadido son unas mejoras o una mejor distribución de los archivos para en un futuro, sea más facil la modificación de los mismos.
+La configuración de **sway** la gran mayoria de cosas las he aprovechado de la configuración que tenia en **i3wm**, lo unico que he añadido son unas mejoras o una mejor distribución de los archivos para en un futuro, que sea más facil la funcionalidad que tienen y la modificación de los mismos.
 
 La estructura de directorios que tengo es la siguiente:
-```bash
+```
 sway/
 ├── config.d/
 │   ├── 00-theme
@@ -76,8 +74,8 @@ sway/
 | `scripts/toggle-bt.sh`               | Activa o desactiva el Bluetooth con un solo comando.                                 |
 | `config`                             | Archivo principal con parámetros globales de configuración.                          |
 
-Las cosas que para mi, son más importantes en la configuración de **sway** son las siguientes:
-```ini
+Las cosas que para mi, son más importantes en la configuración de **sway** son las siguientes (aqui os muestro el fichero de configuración inicial):
+```text
 # ~/.config/sway/config
 
 # Definimos la terminal
@@ -100,7 +98,8 @@ exec_always ~/.config/sway/scripts/import-gsettings.sh
 input * {
   xkb_layout "es"
 }
-
+```
+```text
 # ~/.config/sway/config.d/03-keybinding
 
 # Se crea un modulo que utilizaremos a la hora de salir del sistema
@@ -148,7 +147,7 @@ A la derecha, tengo:
 - Notificaciones
 
 La estructura del directorio es la siguiente:
-```bash
+```
 waybar/
 ├── scripts/
 │   ├── bt-status.sh
@@ -169,6 +168,7 @@ waybar/
 | `scripts/sys-trash.sh`               | Muestra los archivos que hay en la papelera.                                           |
 | `scripts/sys-updates.sh`             | Me muestra los paquetes que tengo que actualizar.                                      |
 
+El fichero de configuración de **waybar** seria el siguiente (pongo la sección de la distribución, el completo lo podeis encontrar en [github](https://github.com/vctrsnts/sway-config)
 
 ```json
 # ~/.config/waybar/config
@@ -196,28 +196,60 @@ waybar/
   # Aqui vendria el codigo de cada sección que visualizo y que son "custom" (propios). Los que no vienen con el sistema como network, clock, tray
 }
 ```
-Los scripts que uso para la información que visualizo son los siguientes:
-```bash
-# ~/.config/waybar/scripts/bt-status.sh
+Los scripts que uso para la información que visualizo en la barra de **waybar** son los siguientes:
 
+#### ~/.config/waybar/scripts/bt-status.sh
+```bash
+#!/bin/bash
+#
+# Script: bt_status.sh
+# Descripción:
+#   Este script muestra en Waybar el estado de conexión de unos auriculares
+#   Bluetooth concretos (identificados por su dirección MAC). Además, si están
+#   conectados, muestra el nivel de batería y el volumen actual.
+#
+# Funcionamiento:
+#   - Define la dirección MAC de los auriculares a monitorizar.
+#   - Usa `bluetoothctl info <MAC>` para comprobar si están conectados.
+#   - Si están conectados:
+#       * Muestra un icono de Bluetooth.
+#       * Asigna la clase CSS "on".
+#       * Obtiene el nivel de batería desde `journalctl --user`.
+#       * Obtiene el volumen actual con `pactl get-sink-volume`.
+#       * Construye un tooltip con batería y volumen.
+#   - Si no están conectados:
+#       * Muestra un icono vacío o alternativo.
+#       * Asigna la clase CSS "off".
+#       * Tooltip indicando que no hay conexión.
+#   - La salida en JSON permite a Waybar mostrar el icono y tooltip, y aplicar
+#     estilos según la clase.
+#
+# Uso:
+#   - Guardar como ~/.config/waybar/scripts/bluetooth.sh
+#   - Dar permisos de ejecución: chmod +x bluetooth.sh
+#   - Configurar en ~/.config/waybar/config como módulo "custom/bluetooth"
+#   - Sustituir la dirección MAC por la de tus auriculares.
+#
 # Dirección MAC de los auriculares
-MAC="IDENTIFICADOR DELS AURICULARS"
+MAC="00:00:00:00:00:00"
 
 # Iconos (Nerd Font / Font Awesome)
 ICON_ON=""   # Bluetooth normal
 ICON_OFF="󰂲"  # Bluetooth tachado
 
-# Verifica si estan conectats o no
+# Verifica si están conectados
 CONNECTED=$(bluetoothctl info "$MAC" | grep "Connected: yes")
 
 if [ -n "$CONNECTED" ]; then
   ICON="$ICON_ON"
   CLASS="on"
+
   # Batería desde journalctl
   BATTERY=$(journalctl --user -n 50 | grep "Battery Level" | tail -n1 | sed -n 's/.*Battery Level: \([0-9]\+\)%.*/\1/p')
+
   # Volumen actual
   VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]\+%' | head -n1)
-  # VISUALIZACION DE INFORMACION EN EL TOOLTIP
+
   TOOLTIP="Auriculares conectados - ${BATTERY}%  ${VOLUME}"
 else
   ICON="$ICON_OFF"
@@ -225,43 +257,67 @@ else
   TOOLTIP="Bluetooth no conectado o apagado"
 fi
 
-# Sortida JSON para waybar
+# Salida JSON para waybar
 echo "{\"text\": \"$ICON\", \"tooltip\": \"$TOOLTIP\", \"class\": \"$CLASS\"}"
-
-# ~/.config/waybar/scripts/sys-resources.sh
-
+```
+#### ~/.config/waybar/scripts/sys-resources.sh
+```bash
+#!/bin/bash
+#
+# Script: sys-resources.sh
+# Descripción:
+#   Este script muestra en Waybar un resumen del estado del sistema:
+#   - Uso de CPU en porcentaje.
+#   - Uso de memoria RAM en porcentaje.
+#   - Espacio libre en la partición /home.
+#   La salida es un texto con iconos, pensado para integrarse como módulo *custom*.
+#
+# Funcionamiento:
+#   - CPU: Lee /proc/stat y calcula el porcentaje de uso con `awk`.
+#   - RAM: Usa `free` para obtener memoria usada/total y calcular el porcentaje.
+#   - Disco: Usa `df -h /home` y extrae el espacio libre disponible.
+#   - Finalmente imprime una línea con iconos (requiere Nerd Fonts) y los valores.
+#
+# Uso:
+#   - Guardar como ~/.config/waybar/scripts/system_status.sh
+#   - Dar permisos de ejecución: chmod +x system_status.sh
+#   - Configurar en ~/.config/waybar/config como módulo "custom/system"
+#
 cpu=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.0f", usage}')
 mem=$(free | awk '/Mem:/ {printf "%.0f", $3/$2 * 100}')
 disk=$(df -h /home | awk 'NR==2 {print $4}')
-echo " ${cpu}%   ${mem}%   ${disk}"
-
-# ~/.config/waybar/scripts/sys-thermal.sh
-
-# CPU temperature (°C)
-temp_raw=$(cat /sys/class/hwmon/hwmon1/temp1_input 2>/dev/null)
-if [[ -n "$temp_raw" ]]; then
-  temp_c=$(echo "$temp_raw / 1000" | bc)
-  temp_icon=""
-else
-  temp_c="?"
-  temp_icon=""
-fi
-
-# Clase CSS si temperatura alta
-if [[ "$temp_c" != "?" && "$temp_c" -ge 70 ]]; then
-  class="hot"
-else
-  class="normal"
-fi
-
-echo "{\"text\": \"$temp_icon ${temp_c}°C\", \"class\": \"$class\"}"
-
-# ~/.config/waybar/scripts/sys-trash.sh
-
+echo " ${cpu}%    ${mem}%   ${disk}"
+```
+#### ~/.config/waybar/scripts/sys-trash.sh
+```bash
+#!/bin/bash
+#
+# Script: sys-trash.sh
+# Descripción:
+#   Este script cuenta el número de archivos presentes en la papelera de usuario
+#   (ubicada en ~/.local/share/Trash/files) y muestra el resultado en formato JSON
+#   para que Waybar lo represente como un módulo *custom*.
+#
+# Funcionamiento:
+#   - Usa `find` para localizar todos los archivos dentro de la carpeta de la papelera.
+#   - Cuenta el total con `wc -l`.
+#   - Si hay archivos:
+#       * Muestra un icono de papelera llena y el número de elementos.
+#       * Asigna la clase "default" o "many-trash" si supera un umbral (≥10).
+#   - Si no hay archivos:
+#       * Muestra un icono de papelera vacía.
+#       * Asigna la clase "normal".
+#   - La salida en JSON permite a Waybar aplicar estilos CSS según la clase.
+#
+# Uso:
+#   - Guardar como ~/.config/waybar/scripts/trash.sh
+#   - Dar permisos de ejecución: chmod +x trash.sh
+#   - Configurar en ~/.config/waybar/config como módulo "custom/trash"
+#
 trash_count=$(find ~/.local/share/Trash/files -type f 2>/dev/null | wc -l)
 
-icon_full=""
-icon_empty=""
+icon_full=""   # icono de papelera llena (requiere Nerd Fonts)
+icon_empty=""  # icono de papelera vacía (requiere Nerd Fonts)
 
 if [ "$trash_count" -gt 0 ]; then
   text="$icon_full $trash_count"
@@ -276,13 +332,37 @@ else
 fi
 
 echo "{\"text\": \"$text\", \"class\": \"$class\"}"
-
-# ~/.config/waybar/scripts/sys-updates.sh
-
+```
+#### ~/.config/waybar/scripts/sys-updates.sh
+```bash
+#!/bin/bash
+#
+# Script: sys-updates.sh
+# Descripción:
+#   Este script cuenta el número de paquetes pendientes de actualización en un
+#   sistema Debian/Ubuntu usando `apt-get --just-print upgrade`.
+#   La salida está formateada en JSON para que Waybar (con Sway/Wayland)
+#   pueda mostrarlo como un módulo *custom*.
+#
+# Funcionamiento:
+#   - Ejecuta una simulación de `apt-get upgrade` sin aplicar cambios.
+#   - Filtra las líneas que comienzan con "Inst", que corresponden a paquetes
+#     que serían instalados/actualizados.
+#   - Cuenta esas líneas para obtener el número total de actualizaciones.
+#   - Según el resultado:
+#       * Si hay actualizaciones, muestra un icono y el número.
+#       * Si no hay, muestra un icono distinto indicando que está al día.
+#   - Además asigna una clase CSS distinta para personalizar estilos en Waybar.
+#
+# Uso:
+#   - Colocar este script en ~/.config/waybar/scripts/updates.sh
+#   - Dar permisos de ejecución: chmod +x updates.sh
+#   - Configurar en ~/.config/waybar/config como módulo "custom/updates"
+#
 updates=$(apt-get --just-print upgrade 2>/dev/null | grep "^Inst" | wc -l)
 
-icon_full="󰮏"   # flecha de descarga
-icon_empty="󱂱"  # flecha tachada
+icon_full="󰮏"   # flecha de descarga (ej. "⬇️")
+icon_empty="󱂱"  # flecha tachada (ej. "✔️")
 
 if [ "$updates" -gt 0 ]; then
   text="$icon_full $updates"
@@ -298,9 +378,8 @@ fi
 
 echo "{\"text\": \"$text\", \"class\": \"$class\"}"
 ```
-
 #### ~/.config/wofi/config
-Aqui os pongo la configuración del gestor de menus, que en este caso, se encarga **wofi**:
+Aqui os pongo la configuración del gestor de menus, que en este caso, es **wofi**:
 ```json
 allow_images=true
 image_size=32
@@ -316,7 +395,7 @@ lines=10
 #### ~/.config/mako/config
 **Mako** es la aplicación de notificaciones que uso. Se que se podria usar **sway-notification-center**, pero es mucha cosa, para lo que yo quiero. Algo simple y sencillo y **mako** me viene perfecto.
 
-Aqui teneis la configuración que tengo actualmente. Lo unico que hay que tener en cuenta, es que, el tiempo que permanecen las notificaciones `default-timeout=0` para asi tenerlas activas y ser yo el que las desactive. No quita que más adelante me canse de esta funcionalidad y pongo un tiempo para su visualización, pero de momento, me gusta verlas.
+Aqui teneis la configuración que tengo actualmente. Lo unico que hay que tener en cuenta, es que, el tiempo que permanecen las notificaciones es **0** `default-timeout=0` para asi tenerlas activas y ser yo el que las desactive. No quita que más adelante me canse de esta funcionalidad y pongo un tiempo para su visualización, pero de momento, me gusta verlas.
 ```json
 sort=-time
 layer=overlay
@@ -347,18 +426,18 @@ text-color=#ECEFF4
 border-color=#BF616A
 default-timeout=0
 ```
-
-## Gestor de inicio de sesión
-Aqui fue donde tuve muchos problemas, porque entre que **wayland** es nuevo y **sway** tambien, no hay muchos gestores de inicio de funcionen al 100%. 
-
+### Gestor de inicio de sesión
+Aqui fue donde tuve muchos problemas, por no decir el unico, porque entre que **wayland** es nuevo y **sway** tambien, no hay muchos gestores de inicio de funcionen al 100%. 
+{{< admonition note >}}
 Ahora es cuando todo el mundo de dice que hay miles y todos funcionan a las mil maravillas. Pues siento contradecir a toda esa gente, porque en mi caso, no fue asi.
+{{< /admonition >}}
 
 Despues de muchas pruebas, me decidi por usar:
-- [greetd](https://git.sr.ht/~kennylevinsen/greetd), que siento decir que la documentación de tiene es muy penosa 🤬.
-- [gtkgreet](https://git.sr.ht/~kennylevinsen/gtkgreet), que tambien deja mucho que desear con respecto a la documentación, por no decir que es inexistente. Tuve que tirar de **Copilot** y de las *issues* del repositorio para hacerlo funcionar, pero que una vez lo tienes en funcionamiento no da ningun problema, aunque yo mejoraria alguna cosas.
+- [greetd](https://git.sr.ht/~kennylevinsen/greetd). Siento decir que la documentación que tienen deja mucho que desear 🤬.
+- [gtkgreet](https://git.sr.ht/~kennylevinsen/gtkgreet). Lo mismo que con **greetd**, la documentación poca por no decir inexistente. Tuve que tirar de **Copilot** y de las *issues* del repositorio para hacerlo funcionar, pero que una vez lo tienes en funcionamiento no da ningun problema, aunque yo mejoraria alguna cosas.
 
 La estructura del directorio es la siguiente:
-```bash
+```
 /etc/greet/
 ├── config.toml
 ├── environments
@@ -374,7 +453,7 @@ La estructura del directorio es la siguiente:
 | `/greet/sway-config`  | Acciones al iniciar o salir del sistema |
 
 > **Notas adicionales:**
-> - En `config.toml`, comenta agreety y descomenta wlgreet.
+> - En `config.toml`, comenta `agreety` y descomenta `wlgreet`.
 
 Yo lo tengo asi y me funciona perfectamente. Podeis hacer pruebas, pero con esta información, ya teneis un punto de partida por donde empezar.
 
@@ -438,7 +517,7 @@ bindsym Mod4+Shift+e exec swaynag \
   -b 'Reboot' 'systemctl reboot'
 ```
 
-Pues aqui llegamos al final. Podeis ver que he puesto lo basico o lo que yo creo que es lo más importante, porque si llego a poner todos los ficheros de configuración, completo, junto con las hojas de estilo (*CSS*) el articulo seria muy extenso.
+Pues aqui llegamos al final. Podeis ver que he puesto lo basico o lo que yo creo que es lo más importante, porque si llego a poner todos los ficheros de configuración, al completo, junto con las hojas de estilo (*CSS*) el articulo seria muy extenso.
 
 Si quereis ver todos los archivos de configuración con toda la información, podeis visitar mi [gitHub](https://github.com/vctrsnts/sway) donde ahi si que los podreis ver en toda su extensión.
 #### Referencia
