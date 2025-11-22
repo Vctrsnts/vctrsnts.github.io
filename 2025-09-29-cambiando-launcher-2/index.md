@@ -1,4 +1,4 @@
-# Cambiamos de launcher en el movil - 2?
+# Cambiamos de launcher en el movil - 2
 
 Como recordareis, en este [articulo](/2025-09-11-cambiando-launcher-1), decia, que el launcher que usaba en mi movil, parecida que el proyecto habia sido abandonado o que solo habia un mantenimiento minimo de el. Que lo entiendo, porque es un proyecto personal al que se le puede decidar el tiempo que el creador tiene, pero que me daba mucha rabia.
 

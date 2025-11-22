@@ -2,14 +2,14 @@
 
 Como podeis leer en este [articulo](/2023-09-11-substitutos-portatil), tenia ya a mi disposición un substituto en caso de fallo grave de mi portatil que venia usando hasta ahora. Y eso es lo que ha pasado. El pobre ha pasado a mejor vida.
 
-Como dice el refran "*el rey a muerto, viva el rey*" y esto es que el que estaba en el baquillo, ya puede salir a jugar 😂.
+Como dice el refran "*el rey a muerto, viva el rey*" y esto es que el que estaba en el banquillo, ya puede salir a jugar 😂.
 
 <!--more-->
 
 Tengo pensado hacer una serie de 3 articulos que seran los siguientes (incluyendo este):
 - [De i3WM (X11) a Sway (Wayland) - 1](/2025-09-15-i3wm-sway-1)
 - [De i3WM (X11) a Sway (Wayland) - 2](/2025-10-05-i3wm-sway-2)
-- [De i3WM (X11) a Sway (Wayland) - 3]()
+- [De i3WM (X11) a Sway (Wayland) - 3](/2025-10-15-i3wm-sway-3)
 
 Donde explicare todo el proceso de instalación, configuración y refinamiento hasta llegar a donde me encuentro ahora y que seguramente no sera el final, siempre puedes encontrar nuevas ideas para mejorar tu configuración.
 

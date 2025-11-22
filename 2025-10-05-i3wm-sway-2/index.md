@@ -519,7 +519,7 @@ bindsym Mod4+Shift+e exec swaynag \
 
 Pues aqui llegamos al final. Podeis ver que he puesto lo basico o lo que yo creo que es lo más importante, porque si llego a poner todos los ficheros de configuración, al completo, junto con las hojas de estilo (*CSS*) el articulo seria muy extenso.
 
-Si quereis ver todos los archivos de configuración con toda la información, podeis visitar mi [gitHub](https://github.com/vctrsnts/sway) donde ahi si que los podreis ver en toda su extensión.
+Si quereis ver todos los archivos de configuración que estoy utilizando, podeis visitar mi [gitHub](https://github.com/vctrsnts/sway-config) donde ahi si que los podreis ver en toda su extensión.
 #### Referencia
 - [Mi configuración de sway](https://github.com/Vctrsnts/sway-config)
 - [Sway](https://swaywm.org)

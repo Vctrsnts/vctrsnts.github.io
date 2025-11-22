@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>De i3WM ( X11 ) a Sway ( Wayland ) - 3 - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta property="og:image" content="/images/logo_post.jpg" >
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://vctrsnts.github.io/2025-10-15-i3wm-sway-3/" /><link rel="prev" href="https://vctrsnts.github.io/2025-10-05-i3wm-sway-2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "De i3WM ( X11 ) a Sway ( Wayland ) - 3",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/vctrsnts.github.io\/2025-10-15-i3wm-sway-3\/"
+        },"image": ["https:\/\/vctrsnts.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "sway, Debian GNU\/Linux","wordcount":  737 ,
+        "url": "https:\/\/vctrsnts.github.io\/2025-10-15-i3wm-sway-3\/","datePublished": "2025-10-15T00:00:00+00:00","dateModified": "2025-10-15T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/vctrsnts.github.io\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">De i3WM ( X11 ) a Sway ( Wayland ) - 3</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/sway/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Sway</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="15-10-2025">15-10-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;737 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Pues llegamos al tercer y ultimo articulo donde explico la transición de <strong>I3wm</strong> a <strong>Sway</strong> y las sensaciones que estoy teniendo mientras lo uso y por ultimo mi conclusión final.</p>
+<h2 id="compatibilidad-con-aplicaciones">Compatibilidad con aplicaciones</h2>
+<p>Con respecto a la integración y compatibilitat de las aplicaciones que uso normalmente no he tenido ningun problema. Todo esta funcionando correctamente y sin problemas remarcables.</p>
+<p>Las aplicaciones <em>diferentes</em> que por necesidad estoy usando, son las siguientes:</p>
+<ul>
+<li><em>Waybar</em> para la barra de estado. Aqui si que tengo que reconocer que te puedes perder entre las diferentes posibilidades que tiene.</li>
+<li><em>Wofi</em> como lanzador de aplicaciones o menu. Aqui tambien puedes perderte entre las diferentes posibilidades.</li>
+<li><em>Mako</em> como gestor de notificaciones. Habia hecho pruebas con <em>sway-notification-center</em>, pero demasiadas cosas para solo mostrar notificaciones.</li>
+<li><em>Swaybg</em> como gestor de fondos de pantalla. Simple y facil, sin muchas complicaciones.</li>
+</ul>
+<p>Estas son las aplicaciones más destacadas, luego estan el resto de aplicaciones de uso diario, como por ejemplo <em>Firefox</em>, <em>Thunar</em>, <em>Claws-Mail</em>, <em>VirtualBox</em>, etc&hellip;</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Cuando digo que por necesidad, es porque las que usaba en <em>I3wm</em>, no estan para <em>Sway</em>.</div>
+        </div>
+    </div>
+<h2 id="primeras-impresiones-tras-el-cambio">Primeras impresiones tras el cambio</h2>
+<p>Las primeras impresiones han sido muy positivas, no hay nada que haya que remarcar, lo unico seria el gestor de sesiones, en mi caso, escogi <strong>greetd</strong>, que eso si, hay que tratarlo con cariño (ya explique en este <a href="/2025-10-05-i3wm-sway-2" rel="">articulo</a> mi opinión al respecto), a parte de esto y como iba a usar las mismas aplicaciones que habia estado usando hasta ahora y que puedes encontrar en cualquier distribución de GNU/Linux, no he tenido ningun problema.</p>
+<p>Es más, es todo continuista, porque los ficheros de configuración que estaba usando hasta ahora sirven para <em>sway</em>. No tuve que hacer ningun cambio para que todo siguiera funcionando igual. A excepción del gestor de fondos de pantalla que como he dicho lo he cambiado, pero a parte de eso nada más.</p>
+<p>A parte de algunas mejoras a la configuración y algunos cambios que hice para la mejor funcionalidad del mismo, todo seguia igual.</p>
+<p>Estaba muy contento, porque todo seguia funcionando perfectamente y sobre todo y lo más importante, estaba usando <em>Wayland</em>, que se dice que es el futuro en el mundo de GNU/Linux.</p>
+<h2 id="rendimiento-y-consumo-de-recursos">Rendimiento y consumo de recursos</h2>
+<p>Con respecto al rendimiento, hay alguna cosa que me escama y no para bien. Porque teniendo el equipo que tenia. más información <a href="/2023-09-11-substitutos-portatil" rel="">aqui</a>, no entiendo, porque el ventilador de la CPU esta siempre a pleno rendimiento y con temperaturas, en algunos casos sostenidos a 80º - 90º 🔥. Tengo que estudiar a ver cual es el problema, porque no es normal que con un equipo más potente que el portatil este más tiempo el ventilador en marcha que antes.  Ya os ire informando.</p>
+<p>A excepción de esta pequeña eventualidad que tengo que investigar, el resto de opciones (ligereza del sistema, eficiencia, fluidez, etc) todo lo veia igual que anteriormente en el portatil. No es algo que se pudiera visualizar a simple vista. Seguramente que si hiciera mediciones más afinadas, descubriria cosas positivas, o a lo mejor, negativas, pero de momento, las sensaciones que tengo y que puede medir a simple vista 👁 son todas positivas. Nada que destaque sobradamente con respecto a <em>XOrg</em> y <em>I3wm</em>.</p>
+<h2 id="conclusión">Conclusión</h2>
+<p>De momento estoy muy contento con el cambio que he efectuado y creo que necesario, porque <em>XOrg</em> se habia quedado estancado, aunque por lo que he podido leer, estan intentado hacer mejoras, pero creo que sera muy dificil, porque, en mi opinión, se tendria que reescribir todo <em>XOrg</em> y asi aprovechar los nuevos conocimientos y el hardware nuevo que hay actualmente y para eso, ya esta <em>wayland</em>. En mi opinión, lo mejor seria dedicar todos los esfuerzos en mejorar <em>Wayland</em> y hacerlo anazar lo más rapidamente posible.</p>
+<p>Pero esto es lo que tiene que bueno el mundo del <em>Open Source</em>, que nunca puedes decir que algo esta acabado hasta que esta frio y no respira 😂</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Con esto acabamos la serie de articulos, sobre mi migración a <em>Wayland</em> y <em>Sway</em>. Pero os tengo que decir que se preparan sorpresas para un futuro y no muy agradables. Ya lo vereis.</div>
+        </div>
+    </div>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://swaywm.org" target="_blank" rel="noopener noreffer ">Sway</a></li>
+<li><a href="https://www.youtube.com/watch?v=sKOWqAm70jc" target="_blank" rel="noopener noreffer ">Sway Installation - New Script</a></li>
+<li><a href="https://www.youtube.com/watch?v=XUdu3xx6iWs" target="_blank" rel="noopener noreffer ">Build a Minimalist Linux Desktop with SwayWM – Part 1</a></li>
+<li><a href="https://www.youtube.com/watch?v=egh43A8Tlh8" target="_blank" rel="noopener noreffer ">Build a Minimalist Linux Desktop with SwayWM – Part 2</a></li>
+<li><a href="https://www.youtube.com/watch?v=zzPJCMl11k4" target="_blank" rel="noopener noreffer ">Build a Minimalist Linux Desktop with SwayWM – Part 3</a></li>
+<li><a href="https://www.youtube.com/watch?v=jFz5gLqv-FM" target="_blank" rel="noopener noreffer ">Linux &amp; Theming - The Ultimate Guide</a></li>
+<li><a href="https://www.youtube.com/watch?v=e7bezUA6G4g" target="_blank" rel="noopener noreffer ">How I Set Up My Sway Window Manager on Debian 12</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 15-10-2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/sway/">Sway</a>,&nbsp;<a href="/tags/debian-gnu/linux/">Debian GNU/Linux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2025-10-05-i3wm-sway-2/" class="prev" rel="prev" title="De i3WM ( X11 ) a Sway ( Wayland ) - 2"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>De i3WM ( X11 ) a Sway ( Wayland ) - 2</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.150.1">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line">
+                    <a rel="me" href="https://mastodon.online/@vsantos"></a>
+                </div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46"></script></body>
+</html>
