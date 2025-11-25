@@ -2,297 +2,297 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/tags/docker/</link>
+    <link>https://vctrsnts.codeberg.page/tags/docker/</link>
     <description>Recent content in Docker on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Mon, 30 Jun 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.codeberg.page/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Restic &#43; Backrest &#43; MiniO - 3</title>
-      <link>https://vctrsnts.github.io/2025-05-23-restic-copias-locales-3/</link>
+      <link>https://vctrsnts.codeberg.page/2025-05-23-restic-copias-locales-3/</link>
       <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-05-23-restic-copias-locales-3/</guid>
-      <description>&lt;p&gt;Este sera el tercer y utlimo articulo (en principio), donde explico la manera en que se estoy realizando mis copias de seguridad. Seguramente hay metodos mejores, pero este es el que mejor se adapta a mis necesidades. Tal como dije en el anterior &lt;a href=&#34;https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, unicamente me faltaba realizar la configuración de las copias de seguridad a mi servidor externo (VPS), pero antes de meternos de lleno con este tema.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2025-05-23-restic-copias-locales-3/</guid>
+      <description>&lt;p&gt;Este sera el tercer y utlimo articulo (en principio), donde explico la manera en que se estoy realizando mis copias de seguridad. Seguramente hay metodos mejores, pero este es el que mejor se adapta a mis necesidades. Tal como dije en el anterior &lt;a href=&#34;https://vctrsnts.codeberg.page/2025-05-22-restic-copias-locales-2&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, unicamente me faltaba realizar la configuración de las copias de seguridad a mi servidor externo (VPS), pero antes de meternos de lleno con este tema.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando HomePage. El Dashboard - 3</title>
-      <link>https://vctrsnts.github.io/2025-06-20-usando-homepage-3/</link>
+      <link>https://vctrsnts.codeberg.page/2025-06-20-usando-homepage-3/</link>
       <pubDate>Sat, 21 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-06-20-usando-homepage-3/</guid>
+      <guid>https://vctrsnts.codeberg.page/2025-06-20-usando-homepage-3/</guid>
       <description>&lt;p&gt;Un nuevo articulo hablando sobre &lt;strong&gt;homepage&lt;/strong&gt;, este magnifico &lt;em&gt;dashboard&lt;/em&gt; al que le tengo mucho cariño y que hace un tiempo, realizo una actualización en su configuración y que en mi caso, usuario de portatil no me funcionaba correctamente, porque las &lt;strong&gt;5 columnas&lt;/strong&gt; que yo utilizo no se veian correctamente, abri un &lt;em&gt;issue&lt;/em&gt; sobre este problema y parece ser que con la ultima actualización, ha solucionado este problema y ahora explicare como lo he hecho.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Adios GCalendar. Hola Radicale</title>
-      <link>https://vctrsnts.github.io/2025-06-20-radicale-etar/</link>
+      <link>https://vctrsnts.codeberg.page/2025-06-20-radicale-etar/</link>
       <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-06-20-radicale-etar/</guid>
+      <guid>https://vctrsnts.codeberg.page/2025-06-20-radicale-etar/</guid>
       <description>&lt;p&gt;A partir de este &lt;a href=&#34;https://elblogdelazaro.org/sincronizar-gnome-calendar-con-un-servidor-caldav&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;articulo&lt;/a&gt; de &lt;strong&gt;Carlos M.&lt;/strong&gt; del que sigo tanto su &lt;a href=&#34;https://elblogdelazaro.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;blog&lt;/a&gt; como su canal de mastodon, me pico la curiosidad de si yo tambien podria tener un calendario ajeno al control de Google y si le sacaria todo el partido para ello.&lt;/p&gt;&#xA;&lt;p&gt;Pues que quereis que os diga, si con el &lt;em&gt;calendario de Google&lt;/em&gt; que lo uso para apuntar 3 notas, porque no voy a sacarle partido a mi propio calendario, pero controlado por mi. A parte, de que tambien permite tener tu propia agenda de contactos y que esta no este al alcance de &lt;em&gt;Google&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Restic &#43; Backrest &#43; MiniO - 2</title>
-      <link>https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2/</link>
+      <link>https://vctrsnts.codeberg.page/2025-05-22-restic-copias-locales-2/</link>
       <pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2/</guid>
+      <guid>https://vctrsnts.codeberg.page/2025-05-22-restic-copias-locales-2/</guid>
       <description>&lt;p&gt;Continuamos con esta segunda parte donde explicaremos como sacar provecho de estas 3 aplicaciones, en este caso, explicare el script que estoy usando para realizar las copia, que es una variación de uno que tiene &lt;strong&gt;Lorenzo&lt;/strong&gt; en su &lt;a href=&#34;https://github.com/atareao/dotfiles/blob/main/.local/bin/backup.sh.jinja&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;gitHub&lt;/a&gt;, pero que en mi caso, en vez de ser un fichero &lt;strong&gt;jinja&lt;/strong&gt;, es un fichero en bash a pelo.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Matrix - 4. De vuelta al inicio, de Gotify a Matrix</title>
-      <link>https://vctrsnts.github.io/2025-05-22-gotify-matrix/</link>
+      <link>https://vctrsnts.codeberg.page/2025-05-22-gotify-matrix/</link>
       <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-05-22-gotify-matrix/</guid>
-      <description>&lt;p&gt;Como ya explique en este &lt;a href=&#34;https://vctrsnts.github.io/2025-05-19-matrix-gotify&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, ante la imposibilidad de usar &lt;strong&gt;Matrix&lt;/strong&gt; me pase a &lt;strong&gt;Gotify&lt;/strong&gt; aunque me negue a dejar de lado a &lt;em&gt;Matrix&lt;/em&gt; y segui investigando, el porque no funcionaba correctamente y asi llegado el momento, poderlo usar o sino, tener una alternativa &lt;em&gt;Gotify&lt;/em&gt;.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2025-05-22-gotify-matrix/</guid>
+      <description>&lt;p&gt;Como ya explique en este &lt;a href=&#34;https://vctrsnts.codeberg.page/2025-05-19-matrix-gotify&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, ante la imposibilidad de usar &lt;strong&gt;Matrix&lt;/strong&gt; me pase a &lt;strong&gt;Gotify&lt;/strong&gt; aunque me negue a dejar de lado a &lt;em&gt;Matrix&lt;/em&gt; y segui investigando, el porque no funcionaba correctamente y asi llegado el momento, poderlo usar o sino, tener una alternativa &lt;em&gt;Gotify&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Restic &#43; Backrest &#43; MiniO - 1</title>
-      <link>https://vctrsnts.github.io/2025-05-21-restic-copias-locales-1/</link>
+      <link>https://vctrsnts.codeberg.page/2025-05-21-restic-copias-locales-1/</link>
       <pubDate>Thu, 22 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-05-21-restic-copias-locales-1/</guid>
+      <guid>https://vctrsnts.codeberg.page/2025-05-21-restic-copias-locales-1/</guid>
       <description>&lt;p&gt;Lo primero y antes de nada, tengo que dar las gracias a &lt;strong&gt;Carlos M.&lt;/strong&gt; de &lt;a href=&#34;https://elblogdelazaro.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;El Blog de Lázaro&lt;/a&gt; y a &lt;strong&gt;Lorenzo&lt;/strong&gt; de &lt;a href=&#34;https://atareao.es&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Atareao&lt;/a&gt;, por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Matrix - 3. De Matrix a Gotify</title>
-      <link>https://vctrsnts.github.io/2025-05-19-matrix-gotify/</link>
+      <link>https://vctrsnts.codeberg.page/2025-05-19-matrix-gotify/</link>
       <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-05-19-matrix-gotify/</guid>
-      <description>&lt;p&gt;Como bien sabeis, porque lo explique en este &lt;a href=&#34;https://vctrsnts.github.io/2025-03-25-instal-config-matrix&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; y en este &lt;a href=&#34;https://vctrsnts.github.io/2025-03-27-pushbits&#34; rel=&#34;&#34;&gt;otro&lt;/a&gt;, estaba usando &lt;strong&gt;Matrix&lt;/strong&gt; como servidor de comunicación entre mis servidores y un servidor. Pero mientras más lo usaba, más desesperación me producia, porque, puede parecer una tonteria, pero en el movil, no recibia las notificaciones de los mensajes que me llegaban al cliente de &lt;strong&gt;Matrix&lt;/strong&gt;, que en este caso era &lt;strong&gt;FluffyChat&lt;/strong&gt;.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2025-05-19-matrix-gotify/</guid>
+      <description>&lt;p&gt;Como bien sabeis, porque lo explique en este &lt;a href=&#34;https://vctrsnts.codeberg.page/2025-03-25-instal-config-matrix&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; y en este &lt;a href=&#34;https://vctrsnts.codeberg.page/2025-03-27-pushbits&#34; rel=&#34;&#34;&gt;otro&lt;/a&gt;, estaba usando &lt;strong&gt;Matrix&lt;/strong&gt; como servidor de comunicación entre mis servidores y un servidor. Pero mientras más lo usaba, más desesperación me producia, porque, puede parecer una tonteria, pero en el movil, no recibia las notificaciones de los mensajes que me llegaban al cliente de &lt;strong&gt;Matrix&lt;/strong&gt;, que en este caso era &lt;strong&gt;FluffyChat&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Matrix - 2. PushBits, la pasarela que faltaba</title>
-      <link>https://vctrsnts.github.io/2025-03-27-pushbits/</link>
+      <link>https://vctrsnts.codeberg.page/2025-03-27-pushbits/</link>
       <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-03-27-pushbits/</guid>
-      <description>&lt;p&gt;Como bien explique en el anterior &lt;a href=&#34;https://vctrsnts.github.io/2025-03-25-instal-config-matrix&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, explicaba la instalación y configuración, nada facil, de mi servidor de &lt;strong&gt;matrix&lt;/strong&gt; ahora os vengo a traer el siguiente articulo, donde explico el uso que le he dado y los problemeas que me he encontrado asi como los planes de futuro.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2025-03-27-pushbits/</guid>
+      <description>&lt;p&gt;Como bien explique en el anterior &lt;a href=&#34;https://vctrsnts.codeberg.page/2025-03-25-instal-config-matrix&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, explicaba la instalación y configuración, nada facil, de mi servidor de &lt;strong&gt;matrix&lt;/strong&gt; ahora os vengo a traer el siguiente articulo, donde explico el uso que le he dado y los problemeas que me he encontrado asi como los planes de futuro.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Matrix - 1. Instalación y configuración</title>
-      <link>https://vctrsnts.github.io/2025-03-25-instal-config-matrix/</link>
+      <link>https://vctrsnts.codeberg.page/2025-03-25-instal-config-matrix/</link>
       <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-03-25-instal-config-matrix/</guid>
+      <guid>https://vctrsnts.codeberg.page/2025-03-25-instal-config-matrix/</guid>
       <description>&lt;p&gt;A partir de unos articulos de &lt;a href=&#34;https://atareao.es/?s=matrix&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Lorenzo&lt;/a&gt; y de &lt;a href=&#34;https://ugeek.github.io&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;uGeek&lt;/a&gt; (podeis encontrar más información en la referencia), me pico la sobre como seria tener mi propio servidor de mensajeria y poderlo utilizar para enviar las notificaciones de mis servicios y asi no depender tanto de &lt;em&gt;Telegram&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;De hay viene este nuevo articulo, donde explicare todo el proceso de instalación y uso de mi nuevo servidor &lt;strong&gt;Matrix&lt;/strong&gt; en mi VPS y os aviso que no ha sido nada sencillo.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Servicio para actualizar imagenes docker</title>
-      <link>https://vctrsnts.github.io/2024-10-28-script-actualizar-docker/</link>
+      <link>https://vctrsnts.codeberg.page/2024-10-28-script-actualizar-docker/</link>
       <pubDate>Mon, 28 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-10-28-script-actualizar-docker/</guid>
+      <guid>https://vctrsnts.codeberg.page/2024-10-28-script-actualizar-docker/</guid>
       <description>&lt;p&gt;Como he tenido malas experencias a la hora de usar servicios para mantener las imagenes actualizadas, he cambiado el servició que tenia actualmente &lt;strong&gt;whatsup&lt;/strong&gt; por &lt;strong&gt;cup&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Traefik - 4</title>
-      <link>https://vctrsnts.github.io/2024-07-26-usando-traefik-4/</link>
+      <link>https://vctrsnts.codeberg.page/2024-07-26-usando-traefik-4/</link>
       <pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-07-26-usando-traefik-4/</guid>
-      <description>&lt;p&gt;Tal como indique en este &lt;a href=&#34;https://vctrsnts.github.io/2024-04-19-traefik&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, lo unico que me faltaba por añadir a &lt;strong&gt;traefik&lt;/strong&gt; para tener mi VPS lo más seguro posible era &lt;strong&gt;crowdsec&lt;/strong&gt; y por fin, ya lo tengo instalado.&lt;/p&gt;&#xA;&lt;p&gt;Antes de lanzarte a la piscina directamente, te aconsejo que les eches un vistazo a este &lt;a href=&#34;https://atareao.es/podcast/mas-herramientas-para-proteger-tu-linux&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;articulo&lt;/a&gt; de &lt;strong&gt;atareao&lt;/strong&gt; donde habla de &lt;em&gt;crowdsec&lt;/em&gt; y tambien a este &lt;a href=&#34;https://www.youtube.com/watch?v=-GxUP6bNxF0&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;video&lt;/a&gt;, que me ha servido como guia en todo el proceso.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2024-07-26-usando-traefik-4/</guid>
+      <description>&lt;p&gt;Tal como indique en este &lt;a href=&#34;https://vctrsnts.codeberg.page/2024-04-19-traefik&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, lo unico que me faltaba por añadir a &lt;strong&gt;traefik&lt;/strong&gt; para tener mi VPS lo más seguro posible era &lt;strong&gt;crowdsec&lt;/strong&gt; y por fin, ya lo tengo instalado.&lt;/p&gt;&#xA;&lt;p&gt;Antes de lanzarte a la piscina directamente, te aconsejo que les eches un vistazo a este &lt;a href=&#34;https://atareao.es/podcast/mas-herramientas-para-proteger-tu-linux&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;articulo&lt;/a&gt; de &lt;strong&gt;atareao&lt;/strong&gt; donde habla de &lt;em&gt;crowdsec&lt;/em&gt; y tambien a este &lt;a href=&#34;https://www.youtube.com/watch?v=-GxUP6bNxF0&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;video&lt;/a&gt;, que me ha servido como guia en todo el proceso.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Traefik - 3</title>
-      <link>https://vctrsnts.github.io/2024-06-06-usando-traefik-3/</link>
+      <link>https://vctrsnts.codeberg.page/2024-06-06-usando-traefik-3/</link>
       <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-06-06-usando-traefik-3/</guid>
-      <description>&lt;p&gt;Como recordais hice 2 articulos donde en el &lt;a href=&#34;https://vctrsnts.github.io/2024-05-06-usando-traefik-1&#34; rel=&#34;&#34;&gt;primero articulo&lt;/a&gt; explicaba como se podia usar &lt;strong&gt;traefik&lt;/strong&gt; con otros servicios de docker y en el &lt;a href=&#34;2024-05-13-usando-traefik-2.md&#34; rel=&#34;&#34;&gt;segundo articulo&lt;/a&gt;, explicaba como se le podia añadir una capa más de seguridad a nuestro servicio de &lt;em&gt;traefik&lt;/em&gt; que consistia en bloquear las peticiones de paises de nuestra lista negra.&lt;/p&gt;&#xA;&lt;p&gt;En este 3º articulo, explicare unas modificaciones que, como siempre me pasa, no acabe de entender al leer el articulo principal de &lt;a href=&#34;https://www.atareao.es&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;atareao&lt;/a&gt;{:target=&amp;quot;_blank} y que gracias, no se si por inspiración divida de &lt;em&gt;Lorenzo&lt;/em&gt; he acabado de entender.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2024-06-06-usando-traefik-3/</guid>
+      <description>&lt;p&gt;Como recordais hice 2 articulos donde en el &lt;a href=&#34;https://vctrsnts.codeberg.page/2024-05-06-usando-traefik-1&#34; rel=&#34;&#34;&gt;primero articulo&lt;/a&gt; explicaba como se podia usar &lt;strong&gt;traefik&lt;/strong&gt; con otros servicios de docker y en el &lt;a href=&#34;2024-05-13-usando-traefik-2.md&#34; rel=&#34;&#34;&gt;segundo articulo&lt;/a&gt;, explicaba como se le podia añadir una capa más de seguridad a nuestro servicio de &lt;em&gt;traefik&lt;/em&gt; que consistia en bloquear las peticiones de paises de nuestra lista negra.&lt;/p&gt;&#xA;&lt;p&gt;En este 3º articulo, explicare unas modificaciones que, como siempre me pasa, no acabe de entender al leer el articulo principal de &lt;a href=&#34;https://www.atareao.es&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;atareao&lt;/a&gt;{:target=&amp;quot;_blank} y que gracias, no se si por inspiración divida de &lt;em&gt;Lorenzo&lt;/em&gt; he acabado de entender.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando HomePage. El Dashboard - 2</title>
-      <link>https://vctrsnts.github.io/2024-06-03-usando-homepage-2/</link>
+      <link>https://vctrsnts.codeberg.page/2024-06-03-usando-homepage-2/</link>
       <pubDate>Mon, 03 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-06-03-usando-homepage-2/</guid>
-      <description>&lt;p&gt;Como ya comente en el anterior &lt;a href=&#34;https://vctrsnts.github.io/2024-02-12-usando-homepage-1&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;  donde hablaba de que estaba usando &lt;strong&gt;HomePage&lt;/strong&gt; con una configuración &lt;em&gt;normal&lt;/em&gt; y muy &lt;em&gt;simple&lt;/em&gt;, pero que a la vez era funcional, por no decir basica para cuando te inicias, pero me faltaba algo, en resumen, queria algo más&amp;hellip;&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2024-06-03-usando-homepage-2/</guid>
+      <description>&lt;p&gt;Como ya comente en el anterior &lt;a href=&#34;https://vctrsnts.codeberg.page/2024-02-12-usando-homepage-1&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;  donde hablaba de que estaba usando &lt;strong&gt;HomePage&lt;/strong&gt; con una configuración &lt;em&gt;normal&lt;/em&gt; y muy &lt;em&gt;simple&lt;/em&gt;, pero que a la vez era funcional, por no decir basica para cuando te inicias, pero me faltaba algo, en resumen, queria algo más&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Traefik - 2</title>
-      <link>https://vctrsnts.github.io/2024-05-13-usando-traefik-2/</link>
+      <link>https://vctrsnts.codeberg.page/2024-05-13-usando-traefik-2/</link>
       <pubDate>Mon, 13 May 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-05-13-usando-traefik-2/</guid>
+      <guid>https://vctrsnts.codeberg.page/2024-05-13-usando-traefik-2/</guid>
       <description>&lt;p&gt;De nuevo, con otro articulo de &lt;strong&gt;Traefik&lt;/strong&gt;, en este caso, como se instala / activa el plugin &lt;strong&gt;GeoBlock&lt;/strong&gt; para asi, tal como indica su nombre, &lt;strong&gt;Traefik&lt;/strong&gt; en base al pais de origen de la &lt;strong&gt;IP&lt;/strong&gt;, lo bloquea o no.&lt;/p&gt;&#xA;&lt;p&gt;En este caso, igual que en el anterior articulo, partimos de la base de que tambien me encontre con problemas a la hora de poder usar este plugin, tanto en su instalación, como en su configuración. Pero como ya tenia la experiencia de instalar y activar toda la sección  de la redirección, esta vez, me resulto un poco más facil, solo un poco, todo porque ya entendia, más o menos como funcionaba &lt;strong&gt;traefik&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Hay que tener en cuenta, que la información, o el hilo del que tirar lo encontre gracias a nuestro querido Lorenzo (&lt;a href=&#34;https://atareao.es&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;atareao&lt;/a&gt;) y en especial de este &lt;a href=&#34;https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;articulo&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Traefik - 1</title>
-      <link>https://vctrsnts.github.io/2024-05-06-usando-traefik-1/</link>
+      <link>https://vctrsnts.codeberg.page/2024-05-06-usando-traefik-1/</link>
       <pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-05-06-usando-traefik-1/</guid>
-      <description>&lt;p&gt;Como os explique en este &lt;a href=&#34;https://vctrsnts.github.io/2024-04-19-traefik&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, aprovechando que tenia nuevo VPS, queria sacarle el maximo partido y después de haber instalado &lt;strong&gt;traefik&lt;/strong&gt; aun tenia más ganas.&lt;/p&gt;&#xA;&lt;p&gt;Y aqui es donde os aviso, he estado 3 dias intentando hacerlo funcionar correctamente y hasta que al final, me vino una &lt;strong&gt;inspiración&lt;/strong&gt; y pude conseguir que funcionara correctamente.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2024-05-06-usando-traefik-1/</guid>
+      <description>&lt;p&gt;Como os explique en este &lt;a href=&#34;https://vctrsnts.codeberg.page/2024-04-19-traefik&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, aprovechando que tenia nuevo VPS, queria sacarle el maximo partido y después de haber instalado &lt;strong&gt;traefik&lt;/strong&gt; aun tenia más ganas.&lt;/p&gt;&#xA;&lt;p&gt;Y aqui es donde os aviso, he estado 3 dias intentando hacerlo funcionar correctamente y hasta que al final, me vino una &lt;strong&gt;inspiración&lt;/strong&gt; y pude conseguir que funcionara correctamente.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Instalación de docker. Annexo</title>
-      <link>https://vctrsnts.github.io/2024-04-20-instalacion-docker-anexo/</link>
+      <link>https://vctrsnts.codeberg.page/2024-04-20-instalacion-docker-anexo/</link>
       <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-04-20-instalacion-docker-anexo/</guid>
-      <description>&lt;p&gt;Ya habia escrito un &lt;a href=&#34;https://vctrsnts.github.io/2020-03-08-rpi-usando-docker&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; sobre la instalación de docker, pero lo explicaba para hacer la instalación en una Raspberry, pero ahora lo voy a explicar para su instalación en un equipo normal y corriente. Más concretamente en &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; y asi, lo tengo más a mano y no tengo que volverme loco buscando esta información en internet, porque si sigo el de la Raspberry, al final no funciona correctamente.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2024-04-20-instalacion-docker-anexo/</guid>
+      <description>&lt;p&gt;Ya habia escrito un &lt;a href=&#34;https://vctrsnts.codeberg.page/2020-03-08-rpi-usando-docker&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; sobre la instalación de docker, pero lo explicaba para hacer la instalación en una Raspberry, pero ahora lo voy a explicar para su instalación en un equipo normal y corriente. Más concretamente en &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; y asi, lo tengo más a mano y no tengo que volverme loco buscando esta información en internet, porque si sigo el de la Raspberry, al final no funciona correctamente.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Instalando y configurando Traefik</title>
-      <link>https://vctrsnts.github.io/2024-04-19-traefik/</link>
+      <link>https://vctrsnts.codeberg.page/2024-04-19-traefik/</link>
       <pubDate>Fri, 19 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-04-19-traefik/</guid>
-      <description>&lt;p&gt;Aprovenchando que tengo el &lt;a href=&#34;https://vctrsnts.github.io/2024-04-17-nuevo-VPS&#34; rel=&#34;&#34;&gt;nuevo VPS&lt;/a&gt; queria ponerle &lt;a href=&#34;https://vctrsnts.github.io/2024-04-19-traefik&#34; rel=&#34;&#34;&gt;traefik&lt;/a&gt; y que además se puede hacer a traves de docker y asi poder aprovechar todas las posibilidades que nos da. Al final (cuando estoy escribiendo esto) lo tengo todo en funcionamiento, pero me ha costado horrores y aqui os explico mi odisea.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2024-04-19-traefik/</guid>
+      <description>&lt;p&gt;Aprovenchando que tengo el &lt;a href=&#34;https://vctrsnts.codeberg.page/2024-04-17-nuevo-VPS&#34; rel=&#34;&#34;&gt;nuevo VPS&lt;/a&gt; queria ponerle &lt;a href=&#34;https://vctrsnts.codeberg.page/2024-04-19-traefik&#34; rel=&#34;&#34;&gt;traefik&lt;/a&gt; y que además se puede hacer a traves de docker y asi poder aprovechar todas las posibilidades que nos da. Al final (cuando estoy escribiendo esto) lo tengo todo en funcionamiento, pero me ha costado horrores y aqui os explico mi odisea.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hemos encontrado la solución al desastre el siglo??</title>
-      <link>https://vctrsnts.github.io/2024-04-17-nuevo-vps/</link>
+      <link>https://vctrsnts.codeberg.page/2024-04-17-nuevo-vps/</link>
       <pubDate>Wed, 17 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-04-17-nuevo-vps/</guid>
-      <description>&lt;p&gt;Tal como escribi en este &lt;a href=&#34;https://vctrsnts.github.io/2024-04-10-desastre-siglo&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; donde explicaba que, seguramente por error mio, al detener la instancia, esta se perdio y luego fue imposible remontarla, porque no &lt;strong&gt;habia recursos disponibles&lt;/strong&gt;.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2024-04-17-nuevo-vps/</guid>
+      <description>&lt;p&gt;Tal como escribi en este &lt;a href=&#34;https://vctrsnts.codeberg.page/2024-04-10-desastre-siglo&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; donde explicaba que, seguramente por error mio, al detener la instancia, esta se perdio y luego fue imposible remontarla, porque no &lt;strong&gt;habia recursos disponibles&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>RSS-Funnel. Uno para controlarlos a todos</title>
-      <link>https://vctrsnts.github.io/2024-04-13-uno-juntarlos-todos/</link>
+      <link>https://vctrsnts.codeberg.page/2024-04-13-uno-juntarlos-todos/</link>
       <pubDate>Sat, 13 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-04-13-uno-juntarlos-todos/</guid>
+      <guid>https://vctrsnts.codeberg.page/2024-04-13-uno-juntarlos-todos/</guid>
       <description>&lt;p&gt;No se si lo habreis notado vosotros, pero escuchar podcast sobre tecnologia, informatica y dockers puede ser perjudicial para la salud y por extensión para vuestros servidores, o es solo una cosa que me pasa a mi solo?&lt;/p&gt;&#xA;&lt;p&gt;Si os preguntareis a que viene esta afirmación, podeis seguir leyendo y todo quedara aclarado.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando HomePage. El Dashboard</title>
-      <link>https://vctrsnts.github.io/2024-02-12-usando-homepage-1/</link>
+      <link>https://vctrsnts.codeberg.page/2024-02-12-usando-homepage-1/</link>
       <pubDate>Mon, 12 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-02-12-usando-homepage-1/</guid>
+      <guid>https://vctrsnts.codeberg.page/2024-02-12-usando-homepage-1/</guid>
       <description>&lt;p&gt;Despúes de escuchar el &lt;a href=&#34;https://ugeek.github.io/post/2021-05-24-homer-mi-dashboard-favorito.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;podcast&lt;/a&gt; de &lt;strong&gt;uGeek&lt;/strong&gt; donde hablaba de los &lt;strong&gt;dashboard&lt;/strong&gt; y en especial del que el usaba, &lt;strong&gt;Homer&lt;/strong&gt;, me decidi a probarlo a ver que tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Asi que me decidi a instalar y probar &lt;strong&gt;Homer&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Copias de Seguridad. Annexo</title>
-      <link>https://vctrsnts.github.io/2024-02-06-copias-seguridad-annexo/</link>
+      <link>https://vctrsnts.codeberg.page/2024-02-06-copias-seguridad-annexo/</link>
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-02-06-copias-seguridad-annexo/</guid>
-      <description>&lt;p&gt;Se que ha pasado 1 mes desde la ultima vez que publique algo, pero he estado un poco liado con todo, pero ahora vuelvo al ruedo y a ver, si me pongo las pilas con el &lt;strong&gt;Blog&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Tal como se puede ver en estos 2 articulos que ya habia escrito:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vctrsnts.github.io/2021-01-17-rpi-copias-seguridad&#34; rel=&#34;&#34;&gt;Raspberry Pi. Haciendo copias de seguridad&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vctrsnts.github.io/2021-01-18-rpi-externalizando-copias-seguridad&#34; rel=&#34;&#34;&gt;Raspberry Pi. Externalizando copias de seguridad&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2024-02-06-copias-seguridad-annexo/</guid>
+      <description>&lt;p&gt;Se que ha pasado 1 mes desde la ultima vez que publique algo, pero he estado un poco liado con todo, pero ahora vuelvo al ruedo y a ver, si me pongo las pilas con el &lt;strong&gt;Blog&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Tal como se puede ver en estos 2 articulos que ya habia escrito:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vctrsnts.codeberg.page/2021-01-17-rpi-copias-seguridad&#34; rel=&#34;&#34;&gt;Raspberry Pi. Haciendo copias de seguridad&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vctrsnts.codeberg.page/2021-01-18-rpi-externalizando-copias-seguridad&#34; rel=&#34;&#34;&gt;Raspberry Pi. Externalizando copias de seguridad&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Searxng. Uno para controlarlos a todos</title>
-      <link>https://vctrsnts.github.io/2024-01-10-searxng-uno-todo/</link>
+      <link>https://vctrsnts.codeberg.page/2024-01-10-searxng-uno-todo/</link>
       <pubDate>Wed, 10 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-01-10-searxng-uno-todo/</guid>
+      <guid>https://vctrsnts.codeberg.page/2024-01-10-searxng-uno-todo/</guid>
       <description>&lt;p&gt;Como ha he dicho muchas veces, docker te abre un mundo de infinitas posibilidades y entre una de estas posibilidades es tener tu propio buscador web y esto se consegui gracias a &lt;strong&gt;SearxNG&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Por fin. VPS para hacer pruebas</title>
-      <link>https://vctrsnts.github.io/2023-09-24-vps-pruebas/</link>
+      <link>https://vctrsnts.codeberg.page/2023-09-24-vps-pruebas/</link>
       <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-09-24-vps-pruebas/</guid>
+      <guid>https://vctrsnts.codeberg.page/2023-09-24-vps-pruebas/</guid>
       <description>&lt;p&gt;Hacia mucho tiempo (minimo 2 años), que habia escuchado que Oracle te daba &lt;em&gt;gratuitamente&lt;/em&gt; la posibilidad de tener un VPS para poderlo usar, eso si, con unas ciertas limitaciones:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;1 vCPUs x86 - 1Gb Ram&lt;/li&gt;&#xA;&lt;li&gt;4 vCPUs ARM - 24Gb Ram&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Asi que si anteriormente, en un RaspberryPi con 1Gb de Ram y una unica CPU podia tener amule, transmission las 24 horas del dia y el sistema iba sobrado, la elección seria facil.&lt;/p&gt;&#xA;&lt;p&gt;La elección era lo más facil, lo dificil fue conseguir darse de alta. Y cuando digo dificil, me refiero a dificil.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Crear RSS de los podcast que sigo</title>
-      <link>https://vctrsnts.github.io/2023-07-23-crear-rss-podcast/</link>
+      <link>https://vctrsnts.codeberg.page/2023-07-23-crear-rss-podcast/</link>
       <pubDate>Sun, 23 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-07-23-crear-rss-podcast/</guid>
+      <guid>https://vctrsnts.codeberg.page/2023-07-23-crear-rss-podcast/</guid>
       <description>&lt;p&gt;No se vosotros, pero no os habeis fijado que estos ultimos meses ha habido un auge con respecto a los podcast? No se si es porque la calidad ha subido o porque hay más, pero&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Donde digo dije, digo Diego</title>
-      <link>https://vctrsnts.github.io/2023-04-29-donde-dije-digo-digo-diego/</link>
+      <link>https://vctrsnts.codeberg.page/2023-04-29-donde-dije-digo-digo-diego/</link>
       <pubDate>Sat, 29 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-04-29-donde-dije-digo-digo-diego/</guid>
+      <guid>https://vctrsnts.codeberg.page/2023-04-29-donde-dije-digo-digo-diego/</guid>
       <description>&lt;p&gt;Mucha gente pensara que me he vuelto loco al poner este titulo a este articulo y más siendo un blog de tecnologia, pero cuando llegueis al final lo entendereis.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cambiando watchtower por diun y vuelta a watchtower</title>
-      <link>https://vctrsnts.github.io/2023-02-19-actualizacion-watchtower/</link>
+      <link>https://vctrsnts.codeberg.page/2023-02-19-actualizacion-watchtower/</link>
       <pubDate>Sun, 19 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-02-19-actualizacion-watchtower/</guid>
-      <description>&lt;p&gt;Tal como habia indicado en este &lt;a href=&#34;https://vctrsnts.github.io/2023-01-25-usando-watchtower&#34; rel=&#34;&#34;&gt;post&lt;/a&gt;, explica como empece usar &lt;strong&gt;watchtower&lt;/strong&gt; pero con resultados muy extraños.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2023-02-19-actualizacion-watchtower/</guid>
+      <description>&lt;p&gt;Tal como habia indicado en este &lt;a href=&#34;https://vctrsnts.codeberg.page/2023-01-25-usando-watchtower&#34; rel=&#34;&#34;&gt;post&lt;/a&gt;, explica como empece usar &lt;strong&gt;watchtower&lt;/strong&gt; pero con resultados muy extraños.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mastodon, Jekyll y Github. Una combinación perfecta.</title>
-      <link>https://vctrsnts.github.io/2023-02-13-jekyll-muy-configurable/</link>
+      <link>https://vctrsnts.codeberg.page/2023-02-13-jekyll-muy-configurable/</link>
       <pubDate>Mon, 13 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-02-13-jekyll-muy-configurable/</guid>
+      <guid>https://vctrsnts.codeberg.page/2023-02-13-jekyll-muy-configurable/</guid>
       <description>&lt;p&gt;Desde que di el salto de &lt;strong&gt;wordpress&lt;/strong&gt; a &lt;strong&gt;Github&lt;/strong&gt;, lo más logico, si mi profesion, pasion hace referencia a la tecnologia y que tambien influyo que &lt;strong&gt;wordpress&lt;/strong&gt; empezaba a tener muchos problemas con la creación y gestión del blog.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Watchtower</title>
-      <link>https://vctrsnts.github.io/2023-01-25-usando-watchtower/</link>
+      <link>https://vctrsnts.codeberg.page/2023-01-25-usando-watchtower/</link>
       <pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-01-25-usando-watchtower/</guid>
+      <guid>https://vctrsnts.codeberg.page/2023-01-25-usando-watchtower/</guid>
       <description>&lt;p&gt;Si quieres echarle la culpa tendreis que mirar a &lt;a href=&#34;https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Angel de uGeek&lt;/a&gt;, a &lt;a href=&#34;https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Lorenzo de Atareao.es&lt;/a&gt; y por ultimo a &lt;strong&gt;Carlos M.&lt;/strong&gt; de &lt;a href=&#34;https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;ElBlogdeLazaro&lt;/a&gt; porque ellos son los culpables de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación &lt;strong&gt;watchtower&lt;/strong&gt; es una de ellas 😉&lt;/p&gt;</description>
     </item>
     <item>
       <title>Creando tu propi Spotify privado - Annexo</title>
-      <link>https://vctrsnts.github.io/2022-12-31-rpi-spotity/</link>
+      <link>https://vctrsnts.codeberg.page/2022-12-31-rpi-spotity/</link>
       <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2022-12-31-rpi-spotity/</guid>
-      <description>&lt;p&gt;Tal como explique en este articulo &lt;a href=&#34;https://vctrsnts.github.io/2021-04-01-rpi-spotify&#34; rel=&#34;&#34;&gt;creando tu propio servidor de musica&lt;/a&gt; cuando tienes un servidor en tu casa, empiezas a tener ideas locas de que podrias hacer con el.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2022-12-31-rpi-spotity/</guid>
+      <description>&lt;p&gt;Tal como explique en este articulo &lt;a href=&#34;https://vctrsnts.codeberg.page/2021-04-01-rpi-spotify&#34; rel=&#34;&#34;&gt;creando tu propio servidor de musica&lt;/a&gt; cuando tienes un servidor en tu casa, empiezas a tener ideas locas de que podrias hacer con el.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Volviendo a Caddy desde Nginx Proxy Manager</title>
-      <link>https://vctrsnts.github.io/2022-12-25-rpi-caddy-proxy-manager/</link>
+      <link>https://vctrsnts.codeberg.page/2022-12-25-rpi-caddy-proxy-manager/</link>
       <pubDate>Sun, 25 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2022-12-25-rpi-caddy-proxy-manager/</guid>
-      <description>&lt;p&gt;Como ya sabreis, &lt;a href=&#34;https://vctrsnts.github.io/2021-05-07-rpi-nginx-proxy-manager&#34; rel=&#34;&#34;&gt;anteriormente&lt;/a&gt; usaba &lt;strong&gt;Nginx Proxy Manager&lt;/strong&gt; porque habia tenido muchos problemas con &lt;strong&gt;Caddy&lt;/strong&gt;, no se de donde venian estos problemas, si de &lt;strong&gt;Caddy&lt;/strong&gt; o de &lt;strong&gt;duckdns.org&lt;/strong&gt;, asi que hice el cambio a &lt;strong&gt;npm&lt;/strong&gt; para los amigos.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2022-12-25-rpi-caddy-proxy-manager/</guid>
+      <description>&lt;p&gt;Como ya sabreis, &lt;a href=&#34;https://vctrsnts.codeberg.page/2021-05-07-rpi-nginx-proxy-manager&#34; rel=&#34;&#34;&gt;anteriormente&lt;/a&gt; usaba &lt;strong&gt;Nginx Proxy Manager&lt;/strong&gt; porque habia tenido muchos problemas con &lt;strong&gt;Caddy&lt;/strong&gt;, no se de donde venian estos problemas, si de &lt;strong&gt;Caddy&lt;/strong&gt; o de &lt;strong&gt;duckdns.org&lt;/strong&gt;, asi que hice el cambio a &lt;strong&gt;npm&lt;/strong&gt; para los amigos.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Descargar Podcast a traves de Flexgetx - Annexo</title>
-      <link>https://vctrsnts.github.io/2021-06-07-flexget-podcast-annexo/</link>
+      <link>https://vctrsnts.codeberg.page/2021-06-07-flexget-podcast-annexo/</link>
       <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-06-07-flexget-podcast-annexo/</guid>
-      <description>&lt;p&gt;Como habia explicado en este &lt;a href=&#34;https://vctrsnts.github.io/2020-12-14-crear-imagen-docker&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; o en este otro &lt;a href=&#34;https://vctrsnts.github.io/2021-05-30-flexget-podcast&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, explicaba como crear una imagen de &lt;code&gt;docker&lt;/code&gt; o como usar dicha imagen, &lt;strong&gt;flexget&lt;/strong&gt;, para descargar podcast a traves de los &lt;code&gt;RSS&lt;/code&gt; que puedes conseguir.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2021-06-07-flexget-podcast-annexo/</guid>
+      <description>&lt;p&gt;Como habia explicado en este &lt;a href=&#34;https://vctrsnts.codeberg.page/2020-12-14-crear-imagen-docker&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; o en este otro &lt;a href=&#34;https://vctrsnts.codeberg.page/2021-05-30-flexget-podcast&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, explicaba como crear una imagen de &lt;code&gt;docker&lt;/code&gt; o como usar dicha imagen, &lt;strong&gt;flexget&lt;/strong&gt;, para descargar podcast a traves de los &lt;code&gt;RSS&lt;/code&gt; que puedes conseguir.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Descargar Podcast a traves de Flexget</title>
-      <link>https://vctrsnts.github.io/2021-05-30-flexget-podcast/</link>
+      <link>https://vctrsnts.codeberg.page/2021-05-30-flexget-podcast/</link>
       <pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-05-30-flexget-podcast/</guid>
+      <guid>https://vctrsnts.codeberg.page/2021-05-30-flexget-podcast/</guid>
       <description>&lt;p&gt;Gracias que tengo docker puedo usar la imagen que he creado de &lt;a href=&#34;https://flexget.com&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Flexget&lt;/a&gt;, una aplicación que a traves de un fichero &lt;strong&gt;yaml&lt;/strong&gt;, permite descargar lo que quieras incluidos podcast.&lt;/p&gt;&#xA;&lt;p&gt;En principio me gustan los que tengas que ver con la tecnologia y sobre todo lo que tenga que ver con GNU/Linux. Pero a parte de estos tambien tengo un podcast de historia que me encanta mucho y cuando me acuerdo lo escucho. Este podcast se llama &lt;a href=&#34;https://www.ccma.cat/catradio/en-guardia&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;En Guàrdia&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Y buscando información al final consegui averiguar que a traves de &lt;strong&gt;Flexget&lt;/strong&gt; se pueden descargar Podcast asi que me puse a ello y gracias a un script para dicho proposito ya puedo descargar los podcast de este programa sin preocuparme.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Creando tu propio Servidor de Musica privada</title>
-      <link>https://vctrsnts.github.io/2021-04-01-rpi-spotify/</link>
+      <link>https://vctrsnts.codeberg.page/2021-04-01-rpi-spotify/</link>
       <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-04-01-rpi-spotify/</guid>
+      <guid>https://vctrsnts.codeberg.page/2021-04-01-rpi-spotify/</guid>
       <description>&lt;p&gt;Cuando tienes un servidor de bajo consumo como una Raspberry y empiezas a usar docker, a parte de descubrir un nuevo mundo (no me canso de decirlo), tambien descubres nuevas formas de torturar tu mente.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Nginx-Proxy-Manager en la Raspberry</title>
-      <link>https://vctrsnts.github.io/2021-05-07-rpi-nginx-proxy-manager/</link>
+      <link>https://vctrsnts.codeberg.page/2021-05-07-rpi-nginx-proxy-manager/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-05-07-rpi-nginx-proxy-manager/</guid>
+      <guid>https://vctrsnts.codeberg.page/2021-05-07-rpi-nginx-proxy-manager/</guid>
       <description>&lt;p&gt;Aqui tenemos otra entrada más que hace referencia a mi RPI y a ese inmenso oceano que se ha abierto al descubrir Docker.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cambiando Traefik por Caddy</title>
-      <link>https://vctrsnts.github.io/2021-04-08-rpi-caddy-proxy-manager/</link>
+      <link>https://vctrsnts.codeberg.page/2021-04-08-rpi-caddy-proxy-manager/</link>
       <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-04-08-rpi-caddy-proxy-manager/</guid>
+      <guid>https://vctrsnts.codeberg.page/2021-04-08-rpi-caddy-proxy-manager/</guid>
       <description>&lt;p&gt;Anteriomente venia usando Traefik, pero como ya he comentado, era muy dificil de mantener y de configurar, a parte de las multiples opciones que tiene. Ante esto, me resultaba muy tedioso su uso, asi que decidir buscar otra alternativa más facil.&lt;/p&gt;&#xA;&lt;p&gt;Después de buscar y leer a mis blogueros preferidos:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ugeek.github.io&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;uGeek&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://elblogdelazaro.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;El Blog de Lazaro&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Externalizando copias de seguridad</title>
-      <link>https://vctrsnts.github.io/2021-01-18-rpi-externalizando-copias-seguridad/</link>
+      <link>https://vctrsnts.codeberg.page/2021-01-18-rpi-externalizando-copias-seguridad/</link>
       <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-01-18-rpi-externalizando-copias-seguridad/</guid>
-      <description>&lt;p&gt;Este articulo es una continuación al que hice hace un par de dias con respecto a realizar copias de seguridad en mi RPI4 con &lt;a href=&#34;https://vctrsnts.github.io/2021-01-17-rpi-copias-seguridad&#34; rel=&#34;&#34;&gt;rsnapshot&lt;/a&gt;.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2021-01-18-rpi-externalizando-copias-seguridad/</guid>
+      <description>&lt;p&gt;Este articulo es una continuación al que hice hace un par de dias con respecto a realizar copias de seguridad en mi RPI4 con &lt;a href=&#34;https://vctrsnts.codeberg.page/2021-01-17-rpi-copias-seguridad&#34; rel=&#34;&#34;&gt;rsnapshot&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Haciendo copias de seguridad</title>
-      <link>https://vctrsnts.github.io/2021-01-17-rpi-copias-seguridad/</link>
+      <link>https://vctrsnts.codeberg.page/2021-01-17-rpi-copias-seguridad/</link>
       <pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-01-17-rpi-copias-seguridad/</guid>
+      <guid>https://vctrsnts.codeberg.page/2021-01-17-rpi-copias-seguridad/</guid>
       <description>&lt;p&gt;Otro capitulo más con respecto a la configuración de de mi RPI4, en este caso son las copias de seguridad de la información más importante.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Crear imagenes en docker</title>
-      <link>https://vctrsnts.github.io/2020-12-14-crear-imagen-docker/</link>
+      <link>https://vctrsnts.codeberg.page/2020-12-14-crear-imagen-docker/</link>
       <pubDate>Mon, 14 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-12-14-crear-imagen-docker/</guid>
+      <guid>https://vctrsnts.codeberg.page/2020-12-14-crear-imagen-docker/</guid>
       <description>&lt;p&gt;Esto es una cosa que queria hacer desde que he empezado a utilizar &lt;code&gt;docker&lt;/code&gt; porque siempre va bien tenerlos apuntado por si algun momento hace falta y si además te has hecho algun par de containers propios, pues nunca esta de más.&lt;/p&gt;&#xA;&lt;p&gt;La parte más dificil de crear una imagen docker, es el &lt;code&gt;Dockerfile&lt;/code&gt;, este fichero es todo lo que contendra y hara la imagen docker cuando se cree (sobre que base funciona, que puertos, volumenes, etc&amp;hellip;).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Calibre-Web</title>
-      <link>https://vctrsnts.github.io/2020-04-12-usando-calibre-web/</link>
+      <link>https://vctrsnts.codeberg.page/2020-04-12-usando-calibre-web/</link>
       <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-04-12-usando-calibre-web/</guid>
+      <guid>https://vctrsnts.codeberg.page/2020-04-12-usando-calibre-web/</guid>
       <description>&lt;p&gt;Después del descubrimiento de &lt;strong&gt;docker&lt;/strong&gt;, tal como dije en otra entrada se ha abierto un nuevo mundo de posibilidades por explorar. Y en este caso hemos descubierto &lt;strong&gt;calibre-web&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;La idea me gusto, porque así, voy quitando peso al portátil y doy más uso a la RPI3b (de momento a la espera de cambiar a una 4) y además, con el &lt;em&gt;HDD de 4Tb&lt;/em&gt; que viene en camino, pues nos pusimos a ello.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Pasos para instalar Docker en Raspbian</title>
-      <link>https://vctrsnts.github.io/2020-03-08-rpi-usando-docker/</link>
+      <link>https://vctrsnts.codeberg.page/2020-03-08-rpi-usando-docker/</link>
       <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-03-08-rpi-usando-docker/</guid>
+      <guid>https://vctrsnts.codeberg.page/2020-03-08-rpi-usando-docker/</guid>
       <description>&lt;p&gt;Siempre me pasa lo mismo, me hago mis chuletas y apuntes, pero nunca me pongo como se realiza la instalación sobre la cual funcionan las chuletas.&lt;/p&gt;</description>
     </item>
     <item>
       <title>TIP Sobre Docker</title>
-      <link>https://vctrsnts.github.io/2020-02-16-tip-docker/</link>
+      <link>https://vctrsnts.codeberg.page/2020-02-16-tip-docker/</link>
       <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-02-16-tip-docker/</guid>
+      <guid>https://vctrsnts.codeberg.page/2020-02-16-tip-docker/</guid>
       <description>&lt;p&gt;Últimamente me he metido en el mundo de &lt;strong&gt;Docker&lt;/strong&gt; para mi &lt;strong&gt;Raspberry&lt;/strong&gt; y se me ha abierto un mundo nuevo de posibilidades infinitas.&lt;/p&gt;&#xA;&lt;p&gt;A continuación pongo un TIP sobre Docker y el mantenimiento (eliminación) de volúmenes / imágenes que ya no se utilizan.&lt;/p&gt;</description>
     </item>
   </channel>
