@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ethernet on Si lo haces, hazlo bien!</title>
-    <link>http://192.6.0.40:1313/tags/ethernet/</link>
+    <link>https://vctrsnts.github.io/tags/ethernet/</link>
     <description>Recent content in Ethernet on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Mon, 04 Apr 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://192.6.0.40:1313/tags/ethernet/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/tags/ethernet/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Raspberry Pi. Acceso a traves de ssh</title>
-      <link>http://192.6.0.40:1313/2016-04-04-rpi-acceso-traves-ssh/</link>
+      <link>https://vctrsnts.github.io/2016-04-04-rpi-acceso-traves-ssh/</link>
       <pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2016-04-04-rpi-acceso-traves-ssh/</guid>
+      <guid>https://vctrsnts.github.io/2016-04-04-rpi-acceso-traves-ssh/</guid>
       <description>&lt;p&gt;Una vez que ya tenemos nuestra Raspberry en marcha y funcionando ahora viene la parte divertida, como acceder a ella desde el exterior. En mi caso desde otra ubicación y además con un poco de seguridad para que nadie pueda acceder a ella (recordar que esto se tiene que hacer desde el equipo que se va a conectar a la Raspberry).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Configurar la red</title>
-      <link>http://192.6.0.40:1313/2016-04-03-rpi-configurar-red/</link>
+      <link>https://vctrsnts.github.io/2016-04-03-rpi-configurar-red/</link>
       <pubDate>Sun, 03 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2016-04-03-rpi-configurar-red/</guid>
+      <guid>https://vctrsnts.github.io/2016-04-03-rpi-configurar-red/</guid>
       <description>&lt;p&gt;Ahora que ya tenemos configurado y funcionando nuestra Raspberry, ahora le toca el turno a la red (en mi caso, quiero ip fija).&lt;/p&gt;</description>
     </item>
   </channel>

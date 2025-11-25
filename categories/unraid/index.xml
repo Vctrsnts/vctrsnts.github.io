@@ -2,87 +2,87 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>UnRAID on Si lo haces, hazlo bien!</title>
-    <link>http://192.6.0.40:1313/categories/unraid/</link>
+    <link>https://vctrsnts.github.io/categories/unraid/</link>
     <description>Recent content in UnRAID on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Mon, 30 Jun 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://192.6.0.40:1313/categories/unraid/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/categories/unraid/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Restic &#43; Backrest &#43; MiniO - 3</title>
-      <link>http://192.6.0.40:1313/2025-05-23-restic-copias-locales-3/</link>
+      <link>https://vctrsnts.github.io/2025-05-23-restic-copias-locales-3/</link>
       <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2025-05-23-restic-copias-locales-3/</guid>
-      <description>&lt;p&gt;Este sera el tercer y utlimo articulo (en principio), donde explico la manera en que se estoy realizando mis copias de seguridad. Seguramente hay metodos mejores, pero este es el que mejor se adapta a mis necesidades. Tal como dije en el anterior &lt;a href=&#34;http://192.6.0.40:1313/2025-05-22-restic-copias-locales-2&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, unicamente me faltaba realizar la configuración de las copias de seguridad a mi servidor externo (VPS), pero antes de meternos de lleno con este tema.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2025-05-23-restic-copias-locales-3/</guid>
+      <description>&lt;p&gt;Este sera el tercer y utlimo articulo (en principio), donde explico la manera en que se estoy realizando mis copias de seguridad. Seguramente hay metodos mejores, pero este es el que mejor se adapta a mis necesidades. Tal como dije en el anterior &lt;a href=&#34;https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, unicamente me faltaba realizar la configuración de las copias de seguridad a mi servidor externo (VPS), pero antes de meternos de lleno con este tema.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando HomePage. El Dashboard - 3</title>
-      <link>http://192.6.0.40:1313/2025-06-20-usando-homepage-3/</link>
+      <link>https://vctrsnts.github.io/2025-06-20-usando-homepage-3/</link>
       <pubDate>Sat, 21 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2025-06-20-usando-homepage-3/</guid>
+      <guid>https://vctrsnts.github.io/2025-06-20-usando-homepage-3/</guid>
       <description>&lt;p&gt;Un nuevo articulo hablando sobre &lt;strong&gt;homepage&lt;/strong&gt;, este magnifico &lt;em&gt;dashboard&lt;/em&gt; al que le tengo mucho cariño y que hace un tiempo, realizo una actualización en su configuración y que en mi caso, usuario de portatil no me funcionaba correctamente, porque las &lt;strong&gt;5 columnas&lt;/strong&gt; que yo utilizo no se veian correctamente, abri un &lt;em&gt;issue&lt;/em&gt; sobre este problema y parece ser que con la ultima actualización, ha solucionado este problema y ahora explicare como lo he hecho.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Restic &#43; Backrest &#43; MiniO - 2</title>
-      <link>http://192.6.0.40:1313/2025-05-22-restic-copias-locales-2/</link>
+      <link>https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2/</link>
       <pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2025-05-22-restic-copias-locales-2/</guid>
+      <guid>https://vctrsnts.github.io/2025-05-22-restic-copias-locales-2/</guid>
       <description>&lt;p&gt;Continuamos con esta segunda parte donde explicaremos como sacar provecho de estas 3 aplicaciones, en este caso, explicare el script que estoy usando para realizar las copia, que es una variación de uno que tiene &lt;strong&gt;Lorenzo&lt;/strong&gt; en su &lt;a href=&#34;https://github.com/atareao/dotfiles/blob/main/.local/bin/backup.sh.jinja&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;gitHub&lt;/a&gt;, pero que en mi caso, en vez de ser un fichero &lt;strong&gt;jinja&lt;/strong&gt;, es un fichero en bash a pelo.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Restic &#43; Backrest &#43; MiniO - 1</title>
-      <link>http://192.6.0.40:1313/2025-05-21-restic-copias-locales-1/</link>
+      <link>https://vctrsnts.github.io/2025-05-21-restic-copias-locales-1/</link>
       <pubDate>Thu, 22 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2025-05-21-restic-copias-locales-1/</guid>
+      <guid>https://vctrsnts.github.io/2025-05-21-restic-copias-locales-1/</guid>
       <description>&lt;p&gt;Lo primero y antes de nada, tengo que dar las gracias a &lt;strong&gt;Carlos M.&lt;/strong&gt; de &lt;a href=&#34;https://elblogdelazaro.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;El Blog de Lázaro&lt;/a&gt; y a &lt;strong&gt;Lorenzo&lt;/strong&gt; de &lt;a href=&#34;https://atareao.es&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Atareao&lt;/a&gt;, por todo el conocimiento que me han aportando, porque si eso, yo no podria haber hecho lo que voy a explicar en este articulo. Muchas gracias 👏.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Opinión Personal sobre unRaid - Final</title>
-      <link>http://192.6.0.40:1313/2024-07-17-opini%C3%B3n-unraid-final/</link>
+      <link>https://vctrsnts.github.io/2024-07-17-opini%C3%B3n-unraid-final/</link>
       <pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-07-17-opini%C3%B3n-unraid-final/</guid>
+      <guid>https://vctrsnts.github.io/2024-07-17-opini%C3%B3n-unraid-final/</guid>
       <description>&lt;p&gt;Como primer articulo de este nuevo año, os pongo el articulo final que me faltaba sobre &lt;strong&gt;mi opinión personal - final&lt;/strong&gt; con respecto a &lt;strong&gt;unRaid&lt;/strong&gt;, pero he estado un poco liado y por eso me he retrasado un poco, pero ahora vamos al articulo final con respecto a lo que &lt;strong&gt;yo&lt;/strong&gt; pienso.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Opinión Personal sobre unRaid - 2</title>
-      <link>http://192.6.0.40:1313/2024-06-23-opinion-unraid-2/</link>
+      <link>https://vctrsnts.github.io/2024-06-23-opinion-unraid-2/</link>
       <pubDate>Sun, 23 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-06-23-opinion-unraid-2/</guid>
-      <description>&lt;p&gt;Tal como explique en este &lt;a href=&#34;http://192.6.0.40:1313/2024-06-05-opinion-unraid&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; comente que iba a dar mi opinión con respecto a &lt;strong&gt;unRaid&lt;/strong&gt; y aqui va el segundo de los 2 articulos que tenia planeado escribir dando mi opinión con respecto a las cosas positivas y negativas, y hoy toca hablar de las cosas negativas que le he encontrado, y siento decir que son más que las positivas que negativas.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2024-06-23-opinion-unraid-2/</guid>
+      <description>&lt;p&gt;Tal como explique en este &lt;a href=&#34;https://vctrsnts.github.io/2024-06-05-opinion-unraid&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; comente que iba a dar mi opinión con respecto a &lt;strong&gt;unRaid&lt;/strong&gt; y aqui va el segundo de los 2 articulos que tenia planeado escribir dando mi opinión con respecto a las cosas positivas y negativas, y hoy toca hablar de las cosas negativas que le he encontrado, y siento decir que son más que las positivas que negativas.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Opinión Personal sobre unRaid - 1</title>
-      <link>http://192.6.0.40:1313/2024-06-13-opinion-unraid-1/</link>
+      <link>https://vctrsnts.github.io/2024-06-13-opinion-unraid-1/</link>
       <pubDate>Thu, 13 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-06-13-opinion-unraid-1/</guid>
-      <description>&lt;p&gt;Tal como explique en este &lt;a href=&#34;http://192.6.0.40:1313/2024-06-05-opinion-unraid&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; comente que iba a dar mi opinión con respecto a &lt;strong&gt;unRaid&lt;/strong&gt; y aqui va el primero de los 2 articulos que tenia planeado escribir dando mi opinión con respecto a las cosas positivas y negativas.  y aqui la el primero de los 2 articulos. Vamos a hablar de las cosas positivas que le he encontrado.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2024-06-13-opinion-unraid-1/</guid>
+      <description>&lt;p&gt;Tal como explique en este &lt;a href=&#34;https://vctrsnts.github.io/2024-06-05-opinion-unraid&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; comente que iba a dar mi opinión con respecto a &lt;strong&gt;unRaid&lt;/strong&gt; y aqui va el primero de los 2 articulos que tenia planeado escribir dando mi opinión con respecto a las cosas positivas y negativas.  y aqui la el primero de los 2 articulos. Vamos a hablar de las cosas positivas que le he encontrado.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Opinión Personal sobre unRaid</title>
-      <link>http://192.6.0.40:1313/2024-06-05-opinion-unraid/</link>
+      <link>https://vctrsnts.github.io/2024-06-05-opinion-unraid/</link>
       <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-06-05-opinion-unraid/</guid>
-      <description>&lt;p&gt;Tal como explique en este &lt;a href=&#34;http://192.6.0.40:1313/2024-03-07-cambiando-unraid&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; empece a usar &lt;strong&gt;unRaid&lt;/strong&gt; y puedo decir que después 3 meses (algunos podeis pensar que es poco tiempo), ya me he hecho una opinión sobre este SO y la voy a exponer.&lt;/p&gt;&#xA;&lt;p&gt;Repito es mi opinión personal y se que este articulo puede levantar ampollas, pero como digo, es mi opinión y a quien no le guste &lt;em&gt;que s&amp;rsquo;hi posi fulles&lt;/em&gt;.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2024-06-05-opinion-unraid/</guid>
+      <description>&lt;p&gt;Tal como explique en este &lt;a href=&#34;https://vctrsnts.github.io/2024-03-07-cambiando-unraid&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; empece a usar &lt;strong&gt;unRaid&lt;/strong&gt; y puedo decir que después 3 meses (algunos podeis pensar que es poco tiempo), ya me he hecho una opinión sobre este SO y la voy a exponer.&lt;/p&gt;&#xA;&lt;p&gt;Repito es mi opinión personal y se que este articulo puede levantar ampollas, pero como digo, es mi opinión y a quien no le guste &lt;em&gt;que s&amp;rsquo;hi posi fulles&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando HomePage. El Dashboard - 2</title>
-      <link>http://192.6.0.40:1313/2024-06-03-usando-homepage-2/</link>
+      <link>https://vctrsnts.github.io/2024-06-03-usando-homepage-2/</link>
       <pubDate>Mon, 03 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-06-03-usando-homepage-2/</guid>
-      <description>&lt;p&gt;Como ya comente en el anterior &lt;a href=&#34;http://192.6.0.40:1313/2024-02-12-usando-homepage-1&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;  donde hablaba de que estaba usando &lt;strong&gt;HomePage&lt;/strong&gt; con una configuración &lt;em&gt;normal&lt;/em&gt; y muy &lt;em&gt;simple&lt;/em&gt;, pero que a la vez era funcional, por no decir basica para cuando te inicias, pero me faltaba algo, en resumen, queria algo más&amp;hellip;&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2024-06-03-usando-homepage-2/</guid>
+      <description>&lt;p&gt;Como ya comente en el anterior &lt;a href=&#34;https://vctrsnts.github.io/2024-02-12-usando-homepage-1&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;  donde hablaba de que estaba usando &lt;strong&gt;HomePage&lt;/strong&gt; con una configuración &lt;em&gt;normal&lt;/em&gt; y muy &lt;em&gt;simple&lt;/em&gt;, pero que a la vez era funcional, por no decir basica para cuando te inicias, pero me faltaba algo, en resumen, queria algo más&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cambiando a UnRAID</title>
-      <link>http://192.6.0.40:1313/2024-03-07-cambiando-unraid/</link>
+      <link>https://vctrsnts.github.io/2024-03-07-cambiando-unraid/</link>
       <pubDate>Thu, 07 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-03-07-cambiando-unraid/</guid>
-      <description>&lt;p&gt;Este mes de marzo ha traido un cambio inesperado en mi servidor.&lt;/p&gt;&#xA;&lt;p&gt;Lo primero de todo, vi una oferta de un Lenovo m910x (el que dispone de una ranura para puerto PCI) en Wallapop que venia completo (tarjeta grafica, SSD, RAM, transformador de 135w), o sea, una perita en dulce. Asi que me lance de cabeza a el. Y junto con los 2 HDD que ya tenia en funcionamiento (18Tb y otro de 12Tb) en mi &lt;a href=&#34;http://192.6.0.40:1313/2023-08-01-de-nuevo-cambiando-servidor&#34; rel=&#34;&#34;&gt;antiguo servidor&lt;/a&gt; más otro que estaba en stand-by de 16Tb, y aprovechando el &lt;a href=&#34;https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;mod&lt;/a&gt; que se le puede hacer a los Tiny (sobre todo a los m910x), pense en aprovechar los 3 HDD y tener un &lt;strong&gt;peazo&lt;/strong&gt; servidor que no se lo saltase un galgo.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2024-03-07-cambiando-unraid/</guid>
+      <description>&lt;p&gt;Este mes de marzo ha traido un cambio inesperado en mi servidor.&lt;/p&gt;&#xA;&lt;p&gt;Lo primero de todo, vi una oferta de un Lenovo m910x (el que dispone de una ranura para puerto PCI) en Wallapop que venia completo (tarjeta grafica, SSD, RAM, transformador de 135w), o sea, una perita en dulce. Asi que me lance de cabeza a el. Y junto con los 2 HDD que ya tenia en funcionamiento (18Tb y otro de 12Tb) en mi &lt;a href=&#34;https://vctrsnts.github.io/2023-08-01-de-nuevo-cambiando-servidor&#34; rel=&#34;&#34;&gt;antiguo servidor&lt;/a&gt; más otro que estaba en stand-by de 16Tb, y aprovechando el &lt;a href=&#34;https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;mod&lt;/a&gt; que se le puede hacer a los Tiny (sobre todo a los m910x), pense en aprovechar los 3 HDD y tener un &lt;strong&gt;peazo&lt;/strong&gt; servidor que no se lo saltase un galgo.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando HomePage. El Dashboard</title>
-      <link>http://192.6.0.40:1313/2024-02-12-usando-homepage-1/</link>
+      <link>https://vctrsnts.github.io/2024-02-12-usando-homepage-1/</link>
       <pubDate>Mon, 12 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-02-12-usando-homepage-1/</guid>
+      <guid>https://vctrsnts.github.io/2024-02-12-usando-homepage-1/</guid>
       <description>&lt;p&gt;Despúes de escuchar el &lt;a href=&#34;https://ugeek.github.io/post/2021-05-24-homer-mi-dashboard-favorito.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;podcast&lt;/a&gt; de &lt;strong&gt;uGeek&lt;/strong&gt; donde hablaba de los &lt;strong&gt;dashboard&lt;/strong&gt; y en especial del que el usaba, &lt;strong&gt;Homer&lt;/strong&gt;, me decidi a probarlo a ver que tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Asi que me decidi a instalar y probar &lt;strong&gt;Homer&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
   </channel>

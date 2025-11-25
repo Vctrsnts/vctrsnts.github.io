@@ -2,122 +2,122 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>VPS on Si lo haces, hazlo bien!</title>
-    <link>http://192.6.0.40:1313/categories/vps/</link>
+    <link>https://vctrsnts.github.io/categories/vps/</link>
     <description>Recent content in VPS on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Fri, 20 Jun 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://192.6.0.40:1313/categories/vps/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/categories/vps/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Adios GCalendar. Hola Radicale</title>
-      <link>http://192.6.0.40:1313/2025-06-20-radicale-etar/</link>
+      <link>https://vctrsnts.github.io/2025-06-20-radicale-etar/</link>
       <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2025-06-20-radicale-etar/</guid>
+      <guid>https://vctrsnts.github.io/2025-06-20-radicale-etar/</guid>
       <description>&lt;p&gt;A partir de este &lt;a href=&#34;https://elblogdelazaro.org/sincronizar-gnome-calendar-con-un-servidor-caldav&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;articulo&lt;/a&gt; de &lt;strong&gt;Carlos M.&lt;/strong&gt; del que sigo tanto su &lt;a href=&#34;https://elblogdelazaro.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;blog&lt;/a&gt; como su canal de mastodon, me pico la curiosidad de si yo tambien podria tener un calendario ajeno al control de Google y si le sacaria todo el partido para ello.&lt;/p&gt;&#xA;&lt;p&gt;Pues que quereis que os diga, si con el &lt;em&gt;calendario de Google&lt;/em&gt; que lo uso para apuntar 3 notas, porque no voy a sacarle partido a mi propio calendario, pero controlado por mi. A parte, de que tambien permite tener tu propia agenda de contactos y que esta no este al alcance de &lt;em&gt;Google&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Matrix - 4. De vuelta al inicio, de Gotify a Matrix</title>
-      <link>http://192.6.0.40:1313/2025-05-22-gotify-matrix/</link>
+      <link>https://vctrsnts.github.io/2025-05-22-gotify-matrix/</link>
       <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2025-05-22-gotify-matrix/</guid>
-      <description>&lt;p&gt;Como ya explique en este &lt;a href=&#34;http://192.6.0.40:1313/2025-05-19-matrix-gotify&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, ante la imposibilidad de usar &lt;strong&gt;Matrix&lt;/strong&gt; me pase a &lt;strong&gt;Gotify&lt;/strong&gt; aunque me negue a dejar de lado a &lt;em&gt;Matrix&lt;/em&gt; y segui investigando, el porque no funcionaba correctamente y asi llegado el momento, poderlo usar o sino, tener una alternativa &lt;em&gt;Gotify&lt;/em&gt;.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2025-05-22-gotify-matrix/</guid>
+      <description>&lt;p&gt;Como ya explique en este &lt;a href=&#34;https://vctrsnts.github.io/2025-05-19-matrix-gotify&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, ante la imposibilidad de usar &lt;strong&gt;Matrix&lt;/strong&gt; me pase a &lt;strong&gt;Gotify&lt;/strong&gt; aunque me negue a dejar de lado a &lt;em&gt;Matrix&lt;/em&gt; y segui investigando, el porque no funcionaba correctamente y asi llegado el momento, poderlo usar o sino, tener una alternativa &lt;em&gt;Gotify&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Matrix - 3. De Matrix a Gotify</title>
-      <link>http://192.6.0.40:1313/2025-05-19-matrix-gotify/</link>
+      <link>https://vctrsnts.github.io/2025-05-19-matrix-gotify/</link>
       <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2025-05-19-matrix-gotify/</guid>
-      <description>&lt;p&gt;Como bien sabeis, porque lo explique en este &lt;a href=&#34;http://192.6.0.40:1313/2025-03-25-instal-config-matrix&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; y en este &lt;a href=&#34;http://192.6.0.40:1313/2025-03-27-pushbits&#34; rel=&#34;&#34;&gt;otro&lt;/a&gt;, estaba usando &lt;strong&gt;Matrix&lt;/strong&gt; como servidor de comunicación entre mis servidores y un servidor. Pero mientras más lo usaba, más desesperación me producia, porque, puede parecer una tonteria, pero en el movil, no recibia las notificaciones de los mensajes que me llegaban al cliente de &lt;strong&gt;Matrix&lt;/strong&gt;, que en este caso era &lt;strong&gt;FluffyChat&lt;/strong&gt;.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2025-05-19-matrix-gotify/</guid>
+      <description>&lt;p&gt;Como bien sabeis, porque lo explique en este &lt;a href=&#34;https://vctrsnts.github.io/2025-03-25-instal-config-matrix&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; y en este &lt;a href=&#34;https://vctrsnts.github.io/2025-03-27-pushbits&#34; rel=&#34;&#34;&gt;otro&lt;/a&gt;, estaba usando &lt;strong&gt;Matrix&lt;/strong&gt; como servidor de comunicación entre mis servidores y un servidor. Pero mientras más lo usaba, más desesperación me producia, porque, puede parecer una tonteria, pero en el movil, no recibia las notificaciones de los mensajes que me llegaban al cliente de &lt;strong&gt;Matrix&lt;/strong&gt;, que en este caso era &lt;strong&gt;FluffyChat&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Matrix - 2. PushBits, la pasarela que faltaba</title>
-      <link>http://192.6.0.40:1313/2025-03-27-pushbits/</link>
+      <link>https://vctrsnts.github.io/2025-03-27-pushbits/</link>
       <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2025-03-27-pushbits/</guid>
-      <description>&lt;p&gt;Como bien explique en el anterior &lt;a href=&#34;http://192.6.0.40:1313/2025-03-25-instal-config-matrix&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, explicaba la instalación y configuración, nada facil, de mi servidor de &lt;strong&gt;matrix&lt;/strong&gt; ahora os vengo a traer el siguiente articulo, donde explico el uso que le he dado y los problemeas que me he encontrado asi como los planes de futuro.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2025-03-27-pushbits/</guid>
+      <description>&lt;p&gt;Como bien explique en el anterior &lt;a href=&#34;https://vctrsnts.github.io/2025-03-25-instal-config-matrix&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, explicaba la instalación y configuración, nada facil, de mi servidor de &lt;strong&gt;matrix&lt;/strong&gt; ahora os vengo a traer el siguiente articulo, donde explico el uso que le he dado y los problemeas que me he encontrado asi como los planes de futuro.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Matrix - 1. Instalación y configuración</title>
-      <link>http://192.6.0.40:1313/2025-03-25-instal-config-matrix/</link>
+      <link>https://vctrsnts.github.io/2025-03-25-instal-config-matrix/</link>
       <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2025-03-25-instal-config-matrix/</guid>
+      <guid>https://vctrsnts.github.io/2025-03-25-instal-config-matrix/</guid>
       <description>&lt;p&gt;A partir de unos articulos de &lt;a href=&#34;https://atareao.es/?s=matrix&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Lorenzo&lt;/a&gt; y de &lt;a href=&#34;https://ugeek.github.io&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;uGeek&lt;/a&gt; (podeis encontrar más información en la referencia), me pico la sobre como seria tener mi propio servidor de mensajeria y poderlo utilizar para enviar las notificaciones de mis servicios y asi no depender tanto de &lt;em&gt;Telegram&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;De hay viene este nuevo articulo, donde explicare todo el proceso de instalación y uso de mi nuevo servidor &lt;strong&gt;Matrix&lt;/strong&gt; en mi VPS y os aviso que no ha sido nada sencillo.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Servicio para actualizar imagenes docker</title>
-      <link>http://192.6.0.40:1313/2024-10-28-script-actualizar-docker/</link>
+      <link>https://vctrsnts.github.io/2024-10-28-script-actualizar-docker/</link>
       <pubDate>Mon, 28 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-10-28-script-actualizar-docker/</guid>
+      <guid>https://vctrsnts.github.io/2024-10-28-script-actualizar-docker/</guid>
       <description>&lt;p&gt;Como he tenido malas experencias a la hora de usar servicios para mantener las imagenes actualizadas, he cambiado el servició que tenia actualmente &lt;strong&gt;whatsup&lt;/strong&gt; por &lt;strong&gt;cup&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Traefik - 4</title>
-      <link>http://192.6.0.40:1313/2024-07-26-usando-traefik-4/</link>
+      <link>https://vctrsnts.github.io/2024-07-26-usando-traefik-4/</link>
       <pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-07-26-usando-traefik-4/</guid>
-      <description>&lt;p&gt;Tal como indique en este &lt;a href=&#34;http://192.6.0.40:1313/2024-04-19-traefik&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, lo unico que me faltaba por añadir a &lt;strong&gt;traefik&lt;/strong&gt; para tener mi VPS lo más seguro posible era &lt;strong&gt;crowdsec&lt;/strong&gt; y por fin, ya lo tengo instalado.&lt;/p&gt;&#xA;&lt;p&gt;Antes de lanzarte a la piscina directamente, te aconsejo que les eches un vistazo a este &lt;a href=&#34;https://atareao.es/podcast/mas-herramientas-para-proteger-tu-linux&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;articulo&lt;/a&gt; de &lt;strong&gt;atareao&lt;/strong&gt; donde habla de &lt;em&gt;crowdsec&lt;/em&gt; y tambien a este &lt;a href=&#34;https://www.youtube.com/watch?v=-GxUP6bNxF0&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;video&lt;/a&gt;, que me ha servido como guia en todo el proceso.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2024-07-26-usando-traefik-4/</guid>
+      <description>&lt;p&gt;Tal como indique en este &lt;a href=&#34;https://vctrsnts.github.io/2024-04-19-traefik&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, lo unico que me faltaba por añadir a &lt;strong&gt;traefik&lt;/strong&gt; para tener mi VPS lo más seguro posible era &lt;strong&gt;crowdsec&lt;/strong&gt; y por fin, ya lo tengo instalado.&lt;/p&gt;&#xA;&lt;p&gt;Antes de lanzarte a la piscina directamente, te aconsejo que les eches un vistazo a este &lt;a href=&#34;https://atareao.es/podcast/mas-herramientas-para-proteger-tu-linux&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;articulo&lt;/a&gt; de &lt;strong&gt;atareao&lt;/strong&gt; donde habla de &lt;em&gt;crowdsec&lt;/em&gt; y tambien a este &lt;a href=&#34;https://www.youtube.com/watch?v=-GxUP6bNxF0&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;video&lt;/a&gt;, que me ha servido como guia en todo el proceso.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Traefik - 3</title>
-      <link>http://192.6.0.40:1313/2024-06-06-usando-traefik-3/</link>
+      <link>https://vctrsnts.github.io/2024-06-06-usando-traefik-3/</link>
       <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-06-06-usando-traefik-3/</guid>
-      <description>&lt;p&gt;Como recordais hice 2 articulos donde en el &lt;a href=&#34;http://192.6.0.40:1313/2024-05-06-usando-traefik-1&#34; rel=&#34;&#34;&gt;primero articulo&lt;/a&gt; explicaba como se podia usar &lt;strong&gt;traefik&lt;/strong&gt; con otros servicios de docker y en el &lt;a href=&#34;2024-05-13-usando-traefik-2.md&#34; rel=&#34;&#34;&gt;segundo articulo&lt;/a&gt;, explicaba como se le podia añadir una capa más de seguridad a nuestro servicio de &lt;em&gt;traefik&lt;/em&gt; que consistia en bloquear las peticiones de paises de nuestra lista negra.&lt;/p&gt;&#xA;&lt;p&gt;En este 3º articulo, explicare unas modificaciones que, como siempre me pasa, no acabe de entender al leer el articulo principal de &lt;a href=&#34;https://www.atareao.es&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;atareao&lt;/a&gt;{:target=&amp;quot;_blank} y que gracias, no se si por inspiración divida de &lt;em&gt;Lorenzo&lt;/em&gt; he acabado de entender.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2024-06-06-usando-traefik-3/</guid>
+      <description>&lt;p&gt;Como recordais hice 2 articulos donde en el &lt;a href=&#34;https://vctrsnts.github.io/2024-05-06-usando-traefik-1&#34; rel=&#34;&#34;&gt;primero articulo&lt;/a&gt; explicaba como se podia usar &lt;strong&gt;traefik&lt;/strong&gt; con otros servicios de docker y en el &lt;a href=&#34;2024-05-13-usando-traefik-2.md&#34; rel=&#34;&#34;&gt;segundo articulo&lt;/a&gt;, explicaba como se le podia añadir una capa más de seguridad a nuestro servicio de &lt;em&gt;traefik&lt;/em&gt; que consistia en bloquear las peticiones de paises de nuestra lista negra.&lt;/p&gt;&#xA;&lt;p&gt;En este 3º articulo, explicare unas modificaciones que, como siempre me pasa, no acabe de entender al leer el articulo principal de &lt;a href=&#34;https://www.atareao.es&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;atareao&lt;/a&gt;{:target=&amp;quot;_blank} y que gracias, no se si por inspiración divida de &lt;em&gt;Lorenzo&lt;/em&gt; he acabado de entender.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Traefik - 2</title>
-      <link>http://192.6.0.40:1313/2024-05-13-usando-traefik-2/</link>
+      <link>https://vctrsnts.github.io/2024-05-13-usando-traefik-2/</link>
       <pubDate>Mon, 13 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-05-13-usando-traefik-2/</guid>
+      <guid>https://vctrsnts.github.io/2024-05-13-usando-traefik-2/</guid>
       <description>&lt;p&gt;De nuevo, con otro articulo de &lt;strong&gt;Traefik&lt;/strong&gt;, en este caso, como se instala / activa el plugin &lt;strong&gt;GeoBlock&lt;/strong&gt; para asi, tal como indica su nombre, &lt;strong&gt;Traefik&lt;/strong&gt; en base al pais de origen de la &lt;strong&gt;IP&lt;/strong&gt;, lo bloquea o no.&lt;/p&gt;&#xA;&lt;p&gt;En este caso, igual que en el anterior articulo, partimos de la base de que tambien me encontre con problemas a la hora de poder usar este plugin, tanto en su instalación, como en su configuración. Pero como ya tenia la experiencia de instalar y activar toda la sección  de la redirección, esta vez, me resulto un poco más facil, solo un poco, todo porque ya entendia, más o menos como funcionaba &lt;strong&gt;traefik&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Hay que tener en cuenta, que la información, o el hilo del que tirar lo encontre gracias a nuestro querido Lorenzo (&lt;a href=&#34;https://atareao.es&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;atareao&lt;/a&gt;) y en especial de este &lt;a href=&#34;https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;articulo&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Traefik - 1</title>
-      <link>http://192.6.0.40:1313/2024-05-06-usando-traefik-1/</link>
+      <link>https://vctrsnts.github.io/2024-05-06-usando-traefik-1/</link>
       <pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-05-06-usando-traefik-1/</guid>
-      <description>&lt;p&gt;Como os explique en este &lt;a href=&#34;http://192.6.0.40:1313/2024-04-19-traefik&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, aprovechando que tenia nuevo VPS, queria sacarle el maximo partido y después de haber instalado &lt;strong&gt;traefik&lt;/strong&gt; aun tenia más ganas.&lt;/p&gt;&#xA;&lt;p&gt;Y aqui es donde os aviso, he estado 3 dias intentando hacerlo funcionar correctamente y hasta que al final, me vino una &lt;strong&gt;inspiración&lt;/strong&gt; y pude conseguir que funcionara correctamente.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2024-05-06-usando-traefik-1/</guid>
+      <description>&lt;p&gt;Como os explique en este &lt;a href=&#34;https://vctrsnts.github.io/2024-04-19-traefik&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, aprovechando que tenia nuevo VPS, queria sacarle el maximo partido y después de haber instalado &lt;strong&gt;traefik&lt;/strong&gt; aun tenia más ganas.&lt;/p&gt;&#xA;&lt;p&gt;Y aqui es donde os aviso, he estado 3 dias intentando hacerlo funcionar correctamente y hasta que al final, me vino una &lt;strong&gt;inspiración&lt;/strong&gt; y pude conseguir que funcionara correctamente.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Instalando y configurando Traefik</title>
-      <link>http://192.6.0.40:1313/2024-04-19-traefik/</link>
+      <link>https://vctrsnts.github.io/2024-04-19-traefik/</link>
       <pubDate>Fri, 19 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-04-19-traefik/</guid>
-      <description>&lt;p&gt;Aprovenchando que tengo el &lt;a href=&#34;http://192.6.0.40:1313/2024-04-17-nuevo-VPS&#34; rel=&#34;&#34;&gt;nuevo VPS&lt;/a&gt; queria ponerle &lt;a href=&#34;http://192.6.0.40:1313/2024-04-19-traefik&#34; rel=&#34;&#34;&gt;traefik&lt;/a&gt; y que además se puede hacer a traves de docker y asi poder aprovechar todas las posibilidades que nos da. Al final (cuando estoy escribiendo esto) lo tengo todo en funcionamiento, pero me ha costado horrores y aqui os explico mi odisea.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2024-04-19-traefik/</guid>
+      <description>&lt;p&gt;Aprovenchando que tengo el &lt;a href=&#34;https://vctrsnts.github.io/2024-04-17-nuevo-VPS&#34; rel=&#34;&#34;&gt;nuevo VPS&lt;/a&gt; queria ponerle &lt;a href=&#34;https://vctrsnts.github.io/2024-04-19-traefik&#34; rel=&#34;&#34;&gt;traefik&lt;/a&gt; y que además se puede hacer a traves de docker y asi poder aprovechar todas las posibilidades que nos da. Al final (cuando estoy escribiendo esto) lo tengo todo en funcionamiento, pero me ha costado horrores y aqui os explico mi odisea.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hemos encontrado la solución al desastre el siglo??</title>
-      <link>http://192.6.0.40:1313/2024-04-17-nuevo-vps/</link>
+      <link>https://vctrsnts.github.io/2024-04-17-nuevo-vps/</link>
       <pubDate>Wed, 17 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-04-17-nuevo-vps/</guid>
-      <description>&lt;p&gt;Tal como escribi en este &lt;a href=&#34;http://192.6.0.40:1313/2024-04-10-desastre-siglo&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; donde explicaba que, seguramente por error mio, al detener la instancia, esta se perdio y luego fue imposible remontarla, porque no &lt;strong&gt;habia recursos disponibles&lt;/strong&gt;.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2024-04-17-nuevo-vps/</guid>
+      <description>&lt;p&gt;Tal como escribi en este &lt;a href=&#34;https://vctrsnts.github.io/2024-04-10-desastre-siglo&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; donde explicaba que, seguramente por error mio, al detener la instancia, esta se perdio y luego fue imposible remontarla, porque no &lt;strong&gt;habia recursos disponibles&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>RSS-Funnel. Uno para controlarlos a todos</title>
-      <link>http://192.6.0.40:1313/2024-04-13-uno-juntarlos-todos/</link>
+      <link>https://vctrsnts.github.io/2024-04-13-uno-juntarlos-todos/</link>
       <pubDate>Sat, 13 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-04-13-uno-juntarlos-todos/</guid>
+      <guid>https://vctrsnts.github.io/2024-04-13-uno-juntarlos-todos/</guid>
       <description>&lt;p&gt;No se si lo habreis notado vosotros, pero escuchar podcast sobre tecnologia, informatica y dockers puede ser perjudicial para la salud y por extensión para vuestros servidores, o es solo una cosa que me pasa a mi solo?&lt;/p&gt;&#xA;&lt;p&gt;Si os preguntareis a que viene esta afirmación, podeis seguir leyendo y todo quedara aclarado.&lt;/p&gt;</description>
     </item>
     <item>
       <title>El desastre del siglo</title>
-      <link>http://192.6.0.40:1313/2024-04-10-desastre-siglo/</link>
+      <link>https://vctrsnts.github.io/2024-04-10-desastre-siglo/</link>
       <pubDate>Wed, 10 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-04-10-desastre-siglo/</guid>
-      <description>&lt;p&gt;Si recordais este articulo &lt;a href=&#34;http://192.6.0.40:1313/2023-09-24-VPS-pruebas&#34; rel=&#34;&#34;&gt;Por fin VPS para hacer pruebas&lt;/a&gt; y luego leeis lo que me ha pasado, entedereis porque titulo este articulo como lo titulo.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Porque no es para menos&lt;/strong&gt;.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/2024-04-10-desastre-siglo/</guid>
+      <description>&lt;p&gt;Si recordais este articulo &lt;a href=&#34;https://vctrsnts.github.io/2023-09-24-VPS-pruebas&#34; rel=&#34;&#34;&gt;Por fin VPS para hacer pruebas&lt;/a&gt; y luego leeis lo que me ha pasado, entedereis porque titulo este articulo como lo titulo.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Porque no es para menos&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Searxng. Uno para controlarlos a todos</title>
-      <link>http://192.6.0.40:1313/2024-01-10-searxng-uno-todo/</link>
+      <link>https://vctrsnts.github.io/2024-01-10-searxng-uno-todo/</link>
       <pubDate>Wed, 10 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2024-01-10-searxng-uno-todo/</guid>
+      <guid>https://vctrsnts.github.io/2024-01-10-searxng-uno-todo/</guid>
       <description>&lt;p&gt;Como ha he dicho muchas veces, docker te abre un mundo de infinitas posibilidades y entre una de estas posibilidades es tener tu propio buscador web y esto se consegui gracias a &lt;strong&gt;SearxNG&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Por fin. VPS para hacer pruebas</title>
-      <link>http://192.6.0.40:1313/2023-09-24-vps-pruebas/</link>
+      <link>https://vctrsnts.github.io/2023-09-24-vps-pruebas/</link>
       <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>http://192.6.0.40:1313/2023-09-24-vps-pruebas/</guid>
+      <guid>https://vctrsnts.github.io/2023-09-24-vps-pruebas/</guid>
       <description>&lt;p&gt;Hacia mucho tiempo (minimo 2 años), que habia escuchado que Oracle te daba &lt;em&gt;gratuitamente&lt;/em&gt; la posibilidad de tener un VPS para poderlo usar, eso si, con unas ciertas limitaciones:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;1 vCPUs x86 - 1Gb Ram&lt;/li&gt;&#xA;&lt;li&gt;4 vCPUs ARM - 24Gb Ram&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Asi que si anteriormente, en un RaspberryPi con 1Gb de Ram y una unica CPU podia tener amule, transmission las 24 horas del dia y el sistema iba sobrado, la elección seria facil.&lt;/p&gt;&#xA;&lt;p&gt;La elección era lo más facil, lo dificil fue conseguir darse de alta. Y cuando digo dificil, me refiero a dificil.&lt;/p&gt;</description>
     </item>
   </channel>
