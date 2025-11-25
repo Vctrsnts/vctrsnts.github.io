@@ -19,7 +19,15 @@ Tambien esta el deporte, entre los que no pueden faltar el futbol, el basquet y 
 
 ## Contactar
 - :(fab fa-mastodon fa-fw): **[Mastodon](https://mastodon.online/@vsantos)**
+- <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@14.9.0/icons/codeberg.svg" class="icon">
+    <path d="M11.955.49A12 12 0 0 0 0 12.49a12 12 0 0 0 1.832 6.373L11.838 5.928a.187.14 0 0 1 .324 0l10.006 12.935A12 12 0 0 0 24 12.49a12 12 0 0 0-12-12 12 12 0 0 0-.045 0zm.375 6.467l4.416 16.553a12 12 0 0 0 5.137-4.213z"></path>
+  </svg>
+  <b><a href="https://vctrsnts.codeberg.page" target="_blank">Codeberg</a></b>
 - :(fab fa-github fa-fw): **[GitHub](https://www.github.com/Vctrsnts)**
 - :(fab fa-tumblr fa-fw): **[Tumblr](https://www.tumblr.com/vctrsnts)**
 - :(fa-brands fa-bluesky): **[BlueSky](https://bsky.app/profile/vctrsnts.bsky.social)**
+
+
+
+
 
