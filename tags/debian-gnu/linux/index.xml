@@ -2,304 +2,304 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Debian GNU/Linux on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/tags/debian-gnu/linux/</link>
+    <link>https://vctrsnts.codeberg.page/tags/debian-gnu/linux/</link>
     <description>Recent content in Debian GNU/Linux on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Wed, 15 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/tags/debian-gnu/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.codeberg.page/tags/debian-gnu/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>De i3WM ( X11 ) a Sway ( Wayland ) - 3</title>
-      <link>https://vctrsnts.github.io/2025-10-15-i3wm-sway-3/</link>
+      <link>https://vctrsnts.codeberg.page/2025-10-15-i3wm-sway-3/</link>
       <pubDate>Wed, 15 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-10-15-i3wm-sway-3/</guid>
+      <guid>https://vctrsnts.codeberg.page/2025-10-15-i3wm-sway-3/</guid>
       <description>&lt;p&gt;Pues llegamos al tercer y ultimo articulo donde explico la transición de &lt;strong&gt;I3wm&lt;/strong&gt; a &lt;strong&gt;Sway&lt;/strong&gt; y las sensaciones que estoy teniendo mientras lo uso y por ultimo mi conclusión final.&lt;/p&gt;</description>
     </item>
     <item>
       <title>De i3WM ( X11 ) a Sway ( Wayland ) - 2</title>
-      <link>https://vctrsnts.github.io/2025-10-05-i3wm-sway-2/</link>
+      <link>https://vctrsnts.codeberg.page/2025-10-05-i3wm-sway-2/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-10-05-i3wm-sway-2/</guid>
-      <description>&lt;p&gt;Después del primer &lt;a href=&#34;https://vctrsnts.github.io/2025-09-15-i3wm-sway-1&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, donde explicaba la preparación de mi equipo. Ahora os explicare como hice la instalación de &lt;strong&gt;sway&lt;/strong&gt; y los problemas que me encontre. Que si tengo de decirlo, fueron muy pocos.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2025-10-05-i3wm-sway-2/</guid>
+      <description>&lt;p&gt;Después del primer &lt;a href=&#34;https://vctrsnts.codeberg.page/2025-09-15-i3wm-sway-1&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, donde explicaba la preparación de mi equipo. Ahora os explicare como hice la instalación de &lt;strong&gt;sway&lt;/strong&gt; y los problemas que me encontre. Que si tengo de decirlo, fueron muy pocos.&lt;/p&gt;</description>
     </item>
     <item>
       <title>De i3WM ( X11 ) a Sway ( Wayland ) - 1</title>
-      <link>https://vctrsnts.github.io/2025-09-15-i3wm-sway-1/</link>
+      <link>https://vctrsnts.codeberg.page/2025-09-15-i3wm-sway-1/</link>
       <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-09-15-i3wm-sway-1/</guid>
-      <description>&lt;p&gt;Como podeis leer en este &lt;a href=&#34;https://vctrsnts.github.io/2023-09-11-substitutos-portatil&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, tenia ya a mi disposición un substituto en caso de fallo grave de mi portatil que venia usando hasta ahora. Y eso es lo que ha pasado. El pobre ha pasado a mejor vida.&lt;/p&gt;&#xA;&lt;p&gt;Como dice el refran &amp;ldquo;&lt;em&gt;el rey a muerto, viva el rey&lt;/em&gt;&amp;rdquo; y esto es que el que estaba en el banquillo, ya puede salir a jugar 😂.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2025-09-15-i3wm-sway-1/</guid>
+      <description>&lt;p&gt;Como podeis leer en este &lt;a href=&#34;https://vctrsnts.codeberg.page/2023-09-11-substitutos-portatil&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, tenia ya a mi disposición un substituto en caso de fallo grave de mi portatil que venia usando hasta ahora. Y eso es lo que ha pasado. El pobre ha pasado a mejor vida.&lt;/p&gt;&#xA;&lt;p&gt;Como dice el refran &amp;ldquo;&lt;em&gt;el rey a muerto, viva el rey&lt;/em&gt;&amp;rdquo; y esto es que el que estaba en el banquillo, ya puede salir a jugar 😂.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mis tips en Debian GNU/Linux</title>
-      <link>https://vctrsnts.github.io/2025-07-08-tips-debian/</link>
+      <link>https://vctrsnts.codeberg.page/2025-07-08-tips-debian/</link>
       <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-07-08-tips-debian/</guid>
+      <guid>https://vctrsnts.codeberg.page/2025-07-08-tips-debian/</guid>
       <description>&lt;p&gt;En mi búsqueda por el ancho y basto oceano de internet por mejorar mi configuración en &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt;, encontré unos tips que me resultaron muy útiles y decidí compartirlos por si a alguien más le sirven.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Historia del cambio de terminal</title>
-      <link>https://vctrsnts.github.io/2025-01-13-cambiando-a-wezterm/</link>
+      <link>https://vctrsnts.codeberg.page/2025-01-13-cambiando-a-wezterm/</link>
       <pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-01-13-cambiando-a-wezterm/</guid>
+      <guid>https://vctrsnts.codeberg.page/2025-01-13-cambiando-a-wezterm/</guid>
       <description>&lt;p&gt;Este es un articulo, que como puedes ver, es un articulo muy parecido a los que he ha escrito &lt;strong&gt;Lorenzo&lt;/strong&gt;, de &lt;a href=&#34;https://atareao.es&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Atareao&lt;/a&gt;, porque es algo, que si te pones a pensar es una de las aplicaciones que más se utilizan en &lt;em&gt;GNU/Linux&lt;/em&gt; pero a la que no se le da mucha importacia.&lt;/p&gt;&#xA;&lt;p&gt;Nos estamos refiriendo a la terminal.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mis aplicaciones por defecto 2024</title>
-      <link>https://vctrsnts.github.io/2024-12-11-mis-aplicaciones-2024/</link>
+      <link>https://vctrsnts.codeberg.page/2024-12-11-mis-aplicaciones-2024/</link>
       <pubDate>Wed, 11 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-12-11-mis-aplicaciones-2024/</guid>
+      <guid>https://vctrsnts.codeberg.page/2024-12-11-mis-aplicaciones-2024/</guid>
       <description>&lt;p&gt;Siguiendo la iniciativa de &lt;a href=&#34;https://elblogdelazaro.org/posts/2024-12-09-mis-aplicaciones-por-defecto-2024&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Carlos M.&lt;/a&gt;, pues tambien pondre mi granito de arena a esta buena idea, porque asi, la gente puede descubrir nuevas aplicaciones que nunca habrias pensado que existieran, y de esta manera, pues&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Instalación de docker. Annexo</title>
-      <link>https://vctrsnts.github.io/2024-04-20-instalacion-docker-anexo/</link>
+      <link>https://vctrsnts.codeberg.page/2024-04-20-instalacion-docker-anexo/</link>
       <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-04-20-instalacion-docker-anexo/</guid>
-      <description>&lt;p&gt;Ya habia escrito un &lt;a href=&#34;https://vctrsnts.github.io/2020-03-08-rpi-usando-docker&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; sobre la instalación de docker, pero lo explicaba para hacer la instalación en una Raspberry, pero ahora lo voy a explicar para su instalación en un equipo normal y corriente. Más concretamente en &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; y asi, lo tengo más a mano y no tengo que volverme loco buscando esta información en internet, porque si sigo el de la Raspberry, al final no funciona correctamente.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2024-04-20-instalacion-docker-anexo/</guid>
+      <description>&lt;p&gt;Ya habia escrito un &lt;a href=&#34;https://vctrsnts.codeberg.page/2020-03-08-rpi-usando-docker&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; sobre la instalación de docker, pero lo explicaba para hacer la instalación en una Raspberry, pero ahora lo voy a explicar para su instalación en un equipo normal y corriente. Más concretamente en &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; y asi, lo tengo más a mano y no tengo que volverme loco buscando esta información en internet, porque si sigo el de la Raspberry, al final no funciona correctamente.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Copias de Seguridad. Annexo</title>
-      <link>https://vctrsnts.github.io/2024-02-06-copias-seguridad-annexo/</link>
+      <link>https://vctrsnts.codeberg.page/2024-02-06-copias-seguridad-annexo/</link>
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2024-02-06-copias-seguridad-annexo/</guid>
-      <description>&lt;p&gt;Se que ha pasado 1 mes desde la ultima vez que publique algo, pero he estado un poco liado con todo, pero ahora vuelvo al ruedo y a ver, si me pongo las pilas con el &lt;strong&gt;Blog&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Tal como se puede ver en estos 2 articulos que ya habia escrito:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vctrsnts.github.io/2021-01-17-rpi-copias-seguridad&#34; rel=&#34;&#34;&gt;Raspberry Pi. Haciendo copias de seguridad&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vctrsnts.github.io/2021-01-18-rpi-externalizando-copias-seguridad&#34; rel=&#34;&#34;&gt;Raspberry Pi. Externalizando copias de seguridad&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2024-02-06-copias-seguridad-annexo/</guid>
+      <description>&lt;p&gt;Se que ha pasado 1 mes desde la ultima vez que publique algo, pero he estado un poco liado con todo, pero ahora vuelvo al ruedo y a ver, si me pongo las pilas con el &lt;strong&gt;Blog&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Tal como se puede ver en estos 2 articulos que ya habia escrito:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vctrsnts.codeberg.page/2021-01-17-rpi-copias-seguridad&#34; rel=&#34;&#34;&gt;Raspberry Pi. Haciendo copias de seguridad&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vctrsnts.codeberg.page/2021-01-18-rpi-externalizando-copias-seguridad&#34; rel=&#34;&#34;&gt;Raspberry Pi. Externalizando copias de seguridad&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Como funciona esta web y su creación</title>
-      <link>https://vctrsnts.github.io/2023-08-10-como-funciona-esta-web/</link>
+      <link>https://vctrsnts.codeberg.page/2023-08-10-como-funciona-esta-web/</link>
       <pubDate>Wed, 02 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-08-10-como-funciona-esta-web/</guid>
+      <guid>https://vctrsnts.codeberg.page/2023-08-10-como-funciona-esta-web/</guid>
       <description>&lt;p&gt;Después de leer el &lt;a href=&#34;https://elblogdelazaro.org/posts/2023-05-08-como-publico-este-blog&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;articulo&lt;/a&gt; que habia publicado &lt;strong&gt;Carlos M.&lt;/strong&gt; en su blog, pense, que porque no hacer lo mismo con el mio.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Crear RSS de los podcast que sigo</title>
-      <link>https://vctrsnts.github.io/2023-07-23-crear-rss-podcast/</link>
+      <link>https://vctrsnts.codeberg.page/2023-07-23-crear-rss-podcast/</link>
       <pubDate>Sun, 23 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-07-23-crear-rss-podcast/</guid>
+      <guid>https://vctrsnts.codeberg.page/2023-07-23-crear-rss-podcast/</guid>
       <description>&lt;p&gt;No se vosotros, pero no os habeis fijado que estos ultimos meses ha habido un auge con respecto a los podcast? No se si es porque la calidad ha subido o porque hay más, pero&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Recuperando Grub</title>
-      <link>https://vctrsnts.github.io/2023-05-05-recuperando-grub/</link>
+      <link>https://vctrsnts.codeberg.page/2023-05-05-recuperando-grub/</link>
       <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-05-05-recuperando-grub/</guid>
+      <guid>https://vctrsnts.codeberg.page/2023-05-05-recuperando-grub/</guid>
       <description>&lt;p&gt;No se si os ha pasado muchas veces eso de perder el arranque de GNU/Linux &lt;em&gt;&lt;strong&gt;GRUB&lt;/strong&gt;&lt;/em&gt;, pero a mi, me esta pasando muchas veces ultimamente y no se si es porque tengo mala suerte o porque tengo mal configurado el inicio entre Linux y Windows, asi que al final, me he tenido que buscar la vida, para saber como se puede solucionar, porque sino, tengo que volver a reinstalarlo todo y ahora que el sistema lo tengo como yo quiero, pues &amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Donde digo dije, digo Diego</title>
-      <link>https://vctrsnts.github.io/2023-04-29-donde-dije-digo-digo-diego/</link>
+      <link>https://vctrsnts.codeberg.page/2023-04-29-donde-dije-digo-digo-diego/</link>
       <pubDate>Sat, 29 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-04-29-donde-dije-digo-digo-diego/</guid>
+      <guid>https://vctrsnts.codeberg.page/2023-04-29-donde-dije-digo-digo-diego/</guid>
       <description>&lt;p&gt;Mucha gente pensara que me he vuelto loco al poner este titulo a este articulo y más siendo un blog de tecnologia, pero cuando llegueis al final lo entendereis.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cambiando watchtower por diun y vuelta a watchtower</title>
-      <link>https://vctrsnts.github.io/2023-02-19-actualizacion-watchtower/</link>
+      <link>https://vctrsnts.codeberg.page/2023-02-19-actualizacion-watchtower/</link>
       <pubDate>Sun, 19 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-02-19-actualizacion-watchtower/</guid>
-      <description>&lt;p&gt;Tal como habia indicado en este &lt;a href=&#34;https://vctrsnts.github.io/2023-01-25-usando-watchtower&#34; rel=&#34;&#34;&gt;post&lt;/a&gt;, explica como empece usar &lt;strong&gt;watchtower&lt;/strong&gt; pero con resultados muy extraños.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2023-02-19-actualizacion-watchtower/</guid>
+      <description>&lt;p&gt;Tal como habia indicado en este &lt;a href=&#34;https://vctrsnts.codeberg.page/2023-01-25-usando-watchtower&#34; rel=&#34;&#34;&gt;post&lt;/a&gt;, explica como empece usar &lt;strong&gt;watchtower&lt;/strong&gt; pero con resultados muy extraños.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Watchtower</title>
-      <link>https://vctrsnts.github.io/2023-01-25-usando-watchtower/</link>
+      <link>https://vctrsnts.codeberg.page/2023-01-25-usando-watchtower/</link>
       <pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-01-25-usando-watchtower/</guid>
+      <guid>https://vctrsnts.codeberg.page/2023-01-25-usando-watchtower/</guid>
       <description>&lt;p&gt;Si quieres echarle la culpa tendreis que mirar a &lt;a href=&#34;https://ugeek.github.io/blog/post/2019-07-26-actualizaci%C3%B3n-autom%C3%A1tica-de-tus-dockers.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Angel de uGeek&lt;/a&gt;, a &lt;a href=&#34;https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Lorenzo de Atareao.es&lt;/a&gt; y por ultimo a &lt;strong&gt;Carlos M.&lt;/strong&gt; de &lt;a href=&#34;https://elblogdelazaro.org/posts/2018-09-12-actualiza-automaticamente-tus-contenedores-docker&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;ElBlogdeLazaro&lt;/a&gt; porque ellos son los culpables de todas las mejoras o modificaciones que le estoy haciendo a mi servidor y esta que voy a explicar a continuación &lt;strong&gt;watchtower&lt;/strong&gt; es una de ellas 😉&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mejoras en mi escritorio (i3-wm)</title>
-      <link>https://vctrsnts.github.io/2023-01-13-mejoras-i3/</link>
+      <link>https://vctrsnts.codeberg.page/2023-01-13-mejoras-i3/</link>
       <pubDate>Fri, 13 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2023-01-13-mejoras-i3/</guid>
-      <description>&lt;p&gt;Después de mucho tiempo usando &lt;a href=&#34;https://vctrsnts.github.io/2020-08-06-usando-i3-wm&#34; rel=&#34;&#34;&gt;i3-wm&lt;/a&gt;, estaba constantemente, cambiando de wallpaper (seguramente ha más de uno le pasa), pense que habria alguna manera de hacer que cada X tiempo, el wallpaper que estoy utilizando cambiara automaticamente, de los que tengo en el directorio donde los guardo.&lt;/p&gt;&#xA;&lt;p&gt;Así que me puse a la busqueda de como se puede hacer.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2023-01-13-mejoras-i3/</guid>
+      <description>&lt;p&gt;Después de mucho tiempo usando &lt;a href=&#34;https://vctrsnts.codeberg.page/2020-08-06-usando-i3-wm&#34; rel=&#34;&#34;&gt;i3-wm&lt;/a&gt;, estaba constantemente, cambiando de wallpaper (seguramente ha más de uno le pasa), pense que habria alguna manera de hacer que cada X tiempo, el wallpaper que estoy utilizando cambiara automaticamente, de los que tengo en el directorio donde los guardo.&lt;/p&gt;&#xA;&lt;p&gt;Así que me puse a la busqueda de como se puede hacer.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Creando tu propi Spotify privado - Annexo</title>
-      <link>https://vctrsnts.github.io/2022-12-31-rpi-spotity/</link>
+      <link>https://vctrsnts.codeberg.page/2022-12-31-rpi-spotity/</link>
       <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2022-12-31-rpi-spotity/</guid>
-      <description>&lt;p&gt;Tal como explique en este articulo &lt;a href=&#34;https://vctrsnts.github.io/2021-04-01-rpi-spotify&#34; rel=&#34;&#34;&gt;creando tu propio servidor de musica&lt;/a&gt; cuando tienes un servidor en tu casa, empiezas a tener ideas locas de que podrias hacer con el.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2022-12-31-rpi-spotity/</guid>
+      <description>&lt;p&gt;Tal como explique en este articulo &lt;a href=&#34;https://vctrsnts.codeberg.page/2021-04-01-rpi-spotify&#34; rel=&#34;&#34;&gt;creando tu propio servidor de musica&lt;/a&gt; cuando tienes un servidor en tu casa, empiezas a tener ideas locas de que podrias hacer con el.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Volviendo a Caddy desde Nginx Proxy Manager</title>
-      <link>https://vctrsnts.github.io/2022-12-25-rpi-caddy-proxy-manager/</link>
+      <link>https://vctrsnts.codeberg.page/2022-12-25-rpi-caddy-proxy-manager/</link>
       <pubDate>Sun, 25 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2022-12-25-rpi-caddy-proxy-manager/</guid>
-      <description>&lt;p&gt;Como ya sabreis, &lt;a href=&#34;https://vctrsnts.github.io/2021-05-07-rpi-nginx-proxy-manager&#34; rel=&#34;&#34;&gt;anteriormente&lt;/a&gt; usaba &lt;strong&gt;Nginx Proxy Manager&lt;/strong&gt; porque habia tenido muchos problemas con &lt;strong&gt;Caddy&lt;/strong&gt;, no se de donde venian estos problemas, si de &lt;strong&gt;Caddy&lt;/strong&gt; o de &lt;strong&gt;duckdns.org&lt;/strong&gt;, asi que hice el cambio a &lt;strong&gt;npm&lt;/strong&gt; para los amigos.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/2022-12-25-rpi-caddy-proxy-manager/</guid>
+      <description>&lt;p&gt;Como ya sabreis, &lt;a href=&#34;https://vctrsnts.codeberg.page/2021-05-07-rpi-nginx-proxy-manager&#34; rel=&#34;&#34;&gt;anteriormente&lt;/a&gt; usaba &lt;strong&gt;Nginx Proxy Manager&lt;/strong&gt; porque habia tenido muchos problemas con &lt;strong&gt;Caddy&lt;/strong&gt;, no se de donde venian estos problemas, si de &lt;strong&gt;Caddy&lt;/strong&gt; o de &lt;strong&gt;duckdns.org&lt;/strong&gt;, asi que hice el cambio a &lt;strong&gt;npm&lt;/strong&gt; para los amigos.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cambiando de editor. Neovim</title>
-      <link>https://vctrsnts.github.io/2022-12-19-cambiando-de-editor-neovim/</link>
+      <link>https://vctrsnts.codeberg.page/2022-12-19-cambiando-de-editor-neovim/</link>
       <pubDate>Mon, 19 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2022-12-19-cambiando-de-editor-neovim/</guid>
+      <guid>https://vctrsnts.codeberg.page/2022-12-19-cambiando-de-editor-neovim/</guid>
       <description>&lt;p&gt;Cansado un poco de tener que siempre usar editores faciles (estilo &lt;code&gt;mousepad&lt;/code&gt;) o que dejaban de tener soporte (&lt;code&gt;Atom&lt;/code&gt;) y que además no me hacian la vida facil para integrarse con GitHub, intente buscar un nuevo editor que lo tuviera todo y mirando los videos de &lt;a href=&#34;https://atareao.es&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Atareao&lt;/a&gt; me fije en que tenia una guia de instalación y de uso de &lt;code&gt;Neovim&lt;/code&gt;, clonico de Vim, y me puse con ello.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Script para actualizar tu GitHub</title>
-      <link>https://vctrsnts.github.io/2022-11-22-script-update-git/</link>
+      <link>https://vctrsnts.codeberg.page/2022-11-22-script-update-git/</link>
       <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2022-11-22-script-update-git/</guid>
+      <guid>https://vctrsnts.codeberg.page/2022-11-22-script-update-git/</guid>
       <description>&lt;p&gt;Buscando maneras de facilitarme el trabajo con &lt;a href=&#34;https://www.github.com&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;GitHub&lt;/a&gt; que es donde tengo alojada mi web (más bien son mis projectos, apuntes y cosas por es estilo) porque para subir cualquier cosa a &lt;code&gt;GitHub&lt;/code&gt; era una tocada de huevos en mi caso.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Publicar feed en Mastodon / Twitter</title>
-      <link>https://vctrsnts.github.io/2022-11-14-publicar-feed-mastodon/</link>
+      <link>https://vctrsnts.codeberg.page/2022-11-14-publicar-feed-mastodon/</link>
       <pubDate>Mon, 14 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2022-11-14-publicar-feed-mastodon/</guid>
+      <guid>https://vctrsnts.codeberg.page/2022-11-14-publicar-feed-mastodon/</guid>
       <description>&lt;p&gt;Descubri a traves del &lt;a href=&#34;https://elblogdelazaro.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Blog de Lazaro&lt;/a&gt;, que si tienes cuenta en &lt;code&gt;Mastodon&lt;/code&gt;, quien no tiene cuenta ahora tal como van las cosas en &lt;code&gt;Twitter&lt;/code&gt;,  que puedes enviar de forma aleatoria alguno de los articulos que tienes publicados en tu web.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mi nuevo servidor</title>
-      <link>https://vctrsnts.github.io/2022-05-26-nuevo-servidor/</link>
+      <link>https://vctrsnts.codeberg.page/2022-05-26-nuevo-servidor/</link>
       <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2022-05-26-nuevo-servidor/</guid>
+      <guid>https://vctrsnts.codeberg.page/2022-05-26-nuevo-servidor/</guid>
       <description>&lt;p&gt;Se que llevo mucho tiempo si publicar nada, pero he estado liado haciendos cambios en el servidor (RPI4).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Configurar el fichero .bashrc para descomprimir ficheros</title>
-      <link>https://vctrsnts.github.io/2022-01-15-configurar-fichero-bashrc/</link>
+      <link>https://vctrsnts.codeberg.page/2022-01-15-configurar-fichero-bashrc/</link>
       <pubDate>Sat, 15 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2022-01-15-configurar-fichero-bashrc/</guid>
+      <guid>https://vctrsnts.codeberg.page/2022-01-15-configurar-fichero-bashrc/</guid>
       <description>&lt;p&gt;A continuación, explicare como tengo configurado mi &lt;code&gt;.bashrc&lt;/code&gt; para que a la hora de descomprimir archivos todo me sea más facil y rapido.&lt;/p&gt;&#xA;&lt;p&gt;Esto se consigue añadiendo un &lt;strong&gt;alias&lt;/strong&gt; con las opciones / programas más comunes para la compresión y descompresión de archivos.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4</title>
-      <link>https://vctrsnts.github.io/2022-01-07-debian-raspberrypi/</link>
+      <link>https://vctrsnts.codeberg.page/2022-01-07-debian-raspberrypi/</link>
       <pubDate>Fri, 07 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2022-01-07-debian-raspberrypi/</guid>
+      <guid>https://vctrsnts.codeberg.page/2022-01-07-debian-raspberrypi/</guid>
       <description>&lt;p&gt;Cuando tienes una Raspberry Pi y ves que el &lt;strong&gt;SO&lt;/strong&gt; recomendado es Raspberry Pi OS (antigua Raspbian), siempre me queda la cosa de no poder instalar &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; ARM64. Pero desde que actualizaron la versión del firmware y &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; empezo a tener versiones más estables, eso ya ha pasado a posible.&lt;/p&gt;&#xA;&lt;p&gt;Asi que ahora voy a explicar los pasos que he hecho, en mi caso, para poder realizar y usar &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; ARM64 en una Raspberry Pi 4 (4Gb).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Crear fichero de logs en bash</title>
-      <link>https://vctrsnts.github.io/2021-06-09-crear-fichero-log-bash/</link>
+      <link>https://vctrsnts.codeberg.page/2021-06-09-crear-fichero-log-bash/</link>
       <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-06-09-crear-fichero-log-bash/</guid>
+      <guid>https://vctrsnts.codeberg.page/2021-06-09-crear-fichero-log-bash/</guid>
       <description>&lt;p&gt;A veces tienes la necesidad de crear un fichero de log para saber cuando se ejecuta un proceso en un script que puedes haber creado, aqui pongo el que yo uso.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Solucionar error i915 en grafica Intel</title>
-      <link>https://vctrsnts.github.io/2021-06-09-solucionar-error-i915/</link>
+      <link>https://vctrsnts.codeberg.page/2021-06-09-solucionar-error-i915/</link>
       <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-06-09-solucionar-error-i915/</guid>
+      <guid>https://vctrsnts.codeberg.page/2021-06-09-solucionar-error-i915/</guid>
       <description>&lt;p&gt;Desde que &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; saco la versión del kernel 5.4 en mi portatil fue recurrente los flashes en la pantalla y el siguiente error:&lt;/p&gt;&#xA;&lt;div class=&#34;code-block code-line-numbers open&#34; style=&#34;counter-reset: code-block 0&#34;&gt;&#xA;    &lt;div class=&#34;code-header language-bash&#34;&gt;&#xA;        &lt;span class=&#34;code-title&#34;&gt;&lt;i class=&#34;arrow fas fa-angle-right fa-fw&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&lt;/span&gt;&#xA;        &lt;span class=&#34;ellipses&#34;&gt;&lt;i class=&#34;fas fa-ellipsis-h fa-fw&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&lt;/span&gt;&#xA;        &lt;span class=&#34;copy&#34; title=&#34;Copiar al portapapeles&#34;&gt;&lt;i class=&#34;far fa-copy fa-fw&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&lt;/span&gt;&#xA;    &lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;drm:intel_cpu_fifo_underrun_irq_handler &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;i915&lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt; *ERROR* CPU pipe A FIFO underrun&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&#xA;&lt;p&gt;La solución que todo el mundo me decia era eliminar el paquete del driver de &lt;em&gt;xserver-xorg-video-intel&lt;/em&gt; y usar el por defecto del kernel. Pero lo entendia que significaba eso (realmente era asi), no sabia como se tenia que hacer, porque si hacia eso perdia todo el &lt;strong&gt;XORG&lt;/strong&gt;, al final en este &lt;a href=&#34;https://forums.debian.net/viewtopic.php?f=7&amp;amp;t=149472&amp;amp;p=737807#p737807&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;hilo&lt;/a&gt; me indicaron que si hacia esto, solo se borraba el metapaquete de &lt;strong&gt;xserver-xorg-video-all&lt;/strong&gt; pero nada más.&lt;/p&gt;&#xA;&lt;p&gt;Al final di con la solución en el foro de &lt;a href=&#34;https://exdebian.org/foro/como-solucionar-drmi965irqhandler-i915-error-cpu-pipe-fifo-underrun-solucionado&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;exDebian.org&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Montar imagen ISO desde consola en GNU/Linux</title>
-      <link>https://vctrsnts.github.io/2021-03-25-montar-imagen-iso-consola/</link>
+      <link>https://vctrsnts.codeberg.page/2021-03-25-montar-imagen-iso-consola/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-03-25-montar-imagen-iso-consola/</guid>
+      <guid>https://vctrsnts.codeberg.page/2021-03-25-montar-imagen-iso-consola/</guid>
       <description>&lt;p&gt;Vamos a explicar como a traves de la consola de GNU/Linux se puede montar una imagen / archivo ISO.&lt;/p&gt;&#xA;&lt;p&gt;No se si os ha pasado alguna vez a vosotros, pero llega un dia, que teneis una &lt;strong&gt;ISO&lt;/strong&gt; y os encontrais sin CD para gravar y el lector y no sabeis que hacer en ese momento (me ha pasado más de una vez), hasta que he encontrado este sencillo metodo para resolver el problema.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Crear directorios a partir de un fichero de texto</title>
-      <link>https://vctrsnts.github.io/2020-08-31-crear-directorios-lista/</link>
+      <link>https://vctrsnts.codeberg.page/2020-08-31-crear-directorios-lista/</link>
       <pubDate>Mon, 31 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-08-31-crear-directorios-lista/</guid>
+      <guid>https://vctrsnts.codeberg.page/2020-08-31-crear-directorios-lista/</guid>
       <description>&lt;p&gt;A veces tengo que crear unos cuantos directorios (normalmente para musica). Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Copiar un archivo a varios directores</title>
-      <link>https://vctrsnts.github.io/2020-08-30-copiar-archivo-varios-directorios/</link>
+      <link>https://vctrsnts.codeberg.page/2020-08-30-copiar-archivo-varios-directorios/</link>
       <pubDate>Sun, 30 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-08-30-copiar-archivo-varios-directorios/</guid>
+      <guid>https://vctrsnts.codeberg.page/2020-08-30-copiar-archivo-varios-directorios/</guid>
       <description>&lt;p&gt;A veces tengo que copiar un fichero (normalmente una caratula para la musica) a varios directorios. Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mover ficheros de un arbol de directorios a un directorio</title>
-      <link>https://vctrsnts.github.io/2020-08-29-mover-ficheros-directorio/</link>
+      <link>https://vctrsnts.codeberg.page/2020-08-29-mover-ficheros-directorio/</link>
       <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-08-29-mover-ficheros-directorio/</guid>
+      <guid>https://vctrsnts.codeberg.page/2020-08-29-mover-ficheros-directorio/</guid>
       <description>&lt;p&gt;A veces tengo que mover varios ficheros (normalmente epub - libros electronicos). Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando i3-wm</title>
-      <link>https://vctrsnts.github.io/2020-08-06-usando-i3-wm/</link>
+      <link>https://vctrsnts.codeberg.page/2020-08-06-usando-i3-wm/</link>
       <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-08-06-usando-i3-wm/</guid>
+      <guid>https://vctrsnts.codeberg.page/2020-08-06-usando-i3-wm/</guid>
       <description>&lt;p&gt;Aqui va una nueva entrada y en este caso hace referencia a &lt;a href=&#34;https://i3wm.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;i3wm&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Primero un poco de historia con respecto al porque de este post. Desde hace años (cuando &lt;strong&gt;KDE&lt;/strong&gt; se volvio tan pesado y desapareció el paquete kde-minimal) cambie a &lt;strong&gt;XFCE4&lt;/strong&gt; y todo fue bien, hasta que vi que (en mi opinión), se habia estancado, por eso decidi hacer un cambio y hablando con gente de &lt;a href=&#34;https://exdebian.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;exDebian&lt;/a&gt; me aconsejaron probar &lt;strong&gt;i3wm&lt;/strong&gt;. Asi que empeze a buscar información y fue cuando encontre esta colección de 3 videos en &lt;a href=&#34;https://www.youtube.com/playlist?list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Youtube - i3wm&lt;/a&gt; que me abrieron las puertas a &lt;strong&gt;i3wm&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>TIP sobre SUDO en GNU/Linux</title>
-      <link>https://vctrsnts.github.io/2019-11-11-tip-sudo-debian/</link>
+      <link>https://vctrsnts.codeberg.page/2019-11-11-tip-sudo-debian/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2019-11-11-tip-sudo-debian/</guid>
+      <guid>https://vctrsnts.codeberg.page/2019-11-11-tip-sudo-debian/</guid>
       <description>&lt;p&gt;Después de mucho tiempo, pongo un &lt;strong&gt;TIP&lt;/strong&gt; para que no se me olvide en caso de necesitarlo.&lt;/p&gt;&#xA;&lt;p&gt;A lo mejor pongo más de uno, porque después me cuesta mucho buscarlos de nuevo. Así que aqui va el primero.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Los mejores repositorios para Debian GNU/Linux</title>
-      <link>https://vctrsnts.github.io/2015-05-08-repositorios-debian/</link>
+      <link>https://vctrsnts.codeberg.page/2015-05-08-repositorios-debian/</link>
       <pubDate>Fri, 08 May 2015 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2015-05-08-repositorios-debian/</guid>
+      <guid>https://vctrsnts.codeberg.page/2015-05-08-repositorios-debian/</guid>
       <description>&lt;p&gt;Cuando se está utilizando un sistema &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt;, una de las cosas que más se disfrutan es la herramienta para administración de paquetes &lt;code&gt;APT&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Crear imagen ISO desde la consola de Debian GNU/Linux</title>
-      <link>https://vctrsnts.github.io/2014-01-03-crear-imagen-iso/</link>
+      <link>https://vctrsnts.codeberg.page/2014-01-03-crear-imagen-iso/</link>
       <pubDate>Fri, 03 Jan 2014 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2014-01-03-crear-imagen-iso/</guid>
+      <guid>https://vctrsnts.codeberg.page/2014-01-03-crear-imagen-iso/</guid>
       <description>&lt;p&gt;A veces, cuando intento realizar una ISO de un CD, no encuentro la manera de hacerlo a traves de &lt;a href=&#34;https://goodies.xfce.org/projects/applications/xfburn&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Xfburn&lt;/a&gt;, aunque al final si que descubri como se tenia que hacer. Es aqui cuando me hago un lio y busco desesperadamente como se puede hacer. Pero nunca se me ocurre buscar la manera de como hacerlo a traves de consola.&lt;/p&gt;</description>
     </item>
     <item>
       <title>USB se monta sólo como lectura</title>
-      <link>https://vctrsnts.github.io/2013-11-24-usb-lectura/</link>
+      <link>https://vctrsnts.codeberg.page/2013-11-24-usb-lectura/</link>
       <pubDate>Sat, 23 Nov 2013 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2013-11-24-usb-lectura/</guid>
+      <guid>https://vctrsnts.codeberg.page/2013-11-24-usb-lectura/</guid>
       <description>&lt;p&gt;Por si a alguien le vuelve a pasar lo mismo que a mi, aquí pongo una pequeña ayuda de lo que se puede hacer antes de tirar a la basura un USB, que, cada vez que lo montas, esta como lectura&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cambiar dinamicamente el fondo de pantalla en XFCE</title>
-      <link>https://vctrsnts.github.io/2013-01-09-fondo-pantalla-xfce/</link>
+      <link>https://vctrsnts.codeberg.page/2013-01-09-fondo-pantalla-xfce/</link>
       <pubDate>Wed, 09 Jan 2013 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2013-01-09-fondo-pantalla-xfce/</guid>
+      <guid>https://vctrsnts.codeberg.page/2013-01-09-fondo-pantalla-xfce/</guid>
       <description>&lt;p&gt;Después de hacer limpieza de mi portatil (borrar ese espacio en el HD que no utilizaba para nada), he instalado de nuevo mi querido &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt;, y como estaba un poco cansado de KDE, lleno de programas que no utilizo, me decidi probar XFCE.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Deshabilitar tarjeta NVIDIA Optimus en Debian GNU/Linux</title>
-      <link>https://vctrsnts.github.io/2012-11-11-optimus-debian/</link>
+      <link>https://vctrsnts.codeberg.page/2012-11-11-optimus-debian/</link>
       <pubDate>Sun, 11 Nov 2012 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2012-11-11-optimus-debian/</guid>
+      <guid>https://vctrsnts.codeberg.page/2012-11-11-optimus-debian/</guid>
       <description>&lt;p&gt;Después de mucho buscar al final, pude encontrar un sitio &lt;del&gt;&lt;a href=&#34;https://pedrobonilla.blogspot.com.es/2011/11/deshabilitar-tarjeta-nvidia-en-sistema.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;aqui&lt;/a&gt;&lt;/del&gt; donde te explicaba como desactivar la tarjeta grafica Nvidia de mi portatil Dell XPS 15. Estaba ya cansado de escuchar el ventilador funcionando todo el rato por culpa de una tarjeta grafica que no utilizaba. Así que lo pongo a continuación porque así se difunde más facilmente y lo guardo para mi como apuntes&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Dividir / Unir Fichero en GNU/Linux</title>
-      <link>https://vctrsnts.github.io/2012-03-07-divdir-unir-ficheros/</link>
+      <link>https://vctrsnts.codeberg.page/2012-03-07-divdir-unir-ficheros/</link>
       <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2012-03-07-divdir-unir-ficheros/</guid>
+      <guid>https://vctrsnts.codeberg.page/2012-03-07-divdir-unir-ficheros/</guid>
       <description>&lt;p&gt;Un truco nuevo, en mi caso, pero que seguro que mucha gente lo conoce, pero que nunca esta de más tenerlo a mano por si se necesita&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Error respawning en consola</title>
-      <link>https://vctrsnts.github.io/2011-09-23-respawning-consola/</link>
+      <link>https://vctrsnts.codeberg.page/2011-09-23-respawning-consola/</link>
       <pubDate>Fri, 23 Sep 2011 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2011-09-23-respawning-consola/</guid>
+      <guid>https://vctrsnts.codeberg.page/2011-09-23-respawning-consola/</guid>
       <description>&lt;p&gt;No se si os ha pasado a vosotros, pero después de una instalación limpia de &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt;, siempre me aparecía en la consola (antes de instalar KDE). Al final me canse de visualizar este error &lt;strong&gt;INIT: ID &amp;ldquo;co&amp;rdquo; respawning too fast: disabled for 5 minutes&lt;/strong&gt;, porque llega a ser cansino.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sustituir una clave antigua de known_hosts</title>
-      <link>https://vctrsnts.github.io/2011-08-19-substituir-known-hosts/</link>
+      <link>https://vctrsnts.codeberg.page/2011-08-19-substituir-known-hosts/</link>
       <pubDate>Fri, 19 Aug 2011 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2011-08-19-substituir-known-hosts/</guid>
+      <guid>https://vctrsnts.codeberg.page/2011-08-19-substituir-known-hosts/</guid>
       <description>&lt;p&gt;Es posible que más de una vez nos hayamos encontrado con un mensaje donde nuestro sistema nos indica que la clave publica de nuestro servidor, o del servidor al que nos queremos conectar ha cambiado o a otras posibilidades que ya indicaremos más adelante.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Ya tenemos KDE4</title>
-      <link>https://vctrsnts.github.io/2009-06-06-tenemos-kde4/</link>
+      <link>https://vctrsnts.codeberg.page/2009-06-06-tenemos-kde4/</link>
       <pubDate>Sat, 06 Jun 2009 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2009-06-06-tenemos-kde4/</guid>
+      <guid>https://vctrsnts.codeberg.page/2009-06-06-tenemos-kde4/</guid>
       <description>&lt;p&gt;Pues si, después de una instalación no tan traumatica como me esperaba, ya hemos instalado KDE 4.2.&lt;/p&gt;&#xA;&lt;p&gt;Aqui podeis ver un screenshot de como le sienta esta nueva versión de KDE a mi equipo.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Recuperar Archivos en ReiserFS</title>
-      <link>https://vctrsnts.github.io/2009-04-27-recuperar-archivos-reiserfs/</link>
+      <link>https://vctrsnts.codeberg.page/2009-04-27-recuperar-archivos-reiserfs/</link>
       <pubDate>Mon, 27 Apr 2009 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2009-04-27-recuperar-archivos-reiserfs/</guid>
+      <guid>https://vctrsnts.codeberg.page/2009-04-27-recuperar-archivos-reiserfs/</guid>
       <description>&lt;p&gt;A continuación explicare los pasos necesarios para recuperar un archivo/s eliminado de una partición creada con &lt;strong&gt;ReiserFS&lt;/strong&gt;, que en principio funciona correctamente en &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>KDE 4.2 ha entrado en SID</title>
-      <link>https://vctrsnts.github.io/2009-04-09-kd4-sid/</link>
+      <link>https://vctrsnts.codeberg.page/2009-04-09-kd4-sid/</link>
       <pubDate>Thu, 09 Apr 2009 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2009-04-09-kd4-sid/</guid>
+      <guid>https://vctrsnts.codeberg.page/2009-04-09-kd4-sid/</guid>
       <description>&lt;p&gt;Todos los usuarios de &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; estan de enhorabuena (me incluyo yo mismo).&lt;/p&gt;&#xA;&lt;p&gt;Como diria mucha gente &lt;em&gt;ja l&amp;rsquo;ha tenim aqui&lt;/em&gt;, pero en este caso es nuestro querido &lt;strong&gt;KDE 4.2&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
