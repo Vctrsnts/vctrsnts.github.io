@@ -2,157 +2,157 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Raspberry Pi on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/categories/raspberry-pi/</link>
+    <link>http://192.6.0.40:1313/categories/raspberry-pi/</link>
     <description>Recent content in Raspberry Pi on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Fri, 07 Jan 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/categories/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://192.6.0.40:1313/categories/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4</title>
-      <link>https://vctrsnts.github.io/2022-01-07-debian-raspberrypi/</link>
+      <link>http://192.6.0.40:1313/2022-01-07-debian-raspberrypi/</link>
       <pubDate>Fri, 07 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2022-01-07-debian-raspberrypi/</guid>
+      <guid>http://192.6.0.40:1313/2022-01-07-debian-raspberrypi/</guid>
       <description>&lt;p&gt;Cuando tienes una Raspberry Pi y ves que el &lt;strong&gt;SO&lt;/strong&gt; recomendado es Raspberry Pi OS (antigua Raspbian), siempre me queda la cosa de no poder instalar &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; ARM64. Pero desde que actualizaron la versión del firmware y &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; empezo a tener versiones más estables, eso ya ha pasado a posible.&lt;/p&gt;&#xA;&lt;p&gt;Asi que ahora voy a explicar los pasos que he hecho, en mi caso, para poder realizar y usar &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; ARM64 en una Raspberry Pi 4 (4Gb).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Descargar Podcast a traves de Flexgetx - Annexo</title>
-      <link>https://vctrsnts.github.io/2021-06-07-flexget-podcast-annexo/</link>
+      <link>http://192.6.0.40:1313/2021-06-07-flexget-podcast-annexo/</link>
       <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-06-07-flexget-podcast-annexo/</guid>
-      <description>&lt;p&gt;Como habia explicado en este &lt;a href=&#34;https://vctrsnts.github.io/2020-12-14-crear-imagen-docker&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; o en este otro &lt;a href=&#34;https://vctrsnts.github.io/2021-05-30-flexget-podcast&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, explicaba como crear una imagen de &lt;code&gt;docker&lt;/code&gt; o como usar dicha imagen, &lt;strong&gt;flexget&lt;/strong&gt;, para descargar podcast a traves de los &lt;code&gt;RSS&lt;/code&gt; que puedes conseguir.&lt;/p&gt;</description>
+      <guid>http://192.6.0.40:1313/2021-06-07-flexget-podcast-annexo/</guid>
+      <description>&lt;p&gt;Como habia explicado en este &lt;a href=&#34;http://192.6.0.40:1313/2020-12-14-crear-imagen-docker&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt; o en este otro &lt;a href=&#34;http://192.6.0.40:1313/2021-05-30-flexget-podcast&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, explicaba como crear una imagen de &lt;code&gt;docker&lt;/code&gt; o como usar dicha imagen, &lt;strong&gt;flexget&lt;/strong&gt;, para descargar podcast a traves de los &lt;code&gt;RSS&lt;/code&gt; que puedes conseguir.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Descargar Podcast a traves de Flexget</title>
-      <link>https://vctrsnts.github.io/2021-05-30-flexget-podcast/</link>
+      <link>http://192.6.0.40:1313/2021-05-30-flexget-podcast/</link>
       <pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-05-30-flexget-podcast/</guid>
+      <guid>http://192.6.0.40:1313/2021-05-30-flexget-podcast/</guid>
       <description>&lt;p&gt;Gracias que tengo docker puedo usar la imagen que he creado de &lt;a href=&#34;https://flexget.com&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Flexget&lt;/a&gt;, una aplicación que a traves de un fichero &lt;strong&gt;yaml&lt;/strong&gt;, permite descargar lo que quieras incluidos podcast.&lt;/p&gt;&#xA;&lt;p&gt;En principio me gustan los que tengas que ver con la tecnologia y sobre todo lo que tenga que ver con GNU/Linux. Pero a parte de estos tambien tengo un podcast de historia que me encanta mucho y cuando me acuerdo lo escucho. Este podcast se llama &lt;a href=&#34;https://www.ccma.cat/catradio/en-guardia&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;En Guàrdia&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Y buscando información al final consegui averiguar que a traves de &lt;strong&gt;Flexget&lt;/strong&gt; se pueden descargar Podcast asi que me puse a ello y gracias a un script para dicho proposito ya puedo descargar los podcast de este programa sin preocuparme.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Creando tu propio Servidor de Musica privada</title>
-      <link>https://vctrsnts.github.io/2021-04-01-rpi-spotify/</link>
+      <link>http://192.6.0.40:1313/2021-04-01-rpi-spotify/</link>
       <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-04-01-rpi-spotify/</guid>
+      <guid>http://192.6.0.40:1313/2021-04-01-rpi-spotify/</guid>
       <description>&lt;p&gt;Cuando tienes un servidor de bajo consumo como una Raspberry y empiezas a usar docker, a parte de descubrir un nuevo mundo (no me canso de decirlo), tambien descubres nuevas formas de torturar tu mente.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Nginx-Proxy-Manager en la Raspberry</title>
-      <link>https://vctrsnts.github.io/2021-05-07-rpi-nginx-proxy-manager/</link>
+      <link>http://192.6.0.40:1313/2021-05-07-rpi-nginx-proxy-manager/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-05-07-rpi-nginx-proxy-manager/</guid>
+      <guid>http://192.6.0.40:1313/2021-05-07-rpi-nginx-proxy-manager/</guid>
       <description>&lt;p&gt;Aqui tenemos otra entrada más que hace referencia a mi RPI y a ese inmenso oceano que se ha abierto al descubrir Docker.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cambiando Traefik por Caddy</title>
-      <link>https://vctrsnts.github.io/2021-04-08-rpi-caddy-proxy-manager/</link>
+      <link>http://192.6.0.40:1313/2021-04-08-rpi-caddy-proxy-manager/</link>
       <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-04-08-rpi-caddy-proxy-manager/</guid>
+      <guid>http://192.6.0.40:1313/2021-04-08-rpi-caddy-proxy-manager/</guid>
       <description>&lt;p&gt;Anteriomente venia usando Traefik, pero como ya he comentado, era muy dificil de mantener y de configurar, a parte de las multiples opciones que tiene. Ante esto, me resultaba muy tedioso su uso, asi que decidir buscar otra alternativa más facil.&lt;/p&gt;&#xA;&lt;p&gt;Después de buscar y leer a mis blogueros preferidos:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ugeek.github.io&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;uGeek&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://elblogdelazaro.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;El Blog de Lazaro&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Externalizando copias de seguridad</title>
-      <link>https://vctrsnts.github.io/2021-01-18-rpi-externalizando-copias-seguridad/</link>
+      <link>http://192.6.0.40:1313/2021-01-18-rpi-externalizando-copias-seguridad/</link>
       <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-01-18-rpi-externalizando-copias-seguridad/</guid>
-      <description>&lt;p&gt;Este articulo es una continuación al que hice hace un par de dias con respecto a realizar copias de seguridad en mi RPI4 con &lt;a href=&#34;https://vctrsnts.github.io/2021-01-17-rpi-copias-seguridad&#34; rel=&#34;&#34;&gt;rsnapshot&lt;/a&gt;.&lt;/p&gt;</description>
+      <guid>http://192.6.0.40:1313/2021-01-18-rpi-externalizando-copias-seguridad/</guid>
+      <description>&lt;p&gt;Este articulo es una continuación al que hice hace un par de dias con respecto a realizar copias de seguridad en mi RPI4 con &lt;a href=&#34;http://192.6.0.40:1313/2021-01-17-rpi-copias-seguridad&#34; rel=&#34;&#34;&gt;rsnapshot&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Haciendo copias de seguridad</title>
-      <link>https://vctrsnts.github.io/2021-01-17-rpi-copias-seguridad/</link>
+      <link>http://192.6.0.40:1313/2021-01-17-rpi-copias-seguridad/</link>
       <pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-01-17-rpi-copias-seguridad/</guid>
+      <guid>http://192.6.0.40:1313/2021-01-17-rpi-copias-seguridad/</guid>
       <description>&lt;p&gt;Otro capitulo más con respecto a la configuración de de mi RPI4, en este caso son las copias de seguridad de la información más importante.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Instalar y configurar fail2ban</title>
-      <link>https://vctrsnts.github.io/2020-11-08-rpi-usando-fail2ban/</link>
+      <link>http://192.6.0.40:1313/2020-11-08-rpi-usando-fail2ban/</link>
       <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-11-08-rpi-usando-fail2ban/</guid>
-      <description>&lt;p&gt;Siguiendo con mis capitulos con respecto a la configuración y uso de mi RPI4 (tambien explicado en este otro &lt;a href=&#34;https://vctrsnts.github.io/2020-10-30-rpi-cambiando-equipo&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, pues ahora pasamos a añadir una protección más y que en  todos los sitios donde explican su configuración, se preguntan, porque no esta instalada por defecto en todos los sistemas GNU/Linux.&lt;/p&gt;</description>
+      <guid>http://192.6.0.40:1313/2020-11-08-rpi-usando-fail2ban/</guid>
+      <description>&lt;p&gt;Siguiendo con mis capitulos con respecto a la configuración y uso de mi RPI4 (tambien explicado en este otro &lt;a href=&#34;http://192.6.0.40:1313/2020-10-30-rpi-cambiando-equipo&#34; rel=&#34;&#34;&gt;articulo&lt;/a&gt;, pues ahora pasamos a añadir una protección más y que en  todos los sitios donde explican su configuración, se preguntan, porque no esta instalada por defecto en todos los sistemas GNU/Linux.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Cambiando el equipo</title>
-      <link>https://vctrsnts.github.io/2020-10-30-rpi-cambiando-equipo/</link>
+      <link>http://192.6.0.40:1313/2020-10-30-rpi-cambiando-equipo/</link>
       <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-10-30-rpi-cambiando-equipo/</guid>
+      <guid>http://192.6.0.40:1313/2020-10-30-rpi-cambiando-equipo/</guid>
       <description>&lt;p&gt;Ante la noticia de que iban a sacar una nueva &lt;a href=&#34;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/?resellerType=home&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Raspberry Pi&lt;/a&gt; con varias mejores (más vale tarde que nunca que ya hablaremos más adelante) y pense si ya era hora de cambiar mi Raspberry Pi 3b por la nueva versión.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Calibre-Web</title>
-      <link>https://vctrsnts.github.io/2020-04-12-usando-calibre-web/</link>
+      <link>http://192.6.0.40:1313/2020-04-12-usando-calibre-web/</link>
       <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-04-12-usando-calibre-web/</guid>
+      <guid>http://192.6.0.40:1313/2020-04-12-usando-calibre-web/</guid>
       <description>&lt;p&gt;Después del descubrimiento de &lt;strong&gt;docker&lt;/strong&gt;, tal como dije en otra entrada se ha abierto un nuevo mundo de posibilidades por explorar. Y en este caso hemos descubierto &lt;strong&gt;calibre-web&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;La idea me gusto, porque así, voy quitando peso al portátil y doy más uso a la RPI3b (de momento a la espera de cambiar a una 4) y además, con el &lt;em&gt;HDD de 4Tb&lt;/em&gt; que viene en camino, pues nos pusimos a ello.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Pasos para instalar Docker en Raspbian</title>
-      <link>https://vctrsnts.github.io/2020-03-08-rpi-usando-docker/</link>
+      <link>http://192.6.0.40:1313/2020-03-08-rpi-usando-docker/</link>
       <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-03-08-rpi-usando-docker/</guid>
+      <guid>http://192.6.0.40:1313/2020-03-08-rpi-usando-docker/</guid>
       <description>&lt;p&gt;Siempre me pasa lo mismo, me hago mis chuletas y apuntes, pero nunca me pongo como se realiza la instalación sobre la cual funcionan las chuletas.&lt;/p&gt;</description>
     </item>
     <item>
       <title>TIP Sobre Raspbian / Raspberry</title>
-      <link>https://vctrsnts.github.io/2019-12-13-tip-raspbian-raspberry/</link>
+      <link>http://192.6.0.40:1313/2019-12-13-tip-raspbian-raspberry/</link>
       <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2019-12-13-tip-raspbian-raspberry/</guid>
+      <guid>http://192.6.0.40:1313/2019-12-13-tip-raspbian-raspberry/</guid>
       <description>&lt;p&gt;A continuación pongo unos cuantos &lt;strong&gt;TIPS&lt;/strong&gt; más con respecto a Raspbian, mayormente para que no se me olviden para más adelanta 😉&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Acceso a traves de ssh</title>
-      <link>https://vctrsnts.github.io/2016-04-04-rpi-acceso-traves-ssh/</link>
+      <link>http://192.6.0.40:1313/2016-04-04-rpi-acceso-traves-ssh/</link>
       <pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2016-04-04-rpi-acceso-traves-ssh/</guid>
+      <guid>http://192.6.0.40:1313/2016-04-04-rpi-acceso-traves-ssh/</guid>
       <description>&lt;p&gt;Una vez que ya tenemos nuestra Raspberry en marcha y funcionando ahora viene la parte divertida, como acceder a ella desde el exterior. En mi caso desde otra ubicación y además con un poco de seguridad para que nadie pueda acceder a ella (recordar que esto se tiene que hacer desde el equipo que se va a conectar a la Raspberry).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Configurar la red</title>
-      <link>https://vctrsnts.github.io/2016-04-03-rpi-configurar-red/</link>
+      <link>http://192.6.0.40:1313/2016-04-03-rpi-configurar-red/</link>
       <pubDate>Sun, 03 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2016-04-03-rpi-configurar-red/</guid>
+      <guid>http://192.6.0.40:1313/2016-04-03-rpi-configurar-red/</guid>
       <description>&lt;p&gt;Ahora que ya tenemos configurado y funcionando nuestra Raspberry, ahora le toca el turno a la red (en mi caso, quiero ip fija).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Iniciar desde un HDD externo</title>
-      <link>https://vctrsnts.github.io/2016-04-03-rpi-iniciar-hd-externo/</link>
+      <link>http://192.6.0.40:1313/2016-04-03-rpi-iniciar-hd-externo/</link>
       <pubDate>Sun, 03 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2016-04-03-rpi-iniciar-hd-externo/</guid>
+      <guid>http://192.6.0.40:1313/2016-04-03-rpi-iniciar-hd-externo/</guid>
       <description>&lt;p&gt;Después de haber configurado la red, ahora pasare a explicar como extraer la información de la raiz &lt;code&gt;/&lt;/code&gt; de la SD para pasarla a un HDD externo y así alargar la vida de nuestra &lt;em&gt;SD&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Actualizando a Jessie</title>
-      <link>https://vctrsnts.github.io/2016-04-02-rpi-actualizando-jessie/</link>
+      <link>http://192.6.0.40:1313/2016-04-02-rpi-actualizando-jessie/</link>
       <pubDate>Sat, 02 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2016-04-02-rpi-actualizando-jessie/</guid>
+      <guid>http://192.6.0.40:1313/2016-04-02-rpi-actualizando-jessie/</guid>
       <description>&lt;p&gt;Tal como habia explicado en el anterior capitulo, después de tener mi RPI con Whezzy y viendo que habian sacado una nueva versión &lt;a href=&#34;https://www.raspberrypi.org/downloads/raspbian&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Jessie-Lite&lt;/a&gt; de Raspbian decidi realizar un &lt;code&gt;full-upgrade&lt;/code&gt; para actualizar el sistema.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Configurando la Raspberry</title>
-      <link>https://vctrsnts.github.io/2016-04-02-rpi-configurando-raspberry/</link>
+      <link>http://192.6.0.40:1313/2016-04-02-rpi-configurando-raspberry/</link>
       <pubDate>Sat, 02 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2016-04-02-rpi-configurando-raspberry/</guid>
+      <guid>http://192.6.0.40:1313/2016-04-02-rpi-configurando-raspberry/</guid>
       <description>&lt;p&gt;Después de la instalación viene la configuración y en mi caso hice lo siguiente.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Funcionamiento de la RPI</title>
-      <link>https://vctrsnts.github.io/2016-04-02-rpi-funcionamiento-raspberry/</link>
+      <link>http://192.6.0.40:1313/2016-04-02-rpi-funcionamiento-raspberry/</link>
       <pubDate>Sat, 02 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2016-04-02-rpi-funcionamiento-raspberry/</guid>
+      <guid>http://192.6.0.40:1313/2016-04-02-rpi-funcionamiento-raspberry/</guid>
       <description>&lt;p&gt;De nuevo en la brecha. Después de tanto tiempo si publicar nada, aqui vuelvo.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Instalando Jessie-Lite</title>
-      <link>https://vctrsnts.github.io/2016-04-02-rpi-instalando-jessie-lite/</link>
+      <link>http://192.6.0.40:1313/2016-04-02-rpi-instalando-jessie-lite/</link>
       <pubDate>Sat, 02 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2016-04-02-rpi-instalando-jessie-lite/</guid>
+      <guid>http://192.6.0.40:1313/2016-04-02-rpi-instalando-jessie-lite/</guid>
       <description>&lt;p&gt;Como dije en el anterior capitulo, despues de recibir mi nuevo juguete:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Mi pequeño nuevo juguete</title>
-      <link>https://vctrsnts.github.io/2013-11-25-rpi-peque%C3%B1o-juguete/</link>
+      <link>http://192.6.0.40:1313/2013-11-25-rpi-peque%C3%B1o-juguete/</link>
       <pubDate>Mon, 25 Nov 2013 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2013-11-25-rpi-peque%C3%B1o-juguete/</guid>
+      <guid>http://192.6.0.40:1313/2013-11-25-rpi-peque%C3%B1o-juguete/</guid>
       <description>&lt;p&gt;Pues nada. Desde hace un par de meses, tengo a mi disposición un nuevo juguete. La Raspberry modelo B, con las las siguientes caracteristicas:&lt;/p&gt;</description>
     </item>
   </channel>

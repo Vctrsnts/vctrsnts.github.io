@@ -2,73 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bash on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/categories/bash/</link>
+    <link>http://192.6.0.40:1313/categories/bash/</link>
     <description>Recent content in Bash on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Sat, 15 Jan 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/categories/bash/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://192.6.0.40:1313/categories/bash/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Configurar el fichero .bashrc para descomprimir ficheros</title>
-      <link>https://vctrsnts.github.io/2022-01-15-configurar-fichero-bashrc/</link>
+      <link>http://192.6.0.40:1313/2022-01-15-configurar-fichero-bashrc/</link>
       <pubDate>Sat, 15 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2022-01-15-configurar-fichero-bashrc/</guid>
+      <guid>http://192.6.0.40:1313/2022-01-15-configurar-fichero-bashrc/</guid>
       <description>&lt;p&gt;A continuación, explicare como tengo configurado mi &lt;code&gt;.bashrc&lt;/code&gt; para que a la hora de descomprimir archivos todo me sea más facil y rapido.&lt;/p&gt;&#xA;&lt;p&gt;Esto se consigue añadiendo un &lt;strong&gt;alias&lt;/strong&gt; con las opciones / programas más comunes para la compresión y descompresión de archivos.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Crear fichero de logs en bash</title>
-      <link>https://vctrsnts.github.io/2021-06-09-crear-fichero-log-bash/</link>
+      <link>http://192.6.0.40:1313/2021-06-09-crear-fichero-log-bash/</link>
       <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-06-09-crear-fichero-log-bash/</guid>
+      <guid>http://192.6.0.40:1313/2021-06-09-crear-fichero-log-bash/</guid>
       <description>&lt;p&gt;A veces tienes la necesidad de crear un fichero de log para saber cuando se ejecuta un proceso en un script que puedes haber creado, aqui pongo el que yo uso.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Montar imagen ISO desde consola en GNU/Linux</title>
-      <link>https://vctrsnts.github.io/2021-03-25-montar-imagen-iso-consola/</link>
+      <link>http://192.6.0.40:1313/2021-03-25-montar-imagen-iso-consola/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2021-03-25-montar-imagen-iso-consola/</guid>
+      <guid>http://192.6.0.40:1313/2021-03-25-montar-imagen-iso-consola/</guid>
       <description>&lt;p&gt;Vamos a explicar como a traves de la consola de GNU/Linux se puede montar una imagen / archivo ISO.&lt;/p&gt;&#xA;&lt;p&gt;No se si os ha pasado alguna vez a vosotros, pero llega un dia, que teneis una &lt;strong&gt;ISO&lt;/strong&gt; y os encontrais sin CD para gravar y el lector y no sabeis que hacer en ese momento (me ha pasado más de una vez), hasta que he encontrado este sencillo metodo para resolver el problema.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Crear directorios a partir de un fichero de texto</title>
-      <link>https://vctrsnts.github.io/2020-08-31-crear-directorios-lista/</link>
+      <link>http://192.6.0.40:1313/2020-08-31-crear-directorios-lista/</link>
       <pubDate>Mon, 31 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-08-31-crear-directorios-lista/</guid>
+      <guid>http://192.6.0.40:1313/2020-08-31-crear-directorios-lista/</guid>
       <description>&lt;p&gt;A veces tengo que crear unos cuantos directorios (normalmente para musica). Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Copiar un archivo a varios directores</title>
-      <link>https://vctrsnts.github.io/2020-08-30-copiar-archivo-varios-directorios/</link>
+      <link>http://192.6.0.40:1313/2020-08-30-copiar-archivo-varios-directorios/</link>
       <pubDate>Sun, 30 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-08-30-copiar-archivo-varios-directorios/</guid>
+      <guid>http://192.6.0.40:1313/2020-08-30-copiar-archivo-varios-directorios/</guid>
       <description>&lt;p&gt;A veces tengo que copiar un fichero (normalmente una caratula para la musica) a varios directorios. Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mover ficheros de un arbol de directorios a un directorio</title>
-      <link>https://vctrsnts.github.io/2020-08-29-mover-ficheros-directorio/</link>
+      <link>http://192.6.0.40:1313/2020-08-29-mover-ficheros-directorio/</link>
       <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2020-08-29-mover-ficheros-directorio/</guid>
+      <guid>http://192.6.0.40:1313/2020-08-29-mover-ficheros-directorio/</guid>
       <description>&lt;p&gt;A veces tengo que mover varios ficheros (normalmente epub - libros electronicos). Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Crear imagen ISO desde la consola de Debian GNU/Linux</title>
-      <link>https://vctrsnts.github.io/2014-01-03-crear-imagen-iso/</link>
+      <link>http://192.6.0.40:1313/2014-01-03-crear-imagen-iso/</link>
       <pubDate>Fri, 03 Jan 2014 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2014-01-03-crear-imagen-iso/</guid>
+      <guid>http://192.6.0.40:1313/2014-01-03-crear-imagen-iso/</guid>
       <description>&lt;p&gt;A veces, cuando intento realizar una ISO de un CD, no encuentro la manera de hacerlo a traves de &lt;a href=&#34;https://goodies.xfce.org/projects/applications/xfburn&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Xfburn&lt;/a&gt;, aunque al final si que descubri como se tenia que hacer. Es aqui cuando me hago un lio y busco desesperadamente como se puede hacer. Pero nunca se me ocurre buscar la manera de como hacerlo a traves de consola.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Dividir / Unir Fichero en GNU/Linux</title>
-      <link>https://vctrsnts.github.io/2012-03-07-divdir-unir-ficheros/</link>
+      <link>http://192.6.0.40:1313/2012-03-07-divdir-unir-ficheros/</link>
       <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2012-03-07-divdir-unir-ficheros/</guid>
+      <guid>http://192.6.0.40:1313/2012-03-07-divdir-unir-ficheros/</guid>
       <description>&lt;p&gt;Un truco nuevo, en mi caso, pero que seguro que mucha gente lo conoce, pero que nunca esta de más tenerlo a mano por si se necesita&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Error respawning en consola</title>
-      <link>https://vctrsnts.github.io/2011-09-23-respawning-consola/</link>
+      <link>http://192.6.0.40:1313/2011-09-23-respawning-consola/</link>
       <pubDate>Fri, 23 Sep 2011 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2011-09-23-respawning-consola/</guid>
+      <guid>http://192.6.0.40:1313/2011-09-23-respawning-consola/</guid>
       <description>&lt;p&gt;No se si os ha pasado a vosotros, pero después de una instalación limpia de &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt;, siempre me aparecía en la consola (antes de instalar KDE). Al final me canse de visualizar este error &lt;strong&gt;INIT: ID &amp;ldquo;co&amp;rdquo; respawning too fast: disabled for 5 minutes&lt;/strong&gt;, porque llega a ser cansino.&lt;/p&gt;</description>
     </item>
   </channel>
