@@ -1,14 +1,26 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Todos los Artículos - Si lo haces, hazlo bien!</title>
-        <link>https://vctrsnts.codeberg.page/posts/</link>
+        <link>https://vctrsnts.github.io/posts/</link>
         <description>Todos los Artículos | Si lo haces, hazlo bien!</description>
-        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Tue, 04 Nov 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.codeberg.page/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Wed, 03 Dec 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Migrando a Codeberg</title>
+    <link>https://vctrsnts.github.io/2025-12-03-migrando-codeberg/</link>
+    <pubDate>Wed, 03 Dec 2025 00:00:00 &#43;0000</pubDate>
+    <author>vsantos</author>
+    <guid>https://vctrsnts.github.io/2025-12-03-migrando-codeberg/</guid>
+    
+    
+    <category term="Blog" />
+    
+    <description><![CDATA[<p>Después de leer el <a href="https://www.genbeta.com/inteligencia-artificial/ceo-github-proclamo-abraza-ia-estas-fuera-respuesta-muchos-proyectos-software-esta-siendo-irse-fuera-github" target="_blank" rel="noopener noreffer ">mensaje</a> que ha lanzado el CEO de <a href="https://github.com" target="_blank" rel="noopener noreffer ">gitHub</a> que en pocas palabras ha hecho una <a href="https://www.lavanguardia.com/nacional/20251009/11141043/psoe-califica-salvajada-grave-ayuso-diga-mujeres-vayan-sitio-abortar-agenciaslv20251009.html" target="_blank" rel="noopener noreffer ">ayusada</a>, me he propuesto hacerle caso y voy a ir migrando, dentro de lo que cabe, todo a <a href="https://codeberg.org" target="_blank" rel="noopener noreffer ">Codeberg</a>.</p>]]></description>
+</item>
+<item>
     <title>Hola Arch Linux. Adios Debian GNU/Linux - 1</title>
-    <link>https://vctrsnts.codeberg.page/2025-11-04-arch-debian-1/</link>
+    <link>https://vctrsnts.github.io/2025-11-04-arch-debian-1/</link>
     <pubDate>Tue, 04 Nov 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-11-04-arch-debian-1/</guid>
+    <guid>https://vctrsnts.github.io/2025-11-04-arch-debian-1/</guid>
     
     
     <category term="hyprland" />
@@ -17,10 +29,10 @@
 </item>
 <item>
     <title>De i3WM ( X11 ) a Sway ( Wayland ) - 3</title>
-    <link>https://vctrsnts.codeberg.page/2025-10-15-i3wm-sway-3/</link>
+    <link>https://vctrsnts.github.io/2025-10-15-i3wm-sway-3/</link>
     <pubDate>Wed, 15 Oct 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-10-15-i3wm-sway-3/</guid>
+    <guid>https://vctrsnts.github.io/2025-10-15-i3wm-sway-3/</guid>
     
     
     <category term="sway" />
@@ -29,10 +41,10 @@
 </item>
 <item>
     <title>De i3WM ( X11 ) a Sway ( Wayland ) - 2</title>
-    <link>https://vctrsnts.codeberg.page/2025-10-05-i3wm-sway-2/</link>
+    <link>https://vctrsnts.github.io/2025-10-05-i3wm-sway-2/</link>
     <pubDate>Sun, 05 Oct 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-10-05-i3wm-sway-2/</guid>
+    <guid>https://vctrsnts.github.io/2025-10-05-i3wm-sway-2/</guid>
     
     
     <category term="sway" />
@@ -41,10 +53,10 @@
 </item>
 <item>
     <title>Cambiamos de launcher en el movil - 2</title>
-    <link>https://vctrsnts.codeberg.page/2025-09-29-cambiando-launcher-2/</link>
+    <link>https://vctrsnts.github.io/2025-09-29-cambiando-launcher-2/</link>
     <pubDate>Mon, 29 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-09-29-cambiando-launcher-2/</guid>
+    <guid>https://vctrsnts.github.io/2025-09-29-cambiando-launcher-2/</guid>
     
     
     <category term="Android" />
@@ -54,10 +66,10 @@
 </item>
 <item>
     <title>De i3WM ( X11 ) a Sway ( Wayland ) - 1</title>
-    <link>https://vctrsnts.codeberg.page/2025-09-15-i3wm-sway-1/</link>
+    <link>https://vctrsnts.github.io/2025-09-15-i3wm-sway-1/</link>
     <pubDate>Fri, 12 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-09-15-i3wm-sway-1/</guid>
+    <guid>https://vctrsnts.github.io/2025-09-15-i3wm-sway-1/</guid>
     
     
     <category term="sway" />
@@ -66,11 +78,11 @@
 <p>Como dice el refran &ldquo;<em>el rey a muerto, viva el rey</em>&rdquo; y esto es que el que estaba en el banquillo, ya puede salir a jugar 😂.</p>]]></description>
 </item>
 <item>
-    <title>Cambiamos de launcher en el movil - 1?</title>
-    <link>https://vctrsnts.codeberg.page/2025-09-11-cambiando-launcher-1/</link>
+    <title>Cambiamos de launcher en el movil - 1</title>
+    <link>https://vctrsnts.github.io/2025-09-11-cambiando-launcher-1/</link>
     <pubDate>Wed, 10 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-09-11-cambiando-launcher-1/</guid>
+    <guid>https://vctrsnts.github.io/2025-09-11-cambiando-launcher-1/</guid>
     
     
     <category term="Android" />
@@ -79,10 +91,10 @@
 </item>
 <item>
     <title>Mis tips en Debian GNU/Linux</title>
-    <link>https://vctrsnts.codeberg.page/2025-07-08-tips-debian/</link>
+    <link>https://vctrsnts.github.io/2025-07-08-tips-debian/</link>
     <pubDate>Tue, 08 Jul 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-07-08-tips-debian/</guid>
+    <guid>https://vctrsnts.github.io/2025-07-08-tips-debian/</guid>
     
     
     <category term="Debian GNU/Linux" />
@@ -91,10 +103,10 @@
 </item>
 <item>
     <title>Restic &#43; Backrest &#43; MiniO - 3</title>
-    <link>https://vctrsnts.codeberg.page/2025-05-23-restic-copias-locales-3/</link>
+    <link>https://vctrsnts.github.io/2025-05-23-restic-copias-locales-3/</link>
     <pubDate>Mon, 30 Jun 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-05-23-restic-copias-locales-3/</guid>
+    <guid>https://vctrsnts.github.io/2025-05-23-restic-copias-locales-3/</guid>
     
     
     <category term="unRAID" />
@@ -103,28 +115,15 @@
 </item>
 <item>
     <title>Usando HomePage. El Dashboard - 3</title>
-    <link>https://vctrsnts.codeberg.page/2025-06-20-usando-homepage-3/</link>
+    <link>https://vctrsnts.github.io/2025-06-20-usando-homepage-3/</link>
     <pubDate>Sat, 21 Jun 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-06-20-usando-homepage-3/</guid>
+    <guid>https://vctrsnts.github.io/2025-06-20-usando-homepage-3/</guid>
     
     
     <category term="unRAID" />
     
     <description><![CDATA[<p>Un nuevo articulo hablando sobre <strong>homepage</strong>, este magnifico <em>dashboard</em> al que le tengo mucho cariño y que hace un tiempo, realizo una actualización en su configuración y que en mi caso, usuario de portatil no me funcionaba correctamente, porque las <strong>5 columnas</strong> que yo utilizo no se veian correctamente, abri un <em>issue</em> sobre este problema y parece ser que con la ultima actualización, ha solucionado este problema y ahora explicare como lo he hecho.</p>]]></description>
-</item>
-<item>
-    <title>Adios GCalendar. Hola Radicale</title>
-    <link>https://vctrsnts.codeberg.page/2025-06-20-radicale-etar/</link>
-    <pubDate>Fri, 20 Jun 2025 00:00:00 &#43;0000</pubDate>
-    <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-06-20-radicale-etar/</guid>
-    
-    
-    <category term="VPS" />
-    
-    <description><![CDATA[<p>A partir de este <a href="https://elblogdelazaro.org/sincronizar-gnome-calendar-con-un-servidor-caldav" target="_blank" rel="noopener noreffer ">articulo</a> de <strong>Carlos M.</strong> del que sigo tanto su <a href="https://elblogdelazaro.org/" target="_blank" rel="noopener noreffer ">blog</a> como su canal de mastodon, me pico la curiosidad de si yo tambien podria tener un calendario ajeno al control de Google y si le sacaria todo el partido para ello.</p>
-<p>Pues que quereis que os diga, si con el <em>calendario de Google</em> que lo uso para apuntar 3 notas, porque no voy a sacarle partido a mi propio calendario, pero controlado por mi. A parte, de que tambien permite tener tu propia agenda de contactos y que esta no este al alcance de <em>Google</em>.</p>]]></description>
 </item>
 </channel>
 </rss>

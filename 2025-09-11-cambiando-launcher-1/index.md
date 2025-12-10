@@ -1,4 +1,4 @@
-# Cambiamos de launcher en el movil - 1?
+# Cambiamos de launcher en el movil - 1
 
 De nuevo con más articulos después de unas largas y merecidas vacaciones. Este articulo, se va a parecer mucho a unos que escribio hace tiempo [uGeek](https://ugeek.github.io) donde hablaba de los [launchers](https://ugeek.github.io/blog/post/2020-12-30-launchers-opensource-para-android.html) que le gustaban o que habia probado o que estaba usando actualmente en su movil. Tambien estaba este [podcast](https://ugeek.github.io/post/2021-06-22-fritter-y-kiss.html) donde hablaba de [KISS Launcher](https://github.com/Neamar/KISS).
 

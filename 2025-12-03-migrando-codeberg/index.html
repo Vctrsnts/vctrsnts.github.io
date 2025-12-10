@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Migrando a Codeberg - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta property="og:image" content="/images/logo_post.jpg" >
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://vctrsnts.github.io/2025-12-03-migrando-codeberg/" /><link rel="prev" href="https://vctrsnts.github.io/2025-11-04-arch-debian-1/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Migrando a Codeberg",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/vctrsnts.github.io\/2025-12-03-migrando-codeberg\/"
+        },"image": ["https:\/\/vctrsnts.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Bash, GitHub","wordcount":  848 ,
+        "url": "https:\/\/vctrsnts.github.io\/2025-12-03-migrando-codeberg\/","datePublished": "2025-12-03T00:00:00+00:00","dateModified": "2025-12-03T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/vctrsnts.github.io\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Migrando a Codeberg</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/blog/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Blog</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="03-12-2025">03-12-2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;848 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Después de leer el <a href="https://www.genbeta.com/inteligencia-artificial/ceo-github-proclamo-abraza-ia-estas-fuera-respuesta-muchos-proyectos-software-esta-siendo-irse-fuera-github" target="_blank" rel="noopener noreffer ">mensaje</a> que ha lanzado el CEO de <a href="https://github.com" target="_blank" rel="noopener noreffer ">gitHub</a> que en pocas palabras ha hecho una <a href="https://www.lavanguardia.com/nacional/20251009/11141043/psoe-califica-salvajada-grave-ayuso-diga-mujeres-vayan-sitio-abortar-agenciaslv20251009.html" target="_blank" rel="noopener noreffer ">ayusada</a>, me he propuesto hacerle caso y voy a ir migrando, dentro de lo que cabe, todo a <a href="https://codeberg.org" target="_blank" rel="noopener noreffer ">Codeberg</a>.</p>
+<p>No tenia pensado hacer el cambio, pero después de leer este articulo, a uno le dan ganas de salir corriendo, pero claro, no lo puedes hacer a las bravas si es hay donde tienes alojada tu pequeña pagina web.</p>
+<p>Asi que lo que he decidido es ir migrando poco a poco todo lo que tenia alojado hay. He archivado casi todos los proyectos que tenia y los he llevado a <strong>Codeberg</strong>. El unico proyecto que aun queda en pie es la pagina web.</p>
+<p>Os preguntareis como conoci <strong>CodeBerg</strong>, ahora que lo pienso, no se si leyendo por internet o en alguno de los canales de telegram a los que estoy subscrito:</p>
+<ul>
+<li><strong>atareao</strong></li>
+<li><strong>HomeLabs</strong></li>
+</ul>
+<p>Realmente no me acuerdo, pero cuando lo descubri, me cree mi cuenta, para asi poder tener reservado mi nombre de usuario, porque contra más tardes, más dificil se hace luego tener el nombre de usuario que quieres, y segundo, porque nunca se sabe si algun dia lo vas a utilizar.</p>
+<p>Mi idea principal, era utilizarlo para la web <a href="https://vsantos.envs.net" target="_blank" rel="noopener noreffer ">alternativa</a> que tengo donde voy poniendo los libros que voy leyendo, pero esta al final, la tengo alojada en <a href="https://envs.net" target="_blank" rel="noopener noreffer ">envs.net</a>.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><strong>envs.net</strong> es un servidor libre para pequeñas pruebas o paginas web, alojadas sin ningun animo de lucro y como para la web alternativa, no necesitaba mucho y el trafico iba a ser infimo, pues era el sitio correcto.</div>
+        </div>
+    </div>
+<p>Tambien pense en que podia poner mi blog aqui, pero no lo vi claro, porque si ya tengo pocas visitas en <em>gitHub</em>, si lo hubiera llevado a <em>codeBerg</em>, las visitas ya os podeis imaginar como irian&hellip;</p>
+<p>Aunque si estas leyendo esto, seguramente has accedido al blog que esta alojado en <a href="https://vctrsnts.codeberg.page" target="_blank" rel="noopener noreffer ">codeberg</a>. Eso no quita que a la hora de subir los nuevos articulos lo haga en los 2 sitios, porque nunca se sabe donde puede acabar todo esto.</p>
+<p>Partiendo de esta idea y con ayuda de la IA, me he creado un script en bash, desde el cual hago la actualización de los 2 repositorios al mismo tiempo, <strong>gitHub</strong> y <strong>codeBerg</strong>.</p>
+<p>El script es el siguiente:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1"># ================================================================</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Script: gitHubCodeBerg.sh</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Descripción: Automatiza la generación y despliegue de un sitio Hugo</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#              en dos repositorios distintos (GitHub Pages y Codeberg Pages),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#              usando un único directorio `public/` pero con builds separados</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#              para cada `baseURL`. Realiza dos commits consecutivos:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#              uno para GitHub y otro para Codeberg.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Autor:  Vctrsnts</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Fecha:  25-11-2025</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Web: https://vctrsnts.codeberg.page</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Licencia: GNU/GPL</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Repositorios destino:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   - GitHub:   https://github.com/vctrsnts/vctrsnts.github.io</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   - Codeberg: https://codeberg.org/vctrsnts/pages</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Uso:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   ./gitHubCodeBerg.sh fichero1 fichero2 ... ficheroN</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Notas:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   - Requiere Docker con contenedor `hugoBlog`.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   - Requiere claves SSH configuradas en:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#       ~/.ssh/github_web</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#       ~/.ssh/idCodeBerg</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   - El script pregunta un mensaje de commit y lo aplica a ambos repos.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ================================================================</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -e  <span class="c1"># Detener el script si ocurre un error</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Arrancar agente SSH de forma segura en /tmp</span>
+</span></span><span class="line"><span class="cl"><span class="nb">unset</span> XDG_RUNTIME_DIR
+</span></span><span class="line"><span class="cl">ssh-agent -a /tmp/ssh-agent.sock &gt; /tmp/ssh-agent.env
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> /tmp/ssh-agent.env
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Añadir claves</span>
+</span></span><span class="line"><span class="cl">ssh-add ~/.ssh/github_web
+</span></span><span class="line"><span class="cl">ssh-add ~/.ssh/idCodeBerg
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Validación de parámetros</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;Error: no se han recibido archivos&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;Uso: ./gitHubCodeBerg.sh fichero1 fichero2 ... ficheroN&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> file in <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span> -e <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&#34;Error: </span><span class="nv">$file</span><span class="s2"> no existe&#34;</span><span class="p">;</span> <span class="nb">exit</span> 1<span class="p">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Mensaje de commit</span>
+</span></span><span class="line"><span class="cl"><span class="nb">read</span> -p <span class="s2">&#34;Entri el missatge del commit: &#34;</span> TXT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Función para build</span>
+</span></span><span class="line"><span class="cl">build_site<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">baseurl</span><span class="o">=</span><span class="nv">$1</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;Generant web per </span><span class="nv">$baseurl</span><span class="s2">...&#34;</span>
+</span></span><span class="line"><span class="cl">  docker <span class="nb">exec</span> -it hugoBlog hugo --baseURL<span class="o">=</span><span class="s2">&#34;</span><span class="nv">$baseurl</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Build y push a GitHub</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;==== Build GitHub ====&#34;</span>
+</span></span><span class="line"><span class="cl">build_site <span class="s2">&#34;https://vctrsnts.github.io&#34;</span>
+</span></span><span class="line"><span class="cl">git add <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;</span><span class="nv">$TXT</span><span class="s2"> (GitHub)&#34;</span>
+</span></span><span class="line"><span class="cl">git push github master
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Build y push a Codeberg</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;==== Build Codeberg ====&#34;</span>
+</span></span><span class="line"><span class="cl">build_site <span class="s2">&#34;https://vctrsnts.codeberg.page&#34;</span>
+</span></span><span class="line"><span class="cl">git add <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;</span><span class="nv">$TXT</span><span class="s2"> (Codeberg)&#34;</span>
+</span></span><span class="line"><span class="cl">git push codeberg master
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Redes sociales</span>
+</span></span><span class="line"><span class="cl"><span class="nb">read</span> -p <span class="s2">&#34;¿Enviar el missatge a xarxes socials? (s/n): &#34;</span> RESP
+</span></span><span class="line"><span class="cl"><span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$RESP</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;s&#34;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> python3.11 ~/bot/botSocialMediaUltim.py
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;==== Cerramos el agente de SSH ====&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">trap</span> <span class="s2">&#34;kill </span><span class="nv">$SSH_AGENT_PID</span><span class="s2">&#34;</span> EXIT <span class="o">&amp;&amp;</span> rm -rf /tmp/ssh-agent*
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;==== Actualització completada! ====&#34;</span></span></span></code></pre></div></div>
+<p>Como podeis ver, se actualiza todo en el mismo instante.</p>
+<p>Pues bueno, este es el ultimo y primer articulo de una nueva era en mi camino para la publicación de mis pensamientos, ideas y descubrimientos que voy haciendo en este nuestro complicado mundo de la <em>informatica</em>, <em>programación</em> y <em>selfhosted</em>.</p>
+<p>Lo unico que me queda por conseguir, seria obtener un nombre de dominio para esta web, pero lo primero y más importante, no quiero que con ello se me vaya una nomina entera, a parte, que entiendo que para ser 100% libre, tambien tendria que tener alojada la web en un VPS (del que ya dispongo), pero mejor configurado y apuntando al dominio y eso es un tema que desconozco totalmente y por el que caminaria a ciegas.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://www.genbeta.com/inteligencia-artificial/ceo-github-proclamo-abraza-ia-estas-fuera-respuesta-muchos-proyectos-software-esta-siendo-irse-fuera-github" target="_blank" rel="noopener noreffer ">Abandonado gitHub</a></li>
+<li><a href="https://www.lavanguardia.com/nacional/20251009/11141043/psoe-califica-salvajada-grave-ayuso-diga-mujeres-vayan-sitio-abortar-agenciaslv20251009.html" target="_blank" rel="noopener noreffer ">Ayusada</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 03-12-2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/bash/">Bash</a>,&nbsp;<a href="/tags/github/">GitHub</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2025-11-04-arch-debian-1/" class="prev" rel="prev" title="Hola Arch Linux. Adios Debian GNU/Linux - 1"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Hola Arch Linux. Adios Debian GNU/Linux - 1</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.150.1">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2025</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line">
+                    <a rel="me" href="https://mastodon.online/@vsantos"></a>
+                </div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46"></script></body>
+</html>
