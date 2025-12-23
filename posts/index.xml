@@ -1,14 +1,26 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Todos los Artículos - Si lo haces, hazlo bien!</title>
-        <link>https://vctrsnts.codeberg.page/posts/</link>
+        <link>https://vctrsnts.github.io/posts/</link>
         <description>Todos los Artículos | Si lo haces, hazlo bien!</description>
-        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Wed, 03 Dec 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.codeberg.page/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Mon, 22 Dec 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Podcast 2025. Resumen</title>
+    <link>https://vctrsnts.github.io/2025-12-25-podcast-2025/</link>
+    <pubDate>Mon, 22 Dec 2025 00:00:00 &#43;0000</pubDate>
+    <author>vsantos</author>
+    <guid>https://vctrsnts.github.io/2025-12-25-podcast-2025/</guid>
+    
+    
+    <category term="Blog" />
+    
+    <description><![CDATA[<p>Pues ya estamos llegando al final de este año. No ha estado mal, pero ya vendra en otro articulo. Ahora vamos a hablar de como ha ido el año con referencia a los podcast que he escuchado este 2025. Y para muestra, un boton&hellip;</p>]]></description>
+</item>
+<item>
     <title>Migrando a Codeberg</title>
-    <link>https://vctrsnts.codeberg.page/2025-12-03-migrando-codeberg/</link>
+    <link>https://vctrsnts.github.io/2025-12-03-migrando-codeberg/</link>
     <pubDate>Wed, 03 Dec 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-12-03-migrando-codeberg/</guid>
+    <guid>https://vctrsnts.github.io/2025-12-03-migrando-codeberg/</guid>
     
     
     <category term="Blog" />
@@ -17,10 +29,10 @@
 </item>
 <item>
     <title>Hola Arch Linux. Adios Debian GNU/Linux - 1</title>
-    <link>https://vctrsnts.codeberg.page/2025-11-04-arch-debian-1/</link>
+    <link>https://vctrsnts.github.io/2025-11-04-arch-debian-1/</link>
     <pubDate>Tue, 04 Nov 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-11-04-arch-debian-1/</guid>
+    <guid>https://vctrsnts.github.io/2025-11-04-arch-debian-1/</guid>
     
     
     <category term="hyprland" />
@@ -29,10 +41,10 @@
 </item>
 <item>
     <title>De i3WM ( X11 ) a Sway ( Wayland ) - 3</title>
-    <link>https://vctrsnts.codeberg.page/2025-10-15-i3wm-sway-3/</link>
+    <link>https://vctrsnts.github.io/2025-10-15-i3wm-sway-3/</link>
     <pubDate>Wed, 15 Oct 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-10-15-i3wm-sway-3/</guid>
+    <guid>https://vctrsnts.github.io/2025-10-15-i3wm-sway-3/</guid>
     
     
     <category term="sway" />
@@ -41,10 +53,10 @@
 </item>
 <item>
     <title>De i3WM ( X11 ) a Sway ( Wayland ) - 2</title>
-    <link>https://vctrsnts.codeberg.page/2025-10-05-i3wm-sway-2/</link>
+    <link>https://vctrsnts.github.io/2025-10-05-i3wm-sway-2/</link>
     <pubDate>Sun, 05 Oct 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-10-05-i3wm-sway-2/</guid>
+    <guid>https://vctrsnts.github.io/2025-10-05-i3wm-sway-2/</guid>
     
     
     <category term="sway" />
@@ -53,10 +65,10 @@
 </item>
 <item>
     <title>Cambiamos de launcher en el movil - 2</title>
-    <link>https://vctrsnts.codeberg.page/2025-09-29-cambiando-launcher-2/</link>
+    <link>https://vctrsnts.github.io/2025-09-29-cambiando-launcher-2/</link>
     <pubDate>Mon, 29 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-09-29-cambiando-launcher-2/</guid>
+    <guid>https://vctrsnts.github.io/2025-09-29-cambiando-launcher-2/</guid>
     
     
     <category term="Android" />
@@ -66,10 +78,10 @@
 </item>
 <item>
     <title>De i3WM ( X11 ) a Sway ( Wayland ) - 1</title>
-    <link>https://vctrsnts.codeberg.page/2025-09-15-i3wm-sway-1/</link>
+    <link>https://vctrsnts.github.io/2025-09-15-i3wm-sway-1/</link>
     <pubDate>Fri, 12 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-09-15-i3wm-sway-1/</guid>
+    <guid>https://vctrsnts.github.io/2025-09-15-i3wm-sway-1/</guid>
     
     
     <category term="sway" />
@@ -79,10 +91,10 @@
 </item>
 <item>
     <title>Cambiamos de launcher en el movil - 1</title>
-    <link>https://vctrsnts.codeberg.page/2025-09-11-cambiando-launcher-1/</link>
+    <link>https://vctrsnts.github.io/2025-09-11-cambiando-launcher-1/</link>
     <pubDate>Wed, 10 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-09-11-cambiando-launcher-1/</guid>
+    <guid>https://vctrsnts.github.io/2025-09-11-cambiando-launcher-1/</guid>
     
     
     <category term="Android" />
@@ -91,10 +103,10 @@
 </item>
 <item>
     <title>Mis tips en Debian GNU/Linux</title>
-    <link>https://vctrsnts.codeberg.page/2025-07-08-tips-debian/</link>
+    <link>https://vctrsnts.github.io/2025-07-08-tips-debian/</link>
     <pubDate>Tue, 08 Jul 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-07-08-tips-debian/</guid>
+    <guid>https://vctrsnts.github.io/2025-07-08-tips-debian/</guid>
     
     
     <category term="Debian GNU/Linux" />
@@ -103,27 +115,15 @@
 </item>
 <item>
     <title>Restic &#43; Backrest &#43; MiniO - 3</title>
-    <link>https://vctrsnts.codeberg.page/2025-05-23-restic-copias-locales-3/</link>
+    <link>https://vctrsnts.github.io/2025-05-23-restic-copias-locales-3/</link>
     <pubDate>Mon, 30 Jun 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-05-23-restic-copias-locales-3/</guid>
+    <guid>https://vctrsnts.github.io/2025-05-23-restic-copias-locales-3/</guid>
     
     
     <category term="unRAID" />
     
     <description><![CDATA[<p>Este sera el tercer y utlimo articulo (en principio), donde explico la manera en que se estoy realizando mis copias de seguridad. Seguramente hay metodos mejores, pero este es el que mejor se adapta a mis necesidades. Tal como dije en el anterior <a href="/2025-05-22-restic-copias-locales-2" rel="">articulo</a>, unicamente me faltaba realizar la configuración de las copias de seguridad a mi servidor externo (VPS), pero antes de meternos de lleno con este tema.</p>]]></description>
-</item>
-<item>
-    <title>Usando HomePage. El Dashboard - 3</title>
-    <link>https://vctrsnts.codeberg.page/2025-06-20-usando-homepage-3/</link>
-    <pubDate>Sat, 21 Jun 2025 00:00:00 &#43;0000</pubDate>
-    <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-06-20-usando-homepage-3/</guid>
-    
-    
-    <category term="unRAID" />
-    
-    <description><![CDATA[<p>Un nuevo articulo hablando sobre <strong>homepage</strong>, este magnifico <em>dashboard</em> al que le tengo mucho cariño y que hace un tiempo, realizo una actualización en su configuración y que en mi caso, usuario de portatil no me funcionaba correctamente, porque las <strong>5 columnas</strong> que yo utilizo no se veian correctamente, abri un <em>issue</em> sobre este problema y parece ser que con la ultima actualización, ha solucionado este problema y ahora explicare como lo he hecho.</p>]]></description>
 </item>
 </channel>
 </rss>
