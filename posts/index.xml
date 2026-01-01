@@ -1,14 +1,26 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Todos los Artículos - Si lo haces, hazlo bien!</title>
-        <link>https://vctrsnts.codeberg.page/posts/</link>
+        <link>https://vctrsnts.github.io/posts/</link>
         <description>Todos los Artículos | Si lo haces, hazlo bien!</description>
-        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Sun, 28 Dec 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.codeberg.page/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Thu, 01 Jan 2026 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Propositos 2026</title>
+    <link>https://vctrsnts.github.io/2026-01-01-propositos-2026/</link>
+    <pubDate>Thu, 01 Jan 2026 00:00:00 &#43;0000</pubDate>
+    <author>vsantos</author>
+    <guid>https://vctrsnts.github.io/2026-01-01-propositos-2026/</guid>
+    
+    
+    <category term="Blog" />
+    
+    <description><![CDATA[<p>En estos primeros dias de año y que me gustaria conversar en los venideros, es poner un listado de las cosas que me gustaria conseguir este año con referencia a mi servidor, docker, etc&hellip; O sea, todo lo que tiene que ver con el mundo de la tecnologia y la informatica.</p>]]></description>
+</item>
+<item>
     <title>Mis aplicaciones por defecto 2025</title>
-    <link>https://vctrsnts.codeberg.page/2025-12-28-aplicaciones-2025/</link>
+    <link>https://vctrsnts.github.io/2025-12-28-aplicaciones-2025/</link>
     <pubDate>Sun, 28 Dec 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-12-28-aplicaciones-2025/</guid>
+    <guid>https://vctrsnts.github.io/2025-12-28-aplicaciones-2025/</guid>
     
     
     <category term="Debian GNU/Linux" />
@@ -17,10 +29,10 @@
 </item>
 <item>
     <title>Podcast 2025. Resumen</title>
-    <link>https://vctrsnts.codeberg.page/2025-12-25-podcast-2025/</link>
+    <link>https://vctrsnts.github.io/2025-12-25-podcast-2025/</link>
     <pubDate>Mon, 22 Dec 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-12-25-podcast-2025/</guid>
+    <guid>https://vctrsnts.github.io/2025-12-25-podcast-2025/</guid>
     
     
     <category term="Blog" />
@@ -29,10 +41,10 @@
 </item>
 <item>
     <title>Migrando a Codeberg</title>
-    <link>https://vctrsnts.codeberg.page/2025-12-03-migrando-codeberg/</link>
+    <link>https://vctrsnts.github.io/2025-12-03-migrando-codeberg/</link>
     <pubDate>Wed, 03 Dec 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-12-03-migrando-codeberg/</guid>
+    <guid>https://vctrsnts.github.io/2025-12-03-migrando-codeberg/</guid>
     
     
     <category term="Blog" />
@@ -41,10 +53,10 @@
 </item>
 <item>
     <title>Hola Arch Linux. Adios Debian GNU/Linux - 1</title>
-    <link>https://vctrsnts.codeberg.page/2025-11-04-arch-debian-1/</link>
+    <link>https://vctrsnts.github.io/2025-11-04-arch-debian-1/</link>
     <pubDate>Tue, 04 Nov 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-11-04-arch-debian-1/</guid>
+    <guid>https://vctrsnts.github.io/2025-11-04-arch-debian-1/</guid>
     
     
     <category term="hyprland" />
@@ -53,10 +65,10 @@
 </item>
 <item>
     <title>De i3WM ( X11 ) a Sway ( Wayland ) - 3</title>
-    <link>https://vctrsnts.codeberg.page/2025-10-15-i3wm-sway-3/</link>
+    <link>https://vctrsnts.github.io/2025-10-15-i3wm-sway-3/</link>
     <pubDate>Wed, 15 Oct 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-10-15-i3wm-sway-3/</guid>
+    <guid>https://vctrsnts.github.io/2025-10-15-i3wm-sway-3/</guid>
     
     
     <category term="sway" />
@@ -65,10 +77,10 @@
 </item>
 <item>
     <title>De i3WM ( X11 ) a Sway ( Wayland ) - 2</title>
-    <link>https://vctrsnts.codeberg.page/2025-10-05-i3wm-sway-2/</link>
+    <link>https://vctrsnts.github.io/2025-10-05-i3wm-sway-2/</link>
     <pubDate>Sun, 05 Oct 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-10-05-i3wm-sway-2/</guid>
+    <guid>https://vctrsnts.github.io/2025-10-05-i3wm-sway-2/</guid>
     
     
     <category term="sway" />
@@ -77,10 +89,10 @@
 </item>
 <item>
     <title>Cambiamos de launcher en el movil - 2</title>
-    <link>https://vctrsnts.codeberg.page/2025-09-29-cambiando-launcher-2/</link>
+    <link>https://vctrsnts.github.io/2025-09-29-cambiando-launcher-2/</link>
     <pubDate>Mon, 29 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-09-29-cambiando-launcher-2/</guid>
+    <guid>https://vctrsnts.github.io/2025-09-29-cambiando-launcher-2/</guid>
     
     
     <category term="Android" />
@@ -90,10 +102,10 @@
 </item>
 <item>
     <title>De i3WM ( X11 ) a Sway ( Wayland ) - 1</title>
-    <link>https://vctrsnts.codeberg.page/2025-09-15-i3wm-sway-1/</link>
+    <link>https://vctrsnts.github.io/2025-09-15-i3wm-sway-1/</link>
     <pubDate>Fri, 12 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-09-15-i3wm-sway-1/</guid>
+    <guid>https://vctrsnts.github.io/2025-09-15-i3wm-sway-1/</guid>
     
     
     <category term="sway" />
@@ -103,27 +115,15 @@
 </item>
 <item>
     <title>Cambiamos de launcher en el movil - 1</title>
-    <link>https://vctrsnts.codeberg.page/2025-09-11-cambiando-launcher-1/</link>
+    <link>https://vctrsnts.github.io/2025-09-11-cambiando-launcher-1/</link>
     <pubDate>Wed, 10 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-09-11-cambiando-launcher-1/</guid>
+    <guid>https://vctrsnts.github.io/2025-09-11-cambiando-launcher-1/</guid>
     
     
     <category term="Android" />
     
     <description><![CDATA[<p>De nuevo con más articulos después de unas largas y merecidas vacaciones. Este articulo, se va a parecer mucho a unos que escribio hace tiempo <a href="https://ugeek.github.io" target="_blank" rel="noopener noreffer ">uGeek</a> donde hablaba de los <a href="https://ugeek.github.io/blog/post/2020-12-30-launchers-opensource-para-android.html" target="_blank" rel="noopener noreffer ">launchers</a> que le gustaban o que habia probado o que estaba usando actualmente en su movil. Tambien estaba este <a href="https://ugeek.github.io/post/2021-06-22-fritter-y-kiss.html" target="_blank" rel="noopener noreffer ">podcast</a> donde hablaba de <a href="https://github.com/Neamar/KISS" target="_blank" rel="noopener noreffer ">KISS Launcher</a>.</p>]]></description>
-</item>
-<item>
-    <title>Mis tips en Debian GNU/Linux</title>
-    <link>https://vctrsnts.codeberg.page/2025-07-08-tips-debian/</link>
-    <pubDate>Tue, 08 Jul 2025 00:00:00 &#43;0000</pubDate>
-    <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-07-08-tips-debian/</guid>
-    
-    
-    <category term="Debian GNU/Linux" />
-    
-    <description><![CDATA[<p>En mi búsqueda por el ancho y basto oceano de internet por mejorar mi configuración en <strong>Debian GNU/Linux</strong>, encontré unos tips que me resultaron muy útiles y decidí compartirlos por si a alguien más le sirven.</p>]]></description>
 </item>
 </channel>
 </rss>
