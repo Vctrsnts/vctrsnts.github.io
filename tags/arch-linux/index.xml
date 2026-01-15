@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Arch Linux on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/tags/arch-linux/</link>
+    <link>https://vctrsnts.codeberg.page/tags/arch-linux/</link>
     <description>Recent content in Arch Linux on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Thu, 15 Jan 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/tags/arch-linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.codeberg.page/tags/arch-linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Instalar Qemu y VirtManager en Arch - 1</title>
-      <link>https://vctrsnts.github.io/2026-01-15-qemu-virtmanager-1/</link>
+      <link>https://vctrsnts.codeberg.page/2026-01-15-qemu-virtmanager-1/</link>
       <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2026-01-15-qemu-virtmanager-1/</guid>
+      <guid>https://vctrsnts.codeberg.page/2026-01-15-qemu-virtmanager-1/</guid>
       <description>&lt;p&gt;Este articulo es más un resumen o unos apuntes para mi, de como se hace la instalación de &lt;strong&gt;Qemu&lt;/strong&gt; y &lt;strong&gt;VirtManager&lt;/strong&gt; en &lt;strong&gt;Arch&lt;/strong&gt;, basado en este &lt;a href=&#34;https://www.youtube.com/watch?v=HN-krqqblOA&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;video&lt;/a&gt; que podeis encontrar en &lt;strong&gt;Youtube&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Nunca se sabe si puede desaparecer o no, pero yo me lo guardo, por si acaso.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hola Arch Linux. Adios Debian GNU/Linux - 1</title>
-      <link>https://vctrsnts.github.io/2025-11-04-arch-debian-1/</link>
+      <link>https://vctrsnts.codeberg.page/2025-11-04-arch-debian-1/</link>
       <pubDate>Tue, 04 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2025-11-04-arch-debian-1/</guid>
+      <guid>https://vctrsnts.codeberg.page/2025-11-04-arch-debian-1/</guid>
       <description>&lt;p&gt;Todas las despedidas son amargas. Siento decirlo, pero 😭 asi no, Debian GNU/Linux me has fallado. Nuestra relación de más de 25 años no tendria que haber acabado de esta manera. Tan abrupta y repentinamente.&lt;/p&gt;</description>
     </item>
   </channel>
