@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Instalar Qemu y VirtManager en Arch - 1 - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta property="og:image" content="/images/logo_post.jpg" >
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://vctrsnts.github.io/2026-01-15-qemu-virtmanager-1/" /><link rel="prev" href="https://vctrsnts.github.io/2026-01-01-propositos-2026/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Instalar Qemu y VirtManager en Arch - 1",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/vctrsnts.github.io\/2026-01-15-qemu-virtmanager-1\/"
+        },"image": ["https:\/\/vctrsnts.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Arch Linux, Qemu, VirtManager","wordcount":  913 ,
+        "url": "https:\/\/vctrsnts.github.io\/2026-01-15-qemu-virtmanager-1\/","datePublished": "2026-01-15T00:00:00+00:00","dateModified": "2026-01-15T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/vctrsnts.github.io\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Instalar Qemu y VirtManager en Arch - 1</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/arch-linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Arch Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="15-01-2026">15-01-2026</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;913 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Este articulo es más un resumen o unos apuntes para mi, de como se hace la instalación de <strong>Qemu</strong> y <strong>VirtManager</strong> en <strong>Arch</strong>, basado en este <a href="https://www.youtube.com/watch?v=HN-krqqblOA" target="_blank" rel="noopener noreffer ">video</a> que podeis encontrar en <strong>Youtube</strong>.</p>
+<p>Nunca se sabe si puede desaparecer o no, pero yo me lo guardo, por si acaso.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Antes de empezar lo primero es agradecer a <a href="https://www.youtube.com/@Ruben-Linux" target="_blank" rel="noopener noreffer ">Ruben</a> por este excelente guia de instalación.</div>
+        </div>
+    </div>
+<p>Desde hace mucho tiempo, he estado usando <a href="https://www.virtualbox.org" target="_blank" rel="noopener noreffer ">VirtualBox</a>, pero ultimamente con tanto cambio de equipo, habia empezado a notar, que la temperatura de la CPU (incluso con un <strong>Xeon</strong>) era un poco alta, por no decir, más de lo normal, a la hora de utilizar este programa para virtualizar.</p>
+<p>Desde hace un par de semanas, supongo que como tengo <strong>Arch</strong>, me voy fijando más en todas las noticias que hacen referencia a este sistema, habia escuchado a miembros del canal de telegram de <a href="https://t.me/atareao_con_linux/37878" target="_blank" rel="noopener noreffer ">atareao</a> donde se comentaba, que habian notado una gran mejora a la hora de usar <strong>Qemu</strong> en comparación de <strong>VirtualBox</strong>.</p>
+<p>Me puse a buscar información de que habia de cierto en esto, además, de buscar tambien, como se realiza la instalación en <strong>Arch</strong> y me encontre este estupendo <a href="https://www.youtube.com/watch?v=HN-krqqblOA" target="_blank" rel="noopener noreffer ">video</a>, donde esta explicado todo perfectamente y muy facilmente de seguir. Pero como ya he dicho antes, me apunto las instrucciones, porque nunca sabes que puede pasar.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Lo que si que puedo decir, es que pasadas ya unas cuantas semanas que llevo usando <em>Qemu</em>, puedo decir que si que se hay una diferencia en el consumo de recursos entre <em>Qemu</em> y <em>VirtualBox</em>.</div>
+        </div>
+    </div>
+<p>Después de esta pequeña introducción, ahora pasamos a lo más importante, como se realiza la instalación.</p>
+<h3 id="capacidad-de-virtualización-de-nuestra-cpu">Capacidad de virtualización de nuestra CPU</h3>
+<p>Con esta instrucción, sabemos el numero de nucleos que tiene nuestro procesador con capacidad de virtualización. A mayor numero, mejor nos ira.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ grep -Ec <span class="s1">&#39;(vmx|svm)&#39;</span> /proc/cpuinfo  </span></span></code></pre></div></div>
+<h3 id="instalación">Instalación</h3>
+<p>Ahora viene la parte más importante, la instalación en si de <strong>Qemu</strong> y <strong>VirtManager</strong> más todo lo necesario, yo uso la siguiente instrucción:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ update
+</span></span><span class="line"><span class="cl">usuari@archlinux:~/ install virt-manager virt-viewer qemu vde2 iptables-nft nftables dnsmasq bridge-utils swtpm</span></span></code></pre></div></div>
+<p>Aqui hay que tener en cuentas 2 cosas:</p>
+<ul>
+<li>Yo tengo un alias para la actualización de paquetes - <strong>update</strong> (<code>sudo pacman -Syy</code>) y otra para instalación - <strong>install</strong> (<code>sudo pacman -S</code>).</li>
+<li>A la hora de instalar <strong>qemu</strong>, os pedira si queris instalar <strong>1) qemu-base</strong>, <strong>2) qemu-desktop</strong> o <strong>3) qemu-full</strong>, en mi caso he probado la opción <strong>2</strong> y la opción <strong>3</strong> y al final escogi la opción <strong>2</strong>. Pero es mi elección.</li>
+<li>Tambien os puede aparecer un mensaje donde indique <code>iptable-nft y iptables estan en conflicto. Quitar iptables [s/N]</code>, se tiene que escoger la opción <strong>S</strong>.</li>
+</ul>
+<p>Tambien se puede dar el caso, de que haga falta instalar los siguientes paquetes:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ install openbsd-netcat demicode iptables libguestfs </span></span></code></pre></div></div>
+<p>Pero a mi no me hizo falta instalarlos.</p>
+<h3 id="configuración-de-libvirt">Configuración de libvirt</h3>
+<p>Ahora procedemos a la modificación del archivo <code>/etc/libvirt/libvird.conf</code> de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ sudo nano /etc/libvirt/libvirtd.conf</span></span></code></pre></div></div>
+<p>Buscamos las opciones <code>unix_sock_group</code> y la opción <code>unix_sock_rw_perms</code> y quitamos la almohadilla <strong>#</strong>, quedando de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">unix_sock_group</span> <span class="o">=</span> <span class="s2">&#34;libvirt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">unix_sock_rw_perms</span> <span class="o">=</span> <span class="s2">&#34;0770&#34;</span></span></span></code></pre></div></div>
+<h3 id="añadimos-nuestro-usuario-al-group-kvm-y-libvirt">Añadimos nuestro usuario al group kvm y libvirt</h3>
+<p>No hace falta explicar mucha cosa de este paso</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ sudo usermod -a -G kvm,libvirt <span class="k">$(</span>whoami<span class="k">)</span>
+</span></span><span class="line"><span class="cl">usuari@archlinux:~/ newgrp libvirt</span></span></code></pre></div></div>
+<h3 id="activamos-el-servicio">Activamos el servicio</h3>
+<p>No hace falta explicar mucha cosa de este paso</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ sudo systemctl <span class="nb">enable</span> libvirtd.service
+</span></span><span class="line"><span class="cl">usuari@archlinux:~/ sudo systemctl start libvirtd.service
+</span></span><span class="line"><span class="cl">usuari@archlinux:~/ sudo systemctl status libvirtd.service</span></span></code></pre></div></div>
+<p>En la ultima instrucción, lo unico importante, es que ponga <strong>active running</strong>, si es asi, todo esta funcionando correctamente. Sino, es que tenemos un problema.</p>
+<h3 id="configuración-de-qemuconf">Configuración de qemu.conf</h3>
+<p>Ahora pasamos a configurar el archivo <code>/etc/libvirt/qemu.con</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ sudo nano /etc/libvirt/qemu.conf</span></span></code></pre></div></div>
+<p>Donde tenemos que buscar las opciones <code>user</code> y <code>group</code> y tenemos que poner nuestro nombre de usuario. Esto sirve, para que nuestro usuario pueda funcionar correctamente con <strong>qemu</strong>, quedando de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">user</span> <span class="o">=</span> <span class="s2">&#34;your username&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">group</span> <span class="o">=</span> <span class="s2">&#34;your username&#34;</span></span></span></code></pre></div></div>
+<h3 id="reiniciar-el-servicio-libvirtd">Reiniciar el servicio libvirtd</h3>
+<p>No hace falta explicar mucha cosa de este paso</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ sudo systemctl restart libvirtd</span></span></code></pre></div></div>
+<h3 id="crear-red-para-qemu">Crear red para qemu</h3>
+<p>Lo que hacemos a continución, es crear una red, para que la podamos usar en nuestras virtualizaciones que llamamos <strong>default</strong>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ sudo virsh net-autostart default</span></span></code></pre></div></div>
+<h3 id="reiniciar-el-sistema">Reiniciar el sistema</h3>
+<p>No hace falta explicar mucha cosa de este paso</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ sudo reboot</span></span></code></pre></div></div>
+<p>A continuación, voy a explicar como se tiene que activar la funcionalidad de poder virtualizar una maquina dentro de otra maquina que ya estamos virtualizando. No le encuentro ningun sentido a esta opción, porque es consumir recursos de un sistema virtualizado para virtualizar otro 🤨.</p>
+<h3 id="habilitar-virtualización-anidada">Habilitar virtualización anidada</h3>
+<p>La función de virtualización anidada le permite ejecutar máquinas virtuales dentro de una VM. Habilite la virtualización anidada kvm_intel / kvm_amd habilitando el módulo del kernel como se muestra.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ sudo modprobe -r kvm_intel
+</span></span><span class="line"><span class="cl">usuari@archlinux:~/ sudo modprobe kvm_intel <span class="nv">nested</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">usuari@archlinux:~/ <span class="nb">echo</span> <span class="s2">&#34;options kvm_intel nested=1&#34;</span> <span class="p">|</span> sudo tee /etc/modprobe.d/kvm-intel.conf</span></span></code></pre></div></div>
+<p>Para verificar que funciona correctamente, se hace a traves de la siguiente instrucción:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ systool -m kvm_intel -v <span class="p">|</span> grep nested
+</span></span><span class="line"><span class="cl">usuari@archlinux:~/ cat /sys/module/kvm_intel/parameters/nested</span></span></code></pre></div></div>
+<p>En el caso de que tengamos un procesador <strong>AMD</strong> en vez de <strong>Intel</strong>, lo unico que se tiene que hacer es substituir <strong>kvm_intel</strong> por <strong>kvm_amd</strong>, quedando de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ sudo modprobe -r kvm_amd
+</span></span><span class="line"><span class="cl">usuari@archlinux:~/ sudo modprobe kvm_amd <span class="nv">nested</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">usuari@archlinux:~/ <span class="nb">echo</span> <span class="s2">&#34;options kvm_amd nested=1&#34;</span> <span class="p">|</span> sudo tee /etc/modprobe.d/kvm-amd.conf</span></span></code></pre></div></div>
+<p>Espero que esto os sirva de ayuda. Ya os digo que a mi si, porque este articulo lo guardare como oro en paño 😀.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://www.youtube.com/@Ruben-Linux" target="_blank" rel="noopener noreffer ">Ruben</a></li>
+<li><a href="https://www.youtube.com/watch?v=HN-krqqblOA" target="_blank" rel="noopener noreffer ">Instalación de Qemu, KVM y Virt Manager en Arch Linux</a></li>
+<li><a href="https://www.virtualbox.org" target="_blank" rel="noopener noreffer ">VirtualBox</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 15-01-2026</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/arch-linux/">Arch Linux</a>,&nbsp;<a href="/tags/qemu/">Qemu</a>,&nbsp;<a href="/tags/virtmanager/">VirtManager</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2026-01-01-propositos-2026/" class="prev" rel="prev" title="Propositos 2026"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Propositos 2026</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.154.5">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2026</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line">
+                    <a rel="me" href="https://mastodon.online/@vsantos"></a>
+                </div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46"></script></body>
+</html>
