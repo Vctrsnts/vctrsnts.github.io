@@ -41,7 +41,7 @@ networks:
       driver: default
 ```
 
-Con esto, ya tienes en funcionamiento nuestro buscador **Searxng**, pero claro, en mi caso, lo tengo en el servidor de Oracle, si quiero acceder a el, o lo hago a traves de una VPN o lo abro al mundo a traves de un proxy invero, en mi caso [Caddy]({%link _posts/2022-12-25-rpi-caddy-proxy-manager.md) y asi poder acceder a el desde cualquier parte del mundo. Yo ahora mismo lo estoy usando tanto en mi ordenador personal, como en mi movil.
+Con esto, ya tienes en funcionamiento nuestro buscador **Searxng**, pero claro, en mi caso, lo tengo en el servidor de Oracle, si quiero acceder a el, o lo hago a traves de una VPN o lo abro al mundo a traves de un proxy invero, en mi caso [Caddy](/2022-12-25-rpi-caddy-proxy-manager) y asi poder acceder a el desde cualquier parte del mundo. Yo ahora mismo lo estoy usando tanto en mi ordenador personal, como en mi movil.
 
 Después de configurar **Caddy** para que nos de acceso al contenedor y accedamos a el por primera vez, tenemos que configurar el buscador (orden de prioridad de los buscadores, selección de imagenes, etc...). Tienes mil opciones con las que jugar.
 
