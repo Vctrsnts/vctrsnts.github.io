@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SystemD on Si lo haces, hazlo bien!</title>
+    <link>https://vctrsnts.github.io/tags/systemd/</link>
+    <description>Recent content in SystemD on Si lo haces, hazlo bien!</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Tue, 27 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://vctrsnts.github.io/tags/systemd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mi primera incidencia en Arch Linux</title>
+      <link>https://vctrsnts.github.io/2026-01-27-arch-incidencia/</link>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2026-01-27-arch-incidencia/</guid>
+      <description>&lt;p&gt;Pensaba que iba a ser uno de los pocos elegidos que nunca iba a tener problemas con Arch Linux, pero ya os puedo decir que he dejado de ser uno, por hacer la tonteria más grande que nunca me ha pasado. Y esta ha sido borrar &lt;strong&gt;SystemD&lt;/strong&gt; y he impidiendo que se pudiera iniciar el sistema.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
