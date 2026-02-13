@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Samba on Si lo haces, hazlo bien!</title>
+    <link>https://vctrsnts.github.io/tags/samba/</link>
+    <description>Recent content in Samba on Si lo haces, hazlo bien!</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Thu, 12 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://vctrsnts.github.io/tags/samba/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Instalar Qemu y VirtManager en Arch - 2</title>
+      <link>https://vctrsnts.github.io/2026-02-12-qemu-virtmanager-2/</link>
+      <pubDate>Thu, 12 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://vctrsnts.github.io/2026-02-12-qemu-virtmanager-2/</guid>
+      <description>&lt;p&gt;En este segundo articulo, explicaremos un poco como me voy adaptando a usar &lt;em&gt;VirtManager&lt;/em&gt; en vez de &lt;em&gt;VirtualBox&lt;/em&gt; y las modificaciones que he tenido que hacer en mi flujo de trabajo con respecto al usar &lt;em&gt;VirtManager&lt;/em&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

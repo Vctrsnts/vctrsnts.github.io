@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Instalar Qemu y VirtManager en Arch - 2 - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta property="og:image" content="/images/logo_post.jpg" >
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://vctrsnts.github.io/2026-02-12-qemu-virtmanager-2/" /><link rel="prev" href="https://vctrsnts.github.io/2026-01-27-arch-incidencia/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Instalar Qemu y VirtManager en Arch - 2",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/vctrsnts.github.io\/2026-02-12-qemu-virtmanager-2\/"
+        },"image": ["https:\/\/vctrsnts.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Arch Linux, Qemu, VirtManager, Samba","wordcount":  896 ,
+        "url": "https:\/\/vctrsnts.github.io\/2026-02-12-qemu-virtmanager-2\/","datePublished": "2026-02-12T00:00:00+00:00","dateModified": "2026-02-12T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/vctrsnts.github.io\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Instalar Qemu y VirtManager en Arch - 2</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/arch-linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Arch Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="12-02-2026">12-02-2026</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;896 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>En este segundo articulo, explicaremos un poco como me voy adaptando a usar <em>VirtManager</em> en vez de <em>VirtualBox</em> y las modificaciones que he tenido que hacer en mi flujo de trabajo con respecto al usar <em>VirtManager</em>.</p>
+<p>Hay que partir de la base que el uso de le doy yo a <em>VirtManager</em> es muy basico, esto se debe, a que no he encontrado alternativas que me guste a las diferentes aplicaciones que uso.</p>
+<p>Además, como no quiero usar muchos recursos para esto, pueso como sistema operativo que virtualizo es principalmente un <em>Windows XP</em>, y porque no funcionan correctamente con <em>Windows 2000</em>, porque sino 😀. Si lo siento, soy un nostalgico con respecto a los <em>SO</em>.</p>
+<p>Las aplicaciones a las que me refiero, son las siguientes:</p>
+<ul>
+<li><strong>mp3Tag</strong> → Para modificar la información de los archivos de musica.</li>
+<li><strong>PDFSam</strong> → Para unificar archivos de PDF. Seguramente en Arch hay alguno mejor, pero estoy acostumbrado a este.</li>
+<li><strong>IrfanView</strong> → Para gestionar imagenes. No he encontrado ninguno que lo supere.</li>
+<li><strong>TransmissionGui</strong> → Me gusta tenerlo para emergencias cuando el acceso por web no funciona.</li>
+<li><strong>aMuleGUI</strong> → Para gestionar la descarga de ISO&rsquo;s de mis distribuciones favoritas.</li>
+</ul>
+<p>Muchos pensareis, que la mayoria de las aplicaciones que uso, se podrian encontrar en <strong>Arch Linux</strong>, pero es que me gustan estas y estoy tan habituado a usarlas, además, son tan simples que no requieren mucho esfuerzo 😆.</p>
+<p>Pero es aqui donde esta el problema principal, que tener directorios compartidos entre Arch Linux o cualquier otro <em>GNU/Linux</em> y <em>VirtManager</em> no se hace de la misma manera que con <em>VirtualBox</em>, y por eso tuve que buscarme una alternativa funcional viendo que las opciones que tiene <em>VirtManager</em> con <em>Windows XP</em> no funcionan, por ser un sistema operativo muy antiguo.</p>
+<p>Y no encontra una mejor manera que a traves de <em>SAMBA</em>.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Habiendo miles de manuales para la instalación de <em>Samba</em>, como vengo aqui a crear un nuevo articulo con la instalación y configuración de Samba en Arch, pero como siempre he dicho, este es mi almacen particular del conocimiento, para que, llegado el momento, lo tengo que volver a hacer, encontrar mas facilmente la información de como se hace y si además, os puede servir de ayuda, mejor que mejor 😀.</div>
+        </div>
+    </div>
+<p>Ahora vayamos a lo más importante, la instalación y configuración de <em>Samba</em> en <em>Arch Linux</em> para poderlo usar en <em>Windows XP</em>.</p>
+<h3 id="instalación-de-samba-en-arch-linux">Instalación de Samba en Arch Linux</h3>
+<p>Es lo más facil de todo y se hace de la siguiente manera:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ sudo pacman -S samba</span></span></code></pre></div></div>
+<p>Una vez tenemos <em>samba</em> instalado, pasamos a crear el directorio que compartiremos con <em>Windows XP</em>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ mkdir -p /home/usuario/Compartida
+</span></span><span class="line"><span class="cl">usuari@archlinux:~/ chmod <span class="m">777</span> /home/usuario/Compartida</span></span></code></pre></div></div>
+<h3 id="configuración-de-samba">Configuración de Samba</h3>
+<p>Es tambien, facil de hacer, solamente se tiene que modificar el archivo <code>/etc/samba/smb.conf</code>, en mi caso al final del archivo he añadido lo siguiente:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="p">[</span><span class="l">global]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="l">workgroup = WORKGROUP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="l">map to guest = Bad User</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="l">interfaces = lo virbr0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="l">bind interfaces only = yes</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">[</span><span class="l">Compartida]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="l">path = /home/usuari/Compartida</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="l">browseable = yes</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="l">read only = no</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="l">guest ok = yes</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="l">force user = usuari</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="l">create mask = 0664</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="l">directory mask = 0775</span></span></span></code></pre></div></div>
+<p>Donde:</p>
+<ul>
+<li><code>guest ok = yes</code> → permite acceso sin usuario/contraseña.</li>
+<li><code>interfaces</code> → limita Samba a escuchar solo en la interfaz de <strong>lo</strong> y en la red virtual <strong>NAT</strong>.</li>
+</ul>
+<h3 id="habilitar-y-arrancar-los-servicios">Habilitar y arrancar los servicios</h3>
+<p>Una vez ya hemos configurado nuestro archivo para <em>samba</em>, pasamos a habilitar e iniciar los servicios de <em>samba</em>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ sudo systemctl <span class="nb">enable</span> --now smb nmb
+</span></span><span class="line"><span class="cl"><span class="c1"># Verificar que Samba está activo:</span>
+</span></span><span class="line"><span class="cl">usuari@archlinux:~/ systemctl status smb
+</span></span><span class="line"><span class="cl">usuari@archlinux:~/ systemctl status nmb
+</span></span><span class="line"><span class="cl"><span class="c1"># reiniciamos los servicios</span>
+</span></span><span class="line"><span class="cl">usuari@archlinux:~/ sudo systemctl restart smb nmb</span></span></code></pre></div></div>
+<h3 id="configuración-de-virt-manager">Configuración de virt-manager</h3>
+<p>Ahora nos vamos a realizar la configuración en <em>VirtManager</em>:</p>
+<ul>
+<li>Abrir virt-manager y seleccionar tu máquina virtual.</li>
+<li>Ir a Detalles → <code>NIC (Interfaz de red)</code>.
+<ul>
+<li>Asegurarte de que la Fuente de red está configurada como <code>Virtual network 'default': NAT</code></li>
+</ul>
+</li>
+</ul>
+<p>Con <em>NAT</em>, la VM tiene acceso a Internet y puede ver al host en la dirección <code>10.0.2.2</code>.</p>
+<h3 id="acceso-desde-windows-xp-invitado">Acceso desde Windows XP invitado</h3>
+<ul>
+<li>En el explorador de archivos de Windows, escribe en la barra de direcciones <code>\\10.0.2.1\Compartida</code>
+<ul>
+<li>La ip depende de como tengas configurado tu maquina virtual y la que le haya dado <em>Virt-Manager</em> a tu maquina virtual, unicamente tienes que saber que para acceder al directorio compartido tienes que poner la IP de tu maquina (local) dentro de esta red fictica, siendo esta <code>1</code>.</li>
+</ul>
+</li>
+<li>Si configuraste <code>guest ok = yes</code> entrarás directamente.
+<ul>
+<li>En el caso de que quieras acceso con usuario y contraseña, se tiene que hacer lo siguiente:</li>
+</ul>
+</li>
+</ul>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ sudo smbpasswd -a usuari</span></span></code></pre></div></div>
+<ul>
+<li>Modifica el bloque en <code>smb.conf</code> añadiendo lo siguiente <code>valid users = usuario</code></li>
+<li>Ahora podrás copiar y pegar archivos entre el host Arch Linux y el invitado Windows.</li>
+</ul>
+<h3 id="hablemos-de-seguridad">Hablemos de seguridad</h3>
+<p>Si usamos <strong>NAT</strong>, el recurso compartido solo podra ser accesible desde la maquina virtual, no desde la red externa. Además, si quieres puedes añadir más seguridad para que <em>samba</em> solo <em>escuche</em> las peticiones que le vengan de <em>lo</em> y de <em>virbr0</em> y que no se exponga a tu <em>LAN</em>.</p>
+<p>Esto se consigue añadiendo lo siguiente <code>interfaces = lo virbr0</code> en el fichero de configuración de <em>samba</em>.</p>
+<p>De esta manera, tenemos ya configurado nuestro <em>samba</em> para poderlo usar, en mi caso, con la maquina virtual. A lo mejor existe otro metodo mejor, pero yo no lo he encontrado. Si vosotros lo conoceis estare deseoso de aprenderlo.</p>
+<h4 id="referencia">Referencia</h4>
+<ul>
+<li><a href="https://www.youtube.com/@Ruben-Linux" target="_blank" rel="noopener noreffer ">Ruben</a></li>
+<li><a href="https://www.youtube.com/watch?v=HN-krqqblOA" target="_blank" rel="noopener noreffer ">Instalación de Qemu, KVM y Virt Manager en Arch Linux</a></li>
+<li><a href="https://www.virtualbox.org" target="_blank" rel="noopener noreffer ">VirtualBox</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 12-02-2026</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/arch-linux/">Arch Linux</a>,&nbsp;<a href="/tags/qemu/">Qemu</a>,&nbsp;<a href="/tags/virtmanager/">VirtManager</a>,&nbsp;<a href="/tags/samba/">Samba</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2026-01-27-arch-incidencia/" class="prev" rel="prev" title="Mi primera incidencia en Arch Linux"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Mi primera incidencia en Arch Linux</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.154.5">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2026</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line">
+                    <a rel="me" href="https://mastodon.online/@vsantos"></a>
+                </div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46"></script></body>
+</html>
