@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Instalar Qemu y VirtManager en Arch - 3 - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta property="og:image" content="/images/logo_post.jpg" >
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://vctrsnts.github.io/2026-02-28-qemu-virtmanager-3/" /><link rel="prev" href="https://vctrsnts.github.io/2026-02-12-qemu-virtmanager-2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Instalar Qemu y VirtManager en Arch - 3",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/vctrsnts.github.io\/2026-02-28-qemu-virtmanager-3\/"
+        },"image": ["https:\/\/vctrsnts.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Arch Linux, Qemu, VirtManager","wordcount":  819 ,
+        "url": "https:\/\/vctrsnts.github.io\/2026-02-28-qemu-virtmanager-3\/","datePublished": "2026-02-28T00:00:00+00:00","dateModified": "2026-02-28T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/vctrsnts.github.io\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Instalar Qemu y VirtManager en Arch - 3</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/arch-linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Arch Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="28-02-2026">28-02-2026</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;819 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Aqui va el tercero y ultimo articulo con respecto a <strong>Qemu</strong> y <strong>VirtManager</strong>, pero en este caso, lo explico desde la manera de usarlo como cliente de una maquina creada en <strong>unRaid</strong> y que podemos usar como si estuviera en local que es mi caso.</p>
+<p>En este caso, tal como he dicho al principio, es conectar la maquina virtual que tengo creada en mi servidor unRaid y poderla usar en mi equipo local, como si fuera otra maquina más, pero ubicada en otro sitio. A continuación os explico como lo hice y por si os puede servir de ayuda.</p>
+<p>Antes de empezar a explicar todo el proceso, teneis que saber, que <strong>unRaid</strong> utiliza <strong>KVM + libvirt</strong> para la creación de las maquinas virtuales que es muy parecido a <strong>QEMU + VirtManager</strong> en GNU/Linux, con esto se consigue que desde mi equipo con <strong>Arch Linux</strong> me pueda conectar al un servidor <strong>unRaid</strong>, como el mio y poder usar las maquinas virtuales de forma remota, manteniendo la gestión principal desde <strong>unRaid</strong>.</p>
+<h3 id="arquitectura-general">Arquitectura general</h3>
+<p>Se podria decir, que desde mi equipo local, podria llegar a tener la siguiente configuración con respecto al control de maquinas virtuales:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-text">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Equipo local (Arch Linux)
+</span></span><span class="line"><span class="cl"> └── virt-manager
+</span></span><span class="line"><span class="cl">     ├── QEMU/KVM (local)
+</span></span><span class="line"><span class="cl">     └── QEMU/KVM (unRAID remoto)
+</span></span><span class="line"><span class="cl">          └── VM Windows XP / Windows 7</span></span></code></pre></div></div>
+<p>Tambien se puede decir que:</p>
+<ul>
+<li>unRaid <strong>define y gestiona</strong> las VMs.</li>
+<li>Virt-Manager se usa como <strong>visor</strong> de las VMs.</li>
+</ul>
+<h4 id="requisitos">Requisitos</h4>
+<p>Los paquetes que vamos a necesitar son los siguientes:</p>
+<ul>
+<li>En <strong>unRaid</strong>:
+<ul>
+<li>Servició de virtualización activado. En pocas palabras, que puedas crear una VM sin problemas.</li>
+<li>Acceso por <strong>SSH</strong>.</li>
+<li>VM creada con grafica <strong>SPICE</strong> o <strong>VNC</strong>.</li>
+<li>Red en modo <strong>bridge</strong>.</li>
+</ul>
+</li>
+<li>En <strong>Arch Linux</strong>:
+<ul>
+<li>Tener instalado <strong>virt-manager</strong> y lo podemos utilizar de 2 maneras diferentes que son:
+<ul>
+<li>Como <strong>host</strong> de virtualización local.</li>
+<li>Como <strong>cliente</strong> remoto (unRaid haria de servidor).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Es importante saber distinguir entre las dos maneras, porque con cada funcionalidad requiere unos paquetes.</p>
+<h4 id="virt-manager-como-cliente-unraid">Virt-Manager como cliente (unRaid)</h4>
+<p>En este escenario, <strong>Arch Linux</strong> no ejecuta ninguna VM, sino que se conecta a <em>libvirt</em> de <em>unRaid</em> en remoto. Los paquetes que se necesitan son los siguientes:</p>
+<ul>
+<li><em>Virt-Manager</em> → Usaremos como interfaz grafica.</li>
+<li><em>Libvirt</em> → Usaremos como cliente de <em>libvirt</em> (unRaid).</li>
+<li><em>Virt-Viewer</em> → Es la consola para <em>SPICE / VNC</em>.</li>
+<li><em>Spice-GTK</em> → Sera el soporte grafica de <em>SPICE</em></li>
+<li><em>OpenSSH</em> → Que tenemos que tener instalado si es que no lo tenemos.</li>
+</ul>
+<blockquote>
+<p>En esta manera de funcionar, no nos hace falta <em>QEMU</em>, aunque es muy posible que se instale como dependencia de algun otro paquete.</p>
+</blockquote>
+<p>Una cosa que pongo, pero que no haria falta explicar, es la manera de realizar la instalación de estos paquetes:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usuari@archlinux:~/ sudo pacman -S virt-manager libvirt virt-viewer spice-gtk openssh</span></span></code></pre></div></div>
+<p>Una vez ya tenemos instalados los paquetes necesarios, procedemos a realizar la conexión mediante SSH.
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>Lo que si que tenemos que tener en cuenta, es que <strong>virt-manager</strong> asume que la conexión a traves de <em>SSH</em> se realiza por el <strong>puerto 22</strong>, en mi caso, yo tenia configurada la conexión de <em>SSH</em> (<code>./ssh/config</code>) a mi servidor <em>unRaid</em>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-ssh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code class="language-ssh" data-lang="ssh">Host unRaid
+    HostName 192.168.1.100
+    User root
+    Port 2222</code></pre></div></div>
+        </div>
+    </div></p>
+<p>Solamente nos queda realizar la conexión entre nuestro <em>cliente de Virt-Manager</em> y nuestra VM de <em>unRaid</em> y lo hacemos de la siguiente manera:</p>
+<ul>
+<li>Vamos a <strong>Archivo</strong> → <strong>Añadir conexión</strong></li>
+<li>Seleccionamos el tipo de conexión <code>QEMU/KVM</code></li>
+<li>Seleccionamos <strong>Conexión remota</strong></li>
+<li>En <strong>URI personalizada</strong> introducimos lo siguiente <code>qemu+ssh://unRaid/system</code>.
+<ul>
+<li>Yo pongo <strong>unRaid</strong> porque es como tengo identificada la conexión con el servidor, si vosotros lo teneis con otro nombre, hay que poner el vuestro.</li>
+</ul>
+</li>
+</ul>
+<h3 id="flujo-de-trabajo-recomendado">Flujo de trabajo recomendado</h3>
+<p>El procedimiento que tenemos que seguir para crear una VM en <em>unRaid</em> seria el siguiente (hay miles de articulos explicando esto, pero yo lo pongo, porque me sirve como apunte para cuando lo necesite):</p>
+<ul>
+<li>Desde la interfaz web de unRAID:
+<ul>
+<li>Crear nueva VM</li>
+<li>Definir CPU, RAM y disco</li>
+<li>Elegir BIOS (SeaBIOS / OVMF)</li>
+<li>Red en modo bridge</li>
+<li>Gráfica: <strong>SPICE</strong></li>
+<li>Vídeo: <strong>QXL</strong></li>
+<li>Audio:
+<ul>
+<li>Windows XP → <code>ac97</code></li>
+<li>Windows 7 → <code>ich9</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Toda la <strong>definición de hardware</strong> debe hacerse desde <em>unRaid</em>.</p>
+</blockquote>
+<ul>
+<li>Arrancar y usar la VM desde virt-manager
+<ul>
+<li>Conectarse al host unRAID</li>
+<li>Arrancar la VM</li>
+<li>Abrir la consola gráfica</li>
+<li>Instalar y configurar el sistema operativo</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Virt-Manager actúa únicamente como <em>Pantalla + teclado + ratón remotos</em></p>
+</blockquote>
+<p>A continuación os pongo unos consejos que he ido recogiendo a medida que he ido haciendo pruebas:</p>
+<ul>
+<li><strong>Buenas prácticas</strong>:
+<ul>
+<li>Crear y modificar las VMs desde el servidor <em>unRaid</em>.</li>
+<li>Usar <em>Virt-Manager</em> para el uso diario.</li>
+</ul>
+</li>
+<li><strong>No recomendado</strong>:
+<ul>
+<li>Crear VMs desde <em>Virt-Manager</em> en <em>unRaid</em>.</li>
+<li>Cambiar el hardware de la maquina virtual desde <em>Virt-Manager</em>.</li>
+<li>Editar el fichero <code>XML</code> manualmente.</li>
+</ul>
+</li>
+</ul>
+<p>Como resumen final, se podria decir que:</p>
+<ul>
+<li>Virt-Manager puede usarse como <strong>cliente remoto</strong></li>
+<li>No requiere el stack completo de virtualización local</li>
+<li>unRAID <strong>define y gestiona</strong> las VMs</li>
+<li>Virt-Manager <strong>se conecta y se usa</strong></li>
+<li>Es el método más limpio y estable</li>
+</ul>
+<blockquote>
+<p><strong>unRAID manda, virt-manager se usa</strong></p>
+</blockquote>
+<p>Con este articulo, doy por finalizado mis articulos con respecto a la instalación, configuración y uso de <strong>QEMU + Virt-Manager</strong> en <strong>Arch Linux</strong>.</p>
+<h4 id="referencia">Referencia</h4></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 28-02-2026</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/arch-linux/">Arch Linux</a>,&nbsp;<a href="/tags/qemu/">Qemu</a>,&nbsp;<a href="/tags/virtmanager/">VirtManager</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2026-02-12-qemu-virtmanager-2/" class="prev" rel="prev" title="Instalar Qemu y VirtManager en Arch - 2"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Instalar Qemu y VirtManager en Arch - 2</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.154.5">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2026</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line">
+                    <a rel="me" href="https://mastodon.online/@vsantos"></a>
+                </div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46"></script></body>
+</html>
