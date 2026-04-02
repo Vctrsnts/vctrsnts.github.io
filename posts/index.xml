@@ -1,14 +1,27 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Todos los Artículos - Si lo haces, hazlo bien!</title>
-        <link>https://vctrsnts.codeberg.page/posts/</link>
+        <link>https://vctrsnts.github.io/posts/</link>
         <description>Todos los Artículos | Si lo haces, hazlo bien!</description>
-        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Sat, 28 Feb 2026 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.codeberg.page/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Thu, 05 Mar 2026 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://vctrsnts.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Tengo hard-hopping</title>
+    <link>https://vctrsnts.github.io/2026-03-05-hard-hopping/</link>
+    <pubDate>Thu, 05 Mar 2026 00:00:00 &#43;0000</pubDate>
+    <author>vsantos</author>
+    <guid>https://vctrsnts.github.io/2026-03-05-hard-hopping/</guid>
+    
+    
+    <category term="Hardware" />
+    
+    <description><![CDATA[<p>Os preguntareis a que viene este articulo, porque que es eso de <strong>hard hopping</strong>.</p>
+<p>Seguramente solo conoceis el <strong>distro hopping</strong> que se conoce como el impulso de cambiar frecuentemente entre distintas distribuciones de GNU/Linux. Pero eso de <strong>hard hopping</strong> que es?</p>]]></description>
+</item>
+<item>
     <title>Instalar Qemu y VirtManager en Arch - 3</title>
-    <link>https://vctrsnts.codeberg.page/2026-02-28-qemu-virtmanager-3/</link>
+    <link>https://vctrsnts.github.io/2026-02-28-qemu-virtmanager-3/</link>
     <pubDate>Sat, 28 Feb 2026 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2026-02-28-qemu-virtmanager-3/</guid>
+    <guid>https://vctrsnts.github.io/2026-02-28-qemu-virtmanager-3/</guid>
     
     
     <category term="Arch Linux" />
@@ -17,10 +30,10 @@
 </item>
 <item>
     <title>Instalar Qemu y VirtManager en Arch - 2</title>
-    <link>https://vctrsnts.codeberg.page/2026-02-12-qemu-virtmanager-2/</link>
+    <link>https://vctrsnts.github.io/2026-02-12-qemu-virtmanager-2/</link>
     <pubDate>Thu, 12 Feb 2026 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2026-02-12-qemu-virtmanager-2/</guid>
+    <guid>https://vctrsnts.github.io/2026-02-12-qemu-virtmanager-2/</guid>
     
     
     <category term="Arch Linux" />
@@ -29,10 +42,10 @@
 </item>
 <item>
     <title>Mi primera incidencia en Arch Linux</title>
-    <link>https://vctrsnts.codeberg.page/2026-01-27-arch-incidencia/</link>
+    <link>https://vctrsnts.github.io/2026-01-27-arch-incidencia/</link>
     <pubDate>Tue, 27 Jan 2026 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2026-01-27-arch-incidencia/</guid>
+    <guid>https://vctrsnts.github.io/2026-01-27-arch-incidencia/</guid>
     
     
     <category term="Arch Linux" />
@@ -41,10 +54,10 @@
 </item>
 <item>
     <title>Instalar Qemu y VirtManager en Arch - 1</title>
-    <link>https://vctrsnts.codeberg.page/2026-01-15-qemu-virtmanager-1/</link>
+    <link>https://vctrsnts.github.io/2026-01-15-qemu-virtmanager-1/</link>
     <pubDate>Thu, 15 Jan 2026 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2026-01-15-qemu-virtmanager-1/</guid>
+    <guid>https://vctrsnts.github.io/2026-01-15-qemu-virtmanager-1/</guid>
     
     
     <category term="Arch Linux" />
@@ -54,10 +67,10 @@
 </item>
 <item>
     <title>Propositos 2026</title>
-    <link>https://vctrsnts.codeberg.page/2026-01-01-propositos-2026/</link>
+    <link>https://vctrsnts.github.io/2026-01-01-propositos-2026/</link>
     <pubDate>Thu, 01 Jan 2026 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2026-01-01-propositos-2026/</guid>
+    <guid>https://vctrsnts.github.io/2026-01-01-propositos-2026/</guid>
     
     
     <category term="Blog" />
@@ -66,10 +79,10 @@
 </item>
 <item>
     <title>Mis aplicaciones por defecto 2025</title>
-    <link>https://vctrsnts.codeberg.page/2025-12-28-aplicaciones-2025/</link>
+    <link>https://vctrsnts.github.io/2025-12-28-aplicaciones-2025/</link>
     <pubDate>Sun, 28 Dec 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-12-28-aplicaciones-2025/</guid>
+    <guid>https://vctrsnts.github.io/2025-12-28-aplicaciones-2025/</guid>
     
     
     <category term="Debian GNU/Linux" />
@@ -78,10 +91,10 @@
 </item>
 <item>
     <title>Podcast 2025. Resumen</title>
-    <link>https://vctrsnts.codeberg.page/2025-12-25-podcast-2025/</link>
+    <link>https://vctrsnts.github.io/2025-12-25-podcast-2025/</link>
     <pubDate>Mon, 22 Dec 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-12-25-podcast-2025/</guid>
+    <guid>https://vctrsnts.github.io/2025-12-25-podcast-2025/</guid>
     
     
     <category term="Blog" />
@@ -90,10 +103,10 @@
 </item>
 <item>
     <title>Migrando a Codeberg</title>
-    <link>https://vctrsnts.codeberg.page/2025-12-03-migrando-codeberg/</link>
+    <link>https://vctrsnts.github.io/2025-12-03-migrando-codeberg/</link>
     <pubDate>Wed, 03 Dec 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-12-03-migrando-codeberg/</guid>
+    <guid>https://vctrsnts.github.io/2025-12-03-migrando-codeberg/</guid>
     
     
     <category term="Blog" />
@@ -102,27 +115,15 @@
 </item>
 <item>
     <title>Hola Arch Linux. Adios Debian GNU/Linux - 1</title>
-    <link>https://vctrsnts.codeberg.page/2025-11-04-arch-debian-1/</link>
+    <link>https://vctrsnts.github.io/2025-11-04-arch-debian-1/</link>
     <pubDate>Tue, 04 Nov 2025 00:00:00 &#43;0000</pubDate>
     <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-11-04-arch-debian-1/</guid>
+    <guid>https://vctrsnts.github.io/2025-11-04-arch-debian-1/</guid>
     
     
     <category term="hyprland" />
     
     <description><![CDATA[<p>Todas las despedidas son amargas. Siento decirlo, pero 😭 asi no, Debian GNU/Linux me has fallado. Nuestra relación de más de 25 años no tendria que haber acabado de esta manera. Tan abrupta y repentinamente.</p>]]></description>
-</item>
-<item>
-    <title>De i3WM ( X11 ) a Sway ( Wayland ) - 3</title>
-    <link>https://vctrsnts.codeberg.page/2025-10-15-i3wm-sway-3/</link>
-    <pubDate>Wed, 15 Oct 2025 00:00:00 &#43;0000</pubDate>
-    <author>vsantos</author>
-    <guid>https://vctrsnts.codeberg.page/2025-10-15-i3wm-sway-3/</guid>
-    
-    
-    <category term="sway" />
-    
-    <description><![CDATA[<p>Pues llegamos al tercer y ultimo articulo donde explico la transición de <strong>I3wm</strong> a <strong>Sway</strong> y las sensaciones que estoy teniendo mientras lo uso y por ultimo mi conclusión final.</p>]]></description>
 </item>
 </channel>
 </rss>

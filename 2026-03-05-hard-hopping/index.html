@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Tengo hard-hopping - Si lo haces, hazlo bien!</title><meta name="Description" content="Hay 10 tipos de personas en el mundo. Las que saben binario y las que no">
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+<meta property="og:image" content="/images/logo_post.jpg" >
+
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://vctrsnts.github.io/2026-03-05-hard-hopping/" /><link rel="prev" href="https://vctrsnts.github.io/2026-02-28-qemu-virtmanager-3/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Tengo hard-hopping",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/vctrsnts.github.io\/2026-03-05-hard-hopping\/"
+        },"image": ["https:\/\/vctrsnts.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Hardware, AMD, Arch Linux","wordcount":  1303 ,
+        "url": "https:\/\/vctrsnts.github.io\/2026-03-05-hard-hopping\/","datePublished": "2026-03-05T00:00:00+00:00","dateModified": "2026-03-05T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "vsantos","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/vctrsnts.github.io\/images\/logo.png",
+                    "width":  129 ,
+                    "height":  129 
+                }},"author": {
+                "@type": "Person",
+                "name": "vsantos"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank"> Llibres </a><a class="menu-item" href="/tags/"> Etiquetas </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Si lo haces, hazlo bien!"><span class="header-title-pre"><i class='fa-brands fa-debian' aria-hidden='true'></i></span>Si lo haces, hazlo bien!</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="https://vsantos.envs.net" title="Llibres" rel="noopener noreffer" target="_blank">Llibres</a><a class="menu-item" href="/tags/" title="">Etiquetas</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Tengo hard-hopping</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>vsantos</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/hardware/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Hardware</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="05-03-2026">05-03-2026</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1303 palabras&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutos&nbsp;</div>
+        </div><div class="content" id="content"><p>Os preguntareis a que viene este articulo, porque que es eso de <strong>hard hopping</strong>.</p>
+<p>Seguramente solo conoceis el <strong>distro hopping</strong> que se conoce como el impulso de cambiar frecuentemente entre distintas distribuciones de GNU/Linux. Pero eso de <strong>hard hopping</strong> que es?</p>
+<p>Como tal, esta palabra, seguramente no existe, me la acabo de inventar, pero yo lo describro como el <em>impulso de cambiar frecuentemente de hardware o equipo informatico sin llegar a estar contento con lo que se tiene</em>, y eso es lo que me ha sucedido ultimamente, hasta conseguir lo que tengo actualmente y que cumplimenta todas mis espectativas, aun se podria mejorar un poco, pero el ansia ya no es tan grande.</p>
+<p>Si leeis alguno de mis articulos, recordareis que habia estado durante mucho tiempo con un <a href="/2023-01-12-problemas-y700-17isk" rel="">portatil Lenovo</a>, pero que fallecio honorablemente después de un servicio impecable. Después pase a un <a href="/2023-09-11-substitutos-portatil" rel="">ThinkCenter m910x</a> al que le habia puesto una grafica <em>Nvidia P1000</em> junto con un <em>Xeon</em> y <em>Arch Linux</em>.</p>
+<p>Este cambio pensaba que seria el definitivo, pero el sonido del ventilador siempre en funcionamiento del <em>Xeon</em>, me molestaba un poco, por no decir nada fuera un monton 🤯. Ya sabia a lo que me enfrentaba al poner esta CPU, pero no pensaba que seria tanto, incluso habiendole hecho <em>undervolt</em> y cambiarle la tapa por una para mejorar el flujo de aire en todo lo posible, pero ni aun asi, y si además añadimos que estaba usando <strong>sway</strong>, <strong>wayland</strong> y <strong>Firefox</strong>, el cual, la gestión de la GPU con <em>Nvidia</em> no es muy buena. A eso, le añades, que te cae en las manos, una oferta muy tentadora por un <strong>m920x</strong> con GPU AMD ya incorporada, pues dime tu que hubieras hecho 😉.</p>
+<p>Pero sabes esa sensación que se te queda en el cuerpo, que aun te falta algo, pues asi me sentia. Asi que sin quererlo, no se si fue la suerte, o que estaba predestinado, me volvio a caer entre manos una oferta que no podia rechazar, esta vez era un <strong>ThinkCenter m90q Gen3</strong> con las siguientes especificaciones:</p>
+<ul>
+<li>CPU → Intel i5-12500</li>
+<li>RAM → 16 GB</li>
+<li>NVME → 256Gb</li>
+</ul>
+<p>Siento decirlo que me tire de cabeza a por el. Sin pensarlo. Directo como una polilla a la llama.</p>
+<p>Ya me podeis ver, aun sin haber desembalado el <strong>m920x</strong> y ya tenia entre manos nuevo equipo, pero esta vez, queria hacer las cosas bien. Queria ponerle una GPU que no me diera ningun problema y que fuera 100% compatible con GNU/Linux y que me permitiera jugar a un par de juegos (a los que estoy viciado y que no requieren mucho hardware).</p>
+<p>Esas premisas que me habia <em>auto - impuesto</em>, solo se podian conseguir con una GPU AMD que se llevan espectacularmente bien con GNU/Linux, o eso es lo que comentan y que tengo que dar fe de que es cierto.
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Consejo<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>Estar en el canal de <strong>HomeLabs</strong> es malo para el bolsillo, y si además lo unes a que un compañero te da consejos de compra para wallapop, pues tienes el coctel explosivo perfecto.</p>
+<p>Este compañero, no es ni más ni menos que <strong>@JuanFra</strong>, que me aconsejo de que para los requisitos que yo necesitaba, me podia ir bien una Grafica <strong>AMD Radeon PRO WX4100</strong> que estaban a buen precio (ahora ya no).</p>
+</div>
+        </div>
+    </div>
+Buscando, buscando, encontre en <strong>eBay</strong> una que estaba bien, y a ella que me fui, pero ya os aviso que no es oro todo lo que reluce. Bueno, si que es oro, pero tienes que pulirlo mucho 🫣</p>
+<p>Os preguntareis a que viene esto, pero si seguiis leyendo, lo entendereis.</p>
+<p><figure><a class="lightgallery" href="/images/WX4100.jpg" title="/images/WX4100.jpg" data-thumbnail="/images/WX4100.jpg" data-sub-html="<h2>AMD Radeon PRO WX4100</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/WX4100.jpg"
+            data-srcset="/images/WX4100.jpg, /images/WX4100.jpg 1.5x, /images/WX4100.jpg 2x"
+            data-sizes="auto"
+            alt="/images/WX4100.jpg" />
+    </a><figcaption class="image-caption">AMD Radeon PRO WX4100</figcaption>
+    </figure></p>
+<p>Al final, me llego la GPU en perfectas condiciones y que funciona correctamente en las pruebas que habia hecho en el <em>m920x</em>, pero el disguto vino cuando la puse en el <em>m90q</em>, que no se veia nada al iniciar el equipo, hasta que no se iniciaba el SO (Arch o Windows). Después todo funcionaba perfectamente, pero al iniciar el equipo, solamente se veia una pantalla en negro y sin posibilidad de acceder a la BIOS ni nada. Como se dice, todo fundido en negro.</p>
+<p>Después de mucho investigar, acabe descubriendo que el problema era que la versión  <strong>UEFI</strong> que tenia la grafica era muy antigua y no era aceptada por el <em>m90q</em> y eso la hacia incompatible hasta que no tomaba el control el SO. Ahora me encontrada con un equipo que se ajustaba a todas mis necesidades, pero con el problema de versión de <strong>UEFI</strong>.</p>
+<p>Llegados a este punto, tenia 2 opciones:</p>
+<ul>
+<li>Comerme la GPU y comprar una nueva.</li>
+<li>Hacer una operación a corazon abierto a la grafica y actualizar la versión de <strong>UEFI</strong> con 2 posibles resultados:
+<ul>
+<li>Obtener un pisapapeles.</li>
+<li>Actualizar sin problema la versión de <em>UEFI</em>.</li>
+</ul>
+</li>
+</ul>
+<p>Los pasos que hice fueron los siguientes (junto con las aplicaciones que use):</p>
+<ul>
+<li><strong>AMDVBFlash</strong> → leer/escribir BIOS</li>
+<li><strong>GOPupd</strong> → actualizar GOP</li>
+<li><strong>UEFITool</strong> → comprobar si todo ha ido correctamente.</li>
+</ul>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copiar al portapapeles"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>### 1. Backup (OBLIGATORIO)
+amdvbflash -s 0 backup.rom
+
+### 2. Actualizar GOP
+GOPupd.bat backup.rom
+
+Genera: `backup_new.rom`
+
+### 3. Verificar
+
+* Abrir `backup_new.rom` en UEFITool
+* Confirmar que el GOP está y es más nuevo
+
+### 4. Flashear
+
+amdvbflash -p 0 backup_new.rom
+
+(Si falla → usar `-f` con cuidado)
+
+### 5. Recuperación (si algo va mal)
+
+(usando iGPU u otra GPU)
+amdvbflash -p 0 backup.rom</code></pre></div>
+<p>Si lo tuviera que resumir en una sola frase, seria la siguiente:
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Nota<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><strong>Extraes BIOS → actualizas GOP → verificas → reflasheas → pruebas (sin garantía de éxito).</strong></div>
+        </div>
+    </div>
+Al final el resultado fue positivo, porque logre actualizar la <strong>UEFI</strong> de la grafica sin ningun problema, pero eso si, con muchos sudores, pero todo salio muy bien.</p>
+<p>Ahora el equio que tengo es:</p>
+<ul>
+<li>ThinkCenter m90q</li>
+<li>CPU i5-12500</li>
+<li>GPU AMD Radeon PRO WX4100</li>
+<li>32GB de RAM</li>
+<li>2 NVME:
+<ul>
+<li>1 para el Arch Linux</li>
+<li>1 para Windows y los 3 juegos que uso.</li>
+</ul>
+</li>
+</ul>
+<p>Tambien os tengo que decir, que como no, he cambiado el anterior teclado <em>logitech K310</em> que tenia, por uno de la marca <strong>KEYCRHON</strong>, en especial el <em>Keychron K13 PRO</em>. El cambio fue brutal, el tacto a la hora de escribir, su uso diario, etc&hellip; Todo era diferente a lo que estaba acostumbrado.</p>
+<p><figure><a class="lightgallery" href="/images/K13-PRO.jpg" title="/images/K13-PRO.jpg" data-thumbnail="/images/K13-PRO.jpg" data-sub-html="<h2>KeyChron K13 PRO</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/K13-PRO.jpg"
+            data-srcset="/images/K13-PRO.jpg, /images/K13-PRO.jpg 1.5x, /images/K13-PRO.jpg 2x"
+            data-sizes="auto"
+            alt="/images/K13-PRO.jpg" />
+    </a><figcaption class="image-caption">KeyChron K13 PRO</figcaption>
+    </figure></p>
+<p>Pero tenia una pega, que no lo note, y que puede parecer una tonteria, pero echaba en falta las teclas de <em>home, end, page up y page down</em>.</p>
+<p>Llamarme loco, pero no podia estar sin ellas. Al <strong>K13 PRO</strong> se le podia añadir una nueva capa (se pueden programar todas las teclas, para que en base a una combinación hagan una funcion diferente), pero ni aun asi, me sentia comodo. Asi que al cabo de 2 semanas de tener el <em>k13 PRO</em> di el salto a un simple y basico <strong>Keychron K3 V2</strong>, y ahora si, que estoy en mi salsa.</p>
+<p>Es más pequeño, menos configurable por no decir nada configurable que el <em>K13 PRO</em>, pero este si que incorpora las 4 teclas que me traian amargado. Tampoco tiene el <em>numpad</em>, pero si os digo la verdad, llevo 1 mes con este ultimo y no las hecho de menos.</p>
+<p>A lo mejor mucha gente piensa que he salido perdiendo, pero yo creo que no. Estoy a gusto usando el <em>K3 V2</em>. Que podria ir por el <em>K3 PRO o MAX</em>, podria ser, pero ahora mismo, estoy en mi salsa (tengo que pensar que hacer con el K13 PRO).</p>
+<p><figure><a class="lightgallery" href="/images/K3-V2.jpg" title="/images/K3-V2.jpg" data-thumbnail="/images/K3-V2.jpg" data-sub-html="<h2>KeyChron K3 V2</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/K3-V2.jpg"
+            data-srcset="/images/K3-V2.jpg, /images/K3-V2.jpg 1.5x, /images/K3-V2.jpg 2x"
+            data-sizes="auto"
+            alt="/images/K3-V2.jpg" />
+    </a><figcaption class="image-caption">KeyChron K3 V2</figcaption>
+    </figure></p>
+<p>Después del cambio de GPU, el cambio de teclado, se podria decir que estoy servido y que no hace falta ningun cambio más, pero el <strong>hard-hopping</strong> es un problema muy grave, que no se si tiene cura.</p>
+<p>Ahora estoy en busca y captura de una GPU nueva, la <em>AMD Radeon W6400</em> para substituir la <em>AMD Radeon PRO WX4100</em>, siempre que encuentra una a buen precio, pero como dice <strong>@JuanFra</strong>, eso es cuestion de tiempo.</p>
+<h4 id="referencia">Referencia</h4></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 05-03-2026</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/hardware/">Hardware</a>,&nbsp;<a href="/tags/amd/">AMD</a>,&nbsp;<a href="/tags/arch-linux/">Arch Linux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2026-02-28-qemu-virtmanager-3/" class="prev" rel="prev" title="Instalar Qemu y VirtManager en Arch - 3"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Instalar Qemu y VirtManager en Arch - 3</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Con la tecnología de <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.154.5">Hugo</a> | Tema - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2026</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line">
+                    <a rel="me" href="https://mastodon.online/@vsantos"></a>
+                </div></div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.es.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"es","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script src="https://umami.ahnenerbe.duckdns.org/script.js" async defer data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46"></script></body>
+</html>
