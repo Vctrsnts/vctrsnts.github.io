@@ -23,7 +23,7 @@ Ya me podeis ver, aun sin haber desembalado el **m920x** y ya tenia entre manos 
 
 Esas premisas que me habia *auto - impuesto*, solo se podian conseguir con una GPU AMD que se llevan espectacularmente bien con GNU/Linux, o eso es lo que comentan y que tengo que dar fe de que es cierto.
 {{< admonition tip >}}
-Estar en el canal de **HomeLabs** es malo para el bolsillo, y si además lo unes a que un compañero te da consejos de compra para wallapop, pues tienes el coctel explosivo perfecto.
+Estar en el canal de [HomeLabs](https://t.me/homelabsclub) es malo para el bolsillo, y si además lo unes a que un compañero te da consejos de compra para wallapop, pues tienes el coctel explosivo perfecto.
 
 Este compañero, no es ni más ni menos que **@JuanFra**, que me aconsejo de que para los requisitos que yo necesitaba, me podia ir bien una Grafica **AMD Radeon PRO WX4100** que estaban a buen precio (ahora ya no). 
 {{< /admonition >}}
@@ -107,4 +107,5 @@ Después del cambio de GPU, el cambio de teclado, se podria decir que estoy serv
 Ahora estoy en busca y captura de una GPU nueva, la *AMD Radeon W6400* para substituir la *AMD Radeon PRO WX4100*, siempre que encuentra una a buen precio, pero como dice **@JuanFra**, eso es cuestion de tiempo.
 
 #### Referencia
+- [HomeLabs](https://t.me/homelabsclub)
 
