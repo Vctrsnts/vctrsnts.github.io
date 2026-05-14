@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SSH on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.codeberg.page/categories/ssh/</link>
+    <link>https://vctrsnts.github.io/categories/ssh/</link>
     <description>Recent content in SSH on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Fri, 19 Aug 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vctrsnts.codeberg.page/categories/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/categories/ssh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sustituir una clave antigua de known_hosts</title>
-      <link>https://vctrsnts.codeberg.page/2011-08-19-substituir-known-hosts/</link>
+      <link>https://vctrsnts.github.io/2011-08-19-substituir-known-hosts/</link>
       <pubDate>Fri, 19 Aug 2011 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.codeberg.page/2011-08-19-substituir-known-hosts/</guid>
+      <guid>https://vctrsnts.github.io/2011-08-19-substituir-known-hosts/</guid>
       <description>&lt;p&gt;Es posible que más de una vez nos hayamos encontrado con un mensaje donde nuestro sistema nos indica que la clave publica de nuestro servidor, o del servidor al que nos queremos conectar ha cambiado o a otras posibilidades que ya indicaremos más adelante.&lt;/p&gt;</description>
     </item>
   </channel>
