@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Qemu on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/tags/qemu/</link>
+    <link>https://vctrsnts.codeberg.page/tags/qemu/</link>
     <description>Recent content in Qemu on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/tags/qemu/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.codeberg.page/tags/qemu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Instalar Qemu y VirtManager en Arch - 3</title>
-      <link>https://vctrsnts.github.io/2026-02-28-qemu-virtmanager-3/</link>
+      <link>https://vctrsnts.codeberg.page/2026-02-28-qemu-virtmanager-3/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2026-02-28-qemu-virtmanager-3/</guid>
+      <guid>https://vctrsnts.codeberg.page/2026-02-28-qemu-virtmanager-3/</guid>
       <description>&lt;p&gt;Aqui va el tercero y ultimo articulo con respecto a &lt;strong&gt;Qemu&lt;/strong&gt; y &lt;strong&gt;VirtManager&lt;/strong&gt;, pero en este caso, lo explico desde la manera de usarlo como cliente de una maquina creada en &lt;strong&gt;unRaid&lt;/strong&gt; y que podemos usar como si estuviera en local que es mi caso.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Instalar Qemu y VirtManager en Arch - 2</title>
-      <link>https://vctrsnts.github.io/2026-02-12-qemu-virtmanager-2/</link>
+      <link>https://vctrsnts.codeberg.page/2026-02-12-qemu-virtmanager-2/</link>
       <pubDate>Thu, 12 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2026-02-12-qemu-virtmanager-2/</guid>
+      <guid>https://vctrsnts.codeberg.page/2026-02-12-qemu-virtmanager-2/</guid>
       <description>&lt;p&gt;En este segundo articulo, explicaremos un poco como me voy adaptando a usar &lt;em&gt;VirtManager&lt;/em&gt; en vez de &lt;em&gt;VirtualBox&lt;/em&gt; y las modificaciones que he tenido que hacer en mi flujo de trabajo con respecto al usar &lt;em&gt;VirtManager&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Instalar Qemu y VirtManager en Arch - 1</title>
-      <link>https://vctrsnts.github.io/2026-01-15-qemu-virtmanager-1/</link>
+      <link>https://vctrsnts.codeberg.page/2026-01-15-qemu-virtmanager-1/</link>
       <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/2026-01-15-qemu-virtmanager-1/</guid>
+      <guid>https://vctrsnts.codeberg.page/2026-01-15-qemu-virtmanager-1/</guid>
       <description>&lt;p&gt;Este articulo es más un resumen o unos apuntes para mi, de como se hace la instalación de &lt;strong&gt;Qemu&lt;/strong&gt; y &lt;strong&gt;VirtManager&lt;/strong&gt; en &lt;strong&gt;Arch&lt;/strong&gt;, basado en este &lt;a href=&#34;https://www.youtube.com/watch?v=HN-krqqblOA&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;video&lt;/a&gt; que podeis encontrar en &lt;strong&gt;Youtube&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Nunca se sabe si puede desaparecer o no, pero yo me lo guardo, por si acaso.&lt;/p&gt;</description>
     </item>
   </channel>
