@@ -1,0 +1,157 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Funcionamiento extraño con mi portátil (Ideapad Y700 - 17ISK) · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2023-01-12-problemas-y700-17isk/">
+
+
+
+
+
+
+<meta name="description" content="Desde hace un par de días, no se si desde que actualicé la BIOS al portátil (Lenovo Ideapad Y700 17ISK, versión CDCN54WW), y me ha pasado una cosa muy extraña. El teclado en el momento de iniciarse el sistema ha dejado de funcionar.
+Así de repente, el teclado ha dejado de funcionar, sin razón aparente, pero también con un funcionamiento raro, porque las teclas de función (F1, etc&amp;amp;hellip;) sí que funcionaban o hacer un ctrl&#43;alt&#43;sup también funcionaba.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Funcionamiento extraño con mi portátil (Ideapad Y700 - 17ISK)">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Desde hace un par de días, no se si desde que actualicé la BIOS al portátil (Lenovo Ideapad Y700 17ISK, versión CDCN54WW), y me ha pasado una cosa muy extraña. El teclado en el momento de iniciarse el sistema ha dejado de funcionar.
+Así de repente, el teclado ha dejado de funcionar, sin razón aparente, pero también con un funcionamiento raro, porque las teclas de función (F1, etc&amp;amp;hellip;) sí que funcionaban o hacer un ctrl&#43;alt&#43;sup también funcionaba.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Funcionamiento extraño con mi portátil (Ideapad Y700 - 17ISK)</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2023-01-12">
+        2023-01-12
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/hardware/">
+            #Hardware
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Desde hace un par de días, no se si desde que actualicé la BIOS al portátil (Lenovo Ideapad Y700 17ISK, versión <strong>CDCN54WW</strong>), y me ha pasado una cosa muy extraña. El teclado en el momento de iniciarse el sistema ha dejado de funcionar.</p>
+<p>Así de repente, el teclado ha dejado de funcionar, sin razón aparente, pero también con un funcionamiento raro, porque las teclas de función (F1, etc&hellip;) sí que funcionaban o hacer un <code>ctrl+alt+sup</code> también funcionaba.</p>
+<p>También podía acceder a la BIOS (en mi caso con <code>F2</code>), pero luego no podía desplazarme por las diferentes secciones de la BIOS ni tampoco seleccionar en <code>GRUB</code> el otro sistema operativo que uso (Windows 10). Pero lo más extraño (si es que puede haber algo extraño en todo esto) es que una vez que se cargaba el sistema operativo (tanto GNU/Linux como Windows) el teclado funcionaba correctamente y sin ningún problema.</p>
+<p>Buscando por internet, lo único que encontraba, eran mensajes que hacían referencia a que una de las últimas actualizaciones de la BIOS había producido este fallo, aunque también habían otros mensajes que decían, que el problema venía motivado por la <a href="https://forums.lenovo.com/t5/Serie-Z/Fallos-en-el-teclado-y-touchpad-Ideapad-700-15ISK/m-p/3656873">batería</a>, pero no tenía sentido, porque nunca había tenido anteriormente este problema hasta la actualización de la BIOS a la última versión. Así que lo único que, en mi caso, podía motivar este funcionamiento incorrecto del teclado, era la actualización de la BIOS.</p>
+<p>Después de buscar versiones anteriores de la BIOS de mi portátil, Lenovo no lo pone nada fácil para encontrar los archivos, encontré una versión anterior a la que tenía instalada (CDCN53WW).</p>
+<p>Lo único que me faltaba era poder acceder a Windows, pero también era extraño, con un teclado USB podía desplazarme por la BIOS y seleccionar el otro SO que tengo instalado. Inicié el <code>downgrade</code> de mi versión de BIOS a una anterior.</p>
+<p>Parece que el problema se ha solucionado, porque de momento, no he vuelto a tener ningún problema con el teclado, puedo seleccionar correctamente el Sistema Operativo al que quiero acceder, así como puedo moverme por los diferentes apartados de la BIOS.</p>
+<p>No se, una cosa muy extraña que me ha pasado, y no se si es un mensaje subliminal del portátil de que está llegando a las últimas.</p>
+<p>Espero que no sea así, porque lo he tenido durante muchos años con un resultado excelente, pero no me gustaría perderlo, aunque si llega el día que tenga que deshacerme de él, tengo un par de substitutos en la recámara (que de eso tengo que hacer otro artículo).</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://forums.lenovo.com/t5/Serie-Z/Fallos-en-el-teclado-y-touchpad-Ideapad-700-15ISK/m-p/3656873">Foro Lenovo</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

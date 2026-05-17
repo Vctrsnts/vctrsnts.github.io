@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Copias de Seguridad. Anexo · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-02-06-copias-seguridad-annexo/">
+
+
+
+
+
+
+<meta name="description" content="Sé que ha pasado 1 mes desde la última vez que publiqué algo, pero he estado un poco liado con todo, pero ahora vuelvo al ruedo y a ver, si me pongo las pilas con el Blog.
+Tal como se puede ver en estos 2 artículos que ya había escrito:
+Raspberry Pi. Haciendo copias de seguridad Raspberry Pi. Externalizando copias de seguridad Donde explicaba, en el primer artículo, que mediante el docker de rsnapshot realizaba las copia de seguridad de los ficheros más importantes de mi servidor y, en el segundo artículo, explicaba, que a través, también al docker de megacmd pasaba estas copias de seguridad a Mega para tener una doble seguridad, una copia en el servidor y otra copia fuera de él. Todo funcionaba correctamente, pero la segunda parte no era de mi agrado, porque tenía un docker muy desactualizado y que no me daba mucha confianza.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Copias de Seguridad. Anexo">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Sé que ha pasado 1 mes desde la última vez que publiqué algo, pero he estado un poco liado con todo, pero ahora vuelvo al ruedo y a ver, si me pongo las pilas con el Blog.
+Tal como se puede ver en estos 2 artículos que ya había escrito:
+Raspberry Pi. Haciendo copias de seguridad Raspberry Pi. Externalizando copias de seguridad Donde explicaba, en el primer artículo, que mediante el docker de rsnapshot realizaba las copia de seguridad de los ficheros más importantes de mi servidor y, en el segundo artículo, explicaba, que a través, también al docker de megacmd pasaba estas copias de seguridad a Mega para tener una doble seguridad, una copia en el servidor y otra copia fuera de él. Todo funcionaba correctamente, pero la segunda parte no era de mi agrado, porque tenía un docker muy desactualizado y que no me daba mucha confianza.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Copias de Seguridad. Anexo</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2024-02-06">
+        2024-02-06
+      </time>
+      · 5 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Sé que ha pasado 1 mes desde la última vez que publiqué algo, pero he estado un poco liado con todo, pero ahora vuelvo al ruedo y a ver, si me pongo las pilas con el <strong>Blog</strong>.</p>
+<p>Tal como se puede ver en estos 2 artículos que ya había escrito:</p>
+<ul>
+<li><a href="/posts/2021-01-17-rpi-copias-seguridad">Raspberry Pi. Haciendo copias de seguridad</a></li>
+<li><a href="/posts/2021-01-18-rpi-externalizando-copias-seguridad">Raspberry Pi. Externalizando copias de seguridad</a></li>
+</ul>
+<p>Donde explicaba, en el primer artículo, que mediante el docker de <strong>rsnapshot</strong> realizaba las copia de seguridad de los ficheros más importantes de  mi servidor y, en el segundo artículo, explicaba, que a través, también al docker de <strong>megacmd</strong> pasaba estas copias de seguridad a <a href="https://mega.nz">Mega</a> para tener una doble seguridad, una copia en el servidor y otra copia fuera de él. Todo funcionaba correctamente, pero la segunda parte no era de mi agrado, porque tenía un docker muy desactualizado y que no me daba mucha confianza.</p>
+<p>Pero todo cambió cuando escuché este <a href="https://www.ivoox.com/google-stadia-copias-seguridad-revision-del-audios-mp3_rf_96963743_1.html">podcast</a> de <strong>Desahogo Geek</strong> donde explicaba la manera que él hacía sus copias de seguridad de sus servidores. Y me interesó, así que me puse a ver como se podía hacer.</p>
+<p>La manera que lo hacía <strong>AlexPro</strong> se basaba en 2 funcionalidades, 3 en mi caso, que son las siguientes:</p>
+<ul>
+<li>Usar <strong>rsnapshot</strong> que ya lo estoy utilizando y me funciona correctamente.</li>
+<li>Usar <strong>rclone</strong> para <strong>montar</strong> como una unidad más del sistema en el servidor del espacio que tengo en <strong>Mega</strong> (50Gb) que hasta ese momento, no estaba dándole mucho uso.</li>
+<li>Automatizar mediante un script en <strong>bash</strong> las copias de seguridad, que en mi caso, serían las que hago mediante <strong>rsnapshot</strong>.</li>
+</ul>
+<p>Con respecto a las 2 primeras, <strong>rsnapshot</strong> no lo voy a volver a explicar, porque podéis ir al <a href="/posts/2021-01-17-rpi-copias-seguridad">artículo</a> que tengo publicado donde lo explico detalladamente, con respecto a como se tiene que configurar <strong>rclone</strong>, en vez de explicarlo yo aquí, que seguramente no contemplaría todas las opciones posibles, recomiendo que miréis estos <a href="https://alexpro.sytes.net/rclone">artículos</a> que a escrito <strong>AlexPro</strong> que explica todas las opciones posibles y en el que yo me he basado para configurar mi <strong>rclone</strong>.</p>
+<p>Lo que sí que voy a explicar, es el script en <strong>bash</strong> (modificando el que habían hecho anteriormente <a href="https://juncotic.com/megafuse-realizando-backups-mega-linux">Diego Cordoba</a> y que a su vez, fue modificado por <a href="https://github.com/luisurbinanet/megafuse-backup-script">Luis Urbina</a> y que modifiqué a mis necesidades para hacer las copias de seguridad a <strong>Mega</strong>. El script es el siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># Victor Santos Garcia / https://vctrsnts.github.io</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Creado Diego Cordoba, modificat per Luis Urbina</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DADES DEL SERVIDOR I NECESSARIES</span>
+</span></span><span style="display:flex;"><span>SERVER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;nomEquip&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># PER VISUALITZAR ELS MISSATGES (TRUE ES VISUALIZEN, FALSE NO)</span>
+</span></span><span style="display:flex;"><span>DEBUG<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ON ESTA EL FITXER DE CONFIGURACIÓ DE RCLONE (JO LAGAFO DEL DOCKER DE RCLONE)</span>
+</span></span><span style="display:flex;"><span>RCLONE_CONFIG<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/config/rclone.conf&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DIES QUE MANTENIM LES COPIES</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>TMP_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/tmp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DIES PER OBTINDRE ELS BACKUPS, AMB EL VALOR 0, SAGAFA LULTIM BACKUP</span>
+</span></span><span style="display:flex;"><span>DAYS_TO_BACKUP<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DIES QUE ES MANTENEN ELS BACKUPS A MEGA ABANS DESBORRAR</span>
+</span></span><span style="display:flex;"><span>DAYS_TO_DELETE<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># TEMPS DESPERA PER A QUE FINALITZI LA COPIA ENTRE EL SERVIDOR I MEGA</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># SI EL SERVIDOR ESTA A INTERNET, AMB 120 SEGONS (2 MINUTS) ES MÉS QUE SUFICIENT</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>STANDBY_SECONDS<span style="color:#f92672">=</span><span style="color:#ae81ff">120</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ESPECIFIQUEM EL DIRECTORI ON ESTAN ELS BACKUPS DE RSNAPSHOT</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># I EL DIRECTORI DE MEGA</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>ORIGEN_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/mnt/backup&#34;</span>
+</span></span><span style="display:flex;"><span>MEGA_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/mnt/mediaefs&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># OBTENIM LA DATA DEL SISTEMA</span>
+</span></span><span style="display:flex;"><span>DATE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date +%Y%m%d<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ES COMENÇA A REALITZAR EL BACKUP</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>DEBUG<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">]</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;\_ Inici del Backup a Mega&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># BACKUP DE LES COPIES DE SEGURETAT</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># EN AQUESTA CAS, SEMPRE BUSQUEM EL DAILY.0 GENERAT PER RSNAPSHOT</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> dir in <span style="color:#66d9ef">$(</span>find <span style="color:#e6db74">${</span>ORIGEN_DIR<span style="color:#e6db74">}</span> -mindepth <span style="color:#ae81ff">1</span> -maxdepth <span style="color:#ae81ff">1</span> -type d -daystart -mtime <span style="color:#e6db74">${</span>DAYS_TO_BACKUP<span style="color:#e6db74">}</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cd <span style="color:#66d9ef">$(</span>dirname <span style="color:#e6db74">${</span>dir<span style="color:#e6db74">}</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>DEBUG<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;  \__: Iniciem la creació del fitxer comprimit&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>DEBUG<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;  \___: </span><span style="color:#e6db74">${</span>dir<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># ES CREAR EL FITXER COMPRIMIT (TAR.GZ) DE LA COPIA DE RSNAPSHOT</span>
+</span></span><span style="display:flex;"><span>    tar czf <span style="color:#e6db74">${</span>TMP_DIR<span style="color:#e6db74">}</span>/<span style="color:#66d9ef">$(</span>basename <span style="color:#e6db74">${</span>dir<span style="color:#e6db74">}</span><span style="color:#66d9ef">)</span>_<span style="color:#e6db74">${</span>DATE<span style="color:#e6db74">}</span>.tar.gz <span style="color:#66d9ef">$(</span>basename <span style="color:#e6db74">${</span>dir<span style="color:#e6db74">}</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>DEBUG<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;  \__: Finalització de la creació del fitxer comprimit&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cd - &gt; /dev/null
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ESBORROR LES COPIES DE SEGURETAT QUE TENEN MÉS DE 7 DIES DANTIGUITAT A MEGA</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>rclone --config <span style="color:#e6db74">${</span>RCLONE_CONFIG<span style="color:#e6db74">}</span> delete --min-age <span style="color:#e6db74">${</span>DAYS_TO_DELETE<span style="color:#e6db74">}</span>d dmega_cifrado:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>DEBUG<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;\_ Busquem els arxius amb més de 7 dies dantiguitat per esborrar&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># INICEM LA COPIA DELS FITXERS DE SEGURETAT COMPRIMITS A LA UNITAT XIFRADA DE MEGA</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>DEBUG<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;\_ Iniciem la copia dels fitxers de seguretat (comprimits) a DMEGA_CIFRADO&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>rclone --config <span style="color:#e6db74">${</span>RCLONE_CONFIG<span style="color:#e6db74">}</span> move <span style="color:#e6db74">${</span>TMP_DIR<span style="color:#e6db74">}</span>/* dmega_cifrado:
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ESPEREM UN TEMPS PERQUE ES REALITZI CORRECTAMENT LA COPIA</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>DEBUG<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;  \_: Temps despera de </span>$STANDBY_SECONDS<span style="color:#e6db74"> segons&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>sleep $STANDBY_SECONDS
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>DEBUG<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;\_ Es realitza neteja de fitxers i ja finalitzem&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ESBORREM EL FITXER TAR.GZ CREAT PER PUJAR A MEGA</span>
+</span></span><span style="display:flex;"><span>rm -rf <span style="color:#e6db74">${</span>TMP_DIR<span style="color:#e6db74">}</span>/*
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ES NETEJA LA PAPERERA DE MEGA</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>DEBUG<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;\_ Es neteja la paperera de Mega&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>rclone --config <span style="color:#e6db74">${</span>RCLONE_CONFIG<span style="color:#e6db74">}</span> cleanup dmega_cifrado:
+</span></span></code></pre></div><p>Con este script, que tengo que dar las gracias a <strong>Diego Cordoba</strong> y a <strong>Luis Urbina</strong>, porque me dieron la base, para luego, yo poder hacer este script, consigo, que:</p>
+<ul>
+<li>Se localice la copia más actual realizada por <strong>rsnapshot</strong>, que en este caso, siempre será <code>daily.0</code>.</li>
+<li>Luego, se crea un fichero comprimir en <code>tar.gz</code> con la fecha de la copia.</li>
+<li>Se mueve este fichero a la unidad cifrada de <strong>Mega</strong> donde se pierde cualquier posibilidad de saber que contiene dicho fichero.</li>
+<li>Borramos de la papelera de <strong>Mega</strong> las copias más antiguas, porque solamente conservamos las últimas 7.</li>
+</ul>
+<p>Con esto, he explicado, como en mi caso, gracias a diferentes personas, realizo yo las copias de seguridad de mi servidor local. Faltaría implementarlo en el servidor de Oracle que tengo, pero como de momento, no tengo mucha cosa en él, pues no me merece la pena.</p>
+<p>Aunque, como ahora, tiene mi sitio web, donde pongo los libros que he ido leyendo, no sé si merece la pensa ya pensar en ello. Es una cosa que estoy estudiando.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.ivoox.com/google-stadia-copias-seguridad-revision-del-audios-mp3_rf_96963743_1.html">Google Stadia, copias de seguridad y revisión del coche</a></li>
+<li><a href="https://juncotic.com/megafuse-realizando-backups-mega-linux">MegaFuse: realizando backups en MEGA desde Linux</a></li>
+<li><a href="https://github.com/luisurbinanet/megafuse-backup-script">megafuse-backup-script</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

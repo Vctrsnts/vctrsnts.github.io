@@ -1,0 +1,199 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Modificaciones en el servidor - 2 · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-10-19-modificando-servidor-2/">
+
+
+
+
+
+
+<meta name="description" content="Se ha venido una nueva modificación en el servidor, y una más, pero esta vez, ha sido más a nivel de hardware que de software.
+Como sabréis, si no os habéis dado cuenta leyendo algunos de mis artículos, estoy subscrito al canal de telegram de HomeLabs.club, donde siempre tienen alguna nueva cosa para liarte la manta a la cabeza.
+Una de estas cosas, fue un sorteo que hicieron entre los miembros VIP del canal y como nunca tengo muchas esperanzas en este tipo de sorteos, pues me apunté. Nunca se sabe lo que puede pasar.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Modificaciones en el servidor - 2">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Se ha venido una nueva modificación en el servidor, y una más, pero esta vez, ha sido más a nivel de hardware que de software.
+Como sabréis, si no os habéis dado cuenta leyendo algunos de mis artículos, estoy subscrito al canal de telegram de HomeLabs.club, donde siempre tienen alguna nueva cosa para liarte la manta a la cabeza.
+Una de estas cosas, fue un sorteo que hicieron entre los miembros VIP del canal y como nunca tengo muchas esperanzas en este tipo de sorteos, pues me apunté. Nunca se sabe lo que puede pasar.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Modificaciones en el servidor - 2</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2024-10-19">
+        2024-10-19
+      </time>
+      · 5 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/hardware/">
+            #Hardware
+          </a>
+        
+          <a href="/tags/unraid/">
+            #unRAID
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Se ha venido una nueva modificación en el servidor, y una más, pero esta vez, ha sido más a nivel de hardware que de software.</p>
+<p>Como sabréis, si no os habéis dado cuenta leyendo algunos de mis artículos, estoy subscrito al canal de telegram de <a href="https://homelabs.club">HomeLabs.club</a>, donde siempre tienen alguna nueva cosa para liarte la manta a la cabeza.</p>
+<p>Una de estas cosas, fue un sorteo que hicieron entre los miembros VIP del canal y como nunca tengo muchas esperanzas en este tipo de sorteos, pues me apunté. Nunca se sabe lo que puede pasar.</p>
+<p>Lo que pasó fue increíble, habían muchas cosas por sortear, televisores, Tiny&rsquo;s, teléfonos, hubs, etc&hellip; Y yo junto con unos pocos fui uno de los agraciados con que me tocase un Tiny, en concreto un M710q y seguramente muchos diréis, uff qué poca cosa, pero si os digo lo que llevaba en sus extrañas ya no diréis lo mismo.</p>
+<p>Este M710q, llevaba un <a href="https://www.intel.la/content/www/xl/es/products/sku/192993/intel-xeon-e2286m-processor-16m-cache-2-40-ghz/specifications.html">Intel® Xeon® E-2286M</a>, con las siguientes características (resumen):</p>
+<ul>
+<li>Cantidad de núcleos: 8</li>
+<li>Total de subprocesos: 16</li>
+<li>Frecuencia turbo máxima: 5.00 GHz</li>
+<li>Frecuencia básica del procesador: 2.40 GHz</li>
+<li>Caché: 16 MB Intel® Smart Cache</li>
+<li>Tamaño de memoria máximo (depende del tipo de memoria): 128 GB</li>
+</ul>
+<p>Un <strong>Xeon</strong> junto con <strong>32Gb</strong> de RAM y una entrada de ethernet conectada a la WIFI (que no sé qué voy hacer con eso). Para que os hagáis una idea, el Tiny lleva el máximo de lo que su socket puede llevar.</p>
+<p>No me lo podía creer cuando me dijeron que había ganado esto y eso, como ya de dicho con anterioridad, soy escéptico en estos sorteos porque nunca me ha tocada nada, pero bueno, un día es un día.</p>
+<p>Después de la noticia, tenía que ponerme a pensar qué iba hacer eso ese equipo. En principio no necesitaba ningún equipo más porque voy servido. Así que me vino a la cabeza, y si le pongo el <strong>Xeon</strong> al servidor. Seguramente os echaréis las manos a la cabeza de que eso no es posible. No es la primera vez que lo hago, porque tengo en reserva otro Tiny con otro <strong>Xeon</strong> que será mi futuro PC cuando el portátil que tengo ahora mismo muera, y por lo que veo, no tardará mucho, porque últimamente me hace mucho el tonto. Así que de vuelta al ruedo de los mods.</p>
+<p>Eso sí, me volví a ver este <a href="https://www.youtube.com/watch?v=ZDUWrwq1PXE">video</a> donde explica detalladamente todos los pasos que se tienen que hacer para modificar la BIOS de un Tiny para que accepte un <strong>Xeon</strong>.</p>
+<p>El proceso es fácil, pero hay que ir con cuidado, porque lo primero es leer la <em>BIOS</em> del Tiny, luego modificarla y luego volverla a poner en el Tiny. Ya os digo que tengo experiencia, pero es una cosa que me da mucho respeto, porque nunca se sabe lo que puede pasar 🤯.</p>
+<p>El proceso en sí, dura como 30 minutos, pero qué 30 minutos, siempre piensas que se va a estropear todo y que ya no volverá a funcionar.</p>
+<p>Pero todo funcionó correctamente 😁 y ya tenía en mi servidor el <strong>Xeon</strong> quedando con la siguiente configuración:</p>
+<ul>
+<li>Intel Xeon e2286M</li>
+<li>32Gb de RAM</li>
+<li>4 HDD&rsquo;s
+<ul>
+<li>1 de 18Tb</li>
+<li>1 de 16Tb</li>
+<li>1 de 12Tb</li>
+<li>1 HDD de 1Tb
+<ul>
+<li>Este lo uso para copias de seguridad</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>En pocas palabras un servidor que nunca me voy a acabar. Lo único que puede pasar es que revienten los HDD, pero el resto tengo para toda una vida.</p>
+<p>Todo estaba ya estaba listo para conectar y hacerlo funcionar. Y el resultado fue todo un éxito, todo funcionando correctamente y sin ningún problema a excepción de la temperatura del <strong>Xeon</strong> y del ventilador que cuando se le da un poco de caña se nota que está hay presente.</p>
+<p>Como no puede ser de otra manera, <strong>HomeLabs</strong> lo había previsto y tenía una especie de <a href="https://t.me/c/1410082468/127">pequeño manual</a>, para hacer <strong>downgrade</strong> al <strong>Xeon</strong> y así reducir tanto el rango de trabajo del mismo como la temperatura que con todo ello conlleva que se reduce el ruido del ventilador.</p>
+<p>Pero aun así, todavía, cuando le pedías caña al <strong>Xeon</strong> hacía acto de presencia, pues me aconsejaron que lo mejor en estos casos, es quitar el <strong>Turbo Bost</strong> de la CPU. Y eso que hice. Le desactivé esa opción y ahora todo funciona con una mejor temperatura.</p>
+<p>Mucha gente me dirá que para eso no tengas un <strong>Xeon</strong> pero hay que tener en cuenta que el sistema de refrigeración no es el correcto, lleva el ventilador, de cobre para disipar mejor, pero es un simple ventilador. Además si en vez de <em>5Ghz</em> me va a <em>2.4Ghz</em> tampoco voy a notar mucha diferencia.</p>
+<p>Es mi servidor personal, no uno de la nasa. Con esto ya estoy servido.</p>
+<p>Lo único que me faltaba por hacer era visualizar la temperatura tanto de la CPU como de la placa base en unRaid que era una cosa que nunca había conseguido hacer, la de la CPU sí, pero la placa base no.</p>
+<p>Pero eso será en otro <a href="/posts/2024-10-20-controlado-temperatura-servidor">artículo</a>.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=ZDUWrwq1PXE">Como modificar la bios de tu Lenovo m710q, m910q o m910x tiny para usar CPUs no soportadas</a></li>
+<li><a href="https://t.me/c/1410082468/127">Hacer downgrade a Xeon</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

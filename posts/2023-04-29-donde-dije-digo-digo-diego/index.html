@@ -1,0 +1,213 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Donde digo dije, digo Diego · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2023-04-29-donde-dije-digo-digo-diego/">
+
+
+
+
+
+
+<meta name="description" content="Mucha gente pensará que me he vuelto loco al poner este título a este artículo y más siendo un blog de tecnología, pero cuando lleguéis al final lo entenderéis.
+Todo empieza, si leéis este artículo donde comentaba que había estado haciendo pruebas de funcionalidad con watchtower para mantener actualizados mis docker sin mi supervisión y que solo me avisara cuando se hubiera actualizado uno.
+También comentaba como que resultaba un poco lioso su configuración (fichero docker) y que volvía a diun para luego volver a watchtower para quedarme en él.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Donde digo dije, digo Diego">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Mucha gente pensará que me he vuelto loco al poner este título a este artículo y más siendo un blog de tecnología, pero cuando lleguéis al final lo entenderéis.
+Todo empieza, si leéis este artículo donde comentaba que había estado haciendo pruebas de funcionalidad con watchtower para mantener actualizados mis docker sin mi supervisión y que solo me avisara cuando se hubiera actualizado uno.
+También comentaba como que resultaba un poco lioso su configuración (fichero docker) y que volvía a diun para luego volver a watchtower para quedarme en él.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Donde digo dije, digo Diego</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2023-04-29">
+        2023-04-29
+      </time>
+      · 4 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Mucha gente pensará que me he vuelto loco al poner este título a este artículo y más siendo un blog de tecnología, pero cuando lleguéis al final lo entenderéis.</p>
+<p>Todo empieza, si leéis este <a href="/posts/2023-02-19-actualizacion-watchtower">artículo</a> donde comentaba que había estado haciendo pruebas de funcionalidad con <strong>watchtower</strong> para mantener actualizados mis docker sin mi supervisión y que solo me avisara cuando se hubiera actualizado uno.</p>
+<p>También comentaba como que resultaba un poco lioso su configuración (fichero docker) y que volvía a <strong>diun</strong> para luego volver a <strong>watchtower</strong> para quedarme en él.</p>
+<p>Pues ahora resulta, por eso el título de este artículo, donde dije <strong>watchtower</strong> ahora digo <strong>diun</strong>. Y el motivo es muy simple.</p>
+<p>Tan simple que fue, porque después de una actualización, algunos de los <code>dockers/containers</code> que uso dejaron de funcionar. Los contenedores tenían errores, que como se actualizaron sin mi supervisión, dejaron de funcionar. Y menos mal que lo descubrí pronto, porque sino, no sé lo que hubiera pasado. Sé que estoy exagerando un poco, mi servidor no es la NASA, pero bueno, es mi servidor.</p>
+<p>Eso que ya estaba prevenido con ello, porque todos los artículos que leí sobre <strong>watchtower</strong> te avisan que hay que tener un control sobre las actualizaciones, porque pueden ocasionar un desastre y sino estás atento no te darás cuenta hasta que sea muy tarde.</p>
+<p>Descubrí que la última actualización no había ido correctamente, porque normalmente recibo mensajes de las acciones que hace el docker y ese día no recibí ninguna alerta a través de Telegram, y aquí es donde me puse a investigar, para descubrir por qué no estaba recibiendo las alertas y todo era culpa de que el container no estaba funcionando correctamente, este tenía un error que hacía que se reiniciase todo el rato con todo lo que ello provoca. Y ya me veis anulando la actualización y volviendo a la versión anterior.</p>
+<p>Después de esta mala experiencia, aunque ya la sabía, porque el podcaster <strong>Atareao</strong> la había comentado en su artículo donde él explicaba que estaba usando <strong>watchtower</strong>, pero yo pensaba, iluso de mí, que para los dockers tan simples que uso, no tendría que pasar nada. Pues no veas si no pasó.</p>
+<p>Me puse a buscar a ver qué decía la gente cuál era la mejor opción para substituir a <strong>watchtower</strong>. Muchos decían que el mejor era <strong>diun</strong> y si además, los creadores de muchas de las imágenes de docker que uso son <strong>linuxservers</strong> te aconsejan no usar <strong>watchtower</strong> sino usar <strong>diun</strong>, pues me fui a por ello.</p>
+<p>La instalación es muy simple, como siempre en docker:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">diun</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">crazymax/diun:latest</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">diun</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">nomDelTeuServidor</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">${STORAGE}/config/diun:/data</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># FITXER ON ESTA LA CONFIGURACIÓ AMB TELEGRAM</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># I ELS MISSATGES D&#39;ALERTA QUE ENVIA QUANT TE DOCKER PER ACTUALIZAR</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">${STORAGE}/config/diun/diun.yml:/diun.yml:ro</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/var/run/docker.sock:/var/run/docker.sock:ro</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;TZ=Europe/Madrid&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;LOG_LEVEL=info&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;LOG_JSON=false&#34;</span>
+</span></span></code></pre></div><p>El problema viene luego en la configuración de las alertas, que en mi caso las recibo a través de <strong>Telegram</strong> aunque tienes más opciones donde recibirlas, no es complicado si sigues el manual que tienen para ello, tienes que configurar las alertas que vas a recibir (que está todo en un fichero <strong>yaml</strong>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># LA BBDD DE DIUN</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">path</span>: <span style="color:#ae81ff">diun.db</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># EL CRON DE DIUN</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">watch</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">workers</span>: <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    schedule: &#34;*/1 * * * *&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">schedule</span>: <span style="color:#e6db74">&#34;@weekly&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">firstCheckNotif</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># QUE QUIN SERVIDOR (ES POT DIR AIXI) OBTING ELS DOCKERS</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">providers</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">docker</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">watchByDefault</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">watchStopped</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># CONFIGURACIO DE TELEGRAM</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># I DEL MISSATGE QUE S&#39;ENVIA</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">notif</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">telegram</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">token</span>: <span style="color:#ae81ff">TOKEN_TELEGRAM</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">chatIDs</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ID_DEL_CHAT_DE_TELEGRAM</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">templateBody</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      # AQUI TEORICAMENT HAURIA D&#39;ENVIAR EL LOGO DE DIUN, PERO NO HO FA
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      [Image]({{ _Meta_Logo }})
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      # AQUI ES ON TINC EL PROBLEMA I DE MOMENT NO HO POSSO PERQUE NO PORTI A PROBLEMES</span>
+</span></span></code></pre></div><p>Con esto, solamente te falta hacer un:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~# docker-compose up -d diun
+</span></span></code></pre></div><p>Ya lo tenemos todo funcionando.</p>
+<p>Esto no es del todo cierto, porque aún falta por indicar/señalar qué contenedores quieres que <strong>diun</strong> controle/vigile por si ha habido actualización y esto se hace añadiendo el siguiente código en tu <code>docker-compose.yml</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">diun.enable=true</span>
+</span></span></code></pre></div><p>Aunque en mi caso, no es así. Ahora mismo lo tengo a un 80% de funcionamiento, porque según el manual, por lo que yo he podido entender, puedes enviar imágenes, para que las alertas sean más amigables y te indiquen de qué container es.</p>
+<p>Pero parece ser que esto no funciona del todo correctamente, aunque sé que es posible enviar imágenes a Telegram, porque en las notificaciones que tengo en <a href="/posts/2021-05-30-flexget-podcast">flexget</a> lo tengo puesto y las recibo sin ningún problema, pero en cambio con <strong>diun</strong> no funciona. Tendré que seguir investigando el motivo por el que no funciona.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://atareao.es/podcast/como-actualizar-imagenes-docker-automaticamente">Como actualizar imágenes docker automáticamente</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Por fin. VPS para hacer pruebas · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2023-09-24-vps-pruebas/">
+
+
+
+
+
+
+<meta name="description" content="Hacía mucho tiempo (mínimo 2 años), que había escuchado que Oracle te daba gratuitamente la posibilidad de tener un VPS para poderlo usar, eso sí, con unas ciertas limitaciones:
+1 vCPUs x86 - 1Gb Ram 4 vCPUs ARM - 24Gb Ram Así que si anteriormente, en un RaspberryPi con 1Gb de Ram y una única CPU podía tener amule, transmission las 24 horas del día y el sistema iba sobrado, la elección sería fácil.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Por fin. VPS para hacer pruebas">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Hacía mucho tiempo (mínimo 2 años), que había escuchado que Oracle te daba gratuitamente la posibilidad de tener un VPS para poderlo usar, eso sí, con unas ciertas limitaciones:
+1 vCPUs x86 - 1Gb Ram 4 vCPUs ARM - 24Gb Ram Así que si anteriormente, en un RaspberryPi con 1Gb de Ram y una única CPU podía tener amule, transmission las 24 horas del día y el sistema iba sobrado, la elección sería fácil.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Por fin. VPS para hacer pruebas</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2023-09-24">
+        2023-09-24
+      </time>
+      · 4 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/vps/">
+            #VPS
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Hacía mucho tiempo (mínimo 2 años), que había escuchado que Oracle te daba <em>gratuitamente</em> la posibilidad de tener un VPS para poderlo usar, eso sí, con unas ciertas limitaciones:</p>
+<ul>
+<li>1 vCPUs x86 - 1Gb Ram</li>
+<li>4 vCPUs ARM - 24Gb Ram</li>
+</ul>
+<p>Así que si anteriormente, en un RaspberryPi con 1Gb de Ram y una única CPU podía tener amule, transmission las 24 horas del día y el sistema iba sobrado, la elección sería fácil.</p>
+<p>La elección era lo más fácil, lo difícil fue conseguir darse de alta. Y cuando digo difícil, me refiero a difícil.</p>
+<p>Tardé como unos 2 años a conseguir darme de alta en el servicio. No sé porqué, pero me era imposible conseguir darme de alta, probé con todo tipo de emails (que tengo), también probé con emails ficticios (de los que duran 10 minutos), también probé con diferentes tipos de tarjetas de débito / crédito, pero no había ninguna manera de conseguir acceder al servicio, también probé de preguntar al <em>servicio de ayuda</em> que había disponible, pero como todos los servicios de ayuda, era como darse cabezazos contra una pared. No servían para nada.</p>
+<p>Pero no sé porqué, antes de vacaciones, lo volví a intentar y por fin lo conseguí, no sé como, pero funcionó. Porque volví a hacer lo mismo que había echo las anteriores veces. A lo mejor fue porque el sistema estaba menos saturado, no sé, pero me funcionó.</p>
+<p>Así fue como conseguí mi VPS, limitado eso sí, pero no necesitaba nada más para hacer mis pruebas y usarlo como yo quería, pues me venía de perlas. Para qué necesitar más.</p>
+<p>Lo primero era crear la máquina virtual con las necesidades máximas (dentro del <code>Free Tier</code>):</p>
+<ul>
+<li>Arquitectura ARM (4 vCPUs)</li>
+<li>24Gb de Ram</li>
+<li>SO. Ubuntu ARM (muy parecido a Raspbian <strong>Debian GNU/Linux</strong>, etc&hellip;)</li>
+</ul>
+<p>Ahora solamente faltaba crear la máquina y configurarla, pero de eso no voy a explicar nada, porque hay miles de vídeos por internet donde lo explican mejor de lo que yo lo podría explicar.</p>
+<p>Eso sí, cuando tuve el sistema apunto y actualizado y mínimamente <a href="/posts/2020-11-08-rpi-usando-fail2ban">securizado</a>, le instalé <strong>Docker</strong> siguiendo mi propia <a href="/posts/2020-03-08-rpi-usando-docker">guía de instalación</a> y ya lo tengo todo preparado para hacer mis cosas :)</p>
+<p>Le instalé los siguientes contenedores:</p>
+<ul>
+<li><a href="2021-04-08-rpi-caddy-proxy-manager.md">Caddy</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2023-03-20-searxng-buscador-privado.html">Searxng</a>
+<ul>
+<li>Este último lo estoy usando como mi buscador principal y pasa por delante de <strong>duckduckGo</strong> y a <strong>Google</strong>.</li>
+</ul>
+</li>
+<li><a href="https://elblogdelazaro.org/posts/2020-02-03-monitorix-monitoriza-tu-sistema">Monitorix</a>
+<ul>
+<li>Lo tengo para tener una monitorización del servidor por los puntos más importantes a tener en cuenta.</li>
+</ul>
+</li>
+<li><a href="2020-10-30-rpi-cambiando-equipo.md">DuckDns</a>
+<ul>
+<li>No voy a explicar como se instala, porque usando docker es superfácil. Además a través de este <a href="https://www.youtube.com/watch?v=MLjKbake8HM">vídeo</a> de mi argentino preferido está mejor explicado. Eso sí, últimamente ha decaído mucho (en mi opinión) en la temática de los vídeos y ya no es como antes.</li>
+</ul>
+</li>
+<li><a href="https://llibres.ahnenerbe.duckdns.org">Jekyll</a>
+<ul>
+<li>Aquí es donde tengo otra página web (diferente a la que tengo en GitHub), pero que ya hablaré en otro artículo.</li>
+</ul>
+</li>
+</ul>
+<p>Si os dais cuenta, estoy poniendo muchos de mis artículos donde comento en como se instalan diferentes aplicaciones / programas / containers en una <strong>RaspberryPi</strong>, pero como todo es <em><strong>ARM</strong></em> y los sistemas operativos que uso, son derivados de <strong>Debian GNU/Linux</strong>, pues no hay ningún problema en la instalación.</p>
+<p>A parte de lo instalado, también tengo puesto este <a href="https://ugeek.github.io/blog/post/2023-04-10-neveridle-vps-de-oracle-nunca-inactivo.html">script</a> que en pocas palabras (para más información leer en completo artículo de uGeek) explica que si las máquinas virtuales están sin utilizar Oracle las desactiva y las borra. El <strong>script</strong> lo que hace, es consumir recursos (lo que tú hayas marcado en el fichero de configuración) para así dar la sensación, de que el servidor se está usando y evitar cualquier problema de que te lo desactiven o borren.</p>
+<p>Esto es mi odisea para tener un VPS, seguramente muchos diréis que se le puede sacar más partido. Tengo ideas que me gustaría probar en el servidor, servidor de música, de podcast, etc&hellip;, pero no sé si es aconsejable porque a lo mejor podría tener problemas y me podrían cerrar el chiringuito.</p>
+<p>En el caso de que alguno de los que me lee lo tenga, que usos le dais al VPS de Oracle. Es para conseguir nuevas ideas.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://ugeek.github.io/blog/post/2023-04-10-neveridle-vps-de-oracle-nunca-inactivo.html">uGeek - NeverIdle</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2023-03-20-searxng-buscador-privado.html">Searxng</a></li>
+<li><a href="https://elblogdelazaro.org/posts/2020-02-03-monitorix-monitoriza-tu-sistema">El Blog de Lazaro - Monitorix</a></li>
+<li><a href="https://www.youtube.com/watch?v=MLjKbake8HM">PeladoNerd - DuckDns</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

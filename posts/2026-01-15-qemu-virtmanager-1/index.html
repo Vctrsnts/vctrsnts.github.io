@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Instalar Qemu y VirtManager en Arch - 1 · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-01-15-qemu-virtmanager-1/">
+
+
+
+
+
+
+<meta name="description" content="Este artículo es más un resumen o unos apuntes para mí, de cómo se hace la instalación de Qemu y VirtManager en Arch, basado en este video que podéis encontrar en Youtube.
+Nunca se sabe si puede desaparecer o no, pero yo me lo guardo, por si acaso.
+nota: Antes de empezar lo primero es agradecer a Ruben por esta excelente guía de instalación.
+Desde hace mucho tiempo, he estado usando VirtualBox, pero últimamente con tanto cambio de equipo, había empezado a notar, que la temperatura de la CPU (incluso con un Xeon) era un poco alta, por no decir, más de lo normal, a la hora de utilizar este programa para virtualizar.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Instalar Qemu y VirtManager en Arch - 1">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Este artículo es más un resumen o unos apuntes para mí, de cómo se hace la instalación de Qemu y VirtManager en Arch, basado en este video que podéis encontrar en Youtube.
+Nunca se sabe si puede desaparecer o no, pero yo me lo guardo, por si acaso.
+nota: Antes de empezar lo primero es agradecer a Ruben por esta excelente guía de instalación.
+Desde hace mucho tiempo, he estado usando VirtualBox, pero últimamente con tanto cambio de equipo, había empezado a notar, que la temperatura de la CPU (incluso con un Xeon) era un poco alta, por no decir, más de lo normal, a la hora de utilizar este programa para virtualizar.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Instalar Qemu y VirtManager en Arch - 1</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-01-15">
+        2026-01-15
+      </time>
+      · 5 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/arch/">
+            #Arch
+          </a>
+        
+          <a href="/tags/qemu/">
+            #QEMU
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Este artículo es más un resumen o unos apuntes para mí, de cómo se hace la instalación de <strong>Qemu</strong> y <strong>VirtManager</strong> en <strong>Arch</strong>, basado en este <a href="https://www.youtube.com/watch?v=HN-krqqblOA">video</a> que podéis encontrar en <strong>Youtube</strong>.</p>
+<p>Nunca se sabe si puede desaparecer o no, pero yo me lo guardo, por si acaso.</p>
+<blockquote>
+<p>nota: Antes de empezar lo primero es agradecer a <a href="https://www.youtube.com/@Ruben-Linux">Ruben</a> por esta excelente guía de instalación.</p>
+</blockquote>
+<p>Desde hace mucho tiempo, he estado usando <a href="https://www.virtualbox.org">VirtualBox</a>, pero últimamente con tanto cambio de equipo, había empezado a notar, que la temperatura de la CPU (incluso con un <strong>Xeon</strong>) era un poco alta, por no decir, más de lo normal, a la hora de utilizar este programa para virtualizar.</p>
+<p>Desde hace un par de semanas, supongo que como tengo <strong>Arch</strong>, me voy fijando más en todas las noticias que hacen referencia a este sistema, había escuchado a miembros del canal de telegram de <a href="https://t.me/atareao_con_linux/37878">atareao</a> donde se comentaba, que habían notado una gran mejora a la hora de usar <strong>Qemu</strong> en comparación de <strong>VirtualBox</strong>.</p>
+<p>Me puse a buscar información de qué había de cierto en esto, además, de buscar también, cómo se realiza la instalación en <strong>Arch</strong> y me encontré este estupendo <a href="https://www.youtube.com/watch?v=HN-krqqblOA">video</a>, donde está explicado todo perfectamente y muy fácilmente de seguir. Pero como ya he dicho antes, me apunto las instrucciones, porque nunca sabes qué puede pasar.</p>
+<blockquote>
+<p>nota: Lo que sí que puedo decir, es que pasadas ya unas cuantas semanas que llevo usando <em>Qemu</em>, puedo decir que sí que hay una diferencia en el consumo de recursos entre <em>Qemu</em> y <em>VirtualBox</em>.</p>
+</blockquote>
+<p>Después de esta pequeña introducción, ahora pasamos a lo más importante, cómo se realiza la instalación.</p>
+<h2 id="-capacidad-de-virtualización-de-nuestra-cpu">◇ Capacidad de virtualización de nuestra CPU</h2>
+<p>Con esta instrucción, sabemos el número de núcleos que tiene nuestro procesador con capacidad de virtualización. A mayor número, mejor nos irá.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ grep -Ec <span style="color:#e6db74">&#39;(vmx|svm)&#39;</span> /proc/cpuinfo  
+</span></span></code></pre></div><h2 id="-instalación">◇ Instalación</h2>
+<p>Ahora viene la parte más importante, la instalación en sí de <strong>Qemu</strong> y <strong>VirtManager</strong> más todo lo necesario, yo uso la siguiente instrucción:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ update
+</span></span><span style="display:flex;"><span>usuari@archlinux:~/ install virt-manager virt-viewer qemu vde2 iptables-nft nftables dnsmasq bridge-utils swtpm
+</span></span></code></pre></div><p>Aquí hay que tener en cuentas 2 cosas:</p>
+<ul>
+<li>Yo tengo un alias para la actualización de paquetes - <strong>update</strong> (<code>sudo pacman -Syy</code>) y otra para instalación - <strong>install</strong> (<code>sudo pacman -S</code>).</li>
+<li>A la hora de instalar <strong>qemu</strong>, os pedirá si queréis instalar <strong>1) qemu-base</strong>, <strong>2) qemu-desktop</strong> o <strong>3) qemu-full</strong>, en mi caso he probado la opción <strong>2</strong> y la opción <strong>3</strong> y al final escogí la opción <strong>2</strong>. Pero es mi elección.</li>
+<li>También os puede aparecer un mensaje donde indique <code>iptable-nft y iptables están en conflicto. Quitar iptables [s/N]</code>, se tiene que escoger la opción <strong>S</strong>.</li>
+</ul>
+<p>También se puede dar el caso, de que haga falta instalar los siguientes paquetes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ install openbsd-netcat demicode iptables libguestfs 
+</span></span></code></pre></div><p>Pero a mí no me hizo falta instalarlos.</p>
+<h2 id="-configuración-de-libvirt">◇ Configuración de libvirt</h2>
+<p>Ahora procedemos a la modificación del archivo <code>/etc/libvirt/libvird.conf</code> de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ sudo nano /etc/libvirt/libvirtd.conf
+</span></span></code></pre></div><p>Buscamos las opciones <code>unix_sock_group</code> y la opción <code>unix_sock_rw_perms</code> y quitamos la almohadilla <strong>#</strong>, quedando de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>unix_sock_group <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;libvirt&#34;</span>
+</span></span><span style="display:flex;"><span>unix_sock_rw_perms <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0770&#34;</span>
+</span></span></code></pre></div><h2 id="-añadimos-nuestro-usuario-al-grupo-kvm-y-libvirt">◇ Añadimos nuestro usuario al grupo kvm y libvirt</h2>
+<p>No hace falta explicar mucha cosa de este paso</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ sudo usermod -a -G kvm,libvirt <span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>usuari@archlinux:~/ newgrp libvirt
+</span></span></code></pre></div><h2 id="-activamos-el-servicio">◇ Activamos el servicio</h2>
+<p>No hace falta explicar mucha cosa de este paso</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ sudo systemctl enable libvirtd.service
+</span></span><span style="display:flex;"><span>usuari@archlinux:~/ sudo systemctl start libvirtd.service
+</span></span><span style="display:flex;"><span>usuari@archlinux:~/ sudo systemctl status libvirtd.service
+</span></span></code></pre></div><p>En la última instrucción, lo único importante, es que ponga <strong>active running</strong>, si es así, todo está funcionando correctamente. Si no, es que tenemos un problema.</p>
+<h2 id="-configuración-de-qemuconf">◇ Configuración de qemu.conf</h2>
+<p>Ahora pasamos a configurar el archivo <code>/etc/libvirt/qemu.con</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ sudo nano /etc/libvirt/qemu.conf
+</span></span></code></pre></div><p>Donde tenemos que buscar las opciones <code>user</code> y <code>group</code> y tenemos que poner nuestro nombre de usuario. Esto sirve, para que nuestro usuario pueda funcionar correctamente con <strong>qemu</strong>, quedando de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;your username&#34;</span>
+</span></span><span style="display:flex;"><span>group <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;your username&#34;</span>
+</span></span></code></pre></div><h2 id="-reiniciar-el-servicio-libvirtd">◇ Reiniciar el servicio libvirtd</h2>
+<p>No hace falta explicar mucha cosa de este paso</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ sudo systemctl restart libvirtd
+</span></span></code></pre></div><h2 id="-crear-red-para-qemu">◇ Crear red para qemu</h2>
+<p>Lo que hacemos a continuación, es crear una red, para que la podamos usar en nuestras virtualizaciones que llamamos <strong>default</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ sudo virsh net-autostart default
+</span></span></code></pre></div><h2 id="-reiniciar-el-sistema">◇ Reiniciar el sistema</h2>
+<p>No hace falta explicar mucha cosa de este paso</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ sudo reboot
+</span></span></code></pre></div><p>A continuación, voy a explicar cómo se tiene que activar la funcionalidad de poder virtualizar una máquina dentro de otra máquina que ya estamos virtualizando. No le encuentro ningún sentido a esta opción, porque es consumir recursos de un sistema virtualizado para virtualizar otro 🤨.</p>
+<h2 id="-habilitar-virtualización-anidada">◇ Habilitar virtualización anidada</h2>
+<p>La función de virtualización anidada le permite ejecutar máquinas virtuales dentro de una VM. Habilite la virtualización anidada kvm_intel / kvm_amd habilitando el módulo del kernel como se muestra.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ sudo modprobe -r kvm_intel
+</span></span><span style="display:flex;"><span>usuari@archlinux:~/ sudo modprobe kvm_intel nested<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>usuari@archlinux:~/ echo <span style="color:#e6db74">&#34;options kvm_intel nested=1&#34;</span> | sudo tee /etc/modprobe.d/kvm-intel.conf
+</span></span></code></pre></div><p>Para verificar que funciona correctamente, se hace a través de la siguiente instrucción:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ systool -m kvm_intel -v | grep nested
+</span></span><span style="display:flex;"><span>usuari@archlinux:~/ cat /sys/module/kvm_intel/parameters/nested
+</span></span></code></pre></div><p>En el caso de que tengamos un procesador <strong>AMD</strong> en vez de <strong>Intel</strong>, lo único que se tiene que hacer es sustituir <strong>kvm_intel</strong> por <strong>kvm_amd</strong>, quedando de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ sudo modprobe -r kvm_amd
+</span></span><span style="display:flex;"><span>usuari@archlinux:~/ sudo modprobe kvm_amd nested<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>usuari@archlinux:~/ echo <span style="color:#e6db74">&#34;options kvm_amd nested=1&#34;</span> | sudo tee /etc/modprobe.d/kvm-amd.conf
+</span></span></code></pre></div><p>Espero que esto os sirva de ayuda. Ya os digo que a mí sí, porque este artículo lo guardaré como oro en paño 😀.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.youtube.com/@Ruben-Linux">Ruben</a></li>
+<li><a href="https://www.youtube.com/watch?v=HN-krqqblOA">Instalación de Qemu, KVM y Virt Manager en Arch Linux</a></li>
+<li><a href="https://www.virtualbox.org">VirtualBox</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

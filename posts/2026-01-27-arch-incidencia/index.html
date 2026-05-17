@@ -1,0 +1,182 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Mi primera incidencia en Arch Linux · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-01-27-arch-incidencia/">
+
+
+
+
+
+
+<meta name="description" content="Pensaba que iba a ser uno de los pocos elegidos que nunca iba a tener problemas con Arch Linux, pero ya os puedo decir que he dejado de ser uno, por hacer la tontería más grande que nunca me ha pasado. Y esta ha sido borrar SystemD e impidiendo que se pudiera iniciar el sistema.
+Seguramente os estaréis preguntando cómo ha podido suceder eso, pero es tan simple que había instalado el paquete base-devel y fakeroot y así poder utilizar el paquete pacman-contrib y poder usar checkupdates y encuentras otra manera más fácil de usarlo sin todos los paquetes que te indica el sistema y vas y te pones a eliminar paquetes como si no hubiera un mañana, pues pasa lo que pasa. Que me cargo el sistema y yo sin enterarme hasta que reinició el sistema.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Mi primera incidencia en Arch Linux">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Pensaba que iba a ser uno de los pocos elegidos que nunca iba a tener problemas con Arch Linux, pero ya os puedo decir que he dejado de ser uno, por hacer la tontería más grande que nunca me ha pasado. Y esta ha sido borrar SystemD e impidiendo que se pudiera iniciar el sistema.
+Seguramente os estaréis preguntando cómo ha podido suceder eso, pero es tan simple que había instalado el paquete base-devel y fakeroot y así poder utilizar el paquete pacman-contrib y poder usar checkupdates y encuentras otra manera más fácil de usarlo sin todos los paquetes que te indica el sistema y vas y te pones a eliminar paquetes como si no hubiera un mañana, pues pasa lo que pasa. Que me cargo el sistema y yo sin enterarme hasta que reinició el sistema.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Mi primera incidencia en Arch Linux</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-01-27">
+        2026-01-27
+      </time>
+      · 4 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/systemd/">
+            #Systemd
+          </a>
+        
+          <a href="/tags/arch/">
+            #Arch
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Pensaba que iba a ser uno de los pocos elegidos que nunca iba a tener problemas con Arch Linux, pero ya os puedo decir que he dejado de ser uno, por hacer la tontería más grande que nunca me ha pasado. Y esta ha sido borrar <strong>SystemD</strong> e impidiendo que se pudiera iniciar el sistema.</p>
+<p>Seguramente os estaréis preguntando cómo ha podido suceder eso, pero es tan simple que había instalado el paquete <code>base-devel</code> y <code>fakeroot</code> y así poder utilizar el paquete <code>pacman-contrib</code> y poder usar <code>checkupdates</code> y encuentras otra manera más fácil de usarlo sin todos los paquetes que te indica el sistema y vas y te pones a eliminar paquetes como si no hubiera un mañana, pues pasa lo que pasa. Que me cargo el sistema y yo sin enterarme hasta que reinició el sistema.</p>
+<p>Lo puedes ver, cuando se inicia el sistema y este te dice que no puede encontrar <code>/sbin/init</code> y es aquí cuando te cogen todos los sudores 😰.</p>
+<p>Pero gracias a la IA, que para lo poco que la utilizo es para usarla como buscador de información y así me ahorro tener que buscar en miles de páginas hasta encontrar la solución correcta, si me lo puede hacer ella, pues, eso que gano. Sé que no es lo correcto, porque seguramente pierdo poder aprender más cosas, pero en este caso, quería volver a tener en funcionamiento mi sistema lo antes posible y sobre todo, evitar tener que reinstalarlo todo de nuevo. Y así ha sido 😬</p>
+<p>A continuación explico cómo he podido recuperar el sistema, por si a alguien le puede servir de ayuda y como información para sí, por si me vuelve a pasar en un futuro 🤞</p>
+<p>Empezamos iniciando el sistema, con el <em>USB</em> de instalación de <strong>Arch Linux</strong>, una vez iniciado todo, tenemos que conocer las particiones que tenemos, por si no te acuerdas y esto se puede conseguir a través de la instrucción:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~$ lsblk -f
+</span></span></code></pre></div><p>Donde visualizaremos el particionado de nuestro equipo. En mi caso tengo lo siguiente (tener en cuenta, que yo tengo el sistema instalado en un <strong>NVME</strong>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~$ lsblk -f
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>├─nvme0n1p1 vfat   FAT32       2060-F52D                             941.7M     8% /boot
+</span></span><span style="display:flex;"><span>├─nvme0n1p2 ext4   1.0         243ca655-c4dc-4b51-9941-c851ad60f059   83.3G     6% /
+</span></span><span style="display:flex;"><span>└─nvme0n1p3 ext4   1.0         bcb9ab01-8372-4652-97cb-b57eef626f78  330.8G     4% /home
+</span></span></code></pre></div><p>Una vez tenemos esta información, recordar que estamos usando el <em>USB</em> de instalación de <strong>Arch</strong>, pasamos a montar el sistema:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~$ mount /dev/nvme0n1p2 /mnt
+</span></span><span style="display:flex;"><span>usuari@archlinux:~$ mount /dev/nvme0n1p1 /mnt/boot
+</span></span><span style="display:flex;"><span>usuari@archlinux:~$ mount /dev/nvme0n1p2 /mnt/home
+</span></span></code></pre></div><p>Ahora entramos en <code>arch-chroot</code> para así poder, siempre que se puede, instalar lo que por equivocación había borrado:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~$ arch-chroot /mnt
+</span></span></code></pre></div><p>Con esto accedemos al <strong>Arch</strong> que tenemos instalado en el equipo y ahora es, si el destrozo no ha sido muy grande, tengo que decir que no ha sido nada del otro mundo, para lo que podía haber sido, procedemos a instalar los paquetes que había eliminado por equivocación:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~$ pacman -Syu systemd systemd-syscompat base
+</span></span></code></pre></div><p>En el caso de que diera algún error, podemos obligar a que haga la instalación sí o sí:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~$ pacman -Syu systemd systemd-syscompat base --overwrite
+</span></span></code></pre></div><p>Ahora viene la parte donde puedes tocar el cielo o el infierno (como ha sido mi caso), verificar que existe <code>/sbin/init</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~$ ls -l /sbin/init
+</span></span></code></pre></div><p>Dando como resultado, si todo ha ido bien, lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~$ init -&gt; ../lib/systemd/systemd
+</span></span></code></pre></div><p>Regeneramos initramfs, cosa muy recomendable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~$ mkinitcpio -P
+</span></span></code></pre></div><p>Salimos de <code>arch-chroot</code> y desmontamos las particiones y hacemos un reboot del sistema:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~$ exit <span style="color:#f92672">&amp;&amp;</span> unmount -R /mnt <span style="color:#f92672">&amp;&amp;</span> reboot
+</span></span></code></pre></div><p>Aquí es donde se puede ver si todo ha ido bien 🥳 o 😭 y en mi caso sí que ha sido 🥳 consiguiendo recuperar todo el sistema sin problemas y ahorrando tener que volver a reinstalar todo el sistema de nuevo.</p>
+<p>Espero que como a mí, os pueda servir de ayuda estos apuntes, porque nunca se sabe cuándo algo así puede volver a pasar 😆</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

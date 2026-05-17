@@ -1,0 +1,173 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Cambiar dinámicamente el fondo de pantalla en XFCE · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2013-01-09-fondo-pantalla-xfce/">
+
+
+
+
+
+
+<meta name="description" content="Después de hacer limpieza de mi portátil (borrar ese espacio en el HD que no utilizaba para nada), he instalado de nuevo mi querido Debian GNU/Linux, y como estaba un poco cansado de KDE, lleno de programas que no utilizo, me decidí probar XFCE.
+Pero una de las pocas cosas que hecho de menos en XFCE, sé que puede parecer una tontería, pero 😉 es el cambio dinámico de wallpapers. Así que después de una búsqueda por inet, encontré esta chuleta (que la pongo a continuación) como apunte para mí o por si alguien le puede servir de ayuda:
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Cambiar dinámicamente el fondo de pantalla en XFCE">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Después de hacer limpieza de mi portátil (borrar ese espacio en el HD que no utilizaba para nada), he instalado de nuevo mi querido Debian GNU/Linux, y como estaba un poco cansado de KDE, lleno de programas que no utilizo, me decidí probar XFCE.
+Pero una de las pocas cosas que hecho de menos en XFCE, sé que puede parecer una tontería, pero 😉 es el cambio dinámico de wallpapers. Así que después de una búsqueda por inet, encontré esta chuleta (que la pongo a continuación) como apunte para mí o por si alguien le puede servir de ayuda:
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Cambiar dinámicamente el fondo de pantalla en XFCE</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2013-01-09">
+        2013-01-09
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+          <a href="/tags/bash/">
+            #Bash
+          </a>
+        
+          <a href="/tags/xfce/">
+            #XFCE
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Después de hacer limpieza de mi portátil (borrar ese espacio en el HD que no utilizaba para nada), he instalado de nuevo mi querido <strong>Debian GNU/Linux</strong>, y como estaba un poco cansado de KDE, lleno de programas que no utilizo, me decidí probar XFCE.</p>
+<p>Pero una de las pocas cosas que hecho de menos en XFCE, sé que puede parecer una tontería, pero 😉 es el cambio dinámico de wallpapers. Así que después de una búsqueda por inet, encontré esta chuleta (que la pongo a continuación) como apunte para mí o por si alguien le puede servir de ayuda:</p>
+<ul>
+<li>Creamos una lista de imágenes, para ello tenemos que ir a la <em>configuración de escritorio</em> y seleccionar <em>Lista de Imágenes</em> y aquí es donde agregamos las imágenes que nosotros queremos que se visualicen.</li>
+<li>Probar cómo quedan las imágenes con el cambio dinámico mediante el comando (desde consola).</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ export DISPLAY<span style="color:#f92672">=</span>:0;/usr/bin/xfdesktop --reload
+</span></span></code></pre></div><ul>
+<li>Lo que hace es reiniciar el escritorio de XFCE, pero no vamos a estar haciendo esto cada vez que queramos cambiar el fondo de pantalla, así que &hellip;</li>
+<li>Crearemos un script que insertaremos en el cron.</li>
+<li>Se crea un archivo donde agregamos lo siguiente y después lo guardamos:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>*/5 * * * * export DISPLAY<span style="color:#f92672">=</span>:0;/usr/bin/xfdesktop --reload
+</span></span></code></pre></div><ul>
+<li>Donde <code>*/5</code> indica el número de minutos en que se ejecutará la instrucción.</li>
+<li>Lo guardamos con nuestro editor de texto preferido y lo añadimos al cron mediante la siguiente instrucción:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ crontab archivo_creado
+</span></span></code></pre></div><p>Con esto, le indicamos a <code>cron</code> que cada 5 minutos reinicie el escritorio de XFCE cambiando el fondo de pantalla. Es una funcionalidad o una manera de trabajar que nunca se me hubiese ocurrido, pero en esto consiste el software libre, si no lo encuentras siempre puedes hacerlo tú&hellip;</p>
+<p>Bueno, espero que os sirva de ayuda</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

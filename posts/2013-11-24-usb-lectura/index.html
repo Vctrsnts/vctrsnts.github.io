@@ -1,0 +1,161 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>USB se monta sólo como lectura · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2013-11-24-usb-lectura/">
+
+
+
+
+
+
+<meta name="description" content="Por si a alguien le vuelve a pasar lo mismo que a mí, aquí pongo una pequeña ayuda de lo que se puede hacer antes de tirar a la basura un USB, que, cada vez que lo montas, está como lectura&amp;amp;hellip;
+Me pasó el otro día, que al conectar el USB, este solamente estaba disponible como lectura y me era imposible grabar en él. Busqué información sobre cómo arreglar este problema y en principio, todo lo que encontraba, era información diciendo, que el usb estaba en las últimas&amp;amp;hellip; Pero después de mucho buscar, encontré una solución que podía dar algo de luz&amp;amp;hellip;
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="USB se monta sólo como lectura">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Por si a alguien le vuelve a pasar lo mismo que a mí, aquí pongo una pequeña ayuda de lo que se puede hacer antes de tirar a la basura un USB, que, cada vez que lo montas, está como lectura&amp;amp;hellip;
+Me pasó el otro día, que al conectar el USB, este solamente estaba disponible como lectura y me era imposible grabar en él. Busqué información sobre cómo arreglar este problema y en principio, todo lo que encontraba, era información diciendo, que el usb estaba en las últimas&amp;amp;hellip; Pero después de mucho buscar, encontré una solución que podía dar algo de luz&amp;amp;hellip;
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">USB se monta sólo como lectura</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2013-11-23">
+        2013-11-23
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/bash/">
+            #Bash
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Por si a alguien le vuelve a pasar lo mismo que a mí, aquí pongo una pequeña ayuda de lo que se puede hacer antes de tirar a la basura un USB, que, cada vez que lo montas, está como lectura&hellip;</p>
+<p>Me pasó el otro día, que al conectar el USB, este solamente estaba disponible como lectura y me era imposible grabar en él. Busqué información sobre cómo arreglar este problema y en principio, todo lo que encontraba, era información diciendo, que el usb estaba en las últimas&hellip; Pero después de mucho buscar, encontré una <del><a href="">solución</a></del> que podía dar algo de luz&hellip;</p>
+<p>En el post, se explica, que hay una aplicación llamada <code>dosfsck</code>, que sirve para comprobar la consistencia de sistemas de ficheros <code>FAT</code> en cualquier sistema basado en Unix, como <strong>Debian GNU/Linux</strong> y cuyas funciones son similares a las del comando chkdsk de Windows.</p>
+<p>Los tres pasos a seguir son:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># instalar el paquete dosftool</span>
+</span></span><span style="display:flex;"><span>usuari@debian:~$  sudo apt-get install dosfstools
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># desmontar el disco duro externo o pendrive</span>
+</span></span><span style="display:flex;"><span>usuari@debian:~$ sudo umount /dev/sdb1
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># verificar y reparar la partición</span>
+</span></span><span style="display:flex;"><span>usuari@debian:~$ sudo dosfsck -t -a -w /dev/sdb1
+</span></span></code></pre></div><p>Con esta sencilla solución, se reparó la partición y el disco duro externo volvió a ser de lectura/escritura.</p>
+<p>Lo que tengo que decir, es que la reparación funcionó durante un par de días&hellip; Al final lo que tenía que pasar, pasó&hellip; El USB acabó en la basura&hellip; Estaba en las últimas. Pero bueno, durante un par de días, logré que siguiera funcionando.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

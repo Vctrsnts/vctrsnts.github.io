@@ -1,0 +1,167 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Montar imagen ISO desde consola en GNU/Linux · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2021-03-25-montar-imagen-iso-consola/">
+
+
+
+
+
+
+<meta name="description" content="Vamos a explicar como a través de la consola de GNU/Linux se puede montar una imagen / archivo ISO.
+No se si os ha pasado alguna vez a vosotros, pero llega un día, que tenéis una ISO y os encontráis sin CD para grabar y el lector y no sabéis que hacer en ese momento (me ha pasado más de una vez), hasta que he encontrado este sencillo método para resolver el problema.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Montar imagen ISO desde consola en GNU/Linux">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Vamos a explicar como a través de la consola de GNU/Linux se puede montar una imagen / archivo ISO.
+No se si os ha pasado alguna vez a vosotros, pero llega un día, que tenéis una ISO y os encontráis sin CD para grabar y el lector y no sabéis que hacer en ese momento (me ha pasado más de una vez), hasta que he encontrado este sencillo método para resolver el problema.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Montar imagen ISO desde consola en GNU/Linux</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2021-03-25">
+        2021-03-25
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/programaci%C3%B3n/">
+            @Programación
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+          <a href="/tags/bash/">
+            #Bash
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Vamos a explicar como a través de la consola de GNU/Linux se puede montar una imagen / archivo ISO.</p>
+<p>No se si os ha pasado alguna vez a vosotros, pero llega un día, que tenéis una <strong>ISO</strong> y os encontráis sin CD para grabar y el lector y no sabéis que hacer en ese momento (me ha pasado más de una vez), hasta que he encontrado este sencillo método para resolver el problema.</p>
+<p>Lo primero es acceder a la consola y ejecutamos el siguiente comando:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ sudo mkdir /media/cdrom
+</span></span></code></pre></div><p>Estamos creando el directorio donde vamos a montar la imagen <strong>ISO</strong>, en mi caso, como ya tengo este directorio me puedo saltar este paso.</p>
+<p>Ahora pasamos a montar la imagen directamente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ sudo mount -o loop -t iso9660 /ruta_imagen.iso /media/cdrom
+</span></span></code></pre></div><p>Vamos a explicar un poco que significa cada parámetro:</p>
+<ul>
+<li>El parámetro <strong>-o</strong> es un indicador de opciones genéricas para así poder usar <strong>loop</strong>. Esta opción de bucle le indica a GNU/Linux que use la interfaz de bucle invertido en lugar de un dispositivo físico, ya que la imagen ISO no es un dispositivo real con una lista en el directorio <strong>/dev</strong>.</li>
+<li>El parámetro <strong>-t</strong> hace referencia al tipo de sistema de archivos a montar, en este caso es <strong>iso9660</strong> o lo que es lo mismo, usa <strong>ISO</strong>.</li>
+</ul>
+<p>Cuando tenemos montada la <strong>ISO</strong>, ya podemos acceder a ella como si fuera un CD/DVD normal.</p>
+<p>Para finalizar, nos quedará desmontar la imagen <strong>ISO</strong> de la misma manera como se haría con un dispositivo físico:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ sudo umount /media/cdrom
+</span></span></code></pre></div><h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.solvetic.com/tutoriales/article/5805-como-montar-iso-en-linux/">Cómo montar imagen ISO en Linux</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

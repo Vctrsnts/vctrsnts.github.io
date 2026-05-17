@@ -1,0 +1,157 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Grabar fichero img a USB · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2017-05-15-img-usb/">
+
+
+
+
+
+
+<meta name="description" content="Siguiendo mi aprendizaje con FreeBSD, aquí explico, seguramente en otros sitios diferentes de este vasto océano llamado internet, lo encontraréis mejor explicado, cómo grabar un fichero *.img a un pendrive, es una cosa que nunca me acuerdo cómo se hace y siempre acabo buscándolo.
+La instrucción para realizar esta acción es la siguiente:
+root@debian:~# dd if=FreeBSD-11.0-STABLE-amd64-20170510-r318134-memstick.img of=/dev/sdb bs=1024 conv=sync Donde:
+dd es el comando para realizar la grabación. if=*.img donde se encuentra la imagen de disco memstick. of=/dev/sdb donde está el pendrive (lo estoy haciendo desde GNU/Linux). bs=10204 y conv=sync son los valores recomendados por el equipo FreeBSD para realizar la grabación. ◇ Referencia">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Grabar fichero img a USB">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Siguiendo mi aprendizaje con FreeBSD, aquí explico, seguramente en otros sitios diferentes de este vasto océano llamado internet, lo encontraréis mejor explicado, cómo grabar un fichero *.img a un pendrive, es una cosa que nunca me acuerdo cómo se hace y siempre acabo buscándolo.
+La instrucción para realizar esta acción es la siguiente:
+root@debian:~# dd if=FreeBSD-11.0-STABLE-amd64-20170510-r318134-memstick.img of=/dev/sdb bs=1024 conv=sync Donde:
+dd es el comando para realizar la grabación. if=*.img donde se encuentra la imagen de disco memstick. of=/dev/sdb donde está el pendrive (lo estoy haciendo desde GNU/Linux). bs=10204 y conv=sync son los valores recomendados por el equipo FreeBSD para realizar la grabación. ◇ Referencia">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Grabar fichero img a USB</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2019-05-15">
+        2019-05-15
+      </time>
+      · 1 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/freebsd/">
+            #FreeBSD
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Siguiendo mi aprendizaje con FreeBSD, aquí explico, seguramente en otros sitios diferentes de este vasto océano llamado internet, lo encontraréis mejor explicado, cómo grabar un fichero <code>*.img</code> a un pendrive, es una cosa que nunca me acuerdo cómo se hace y siempre acabo buscándolo.</p>
+<p>La instrucción para realizar esta acción es la siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@debian:~# dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>FreeBSD-11.0-STABLE-amd64-20170510-r318134-memstick.img of<span style="color:#f92672">=</span>/dev/sdb bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span> conv<span style="color:#f92672">=</span>sync
+</span></span></code></pre></div><p>Donde:</p>
+<ul>
+<li><a href="https://es.wikipedia.org/wiki/Dd_%28Unix%29">dd</a> es el comando para realizar la grabación.</li>
+<li><code>if=*.img</code> donde se encuentra la imagen de disco memstick.</li>
+<li><code>of=/dev/sdb</code> donde está el pendrive (lo estoy haciendo desde GNU/Linux).</li>
+<li><code>bs=10204</code> y <code>conv=sync</code> son los valores recomendados por el <em>equipo FreeBSD</em> para realizar la grabación.</li>
+</ul>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

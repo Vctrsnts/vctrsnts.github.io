@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub on Si lo haces, hazlo bien!</title>
+    <link>https://vctrsnts.github.io/tags/github/</link>
+    <description>Recent content in GitHub on Si lo haces, hazlo bien!</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 03 Dec 2025 00:00:00 +0100</lastBuildDate>
+    <atom:link href="https://vctrsnts.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Migrando a Codeberg</title>
+      <link>https://vctrsnts.github.io/posts/2025-12-03-migrando-codeberg/</link>
+      <pubDate>Wed, 03 Dec 2025 00:00:00 +0100</pubDate>
+      <guid>https://vctrsnts.github.io/posts/2025-12-03-migrando-codeberg/</guid>
+      <description>&lt;p&gt;Después de leer el &lt;a href=&#34;https://www.genbeta.com/inteligencia-artificial/ceo-github-proclamo-abraza-ia-estas-fuera-respuesta-muchos-proyectos-software-esta-siendo-irse-fuera-github&#34;&gt;mensaje&lt;/a&gt; que ha lanzado el CEO de &lt;a href=&#34;https://github.com&#34;&gt;gitHub&lt;/a&gt; que en pocas palabras ha hecho una &lt;a href=&#34;https://www.lavanguardia.com/nacional/20251009/11141043/psoe-califica-salvajada-grave-ayuso-diga-mujeres-vayan-sitio-abortar-agenciaslv20251009.html&#34;&gt;ayusada&lt;/a&gt;, me he propuesto hacerle caso y voy a ir migrando, dentro de lo que cabe, todo a &lt;a href=&#34;https://codeberg.org&#34;&gt;Codeberg&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;No tenía pensado hacer el cambio, pero después de leer este artículo, a uno le dan ganas de salir corriendo, pero claro, no lo puedes hacer a las bravas si es ahí donde tienes alojada tu pequeña página web.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Script para actualizar tu GitHub</title>
+      <link>https://vctrsnts.github.io/posts/2022-11-22-script-update-git/</link>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0100</pubDate>
+      <guid>https://vctrsnts.github.io/posts/2022-11-22-script-update-git/</guid>
+      <description>&lt;p&gt;Buscando maneras de facilitarme el trabajo con &lt;a href=&#34;https://www.github.com&#34;&gt;GitHub&lt;/a&gt; que es donde tengo alojada mi web (más bien son mis proyectos, apuntes y cosas por es estilo) porque para subir cualquier cosa a &lt;code&gt;GitHub&lt;/code&gt; era una tocada de huevos en mi caso.&lt;/p&gt;&#xA;&lt;p&gt;Así que me puse a buscar algún script para ayudarme a realizar las actualizaciones de mis repositorios en Git, y después de mucho buscar, al final lo encontré.&lt;/p&gt;&#xA;&lt;p&gt;Es el siguiente que pongo a continuación&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

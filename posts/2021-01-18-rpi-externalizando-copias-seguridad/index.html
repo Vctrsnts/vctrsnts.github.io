@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Raspberry Pi. Externalizando copias de seguridad · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2021-01-18-rpi-externalizando-copias-seguridad/">
+
+
+
+
+
+
+<meta name="description" content="Este articulo es una continuación al que hice hace un par de días con respecto a realizar copias de seguridad en mi RPI4 con rsnapshot.
+Está bien hacer copias de seguridad de los ficheros más importantes del sistema, pero hay un problema, que si estas copias están en el mismo HDD que el resto del sistema, en caso de que el HDD falle, pierdes todas las copias de seguridad que habías hecho.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Raspberry Pi. Externalizando copias de seguridad">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Este articulo es una continuación al que hice hace un par de días con respecto a realizar copias de seguridad en mi RPI4 con rsnapshot.
+Está bien hacer copias de seguridad de los ficheros más importantes del sistema, pero hay un problema, que si estas copias están en el mismo HDD que el resto del sistema, en caso de que el HDD falle, pierdes todas las copias de seguridad que habías hecho.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Raspberry Pi. Externalizando copias de seguridad</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2021-01-18">
+        2021-01-18
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Este articulo es una continuación al que hice hace un par de días con respecto a realizar copias de seguridad en mi RPI4 con <a href="/posts/2021-01-17-rpi-copias-seguridad">rsnapshot</a>.</p>
+<p>Está bien hacer copias de seguridad de los ficheros más importantes del sistema, pero hay un problema, que si estas copias están en el mismo HDD que el resto del sistema, en caso de que el HDD falle, pierdes todas las copias de seguridad que habías hecho.</p>
+<p>Pero para esto, tenemos a <strong>Docker</strong> que viene en nuestra ayuda. En este caso, si tienes una cuenta de <strong>MEGA</strong>, la puedes utilizar, para una vez que has hecho las copias de seguridad de tu sistema con <strong>rsnapshot</strong>, las guardas en tu cuenta, para en caso de fallo, poder recuperar toda la información sin ningún problema.</p>
+<p>Esto se puede hacer a través de la imagen <a href="https://hub.docker.com/r/melsonlai/docker-megacmd">MegaCmd</a> que nos provee de un sistema automático, para que al copiar ficheros que nosotros pongamos en dicho directorio, los copia automáticamente en nuestra cuenta de <strong>Mega</strong>.</p>
+<p>Lo que necesitamos primero es hacer nuestro <strong>docker-compose</strong> de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>megacmd:
+</span></span><span style="display:flex;"><span> image: melsonlai/docker-megacmd:arm
+</span></span><span style="display:flex;"><span> container_name: megacmd
+</span></span><span style="display:flex;"><span> restart: unless-stopped
+</span></span><span style="display:flex;"><span> environment:
+</span></span><span style="display:flex;"><span>   - PUID<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>   - PGID<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span> volumes:
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e"># DIRECTORIO DONDE ESTA LA CONFIGURACIÓN DE MEGA</span>
+</span></span><span style="display:flex;"><span>   - /mnt/config/megacmd:/home/d_user
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e"># DIRECTORIO DONDE ESTA LAS COPIAS DE SEGURIDAD DE RSNAPSHOT Y QUE QUEREMOS</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e"># COPIAR EN MEGA</span>
+</span></span><span style="display:flex;"><span>   - /mnt/seguretat:/mnt/sync
+</span></span></code></pre></div><p>Una vez tenemos nuestro fichero <strong>docker-compose</strong>, solamente nos queda usar nuestro comando favorito <code>docker-compose up -d megacmd</code></p>
+<p>Cuando se ha finalizado la descarga de la imagen, tenemos que ejecutar el siguiente comando para entrar en el container y finalizar la configuración del sistema:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker exec -it megacmd su - d_user
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~$ mega-login &lt;account-email&gt; &lt;password&gt;
+</span></span><span style="display:flex;"><span>~$ mega-sync &lt;localpath&gt; &lt;dstremotepath&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># EN MI CASO, ESTA INSTRUCCIÓN SERÍA LA SIGUIENTE</span>
+</span></span><span style="display:flex;"><span>~$ mega-sync /mnt/sync /backup
+</span></span></code></pre></div><p>Con esta se da por finalizada la configuración de <strong>MegaCmd</strong> que automáticamente sincronizará el contenido del directorio <code>/mnt/seguretat</code> con el directorio que hayáis seleccionado en vuestra cuenta de <strong>Mega</strong>.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://hub.docker.com/r/melsonlai/docker-megacmd">MEGA - cmd</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Raspberry Pi. Instalar y configurar fail2ban · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2020-11-08-rpi-usando-fail2ban/">
+
+
+
+
+
+
+<meta name="description" content="Siguiendo con mis capítulos con respecto a la configuración y uso de mi RPI4 (también explicado en este otro articulo, pues ahora pasamos a añadir una protección más y que en todos los sitios donde explican su configuración, se preguntan, porque no está instalada por defecto en todos los sistemas GNU/Linux.
+Esta protección es fail2ban.
+Su funcionalidad es la de monitorizar todos los intentos de conexión a los servicios que hayas indicado en el fichero de configuración, jail.local y cuando ve que una IP intenta hacer más de un intento fallido, bloquea - banea durante el tiempo que tú hayas indicado.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Raspberry Pi. Instalar y configurar fail2ban">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Siguiendo con mis capítulos con respecto a la configuración y uso de mi RPI4 (también explicado en este otro articulo, pues ahora pasamos a añadir una protección más y que en todos los sitios donde explican su configuración, se preguntan, porque no está instalada por defecto en todos los sistemas GNU/Linux.
+Esta protección es fail2ban.
+Su funcionalidad es la de monitorizar todos los intentos de conexión a los servicios que hayas indicado en el fichero de configuración, jail.local y cuando ve que una IP intenta hacer más de un intento fallido, bloquea - banea durante el tiempo que tú hayas indicado.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Raspberry Pi. Instalar y configurar fail2ban</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2020-11-08">
+        2020-11-08
+      </time>
+      · 3 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+          <a href="/tags/seguridad/">
+            #Seguridad
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Siguiendo con mis capítulos con respecto a la configuración y uso de mi RPI4 (también explicado en este otro <a href="/posts/2020-10-30-rpi-cambiando-equipo">articulo</a>, pues ahora pasamos a añadir una protección más y que en todos los sitios donde explican su configuración, se preguntan, porque no está instalada por defecto en todos los sistemas GNU/Linux.</p>
+<p>Esta protección es <strong>fail2ban</strong>.</p>
+<p>Su funcionalidad es la de monitorizar todos los intentos de conexión a los servicios que hayas indicado en el fichero de configuración, <code>jail.local</code> y cuando ve que una <code>IP</code> intenta hacer más de un intento fallido, <em>bloquea - banea</em> durante el tiempo que tú hayas indicado.</p>
+<p>Ahora, pasamos a explicar unos cuantos conceptos del fichero de configuración:</p>
+<ul>
+<li><strong>maxretry</strong>: Cuantos intentos de conexión se aceptan antes del bloqueo / baneo.</li>
+<li><strong>fintime</strong>: Es durante cuanto tiempo se monitoriza una IP antes de activarse la opcion <strong>maxretry</strong></li>
+<li><strong>bantime</strong>: Cuanto tiempo permanecerá baneada la ip de donde ha venido el intento de conexión. En el caso de que quieras ser agresivo, puedes poner más tiempo. En mi caso lo tengo con que el baneo sea de 1 día (86.400 segundos).</li>
+<li><strong>ignoreip</strong>: Para ignorar los intentos de conexión fallidos que vienen de nuestra propia red.</li>
+</ul>
+<p>Ahora pasamos a su modificación.</p>
+<p>Lo que he leído en todos sitios con respecto a <strong>fail2ban</strong>, es que lo mejor es copiar el fichero <code>jail.conf</code> a <code>jail.local</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ cd /etc
+</span></span><span style="display:flex;"><span>usuari@raspberry:~$ sudo cp jail.conf jail.local
+</span></span></code></pre></div><p>Una vez hecho esto, ya lo podemos editar con las opciones que más nos interesan que en mi caso son las siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># descomentar la opción ignoreip para que no tenga en cuenta los accesos</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># que vienen de nuestra propia red</span>
+</span></span><span style="display:flex;"><span>ignoreip <span style="color:#f92672">=</span> 127.0.0.1/8::1
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># descomentamos la opción bantime y en mi caso he puesto 86400</span>
+</span></span><span style="display:flex;"><span>bantime <span style="color:#f92672">=</span> <span style="color:#ae81ff">86400</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># descomentamos la opcion fintime y yo he dejado el valor por defeccto</span>
+</span></span><span style="display:flex;"><span>fintime <span style="color:#f92672">=</span> 10m
+</span></span></code></pre></div><p>Ahora pasamos a activar los módulos que nos interesa que en mi caso es el módulo de <code>sshd</code>. Los módulos se encuentran a partir de la opción <code>JAILS</code>.</p>
+<p>Se activan con la opción <code>enabled = true</code>. Y en mi caso el módulo de <code>SSHD</code> queda de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>enabled <span style="color:#f92672">=</span> true
+</span></span><span style="display:flex;"><span>filter <span style="color:#f92672">=</span> sshd
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Aqui es donde ponemos los puertos a controlar. Si ponemos ssh,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># se monitoriza el puerto por defecto de ssh (22), pero</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># tambien podemos poner otros puertos.</span>
+</span></span><span style="display:flex;"><span>port <span style="color:#f92672">=</span> ssh, xxxx
+</span></span></code></pre></div><p>Si revisas los módulos disponibles, ves que hay un monto, por ejemplo <code>dropbear</code>, <code>apache</code>, <code>nginx</code>, <code>lighttpd</code> y unos cuantos más.</p>
+<p>De esta manera ya tenemos configurado <strong>fail2ban</strong>, ahora solamente falta activarlo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo /etc/init.d/fail2ban start
+</span></span></code></pre></div><p>Ahora, nos toca disfrutar de los baneos, que puedes ver en el fichero de los:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo tail -f /var/log/fail2ban.log
+</span></span></code></pre></div><blockquote>
+<p>nota: Que como dice un youtuber famoso <a href="https://www.youtube.com/channel/UCrBzBOMcUVV8ryyAU_c6P5g">PeladoNerd</a>, es un ejercicio muy saludable.</p>
+</blockquote>
+<p>Así mismo, también pongo el código necesario para poder <code>desbanear</code> nuestra ip de acceso a la raspberry (me ha pasado más de una vez), lo que se tiene que hacer es lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ fail2ban-client set sshd unbanip x.x.x.x
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Donde x.x.x.x es la ip</span>
+</span></span></code></pre></div><p>Ten en cuenta, que esto lo tienes que hacer desde otro PC, porque desde el que tienes acceso normalmente no te dejará acceder, si es que no le cambias la ip.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.gitlab.io/2017-10-05-fail2ban-raspberry">fail2ban en una Raspberry Pi</a></li>
+<li><a href="https://www.youtube.com/watch?v=PAK7I1cKwzA">ESTO TENDRÍA QUE VENIR POR DEFECTO EN LINUX - V2M / fail2ban</a></li>
+<li><a href="https://support.moonpoint.com/os/unix/linux/fail2ban-unban.php">Desbanear IP</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

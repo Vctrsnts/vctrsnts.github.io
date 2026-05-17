@@ -1,0 +1,208 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Mi nuevo servidor · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2022-05-26-nuevo-servidor/">
+
+
+
+
+
+
+<meta name="description" content="Sé que llevo mucho tiempo sin publicar nada, pero he estado liado haciendo cambios en el servidor (RPI4).
+Como sabéis, antes tenía una Raspberry Pi 4 de 4Gb, pero para algunas cosas se me quedaba pillado y pensé que podía usarla como mediacenter, y cambiar la RPI3 que tenía por esta.
+Como estoy en el grupo de Telegram de Thinkpads (unos frikis de cuidado), pues a un compañero del canal que tenía un Dell a la venta se lo compré. Y como siempre, cuando me llegó, me sentí como un niño con zapatos nuevos.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Mi nuevo servidor">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Sé que llevo mucho tiempo sin publicar nada, pero he estado liado haciendo cambios en el servidor (RPI4).
+Como sabéis, antes tenía una Raspberry Pi 4 de 4Gb, pero para algunas cosas se me quedaba pillado y pensé que podía usarla como mediacenter, y cambiar la RPI3 que tenía por esta.
+Como estoy en el grupo de Telegram de Thinkpads (unos frikis de cuidado), pues a un compañero del canal que tenía un Dell a la venta se lo compré. Y como siempre, cuando me llegó, me sentí como un niño con zapatos nuevos.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Mi nuevo servidor</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2022-05-26">
+        2022-05-26
+      </time>
+      · 4 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/hardware/">
+            #Hardware
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Sé que llevo mucho tiempo sin publicar nada, pero he estado liado haciendo cambios en el servidor (RPI4).</p>
+<p>Como sabéis, antes tenía una Raspberry Pi 4 de 4Gb, pero para algunas cosas se me quedaba pillado y pensé que podía usarla como mediacenter, y cambiar la RPI3 que tenía por esta.</p>
+<p>Como estoy en el grupo de Telegram de Thinkpads (unos frikis de cuidado), pues a un compañero del canal que tenía un Dell a la venta se lo compré. Y como siempre, cuando me llegó, me sentí como un niño con zapatos nuevos.</p>
+<p>Así que me lié la manta a la cabeza y el cambio lo hice a lo bestia, ya que si hago un cambio, ¿por qué no liarla? Y ahora tengo un Dell Optiplex 3050 con 8Gb con un i5-7500. O sea, un maquinón que no me lo voy a acabar nunca.</p>
+<p><img src="imagen.png" alt="" title="Dell Optiplex 3050"></p>
+<p>Junto con el Dell y algunas cosas que tenía en casa pues me he montado lo siguiente:</p>
+<ul>
+<li>SDD Crucial de 250Gb para el sistema operativo</li>
+<li><strong>Debian GNU/Linux STABLE</strong> para no tener ningún problema (cuando es un servidor, prefiero la estabilidad a la novedad)</li>
+<li>El HDD externo de 8Tb (Western Digital) que tenía conectado a la RPI4 se lo he conectado al servidor</li>
+</ul>
+<p>Ahora solo queda hacer el cambio de la RPI4B que tenía haciendo las funciones de servidor y poner el Tiny y de paso aprovechar (aquí no se tira nada) la RPI4 y ponerla en sustitución de la RPI3B que tengo ahora.</p>
+<p>Nos pusimos a ello junto a mi inseparable <strong>Debian GNU/Linux STABLE</strong>. No quiero jugar a ser dios con <strong>UNSTABLE</strong> en un servidor. Y previa actualización del HDD por un SSD Crucial de 250Gb nos pusimos con la instalación.</p>
+<p>La instalación no cambia en <strong>Debian GNU/Linux</strong>, sin ningún problema, aunque tuve dudas de de qué manera particionar el SSD para sacarle el máximo rendimiento. Después de pensar, lo dejé de la siguiente manera (seguramente hay otra mejor, pero no se me ocurrió):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>filesystem   mount point   size
+</span></span><span style="display:flex;"><span>----------   -----------   ----
+</span></span><span style="display:flex;"><span>/dev/sdb1    /             200Gb
+</span></span><span style="display:flex;"><span>/dev/sdb2    swap          4Gb
+</span></span><span style="display:flex;"><span>/dev/sdb5    /home         40Gb
+</span></span></code></pre></div><p>Sé que en un PC con 8Gb de RAM poner swap no tiene ningún sentido, pero nunca se sabe&hellip;</p>
+<p>Llegados a este punto y sin ningún problema a la hora de la instalación, añadí todo lo que tenía en la RPI4B al Tiny (que no era poco):</p>
+<ul>
+<li><a href="">Nginx Proxy Manager</a></li>
+<li><a href="https://hub.docker.com/r/deluan/navidrome">Navidrome</a></li>
+<li><a href="https://hub.docker.com/r/linuxserver/duckdns">Duckdns</a></li>
+<li><a href="https://hub.docker.com/r/flexget/flexget">Flexget</a></li>
+<li><a href="https://hub.docker.com/r/linuxserver/transmission">Transmission</a></li>
+<li><a href="https://hub.docker.com/r/ngosang/amule">aMule</a></li>
+<li><a href="https://hub.docker.com/r/linuxserver/jackett">Jackett</a></li>
+<li><a href="https://hub.docker.com/r/dperson/samba">Samba</a></li>
+</ul>
+<blockquote>
+<p>nota: <a href="https://www.github.com/Vctrsnts/dot_files">aquí</a> podréis encontrar los ficheros de configuración que estoy usando.</p>
+</blockquote>
+<p>Más unas cosas nuevas que he ido aprendiendo por el camino (y todo a través de Docker):</p>
+<ul>
+<li><code>Pi-Hole</code>: bloquear toda la publicidad cuando navegas por cualquier sitio.</li>
+<li><code>Wireguard</code>: VPN para poder acceder a tu servidor desde cualquier sitio.</li>
+<li><code>Jellyfin</code>: quería una especie de biblioteca para saber qué tengo (películas y series), pero sin necesidad de tener que conectar el HTC. Sé que a lo mejor es excesivo, pero no he encontrado nada parecido a lo que quiero, aunque sigo investigando a ver si encuentro algo igual pero más liviano (no necesito todo lo que lleva consigo Jellyfin).</li>
+<li><code>Jekyll</code>: servidor Jekyll (GitHub) para crear tu propio blog en local y luego transformar los archivos <code>markdown</code> en páginas HTML y subir a GitHub.</li>
+</ul>
+<p>Como no puede ser de otra manera, ya está todo funcionando y sin ningún problema. No esperaba menos de <strong>Debian GNU/Linux</strong> y menos siendo <strong>STABLE</strong>.</p>
+<p>Por eso digo que tengo servidor para rato y que nunca me lo acabaré. Aparte de que quiero probar nuevas cosas que voy viendo en los blogs que sigo:</p>
+<ul>
+<li><a href="https://atareao.es">Atareao</a></li>
+<li><a href="https://ugeek.github.io">uGeek</a></li>
+<li><a href="https://elblogdelazaro.org/">El Blog de Lázaro</a></li>
+</ul>
+<p>¿Qué sorpresas nos esperan con este nuevo servidor?</p>
+<p>Como ya he dicho antes, aprovechando que teníamos la RPI4B libre, hemos sustituido el antiguo mediacenter (RPI3B) por esta más nueva, porque como todo en la informática, todo avanza. Pero esto lo explicaré en otro <a href="/posts/2022-11-08-cambiando-mediacenter">artículo</a> que estoy preparando (y ya os digo que no son buenas noticias).</p>
+<blockquote>
+<p>nota: Después de estos meses de uso, no me puedo quejar, porque el servidor es un maquinón en toda regla, pero ante el aumento de la luz y que a veces pienso que lo estoy infrautilizando, que no le saco todo el partido y toda la potencia que el Dell me puede dar, me está rondando por la cabeza que no sé si me he excedido utilizando este servidor. Que a lo mejor con la RPI4 tendría más que suficiente para todo lo que tiene que hacer, que aún es poco, pero es la duda que tengo. No sé si el Dell está desaprovechado y derrochando el dinero y, en cambio, si pongo la RPI4 no se quedará colgada por todas las cosas que quiero hacer ante la limitación evidente de la Raspberry. Es una cosa que quiero estudiar a fondo, preguntar, ver, mirar, etc., y sacar conclusiones.</p>
+</blockquote>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=qc8mkWtwY9c">Configurar y usar Pi-Hole - PeladoNerd</a></li>
+<li><a href="https://www.youtube.com/watch?v=G_Pv9XEzfUY">Configurar y usar Wireguard - PeladoNerd</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

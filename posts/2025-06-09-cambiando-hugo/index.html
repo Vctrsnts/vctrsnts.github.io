@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Cambiando a Hugo · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-06-09-cambiando-hugo/">
+
+
+
+
+
+
+<meta name="description" content="Antes de seguir con nuestro último artículo sobre las copias de seguridad (Restic, Backrest y Minio) y seguramente ya lo habréis notado si visitáis este blog, es que ha habido un cambio sustancial en su diseño.
+Como informaba en este artículo, informaba de los cambios que le había hecho a mi blog esperando que fuera el último cambio que hiciera, pero como pasa siempre, nunca digas que de este agua no beberé. Porque es lo que ha pasado.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Cambiando a Hugo">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Antes de seguir con nuestro último artículo sobre las copias de seguridad (Restic, Backrest y Minio) y seguramente ya lo habréis notado si visitáis este blog, es que ha habido un cambio sustancial en su diseño.
+Como informaba en este artículo, informaba de los cambios que le había hecho a mi blog esperando que fuera el último cambio que hiciera, pero como pasa siempre, nunca digas que de este agua no beberé. Porque es lo que ha pasado.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Cambiando a Hugo</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2025-06-09">
+        2025-06-09
+      </time>
+      · 11 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/web/">
+            @Web
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/hugo/">
+            #Hugo
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Antes de seguir con nuestro último artículo sobre las copias de seguridad (<em>Restic, Backrest y Minio</em>) y seguramente ya lo habréis notado si visitáis este blog, es que ha habido un cambio sustancial en su diseño.</p>
+<p>Como informaba en este <a href="/posts/2024-05-30-cambios-blog-2">artículo</a>, informaba de los cambios que le había hecho a mi blog esperando que fuera el último cambio que hiciera, pero como pasa siempre, nunca digas <strong>que de este agua no beberé</strong>. Porque es lo que ha pasado.</p>
+<p>Todo empezó mientras veía los artículos que iba publicando <a href="https://elblogdelazaro.org">Carlos M.</a>, donde explicaba cómo era el funcionamiento de <strong>Hugo</strong> y el porqué él había efectuado el cambio. En principio, después de leer sus artículos, me parecía que todo era igual a <strong>Jekyll</strong>, que era lo que estaba usando en ese momento, y así se lo pregunté.</p>
+<p>Me dijo que en principio, todo era igual, pero con una mejora muy sustancial, que en el caso de <strong>Jekyll</strong>, cuando instalas un tema, se tienen que descargar <em>módulos</em> que necesita el tema para su correcto funcionamiento, y en el caso de <strong>Hugo</strong> esto no es así, porque todo el tema ya tiene implementado todo lo que va a necesitar y no necesitas descargar nada externo. Y como soy un culo inquieto, pues me puse a investigar cómo es realmente el funcionamiento de <strong>Hugo</strong> en comparación con <strong>Jekyll</strong>.</p>
+<p>Entonces, me propuse cambiar mi blog personal de <strong>Jekyll</strong> a <strong>Hugo</strong> y ver cómo iba todo y como tengo el servidor local, pues qué mejor sitio para hacer pruebas y no estropear nada de lo que ya tengo en funcionamiento.</p>
+<p>La instalación de <strong>Hugo</strong> en mi servidor local no la voy a explicar, porque tenéis este <a href="https://elblogdelazaro.org/hugo-server-en-lugar-de-nginx-o-apache-para-autoalojar-tu-sitio-web">artículo</a>, lo que sí que tengo que puntualizar es que si no tienes creado el fichero <code>config.yml</code> o <code>hugo.toml</code> junto con cualquier tema, puedes poner el que quieras, porque lo necesita <strong>Hugo</strong> para iniciar, porque si no te da error.</p>
+<p>Después de iniciar el servidor, accedemos al contenedor:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ docker exec -it hugoBlog sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/app:~ hugo new site .
+</span></span></code></pre></div><p>Es posible que a la hora de usar esta instrucción te dé error porque te indica que ya existe un <em>sitio</em>, entonces, lo que yo hago, sin detener el contenedor, es borrar el fichero de configuración del tema, en mi caso es <code>hugo.toml</code> y entonces vuelvo a hacer la instrucción de antes, pero con la coletilla de <code>--force</code>, para que <em>sí o sí</em> me cree el nuevo sitio.</p>
+<p>Una vez que se hace esto, se crea toda la estructura de directorios del nuevo sitio. Y aquí es cuando ya tienes a tu disposición el servidor <strong>Hugo</strong> con la siguiente estructura:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>├── archetypes
+</span></span><span style="display:flex;"><span>├── assets
+</span></span><span style="display:flex;"><span>├── content
+</span></span><span style="display:flex;"><span>├── data
+</span></span><span style="display:flex;"><span>├── i18n
+</span></span><span style="display:flex;"><span>├── layouts
+</span></span><span style="display:flex;"><span>├── public
+</span></span><span style="display:flex;"><span>├── resources
+</span></span><span style="display:flex;"><span>├── static
+</span></span><span style="display:flex;"><span>├── themes
+</span></span><span style="display:flex;"><span>│   └── LoveIt
+</span></span><span style="display:flex;"><span>└── hugo.toml
+</span></span></code></pre></div><p>Entonces, en el directorio <code>themes</code>, descargas el tema que quieres utilizar (en mi caso después de probar muchos el que más me ha gustado es <a href="https://github.com/dillonzq/LoveIt">LoveIt</a>.</p>
+<p>Una vez que ya tenemos nuestro tema preferido, ahora es cuando nos ponemos realmente a configurar el tema a nuestro gusto.</p>
+<blockquote>
+<p>nota: Esta es la parte más difícil, porque hasta que no te habitúas al fichero de configuración de <strong>Hugo</strong> vas un poco perdido. Es extraño que esto no me pasase con Jekyll, veía más amena la configuración de este último.</p>
+</blockquote>
+<p>Eso sí, una vez que entiendes más o menos cómo va todo y para qué sirve cada opción, se avanza más rápidamente.</p>
+<blockquote>
+<p>nota: Lo que sí que hay que tener en cuenta es la versión de <strong>Hugo</strong> que estás utilizando, porque no todos los temas están actualizados para las nuevas versiones.</p>
+</blockquote>
+<p>Lo primero que hice fue modificar la configuración del buscador, por defecto utiliza <strong>algolia</strong>, pero cuando hice pruebas, en mi caso, no funcionaba nada bien, no sé si la culpa es porque comenté algún código que era necesario anteriormente. En este caso, lo que yo hice fue usar <strong>lunr</strong>, que en mi caso me funciona perfectamente y me gusta más.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>  <span style="color:#75715e"># Search config</span>
+</span></span><span style="display:flex;"><span>  [<span style="color:#ae81ff">params.search]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">enable = true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># type of search engine [&#34;lunr&#34;, &#34;algolia&#34;]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">type = &#34;lunr&#34;</span>
+</span></span></code></pre></div><p>Otra de las modificaciones que yo he realizado y sé que está como petición en la web del tema, es que se pueda desactivar la opción de cambiar el tema (blanco a negro), yo en mi caso he modificado el siguiente fichero <code>header.html</code> y listo.</p>
+<p>En mi caso, como usuario de <em>Mastodon</em> y <em>BlueSky</em> también me interesa tener disponible el acceso desde la web a estas redes sociales. La de <strong>Mastodon</strong> es la más fácil, porque el fichero de configuración ya está preparado para su configuración, lo que no está disponible es la de <strong>BlueSky</strong>, pero en este caso es muy fácil, porque hay un <a href="https://github.com/dillonzq/LoveIt/discussions/887">Pull Request</a>, que hace referencia a esta petición y una persona explica las modificaciones que se tienen que hacer, que son las siguientes:</p>
+<p>Para implementar <strong>BlueSky</strong> en el tema, lo primero es descargar el icono, <a href="https://simpleicons.org/?q=blues">simpleicons</a> en formato svg y ponerlo en la siguiente ruta <code>/assets/lib/simple-icons/icons/bluesky.svg</code>, una vez que ya hemos descargado el icono procedemos a modificar el fichero <code>social.yml</code> añadiendo lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Bluesky</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">bluesky</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Weight</span>: <span style="color:#ae81ff">73</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Title</span>: <span style="color:#ae81ff">Bluesky</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Icon</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Simpleicons</span>: <span style="color:#ae81ff">bluesky</span>
+</span></span></code></pre></div><p>En este caso, sustituye el icono que viene por defecto en el fichero <code>social.yml</code> por este, yo lo cambié por el 5 que era el de FaceBook 😁 y con esto, ya hemos añadido <strong>BlueSky</strong> a nuestro tema.</p>
+<blockquote>
+<p>nota: Cuando digo que me gusta mucho este tema es por estas cosas, porque el proyecto aunque parece que está abandonado no lo está.</p>
+</blockquote>
+<p>Para finalizar, siguiendo otro de los muchos y fantásticos artículos que puedes encontrar en el <a href="https://elblogdelazaro.org/adi%C3%B3s-a-google-analitycs-con-umami">blogdelazaro</a> que tiene como me gusta usar <strong>Umami</strong> para saber quién accede a mi sitio web, podéis estar tranquilos, porque es el sistema menos intrusivo de <em>analizadores</em> que por defecto no está implementado en el tema y que yo iba a hacer añadiendo el script en el <em>header</em> de la web y listo. Pero de nuevo, cada vez me gusta más este tema, alguien también había hecho la petición y había implementado un <a href="https://github.com/dillonzq/LoveIt/pull/761/files">Pull Request</a> sobre esta petición donde explicaba todas las modificaciones necesarias para activar esta nueva funcionalidad.</p>
+<p>Lo primero es añadir esto en el fichero de configuración <code>hugo.toml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#75715e"># Umami Analytics</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#ae81ff">params.analytics.umami]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Es el servidor de umami</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">src = &#34;&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Identificador</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">dataWebsiteId = &#34;&#34;</span>
+</span></span></code></pre></div><p>Luego únicamente nos queda añadir el script en sí en el siguiente fichero <code>layouts/partials/plugin/analytics.html</code> con el siguiente código:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{- /* Umami Analytics */ -}}
+</span></span><span style="display:flex;"><span>{{- with $analytics.umami.src -}}
+</span></span><span style="display:flex;"><span>    {{- dict &#34;Source&#34; $analytics.umami.src &#34;Async&#34; true &#34;Defer&#34; true &#34;Attr&#34; ($analytics.umami.dataWebsiteId | printf `data-website-id=&#34;%v&#34;`) | partial &#34;plugin/script.html&#34; -}}
+</span></span><span style="display:flex;"><span>{{- end -}}
+</span></span></code></pre></div><p>Después de añadir estas nuevas funcionalidades, ya pasé a revisar los errores que me daba <strong>Hugo</strong> y los más graves eran que no encontraba los siguientes ficheros donde tenían que estar:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>themes/
+</span></span><span style="display:flex;"><span>└── LoveIt/
+</span></span><span style="display:flex;"><span>    └── layouts/
+</span></span><span style="display:flex;"><span>        ├── _default/
+</span></span><span style="display:flex;"><span>        │   └── _markup/ <span style="color:#75715e"># aquí se tienen que modificar los siguientes ficheros:</span>
+</span></span><span style="display:flex;"><span>        │       ├── render-codeblock-goat.html
+</span></span><span style="display:flex;"><span>        │       ├── render-codeblock-mermaid.html
+</span></span><span style="display:flex;"><span>        │       ├── render-codeblock.html
+</span></span><span style="display:flex;"><span>        │       ├── render-image.html
+</span></span><span style="display:flex;"><span>        │       └── render-link.html
+</span></span><span style="display:flex;"><span>        ├── partials/
+</span></span><span style="display:flex;"><span>        │   └── internal/ <span style="color:#75715e"># aquí se tienen que modificar los siguientes ficheros:</span>
+</span></span><span style="display:flex;"><span>        │       ├── x.html
+</span></span><span style="display:flex;"><span>        │       └── x_simple.html
+</span></span><span style="display:flex;"><span>        └── shortcodes/ <span style="color:#75715e"># aquí se tienen que modificar los siguientes ficheros:</span>
+</span></span><span style="display:flex;"><span>            ├── x.html
+</span></span><span style="display:flex;"><span>            └── x_simple.html
+</span></span></code></pre></div><p>Para solucionar el problema, lo que hice fue comentar el código que hacía la llamada a estos ficheros y todo se solucionó, sé que no es lo correcto, pero a ver si en la próxima actualización del tema esto se soluciona y como todo está integrado en el tema, pues se solucionará solo.</p>
+<p>Después de estas modificaciones, ya lo tenía todo para que funcionase correctamente, aparte de tener que realizar las modificaciones necesarias en los ficheros <code>markdown</code> de los posts para el correcto funcionamiento con este tema.</p>
+<p>Una vez realizadas todas las modificaciones necesarias, el árbol de directorio con respecto al tema quedaba de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>├── assets
+</span></span><span style="display:flex;"><span>│   ├── data <span style="color:#75715e"># donde se encuentra el fichero social.yml que hemos modificado para BlueSky</span>
+</span></span><span style="display:flex;"><span>│   ├── images <span style="color:#75715e"># donde ponemos el logo de nuestra web</span>
+</span></span><span style="display:flex;"><span>│   └── libs
+</span></span><span style="display:flex;"><span>│       └── simple-icon
+</span></span><span style="display:flex;"><span>│           └── icon <span style="color:#75715e"># donde ponemos el icono / imagen de BlueSky</span>
+</span></span><span style="display:flex;"><span>├── content
+</span></span><span style="display:flex;"><span>│   ├── posts <span style="color:#75715e"># donde tenemos los artículos de nuestra web</span>
+</span></span><span style="display:flex;"><span>│   ├── images <span style="color:#75715e"># las imágenes que utilizamos en nuestra web, no confundir con el logo ni con favicon</span>
+</span></span><span style="display:flex;"><span>│   └── about <span style="color:#75715e"># nuestro fichero about</span>
+</span></span><span style="display:flex;"><span>├── data
+</span></span><span style="display:flex;"><span>├── i18n
+</span></span><span style="display:flex;"><span>├── layouts
+</span></span><span style="display:flex;"><span>│   ├── _default <span style="color:#75715e"># ya lo explicaré más adelante</span>
+</span></span><span style="display:flex;"><span>│   └── partial
+</span></span><span style="display:flex;"><span>│       ├── head <span style="color:#75715e"># donde está el fichero meta.html y que lo utilizo para añadir la opción de fediverse:creator</span>
+</span></span><span style="display:flex;"><span>│       ├── plugin <span style="color:#75715e"># donde está el fichero analytics.html para umami</span>
+</span></span><span style="display:flex;"><span>│       ├── header.html <span style="color:#75715e"># lo hemos modificado para desactivar la opción de cambiar el estilo de la web</span>
+</span></span><span style="display:flex;"><span>│       └── footer.html <span style="color:#75715e"># lo hemos modificado para añadir la opción de mastodonRelme</span>
+</span></span><span style="display:flex;"><span>├── public
+</span></span><span style="display:flex;"><span>├── resource
+</span></span><span style="display:flex;"><span>├── static <span style="color:#75715e"># donde se encuentran los iconos de la web (favicon)</span>
+</span></span><span style="display:flex;"><span>└── theme
+</span></span><span style="display:flex;"><span>    └── LoveIt
+</span></span></code></pre></div><p>Lo que sí que tengo que decir es que lo que más me gusta es que para sobreescribir los ficheros del tema original, no tienes que modificar los ficheros del tema original, sino que creas un fichero igual pero con las modificaciones que quieres dentro del directorio <code>layouts</code> y este sobreescribe a los ficheros del tema original. Esto es lo que más me gusta, porque en el caso de que actualices el tema original, estas modificaciones no las pierdes.</p>
+<p>En principio, con todo esto, ya pensaba que tenía en marcha mi nuevo sitio web (local), con el que podría hacer pruebas para ver cómo se maneja todo.</p>
+<p>Entonces me di cuenta de que todo lo referente a los <strong>Tags</strong> (etiquetas) y <strong>Categorías</strong> no funcionaba tal como tenía que ser, aparte de que esta era una parte que no acababa de entender muy bien su funcionamiento, lo que provocó que literalmente me volviera loco buscando información de cómo se tenía que configurar. Ya me veis preguntando a <strong>Copilot</strong> cómo tenía que ir, y como siempre, la <strong>IA</strong> divagando, que lo hace con buena intención 😆 pero a veces lía más que otra cosa. Y sé que tenía que funcionar, porque cuando hacía pruebas con otros temas, todo el tema de las <strong>etiquetas</strong> y las <strong>categorías</strong> funcionaban correctamente. ¿Por qué en este tema en concreto no iba?</p>
+<p>Lo que sí que me dejó claro la <strong>IA</strong> es que todo el tema de las <strong>etiquetas</strong> y <strong>categorías</strong> se controla, en principio, con 2 únicos ficheros:</p>
+<ul>
+<li><code>list.html</code>: Es la página que se encarga de hacer las listas, tanto de categorías como de etiquetas en <strong>Hugo</strong> en este tema en concreto.</li>
+<li><code>term.html</code>: Es la página que te muestra los artículos que concuerdan con el <strong>Tag / Categoría</strong> que has seleccionado en este tema en concreto.</li>
+</ul>
+<p>Miles de cambios, miles de configuraciones, modificaciones de ficheros, de nombres y sin conseguir nada. Lo único que conseguía era como máximo un <em>404 - Not Found</em> o una pantalla en blanco, y sé que tenía que funcionar, porque el ejemplo de <strong>LoveIt</strong> funciona correctamente.</p>
+<blockquote>
+<p>nota: Eso sí, tengo que decir que el ejemplo que ponen en los temas lía un poco, porque no concuerda con la estructura que luego tú tienes, pero como base, sirve.</p>
+</blockquote>
+<p>Hasta que ayer, no sé si la inspiración vino en mi ayuda, y eso fue cuando la <strong>IA</strong> me dijo que en las nuevas versiones de <strong>Hugo</strong>, los 2 ficheros que se encargan de las <em>Etiquetas</em> y las <em>Categorías</em> se tienen que ubicar en el directorio <code>_default</code>. Ya no perdía nada, así que lo probé. Y funcionó a la primera. No sé por qué antes no había funcionado correctamente, porque esta misma prueba ya la había hecho anteriormente, eso sí, como modificaciones en el fichero <code>hugo.toml</code>, y no sé si era por eso que no funcionaba, pero ahora todo funcionaba perfectamente.</p>
+<p>Aquí sí que fue cuando vi la luz al final del túnel, ya tenía el nuevo tema en <strong>Hugo</strong> y funcionando a las mil maravillas. Y qué queréis que os diga, me gusta mucho porque tiene todo lo que yo necesito, la máxima amplitud de la pantalla con el texto del artículo, porque eso de que los artículos ocupen tan poco no me gusta nada. Además, los enlaces, sin que tú tengas que hacer nada, ya te los abre en una nueva pestaña. O sea que tiene todo lo que yo necesito.</p>
+<p>Además, como tiene lo que más me gusta, que en eso sí que tengo que darle la razón a <strong>Lázaro</strong>, no necesitas instalar nada nuevo, todo lo que necesitas está en el tema. Pues&hellip;</p>
+<p>Cuando veáis este artículo, significará que ya he hecho la migración de <strong>Jekyll</strong> a <strong>Hugo</strong>, aunque la única parte que vosotros veis es el resultado en <strong>HTML</strong> que es el que subo a <strong>GitHub</strong>.</p>
+<p>Pero al menos, ya tengo nuevos conocimientos, que primero nunca están de más y segundo, me abre nuevas puertas para cambiar mi otra página <a href="https://vsantos.envs.net">web</a> utilizando el servidor <strong>Hugo</strong>, porque lo que también me gusta es que no tengo que usar nada ajeno a <strong>unRaid</strong>, sino que el container está en la tienda de aplicaciones, no como <strong>Jekyll</strong> que tenía que instalarlo a través de un <code>docker-compose</code> y que nunca actualizaba por miedo a estropear alguna cosa.</p>
+<p>Pues bueno, aquí tenéis cómo ha ido mi odisea en el cambio de <strong>Jekyll</strong> a <strong>Hugo</strong> y tengo que darle las gracias a <strong>Lázaro</strong> por todos los artículos que ha ido subiendo hablando sobre este último y que me han ayudado mucho en esta migración.</p>
+<p>Muchas gracias <strong>Lázaro</strong>.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.org/tags/hugo">Hugo</a></li>
+<li><a href="https://github.com/dillonzq/LoveIt/pull/761/files">Added supported for umami</a></li>
+<li><a href="https://github.com/dillonzq/LoveIt/discussions/887">How to add bluesky icon and to show a pdf file</a></li>
+<li><a href="https://simpleicons.org/?q=blues">Icon BlueSky</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

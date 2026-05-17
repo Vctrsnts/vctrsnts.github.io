@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Publicar feed en Mastodon / Twitter · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2022-11-14-publicar-feed-mastodon/">
+
+
+
+
+
+
+<meta name="description" content="Descubrí a través del Blog de Lazaro, que si tienes cuenta en Mastodon, quien no tiene cuenta ahora tal como van las cosas en Twitter, que puedes enviar de forma aleatoria alguno de los artículos que tienes publicados en tu web.
+Así que después de leer su artículo y ver si yo podía hacer lo mismo, me lié la manta a la cabeza y al lío.
+Lo primero, es tener una cuenta y después tienes que crear un aplicación en Mastodon de igual forma que se puede crear en Twitter (explicación más adelante ).
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Publicar feed en Mastodon / Twitter">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Descubrí a través del Blog de Lazaro, que si tienes cuenta en Mastodon, quien no tiene cuenta ahora tal como van las cosas en Twitter, que puedes enviar de forma aleatoria alguno de los artículos que tienes publicados en tu web.
+Así que después de leer su artículo y ver si yo podía hacer lo mismo, me lié la manta a la cabeza y al lío.
+Lo primero, es tener una cuenta y después tienes que crear un aplicación en Mastodon de igual forma que se puede crear en Twitter (explicación más adelante ).
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Publicar feed en Mastodon / Twitter</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2022-11-14">
+        2022-11-14
+      </time>
+      · 3 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/programaci%C3%B3n/">
+            @Programación
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/python/">
+            #Python
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Descubrí a través del <a href="https://elblogdelazaro.org">Blog de Lazaro</a>, que si tienes cuenta en <code>Mastodon</code>, quien no tiene cuenta ahora tal como van las cosas en <code>Twitter</code>,  que puedes enviar de forma aleatoria alguno de los artículos que tienes publicados en tu web.</p>
+<p>Así que después de leer su artículo y ver si yo podía hacer lo mismo, me lié la manta a la cabeza y al lío.</p>
+<p>Lo primero, es tener una cuenta y después tienes que crear un aplicación en <code>Mastodon</code> de igual forma que se puede crear en Twitter (explicación más adelante ).</p>
+<p>Aprovechando que en el servidor ya tengo Python instalado, haré que se ejecute en el mismo servidor. Eso sí, también tienes que instalar:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ pip install --user feedparser mastodon
+</span></span></code></pre></div><p>Para que Python pueda realizar el tratamiento del fichero <code>xml</code>.</p>
+<p>Una vez que ya tienes la aplicación creada, tienes que crear un fichero en <code>Python</code> que tiene que tener la siguiente estructura:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># el fitxer original es de Carlos M. (https://elblogdelazaro.org )</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Tens que tindre instalats les llibreries feedparser, Mastodon</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Realitzem la crida als moduls de Python</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> feedparser
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> mastodon <span style="color:#f92672">import</span> Mastodon
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Reallitzem la crida a les claus del Diccionari</span>
+</span></span><span style="display:flex;"><span>CUSTOMER_KEY <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xxxxxxxxxxxxxxx&#39;</span>
+</span></span><span style="display:flex;"><span>CUSTOMER_SECRET <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xxxxxxxxxxxxxxxxx&#39;</span>
+</span></span><span style="display:flex;"><span>ACCESS_TOKEN <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xxxxxxxxxxxx&#39;</span>
+</span></span><span style="display:flex;"><span>ACCESS_TOKEN_SECRET <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xxxxxxxxxxxxxxxxxxx&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Informem de l&#39;adreça del feed</span>
+</span></span><span style="display:flex;"><span>feed <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;tu dirección web hacia el feed.xml&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Descodifiquem el feed (arxiu XML)</span>
+</span></span><span style="display:flex;"><span>d <span style="color:#f92672">=</span> feedparser<span style="color:#f92672">.</span>parse(feed)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Obtenim la longitud del feed i aleatoriament seleccionem un article</span>
+</span></span><span style="display:flex;"><span>feedlen <span style="color:#f92672">=</span> len(d[<span style="color:#e6db74">&#39;entries&#39;</span>])
+</span></span><span style="display:flex;"><span>num <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>, feedlen)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Iniciem l&#39;API de Mastodon, i escribim l&#39;estat</span>
+</span></span><span style="display:flex;"><span>status_text <span style="color:#f92672">=</span> d[<span style="color:#e6db74">&#39;entries&#39;</span>][num][<span style="color:#e6db74">&#39;title&#39;</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">+</span> d[<span style="color:#e6db74">&#39;entries&#39;</span>][num][<span style="color:#e6db74">&#39;link&#39;</span>]
+</span></span><span style="display:flex;"><span>articulo <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#34;Recordando artículos publicados:&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">+</span> status_text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Token y url de la Instancia</span>
+</span></span><span style="display:flex;"><span>mastodon <span style="color:#f92672">=</span> Mastodon(
+</span></span><span style="display:flex;"><span> access_token <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;XXXXXXXXXXXXXXXXXXXXXXX&#39;</span>,
+</span></span><span style="display:flex;"><span> api_base_url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://mastodon.online/&#39;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Publiquem a Mastodon</span>
+</span></span><span style="display:flex;"><span>mastodon<span style="color:#f92672">.</span>status_post(articulo)
+</span></span></code></pre></div><p>Lo que tienes que tener en cuenta, es informar correctamente de:</p>
+<ul>
+<li><strong>CUSTOMER_KEY</strong></li>
+<li><strong>CUSTOMER_SECRET</strong></li>
+<li><strong>ACCESS_TOKEN</strong></li>
+<li><strong>ACCESS_TOKEN_SECRET</strong></li>
+<li><strong>feed</strong></li>
+</ul>
+<p>Una vez, tengas el fichero creado, si quieres hacer pruebas, tienes que hacerlo de la siguiente manera :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ python3 nombreDelArchivo.py
+</span></span></code></pre></div><p>Entonces, si no has tenido ningún problema, a tu cuenta de Mastodon te llegará un artículo aleatorio de tu web.</p>
+<p>Después de hacer las pruebas que creas oportunas, solo te quedará configurar el cron, para que se ejecute cuando tú quieras.</p>
+<p>Yo lo tengo a que lo haga una vez a la semana, pero me estoy replanteando cambiarlo a que lo haga 3 veces por semana, porque a veces, añado artículos, que a lo mejor cuestan mucho a que salgan. Sé que hay otro script, que lo que hace es publicar los últimos artículos creados. Pero eso lo tengo que estudiar.</p>
+<p>También tengo en cuenta, que si lo hago 3 veces a la semana (publicar toot) crearé muchos mensajes, pero lo que también se puede hacer, es configurar Mastodon, para que elimine todos los toot con más de 6 meses de antigüedad (o menos).</p>
+<p>Para la configuración del <code>CRON</code> lo tengo de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>@weekly /usr/bin/python3 /home/tu_usuario/lugar_donde_tengas_el_script/botMastodonPythonRss.py
+</span></span></code></pre></div><p>En el caso de que lo quisieras hacer funcionar en <code>Twitter</code> tienes que tener en cuenta las siguientes modificaciones al archivo de <code>Python</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># En vez de usar la libreria &#34;Mastodon&#34; de Python, tienes que usar &#34;Twython&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> twython <span style="color:#f92672">import</span> Twython
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>api <span style="color:#f92672">=</span> Twython(CONSUMER_KEY,CONSUMER_SECRET,ACCESS_KEY,ACCESS_SECRET)
+</span></span></code></pre></div><p>Luego, solamente tienes que añadir la siguiente línea para publicar el artículo en <code>Twitter</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>api<span style="color:#f92672">.</span>update_status(status<span style="color:#f92672">=</span>articulo)
+</span></span></code></pre></div><p>Espero que te sirva tanto como me ha servido a mí. Y eso sí, no se te olvide darle las gracias a <a href="https://elblogdelazaro.org">Carlos M</a> por el increíble artículo en que me he basado yo.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.org/posts/2021-08-16-bot-en-python-para-publicar-un-feed-de-forma-aleatorios-en-twitter-y-mastodom/">Script en Python</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

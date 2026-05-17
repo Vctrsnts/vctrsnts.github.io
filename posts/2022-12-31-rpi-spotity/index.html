@@ -1,0 +1,161 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Creando tu propi Spotify privado - Annexo · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2022-12-31-rpi-spotity/">
+
+
+
+
+
+
+<meta name="description" content="Tal como expliqué en este artículo creando tu propio servidor de musica cuando tienes un servidor en tu casa, empiezas a tener ideas locas de qué podrías hacer con él.
+Pero después de mucho probar (siguiente la estela de uGeek) creo que llegas al mismo punto (pero más lento). Si ya venía usando (en mi caso) Jellyfin que te permite también tener ordenado y listado toda la música, porque no usarlo también y así substituir Gonic o Navidrome.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Creando tu propi Spotify privado - Annexo">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Tal como expliqué en este artículo creando tu propio servidor de musica cuando tienes un servidor en tu casa, empiezas a tener ideas locas de qué podrías hacer con él.
+Pero después de mucho probar (siguiente la estela de uGeek) creo que llegas al mismo punto (pero más lento). Si ya venía usando (en mi caso) Jellyfin que te permite también tener ordenado y listado toda la música, porque no usarlo también y así substituir Gonic o Navidrome.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Creando tu propi Spotify privado - Annexo</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2022-12-31">
+        2022-12-31
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Tal como expliqué en este artículo <a href="/posts/2021-04-01-rpi-spotify">creando tu propio servidor de musica</a> cuando tienes un servidor en tu casa, empiezas a tener ideas locas de qué podrías hacer con él.</p>
+<p>Pero después de mucho probar (siguiente la estela de uGeek) creo que llegas al mismo punto (pero más lento). Si ya venía usando (en mi caso) <code>Jellyfin</code> que te permite también tener ordenado y listado toda la música, porque no usarlo también y así substituir <code>Gonic</code> o <code>Navidrome</code>.</p>
+<p>Es lo que he hecho, a parte de añadir un plugin nuevo siguiendo el consejo de uGeek y así poder cambiar el <a href="https://ugeek.github.io/blog/post/2020-11-15-jellyfin-skin-manager-repositorio-para-cambiar-el-tema-de-tu-jellyfin.html">tema</a> al que más te guste y también puede añadir el plugin de <a href="https://ugeek.github.io/blog/post/2021-08-09-lista-de-repositorios-de-jellyfin-.html">LastFm</a> para que así, tener más información sobre la música que estás escuchando, que no consigo que funcione correctamente y tampoco hay mucha información en inet para saber el motivo.</p>
+<p>A parte, como es mi caso, escucho la música en el móvil y tenía que buscar una nueva aplicación para ello, y como no, siempre uGeek viene en mi ayuda, <a href="https://ugeek.github.io/post/2022-12-23-notas-manjaro-jellyfin-podcast--.html">aquí</a> te aconseja una nueva aplicación (que la verdad que tiene muy buena pinta) para así conectar con el servidor de <code>Jellyfin</code> y poder escuchar tu  música sin ningún problema.</p>
+<p>También escucho música en mi portátil personal a través de <a href="https://ugeek.github.io/blog/post/2021-12-29-sonixd-player-para-jellyfin-y-subsonic.html">Sonixd</a>, que es una aplicación (en mi caso, como no está nativa en <strong>Debian GNU/Linux</strong>, la uso como appImage) y que ya venía usando de antes del cambio, porque funcionaba correctamente con <code>Gonic</code> y cuando vi que también se podía usar con <code>Jellyfin</code> pues fue un punto más a favor del cambio, y lo más fuerte, es que luego, veo que uGeek también tiene un artículo explicando un poco el funcionamiento de esta aplicación.</p>
+<p>Así que de momento, estoy en este punto, he quitado el servidor <code>Gonic</code> que venía usando y ahora estoy con <code>Jellyfin</code> para todo. Casi como si fuera una navaja suiza.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://ugeek.github.io/blog/post/2020-11-15-jellyfin-skin-manager-repositorio-para-cambiar-el-tema-de-tu-jellyfin.html">Jellyfin como servidor de musica</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2021-08-09-lista-de-repositorios-de-jellyfin-.html">Añadir repositorios a Jellyfin</a></li>
+<li><a href="https://ugeek.github.io/post/2022-12-23-notas-manjaro-jellyfin-podcast--.html">Notas Manjarim etc&hellip;</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2021-12-29-sonixd-player-para-jellyfin-y-subsonic.html">Sonixd</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

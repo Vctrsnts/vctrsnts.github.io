@@ -1,0 +1,170 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Recuperando Grub · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2023-05-05-recuperando-grub/">
+
+
+
+
+
+
+<meta name="description" content="No sé si os ha pasado muchas veces eso de perder el arranque de GNU/Linux GRUB, pero a mí, me está pasando muchas veces últimamente y no sé si es porque tengo mala suerte o porque tengo mal configurado el inicio entre Linux y Windows, así que al final, me he tenido que buscar la vida, para saber cómo se puede solucionar, porque sino, tengo que volver a reinstalarlo todo y ahora que el sistema lo tengo como yo quiero, pues &amp;amp;hellip;
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Recuperando Grub">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="No sé si os ha pasado muchas veces eso de perder el arranque de GNU/Linux GRUB, pero a mí, me está pasando muchas veces últimamente y no sé si es porque tengo mala suerte o porque tengo mal configurado el inicio entre Linux y Windows, así que al final, me he tenido que buscar la vida, para saber cómo se puede solucionar, porque sino, tengo que volver a reinstalarlo todo y ahora que el sistema lo tengo como yo quiero, pues &amp;amp;hellip;
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Recuperando Grub</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2023-05-05">
+        2023-05-05
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>No sé si os ha pasado muchas veces eso de perder el arranque de GNU/Linux <em><strong>GRUB</strong></em>, pero a mí, me está pasando muchas veces últimamente y no sé si es porque tengo mala suerte o porque tengo mal configurado el inicio entre Linux y Windows, así que al final, me he tenido que buscar la vida, para saber cómo se puede solucionar, porque sino, tengo que volver a reinstalarlo todo y ahora que el sistema lo tengo como yo quiero, pues &hellip;</p>
+<p>Las instrucciones las uso, desde <em><strong>Grub Rescue</strong></em> que es donde siempre acabo si algo me falla en el inicio del sistema y hago lo siguiente. Pero antes, mejor explicar cómo tengo mi sistema de archivos, para que se vea, el porqué de algunas instrucciones:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sda1 --&gt; partición EFI
+</span></span><span style="display:flex;"><span>sda2 --&gt; partición del sistema Linux
+</span></span><span style="display:flex;"><span>sda3 --&gt; particion HOME
+</span></span><span style="display:flex;"><span>sda5 --&gt; partición Windows
+</span></span></code></pre></div><p>Pues eso, que a continuación pongo las instrucciones que yo uso en mi caso, para poder recuperar el sistema (espero que os puedan servir de ayuda):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># uso gpt2, porque es donde tengo la partición del sistema de Linux</span>
+</span></span><span style="display:flex;"><span>grub:&gt; set root<span style="color:#f92672">=(</span>hd0,gpt2<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ahora se indica donde se encuentra la imagen de Linux y donde la puede encontrar</span>
+</span></span><span style="display:flex;"><span>grub:&gt; linux /vmlinuz root<span style="color:#f92672">=</span>/dev/sda2
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ahora se indica donde se encuentra la imagen de initrd</span>
+</span></span><span style="display:flex;"><span>grub:&gt; initrd /initrd.img
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ahora iniciamos el sistema</span>
+</span></span><span style="display:flex;"><span>grub:&gt; boot
+</span></span></code></pre></div><p>Una vez iniciado el sistema, solamente tenemos que acceder a la consola y volver a reconfigurar <em><strong>grub</strong></em> de la siguiente manera (en este caso lo hacemos suponiendo que tienes <em><strong>EFI</strong></em>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$sudo dpkg-reconfigure grub-efi-amd64
+</span></span></code></pre></div><p>Cuando haces esto, hay que tener en cuenta, que como en mi caso, si tienes otro Sistema Operativo instalado, y quieres que <em><strong>GRUB</strong></em> te lo detecte, tienes que tener esta opción desactivada:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$sudo vi /etc/default/grub
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>GRUB_DISABLE_OS_PROBER<span style="color:#f92672">=</span>false
+</span></span></code></pre></div><p>Con esta opción obligas a <em><strong>grub</strong></em> a detectar otros SO y me ahorré, volver a reinstalar todo mi sistema.</p>
+<p>A veces puede pasar que no funcione. Me ha pasado alguna vez, no sé el motivo de esto, pero entonces he ejecutado las siguientes instrucciones y he podido resolver el problema:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~sudo grub-install
+</span></span><span style="display:flex;"><span>usuari@debian:~sudo update-grub
+</span></span></code></pre></div><h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.baeldung.com/linux/grub-efi-reinstall">How to Re-Install GRUB EFI</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

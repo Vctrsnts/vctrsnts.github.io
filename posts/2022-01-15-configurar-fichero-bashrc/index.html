@@ -1,0 +1,184 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Configurar el fichero .bashrc para descomprimir ficheros · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2022-01-15-configurar-fichero-bashrc/">
+
+
+
+
+
+
+<meta name="description" content="A continuación, explicaré como tengo configurado mi .bashrc para que a la hora de descomprimir archivos todo me sea más fácil y rápido.
+Esto se consigue añadiendo un alias con las opciones / programas más comunes para la compresión y descompresión de archivos.
+Lo primero es editar nuestro fichero .basrch y hacerle las siguientes modificaciones:
+#### EXTRACCIÓ DE FITXERS # usage: ex &amp;amp;lt;file&amp;amp;gt; ex () { if [ -f $1 ] ; then case $1 in *.tar.bz2) tar xjf $1 ;; *.tar.gz) tar xzf $1 ;; *.bz2) bunzip2 $1 ;; *.rar) unrar x $1 ;; *.gz) gunzip $1 ;; *.tar) tar xf $1 ;; *.tbz2) tar xjf $1 ;; *.tgz) tar xzf $1 ;; *.zip) unzip $1 ;; *.Z) uncompress $1;; *.7z) 7z x $1 ;; *.deb) ar x $1 ;; *.tar.xz) tar xf $1 ;; *.tar.zst) unzstd $1 ;; *) echo &amp;amp;#34;&amp;amp;#39;$1&amp;amp;#39; no es pot extreure via ex()&amp;amp;#34; ;; esac else echo &amp;amp;#34;&amp;amp;#39;$1&amp;amp;#39; no es un fitxer valid&amp;amp;#34; fi } Con esto lo que conseguimos es que para descomprimir cualquier fichero lo podemos hacer de la siguiente manera:
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Configurar el fichero .bashrc para descomprimir ficheros">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="A continuación, explicaré como tengo configurado mi .bashrc para que a la hora de descomprimir archivos todo me sea más fácil y rápido.
+Esto se consigue añadiendo un alias con las opciones / programas más comunes para la compresión y descompresión de archivos.
+Lo primero es editar nuestro fichero .basrch y hacerle las siguientes modificaciones:
+#### EXTRACCIÓ DE FITXERS # usage: ex &amp;amp;lt;file&amp;amp;gt; ex () { if [ -f $1 ] ; then case $1 in *.tar.bz2) tar xjf $1 ;; *.tar.gz) tar xzf $1 ;; *.bz2) bunzip2 $1 ;; *.rar) unrar x $1 ;; *.gz) gunzip $1 ;; *.tar) tar xf $1 ;; *.tbz2) tar xjf $1 ;; *.tgz) tar xzf $1 ;; *.zip) unzip $1 ;; *.Z) uncompress $1;; *.7z) 7z x $1 ;; *.deb) ar x $1 ;; *.tar.xz) tar xf $1 ;; *.tar.zst) unzstd $1 ;; *) echo &amp;amp;#34;&amp;amp;#39;$1&amp;amp;#39; no es pot extreure via ex()&amp;amp;#34; ;; esac else echo &amp;amp;#34;&amp;amp;#39;$1&amp;amp;#39; no es un fitxer valid&amp;amp;#34; fi } Con esto lo que conseguimos es que para descomprimir cualquier fichero lo podemos hacer de la siguiente manera:
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Configurar el fichero .bashrc para descomprimir ficheros</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2022-01-15">
+        2022-01-15
+      </time>
+      · 1 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/programaci%C3%B3n/">
+            @Programación
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/bash/">
+            #Bash
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>A continuación, explicaré como tengo configurado mi <code>.bashrc</code> para que a la hora de descomprimir archivos todo me sea más fácil y rápido.</p>
+<p>Esto se consigue añadiendo un <strong>alias</strong> con las opciones / programas más comunes para la compresión y descompresión de archivos.</p>
+<p>Lo primero es editar nuestro fichero <code>.basrch</code> y hacerle las siguientes modificaciones:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#### EXTRACCIÓ DE FITXERS</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># usage: ex &lt;file&gt;</span>
+</span></span><span style="display:flex;"><span>ex <span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -f $1 <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">case</span> $1 in
+</span></span><span style="display:flex;"><span>     *.tar.bz2<span style="color:#f92672">)</span>   tar xjf $1   ;;
+</span></span><span style="display:flex;"><span>     *.tar.gz<span style="color:#f92672">)</span>    tar xzf $1   ;;
+</span></span><span style="display:flex;"><span>     *.bz2<span style="color:#f92672">)</span>       bunzip2 $1   ;;
+</span></span><span style="display:flex;"><span>     *.rar<span style="color:#f92672">)</span>       unrar x $1   ;;
+</span></span><span style="display:flex;"><span>     *.gz<span style="color:#f92672">)</span>        gunzip $1    ;;
+</span></span><span style="display:flex;"><span>     *.tar<span style="color:#f92672">)</span>       tar xf $1    ;;
+</span></span><span style="display:flex;"><span>     *.tbz2<span style="color:#f92672">)</span>      tar xjf $1   ;;
+</span></span><span style="display:flex;"><span>     *.tgz<span style="color:#f92672">)</span>       tar xzf $1   ;;
+</span></span><span style="display:flex;"><span>     *.zip<span style="color:#f92672">)</span>       unzip $1     ;;
+</span></span><span style="display:flex;"><span>     *.Z<span style="color:#f92672">)</span>         uncompress $1;;
+</span></span><span style="display:flex;"><span>     *.7z<span style="color:#f92672">)</span>        7z x $1      ;;
+</span></span><span style="display:flex;"><span>     *.deb<span style="color:#f92672">)</span>       ar x $1      ;;
+</span></span><span style="display:flex;"><span>     *.tar.xz<span style="color:#f92672">)</span>    tar xf $1    ;;
+</span></span><span style="display:flex;"><span>     *.tar.zst<span style="color:#f92672">)</span>   unzstd $1    ;;
+</span></span><span style="display:flex;"><span>     *<span style="color:#f92672">)</span>           echo <span style="color:#e6db74">&#34;&#39;</span>$1<span style="color:#e6db74">&#39; no es pot extreure via ex()&#34;</span> ;;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>   echo <span style="color:#e6db74">&#34;&#39;</span>$1<span style="color:#e6db74">&#39; no es un fitxer valid&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Con esto lo que conseguimos es que para descomprimir cualquier fichero lo podemos hacer de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ ex nombre_fichero_comprimido
+</span></span></code></pre></div><h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

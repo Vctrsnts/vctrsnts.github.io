@@ -1,0 +1,197 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Servicio para actualizar imágenes docker · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-10-28-script-actualizar-docker/">
+
+
+
+
+
+
+<meta name="description" content="Como he tenido malas experiencias a la hora de usar servicios para mantener las imágenes actualizadas, he cambiado el servicio que tenía actualmente whatsup por cup.
+En estos 3 artículos donde explico todo el proceso:
+Usando watchtower Cambiando watchtower por diun Donde digo dije, digo Diego Pero no me hacía mucha gracia, así que cambié a Whatsup, pero me volvía un poco loco y buscaba algo más fácil y simple, que simplemente me informara de lo que hay, sin tantas complicaciones como me daba Whatsup.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Servicio para actualizar imágenes docker">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Como he tenido malas experiencias a la hora de usar servicios para mantener las imágenes actualizadas, he cambiado el servicio que tenía actualmente whatsup por cup.
+En estos 3 artículos donde explico todo el proceso:
+Usando watchtower Cambiando watchtower por diun Donde digo dije, digo Diego Pero no me hacía mucha gracia, así que cambié a Whatsup, pero me volvía un poco loco y buscaba algo más fácil y simple, que simplemente me informara de lo que hay, sin tantas complicaciones como me daba Whatsup.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Servicio para actualizar imágenes docker</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2024-10-28">
+        2024-10-28
+      </time>
+      · 3 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/vps/">
+            #VPS
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Como he tenido malas experiencias a la hora de usar servicios para mantener las imágenes actualizadas, he cambiado el servicio que tenía actualmente <strong>whatsup</strong> por <strong>cup</strong>.</p>
+<p>En estos 3 artículos donde explico todo el proceso:</p>
+<ul>
+<li><a href="/posts/2023-01-25-usando-watchtower">Usando watchtower</a></li>
+<li><a href="/posts/2023-02-19-actualizacion-watchtower">Cambiando watchtower por diun</a></li>
+<li><a href="/posts/2023-04-29-donde-dije-digo-diego">Donde digo dije, digo Diego</a></li>
+</ul>
+<p>Pero no me hacía mucha gracia, así que cambié a <strong>Whatsup</strong>, pero me volvía un poco loco y buscaba algo más fácil y simple, que simplemente me informara de lo que hay, sin tantas complicaciones como me daba <strong>Whatsup</strong>.</p>
+<p>Hasta que encontré este <a href="https://elblogdelazaro.org/posts/2024-10-04-comprueba-las-actualizaciones-de-tus-imagenes-docker-con-cup-docker">artículo</a> en el <strong>blog de Lázaro</strong> donde daba una alternativa a <strong>Whatsup</strong>. Este nuevo servicio es <a href="https://github.com/sergi0g/cup">cup</a>, donde el funcionamiento es muy parecido a <strong>Whatsup</strong> pero más simple.</p>
+<p>Así que me leí el artículo y me resultó muy interesante así que lo he instalado en mi servidor y me ha gustado mucho y lo he dejado instalado porque me parece muy interesante. Aunque tiene algunos errores, ten en cuenta, que este servicio está en construcción, así que a lo mejor cuando lo uses tú, el error que tengo yo (no puedo cambiar el tema de la web), puede que esté ya solucionado, pero&hellip;</p>
+<p>La instalación es muy simple. Yo en mi caso lo he instalado a través de <code>docker-compose</code> de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">cup</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">ghcr.io/sergi0g/cup:latest</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">cup</span> <span style="color:#75715e"># Optional</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">internal</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">command</span>: -<span style="color:#ae81ff">c /config/cup.json serve</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/var/run/docker.sock:/var/run/docker.sock</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">${HOME}/config/cup/cup.json:/config/cup.json</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.enable=true</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.services.cup.loadbalancer.server.port=${PORT}</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.routers.cup.entrypoints=websecure</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.routers.cup-secure.middlewares=myauth@file</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.routers.cup.rule=Host(`${CUP_SERVER}`)</span>
+</span></span></code></pre></div><p>Como podéis ver, en mi caso, uso <strong>traefik</strong> por eso tengo las respectivas etiquetas. Pero funciona de la misma manera sin estas etiquetas, pero si es así, tienes que añadir el puerto que quieres usar:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">cup</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">8000</span>:<span style="color:#ae81ff">8000</span>
+</span></span></code></pre></div><p>Con esto tendrás una página web, a la que accederás desde el puerto que tú indiques y verás los servicios que están disponibles junto con los que tienen disponible la actualización.</p>
+<p>A parte de tener este servicio, sé que podría usar <strong>diun</strong>, volver a <strong>whatsup</strong> o <strong>watchtower</strong>, también me he hecho un script en <code>bash</code> para actualizar los servicios más fácilmente, lo hago yo manualmente, pero me resulta más cómodo de esta manera, pero para simplificar las instrucciones necesarias.</p>
+<p>El script tiene lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>   <span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">for</span> param in <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>     docker compose pull $param <span style="color:#f92672">&amp;&amp;</span> docker compose up -d $param <span style="color:#f92672">&amp;&amp;</span> docker image prune
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>Se usa de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ sh update_docker.sh docker_1 docker_2 ...
+</span></span></code></pre></div><p>Con esto ya he finalizado este artículo rápido y fácil. Que a veces son los más difíciles de hacer.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://es.ccm.net/ordenadores/linux/2368-bash-los-parametros">Pasar parámetros Bash script desde la Shell</a></li>
+<li><a href="https://elblogdelazaro.org/comprueba-las-actualizaciones-de-tus-im%C3%A1genes-docker-con-cup/">Comprueba las actualizaciones de tus imágenes docker con cup</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

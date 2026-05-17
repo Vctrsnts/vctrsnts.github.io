@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Usando HomePage. El Dashboard - 1 · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-02-12-usando-homepage-1/">
+
+
+
+
+
+
+<meta name="description" content="Después de escuchar el podcast de uGeek, donde hablaba de los dashboards y en especial del que él usaba, Homer, me decidí a probarlo a ver qué tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Así que me decidí a instalar y probar Homer.
+Al principio no necesitaba nada más, pero poco a poco, cuanto más te adentras en el mundo de los dashboards, ves las infinitas posibilidades que tienes a tu alcance y que en el caso de Homer no me las daba. Así que me decidí a buscar otros que pudieran ampliar la información que me podían mostrar y no encontraba el más adecuado hasta que leí el artículo de Carlos M., donde hablaba de HomePage y de las múltiples opciones que tenía. Y puedo decir que sí, tiene muchas opciones de configuración que te pueden ayudar a visualizar toda la información que puedas necesitar.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Usando HomePage. El Dashboard - 1">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Después de escuchar el podcast de uGeek, donde hablaba de los dashboards y en especial del que él usaba, Homer, me decidí a probarlo a ver qué tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Así que me decidí a instalar y probar Homer.
+Al principio no necesitaba nada más, pero poco a poco, cuanto más te adentras en el mundo de los dashboards, ves las infinitas posibilidades que tienes a tu alcance y que en el caso de Homer no me las daba. Así que me decidí a buscar otros que pudieran ampliar la información que me podían mostrar y no encontraba el más adecuado hasta que leí el artículo de Carlos M., donde hablaba de HomePage y de las múltiples opciones que tenía. Y puedo decir que sí, tiene muchas opciones de configuración que te pueden ayudar a visualizar toda la información que puedas necesitar.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Usando HomePage. El Dashboard - 1</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2024-02-12">
+        2024-02-12
+      </time>
+      · 7 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/unraid/">
+            #unRAID
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Después de escuchar el <a href="https://ugeek.github.io/post/2021-05-24-homer-mi-dashboard-favorito.html">podcast</a> de <strong>uGeek</strong>, donde hablaba de los <strong>dashboards</strong> y en especial del que él usaba, <strong>Homer</strong>, me decidí a probarlo a ver qué tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Así que me decidí a instalar y probar <strong>Homer</strong>.</p>
+<p>Al principio no necesitaba nada más, pero poco a poco, cuanto más te adentras en el mundo de los <strong>dashboards</strong>, ves las infinitas posibilidades que tienes a tu alcance y que en el caso de <strong>Homer</strong> no me las daba. Así que me decidí a buscar otros que pudieran ampliar la información que me podían mostrar y no encontraba el más adecuado hasta que leí el <a href="https://elblogdelazaro.org/posts/2023-06-21-docker-homepage-dashboard/">artículo</a> de <strong>Carlos M.</strong>, donde hablaba de <a href="https://github.com/gethomepage/homepage">HomePage</a> y de las múltiples opciones que tenía. Y puedo decir que sí, tiene muchas opciones de configuración que te pueden ayudar a visualizar toda la información que puedas necesitar.</p>
+<h2 id="-instalación-homepage">◇ Instalación Homepage</h2>
+<p>Como además, <strong>Homer</strong> también tiene esta posibilidad, se podía usar a través de <strong>Docker</strong>. ¿Qué más se podía pedir? Así que me dispuse a crear el container de <strong>HomePage</strong>. En mi caso, todo lo tengo concentrado en un fichero <code>yaml</code> que contiene todos los dockers que uso:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">homepage</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">ghcr.io/gethomepage/homepage:latest</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">homepage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">2000</span>:<span style="color:#ae81ff">3000</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">PUID</span>: <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">PGID</span>: <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">${STORAGE}/config/homepage:/app/config</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/var/run/docker.sock:/var/run/docker.sock</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">diun.enable=true</span>
+</span></span></code></pre></div><p>Así se quedó, con un par de opciones más: <strong>Transmission</strong>, <strong>Navidrome</strong>, <strong>Jellyfin</strong> y el uso de <strong>CPU</strong>, <strong>memoria</strong> y <strong>HDD</strong> del servidor. Con esto ya lo tenía todo. Pero, como dice el refrán, siempre deseas lo que tienen los otros&hellip; Y así sucedió&hellip;</p>
+<p>Aquí tengo que hacer un inciso, porque aparte de tener el <strong>dashboard</strong> de <strong>HomePage</strong>, otra de las muchas cosas que siempre quiero controlar es el estado de los 2 servidores que tengo ahora mismo (el servidor local y el servidor de Oracle), y esto lo podía controlar a través del docker <strong>Glances</strong>, que conocí después de leer el <a href="https://atareao.es/software/utilidades/glances-una-potente-alternativa-al-monitor-del-sistema/">artículo</a> que hizo <a href="https://atareao.es">Lorenzo</a>, donde hablaba de él. Una versión resumida de este artículo es que <strong>Glances</strong> es una especie de <strong>htop</strong> pero vitaminado.</p>
+<p>Así que también lo instalé, porque con él podía obtener toda la información (accediendo a ella a través de la web) de los 2 servidores:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">glances</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nicolargo/glances:latest-full</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">glances</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pid</span>: <span style="color:#ae81ff">host</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">privileged</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/var/run/docker.sock:/var/run/docker.sock</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/run/user/1000/podman/podman.sock:/run/user/1000/podman/podman.sock</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">${STORAGE}/config/glances/glances.conf:/glances/conf/glances.conf</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">TZ=Europe/Madrid</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">GLANCES_OPT=-C /glances/conf/glances.conf -w</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">61208</span>:<span style="color:#ae81ff">61208</span>
+</span></span></code></pre></div><p>Sin saberlo, tenía todo lo necesario para obtener mucha más información de la que me estaba facilitando <strong>HomePage</strong> hasta el momento, y que yo desconocía que se podía obtener, hasta que en el canal de Telegram de <a href="https://homelabs.club">HomeLabs.club</a> empezaron a hablar de ello y de las múltiples posibilidades que había, junto con una captura de pantalla de toda la información que se podía obtener. Y yo tenía a mi disposición toda esa información, pero desconocía cómo obtenerla.</p>
+<p>Después de pedir ayuda o si me podían facilitar los archivos de configuración que usaban, me los pudieron servir como base para así yo poder hacer mi configuración. Hay que remarcar que para configurar <strong>HomePage</strong> se necesitan 5 archivos <strong>yaml</strong>, donde:</p>
+<h3 id="settingsyaml">settings.yaml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># La configuración básica del dashboard (color de fondo, idioma, disposición de la información, etc.)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">title</span>: <span style="color:#ae81ff">HomePage</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">language</span>: <span style="color:#ae81ff">ca</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">color</span>: <span style="color:#ae81ff">slate</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">headerStyle</span>: <span style="color:#ae81ff">boxed</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">hideVersion</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">useEqualHeights</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">layout</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">servidorLocal</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">header</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">style</span>: <span style="color:#ae81ff">columns</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">columns</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Oracle</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">header</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">style</span>: <span style="color:#ae81ff">columns</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">columns</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Dockers</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">header</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">style</span>: <span style="color:#ae81ff">row</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">columns</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Media</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">header</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">style</span>: <span style="color:#ae81ff">row</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">columns</span>: <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><h3 id="servicesyaml">services.yaml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Se configuran los servicios que queremos visualizar por pantalla</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">servidorLocal</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Network</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">type</span>: <span style="color:#ae81ff">glances</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">metric</span>: <span style="color:#ae81ff">network:eth0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">chart</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Memory</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">type</span>: <span style="color:#ae81ff">glances</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">metric</span>: <span style="color:#ae81ff">memory</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">chart</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Process</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">type</span>: <span style="color:#ae81ff">glances</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">metric</span>: <span style="color:#ae81ff">process</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">Oracle</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Network</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">type</span>: <span style="color:#ae81ff">glances</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">metric</span>: <span style="color:#ae81ff">network:eth0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">chart</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Memory</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">type</span>: <span style="color:#ae81ff">glances</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">metric</span>: <span style="color:#ae81ff">memory</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">chart</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Process</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">type</span>: <span style="color:#ae81ff">glances</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">metric</span>: <span style="color:#ae81ff">process</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">Dockers</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Transmission</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">transmission</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Servidor Transmission</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">container</span>: <span style="color:#ae81ff">transmission</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">type</span>: <span style="color:#ae81ff">transmission</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">username</span>: [<span style="color:#ae81ff">usuario]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">password</span>: [<span style="color:#ae81ff">password]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">aMule</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">https://raw.githubusercontent.com/amule-project/amule/master/amule.png</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Servidor aMule</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">container</span>: <span style="color:#ae81ff">amule</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Jackett</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">jackett.png</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Servidor Indexers</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">container</span>: <span style="color:#ae81ff">jackett</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">type</span>: <span style="color:#ae81ff">jackett</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">PiHole</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">pi-hole.png</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Servidor PiHole</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">container</span>: <span style="color:#ae81ff">pihole</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">type</span>: <span style="color:#ae81ff">pihole</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">key</span>: [<span style="color:#ae81ff">key]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">SpeedTest</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">https://cdn.icon-icons.com/icons2/3053/PNG/512/speedtest_macos_bigsur_icon_189707.png</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">container</span>: <span style="color:#ae81ff">speedtest</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">type</span>: <span style="color:#ae81ff">speedtest</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Scrutiny</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">https://repository-images.githubusercontent.com/289524449/fc01e480-e6ab-11ea-9e20-53257df6f326</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">container</span>: <span style="color:#ae81ff">scrutiny</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">type</span>: <span style="color:#ae81ff">scrutiny</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">Media</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Jellyfin</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">jellyfin.png</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Servidor Multimedia</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">container</span>: <span style="color:#ae81ff">jellyfin</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">type</span>: <span style="color:#ae81ff">jellyfin</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">key</span>: [<span style="color:#ae81ff">key]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Navidrome</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">navidrome</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Servidor Música</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">container</span>: <span style="color:#ae81ff">navidrome</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">type</span>: <span style="color:#ae81ff">navidrome</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">user</span>: [<span style="color:#ae81ff">usuario]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">token</span>: [<span style="color:#ae81ff">token]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">salt</span>: [<span style="color:#ae81ff">salt]</span>
+</span></span></code></pre></div><p>Lo que podéis hacer (yo lo tengo montado, más información en este <a href="/posts/2024-01-10-searxng-uno-todo">artículo</a>) es tener montado vuestro propio buscador y hacer todas las búsquedas en él y así confundir en todo lo posible al <strong>Gran Hermano</strong>.</p>
+<h3 id="widgetsyaml">widgets.yaml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Donde se puede configurar el buscador o visualizar información del servidor</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">glances</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">label</span>: <span style="color:#ae81ff">servidorLocal</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cpu</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">mem</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">uptime</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">glances</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">label</span>: <span style="color:#ae81ff">Oracle</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cpu</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">mem</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">uptime</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">search</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">provider</span>: <span style="color:#ae81ff">custom</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">focus</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">target</span>: <span style="color:#ae81ff">_blank</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">datetime</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">locale</span>: <span style="color:#ae81ff">nl</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">text_size</span>: <span style="color:#ae81ff">xs</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">format</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">dateStyle</span>: <span style="color:#ae81ff">short</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeStyle</span>: <span style="color:#ae81ff">short</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">hourCycle</span>: <span style="color:#ae81ff">h23</span>
+</span></span></code></pre></div><h3 id="bookmarksyaml">bookmarks.yaml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Links a las páginas web más utilizadas</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">Blogs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Personal</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">github-light.png</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">uGeek</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">blogger.png</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Lazaro</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">blogger.png</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">EruenPlay</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">youtube.png</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">Social</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Mastodon</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">mastodon.png</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Telegram</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">telegram.png</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">RiseUp</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">mailu.png</span>
+</span></span></code></pre></div><p>Teóricamente, con esta configuración tendría que funcionar todo correctamente y realizar la integración con Docker, pero no era así. En mi caso, no veía ningún tipo de información relacionada con los dockers. Y todo lo que encontraba era que esto tenía que funcionar sí o sí.</p>
+<p>Entonces me puse a buscar información del motivo por el cual en mi caso no me funcionaba; también lo pregunté en el canal, pero todo el mundo me decía que tenía que funcionar correctamente y sin ningún problema. Hay que tener en cuenta una cosa: en el canal de Telegram, cuando exponía mi problema, todos los que me decían que tenía que funcionar correctamente lo tenían instalado en <a href="https://unraid.net/">Unraid</a> y seguramente <strong>Unraid</strong> hace alguna cosa para que funcione automáticamente, cosa que si lo haces manualmente y sin <strong>Unraid</strong>, no funciona.</p>
+<p>Después de buscar, encontré en la documentación que hacía referencia a <a href="https://gethomepage.dev/v0.7.4/configs/docker/#using-docker-socket-proxy">Docker</a> en <strong>HomePage</strong> que, para que la integración funcionase correctamente, se tenía que instalar un <strong>proxy</strong> que es el que realiza la comunicación entre <strong>Docker</strong> y <strong>HomePage</strong>.</p>
+<p>Para ello se necesitaba el siguiente container:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">dockerproxy</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">ghcr.io/tecnativa/docker-socket-proxy:latest</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">dockerproxy</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">CONTAINERS=1</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">SERVICES=1</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">TASKS=1</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">POST=0</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">127.0.0.1</span>:<span style="color:#ae81ff">2375</span>:<span style="color:#ae81ff">2375</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/var/run/docker.sock:/var/run/docker.sock:ro</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span></code></pre></div><p>Una vez que ya lo tienes en funcionamiento, solamente tienes que configurar en el archivo <code>docker.yaml</code> de la siguiente manera:</p>
+<h3 id="dockeryaml">docker.yaml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">my-docker</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">host</span>: <span style="color:#ae81ff">dockerproxy</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">2375</span>
+</span></span></code></pre></div><p>Una vez esto, solamente tenemos que añadir en el archivo <code>services.yaml</code> la opción <code>server</code> de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#f92672">Dockers</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">Transmission</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">transmission</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Servidor Transmission</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">server</span>: <span style="color:#ae81ff">my-docker</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">container</span>: <span style="color:#ae81ff">transmission</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">type</span>: <span style="color:#ae81ff">transmission</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">username</span>: [<span style="color:#ae81ff">usuario]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">password</span>: [<span style="color:#ae81ff">password]</span>
+</span></span></code></pre></div><p>Al final sí, ya lo tenía todo funcionando correctamente. Pero cuando comenté la solución en el canal de Telegram, me dijeron que no hacía falta tener un container más para que todo funcionase, sino que solamente hacía falta crear el siguiente fichero <code>override.conf</code> de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir -p /etc/systemd/system/docker.service.d
+</span></span></code></pre></div><h3 id="etcsystemdsystemdockerservicedoverrideconf">/etc/systemd/system/docker.service.d/override.conf</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2375 --containerd=/run/containerd/containerd.sock</span>
+</span></span></code></pre></div><p>Luego solamente nos queda reiniciar el servicio del <code>daemon</code> de Docker:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl daemon-reload
+</span></span><span style="display:flex;"><span>sudo systemctl restart docker.service
+</span></span><span style="display:flex;"><span>sudo netstat -lntp | grep dockerd
+</span></span></code></pre></div><p>Si todo ha ido bien, ya podemos detener el container <code>dockerproxy</code> y modificar el archivo <code>docker.yaml</code> de <strong>HomePage</strong> de la siguiente manera:</p>
+<h3 id="dockeryaml-1">docker.yaml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">my-docker</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">host</span>: [<span style="color:#ae81ff">IP_SERVIDOR]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">2375</span>
+</span></span></code></pre></div><p>Con esto ya lo tendríamos todo en funcionamiento, y para que veáis cómo lo tengo en mi caso:</p>
+<p><img src="imagen.png" alt="" title="Screenshot"></p>
+<p>Pero eso sí, como dice el refrán: <strong>para gustos, colores</strong>. Vosotros podéis hacerlo a vuestro gusto.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://ugeek.github.io/blog/post/2021-05-24-homer-mi-dashboard.html">Homer. Mi Dashboard</a></li>
+<li><a href="https://elblogdelazaro.org/posts/2023-06-21-docker-homepage-dashboard/">Docker: Homepage dashboard</a></li>
+<li><a href="https://atareao.es/software/utilidades/glances-una-potente-alternativa-al-monitor-del-sistema/">Glances una potente alternativa al Monitor del Sistema</a></li>
+<li><a href="https://gethomepage.dev/v0.7.4/configs/docker/#using-docker-socket-proxy">HomePage - Docker</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

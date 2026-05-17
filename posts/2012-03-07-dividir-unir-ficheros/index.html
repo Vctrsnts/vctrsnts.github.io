@@ -1,0 +1,170 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Dividir / Unir Fichero en GNU/Linux · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2012-03-07-dividir-unir-ficheros/">
+
+
+
+
+
+
+<meta name="description" content="Un truco nuevo, en mi caso, pero que seguro que mucha gente lo conoce, pero que nunca está de más tenerlo a mano por si se necesita&amp;amp;hellip;
+En este caso, tengo que pasar un fichero de 10Gb a otro PC, pero no tengo red y como único medio posible de pasar la información es un USB de 8Gb. Sí podría comprarme uno más grande, pero &amp;amp;hellip;
+Así que vamos a dividir el fichero y después volverlo a juntar. Vamos a por ello.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Dividir / Unir Fichero en GNU/Linux">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Un truco nuevo, en mi caso, pero que seguro que mucha gente lo conoce, pero que nunca está de más tenerlo a mano por si se necesita&amp;amp;hellip;
+En este caso, tengo que pasar un fichero de 10Gb a otro PC, pero no tengo red y como único medio posible de pasar la información es un USB de 8Gb. Sí podría comprarme uno más grande, pero &amp;amp;hellip;
+Así que vamos a dividir el fichero y después volverlo a juntar. Vamos a por ello.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Dividir / Unir Fichero en GNU/Linux</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2012-03-07">
+        2012-03-07
+      </time>
+      · 1 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/programaci%C3%B3n/">
+            @Programación
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/bash/">
+            #Bash
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Un truco nuevo, en mi caso, pero que seguro que mucha gente lo conoce, pero que nunca está de más tenerlo a mano por si se necesita&hellip;</p>
+<p>En este caso, tengo que pasar un fichero de 10Gb a otro PC, pero no tengo red y como único medio posible de pasar la información es un USB de 8Gb. Sí podría comprarme uno más grande, pero &hellip;</p>
+<p>Así que vamos a dividir el fichero y después volverlo a juntar. Vamos a por ello.</p>
+<p>Para dividir el fichero usaremos la instrucción <code>split</code> de la siguiente manera :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ split -b tamaño_trozos fichero_a_trocear nombre_trozos
+</span></span></code></pre></div><p>Donde :</p>
+<ul>
+<li><strong>tamaño_trozos</strong>: se indica un nº. Por defecto es <em>en bytes</em>, pero añadiendo la opción <code>m</code> diríamos megas.</li>
+<li><strong>fichero_a_trocear</strong>: fichero que queremos dividir en trozos.</li>
+<li><strong>nombre_trozos</strong>: prefijo de los trozos (split añadirá aa, ab, ac, etc.)</li>
+</ul>
+<p>Una vez que hemos dividido el fichero, para volverlo a unir, usaremos la instrucción <code>cat</code> de la siguiente manera :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ cat trozos.* &gt; fichero_destino
+</span></span></code></pre></div><p>Donde :</p>
+<ul>
+<li><strong>trozos</strong>: será el nombre de los ficheros a unir.</li>
+<li><strong>fichero_destino</strong>: nombre del fichero original.</li>
+</ul>
+<p>Espero que esto os pueda servir de ayuda en un apuro. A mí me va a ser de mucha utilidad en algunos momentos.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

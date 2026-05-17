@@ -1,0 +1,196 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Hola Arch Linux. Adiós Debian GNU/Linux · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-11-04-arch-debian/">
+
+
+
+
+
+
+<meta name="description" content="Todas las despedidas son amargas. Siento decirlo, pero 😭 así no, Debian GNU/Linux me has fallado. Nuestra relación de más de 25 años no tendría que haber acabado de esta manera. Tan abrupta y repentinamente.
+Pero así ha sido, un desencuentro con respecto a hyprland, que entiendo que en stable estén los paquetes estables y a prueba de fallos (con lo que conlleva, versiones un poco antiguas), pero no puede ser que en unstable esté aún la versión 0.41.1 y, en cambio, la oficial (cuando estoy escribiendo este artículo) sea la 0.51.1. Esto no está bien&amp;amp;hellip;
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Hola Arch Linux. Adiós Debian GNU/Linux">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Todas las despedidas son amargas. Siento decirlo, pero 😭 así no, Debian GNU/Linux me has fallado. Nuestra relación de más de 25 años no tendría que haber acabado de esta manera. Tan abrupta y repentinamente.
+Pero así ha sido, un desencuentro con respecto a hyprland, que entiendo que en stable estén los paquetes estables y a prueba de fallos (con lo que conlleva, versiones un poco antiguas), pero no puede ser que en unstable esté aún la versión 0.41.1 y, en cambio, la oficial (cuando estoy escribiendo este artículo) sea la 0.51.1. Esto no está bien&amp;amp;hellip;
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Hola Arch Linux. Adiós Debian GNU/Linux</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2025-11-04">
+        2025-11-04
+      </time>
+      · 7 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/hyprland/">
+            #Hyprland
+          </a>
+        
+          <a href="/tags/arch/">
+            #Arch
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Todas las despedidas son amargas. Siento decirlo, pero 😭 así no, Debian GNU/Linux me has fallado. Nuestra relación de más de 25 años no tendría que haber acabado de esta manera. Tan abrupta y repentinamente.</p>
+<p>Pero así ha sido, un desencuentro con respecto a <a href="https://hypr.land/">hyprland</a>, que entiendo que en <strong>stable</strong> estén los paquetes estables y a prueba de fallos (con lo que conlleva, versiones un poco antiguas), pero no puede ser que en <strong>unstable</strong> esté aún la versión <strong>0.41.1</strong> y, en cambio, la oficial (cuando estoy escribiendo este artículo) sea la <strong>0.51.1</strong>. Esto no está bien&hellip;</p>
+<p>Esto ha llegado como consecuencia de hacer el cambio de mi antiguo portátil (el tiempo le ha pasado factura), al que tenía en reserva, más información <a href="/posts/2023-09-11-substitutos-portatil">aquí</a> porque como tenía que empezar desde <strong>cero</strong>, quería empezar con lo nuevo:</p>
+<ul>
+<li><em>Wayland</em></li>
+<li><em>Sway</em></li>
+</ul>
+<p>Además, si tienes un <em>Xeon</em> y la <em>Nvidia Quadro P1000</em>, por qué no le voy a sacar provecho a este hardware. Pero una cosa es la teoría y otra cosa muy distinta es la realidad. Ya lo entenderéis.</p>
+<p>En la <a href="/posts/2025-09-15-i3wm-sway-1">instalación</a> de <em>Wayland</em> y <em>sway</em> no tuve ningún problema, todo perfecto y como además ya venía usando <em>I3wm</em>, el <a href="/posts/2025-10-05-i3wm-sway-2">cambio</a> no fue nada traumático. Hice unas mejoras que me permitían mejorar todo el ecosistema y que me gustaban, resultaban muy positivas para todo el funcionamiento en sí. Pero los problemas vinieron después. 🤯</p>
+<p>Cuando <a href="/posts/2025-10-15-i3wm-sway-3">empecé</a> a usar <em>sway</em> notaba que la CPU se calentaba un poquito, pero nada fuera de lo normal, el problema vino cuando usaba firefox, que la cosa ya se ponía un poco caliente 🔥, por no decir otra cosa.</p>
+<p>No le encontraba ningún sentido a ese comportamiento, antes con los mismos programas y con <em>I3wm</em>, eso sí en <em>XOrg</em> y con un hardware más limitado, no tenía estos problemas, ¿por qué ahora sí? Me puse a investigar y a preguntar si alguien podía saber el motivo de este comportamiento. Al final descubrí que el problema era firefox y una configuración de <em>uBlock Origin</em> mucho más agresiva de lo normal y eso hacía que firefox necesitara más recursos, pero aun así seguía sin entender el porqué de este comportamiento.</p>
+<p>El siguiente paso y aprovechando que tenía la <em>Nvidia Quadro P1000</em>, era instalar los drivers propietarios de la gráfica para que firefox tuviera aceleración por hardware y descargar la CPU de todo el trabajo que hacía (recordar que seguimos en Debian GNU/Linux). Todo tendría que haber sido fácil y rápido, pero cuán equivocado estaba.</p>
+<p>Los primeros intentos fueron infructuosos por no decir penosos. O no me iniciaba <em>sway</em> o todo seguía igual, sin aceleración por hardware. Así que me fui a la raíz del problema, leer la documentación oficial de <em>sway</em> y de <em>Debian</em>, cosa que tendría que haber hecho desde el primer momento, pero digámoslo claro, quién se lee la documentación o los manuales 😅 para ver si había soporte para <em>Nvidia</em> y la manera de su configuración. Al final encontré la solución, si se le puede llamar así; <em>sway</em> no tiene de momento planes de utilizar los drivers de <em>Nvidia</em>.</p>
+<p>Pero bueno, si <em>sway</em> no los hacía servir, o mejor dicho, la compilación de <em>sway</em> en Debian no los usaba, podría buscar otro <em>tiling</em> que sí los hiciera servir, así que buscando, me encontré con <a href="https://hypr.land">hyprland</a> que sí que los utilizaba y con buenas opiniones por parte de la gente que lo usaba. Además, <a href="https://www.youtube.com/watch?v=i2iSIvwy2U8">atareao</a> habló de él en un vídeo y le daba su bendición 😇.</p>
+<p>Pues a ello que me puse, la instalación igual de sencilla que cuando la había hecho con <em>sway</em> y la configuración lo mismo. Muy fácil y si además, estás acostumbrado a la configuración de <em>I3wm</em> y <em>sway</em>, pues no tienes ningún problema. Lo único que me faltaba era la instalación de los drivers, que es donde seguía teniendo los mismos problemas que con <em>sway</em>. Seguía sin saber cómo solucionar este dichoso problema 🤬. Cuando parecía que todo estaba correcto, <em>hyprland</em> no iniciaba indicándome que no encontraba ninguna GPU configurada 🥺 y cosas por el estilo.</p>
+<p>Aprovechando que tenía otro HDD, me propuse hacer una instalación limpia de Debian <em>GNU/Linux</em> junto con <em>Wayland</em> más los drivers de <em>Nvidia</em> y <em>Hyprland</em>. Entendiendo que no tendría que haber ningún problema, porque todo era limpio y sin interferencias de ningún paquete. <em>Pero mi gozo en un pozo</em>. No había manera, seguía con los mismos problemas. <em>Wayland + Drivers Nvidia + Hyprland</em>.</p>
+<p>Al final después de mucho buscar, llegué a la conclusión de que era culpa de Debian y la versión que tenía de hyprland ( 0.41.1 ). Una versión muy antigua si la comparamos con la versión que hay actualmente ( 0.51.1 ). El consejo que me dieron era probar otra distribución, donde todo fuera más actual. Y qué mejor que <em>Arch Linux</em> para estas pruebas.</p>
+<p>Aquí fue donde me llevé una grata sorpresa. Porque había oído que <em>Arch Linux</em> es complicada de instalar (al estilo de FreeBSD o Debian GNU/Linux en sus inicios), pero nada más lejos de la realidad. Aparte de algunas pequeñas diferencias, normales si cambias de distribución (<em>Arch Linux</em> y <em>Debian GNU/Linux</em>), y que además, son fáciles de solucionar, júntalo con el script <em>archinstall</em> que facilita mucho la instalación.</p>
+<p>El resultado de todo ello, es que no tuve ningún problema en hacer la instalación. Eso sí, tengo que reconocer que tuve alguna pequeña incidencia con respecto a la configuración de <em>GRUB</em> con otro S.O., pero aparte de esto y algunas cosas raras que me sucedieron, puedo decir que la instalación fue muy fácil para ser la primera vez.</p>
+<p>Ahora, es donde sí, iba a tener los verdaderos problemas con <em>Arch</em> y no era sino todo lo que rodeaba la instalación y configuración de los drivers de <em>Nvidia</em> para que <em>hyprland</em> y <em>firefox</em> puedan exprimir al 100% la potencia de la GPU.</p>
+<p>De nuevo una grata sorpresa a la hora de la instalación y configuración de los drivers. Después de la instalación, hice unas cuantas verificaciones, para comprobar, si con lo fácil que había sido todo a la hora de la instalación de los drivers, estos, estaban activos y en funcionamiento y ver que todo era correcto.</p>
+<p>Estas pruebas eran de 2 tipos, ver si los módulos estaban cargados:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ lsmod | grep nvidia
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nvidia_drm            <span style="color:#ae81ff">143360</span>  <span style="color:#ae81ff">33</span>
+</span></span><span style="display:flex;"><span>nvidia_uvm           <span style="color:#ae81ff">3870720</span>  <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>nvidia_modeset       <span style="color:#ae81ff">1929216</span>  <span style="color:#ae81ff">12</span> nvidia_drm
+</span></span><span style="display:flex;"><span>nvidia              <span style="color:#ae81ff">111505408</span>  <span style="color:#ae81ff">308</span> nvidia_uvm,nvidia_modeset
+</span></span><span style="display:flex;"><span>drm_ttm_helper         <span style="color:#ae81ff">16384</span>  <span style="color:#ae81ff">2</span> nvidia_drm
+</span></span><span style="display:flex;"><span>video                  <span style="color:#ae81ff">81920</span>  <span style="color:#ae81ff">2</span> i915,nvidia_modeset
+</span></span></code></pre></div><p>Y luego la otra prueba, que también era muy importante y era ver si el <code>modeset</code> de <strong>nvidia_drm</strong> estaba activo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ sudo cat /sys/module/nvidia_drm/parameters/modeset
+</span></span><span style="display:flex;"><span>Y
+</span></span></code></pre></div><p>Aunque la prueba más importante de todas es la que me iba a encontrar al utilizar firefox y visualizar qué es lo que estaba utilizando, si el driver de <em>Nvidia</em> o no. Mi sorpresa fue, que sí que estaba usando el driver de <em>Nvidia</em> para la aceleración por hardware. 😲</p>
+<p>Os puedo decir que lo noté nada más iniciar firefox y acceder a cualquier vídeo de youtube donde antes el ventilador de la CPU parecía el reactor de un avión, ahora ni se despeinaba. Ya tenía la prueba definitiva de que este era el camino, si quería sacarle todo a mi nuevo equipo.</p>
+<p>Seguí haciendo pruebas. Unas cuantas instalaciones para depurar los fallos, entender el funcionamiento de <em>Arch Linux</em>, eso sí, tengo que decir que todos los fallos que encontré eran por culpa mía, por no configurar correctamente la <em>post-instalación</em>.</p>
+<p>Ahora únicamente me queda realizar pruebas con todas las aplicaciones que uso normalmente y ver cómo se desarrolla todo, pero me parece que he encontrado la distribución que puede sustituir a <em><!-- raw HTML omitted --><!-- raw HTML omitted --> Debian GNU/Linux<!-- raw HTML omitted --></em> y no es otra que <em><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> Arch Linux</em>.</p>
+<p>Por eso el título a este artículo!! <strong>Hola Arch Linux. Adiós Debian GNU/Linux</strong></p>
+<p>Tengo intención de hacer un artículo más con la configuración que uso y los <em>alias</em> que estoy usando tanto en <em>Arch</em> como en <em>Hyprland</em>. Pero eso para otro artículo.</p>
+<blockquote>
+<p>nota: Eso sí, mi corazón, seguirá estando con <em>Debian GNU/Linux</em></p>
+</blockquote>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://swaywm.org">sway</a></li>
+<li><a href="https://hypr.land">hyprland</a></li>
+<li><a href="https://www.youtube.com/watch?v=i2iSIvwy2U8">Atareao - Hyprland un espectacular tiling con espectaculares efectos</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Raspberry Pi. Pasos para instalar Docker en Raspbian · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2020-03-08-rpi-usando-docker/">
+
+
+
+
+
+
+<meta name="description" content="Siempre me pasa lo mismo, me hago mis chuletas y apuntes, pero nunca me pongo cómo se realiza la instalación sobre la cual funcionan las chuletas.
+Por eso, ahora voy a explicar cómo se realiza la instalación de Docker en Raspbian (en mi caso sobre una Raspberry pi 3b)
+nota: Actualmente tengo una RPI4B de 4Gb, pero el proceso es el mismo.
+A continuación explicamos el proceso de instalación de Docker:
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Raspberry Pi. Pasos para instalar Docker en Raspbian">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Siempre me pasa lo mismo, me hago mis chuletas y apuntes, pero nunca me pongo cómo se realiza la instalación sobre la cual funcionan las chuletas.
+Por eso, ahora voy a explicar cómo se realiza la instalación de Docker en Raspbian (en mi caso sobre una Raspberry pi 3b)
+nota: Actualmente tengo una RPI4B de 4Gb, pero el proceso es el mismo.
+A continuación explicamos el proceso de instalación de Docker:
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Raspberry Pi. Pasos para instalar Docker en Raspbian</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2020-03-08">
+        2020-03-08
+      </time>
+      · 1 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Siempre me pasa lo mismo, me hago mis chuletas y apuntes, pero nunca me pongo cómo se realiza la instalación sobre la cual funcionan las chuletas.</p>
+<p>Por eso, ahora voy a explicar cómo se realiza la instalación de <strong>Docker</strong> en <strong>Raspbian</strong> (en mi caso sobre una <strong>Raspberry pi 3b</strong>)</p>
+<blockquote>
+<p>nota: Actualmente tengo una RPI4B de 4Gb, pero el proceso es el mismo.</p>
+</blockquote>
+<p>A continuación explicamos el proceso de instalación de Docker:</p>
+<h2 id="-instalar-paquetes-necesarios">◇ Instalar paquetes necesarios</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo apt-get update <span style="color:#f92672">&amp;&amp;</span> sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
+</span></span></code></pre></div><h2 id="-instalar-firmas-gpg-del-repo-de-docker">◇ Instalar firmas GPG del repo de Docker</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+</span></span><span style="display:flex;"><span>usuari@raspberry:~$ sudo apt-key fingerprint 0EBFCD88
+</span></span></code></pre></div><h2 id="-agregar-repo-de-docker">◇ Agregar repo de Docker</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;deb [arch=armhf] https://download.docker.com/linux/debian \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> stable&#34;</span> | <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> sudo tee /etc/apt/sources.list.d/docker.list
+</span></span></code></pre></div><h2 id="-instalar-docker">◇ Instalar Docker</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo apt-get update <span style="color:#f92672">&amp;&amp;</span> sudo apt-get install -y docker-ce docker-compose
+</span></span></code></pre></div><h2 id="-agregar-usuario-al-grupo-docker-y-desloguearse-y-volverse-a-loguear">◇ Agregar usuario al grupo docker y desloguearse y volverse a loguear</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo usermod -a -G docker tuUsuario
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#(logout and login)</span>
+</span></span></code></pre></div><h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://gist.github.com/pablokbs/263ed38d0206de2aca7b3f106ba7a5dc">Pasos para instalar Docker</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Los mejores repositorios para Debian GNU/Linux · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2015-05-08-repositorios-debian/">
+
+
+
+
+
+
+<meta name="description" content="Cuando se está utilizando un sistema Debian GNU/Linux, una de las cosas que más se disfrutan es la herramienta para administración de paquetes APT.
+La mayoría, se pasa instalando distintos paquetes, aplicaciones, etc. a veces gastando mucho tiempo en lograr el objetivo (ej: actualizar el sistema), la mayoría de las veces provocado esto por la utilización de repositorios lentos… ¿pero cómo conozco los mejores repositorios para mi distro? Fácil con apt-spy.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Los mejores repositorios para Debian GNU/Linux">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Cuando se está utilizando un sistema Debian GNU/Linux, una de las cosas que más se disfrutan es la herramienta para administración de paquetes APT.
+La mayoría, se pasa instalando distintos paquetes, aplicaciones, etc. a veces gastando mucho tiempo en lograr el objetivo (ej: actualizar el sistema), la mayoría de las veces provocado esto por la utilización de repositorios lentos… ¿pero cómo conozco los mejores repositorios para mi distro? Fácil con apt-spy.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Los mejores repositorios para Debian GNU/Linux</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2015-05-08">
+        2015-05-08
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/bash/">
+            #Bash
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Cuando se está utilizando un sistema <strong>Debian GNU/Linux</strong>, una de las cosas que más se disfrutan es la herramienta para administración de paquetes <code>APT</code>.</p>
+<p>La mayoría, se pasa instalando distintos paquetes, aplicaciones, etc. a veces gastando mucho tiempo en lograr el objetivo (ej: actualizar el sistema), la mayoría de las veces provocado esto por la utilización de repositorios lentos… ¿pero cómo conozco los mejores repositorios para mi distro? Fácil con <code>apt-spy</code>.</p>
+<p><strong>APT-SPY</strong> es un programa usado para testear el ancho de banda de una serie de mirrors de <strong>Debian GNU/Linux</strong>, generando un archivo <code>/etc/apt/sources.list</code> con los servidores más rápidos. Puedes seleccionar qué servidores deseas testear por localización geográfica.</p>
+<p>Para poder usarlo, lo primero es instalarlo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@debian:~# aptitude install apt-spy
+</span></span></code></pre></div><p>Ahora que ya lo tenemos… simplemente debemos usarlo:</p>
+<p>Algunas de sus opciones en línea de comando son:</p>
+<ul>
+<li><code>-d distribución</code>: Indicamos qué distribución usamos, puede ser: stable, testing o unstable.</li>
+<li><code>-e n</code>: Indicamos que solo pruebe los primeros n mirrors que funcionan.</li>
+<li><code>-w archivo.list</code>: No sobreescribe nuestro <code>/etc/apt/sources.list</code>, en su lugar usa archivo.list.</li>
+<li><code>-a [africa | asia | europe | north-america | oceania | south-america ]</code>: Identifica la localización geográfica donde buscar servidores</li>
+</ul>
+<p>Como ejemplo de uso:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@debian:~# apt-spy -d unstable -e <span style="color:#ae81ff">10</span> -w nuevo_sources.list -a Europa
+</span></span></code></pre></div><p>Esto probará los primeros 10 mirrors para Europa de <strong>Debian GNU/Linux UNSTABLE</strong> y los escribirá en el archivo nuevo_sources.list</p>
+<p>Con esto ya tenemos nuestros nuevos repositorios, simplemente copiamos nuevo_sources.list como <code>/etc/apt/sources.list</code> y listo!!!</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

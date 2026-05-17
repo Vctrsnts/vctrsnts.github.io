@@ -1,0 +1,183 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Crear RSS de los podcast que sigo · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2023-07-23-crear-rss-podcast/">
+
+
+
+
+
+
+<meta name="description" content="No sé vosotros, pero no os habéis fijado que estos últimos meses ha habido un auge con respecto a los podcast? No sé si es porque la calidad ha subido o porque hay más, pero&amp;amp;hellip;
+Yo siempre he escuchado un programa de radio de Catalunya Radio que trata sobre la historia en general y como soy un entusiasta de la historia, pues este programa no podía faltar, pero claro, me lo programan a unas horas, que es imposible seguirlo. Así que decidí mirar si tenían la opción de descargar los programas en formato podcast, y resultó que sí era posible.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Crear RSS de los podcast que sigo">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="No sé vosotros, pero no os habéis fijado que estos últimos meses ha habido un auge con respecto a los podcast? No sé si es porque la calidad ha subido o porque hay más, pero&amp;amp;hellip;
+Yo siempre he escuchado un programa de radio de Catalunya Radio que trata sobre la historia en general y como soy un entusiasta de la historia, pues este programa no podía faltar, pero claro, me lo programan a unas horas, que es imposible seguirlo. Así que decidí mirar si tenían la opción de descargar los programas en formato podcast, y resultó que sí era posible.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Crear RSS de los podcast que sigo</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2023-07-23">
+        2023-07-23
+      </time>
+      · 5 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/programaci%C3%B3n/">
+            @Programación
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/python/">
+            #Python
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>No sé vosotros, pero no os habéis fijado que estos últimos meses ha habido un auge con respecto a los podcast? No sé si es porque la calidad ha subido o porque hay más, pero&hellip;</p>
+<p>Yo siempre he escuchado un programa de radio de <em><strong>Catalunya Radio</strong></em> que trata sobre la historia en general y como soy un entusiasta de la historia, pues este programa no podía faltar, pero claro, me lo programan a unas horas, que es imposible seguirlo. Así que decidí mirar si tenían la opción de descargar los programas en formato podcast, y resultó que sí era posible.</p>
+<p>Así mismo, también empecé a seguir a unos podcaster que hablan sobre tecnología (<a href="https://ugeek.github.io">uGeek</a>, <a href="https://atareao.es">Atareao</a>, <a href="https://papafriki.gitlab.io/podcast">PapaFriki</a>, etc&hellip;) y me he aficionado a ellos, así que también los puse en la lista de seguimiento. Pero claro, yo los puedo escuchar cuando puedo y este año (2023) ha sido un poco difícil, porque he tenido un año muy complicado.</p>
+<p>Entonces empecé a investigar la manera de descargar los podcast automáticamente y sí que existe, más información en este <a href="/posts/2021-05-30-flexget-podcast">artículo</a>. Y que además, también se puede hacer lo mismo con los otros podcast, mientras tengan un fichero <em><strong>RSS</strong></em>, se puede descargar. Así que lo más importante, conseguir los podcast ya estaba hecho. Pero claro, ahora faltaba la parte de poderlos escuchar.</p>
+<blockquote>
+<p>nota: Antes un pequeño inciso sobre mi manera de tratar los ficheros de podcast. Al principio, los podcast los trataba como si fueran ficheros de música normales y corrientes, pero siempre intentaba tenerlos separados de la música, en un directorio los podcast y en otro la música, pero a la hora de escuchar, siempre acababan juntándose en la aplicación del móvil que usaba (<strong>D-Sub</strong>, <strong>Tempo</strong>, etc&hellip;), así que me puse a investigar y gracias a unos de los podcast, valga la redundancia, de <a href="https://ugeek.github.io/post/2022-12-07-charla-con-atareao-sobre-servicios-y-mucho-mas.html">uGeek</a>, donde explicaba que él estaba intentando crear su propio feed de los podcast que seguía, para que así, a través del móvil o cualquier otra aplicación, poderlos escuchar cuando fuera posible.</p>
+</blockquote>
+<p>Esa idea me gustó mucho y me puse a investigar, porque los conocimientos que tengo yo de bash son muy pocos y llegar al nivel para hacer lo que estaba explicando <strong>uGeek</strong> sería muy complicado.</p>
+<p>Después de mucho buscar y probar, encontré este <a href="https://github.com/amsehili/genRSS">proyecto</a> en GitHub, que a través de un fichero Python, se crea automáticamente el fichero RSS del directorio que tú le indicabas junto con el título y descripción y después, este mismo fichero RSS, lo puedes exponer a internet, para que cualquier aplicación lectora de RSS (sobre todo las aplicaciones de podcast que funcionan a través de ellos) pudiera tener acceso a estos podcast.</p>
+<p>Aquí pongo un ejemplo de cómo uso yo este fichero:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$python3 /home/usuari/genRSS/genRSS.py -e mp3 -d directorio_podcast -H http://ip_servidor:puerto -i https://imagen_de_la_caratula.jpg -t <span style="color:#e6db74">&#34;Titulo_del_Podcast&#34;</span> -p <span style="color:#e6db74">&#34;Descripción del Podcast&#34;</span> -C -r -o fichero.rss.rss
+</span></span></code></pre></div><p>Hay que tener un par de cosas a la hora de usar este fichero:</p>
+<ul>
+<li>Las carátulas de los podcast tienen que ser externas. No puedes tener la imagen en el servidor. Al menos en mi caso, yo no he conseguido que funcionen con imágenes de dentro del servidor.</li>
+<li>Yo tengo varias líneas (una por cada podcast que sigo) y así me genera un RSS, y todo lo tengo en un fichero bash que cada día se ejecuta para actualizar los RSS con los nuevos podcast que se han descargado.</li>
+</ul>
+<p>Ahora, solo faltaba elegir un buen podcaster, creo que se llaman así, para poder escuchar mis podcast, y me decidí por <em><strong>AntennaPod</strong></em> donde se podía añadir los RSS creados por mí mismo y poderlos escuchar.</p>
+<p>Tengo que añadir, que para tener acceso a los ficheros RSS que había creado en mi servidor, tenía que tener acceso a ellos y, en mi caso, esto lo hacía a través de <em><strong>WEBDAV</strong></em> (como contenedor de docker), si queréis saber cómo se puede configurar, <em><strong>uGeek</strong></em> tiene un buen <a href="https://ugeek.github.io/blog/post/2019-10-22-docker-servidor-webdav.html">artículo</a> donde explica cómo se hace y cómo hacerlo, específicamente en docker.</p>
+<p>Tengo que decir que funcionaba todo perfectamente, pero eso sí, abierto al peligroso mundo de internet y más, después de escuchar este <a href="https://ugeek.github.io/post/2023-07-31-seguridad-en-mis-servicios.html">episodio</a> de <strong>uGeek</strong> que habla sobre la seguridad de nuestros servidores abiertos al mundo y se te ponen los pelos de punta.</p>
+<p>La solución que daba, era usar una VPN (wireguard que ya tengo montada), en este <a href="https://ugeek.github.io/blog/post/2021-05-28-el-modo-mas-facil-de-instalar-administrar-wireguard.html">artículo</a> podéis encontrar cómo se puede hacer y así poder conectar a nuestro servidor y simular como si estuviéramos en nuestra propia red pero sin estarlo.</p>
+<p>Tengo que decir que, ahora mismo, es como lo tengo funcionando y funciona a la perfección. Sin ningún corte ni nada, todo perfecto. Y para más inri, también tengo la música en mi servidor y accedo a ella a través de la VPN y sin problemas.</p>
+<p>O sea, todo perfecto y funcionando a las mil maravillas, pero como ya se sabe, nunca se puede decir que todo está perfecto, porque no es así. Ahora estoy buscando información de cómo unificar las 2 aplicaciones (<em>AntennaPOD</em> y <em>Tempo</em>) para así, poder escuchar todo (aunque sea por separado) pero en una sola aplicación.</p>
+<p>Así que ya os explicaré cómo acaba la cosa.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://ugeek.github.io/blog/post/2019-10-22-docker-servidor-webdav.html">WebDav - uGeek</a></li>
+<li><a href="https://ugeek.github.io/post/2023-07-31-seguridad-en-mis-servicios.html">Seguridad en mis servicios - uGeek</a></li>
+<li><a href="https://ugeek.github.io/post/2022-12-07-charla-con-atareao-sobre-servicios-y-mucho-mas.html">Charla con Atareao y algo más - uGeek</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2021-05-28-el-modo-mas-facil-de-instalar-administrar-wireguard.html">El modo más fácil de instalar y administrar Wireguard - uGeek</a></li>
+<li><a href="https://github.com/amsehili/genRSS">genRSS</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

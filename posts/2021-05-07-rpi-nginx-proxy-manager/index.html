@@ -1,0 +1,189 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Usando Nginx-Proxy-Manager en la Raspberry · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2021-05-07-rpi-nginx-proxy-manager/">
+
+
+
+
+
+
+<meta name="description" content="Aquí tenemos otra entrada más que hace referencia a mi RPI y a ese inmenso océano que se ha abierto al descubrir Docker.
+Una vez que tienes tu propio Spotify, el siguiente paso que quieres hacer, es acceder a él desde exterior y para hacer esto tienes 2 maneras de hacerlo:
+Abrir directamente el puerto de tu Spotify con el riesgo que conlleva. Utilizar un Proxy para que a través de https, junto a un certificado SSL para darle más seguridad, acceder a este servicio sintiéndote un poco más seguro. Entonces, para hacer esto (segunda opción), no vayamos a ponerle las cosas fáciles a los crackers, tenemos varias opciones (voy a poner las que he usado) y todas disponibles con Docker:
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Usando Nginx-Proxy-Manager en la Raspberry">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Aquí tenemos otra entrada más que hace referencia a mi RPI y a ese inmenso océano que se ha abierto al descubrir Docker.
+Una vez que tienes tu propio Spotify, el siguiente paso que quieres hacer, es acceder a él desde exterior y para hacer esto tienes 2 maneras de hacerlo:
+Abrir directamente el puerto de tu Spotify con el riesgo que conlleva. Utilizar un Proxy para que a través de https, junto a un certificado SSL para darle más seguridad, acceder a este servicio sintiéndote un poco más seguro. Entonces, para hacer esto (segunda opción), no vayamos a ponerle las cosas fáciles a los crackers, tenemos varias opciones (voy a poner las que he usado) y todas disponibles con Docker:
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Usando Nginx-Proxy-Manager en la Raspberry</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2021-05-07">
+        2021-05-07
+      </time>
+      · 3 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Aquí tenemos otra entrada más que hace referencia a mi RPI y a ese inmenso océano que se ha abierto al descubrir Docker.</p>
+<p>Una vez que tienes tu propio <strong>Spotify</strong>, el siguiente paso que quieres hacer, es acceder a él desde exterior y para hacer esto tienes 2 maneras de hacerlo:</p>
+<ul>
+<li>Abrir directamente el puerto de tu <em>Spotify</em> con el riesgo que conlleva.</li>
+<li>Utilizar un <em>Proxy</em> para que a través de <em>https</em>, junto a un certificado SSL para darle más seguridad, acceder a este servicio sintiéndote un poco más seguro.</li>
+</ul>
+<p>Entonces, para hacer esto (segunda opción), no vayamos a ponerle las cosas fáciles a los <strong>crackers</strong>, tenemos varias opciones (voy a poner las que he usado) y todas disponibles con Docker:</p>
+<ul>
+<li><strong>Traefik</strong>: Muy buena opción, pero de difícil configuración, a mi modo de ver.</li>
+<li><strong>Nginx-Proxy-Manager</strong>: El más vistoso (incluye GUI) desde la que puedes hacerlo todo.</li>
+<li><strong>Caddy</strong>: El más fácil de usar.</li>
+</ul>
+<p>Al principio usé <strong>Traefik</strong>, es muy poderoso y tiene muchas opciones de configuración, pero por ese mismo motivo, porque tiene muchas opciones, lo hace más difícil de usar.</p>
+<p>Después me decanté por <a href="/posts/2021-04-08-rpi-caddy-proxy-manager">Caddy</a> porque todo lo tenía al alcance de la mano, con un simple fichero de texto y era una maravilla su simpleza, pero todo cambió, cuando sacaron una nueva versión de Caddy que me arruinó el chiringuito o fue <strong>duckdns</strong> no lo tengo aún del todo claro (tendré que seguir haciendo pruebas).</p>
+<p>A lo que me vengo a referir es que en caddy (versiones antiguas) tenía una <code>url</code> parecida a esta <code>https://music.midominio.duckdns.org</code> pero algo cambió en caddy o en duckdns que que ya no aceptaba este tipo de url, y tuve que cambiar a una de este estilo <code>http://music-midominio.duckdns.org</code> a parte que tampoco me creaba los certificados (por eso digo, que no se si era culpa de Caddy o de duckdns).</p>
+<p>Pero no podía estar si acceso a mi <strong>Spotify</strong> privado y después de investigar (aunque ya había hecho un par de pruebas para ver como funcionaba) me decanté por <strong>Nginx-Proxy-Manager</strong>, no iba a volver a <strong>traefik</strong> si me fui de él por su complejidad, así que <strong>npm</strong> fue mi salvación, por la ayuda que te da a la hora de toda la configuración con sus diferentes pantallas que tienes a tu disposición (tanto para crear los dominios, como para crear los certificados).</p>
+<p>Para usarlo en Docker utilicé la siguiente configuración:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm:
+</span></span><span style="display:flex;"><span> image: jc21/nginx-proxy-manager:latest
+</span></span><span style="display:flex;"><span> container_name: npm
+</span></span><span style="display:flex;"><span> restart: unless-stopped
+</span></span><span style="display:flex;"><span> ports:
+</span></span><span style="display:flex;"><span>   - <span style="color:#e6db74">&#39;80:80&#39;</span>
+</span></span><span style="display:flex;"><span>   - <span style="color:#e6db74">&#39;81:81&#39;</span>
+</span></span><span style="display:flex;"><span>   - <span style="color:#e6db74">&#39;443:443&#39;</span>
+</span></span><span style="display:flex;"><span> volumes:
+</span></span><span style="display:flex;"><span>   - <span style="color:#e6db74">${</span>STORAGE<span style="color:#e6db74">}</span>/config/npm/data:/data
+</span></span><span style="display:flex;"><span>   - <span style="color:#e6db74">${</span>STORAGE<span style="color:#e6db74">}</span>/config/npm/letsencrypt:/etc/letsencrypt
+</span></span></code></pre></div><p>Hay que tener en cuenta una cosa, en algunos sitios, te indican que tienes que tener, a parte de <strong>npm</strong>, tienes que tener un <em>gestor de BBDD</em>, pero yo he podido comprobar, y es como lo tengo actualmente, que no hace falta tener ningún gestor de BBDD (a lo mejor las nuevas versiones de npm ya lo tengan incorporado).</p>
+<p>Una vez, instalado, accedemos a través (en mi caso) del puerto 81 y con las siguientes credenciales:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Username: admin@example.com
+</span></span><span style="display:flex;"><span>Password: changeme
+</span></span></code></pre></div><p>Cuando accedemos al sistema, lo primero que hacemos es cambiar el usuario y el password de acceso y ya lo tenemos preparado para poderlo usar.</p>
+<p>Con los vídeos que hay en la <strong>Referencia</strong> podrás configurarlo sin ningún problema.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=0n9DLj2ndo4">Certificados AUTOMÁTICOS y GRATIS para CUALQUIER SERVIDOR - Nginx Proxy Manager</a></li>
+<li><del><a href="https://www.youtube.com/watch?v=J7gpQYJ8bjU">Instalar NGINX PROXY MANAGER en una RASPBERRY Pi 4</a></del></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

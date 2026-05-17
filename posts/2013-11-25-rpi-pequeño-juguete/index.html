@@ -1,0 +1,195 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Raspberry Pi. Mi pequeño nuevo juguete · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2013-11-25-rpi-peque%C3%B1o-juguete/">
+
+
+
+
+
+
+<meta name="description" content="Pues nada. Desde hace un par de meses, tengo a mi disposición un nuevo juguete. La Raspberry modelo B, con las siguientes características:
+Un procesador ARM11 a 700 MHz Procesador gráfico a medida que acelera por hardware el vídeo H264 (mpeg4) 512 MB de memoria RAM 2 puertos USB Una salida de audio y vídeo HDMI Conector de red Ethernet RJ45 (10/100 mbps) Entrada de corriente microUSB Lector de tarjetas SD ">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Raspberry Pi. Mi pequeño nuevo juguete">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Pues nada. Desde hace un par de meses, tengo a mi disposición un nuevo juguete. La Raspberry modelo B, con las siguientes características:
+Un procesador ARM11 a 700 MHz Procesador gráfico a medida que acelera por hardware el vídeo H264 (mpeg4) 512 MB de memoria RAM 2 puertos USB Una salida de audio y vídeo HDMI Conector de red Ethernet RJ45 (10/100 mbps) Entrada de corriente microUSB Lector de tarjetas SD ">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Raspberry Pi. Mi pequeño nuevo juguete</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2013-11-25">
+        2013-11-25
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+          <a href="/tags/hardware/">
+            #Hardware
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Pues nada. Desde hace un par de meses, tengo a mi disposición un nuevo juguete. La Raspberry modelo B, con las siguientes características:</p>
+<ul>
+<li>Un procesador ARM11 a 700 MHz</li>
+<li>Procesador gráfico a medida que acelera por hardware el vídeo H264 (mpeg4)</li>
+<li>512 MB de memoria RAM</li>
+<li>2 puertos USB</li>
+<li>Una salida de audio y vídeo HDMI</li>
+<li>Conector de red Ethernet RJ45 (10/100 mbps)</li>
+<li>Entrada de corriente microUSB</li>
+<li>Lector de tarjetas SD</li>
+</ul>
+<p><img src="imagen.jpg" alt="" title="Raspberry Pi"></p>
+<p>Aparte, tengo los siguientes componentes para que pueda funcionar:</p>
+<ul>
+<li>Western Digital Black 640Gb.</li>
+<li><a href="https://www.kingston.com/en/flash/microsd_cards#sdc10">Tarjeta Micro SD HC de 4Gb Kingston</a></li>
+<li><a href="https://www.amazon.es/Trust-Pyramid-Port-puertos-garantia/dp/B000RAH2LS/ref=pd_cp_computers_0">Trust Pyramid 7 Port</a></li>
+</ul>
+<p>Todos los componentes que tengo, los he conseguido para que funcionasen, en principio, sin ningún problema con la Raspberry.</p>
+<p>Con respecto al Hub, teóricamente todos tendrían que funcionar sin ningún problema, pero te aconsejan que, como mínimo el USB tiene que dar 1A (en este caso, este da 2A).</p>
+<p>En el caso de la tarjeta SD Card, en esta <a href="https://elinux.org/RPi_SD_cards#Working_.2F_Non-working_SD_cards">página</a> podéis encontrar las tarjetas compatibles y no compatibles con la Raspberry.</p>
+<p>Todo esto unido con el mejor Sistema Operativo del mundo <a href="https://www.raspbian.org/FrontPage">Raspbian</a>. La perfecta unión entre la Raspberry y <strong>Debian GNU/Linux</strong>.</p>
+<p>Así que empezaré una serie de capítulos donde explicaré mis experiencias y mi proceso de instalación que le he realizado a mi pequeño gran juguete.</p>
+<p>Los capítulos son los siguientes:</p>
+<ul>
+<li><a href="/posts/2013-11-25-rpi-peque%C3%B1o-juguete">Raspberry Pi. La presentación</a></li>
+<li><a href="/posts/2016-04-02-rpi-funcionamiento-raspberry">Raspberry Pi. Funcionamiento de la RPI</a></li>
+<li><a href="/posts/2016-04-02-rpi-actualizando-jessie">Raspberry Pi. Actualizando a Jessie</a></li>
+<li><a href="/posts/2016-04-02-rpi-instalando-jessie-lite">Raspberry Pi. Instalando Jessie-Lite</a></li>
+<li><a href="/posts/2016-04-02-rpi-configurando-raspberry">Raspberry Pi. Configurando la Raspberry</a></li>
+<li><a href="/posts/2016-04-03-rpi-configurar-red">Raspberry Pi. Configurar la red</a></li>
+<li><a href="/posts/2016-04-03-rpi-iniciar-hd-externo">Raspberry Pi. Iniciar desde HD externo</a></li>
+<li><a href="/posts/2016-04-04-rpi-acceso-traves-ssh">Raspberry Pi. Acceso a través de SSH</a></li>
+<li><a href="/posts/2020-10-30-rpi-cambiando-equipo">Raspberry Pi. Cambiando el equipo</a></li>
+<li><a href="/posts/2020-03-08-rpi-usando-docker">Raspberry Pi. Usando docker en Raspbian</a></li>
+<li><a href="/posts/2020-11-08-rpi-usando-fail2ban">Raspberry Pi. Instalar y configurar fail2ban</a></li>
+<li><a href="/posts/2021-01-17-rpi-copias-seguridad">Raspberry Pi. Haciendo copias de seguridad</a></li>
+<li><a href="/posts/2021-01-18-rpi-externalizando-copias-seguridad">Raspberry Pi. Salvaguardando nuestras copias de seguridad</a></li>
+<li><a href="/posts/2021-04-01-rpi-spotify">Raspberry Pi. Creando tu Spotify privado</a></li>
+<li><a href="/posts/2021-04-08-rpi-caddy-proxy-manager">Raspberry Pi. Cambiando Traefik por Caddy</a></li>
+<li><a href="/posts/2021-05-07-rpi-nginx-proxy-manager">Raspberry Pi. Al final nos quedamos Nginx-Proxy-Manager</a></li>
+<li><a href="/posts/2022-05-26-nuevo-servidor">Raspberry Pi. Cambiando de Servidor</a></li>
+</ul>
+<p>Como se puede observar, el último artículo que he hecho con respecto a todo lo que he vivido, probado, experimentado con la Raspberry es el de <a href="/posts/2022-05-26-nuevo-servidor">cambiando de servidor</a>, que es cuando me paso a un Dell Optiplex 3050.</p>
+<p>Hay que tener una cosa en cuenta, que todo lo que he escrito para la Raspberry también es aplicable para el Dell, porque no he tenido que hacer ninguna modificación a mis configuraciones de docker de lo que tenía en la Raspberry, para que me funcione en Dell.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://elinux.org/RPi_SD_cards#Working_.2F_Non-working_SD_cards">RPi SD cards</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

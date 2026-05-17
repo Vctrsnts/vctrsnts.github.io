@@ -1,0 +1,225 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Cambiando a UnRAID · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-03-07-cambiando-unraid/">
+
+
+
+
+
+
+<meta name="description" content="Este mes de marzo ha traído un cambio inesperado en mi servidor.
+Lo primero de todo, vi una oferta de un Lenovo m910x (el que dispone de una ranura para puerto PCI) en Wallapop que venía completo (tarjeta gráfica, SSD, RAM, transformador de 135w), o sea, una perita en dulce. Así que me lancé de cabeza a él. Y junto con los 2 HDD que ya tenía en funcionamiento (18Tb y otro de 12Tb) en mi antiguo servidor más otro que estaba en stand-by de 16Tb, y aprovechando el mod que se le puede hacer a los Tiny (sobre todo a los m910x), pensé en aprovechar los 3 HDD y tener un peazo servidor que no se lo saltase un galgo.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Cambiando a UnRAID">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Este mes de marzo ha traído un cambio inesperado en mi servidor.
+Lo primero de todo, vi una oferta de un Lenovo m910x (el que dispone de una ranura para puerto PCI) en Wallapop que venía completo (tarjeta gráfica, SSD, RAM, transformador de 135w), o sea, una perita en dulce. Así que me lancé de cabeza a él. Y junto con los 2 HDD que ya tenía en funcionamiento (18Tb y otro de 12Tb) en mi antiguo servidor más otro que estaba en stand-by de 16Tb, y aprovechando el mod que se le puede hacer a los Tiny (sobre todo a los m910x), pensé en aprovechar los 3 HDD y tener un peazo servidor que no se lo saltase un galgo.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Cambiando a UnRAID</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2024-03-07">
+        2024-03-07
+      </time>
+      · 6 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/unraid/">
+            #unRAID
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Este mes de marzo ha traído un cambio inesperado en mi servidor.</p>
+<p>Lo primero de todo, vi una oferta de un Lenovo m910x (el que dispone de una ranura para puerto PCI) en Wallapop que venía completo (tarjeta gráfica, SSD, RAM, transformador de 135w), o sea, una perita en dulce. Así que me lancé de cabeza a él. Y junto con los 2 HDD que ya tenía en funcionamiento (18Tb y otro de 12Tb) en mi <a href="/posts/2023-08-01-de-nuevo-cambiando-servidor">antiguo servidor</a> más otro que estaba en stand-by de 16Tb, y aprovechando el <a href="https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x">mod</a> que se le puede hacer a los Tiny (sobre todo a los m910x), pensé en aprovechar los 3 HDD y tener un <strong>peazo</strong> servidor que no se lo saltase un galgo.</p>
+<p>La única duda que tenía, era como sacarle partido a todo el hard que tengo a mi disposición?</p>
+<p>Pero antes de pensar en sacarle provecho al hard, tenía que hacer una operación quirúrgica al nuevo servidor, para aprovechar las ventajas del m910x. Y esta modificación, consiste en:</p>
+<ul>
+<li>Soldar 3 cables a la placa base, para sacar la alimentación para los HDD.
+<ul>
+<li>Los puntos que tienes que soldar, los puedes encontrar en esta <a href="https://media.printables.com/media/prints/571792/images/4573825_5c9533df-9369-43f3-adfb-a8e3ec3e6bcc/thumbs/inside/1280x960/jpeg/noard-pinout-voltages.webp">image</a> del mod donde indica donde se tienen que hacer las soldaduras. El problema es si no tienes mucha experiencia o ninguna, entonces la cosa se complica. Yo he tenido de recordar los 5 años que me pasé soldando cuando estaba haciendo el FP. de electrónica industrial, así que&hellip;</li>
+</ul>
+</li>
+<li>Encontrar todo el material necesario para poder conectar los cables SATA a la PCI del Tiny. En la web de <strong>homelabs.club</strong> los encontrarás.</li>
+<li>He ampliado la RAM del Tiny a 32Gb</li>
+<li>He cambiado la CPU que venía por defecto, <strong>Intel i5 - 6500T</strong> por una un poco mejor <strong>Intel i5 - 6600T</strong>.
+<ul>
+<li>Tengo en el almacén una <strong>Intel i5 - 7500T</strong>, pero no sé si sería mucho hablando en términos de consumo eléctrico.</li>
+</ul>
+</li>
+</ul>
+<p>Una vez realizada la parte más difícil, ahora solamente toca decidir que <strong>Sistema Operativo</strong> ponerle. En principio quería volver a poner <strong>Debian GNU/Linux</strong> tal como tenía antes en mi anterior servidor. Pero en el canal de telegram de <strong>HomeLabs.club</strong> todo el mundo comentaba las bondades de <a href="https://unraid.net">UnRAID</a> y me decidí a probarlo a ver que tal era y si era tan bueno como decían.</p>
+<p>Antes de nada, tenía que conseguir una licencia. Lo bueno que tiene <strong>UnRAID</strong>, es que tiene una licencia de prueba de <code>30 días</code>. El <strong>Sistema Operativo</strong> tiene muy bien. Todo está bien cuidado y bien ordenado, aunque al principio cuesta encontrar las cosas, pero eso es como todo.</p>
+<p>Pero por mi experiencia, antes de nada y para que no te lleves ningún susto o te encuentres perdido, te recomiendo que le des un vistado a los siguientes vídeos:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=00zfs3U21GY">Guía de Primeros Pasos en UnRAID (parte1)</a></li>
+<li><a href="https://www.youtube.com/watch?v=Aq6ssRuMQVo">Guía de Primeros Pasos en UnRAID (parte2)</a></li>
+<li><a href="https://www.youtube.com/watch?v=B5jpsmV1Mjg">Guía de Primeros Pasos en UnRAID (parte3)</a></li>
+<li><a href="https://www.youtube.com/watch?v=GRjWusI3fj8">Guía de Primeros Pasos en UnRAID (parte4)</a></li>
+</ul>
+<p>Estos vídeos van muy bien, porque te pone en situación y te ayudan en la primera instalación y configuración del sistema. Es muy sencillo, pero como siempre pasa, el principio cuesta todo.</p>
+<blockquote>
+<p>nota: Cuando llegues a la sección de configuración del Array o vayas a instalar los HDD al sistema, y si antes ya has visto los vídeos, no es todo tan bonito como parece, piensa antes lo que vas a hacer, porque yo me lancé al huerto con el <strong>PreClear</strong> de un HDD de 18Tb y tardé <strong>90 horas</strong>, se dice pronto, en tenerlo disponible para añadirlo al sistema. Pero bueno, me sirvió como aprendizaje para saber lo que es aconsejable y lo que no.</p>
+</blockquote>
+<p>Otra cosa que también me aconsejaron, fue que me apuntara al canal de <strong>Discord de UnRAID_ES</strong>, porque ya pedir ayuda, consejo, etc&hellip; siempre están disponibles. Son mis ángeles de la guardia.</p>
+<p>Con todo esto, ya podía a empezar a hacer las pruebas con el sistema, probando configuraciones, plugins, dockers, etc&hellip; Y es hay, cuando en el canal de Discord, salta la noticia de que las licencias que hay en ese momento disponibles en <strong>UnRAID</strong> van a cambiar a subscripciónes anuales. Todo el mundo, en el canal de <strong>Discord</strong> se volvió loco,  y recomendaron, que lo mejor, era comprar ya, una licencia tal como están ahora (de por vida) para así, al menos quedar cubierto para lo que pueda suceder en un futuro, y viendo que el sistema me empezaba a interesar y que tenía posibilidades, pues me decidí a comprar una licencia <strong>básica</strong>. Eso sí, lo que recomiendan, es que vayas directamente a la licencia <strong>PRO</strong> porque con eso te <code>aseguras</code> de que no tengas problemas en un futuro, a parte de que puedes conectar dispositivos (entendemos como HDD) ilimitados.</p>
+<p>Hay que puntualizar una cosa con referencia a lo de dispositivos <strong>ilimitados</strong> que salió en el mismo podcast donde se habló de las licencias. El tema es que los famosos ilimitados queda muy bonito, pero que ahora mismo, <strong>UnRAID</strong> solo soporta 24 dispositivos, si son muchos, pero no es ilimitado. En mi caso, yo con 3 HDD, para que os hagáis una idea, tengo unos 50Tb disponibles. Más que suficiente para mi servidor.</p>
+<blockquote>
+<p>nota:
+También, hay que tener en cuenta, esto es una opinión mía y personal, es que puedes tener la <em>más mejor</em> de las licencias, que si la empresa que hay detrás de UnRAID dice que anula todas las licencias anteriores, no servirá de nada decir que tenías una <strong>PRO</strong> y que <strong>era para toda la vida</strong>, a parte de que cuestan una pasta.
+Mucha gente opina, que si la empresa que hay detrás de <strong>UnRAID</strong> hiciera eso, la comunidad entera se les echaría encima y abandonarían el barco en masa, con las consecuencias que eso podría tener para la empresa.</p>
+</blockquote>
+<p>Después de haber resuelto el tema de la licencia me puse a instalar todo lo que tenía en el anterior servidor, que es lo siguiente:</p>
+<ul>
+<li>Jellyfin</li>
+<li>Flexget</li>
+<li>Transmission</li>
+<li>aMule</li>
+<li>Gotify</li>
+<li>Caddy</li>
+<li>DuckDns</li>
+<li>Jackett</li>
+<li>Scruttiny</li>
+<li>Wireguard
+<ul>
+<li>No hace falta instalar nada, porque ya va instalado en el propio UnRAID</li>
+</ul>
+</li>
+<li>Navidrome</li>
+<li>Glances</li>
+<li>HomePage</li>
+<li>PiHole</li>
+</ul>
+<p>Aún me faltan algunas cosas para estar al 100%, pero hay andamos.</p>
+<p>Si nos ponemos a hablar de las pegas que, en mi caso, le encuentro, serían las siguientes:</p>
+<ul>
+<li>Consume muchos recursos, a mi modo de ver, y si encima vienes de una <strong>Debian GNU/Linux</strong> con 16Gb, pues.
+<ul>
+<li>Esto viene porque según para que cosas, sobre todo copiar archivos, y eso que no tengo el HDD de paridad (que daría para hablar otro artículo), es un proceso que requiere mucha CPU, y esto lo digo con conocimiento de causa, porque antes tenía los HDD conectados a través de USB y no notaba tanto consumo de CPU como ahora, que están conectados a través de SATA.</li>
+</ul>
+</li>
+<li>Al consumir tantos recursos, hace, en mi caso, que la CPU se caliente más de lo que me gustaría, llega hasta unos agradables 65º. Una temperatura que no es de mi agrado.</li>
+</ul>
+<p>Como veis, son únicamente 2, pero seguramente, si es que me lee alguien, dirá que soy un exagerado y que a ellos, eso no les pasa. Pero claro, por lo que he visto en el canal de <strong>Discord</strong> mi servidor parece de pobre, porque según parece todos en el canal, tienen servidores industriales 😉</p>
+<p>Hasta aquí hemos llegado, ya seguiré explicando como va mi experiencia y sensaciones con UnRAID.</p>
+<blockquote>
+<p>nota: Si llegase el momento de que <strong>UnRAID</strong> cambiase su política de licencias, que opción escogerías tú.</p>
+</blockquote>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x">Cambios y modificaciones compatibles con los tiny’s M910Q/M710Q/M910X</a></li>
+<li><a href="https://unraid.net">UnRAID</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLVJ0-m0_zw1iM5w6oDHrEwMW87JnC_2pR">Tutoriales UnRAID_ES</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

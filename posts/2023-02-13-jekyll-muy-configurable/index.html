@@ -1,0 +1,194 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Mastodon, Jekyll y Github. Una combinación perfecta. · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2023-02-13-jekyll-muy-configurable/">
+
+
+
+
+
+
+<meta name="description" content="Desde que di el salto de wordpress a Github, lo más lógico, si mi profesión, pasión hace referencia a la tecnología y que también influyó que wordpress empezaba a tener muchos problemas con la creación y gestión del blog.
+Todo empezó a mediados del 2021 cuando cada vez tenía más problemas a la hora de crear artículos y subirlos a wordpress, aunque ahora le estoy dado otro uso, así que me puse a investigar y la mayoría de personas a las que sigo, lo tienen alojado en Github o Gitlab.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Mastodon, Jekyll y Github. Una combinación perfecta.">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Desde que di el salto de wordpress a Github, lo más lógico, si mi profesión, pasión hace referencia a la tecnología y que también influyó que wordpress empezaba a tener muchos problemas con la creación y gestión del blog.
+Todo empezó a mediados del 2021 cuando cada vez tenía más problemas a la hora de crear artículos y subirlos a wordpress, aunque ahora le estoy dado otro uso, así que me puse a investigar y la mayoría de personas a las que sigo, lo tienen alojado en Github o Gitlab.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Mastodon, Jekyll y Github. Una combinación perfecta.</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2023-02-13">
+        2023-02-13
+      </time>
+      · 5 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+          <a href="/tags/hugo/">
+            #Hugo
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Desde que di el salto de <strong>wordpress</strong> a <strong>Github</strong>, lo más lógico, si mi profesión, pasión hace referencia a la tecnología y que también influyó que <strong>wordpress</strong> empezaba a tener muchos problemas con la creación y gestión del blog.</p>
+<p>Todo empezó a mediados del 2021 cuando cada vez tenía más problemas a la hora de crear artículos y subirlos a <strong>wordpress</strong>, aunque ahora le estoy dado otro <a href="https://vsantos.wordpress.com">uso</a>, así que me puse a investigar y la mayoría de personas a las que sigo, lo tienen alojado en <strong>Github</strong> o <strong>Gitlab</strong>.</p>
+<p>Investigué qué diferencia había entre los dos, pero no encontré ninguna a nivel de uso personal, así que lancé la moneda al aire y salió <strong>Github</strong>, me puse a ello. Después de investigar me creé mi repositorio.</p>
+<p>Al principio me costó mucho entender cómo funciona <strong>Github</strong>, para que os hagáis una idea, me las tuve y deseé para crear mi primer repositorio, era dar un pasito hacia adelante y dos hacia atrás, si lo reconozco, no he leído la documentación del funcionamiento y uso de <strong>Github</strong>, pero bueno, creo que así he aprendido mucho más. Porque he tenido que aprender a lo bestia y descubrir las cosas que te puede ofrecer <strong>Github</strong> poco a poco. Y no me ha parecido mal.</p>
+<p>Mis progresos han sido lentos, porque todo lo que hacía era la primera vez, e iba más a prueba y error y volver a repetir hasta que entendía lo que pasaba. Después de tener mi repositorio <strong>personal</strong>, fue tener en mi repositorio todos los ficheros del tema que iba a usar e ir subiendo o creando los ficheros <code>markdown</code> y ponerlos en donde indicaba la documentación del tema si entender bien qué pasaba.</p>
+<p>Después entendí lo que hacía <strong>Github</strong>, que era <code>compilar</code> (si se le puede decir así) los archivos <code>markdown</code> y generar automáticamente el fichero <code>html</code>, seguí investigando a ver si eso se podía hacer en local y resultó que sí que se podía hacer, pero claro, para hacer eso, necesitabas tener un servidor <strong>Jekyll</strong> para que se realizase la compilación y solamente tener que subir los ficheros <code>compilados</code> y tener en mi poder, el código fuente del blog.</p>
+<p>Sigo pensando que no me equivoqué, porque gracias a ello, aprendí cómo crear un docker (mi primer docker). Era un <a href="https://hub.docker.com/r/vctrsnts/jekyll-git">Docker</a> que tiene un servidor jekyll para poder realizar las compilaciones de los <code>markdown</code>. También tengo que decir que no funciona muy bien, pero bueno, como primera experiencia en crear un docker, no me fue mal, porque entendí mejor cómo funcionan los docker.</p>
+<p>Cuando vi que la cosa no funcionaba correctamente, la idea era interesante, pero el resultado no era muy satisfactorio, me puse a buscar un docker ya creado y que fuera mejor que el mío. Y di con él.</p>
+<p>Su autor es <a href="https://github.com/BretFisher/jekyll-serve">bretfisher</a>, tengo que informar que es un poco lioso de usar, porque tiene 2 contenedores:</p>
+<ul>
+<li><a href="https://hub.docker.com/r/bretfisher/jekyll">Jekyll</a></li>
+<li><a href="https://github.com/BretFisher/jekyll-serve">Jekyll-serve</a></li>
+</ul>
+<p>El único que te tiene que importar es es el contenedor que hacer de <strong>jekyll-serve</strong>.</p>
+<p>La configuración que tengo para usar la imagen de docker es la siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">jekyll</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">bretfisher/jekyll-serve</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">jekyll</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># port d&#39;access a traves de la web</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">4000</span>:<span style="color:#ae81ff">4000</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># on esta el codi font del blog</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">../blog:/site</span>
+</span></span></code></pre></div><p>Cuando ya tenía este contenedor en marcha, ya pude empezar con la creación de mis artículos y es aquí, después de esta pequeña historia, donde explico la idea principal de este artículo. Unir <strong>Jekyll</strong>, <strong>Mastodon</strong> y <strong>Github</strong> y todo lo que me podía ofrecer este último y una de estas posibilidades es la de publicar mis artículos a través de un <a href="2022-11-14-publicar-feed-mastodon.md">bot</a>.</p>
+<p>Pero lo que echaba de menos, porque no se veía ninguna imagen en la publicación en <strong>Mastodon</strong>, cuando leí uno de los toots de <strong>Carlos M</strong> de <a href="https://mastodon.online/@elblogdelazaro@mastodon.social">elBlogdeLazaro</a>, que sigo y que me ha dado el punto de inicio por donde empezar, se podía visualizar una imagen, o mejor dicho, el logo de su web.</p>
+<p>Yo quería hacer lo mismo, pero no encontraba ninguna información donde se explicase cómo se tenía que hacer o cómo configurar <strong>Mastodon</strong>, después descubrí que las modificaciones necesarias las tenía que hacer en los archivos de mi blog, y gracias a una pista que, como ya he dicho, me dio <em>Carlos. M</em> conseguir descubrir cómo hacerlo.</p>
+<p>La pista fue (<em>Lázaro</em> usa Hugo, otra alternativa a Jekyll), me comentó, que en su caso, esto es automático y que a través de <code>:EXPORT_hugo_custom_front_matter+: :image /images/......</code> es la manera que se muestra el logo en las publicaciones de <strong>Mastodon</strong>, pero ya era algo.</p>
+<p>Me puse a buscar todo lo referente a la pista que me había dado y que se podía hacer en <strong>Hugo</strong> y al final la encontré en esta <a href="https://sherblog.pro/compartiendo-contenido-de-hugo-en-mastodon">pagina</a>, encontré la gran pista que me llevaría hacia mi objetivo.</p>
+<p>Todo consiste, en que <strong>Mastodon</strong> utiliza <strong>OpenGraph</strong> para todo el tratamiento de las publicaciones (seguramente es más complicado que esto), pero en mi caso me dio la pista definitiva que necesitaba. Lo que tenía que hacer, es buscar cómo poner en mi blog una imagen del tipo <code>og:image</code> en la pantilla. La solución la encontré en la siguiente <a href="https://gist.github.com/davidensinger/5431869">pagina</a>, donde se puede ver, el código necesario para usar <code>imagenes og</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">meta</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;site.url/assets/img/posts/page.image&#34;</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:image&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><p>Gracias a este código y después de modificarlo para poderlo usar en mi plantilla, la modificación la he hecho en <code>_layouts/default.html</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">site</span>.<span style="color:#a6e22e">lightavatar</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">meta</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;site.lightavatar | relative_url&#34;</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:image&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">meta</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;site.darkavatar | relative_url&#34;</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:image&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">endif</span>
+</span></span></code></pre></div><p>Conseguí hacer lo que yo quería, porque ahora, a falta de más pruebas, he conseguido que cada vez, que se envía una publicación a <strong>Mastodon</strong> a través del <strong>bot automático</strong> se puede ver el logo de mi pagina web. Un logo simple, pero es el que más me gusta, porque mezcla mis 2 grandes pasiones.</p>
+<p><strong>Egipto y GNU/Linux</strong></p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://gist.github.com/davidensinger/5431869">Opciones og:image</a></li>
+<li><a href="https://stackoverflow.com/questions/57493239/opengraph-link-previews-in-jekyll">Opengraph link previews in Jekyll</a></li>
+<li><a href="https://brianbunke.com/blog/2017/09/06/twitter-cards-on-jekyll">Twitter Cards on Jekyll</a></li>
+<li><a href="https://sherblog.pro/compartiendo-contenido-de-hugo-en-mastodon">Compartiendo contenido de Hugo en Mastodon</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

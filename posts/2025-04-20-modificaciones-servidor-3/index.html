@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Modificaciones en el servidor - 3 · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-04-20-modificaciones-servidor-3/">
+
+
+
+
+
+
+<meta name="description" content="Este nuevo artículo no sabía si llamarlo Modificaciones en el servidor - 3 o La imaginación humana no tiene límites, porque una vez que hayáis leído este artículo pensaréis lo mismo que yo.
+Como recordaréis, en este artículo os comentaba que después de los últimos cambios, mi servidor había quedado de la siguiente manera:
+Intel Xeon e2286M 32Gb de RAM 4 HDD&amp;amp;rsquo;s 1 HDD de 18Tb 1 HDD de 16Tb 1 HDD de 12Tb 1 HDD de 1Tb Este lo uso para copias de seguridad. Lo más importante es saber el porqué de este cambio. Al principio todo iba correctamente, aunque había momentos en que notaba que los discos duros me hacían el tonto, como si se desconectasen o se reiniciasen, pero como me lo hacía pocas veces, pues no le hacía mucho caso, porque como pasaba poco, pues nada.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Modificaciones en el servidor - 3">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Este nuevo artículo no sabía si llamarlo Modificaciones en el servidor - 3 o La imaginación humana no tiene límites, porque una vez que hayáis leído este artículo pensaréis lo mismo que yo.
+Como recordaréis, en este artículo os comentaba que después de los últimos cambios, mi servidor había quedado de la siguiente manera:
+Intel Xeon e2286M 32Gb de RAM 4 HDD&amp;amp;rsquo;s 1 HDD de 18Tb 1 HDD de 16Tb 1 HDD de 12Tb 1 HDD de 1Tb Este lo uso para copias de seguridad. Lo más importante es saber el porqué de este cambio. Al principio todo iba correctamente, aunque había momentos en que notaba que los discos duros me hacían el tonto, como si se desconectasen o se reiniciasen, pero como me lo hacía pocas veces, pues no le hacía mucho caso, porque como pasaba poco, pues nada.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Modificaciones en el servidor - 3</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2025-04-20">
+        2025-04-20
+      </time>
+      · 8 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/hardware/">
+            #Hardware
+          </a>
+        
+          <a href="/tags/unraid/">
+            #unRAID
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Este nuevo artículo no sabía si llamarlo <strong>Modificaciones en el servidor - 3</strong> o <strong>La imaginación humana no tiene límites</strong>, porque una vez que hayáis leído este artículo pensaréis lo mismo que yo.</p>
+<p>Como recordaréis, en este <a href="/posts/2024-10-19-modificando-servidor-2">artículo</a> os comentaba que después de los últimos cambios, mi servidor había quedado de la siguiente manera:</p>
+<ul>
+<li>Intel Xeon e2286M</li>
+<li>32Gb de RAM</li>
+<li>4 HDD&rsquo;s
+<ul>
+<li>1 HDD de 18Tb</li>
+<li>1 HDD de 16Tb</li>
+<li>1 HDD de 12Tb</li>
+<li>1 HDD de 1Tb
+<ul>
+<li>Este lo uso para copias de seguridad.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Lo más importante es saber el porqué de este cambio. Al principio todo iba correctamente, aunque había momentos en que notaba que los discos duros me hacían el tonto, como si se desconectasen o se reiniciasen, pero como me lo hacía pocas veces, pues no le hacía mucho caso, porque como pasaba poco, pues nada.</p>
+<p>La cosa cambió cuando le añadí un nuevo <em>HDD Seagate Exos X20 SATA</em> (gracias a <strong>HomeLabs</strong> y sus conjuntas 😈), quedando el servidor con la siguiente configuración:</p>
+<ul>
+<li>5 HDD&rsquo;s
+<ul>
+<li>2 HDD de 18Tb
+<ul>
+<li>1 HDD Toshiba</li>
+<li>1 HDD Seagate Exos</li>
+</ul>
+</li>
+<li>1 HDD de 16Tb</li>
+<li>1 HDD de 12Tb</li>
+<li>1 HDD de 1Tb</li>
+</ul>
+</li>
+</ul>
+<p>Aquí se hicieron más seguidos y peligrosos los problemas que había visto con anterioridad. Ya eran más importantes porque estos pasaban cada dos por tres: los HDD&rsquo;s se reiniciaban sin motivo aparente, y sobre todo cuando se hacían copias de muchos archivos a la vez o de archivos muy pesados. Y, para que veáis lo peligroso que era, a veces el array de <strong>unRAID</strong> se <em>desmontaba</em>, quedando todos los discos duros desactivados, con el consiguiente peligro para la integridad de la información.</p>
+<p>Así que tuve que desconectar algunos HDD. Al final, el servidor quedó de la siguiente manera:</p>
+<ul>
+<li>3 HDD&rsquo;s
+<ul>
+<li>2 HDD de 18Tb
+<ul>
+<li>1 HDD Toshiba</li>
+<li>1 HDD Seagate Exos</li>
+</ul>
+</li>
+<li>1 HDD de 12Tb</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>nota: Como veis, peor de lo que estaba al principio, hablando de espacio de almacenamiento y con los mismos problemas o peores.</p>
+</blockquote>
+<p>Lancé la pregunta a mi canal favorito de Telegram, <em>HomeLabs</em>, y la respuesta que me dieron es que todo tenía pinta de falta de potencia para manejar los 3 que tenía en ese momento. No entendía por qué había una falta de potencia, si antes había podido usar 3 HDD&rsquo;s sin ningún problema, usando el mismo transformador que tenía, el de <strong>135W</strong>, mediante la siguiente <a href="https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x">modificación</a> donde se puede alimentar, siempre que tengas el transformador de 135W, un par de HDD&rsquo;s.</p>
+<p>El problema no era por los 3 HDD&rsquo;s, sino porque 2 eran de alta capacidad (18T) junto con el <em>Xeon</em> del Tiny, y la fuente ya no podía dar toda la demanda que se le pedía. La solución que me dieron, y que redundaría tanto en mi beneficio como en la salud de los HDD&rsquo;s, es que para los HDD&rsquo;s no es nada aconsejable que se estén <em>reiniciando</em> constantemente.</p>
+<p>Miré las diferentes posibles soluciones que tenía a mi alcance, y todas tenían como resultado final añadir una fuente de alimentación externa únicamente para los HDD&rsquo;s. También me comentaron que, si tomaba este camino, podría con la misma fuente alimentar el <em>Tiny</em> y así solamente tendría un único cable, ya que el espacio del que dispongo es muy limitado.</p>
+<p>Mientras pensaba en si hacer la modificación que me habían comentado, me contactó como un ángel salvador 👼 <strong>@Mr H</strong>, al que siempre le estaré agradecido por el increíble trabajo de diseño que ha realizado, y tampoco podemos olvidar a <strong>J.Lu</strong>, los dos de <a href="https://t.me/homelabsclub">HomeLabs</a>.</p>
+<p><strong>@Mr H</strong> me comentó que estaba haciendo un nuevo diseño para poder acoplar un backplane de 8 HDD&rsquo;s a un Tiny 🤯.</p>
+<p>Ya conocía a <strong>@Mr H</strong> porque tenía una antigua versión de <a href="/posts/2024-09-18-modificando-servidor-1">este mismo concepto</a>, que también había diseñado él, pero solo para 6, aunque con un diseño más rudimentario y simple (según <em>@Mr H</em>), no tan refinado como este nuevo (según sus propias palabras).</p>
+<p>Aquí podéis ver una primera versión del diseño en el que estaba trabajando:</p>
+<p><img src="TiNAS_01.jpg" alt="" title="TiNAS">
+<img src="TiNAS_02.jpg" alt="" title="TiNAS">
+<img src="TiNAS_03.jpg" alt="" title="TiNAS"></p>
+<blockquote>
+<p>nota: Tengo que agradecer a <strong>@Mr H</strong> por permitirme publicar el diseño del TiNAS</p>
+</blockquote>
+<p>¿Qué os parece? ¿No es increíble 🤩?</p>
+<p>También me comentó que serían necesarios algunos componentes más y que eran muy fáciles de conseguir en AliExpress:</p>
+<ul>
+<li><a href="https://es.aliexpress.com/item/1005007594599660.html">Probador de arranque de fuente de alimentación</a></li>
+<li><a href="https://es.aliexpress.com/item/1005007539344272.html">Cable SATA 3,0 de 0,5 m/1m Cable SATA de ángulo recto de 90 grados</a>
+<ul>
+<li>Os aconsejo coger, como mínimo, el de 6; yo pedí el de 4 y ya me estoy planteando comprar el de 6.</li>
+</ul>
+</li>
+<li><del><a href="https://es.aliexpress.com/item/1005007722058869.html">Relé</a></del>
+<ul>
+<li>Comprar este <a href="https://es.aliexpress.com/item/1005006782658465.html">otro</a> porque con el primero nunca me llegó a funcionar; no sé si era por culpa del propio relé que ya no funcionaba o porque lo estropeé yo.</li>
+</ul>
+</li>
+<li><a href="https://es.aliexpress.com/item/10000289980196.html">Fuente de alimentación modular</a></li>
+<li><a href="https://es.aliexpress.com/item/1005006838080256.html">Placa de circuito plano posterior para 8 HDD - SATA o SAS</a></li>
+<li><a href="https://es.aliexpress.com/item/1005006954833827.html">Cable de alimentación USB</a>
+<ul>
+<li>Aunque este os lo podéis ahorrar si lo tenéis vosotros, y como mínimo tiene que ser de 50cm.</li>
+</ul>
+</li>
+<li><a href="https://es.aliexpress.com/item/1005005162114038.html">Tornillos a prueba de golpes para HDD 3.5&quot;</a></li>
+<li><a href="https://es.aliexpress.com/item/1005004704710515.html">Cable de alimentación</a>
+<ul>
+<li>Este cable es para unificar los dos cables (fuente y transformador en uno solo)</li>
+</ul>
+</li>
+<li><a href="https://es.aliexpress.com/item/4001263294249.html">Tarjeta de expansión</a>
+<ul>
+<li>Esta es la que venía utilizando hasta el momento y que también iba a usar para esta nueva versión.</li>
+</ul>
+</li>
+<li><a href="https://www.amazon.es/dp/B0BNT4NLP8">Thermalright Ventilador delgado TL-C12015</a>
+<ul>
+<li>Tenía un <em>Arctic</em>, pero cuando quiero poner otro, como los cantos de donde tienen que ir son redondos, no entran dos ventiladores, así que pedí consejo a <strong>@Mr H</strong> y me aconsejó este, que es mucho mejor y es el que usa él.</li>
+</ul>
+</li>
+<li><a href="https://es.aliexpress.com/item/1005004974264597.html">Cable de resistencia de ventilador</a>
+<ul>
+<li>Esto es porque los conectores para los dos ventiladores del backplane suministran 12V y, siento decirlo, pero de momento el <em>Arctic</em>, si lo conecto, hace un poco de ruido 😭, así que, siguiendo el consejo de nuevo de <strong>@Mr H</strong>, voy a comprar estos conectores para reducir un 50% (color rojo) la tensión de los ventiladores.</li>
+</ul>
+</li>
+<li><a href="https://es.aliexpress.com/item/1005008654185241.html">Cable Molex IDE de 4 pines a SATA de 15 pines</a>
+<ul>
+<li>Este es otro cable para, siguiendo el consejo del vendedor del backplane, hay que poner los dos conectores <em>ATX</em> junto con el <em>SATA</em> para alimentarlo.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>nota: He actualizado la lista de la compra porque han pasado ya unas cuantas semanas de uso y he cambiado algunas cosas por necesidad.</p>
+</blockquote>
+<p>Eso sí, tengo que indicar que el precio es un poco elevado, pero todo eso es por culpa de la fuente de alimentación, que en mi caso seleccioné la de 500W, porque nunca se sabe.</p>
+<p>A lo mejor os preguntáis cómo podrá funcionar todo el sistema si, por una parte, está la fuente de alimentación para los discos y, por otra, el transformador para el Tiny, porque no es plan de dejar la fuente de alimentación todo el rato conectada alimentando a los HDD&rsquo;s, aun cuando el servidor esté apagado. No tiene ningún sentido.</p>
+<p>Podéis estar tranquilos, yo me hice esa misma pregunta y <strong>@Mr H</strong> me lo aclaró todo. El sistema es sencillo, pero si no te lo explican, puedes perderte un poco, y tengo que decir que yo estudié electrónica industrial, pero de eso hace mucho tiempo, y de electrónico ya queda muy poco (aunque gracias a esta modificación he tenido que recuperar viejos hábitos) 😁.</p>
+<p>El sistema es muy simple: por una parte tienes la alimentación del Tiny, que cuando lo enciendes activa todo el sistema, incluidos los conectores USB. Esto es importante porque aquí radica la simpleza y genialidad de todo el sistema. Cuando se activan los USB, tenemos un cable USB que va conectado a un <strong>relé</strong>, para que este, al activarse, active a su vez la fuente de alimentación que <em>activará</em> todos los HDD&rsquo;s, dando por iniciado todo el sistema. Asimismo, en el momento de apagar el servidor, el USB dejará de alimentar el <strong>relé</strong>, haciendo que se desactive la fuente y, por consiguiente, los HDD&rsquo;s.</p>
+<p>Os pongo dos imágenes que representarían el sistema para que se pueda entender: el interruptor sería el USB cuando se enciende el Tiny, y la bombilla serían los HDD&rsquo;s:</p>
+<p><img src="HDD_OFF.png" alt="" title="HDD desactivados"></p>
+<p><img src="HDD_ON.png" alt="" title="HDD activados"></p>
+<p>Por eso digo que todo es muy simple, pero a la vez una genialidad. La única pega que le veo es que tienes que tener dos cables de corriente: uno para el transformador del Tiny y otro para la fuente de alimentación. Pero esto se puede solucionar fácilmente si compras este <a href="https://es.aliexpress.com/item/1001004704710515.html">cable</a> que permite la conexión de una fuente de alimentación y un transformador, y así tienes un 2x1.</p>
+<p>Además, cuando te ponen la miel en los labios, no puedes parar, y eso es lo que pasa cuando estás apuntado al canal de <strong>HomeLabs</strong>, que te van llegando ofertas cada dos por tres de cosas que en principio no te interesan, pero cuando te llega una oferta súper increíble, pues no puedes dejarla pasar, y eso pasó con la venta conjunta de discos <strong>NVMe</strong>, no de 128MB o 256MB, sino de 4TB.</p>
+<p>Como resultado de esta compra, mi servidor quedó de la siguiente manera y ya definitivamente (repito, o me echan de casa):</p>
+<ul>
+<li>Intel Xeon e2286M</li>
+<li>32Gb de RAM</li>
+<li>5 HDD&rsquo;s
+<ul>
+<li>2 de 18Tb
+<ul>
+<li>1 Toshiba Series MG09</li>
+<li>1 Seagate Exos X20 SATA</li>
+</ul>
+</li>
+<li>1 de 16Tb</li>
+<li>1 de 12Tb</li>
+<li>1 NVMe WD SN700 de 4TB</li>
+</ul>
+</li>
+</ul>
+<p>Aunque tengo pensado volver a añadir el de 1Tb para volver a activar las copias de seguridad, porque estoy con el culo al aire con respecto a este tema.</p>
+<p>Todo esto montado y en funcionamiento en una caja hecha en impresión 3D con las siguientes medidas aproximadas:</p>
+<ul>
+<li>21cm largo</li>
+<li>20cm alto</li>
+<li>20cm ancho</li>
+</ul>
+<p>Que, gracias a un simple y pequeño <strong>ThinkCentre M910X</strong>, qué más se puede pedir.</p>
+<p>Aquí tenéis algunas fotos de cómo es la criatura en su hábitat natural:</p>
+<p><img src="TiNAS_04.jpg" alt="" title="TiNAS">
+<img src="TiNAS_05.jpg" alt="" title="TiNAS">
+<img src="TiNAS_06.jpg" alt="" title="TiNAS"></p>
+<p>Ya os iré contando cómo va todo con esta nueva modificación.</p>
+<blockquote>
+<p>nota:
+☎️ Si queréis saber más información sobre este proyecto, el <strong>TiNAS</strong>, contactad a través de Telegram con el canal de Telegram de <a href="https://t.me/homelabsclub">HomeLabs.club - Telegram</a> y os darán toda la información sobre este proyecto y otros que se están llevando a cabo en la asociación.</p>
+</blockquote>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://homelabs.club">HomeLabs.club - Web</a></li>
+<li><a href="https://t.me/homelabsclub">HomeLabs.club - Telegram</a></li>
+<li><a href="https://homelabs.club/cambios-y-modificaciones-compatibles-con-los-tinys-m910q-m710q-m910x/">Cambios y modificaciones compatibles con los tiny’s M910Q/M710Q/M910X</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

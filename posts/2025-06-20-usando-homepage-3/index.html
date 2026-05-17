@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Usando HomePage. El Dashboard - 3 · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-06-20-usando-homepage-3/">
+
+
+
+
+
+
+<meta name="description" content="Un nuevo artículo hablando sobre homepage, este magnífico dashboard al que le tengo mucho cariño y que hace un tiempo realizó una actualización en su configuración y que en mi caso, usuario de portátil, no me funcionaba correctamente, porque las 5 columnas que yo utilizo no se veían correctamente. Abrí un issue sobre este problema y parece ser que con la última actualización ha solucionado este problema y ahora explicaré cómo lo he hecho.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Usando HomePage. El Dashboard - 3">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Un nuevo artículo hablando sobre homepage, este magnífico dashboard al que le tengo mucho cariño y que hace un tiempo realizó una actualización en su configuración y que en mi caso, usuario de portátil, no me funcionaba correctamente, porque las 5 columnas que yo utilizo no se veían correctamente. Abrí un issue sobre este problema y parece ser que con la última actualización ha solucionado este problema y ahora explicaré cómo lo he hecho.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Usando HomePage. El Dashboard - 3</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2025-06-21">
+        2025-06-21
+      </time>
+      · 6 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/unraid/">
+            #unRAID
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Un nuevo artículo hablando sobre <strong>homepage</strong>, este magnífico <em>dashboard</em> al que le tengo mucho cariño y que hace un tiempo realizó una actualización en su configuración y que en mi caso, usuario de portátil, no me funcionaba correctamente, porque las <strong>5 columnas</strong> que yo utilizo no se veían correctamente. Abrí un <em>issue</em> sobre este problema y parece ser que con la última actualización ha solucionado este problema y ahora explicaré cómo lo he hecho.</p>
+<p>Explicaré cómo lo tenía actualmente instalado en mi servidor <strong>unRAID</strong> y qué es lo que ahora he cambiado y me lo apunto por si en algún futuro lo necesito y nunca se sabe, a lo mejor os puede servir de ayuda.</p>
+<p>Lo primero es la instalación que yo tenía en <strong>unRAID</strong>. Yo lo tenía a través del plugin <strong>compose</strong>, pero cada vez que se reiniciaba el servidor, aunque son pocas veces, <strong>homepage</strong> dejaba de funcionar y tenía que detener el contenedor y luego volverlo a iniciar.</p>
+<p>Pero claro, llega un momento que te cansas de estar así y te pones a solucionar este problema y hoy ha sido ese día.</p>
+<p>Lo que he hecho ha sido usar la tienda de <strong>unRAID</strong> para instalar <strong>homepage</strong>, pero eso sí, usando la configuración que estaba usando actualmente. Pero no todo iba a ser tan bonito de funcionar a la primera.</p>
+<p>Cuando me iba a la IP de <strong>homepage</strong> me salía un error donde me indicaba que revisase el log y me aparecía el siguiente mensaje de error:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>2025-03-14T19:25:15.419Z<span style="color:#f92672">]</span> error: Host validation failed <span style="color:#66d9ef">for</span>: 192.0.0.40:2000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host.
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>2025-03-14T19:25:15.424Z<span style="color:#f92672">]</span> error: Host validation failed <span style="color:#66d9ef">for</span>: 192.0.0.40:2000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host.
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>2025-03-14T19:25:15.428Z<span style="color:#f92672">]</span> error: Host validation failed <span style="color:#66d9ef">for</span>: 192.0.0.40:2000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host.
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>2025-03-14T19:25:15.433Z<span style="color:#f92672">]</span> error: Host validation failed <span style="color:#66d9ef">for</span>: 192.0.0.40:2000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host.
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>2025-03-14T19:25:15.455Z<span style="color:#f92672">]</span> error: Host validation failed <span style="color:#66d9ef">for</span>: 192.0.0.40:2000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host.
+</span></span></code></pre></div><p>Anteriormente este error no me daba, hasta que me he dado cuenta de que en el <code>docker-compose.yml</code> tenía puesto lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">homepage</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#image: ghcr.io/gethomepage/homepage:v0.10.9</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">ghcr.io/gethomepage/homepage:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">homepage</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;2000:3000&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/mnt/user/appdata/homepage/config:/app/config</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/mnt/user/appdata/homepage/icons:/app/public/icons</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/var/run/docker.sock:/var/run/docker.sock:ro</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># ES LA OPCIÓN PROBLEMÁTICA</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">HOMEPAGE_ALLOWED_HOSTS=192.0.0.1:2000</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env_file</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">.env</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">disable</span>: <span style="color:#66d9ef">false</span>
+</span></span></code></pre></div><p>Pero claro, aquí lo tenía así, pero en el caso de querer hacerlo mediante la aplicación de <strong>unRAID</strong>, ¿cómo se tiene que hacer? Además en <strong>homepage</strong>, como sabéis, hay unas variables para pasar parámetros a las opciones que pueden estar normalmente en un archivo <code>.env</code>, pero claro, ¿cómo se hace para pasar este fichero a <strong>homepage</strong>?</p>
+<p>De nuevo, a buscar más información. Si os dais cuenta, he empezado por una cosa y aún no he acabado y tengo más problemas, pero vayamos por partes 😀. Lo primero es lo primero, y esto es conseguir pasar el archivo <code>.env</code> a <strong>homepage</strong> y esto al final, después de buscar en <strong>unRAID</strong>, se hace de la siguiente manera.</p>
+<p>Cuando instalas la aplicación, se tiene que activar la opción <strong>expert</strong> que te da más opciones que modificar. Una vez la tienes activada, tienes que ir a la opción <strong>Extra Parameters</strong> y añadir lo siguiente:</p>
+<p><img src="homepage_01.png" alt="" title="Afegim fitxer .env"></p>
+<p>He iniciamos la aplicación. Pero en mi caso seguía apareciendo el mensaje y eso que había añadido la variable <strong>HOMEPAGE_ALLOWED_HOSTS</strong> con la IP de servidor y el puerto. Esto se tiene que hacer siempre que no uses el puerto por defecto (3000). Pues nada, a seguir investigando.</p>
+<p>Al final he encontrado la solución, que es añadir en la plantilla de <strong>homepage</strong> esta opción de la siguiente manera:</p>
+<p><img src="homepage_02.png" alt="" title="Afegim fitxer .env"></p>
+<p>Se puede ver que tanto el identificador de la variable como la variable en sí, yo les he puesto el mismo nombre, <strong>HOMEPAGE_ALLOWED_HOSTS</strong> y como valor, la IP de mi servidor y de nuevo a reiniciar el contenedor. Pero esta vez hemos tenido suerte y <strong>homepage</strong> ha empezado a funcionar perfectamente y con la configuración que tenía anteriormente.</p>
+<p>Lo único malo es que tengo algunos iconos descargados porque no los tiene implementados este dashboard. Así que tenía que buscar la manera de suplir lo que tenía antes con el nuevo funcionamiento. He probado de todo:</p>
+<ul>
+<li>Modificar el fichero de configuración por si era un problema del <em>path</em>.</li>
+<li>Copiar los iconos junto al fichero de configuración.</li>
+<li>Copiar el directorio de iconos dentro del directorio de configuración.</li>
+<li>etc&hellip;</li>
+</ul>
+<p>Pero no había manera de que nada hiciera que se visualizaran los iconos que tenía, hasta que al final he revisado cómo estaba el árbol de directorios de <strong>homepage</strong> dentro del contenedor y he visto lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>app/
+</span></span><span style="display:flex;"><span>├── config/               # directorio con los ficheros de configuración
+</span></span><span style="display:flex;"><span>├── public/
+</span></span><span style="display:flex;"><span>│   ├── locales/
+</span></span><span style="display:flex;"><span>│   ├── favicon.ico
+</span></span><span style="display:flex;"><span>│   └── favicon-16x16.png
+</span></span><span style="display:flex;"><span>└── src/
+</span></span></code></pre></div><p>Entonces he copiado los iconos aquí dentro y todo ha funcionado correctamente, pero claro, en el caso de detener el contenedor los iconos se perderán porque no se guardan y al final he utilizado la magia de <em>docker</em> y los volúmenes. He creado el directorio <code>/public/icons</code>, pero <code>icons</code> está en el host y esto lo he hecho a través de un nuevo <strong>path</strong> que se añade en la plantilla de configuración de la siguiente manera:</p>
+<p><img src="homepage_03.png" alt="" title="Afegim Path"></p>
+<p>Y con esto tengo acceso al directorio <code>public</code> donde tengo los iconos pero sin perderlos. Ya tenemos a la vista la meta de esta nueva instalación de <strong>homepage</strong> mediante la tienda de aplicaciones de <strong>unRAID</strong>.</p>
+<p>Asimismo, la otra cosa que también me traía de cabeza es que en el widget de <strong>PiHole</strong> no podía ver ninguna información, porque el código de API me ha cambiado. Es un tema que siempre me ha llevado de cabeza y no soy el [único](Pihole V6 widget API authentication error) que tiene este problema.</p>
+<p>Al final me he puesto con ello, buscando información de cómo se tiene que hacer correctamente. Había encontrado este <a href="https://www.youtube.com/watch?v=mC3tjysJ01E">vídeo</a> donde explica cómo se tiene que hacer, pero es un poco antiguo, porque en este sentido, <strong>PiHole</strong> ha cambiado su manera de obtener el código de <strong>API</strong>.</p>
+<p>Pero al final, después de mucho buscar, he encontrado la <a href="https://github.com/gethomepage/homepage/discussions/4818">manera</a> de conseguir la <strong>API</strong> de <strong>PiHole</strong>. En principio la cosa es fácil, pero si no lo encuentras o esconden esta opción, pues&hellip;</p>
+<p>Todo se basa en que tienes que ir al <em>GUI</em> de <strong>PiHole</strong> y:</p>
+<ul>
+<li>
+<p>Accedes a <em>System -&gt; Settings -&gt; Web Interface/Api</em></p>
+</li>
+<li>
+<p>Una vez hecho esto, activas la opción <em>Expert</em></p>
+</li>
+<li>
+<p>Le das a <em>Configure app password</em> y copias el password que te aparece medianamente camuflado y aceptas.</p>
+<ul>
+<li>No te asustes porque una vez hecho esto, te saca de la aplicación.</li>
+</ul>
+</li>
+<li>
+<p>Copias este <em>password</em> en el fichero de variables <code>.env</code> junto con la variable <em>HOMEPAGE_VAR_PIHOLE</em>.</p>
+</li>
+<li>
+<p>Recuerda que en el fichero de los <em>servicios</em> de <strong>homepage</strong>, cuando defines la sección de <strong>PiHole</strong> también tienes que poner el nombre de la variable en <em>Key</em>:</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#f92672">PiHole</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">pi-hole.png</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># IP DEL SERVIDOR PIHOLE</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">href</span>: <span style="color:#ae81ff">http://192.0.0.3/admin/login</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Servidor PiHole</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">siteMonitor</span>: <span style="color:#ae81ff">http://192.0.0.3</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">container</span>: <span style="color:#ae81ff">pihole</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">pihole</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># IMPORTANT SI ESTEU A LA VERSIO 6</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">version</span>: <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">url</span>: <span style="color:#ae81ff">http://192.0.0.3</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">key</span>: {{<span style="color:#ae81ff">HOMEPAGE_VAR_PIHOLE}}</span>
+</span></span></code></pre></div><p>Ahora solo falta reiniciar el contenedor de <strong>homepage</strong> y todo volverá a funcionar correctamente y como siempre tendría que haber funcionado, pero por desidia, nunca me había puesto.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=mC3tjysJ01E">Meet Homepage - Your HomeLab Services Dashboard</a></li>
+<li><a href="https://github.com/gethomepage/homepage/discussions/5061">Pihole V6 widget API authentication error</a></li>
+<li><a href="https://github.com/gethomepage/homepage/discussions/4818">Updated pi-hole from 5 to 6 and the API key does not work anymore</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

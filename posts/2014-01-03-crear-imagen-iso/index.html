@@ -1,0 +1,155 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Crear imagen ISO desde la consola de Debian GNU/Linux · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2014-01-03-crear-imagen-iso/">
+
+
+
+
+
+
+<meta name="description" content="A veces, cuando intento realizar una ISO de un CD, no encuentro la manera de hacerlo a través de Xfburn, aunque al final sí que descubrí cómo se tenía que hacer. Es aquí cuando me hago un lío y busco desesperadamente cómo se puede hacer. Pero nunca se me ocurre buscar la manera de cómo hacerlo a través de consola.
+Entonces, el otro día, buscando cómo hacerlo por consola, encontré la siguiente chuleta de cómo se tiene que hacer:
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Crear imagen ISO desde la consola de Debian GNU/Linux">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="A veces, cuando intento realizar una ISO de un CD, no encuentro la manera de hacerlo a través de Xfburn, aunque al final sí que descubrí cómo se tenía que hacer. Es aquí cuando me hago un lío y busco desesperadamente cómo se puede hacer. Pero nunca se me ocurre buscar la manera de cómo hacerlo a través de consola.
+Entonces, el otro día, buscando cómo hacerlo por consola, encontré la siguiente chuleta de cómo se tiene que hacer:
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Crear imagen ISO desde la consola de Debian GNU/Linux</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2014-01-03">
+        2014-01-03
+      </time>
+      · 1 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/programaci%C3%B3n/">
+            @Programación
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/bash/">
+            #Bash
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>A veces, cuando intento realizar una ISO de un CD, no encuentro la manera de hacerlo a través de <a href="https://goodies.xfce.org/projects/applications/xfburn">Xfburn</a>, aunque al final sí que descubrí cómo se tenía que hacer. Es aquí cuando me hago un lío y busco desesperadamente cómo se puede hacer. Pero nunca se me ocurre buscar la manera de cómo hacerlo a través de consola.</p>
+<p>Entonces, el otro día, buscando cómo hacerlo por consola, encontré la siguiente chuleta de cómo se tiene que hacer:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/cdrom of<span style="color:#f92672">=</span>~/nombre_imagen.iso
+</span></span></code></pre></div><p>Con esta instrucción, lo que haces, es redirigir el contenido del cdrom (cd del cual vas a realizar la ISO) a un fichero <code>nombre_imagen.iso</code> que será la ISO en cuestión.</p>
+<p>Y con esta simple instrucción, se consigue realizar una ISO de un CD.</p>
+<p>Espero que esto os ayude tanto como a mí.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

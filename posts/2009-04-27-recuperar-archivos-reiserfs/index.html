@@ -1,0 +1,167 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Recuperar Archivos en ReiserFS · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2009-04-27-recuperar-archivos-reiserfs/">
+
+
+
+
+
+
+<meta name="description" content="A continuación explicaré los pasos necesarios para recuperar un archivo/s eliminado de una partición creada con ReiserFS, que en principio funciona correctamente en Debian GNU/Linux
+Como root, desmonta la partición ReiserFS para recuperar los archivos (en este caso usaremos /home como ejemplo):
+root@debian:/# umount /home Si te muestra un mensaje parecido a umount: /home: device is busy, significa que algo se está usando en dicha partición. Tendrás que pasarte a modo de usuario simple (consola) o puedes usar un cdrom live:
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Recuperar Archivos en ReiserFS">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="A continuación explicaré los pasos necesarios para recuperar un archivo/s eliminado de una partición creada con ReiserFS, que en principio funciona correctamente en Debian GNU/Linux
+Como root, desmonta la partición ReiserFS para recuperar los archivos (en este caso usaremos /home como ejemplo):
+root@debian:/# umount /home Si te muestra un mensaje parecido a umount: /home: device is busy, significa que algo se está usando en dicha partición. Tendrás que pasarte a modo de usuario simple (consola) o puedes usar un cdrom live:
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Recuperar Archivos en ReiserFS</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2009-04-27">
+        2009-04-27
+      </time>
+      · 1 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+          <a href="/tags/reiserfs/">
+            #ReiserFS
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>A continuación explicaré los pasos necesarios para recuperar un archivo/s eliminado de una partición creada con <strong>ReiserFS</strong>, que en principio funciona correctamente en <strong>Debian GNU/Linux</strong></p>
+<p>Como root, desmonta la partición <strong>ReiserFS</strong> para recuperar los archivos (en este caso usaremos <code>/home</code> como ejemplo):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@debian:/# umount /home
+</span></span></code></pre></div><p>Si te muestra un mensaje parecido a <code>umount: /home: device is busy</code>, significa que algo se está usando en dicha partición. Tendrás que pasarte a modo de usuario simple (consola) o puedes usar un cdrom live:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@debian:/# init <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>Se crea una copia de seguridad de la partición por si la cosa no sale del todo bien. Es mejor perder un archivo, que no toda la información:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@debian:/# dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/hda1 of<span style="color:#f92672">=</span>backup.dd bs<span style="color:#f92672">=</span><span style="color:#ae81ff">4096</span> conv<span style="color:#f92672">=</span>noerror
+</span></span></code></pre></div><p>Recuperamos los archivos borrados pero en la partición (<em>backup.dd</em>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@debian:/# reiserfsck --rebuild-tree --scan-whole-partition backup.dd
+</span></span></code></pre></div><p>Pasamos a crear un punto de montaje:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@debian:/# mkdir /mnt/recovery
+</span></span></code></pre></div><p>Montamos la partición virtual:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@debian:/# mount -o loop backup.dd /mnt/recovery
+</span></span></code></pre></div><p>Todos los archivos recuperados estarán en:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@debian:/# /mnt/recovery/lost+found
+</span></span></code></pre></div><p>Solamente nos queda montar la partición original y copiar los archivos de hemos recuperado.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

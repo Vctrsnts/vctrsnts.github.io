@@ -1,0 +1,194 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4 · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2022-01-07-debian-raspberrypi/">
+
+
+
+
+
+
+<meta name="description" content="Cuando tienes una Raspberry Pi y ves que el SO recomendado es Raspberry Pi OS (antigua Raspbian), siempre me queda la cosa de no poder instalar Debian GNU/Linux ARM64. Pero desde que actualizaron la versión del firmware y Debian GNU/Linux empezó a tener versiones más estables, eso ya ha pasado a posible.
+Así que ahora voy a explicar los pasos que he hecho, en mi caso, para poder realizar y usar Debian GNU/Linux ARM64 en una Raspberry Pi 4 (4Gb).
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Cuando tienes una Raspberry Pi y ves que el SO recomendado es Raspberry Pi OS (antigua Raspbian), siempre me queda la cosa de no poder instalar Debian GNU/Linux ARM64. Pero desde que actualizaron la versión del firmware y Debian GNU/Linux empezó a tener versiones más estables, eso ya ha pasado a posible.
+Así que ahora voy a explicar los pasos que he hecho, en mi caso, para poder realizar y usar Debian GNU/Linux ARM64 en una Raspberry Pi 4 (4Gb).
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2022-01-07">
+        2022-01-07
+      </time>
+      · 4 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Cuando tienes una Raspberry Pi y ves que el <strong>SO</strong> recomendado es Raspberry Pi OS (antigua Raspbian), siempre me queda la cosa de no poder instalar <strong>Debian GNU/Linux</strong> ARM64. Pero desde que actualizaron la versión del firmware y <strong>Debian GNU/Linux</strong> empezó a tener versiones más estables, eso ya ha pasado a posible.</p>
+<p>Así que ahora voy a explicar los pasos que he hecho, en mi caso, para poder realizar y usar <strong>Debian GNU/Linux</strong> ARM64 en una Raspberry Pi 4 (4Gb).</p>
+<p>Antes de empezar, lo que necesitas es lo siguiente:</p>
+<ul>
+<li>Imagen ISO de <a href="https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/">Debian GNU/Linux 11 ARM64</a></li>
+<li>La última versión del <a href="https://github.com/pftf/RPi4/releases">firmware UEFI para la Raspberry Pi 4</a></li>
+<li>Que la <strong>EEPROM</strong> de nuestra Raspberry Pi esté a la última versión. Esto último se puede saber si al iniciar la Raspberry Pi nos aparece un código <strong>QR</strong> a la derecha de la pantalla.</li>
+</ul>
+<p><img src="last_eeprom.png" alt="" title="Last EEPROM"></p>
+<p>En el caso del <strong>firmware UEFI</strong> (100% libre), nos obliga a usar <strong>GPT</strong> en vez de <strong>MBR</strong> y también tenemos que usar <strong>ESP</strong> (EFI System Partition) en lugar de la <strong>msftdata</strong>.</p>
+<p>Después de tener claros estos matices, vamos a realizar el particionado de nuestro HDD; en mi caso, lo he realizado con GPARTED, donde todo lo que tenemos que hacer es más fácil.</p>
+<p>Los pasos a realizar son los siguientes:</p>
+<ul>
+<li>Asegurarnos de que nuestra tabla de partición del HDD está en GPT (con GPARTED es fácil realizar el cambio).</li>
+<li>Creamos una partición de como mínimo 648Mb y la formateamos en FAT32 (más adelante explico cómo reducir esta partición al mínimo necesario).</li>
+<li>En mi caso, creé otra partición de 20Gb, que es donde instalaré el sistema base de <strong>Debian GNU/Linux</strong></li>
+<li>También creé otra partición, en este caso, de 1Gb para la memoria SWAP.</li>
+</ul>
+<p>Una vez tenemos esto hecho, más tarde volveremos para acabar. Descomprimimos el <strong>firmware UEFI</strong> en la primera partición que hemos creado, la cual no se toca ni se le crea ningún directorio.</p>
+<p>Después de descomprimir el firmware, vamos a <strong>descomprimir</strong> la imagen ISO de <strong>Debian GNU/Linux</strong> en esta misma partición (por eso hago una partición de 648Mb). Para realizarlo podemos hacerlo de la siguiente manera:</p>
+<p>Creamos un directorio donde montaremos nuestra imagen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo mount -o loop /home/tuUsuario/imagen_debian.iso /directorio/destino
+</span></span></code></pre></div><p>Una vez montada la imagen, tenemos que copiar todo el contenido de este directorio a la primera partición, incluido el directorio <strong>.disk</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo cp -r /directorio/destino /directorio/primera_particion
+</span></span></code></pre></div><p>Una vez hemos realizado esto (esto es lo que hice yo, porque si no, el SO live (Xubuntu) no me detectaba la primera partición), volvemos a nuestro GPARTED, seleccionamos la primera partición, seleccionamos los <strong>flags</strong> de la partición y marcamos <strong>boot</strong> y <strong>esp</strong>.</p>
+<p><img src="gparted_flags.png" alt="" title="GParted"></p>
+<p>Ahora ya tenemos preparado nuestro HDD para instalar <strong>Debian GNU/Linux</strong>.</p>
+<p>Procedemos a conectar el HDD a la Raspberry Pi y si todo ha ido bien, podemos ver la pantalla de instalación de <strong>Debian GNU/Linux</strong> de toda la vida.</p>
+<p>Una vez finalizada la instalación, solamente nos queda disfrutar de nuestra <strong>Debian GNU/Linux</strong> de toda la vida.</p>
+<blockquote>
+<p>nota: Al finalizar la instalación, lo que yo hice fue reducir la partición de 648Mb a 260Mb para así después añadir ese espacio extra a la partición del sistema. 260Mb es el mínimo que (en mi caso) GPARTED no me transformaba la primera partición de <strong>FAT32</strong> a <strong>FAT16</strong>.</p>
+</blockquote>
+<p>Para llevar a cabo esto, en mi caso, borré todo lo que se había añadido a la hora de <em>descomprimir</em> la ISO de <strong>Debian GNU/Linux</strong>. El <em>firmware UEFI</em> también lo dejo. En total todo el espacio ocupado (en mi caso) son 15.6Mb.</p>
+<p>En el caso de tener una Raspberry Pi de 4Gb o más, el sistema está configurado para que solamente aproveche 3Gb de RAM. Para usar toda la RAM que tenemos, tenemos que desactivar un parámetro del <strong>boot</strong> de <strong>UEFI</strong>, se hace de la siguiente manera:</p>
+<ul>
+<li>Reiniciamos la Raspberry</li>
+<li>Accedemos a las opciones de UEFI apretando la tecla <em>ESC</em></li>
+<li>Vamos a la opción <em>Device Manager &gt; Raspberry Pi Configuration &gt; Advanced Configuration</em></li>
+<li><strong>Desactivamos</strong> la opción <em>Limit RAM to 3Gb</em></li>
+</ul>
+<p>Con esto ya tenemos a nuestra disposición toda la RAM de nuestro dispositivo.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.wifi-libre.com/topic-1624-instalacion-debian-buster-vainilla-en-raspberry-pi-4.html">Instalación Debian buster &ldquo;vainilla&rdquo; en Raspberry Pi 4</a></li>
+<li><a href="https://forums.raspberrypi.com/viewtopic.php?t=282839">Guide: Installation of <em>VANILLA</em> Debian 11 (or later) on a Raspberry Pi 4</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

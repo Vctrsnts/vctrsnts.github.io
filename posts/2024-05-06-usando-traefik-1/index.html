@@ -1,0 +1,215 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Usando Traefik - 1 · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-05-06-usando-traefik-1/">
+
+
+
+
+
+
+<meta name="description" content="Como os expliqué en este articulo, aprovechando que tenía nuevo VPS, quería sacarle el máximo partido y después de haber instalado traefik aún tenía más ganas.
+Y aquí es donde os aviso, he estado 3 días intentando hacerlo funcionar correctamente y hasta que al final, me vino una inspiración y pude conseguir que funcionara correctamente.
+Lo más importante es que como base, sigo los artículos que ha posteado atareao que podéis encontrar en su página web y la información que tiene en gitHub searxNG que explica con un ejemplo muy claro, aunque hay que remarcar que cuesta de seguirle el ritmo, como usar traefik pero ya junto con los contenedores de docker.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Usando Traefik - 1">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Como os expliqué en este articulo, aprovechando que tenía nuevo VPS, quería sacarle el máximo partido y después de haber instalado traefik aún tenía más ganas.
+Y aquí es donde os aviso, he estado 3 días intentando hacerlo funcionar correctamente y hasta que al final, me vino una inspiración y pude conseguir que funcionara correctamente.
+Lo más importante es que como base, sigo los artículos que ha posteado atareao que podéis encontrar en su página web y la información que tiene en gitHub searxNG que explica con un ejemplo muy claro, aunque hay que remarcar que cuesta de seguirle el ritmo, como usar traefik pero ya junto con los contenedores de docker.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Usando Traefik - 1</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2024-05-06">
+        2024-05-06
+      </time>
+      · 3 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/vps/">
+            #VPS
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Como os expliqué en este <a href="/posts/2024-04-19-traefik">articulo</a>, aprovechando que tenía nuevo VPS, quería sacarle el máximo partido y después de haber instalado <strong>traefik</strong> aún tenía más ganas.</p>
+<p>Y aquí es donde os aviso, he estado 3 días intentando hacerlo funcionar correctamente y hasta que al final, me vino una <strong>inspiración</strong> y pude conseguir que funcionara correctamente.</p>
+<p>Lo más importante es que como base, sigo los artículos que ha posteado <a href="https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik">atareao</a> que podéis encontrar en su página web y la información que tiene en <a href="https://github.com/atareao/self-hosted/tree/main/searxng">gitHub searxNG</a> que explica con un ejemplo muy claro, aunque hay que remarcar que cuesta de seguirle el ritmo, como usar <strong>traefik</strong> pero ya junto con los contenedores de docker.</p>
+<p>En mi caso, os pondré la configuración que he usado, que puede seros de mucha ayuda así como el problema que tuve y que me volvió loco.</p>
+<p>Partiendo de la base, que el archivo <code>docker-compose.yml</code> y los archivos <code>traefik.yml</code>, <code>dynamic.yml</code>, <code>users.txt</code> y <code>acme.json</code> que estáis utilizando son los mismo que puse en el anterior <a href="/posts/2024-04-19-traefik">articulo</a> donde hablaba de <strong>traefik</strong>, ahora, lo más normal sería poder sacarle todo el potencial que tiene traefik y para eso, os voy a explicar como lo uso, para el servicio <a href="2024-04-13-uno-juntarlos-todos.md">rssFunnel</a> que tengo activo.</p>
+<p>Todo empieza en la configuración del <strong>docker-compose</strong> de dicho servicio y para ello, se tiene que hacer añadir las siguientes líneas:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rssFunnel</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">image</span>: <span style="color:#ae81ff">ghcr.io/shouya/rss-funnel:latest</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">rssFunnel</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">proxy</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">33333</span>:<span style="color:#ae81ff">4080</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">${HOME}/config/rss-funnel/funnel.yaml:/funnel.yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">RSS_FUNNEL_CONFIG</span>: <span style="color:#ae81ff">/funnel.yaml</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">RSS_FUNNEL_BIND</span>: <span style="color:#ae81ff">0.0.0.0</span>:<span style="color:#ae81ff">PORT</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.enable=true</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.services.rssFunnel.loadbalancer.server.port=4080</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.routers.rssFunnel.entrypoints=web</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.routers.rssFunnel.rule=Host(`${PODCAST_SERVER}`)</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.middlewares.rssFunnel-https-redirect.redirectscheme.scheme=websecure</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.routers.rssFunnel.middlewares=rssFunnel-https-redirect</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.routers.rssFunnel-secure.entrypoints=websecure</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.routers.rssFunnel-secure.rule=Host(`${PODCAST_SERVER}`)</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.routers.rssFunnel-secure.tls=true</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.routers.rssFunnel-secure.tls.certresolver=letsencrypt</span>
+</span></span></code></pre></div><p>Partimos de la base, de que este servicio lo tenemos configurado para el puerto <strong>33333</strong> que lo redirigirá hacia el puerto <strong>4080</strong> por defecto de <strong>rssFunnel</strong>.</p>
+<p>Lo que también tenemos que tener en cuenta, es que tenemos que configurar este servicio para que use la misma red que <strong>traefik</strong>, que en este caso es <strong>proxy</strong>. Después de esto vienen las 9 líneas mágicas que hace que todo funcione correctamente y que me volvió loco durante 3 días, y estas líneas son las siguientes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># INDICAMOS A TRAEFIK QUE CONTROLE ESTE SERVICIO</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.enable=true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># AQUI ES DONDE ESTA LA MADRE DEL CORDERO. LO MAS IMPORTANTE DE TODO Y QUE SI NO LO TENEMOS BIEN</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># NO VA A FUNCIONAR</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># INDICAMOS A TRAEFIK, QUE TODO LO QUE VENGA A ESTE SERVICIO LO REDIRIGA DIRECTAMENTE AL PUERTO POR DEFECTO 4080</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># NO AL 33333 QUE TENEMOS CONFIGURADO NOSOTROS.</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.services.rssFunnel.loadbalancer.server.port=4080</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># QUE TIPO DE ACCESO TENDRA (WEB - 80, WEBSECURE - 443)</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.routers.rssFunnel.entrypoints=web</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># NOMBRE DEL DOMINIO QUE LO TENEMOS DEFINIDO EN UN FICHERO .ENV</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.routers.rssFunnel.rule=Host(`${PODCAST_SERVER}`)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># QUE ACCIÓN TIENE QUE REALIZAR. EN ESTE CASO, TIENE QUE REDIRIGIR A WEBSECURE</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.middlewares.rssFunnel-https-redirect.redirectscheme.scheme=websecure</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.routers.rssFunnel.middlewares=rssFunnel-https-redirect</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.routers.rssFunnel-secure.entrypoints=websecure</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># NOMBRE DE DOMINIO EN EL CASO DE WEBSECURE</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.routers.rssFunnel-secure.rule=Host(`${PODCAST_SERVER}`)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># ACTIVAMOS EL CERTIFCADO SSL</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.routers.rssFunnel-secure.tls=true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># CREAMOS EL CERTIFICADO SSL</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">traefik.http.routers.rssFunnel-secure.tls.certresolver=letsencrypt</span>
+</span></span></code></pre></div><p>En el fichero <code>.env</code>, en mi caso, lo tengo de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># ADRECES PER A SERVIDOR TRAEFIK</span>
+</span></span><span style="display:flex;"><span>PODCAST_SERVER<span style="color:#f92672">=</span>dominio.duckdns.org
+</span></span></code></pre></div><p>Con esto, solamente tendremos que hacer un:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$docker compose up -d traefik rssfunnel
+</span></span></code></pre></div><p>Para actualizar / reconstruir el servicio de <strong>traefik</strong> y de <strong>rssfunnel</strong> si es que ya lo teníamos instalado.</p>
+<p>Próximamente iré subiendo más artículos con mis avances sobre <strong>traefik</strong>.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik">532 - Exprimiendo tu proxy inverso Traefik</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

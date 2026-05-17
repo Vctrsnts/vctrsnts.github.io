@@ -1,0 +1,192 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Raspberry Pi. Iniciar desde un HDD externo · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2016-04-03-rpi-iniciar-hd-externo/">
+
+
+
+
+
+
+<meta name="description" content="Después de haber configurado la red, ahora pasaré a explicar cómo extraer la información de la raíz / de la SD para pasarla a un HDD externo y así alargar la vida de nuestra SD.
+Haciendo este cambio, solamente se usará la SD en el momento del inicio, luego todo funcionará desde el HDD externo. El proceso es un poco largo, pero a la larga beneficioso.
+Lo primero que tenemos que hacer, es realizar una imagen de nuestra SD, tal como se encuentra ahora. Yo el proceso lo explicaré bajo la premisa de que estás con Linux.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Raspberry Pi. Iniciar desde un HDD externo">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Después de haber configurado la red, ahora pasaré a explicar cómo extraer la información de la raíz / de la SD para pasarla a un HDD externo y así alargar la vida de nuestra SD.
+Haciendo este cambio, solamente se usará la SD en el momento del inicio, luego todo funcionará desde el HDD externo. El proceso es un poco largo, pero a la larga beneficioso.
+Lo primero que tenemos que hacer, es realizar una imagen de nuestra SD, tal como se encuentra ahora. Yo el proceso lo explicaré bajo la premisa de que estás con Linux.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Raspberry Pi. Iniciar desde un HDD externo</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2016-04-03">
+        2016-04-03
+      </time>
+      · 3 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Después de haber configurado la red, ahora pasaré a explicar cómo extraer la información de la raíz <code>/</code> de la SD para pasarla a un HDD externo y así alargar la vida de nuestra <em>SD</em>.</p>
+<p>Haciendo este cambio, solamente se usará la SD en el momento del inicio, luego todo funcionará desde el HDD externo. El proceso es un poco largo, pero a la larga beneficioso.</p>
+<p>Lo primero que tenemos que hacer, es realizar una imagen de nuestra SD, tal como se encuentra ahora. Yo el proceso lo explicaré bajo la premisa de que estás con Linux.</p>
+<p>Antes de nada, tienes que saber en qué dispositivo está nuestra SD cuando lo insertamos en nuestro PC, para eso, haciendo un mount, se puede ver fácilmente. En mi caso es el siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@raspberry:~# mount
+</span></span><span style="display:flex;"><span>/dev/mmcblk0p1     /boot
+</span></span><span style="display:flex;"><span>/dev/mmcblk0p2     /
+</span></span></code></pre></div><p>Lo que a nosotros nos interesa es copiar la segunda partición de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@raspberry:~# dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/mmcblk0p2 of<span style="color:#f92672">=</span>/home/usuario/backup.img
+</span></span></code></pre></div><p>Después lo que yo hice, fue crear las particiones necesarias en el HDD externo.</p>
+<p>Mi particionado, quedó de la siguiente manera (recordar que ahora mismo se están realizando estas acciones desde nuestro PC, no desde la Raspberry, por eso pongo <code>sdb</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>filesystem      mount point
+</span></span><span style="display:flex;"><span>----------      -----------   
+</span></span><span style="display:flex;"><span>/dev/sdb1       /
+</span></span><span style="display:flex;"><span>/dev/sdb2       /home
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># para amule-daemon</span>
+</span></span><span style="display:flex;"><span>/dev/sdb5       /media/Incoming
+</span></span><span style="display:flex;"><span>/dev/sdb6       /media/Temporal
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># para transmission-daemon</span>
+</span></span><span style="display:flex;"><span>/dev/sdb7       /media/Torrents
+</span></span></code></pre></div><p>Una vez, tenemos creadas las particiones en nuestro HDD externo, pasamos a copiar la imagen que hemos realizado anteriormente a la raíz del HDD de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@raspberry:~# dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/home/usuario/backup.img of<span style="color:#f92672">=</span>/dev/sdb1
+</span></span></code></pre></div><p>Ahora viene lo importante, que es modificar un fichero de la partición <code>/boot</code> de la SD para que cuando pongamos el HDD externo conectado a la Raspberry funcione correctamente. Recordar que cuando se haga esa conexión, pasará de ser <code>/dev/sdb</code> a <code>/dev/sda</code>.</p>
+<p>El fichero a modificar es el siguiente (previamente hemos hecho un mount de la partición <code>/boot</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@raspberry:~# vi cmdline.txt
+</span></span></code></pre></div><p>Modificamos lo siguiente <code>root=/dev/mmcblk0p2</code> por <code>root=/dev/sda1</code></p>
+<p>Otra cosa a tener en cuenta, es que si queremos que por defecto, se monten el resto de particiones que hemos creado, se tienen que incluir en el fichero <code>/etc/fstab</code> de la Raspberry. Yo lo he hecho de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@raspberry:~# vi /etc/fstab
+</span></span></code></pre></div><p>Visualizaremos lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>filesystem      mount point     type    option                  dump    pass
+</span></span><span style="display:flex;"><span>----------      -----------     ----    ------                  ----    ----
+</span></span><span style="display:flex;"><span>proc            /proc           proc    defaults                <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>/dev/mmcblkp1   /boot           vfat    defaults                <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>/dev/mmcblkp2   /               ext4    defaults,noatime        <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>En mi caso, lo dejé de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>filesystem      mount point     type    option                  dump    pass
+</span></span><span style="display:flex;"><span>----------      -----------     ----    ------                  ----    ----   
+</span></span><span style="display:flex;"><span>proc            /proc           proc    defaults                <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>/dev/mmcblk0p1  /boot           vfat    defaults                <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>/dev/sda1       /               ext4    defaults,noatime        <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>/dev/sda2       /home           ext4    defaults                <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>/dev/sda5       /media/Incoming ext4    defaults,noatime        <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>/dev/sda6       /media/Temporal ext4    defaults,noatime        <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>/dev/sda7       /media/Torrents ext4    defaults,noatime        <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>Ahora solamente nos quedaría poner la SD en nuestra Raspberry, conectar el HD externo y todo tendría que funcionar correctamente.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

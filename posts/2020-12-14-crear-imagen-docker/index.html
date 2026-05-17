@@ -1,0 +1,199 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Crear imágenes en docker · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2020-12-14-crear-imagen-docker/">
+
+
+
+
+
+
+<meta name="description" content="Esto es una cosa que quería hacer desde que he empezado a utilizar docker porque siempre va bien tenerlos apuntado por si algún momento hace falta y si además te has hecho algún par de containers propios, pues nunca está de más.
+La parte más difícil de crear una imagen docker, es el Dockerfile, este fichero es todo lo que contendrá y hará la imagen docker cuando se cree (sobre qué base funciona, qué puertos, volúmenes, etc&amp;amp;hellip;).
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Crear imágenes en docker">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Esto es una cosa que quería hacer desde que he empezado a utilizar docker porque siempre va bien tenerlos apuntado por si algún momento hace falta y si además te has hecho algún par de containers propios, pues nunca está de más.
+La parte más difícil de crear una imagen docker, es el Dockerfile, este fichero es todo lo que contendrá y hará la imagen docker cuando se cree (sobre qué base funciona, qué puertos, volúmenes, etc&amp;amp;hellip;).
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Crear imágenes en docker</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2020-12-14">
+        2020-12-14
+      </time>
+      · 3 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Esto es una cosa que quería hacer desde que he empezado a utilizar <code>docker</code> porque siempre va bien tenerlos apuntado por si algún momento hace falta y si además te has hecho algún par de containers propios, pues nunca está de más.</p>
+<p>La parte más difícil de crear una imagen docker, es el <code>Dockerfile</code>, este fichero es todo lo que contendrá y hará la imagen docker cuando se cree (sobre qué base funciona, qué puertos, volúmenes, etc&hellip;).</p>
+<p>Un ejemplo de fichero <code>Dockerfile</code> puede ser este que utilicé para crear la imagen de flexget:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>FROM alpine:3.11
+</span></span><span style="display:flex;"><span>LABEL maintainer <span style="color:#e6db74">&#34;wiserain&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>RUN <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#34;**** install frolvlad/alpine-python3 ****&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> apk add --no-cache python3 <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> python3 -m ensurepip <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> rm -r /usr/lib/python*/ensurepip <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> pip3 install --no-cache --upgrade pip setuptools wheel <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -e /usr/bin/pip <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span> ln -s pip3 /usr/bin/pip; <span style="color:#66d9ef">fi</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#34;**** install dependencies for plugin: telegram ****&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> apk add --no-cache py3-cryptography <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> pip install --upgrade PySocks <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> pip install --upgrade python-telegram-bot <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#34;**** install dependencies for plugin: cfscraper ****&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> pip install --upgrade cloudscraper <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> apk del --purge --no-cache build-deps <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#34;**** install dependencies for plugin: convert_magnet ****&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> apk add --no-cache boost-python3 libstdc++ <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#34;**** install dependencies for plugin: misc ****&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> pip install --upgrade <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>   transmissionrpc <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>   irc_bot <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#34;**** install dependencies for plugin: rar ****&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> apk add --no-cache unrar <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> pip install --upgrade rarfile <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#34;**** install flexget ****&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> pip install --upgrade --force-reinstall flexget <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span> <span style="color:#75715e"># add default volumes</span>
+</span></span><span style="display:flex;"><span> VOLUME /config /data
+</span></span><span style="display:flex;"><span> WORKDIR /config
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#75715e"># expose port for flexget webui</span>
+</span></span><span style="display:flex;"><span> EXPOSE <span style="color:#ae81ff">3539</span> 3539/tcp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#75715e"># run init.sh to set uid, gid, permissions and to launch flexget</span>
+</span></span><span style="display:flex;"><span> RUN chmod +x /scripts/init.sh
+</span></span><span style="display:flex;"><span> CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;/scripts/init.sh&#34;</span> <span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>Como se puede ver, en este caso, la base de mi imagen es <strong>alpine:3.11</strong> y se basa en una imagen ya creada por wiserain. Lo que yo hice fue quitar un par de cosas que no necesitaba y añadir otras porque a la hora de funcionar me daban error.</p>
+<p>Luego viene, todo el resto de programas que tiene que hacer para que la imagen docker funcione correctamente. En este caso, el <code>Dockerfile</code> que estoy usando, es el que se usa para crear la imagen de <strong>flexget</strong>.</p>
+<p>Esta, en principio es la parte más difícil de crear una imagen docker, ahora solamente nos queda subirlo a algún almacén de imágenes docker. En este caso, yo estoy dado de alta en <a href="https://hub.docker.com/">docker hub</a> es que donde muchas personas han colgado las imágenes que ellos han creado, para que el resto pueda utilizarla.</p>
+<p>Para crear la imagen en sí y luego subirla, lo primero es crear dicha imagen. Esto se hace a través del siguiente comando (lo mejor es ejecutar esta imagen dentro del directorio donde tenemos el <code>Dockerfile</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ docker build -t usuario/nombre_imagen:version .
+</span></span></code></pre></div><p>Con esto ya hemos creado la imagen, ahora tenemos que subir la imagen, pero antes tenemos que hacer login en nuestra cuenta de <code>dockerhub</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ docker login
+</span></span></code></pre></div><p>Una vez ya tenemos acceso procedemos a subir la imagen :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ docker push usuario/nombre_imagen:latest
+</span></span></code></pre></div><p>Ya tenemos nuestra imagen de docker creada y subida en dockerhub.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.atareao.es/tutorial/docker/crear-una-imagen-docker-desde-cero-y-paso-a-paso/">Crear imagen Docker</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

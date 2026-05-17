@@ -1,0 +1,164 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Volviendo a Caddy desde Nginx Proxy Manager · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2022-12-25-rpi-caddy-proxy-manager/">
+
+
+
+
+
+
+<meta name="description" content="Como ya sabréis, anteriormente usaba Nginx Proxy Manager porque había tenido muchos problemas con Caddy, no se de donde venían estos problemas, si de Caddy o de duckdns.org, así que hice el cambio a npm para los amigos.
+Aquí vuelvo a estar de nuevo.
+Hice el cambio, pero había una cosa que no me acababa de gustar, el tener la URL de mis servicios, no se como llamarlos, no bonitos, no oficiales?
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Volviendo a Caddy desde Nginx Proxy Manager">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Como ya sabréis, anteriormente usaba Nginx Proxy Manager porque había tenido muchos problemas con Caddy, no se de donde venían estos problemas, si de Caddy o de duckdns.org, así que hice el cambio a npm para los amigos.
+Aquí vuelvo a estar de nuevo.
+Hice el cambio, pero había una cosa que no me acababa de gustar, el tener la URL de mis servicios, no se como llamarlos, no bonitos, no oficiales?
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Volviendo a Caddy desde Nginx Proxy Manager</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2022-12-25">
+        2022-12-25
+      </time>
+      · 1 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Como ya sabréis, <a href="/posts/2021-05-07-rpi-nginx-proxy-manager">anteriormente</a> usaba <strong>Nginx Proxy Manager</strong> porque había tenido muchos problemas con <strong>Caddy</strong>, no se de donde venían estos problemas, si de <strong>Caddy</strong> o de <strong>duckdns.org</strong>, así que hice el cambio a <strong>npm</strong> para los amigos.</p>
+<p>Aquí vuelvo a estar de nuevo.</p>
+<p>Hice el cambio, pero había una cosa que no me acababa de gustar, el tener la URL de mis servicios, no se como llamarlos, no <em>bonitos</em>, <em>no oficiales</em>?</p>
+<p>Cuando me refiero a <em>URL no bonitas</em>, me refiero al tipo <code>https://music-miservidor.duckdns,.org</code>, como que no quedan muy legales, porque me gustan más, las de toda la vida <code>https://music.miservidor.duckdns.org</code> que son las normalizadas.</p>
+<p>Pero todo cambió, cuando vi un nuevo <a href="https://ugeek.github.io/blog/post/2022-12-23-caddy-crear-usuario-y-contrasena.html">articulo</a> de uGeek, donde comentaba, que se podían crear usuarios y passwords en <code>Caddy</code> decidí volver a probar a ver si esta vez tenía más suerte.</p>
+<p>Así que me puse al lío, volví a poner la configuración recomendada de <strong>Caddy</strong> en mi servidor de Docker y a ver si esta vez teníamos más suerte:</p>
+<p>Parece que sí que tenemos suerte, porque de momento todo está funcionando correctamente y encima con el certificado de <a href="https://letsencrypt.org/es/">Let&rsquo;s Encrypt</a>.</p>
+<p>Esperemos que esta vez dure más mi aventura con <strong>Caddy</strong>.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://ugeek.github.io/blog/post/2021-02-19-proxy-inverso-con-caddy.html">Usando Caddy</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2022-12-23-caddy-crear-usuario-y-contrasena.html">Usuarios en Caddy</a></li>
+<li><a href="https://letsencrypt.org/es/">Let&rsquo;s Encrypt</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

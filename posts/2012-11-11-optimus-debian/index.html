@@ -1,0 +1,175 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Deshabilitar tarjeta NVIDIA Optimus en Debian GNU/Linux · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2012-11-11-optimus-debian/">
+
+
+
+
+
+
+<meta name="description" content="Después de mucho buscar al final, pude encontrar un sitio aquí donde te explicaba cómo desactivar la tarjeta gráfica Nvidia de mi portátil Dell XPS 15. Estaba ya cansado de escuchar el ventilador funcionando todo el rato por culpa de una tarjeta gráfica que no utilizaba. Así que lo pongo a continuación porque así se difunde más fácilmente y lo guardo para mí como apuntes&amp;amp;hellip;
+El siguiente procedimiento sirve para deshabilitar (o desactivar) una tarjeta NVIDIA cuando contamos con un sistema híbrido de gráficos, es decir, cuando contamos con dos tarjetas de vídeo. El objetivo es reducir el consumo de energía en Linux, ya que no existe un buen soporte para gráficos híbridos en este sistema operativo (ni existirá en el corto plazo, aparentemente).
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Deshabilitar tarjeta NVIDIA Optimus en Debian GNU/Linux">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Después de mucho buscar al final, pude encontrar un sitio aquí donde te explicaba cómo desactivar la tarjeta gráfica Nvidia de mi portátil Dell XPS 15. Estaba ya cansado de escuchar el ventilador funcionando todo el rato por culpa de una tarjeta gráfica que no utilizaba. Así que lo pongo a continuación porque así se difunde más fácilmente y lo guardo para mí como apuntes&amp;amp;hellip;
+El siguiente procedimiento sirve para deshabilitar (o desactivar) una tarjeta NVIDIA cuando contamos con un sistema híbrido de gráficos, es decir, cuando contamos con dos tarjetas de vídeo. El objetivo es reducir el consumo de energía en Linux, ya que no existe un buen soporte para gráficos híbridos en este sistema operativo (ni existirá en el corto plazo, aparentemente).
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Deshabilitar tarjeta NVIDIA Optimus en Debian GNU/Linux</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2012-11-11">
+        2012-11-11
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/bash/">
+            #Bash
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Después de mucho buscar al final, pude encontrar un sitio <del><a href="https://pedrobonilla.blogspot.com.es/2011/11/deshabilitar-tarjeta-nvidia-en-sistema.html">aquí</a></del> donde te explicaba cómo desactivar la tarjeta gráfica Nvidia de mi portátil Dell XPS 15. Estaba ya cansado de escuchar el ventilador funcionando todo el rato por culpa de una tarjeta gráfica que no utilizaba. Así que lo pongo a continuación porque así se difunde más fácilmente y lo guardo para mí como apuntes&hellip;</p>
+<p>El siguiente procedimiento sirve para deshabilitar (o desactivar) una tarjeta NVIDIA cuando contamos con un sistema híbrido de gráficos, es decir, cuando contamos con dos tarjetas de vídeo. El objetivo es reducir el consumo de energía en Linux, ya que no existe un buen soporte para gráficos híbridos en este sistema operativo (ni existirá en el corto plazo, aparentemente).</p>
+<p>En mi caso, poseo una laptop Dell XPS 15 con las siguientes dos tarjetas de vídeo:</p>
+<ul>
+<li>Intel Corporation 2nd Generation Core Processor Family Integrated Graphics Controller</li>
+<li>NVIDIA® GeForce® GT 540M 2GB</li>
+</ul>
+<p>La tecnología Optimus se encarga de administrar estas dos tarjetas, activándolas o desactivándolas según sea necesario (la NVIDIA solo es activada cuando estamos haciendo uso intensivo de gráficos en 3D). De esta forma, se minimiza el consumo de energía.</p>
+<p>Solo hay un problema: ¡No existe Optimus para Linux! Esto conlleva a que el sistema utilice las dos tarjetas al mismo tiempo (consumiendo tu batería en minutos).</p>
+<p>La solución temporal es desactivar la tarjeta NVIDIA cargando un módulo (desarrollado por la comunidad) en el kernel. Los pasos son los siguientes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># instalamos el paquete git si no lo tenemos ya</span>
+</span></span><span style="display:flex;"><span>usuari@debian:~$ sudo apt-get install git
+</span></span><span style="display:flex;"><span>usuari@debian:~$ git clone https://github.com/mkottman/acpi_call.git
+</span></span><span style="display:flex;"><span>usuari@debian:~$ cd acpi_call
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ahora procedemos a compilar el codigo</span>
+</span></span><span style="display:flex;"><span>usuari@debian:~$ make
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># procedemos a cargar el  modulo en el kernel</span>
+</span></span><span style="display:flex;"><span>usuari@debian:~$ sudo insmod acpi_call.ko
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># damos permisos de ejecución al fichero</span>
+</span></span><span style="display:flex;"><span>usuari@debian:~$ chmod <span style="color:#ae81ff">755</span> test_off.sh
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># y desactivamos la tarjeta NVIDIA</span>
+</span></span><span style="display:flex;"><span>usuari@debian:~$ ./test_off.sh
+</span></span></code></pre></div><p>Si aparece algún mensaje <code>works!</code>, entonces todo ha funcionado correctamente.</p>
+<p>Espero que esto os ayude tanto como a mí. Así mismo, agradezco al autor original de este documento .</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Publicar feed en Tumblr · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-11-12-publicar-feed-tumblr/">
+
+
+
+
+
+
+<meta name="description" content="Este artículo, podría decirse que es una continuación de este artículo pero en este caso, es para Tumblr.
+La idea es la misma, pero para otra red social. Eso sí, más pequeña y desconocida o al menos para mí. Nunca había oído hablar de ella, pero nunca se sabe y así ya estoy en ella, aunque sea solamente para publicar los artículos que voy añadiendo a mi web / blog.
+Partimos de la base que antes de empezar tenemos que tener instalado:
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Publicar feed en Tumblr">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Este artículo, podría decirse que es una continuación de este artículo pero en este caso, es para Tumblr.
+La idea es la misma, pero para otra red social. Eso sí, más pequeña y desconocida o al menos para mí. Nunca había oído hablar de ella, pero nunca se sabe y así ya estoy en ella, aunque sea solamente para publicar los artículos que voy añadiendo a mi web / blog.
+Partimos de la base que antes de empezar tenemos que tener instalado:
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Publicar feed en Tumblr</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2024-11-12">
+        2024-11-12
+      </time>
+      · 4 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/programaci%C3%B3n/">
+            @Programación
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/python/">
+            #Python
+          </a>
+        
+          <a href="/tags/unraid/">
+            #unRAID
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Este artículo, podría decirse que es una continuación de este <a href="/posts/2022-11-14-publicar-feed-mastodon">artículo</a> pero en este caso, es para <a href="https://www.tumblr.com">Tumblr</a>.</p>
+<p>La idea es la misma, pero para otra red social. Eso sí, más pequeña y desconocida o al menos para mí. Nunca había oído hablar de ella, pero nunca se sabe y así ya estoy en ella, aunque sea solamente para publicar los artículos que voy añadiendo a mi web / blog.</p>
+<p>Partimos de la base que antes de empezar tenemos que tener instalado:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ pip install --user pytumblr
+</span></span></code></pre></div><p>También tenemos que tener <code>feedparser</code> que se usa para el tratamiento de los <em>XML</em> que si tienes este mismo <strong>script</strong> pero para <em>Mastodon</em>, seguramente ya lo tienes. Sino te tocará instalarlo.</p>
+<p>El siguiente paso, es dar de alta <em>tu aplicación</em> en el <em>API</em> de <em>Tumblr</em>. Esto es un poco confuso, porque es difícil de encontrar, pero son los siguientes:</p>
+<ul>
+<li><a href="https://www.tumblr.com/oauth/register">Darse de alta</a></li>
+<li><a href="https://api.tumblr.com/console/calls/user/info">Autentificar la aplicación</a></li>
+</ul>
+<p>Tener en cuenta una cosa, primero os aconsejo que os creéis la cuenta en <em>Tumblr</em> y que luego accedáis a estos links, sino os pedirá usuario y password.</p>
+<p>En el momento de dar de alta la aplicación se obtiene:</p>
+<ul>
+<li><em>Consumer_key</em></li>
+<li><em>Consumer_secret</em></li>
+</ul>
+<p>Luego, cuando se autentifica la aplicación se obtiene:</p>
+<ul>
+<li><em>Oauth_token</em></li>
+<li><em>Oauth_token_secret</em></li>
+</ul>
+<p>Para poder publicar en esta red. Después solamente tienes que tener el <em>script</em> en <code>Python</code> para publicar.</p>
+<p>En este caso, pondré el que yo estoy utilizando ahora mismo, aunque estoy estudiando hacerle unos cambios para añadir más información. Pero con esto ya tenéis un principio.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  <span style="color:#75715e">#!/usr/bin/env python</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Script que lee el feed rss de un blog y publica un artículo de forma aleatoria en twitter y mastodon</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Tienes que tener instaladas las librerías feedparser, Twython, Mastodon</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Autor: Victor Santos y un poco de ChatGPT</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># https://vctrsnts.codeberg.page/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Llama a los módulos Python</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">import</span> feedparser
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">import</span> pytumblr
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">import</span> xml.etree.ElementTree <span style="color:#66d9ef">as</span> ET
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  consumer_key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xxxxxxxxxxxxxxx&#39;</span>
+</span></span><span style="display:flex;"><span>  consumer_secret <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xxxxxxxxxxxxxxx&#39;</span>
+</span></span><span style="display:flex;"><span>  oauth_token <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xxxxxxxxxxxxxxx&#39;</span>
+</span></span><span style="display:flex;"><span>  oauth_secret <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xxxxxxxxxxxxxxx&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Authenticate and create a client</span>
+</span></span><span style="display:flex;"><span>  client <span style="color:#f92672">=</span> pytumblr<span style="color:#f92672">.</span>TumblrRestClient(
+</span></span><span style="display:flex;"><span>      consumer_key,
+</span></span><span style="display:flex;"><span>      consumer_secret,
+</span></span><span style="display:flex;"><span>      oauth_token,
+</span></span><span style="display:flex;"><span>      oauth_secret
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Per extreure les categories del Feed</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">extract_categories_from_specific_entry</span>(feed_url, entry_index<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>):
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Parse the feed using feedparser</span>
+</span></span><span style="display:flex;"><span>      feed <span style="color:#f92672">=</span> feedparser<span style="color:#f92672">.</span>parse(feed_url)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># If feed.entries is empty, we attempt to return categories from the first entry (index 0)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> feed<span style="color:#f92672">.</span>entries:
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> get_categories_from_entry(feed, <span style="color:#ae81ff">0</span>)  <span style="color:#75715e"># Return categories from index 0, if possible</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># If the feed has entries, extract from the specified index</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> len(feed<span style="color:#f92672">.</span>entries) <span style="color:#f92672">&gt;</span> entry_index:
+</span></span><span style="display:flex;"><span>          entry <span style="color:#f92672">=</span> feed<span style="color:#f92672">.</span>entries[entry_index]
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e"># Extract categories (tags) from the entry and add &#39;&#34;&#39; around each category</span>
+</span></span><span style="display:flex;"><span>          categories <span style="color:#f92672">=</span> [category<span style="color:#f92672">.</span>term <span style="color:#66d9ef">for</span> category <span style="color:#f92672">in</span> entry<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;tags&#39;</span>, [])]
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;,&#34;</span><span style="color:#f92672">.</span>join(categories)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>          print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Error: Feed has less than </span><span style="color:#e6db74">{</span>entry_index<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> entries, returning categories from index 0.&#34;</span>)
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> get_categories_from_entry(feed, <span style="color:#ae81ff">0</span>)  <span style="color:#75715e"># Return categories from index 0</span>
+</span></span><span style="display:flex;"><span>          
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Helper function to get categories from the first entry (index 0)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_categories_from_entry</span>(feed, index):
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> len(feed<span style="color:#f92672">.</span>entries) <span style="color:#f92672">&gt;</span> index:
+</span></span><span style="display:flex;"><span>          entry <span style="color:#f92672">=</span> feed<span style="color:#f92672">.</span>entries[index]
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e"># Extract categories (tags) from the entry and add &#39;&#34;&#39; around each category</span>
+</span></span><span style="display:flex;"><span>          categories <span style="color:#f92672">=</span> [category<span style="color:#f92672">.</span>term <span style="color:#66d9ef">for</span> category <span style="color:#f92672">in</span> entry<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;tags&#39;</span>, [])]
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;,&#34;</span><span style="color:#f92672">.</span>join(categories)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>  <span style="color:#75715e"># Return empty string if no tags found</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Seleccionamos el Feed</span>
+</span></span><span style="display:flex;"><span>  feed <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;tu dirección web hacia el feed.xml&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Parseamos el Feed</span>
+</span></span><span style="display:flex;"><span>  d <span style="color:#f92672">=</span> feedparser<span style="color:#f92672">.</span>parse(feed)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Extrae la longitud del Feed y aleatoriamente selecciona un artículo</span>
+</span></span><span style="display:flex;"><span>  feedlen <span style="color:#f92672">=</span> len(d[<span style="color:#e6db74">&#39;entries&#39;</span>])
+</span></span><span style="display:flex;"><span>  num <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>, feedlen)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Inicializa la API de Twitter, escribe el nuevo estado y salimos d[&#39;entries&#39;][0] es el último artículo publicado</span>
+</span></span><span style="display:flex;"><span>  link <span style="color:#f92672">=</span> d[<span style="color:#e6db74">&#39;entries&#39;</span>][num][<span style="color:#e6db74">&#39;link&#39;</span>]
+</span></span><span style="display:flex;"><span>  title <span style="color:#f92672">=</span> d[<span style="color:#e6db74">&#39;entries&#39;</span>][num][<span style="color:#e6db74">&#39;title&#39;</span>]
+</span></span><span style="display:flex;"><span>  status_text <span style="color:#f92672">=</span> d[<span style="color:#e6db74">&#39;entries&#39;</span>][num][<span style="color:#e6db74">&#39;summary_detail&#39;</span>][<span style="color:#e6db74">&#39;value&#39;</span>]
+</span></span><span style="display:flex;"><span>  description <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#34;&lt;strong&gt;Recordando artículos publicados:&lt;/strong&gt;&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&lt;br&gt;&#34;</span> <span style="color:#f92672">+</span> status_text)
+</span></span><span style="display:flex;"><span>  tags <span style="color:#f92672">=</span> extract_categories_from_specific_entry(feed, num)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Replace &#39;your-blog-name&#39; with your actual Tumblr blog name</span>
+</span></span><span style="display:flex;"><span>  blogName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tuNombreDeBlog&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Create the post</span>
+</span></span><span style="display:flex;"><span>  client<span style="color:#f92672">.</span>create_link(
+</span></span><span style="display:flex;"><span>    blogName,
+</span></span><span style="display:flex;"><span>    title<span style="color:#f92672">=</span>title,
+</span></span><span style="display:flex;"><span>    url<span style="color:#f92672">=</span>link,
+</span></span><span style="display:flex;"><span>    description<span style="color:#f92672">=</span>description,
+</span></span><span style="display:flex;"><span>    tags<span style="color:#f92672">=</span>[tag <span style="color:#66d9ef">for</span> tag <span style="color:#f92672">in</span> tags<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;,&#34;</span>)]
+</span></span><span style="display:flex;"><span>  )
+</span></span></code></pre></div><p>En este <em>script</em> hay que tener en cuenta unas cosas:</p>
+<ul>
+<li><em>blogName</em>: Cuando te diste de alta en esta red social, el nombre de usuario, es el nombre de tu blog y es el que tienes que poner aquí.</li>
+<li><em>feed</em>: Es el fichero <em>xml</em> que quieres usar</li>
+<li><em>consumer_key</em>: La primera clave que necesitas</li>
+<li><em>consumer_secret</em>: La segunda clave que necesitas</li>
+<li><em>oauth_token</em>: La tercera clave que necesitas</li>
+<li><em>oauth_token_secret</em>: La última de las 4 claves que necesitas</li>
+</ul>
+<p>Una vez, tengas el fichero creado, si quieres hacer pruebas, tienes que hacerlo de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>   usuari@debian:~$ python3 nombreDelArchivo.py
+</span></span></code></pre></div><p>Entonces, si no has tenido ningún problema, a tu cuenta de <em>Tumblr</em> te llegará un artículo aleatorio de tu web.</p>
+<p>Como he dicho, aún lo tengo que mejorar, porque quiero añadir la imagen de la web, etc&hellip; Pero esto está en estudio.</p>
+<p>Después de hacer las pruebas que creas oportunas, solo te quedará configurar el cron, para que se ejecute cuando tú quieras.</p>
+<p>También, tengo otro <em>script</em> que publica el último artículo publicado. Se puede utilizar este mismo script, pero tienes que hacer algunas modificaciones:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Això ja no fa falta</span>
+</span></span><span style="display:flex;"><span>import random
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Això tampoc fa falta</span>
+</span></span><span style="display:flex;"><span>feedlen <span style="color:#f92672">=</span> len<span style="color:#f92672">(</span>d<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;entries&#39;</span><span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>num <span style="color:#f92672">=</span> random.randint<span style="color:#f92672">(</span>0, feedlen<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Aqui en comptes de &#39;num&#39; ha de ser &#39;0&#39; quedant així</span>
+</span></span><span style="display:flex;"><span>status_text <span style="color:#f92672">=</span> d<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;entries&#39;</span><span style="color:#f92672">][</span>0<span style="color:#f92672">][</span><span style="color:#e6db74">&#39;title&#39;</span><span style="color:#f92672">]</span> + <span style="color:#e6db74">&#39;&lt;br&gt;&#39;</span> + d<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;entries&#39;</span><span style="color:#f92672">][</span>0<span style="color:#f92672">][</span><span style="color:#e6db74">&#39;link&#39;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>articulo <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;strong&gt;Último artículo publicado:&lt;/strong&gt;&#34;</span> + <span style="color:#e6db74">&#39;&lt;br&gt;&#39;</span> + status_text<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>El resto de código para publicar es el mismo.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://github.com/tumblr/pytumblr">tumblr/pytumblr</a></li>
+<li><a href="https://pypi.org/project/PyTumblr2">PyTumblr2 0.2.4</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

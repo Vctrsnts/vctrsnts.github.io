@@ -1,0 +1,541 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Usando HomePage. El Dashboard - 2 · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-06-03-usando-homepage-2/">
+
+
+
+
+
+
+<meta name="description" content="Como ya comenté en el anterior articulo, donde hablaba de que estaba usando HomePage con una configuración normal y muy simple, pero que a la vez era funcional, por no decir básica para cuando te inicias, pero me faltaba algo, en resumen, quería algo más&amp;amp;hellip;
+Entonces, buscando información, acabé en el GitHub, que es lo que tenía que haber hecho desde el principio. Descubrí este hilo, donde la gente compartía sus dashboards junto con los ficheros de configuración. Y tengo que decir que había cosas muy chulas y muy curradas y, lo más importante, cosas que no sabía que se podían hacer.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Usando HomePage. El Dashboard - 2">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Como ya comenté en el anterior articulo, donde hablaba de que estaba usando HomePage con una configuración normal y muy simple, pero que a la vez era funcional, por no decir básica para cuando te inicias, pero me faltaba algo, en resumen, quería algo más&amp;amp;hellip;
+Entonces, buscando información, acabé en el GitHub, que es lo que tenía que haber hecho desde el principio. Descubrí este hilo, donde la gente compartía sus dashboards junto con los ficheros de configuración. Y tengo que decir que había cosas muy chulas y muy curradas y, lo más importante, cosas que no sabía que se podían hacer.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Usando HomePage. El Dashboard - 2</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2024-06-03">
+        2024-06-03
+      </time>
+      · 6 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/unraid/">
+            #unRAID
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Como ya comenté en el anterior <a href="/posts/2024-02-12-usando-homepage-1">articulo</a>, donde hablaba de que estaba usando <strong>HomePage</strong> con una configuración <em>normal</em> y muy <em>simple</em>, pero que a la vez era funcional, por no decir básica para cuando te inicias, pero me faltaba algo, en resumen, quería algo más&hellip;</p>
+<p>Entonces, buscando información, acabé en el <a href="https://www.github.com/gethomepage">GitHub</a>, que es lo que tenía que haber hecho desde el principio. Descubrí este <a href="https://github.com/gethomepage/homepage/discussions/473">hilo</a>, donde la gente compartía sus <em>dashboards</em> junto con los ficheros de configuración. Y tengo que decir que había cosas muy chulas y muy curradas y, lo más importante, cosas que no sabía que se podían hacer.</p>
+<p>Mirando lo que la gente subía, encontré uno (no fui el único que preguntó 😁) que era increíble y muy funcional, porque tenías al alcance toda la información que necesitabas.</p>
+<p>Así que toda la gente le pidió si podía pasar 😁 los ficheros de configuración que usaba, y le tengo que estar muy agradecido porque subió los ficheros de configuración que él usaba y que me sirvieron para <em>estudiar</em> cómo lo tenía todo montado. Así que lo adapté a mis necesidades, quedando de la siguiente manera (en mi caso):</p>
+<h2 id="-pestaña-home">◇ Pestaña Home</h2>
+<p><img src="screenshot_004.png" alt="" title="ScreenShot"></p>
+<h2 id="-pestaña-glances">◇ Pestaña Glances</h2>
+<p><img src="screenshot_005.png" alt="" title="ScreenShot"></p>
+<p>Como se puede ver, uso dos <em>pestañas</em>, donde en la primera pestaña se puede visualizar:</p>
+<ul>
+<li>La información de todos los <em>dockers</em> que uso, junto con los links a las webs que más uso.</li>
+<li>Toda la información (gráficas) de los 2 servidores que tengo ahora mismo.</li>
+</ul>
+<p>En el <code>settings.yaml</code> es donde se configuran los <em>tabs</em>, o mejor dicho, las <em>pestañas</em>. Esto se consigue a través de la variable <strong>tab</strong>, que es donde indicamos a qué pestaña pertenece cada <em>sección</em>. Para que quede más claro, se puede decir que en la pestaña <code>tab: Home</code> tendremos lo siguiente:</p>
+<ul>
+<li>Virtualization</li>
+<li>Monitoring</li>
+<li>Media</li>
+<li>Network</li>
+</ul>
+<p>En cambio, en la pestaña <code>tab: Glances</code> tendremos lo siguiente:</p>
+<ul>
+<li>Gráficas <em>Servidor 1</em></li>
+<li>Gráficas <em>Servidor 2</em></li>
+</ul>
+<p>Ahora viene lo más importante: los ficheros de configuración que estoy usando:</p>
+<h3 id="settingsyaml">settings.yaml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#### Customization</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">headerStyle</span>: <span style="color:#ae81ff">clean</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">cardBlur</span>: <span style="color:#ae81ff">md</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">theme</span>: <span style="color:#ae81ff">dark</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">color</span>: <span style="color:#ae81ff">zinc</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">quicklaunch</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">searchDescriptions</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hideInternetSearch</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">showSearchSuggestions</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hideVisitURL</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#### Group layouts</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">layout</span>:
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Homepage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Virtualization</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">tab</span>: <span style="color:#ae81ff">Home</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">mdi-desktop-classic</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Monitoring</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">tab</span>: <span style="color:#ae81ff">Home</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">mdi-message-alert</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Media</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">tab</span>: <span style="color:#ae81ff">Home</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">mdi-video-vintage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Network</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">tab</span>: <span style="color:#ae81ff">Home</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">mdi-lan</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Glances</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Servidor 1 (unRaid)</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">tab</span>: <span style="color:#ae81ff">Glances</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">useEqualHeights</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">style</span>: <span style="color:#ae81ff">row</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">columns</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">initiallyCollapsed</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Servidor 2 (Contabo)</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">tab</span>: <span style="color:#ae81ff">Glances</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">useEqualHeights</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">style</span>: <span style="color:#ae81ff">row</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">columns</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">initiallyCollapsed</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Bookmarks</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Blogs</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">si-blogger</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Compres</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">mdi-shopping-outline</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Comunicacio</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">mdi-newspaper</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Videos</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">mdi-movie-open-edit-outline</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">VPS</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">mdi-google-cloud</span>
+</span></span></code></pre></div><p>Es en el archivo <code>services.yaml</code> donde definimos lo que contiene cada <strong>sección</strong> (<em>Virtualization</em>, <em>Monitoring</em>, etc.).</p>
+<h3 id="servicesyaml">services.yaml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#f92672">Virtualization</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">unRaid</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">unraid</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">description</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ping</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">siteMonitor</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">Monitoring</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">What&#39;s Up Docker?</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">whats-up-docker-light.png</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Notifications for New Container Version Releases</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ping</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">siteMonitor</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">whatsupdocker</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">username</span>: {{<span style="color:#ae81ff">HOMEPAGE_VAR_WUDUSER}}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">password</span>: {{<span style="color:#ae81ff">HOMEPAGE_VAR_WUDPASS}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Scrutiny</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">https://repository-images.githubusercontent.com/289524449/fc01e480-e6ab-11ea-9e20-53257df6f326</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">description</span>: <span style="color:#ae81ff">S.M.A.R.T. Monitoring Dashboard</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ping</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">siteMonitor</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">container</span>: <span style="color:#ae81ff">scrutiny</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">scrutiny</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">fields</span>: [<span style="color:#e6db74">&#34;passed&#34;</span>, <span style="color:#e6db74">&#34;failed&#34;</span> ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Gotify</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">gotify.png</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Simple, HTTP-based Pub-sub Notification Service</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ping</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">siteMonitor</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">container</span>: <span style="color:#ae81ff">gotify</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">gotify</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">key</span>: {{<span style="color:#ae81ff">HOMEPAGE_VAR_GOTIFY}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">Media</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Jackett</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">jackett.png</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Servidor Indexers</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ping</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">siteMonitor</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">container</span>: <span style="color:#ae81ff">jackett</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">jackett</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Transmission</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">transmission.png</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Servidor Transmission</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ping</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">siteMonitor</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">container</span>: <span style="color:#ae81ff">transmission</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">transmission</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Jellyfin</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">jellyfin.png</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Servidor Multimedia</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ping</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">jellyfin</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">key</span>: {{<span style="color:#ae81ff">HOMEPAGE_VAR_JELLYFIN}}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">enableBlocks</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">enableNowPlaying</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">fields</span>: [<span style="color:#e6db74">&#34;movies&#34;</span>, <span style="color:#e6db74">&#34;series&#34;</span>, <span style="color:#e6db74">&#34;episodes&#34;</span> ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Navidrome</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">navidrome</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Servidor Música</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">container</span>: <span style="color:#ae81ff">navidrome</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">navidrome</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">user</span>: {{<span style="color:#ae81ff">HOMEPAGE_VAR_NAVUSER}}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">token</span>: {{<span style="color:#ae81ff">HOMEPAGE_VAR_NAVTOKN}}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">salt</span>: {{<span style="color:#ae81ff">HOMEPAGE_VAR_NAVSALT}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Calibre</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">calibre.png</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Software de gestión de libros</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ping</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">siteMonitor</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">container</span>: <span style="color:#ae81ff">calibre</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Calibre-Web</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">calibre-web.png</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Web para la gestión de libros (Calibre) y su BBDD</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ping</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">siteMonitor</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">container</span>: <span style="color:#ae81ff">calibre-web</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">calibreweb</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">username</span>: {{<span style="color:#ae81ff">HOMEPAGE_VAR_CALIBREUSER}}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">password</span>: {{<span style="color:#ae81ff">HOMEPAGE_VAR_CALIBREPASS}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">Network</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Traefik</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">traefik.png</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Open-source Reverse Proxy and Load Balancer</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ping</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">siteMonitor</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">traefik</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">username</span>: {{<span style="color:#ae81ff">HOMEPAGE_VAR_TRAEFIKUSR}}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">password</span>: {{<span style="color:#ae81ff">HOMEPAGE_VAR_TRAEFIKPWD}}</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">PiHole</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">pi-hole.png</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Servidor PiHole</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ping</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">siteMonitor</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">container</span>: <span style="color:#ae81ff">pihole</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">pihole</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">key</span>: {{<span style="color:#ae81ff">HOMEPAGE_VAR_PIHOLE}} </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">dasReich (unRaid)</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">CPU Usage</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">glances</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">metric</span>: <span style="color:#ae81ff">cpu</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Memory</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">glances</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">metric</span>: <span style="color:#ae81ff">memory</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Network</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">glances</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">metric</span>: <span style="color:#ae81ff">network:eth0</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Processes</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">glances</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">metric</span>: <span style="color:#ae81ff">process</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Disk I/O</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">glances</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">metric</span>: <span style="color:#ae81ff">disk:nvme0n1</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Disk I/O</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">type</span>: <span style="color:#ae81ff">glances</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">metric</span>: <span style="color:#ae81ff">disk:sdb</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">...</span>
+</span></span></code></pre></div><p>Si os fijáis, podréis ver que he usado <em>variables</em> del estilo <strong>HOMEPAGE_VAR_CALIBREUSER</strong> o <strong>HOMEPAGE_VAR_PIHOLE</strong>, esto lo usamos para que el fichero quede lo más <strong>limpio</strong> posible de passwords, keys, etc., que en caso de algún problema queden expuestos.</p>
+<p>Entonces, para hacer esto, lo único que se tiene que hacer es crear un fichero <code>.env</code> con las <em>variables</em> que se necesiten, pero siempre tienen que venir precedidas de <code>HOMEPAGE_VAR_...</code> (os pondré las variables que yo he usado), aunque aquí vosotros sois libres de crear más:</p>
+<h3 id="env">.env</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># PASSWORDS CALIBRE-WEB</span>
+</span></span><span style="display:flex;"><span>HOMEPAGE_VAR_CALIBREUSER<span style="color:#f92672">=[</span>user<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>HOMEPAGE_VAR_CALIBREPASS<span style="color:#f92672">=[</span>password<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># PASSWORD TRANSMISSION</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#HOMEPAGE_VAR_TRANSUSER=[user]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#HOMEPAGE_VAR_TRANSPASS=[password]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># KEY JELLYFIN</span>
+</span></span><span style="display:flex;"><span>HOMEPAGE_VAR_JELLYFIN<span style="color:#f92672">=[</span>key<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># KEY GOTIFY</span>
+</span></span><span style="display:flex;"><span>HOMEPAGE_VAR_GOTIFY<span style="color:#f92672">=[</span>key<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># TRAEFIK PASSWORD</span>
+</span></span><span style="display:flex;"><span>HOMEPAGE_VAR_TRAEFIKUSR<span style="color:#f92672">=[</span>user<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>HOMEPAGE_VAR_TRAEFIKPWD<span style="color:#f92672">=[</span>password<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># NAVIDROME</span>
+</span></span><span style="display:flex;"><span>HOMEPAGE_VAR_NAVUSER<span style="color:#f92672">=[</span>user<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>HOMEPAGE_VAR_NAVTOKN<span style="color:#f92672">=[</span>key<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>HOMEPAGE_VAR_NAVSALT<span style="color:#f92672">=[</span>key<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># WHATS UP MY DOCKERS</span>
+</span></span><span style="display:flex;"><span>HOMEPAGE_VAR_WUDUSER<span style="color:#f92672">=[</span>user<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>HOMEPAGE_VAR_WUDPASS<span style="color:#f92672">=[</span>password<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># PIHOLE</span>
+</span></span><span style="display:flex;"><span>HOMEPAGE_VAR_PIHOLE<span style="color:#f92672">=[</span>key<span style="color:#f92672">]</span>
+</span></span></code></pre></div><h3 id="widgetsyaml">widgets.yaml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#f92672">logo</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">icon</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">glances</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">glances</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">label</span>: [<span style="color:#ae81ff">label]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">mem</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cpu</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">expanded</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">disk</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/etc/hostname</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">glances</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">glances</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">label</span>: [<span style="color:#ae81ff">label]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">mem</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cpu</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">expanded</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">disk</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/etc/hostname</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">search</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">provider</span>: <span style="color:#ae81ff">custom</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">url</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">focus</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">target</span>: <span style="color:#ae81ff">_blank</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">datetime</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">locale</span>: <span style="color:#ae81ff">nl</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">text_size</span>: <span style="color:#ae81ff">xs</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">format</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">dateStyle</span>: <span style="color:#ae81ff">short</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeStyle</span>: <span style="color:#ae81ff">short</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">hourCycle</span>: <span style="color:#ae81ff">h23</span>
+</span></span></code></pre></div><h3 id="bookmarksyaml">bookmarks.yaml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#f92672">Blogs</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Personal</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">github-light.png</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Desarrollo</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">github-light.png</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Libros</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">wordpress.png</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">uGeek</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">blogger.png</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Lazaro</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">blogger.png</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Atareao</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">blogger.png</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">Compras</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Amazon</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">amazon.png</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Aliexpress</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">aliexpress.png</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">Comunicación</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Mastodon</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">mastodon.png</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Telegram</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">telegram.png</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">RiseUp</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">mailu.png</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">EruenPlay</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">youtube.png</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">Videos</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Hispamula</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">HDOlimpo</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Xbytes</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">DonTorrent</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">YouTube</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">youtube.png</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">VPS</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Contabo</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">contabo.png</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Google Cloud</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">GitHub</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">github-light.png</span>
+</span></span></code></pre></div><p>Espero que os pueda servir de ayuda esta información. Además, así la tengo también disponible para mí, cuando me explote el servidor 😁 y pierda toda la configuración que tengo ahora mismo.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://github.com/gethomepage/homepage/discussions/473">GitHub - Share your homepage</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

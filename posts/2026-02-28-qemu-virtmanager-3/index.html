@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Instalar Qemu y VirtManager en Arch - 3 · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-02-28-qemu-virtmanager-3/">
+
+
+
+
+
+
+<meta name="description" content="Aquí va el tercero y último artículo con respecto a Qemu y VirtManager, pero en este caso, lo explico desde la manera de usarlo como cliente de una máquina creada en unRaid y que podemos usar como si estuviera en local que es mi caso.
+En este caso, tal como he dicho al principio, es conectar la máquina virtual que tengo creada en mi servidor unRaid y poderla usar en mi equipo local, como si fuera otra máquina más, pero ubicada en otro sitio. A continuación os explico cómo lo hice y por si os puede servir de ayuda.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Instalar Qemu y VirtManager en Arch - 3">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Aquí va el tercero y último artículo con respecto a Qemu y VirtManager, pero en este caso, lo explico desde la manera de usarlo como cliente de una máquina creada en unRaid y que podemos usar como si estuviera en local que es mi caso.
+En este caso, tal como he dicho al principio, es conectar la máquina virtual que tengo creada en mi servidor unRaid y poderla usar en mi equipo local, como si fuera otra máquina más, pero ubicada en otro sitio. A continuación os explico cómo lo hice y por si os puede servir de ayuda.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Instalar Qemu y VirtManager en Arch - 3</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-02-28">
+        2026-02-28
+      </time>
+      · 4 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/arch/">
+            #Arch
+          </a>
+        
+          <a href="/tags/qemu/">
+            #QEMU
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Aquí va el tercero y último artículo con respecto a <strong>Qemu</strong> y <strong>VirtManager</strong>, pero en este caso, lo explico desde la manera de usarlo como cliente de una máquina creada en <strong>unRaid</strong> y que podemos usar como si estuviera en local que es mi caso.</p>
+<p>En este caso, tal como he dicho al principio, es conectar la máquina virtual que tengo creada en mi servidor unRaid y poderla usar en mi equipo local, como si fuera otra máquina más, pero ubicada en otro sitio. A continuación os explico cómo lo hice y por si os puede servir de ayuda.</p>
+<p>Antes de empezar a explicar todo el proceso, tenéis que saber, que <strong>unRaid</strong> utiliza <strong>KVM + libvirt</strong> para la creación de las máquinas virtuales que es muy parecido a <strong>QEMU + VirtManager</strong> en GNU/Linux, con esto se consigue que desde mi equipo con <strong>Arch Linux</strong> me pueda conectar a un servidor <strong>unRaid</strong>, como el mío y poder usar las máquinas virtuales de forma remota, manteniendo la gestión principal desde <strong>unRaid</strong>.</p>
+<h2 id="-arquitectura-general">◇ Arquitectura general</h2>
+<p>Se podría decir, que desde mi equipo local, podría llegar a tener la siguiente configuración con respecto al control de máquinas virtuales:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Equipo local (Arch Linux)
+</span></span><span style="display:flex;"><span> └── virt-manager
+</span></span><span style="display:flex;"><span>     ├── QEMU/KVM (local)
+</span></span><span style="display:flex;"><span>     └── QEMU/KVM (unRAID remoto)
+</span></span><span style="display:flex;"><span>          └── VM Windows XP / Windows 7
+</span></span></code></pre></div><p>También se puede decir que:</p>
+<ul>
+<li>unRaid <strong>define y gestiona</strong> las VMs.</li>
+<li>Virt-Manager se usa como <strong>visor</strong> de las VMs.</li>
+</ul>
+<h3 id="requisitos">Requisitos</h3>
+<p>Los paquetes que vamos a necesitar son los siguientes:</p>
+<ul>
+<li>En <strong>unRaid</strong>:
+<ul>
+<li>Servicio de virtualización activado. En pocas palabras, que puedas crear una VM sin problemas.</li>
+<li>Acceso por <strong>SSH</strong>.</li>
+<li>VM creada con gráfica <strong>SPICE</strong> o <strong>VNC</strong>.</li>
+<li>Red en modo <strong>bridge</strong>.</li>
+</ul>
+</li>
+<li>En <strong>Arch Linux</strong>:
+<ul>
+<li>Tener instalado <strong>virt-manager</strong> y lo podemos utilizar de 2 maneras diferentes que son:
+<ul>
+<li>Como <strong>host</strong> de virtualización local.</li>
+<li>Como <strong>cliente</strong> remoto (unRaid haría de servidor).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Es importante saber distinguir entre las dos maneras, porque cada funcionalidad requiere unos paquetes.</p>
+<h3 id="virt-manager-como-cliente-unraid">Virt-Manager como cliente (unRaid)</h3>
+<p>En este escenario, <strong>Arch Linux</strong> no ejecuta ninguna VM, sino que se conecta a <em>libvirt</em> de <em>unRaid</em> en remoto. Los paquetes que se necesitan son los siguientes:</p>
+<ul>
+<li><em>Virt-Manager</em> → Usaremos como interfaz gráfica.</li>
+<li><em>Libvirt</em> → Usaremos como cliente de <em>libvirt</em> (unRaid).</li>
+<li><em>Virt-Viewer</em> → Es la consola para <em>SPICE / VNC</em>.</li>
+<li><em>Spice-GTK</em> → Será el soporte gráfico de <em>SPICE</em></li>
+<li><em>OpenSSH</em> → Que tenemos que tener instalado si es que no lo tenemos.</li>
+</ul>
+<blockquote>
+<p>En esta manera de funcionar, no nos hace falta <em>QEMU</em>, aunque es muy posible que se instale como dependencia de algún otro paquete.</p>
+</blockquote>
+<p>Una cosa que pongo, pero que no haría falta explicar, es la manera de realizar la instalación de estos paquetes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ sudo pacman -S virt-manager libvirt virt-viewer spice-gtk openssh
+</span></span></code></pre></div><p>Una vez ya tenemos instalados los paquetes necesarios, procedemos a realizar la conexión mediante SSH.</p>
+<blockquote>
+<p>nota: Lo que sí que tenemos que tener en cuenta, es que <strong>virt-manager</strong> asume que la conexión a través de <em>SSH</em> se realiza por el <strong>puerto 22</strong>, en mi caso, yo tenía configurada la conexión de <em>SSH</em> (<code>./ssh/config</code>) a mi servidor <em>unRaid</em>:</p>
+</blockquote>
+<pre tabindex="0"><code class="language-ssh" data-lang="ssh">Host unRaid
+    HostName 192.168.1.100
+    User root
+    Port 2222
+</code></pre><p>Solamente nos queda realizar la conexión entre nuestro <em>cliente de Virt-Manager</em> y nuestra VM de <em>unRaid</em> y lo hacemos de la siguiente manera:</p>
+<ul>
+<li>Vamos a <strong>Archivo</strong> → <strong>Añadir conexión</strong></li>
+<li>Seleccionamos el tipo de conexión <code>QEMU/KVM</code></li>
+<li>Seleccionamos <strong>Conexión remota</strong></li>
+<li>En <strong>URI personalizada</strong> introducimos lo siguiente <code>qemu+ssh://unRaid/system</code>.
+<ul>
+<li>Yo pongo <strong>unRaid</strong> porque es como tengo identificada la conexión con el servidor, si vosotros lo tenéis con otro nombre, hay que poner el vuestro.</li>
+</ul>
+</li>
+</ul>
+<h2 id="-flujo-de-trabajo-recomendado">◇ Flujo de trabajo recomendado</h2>
+<p>El procedimiento que tenemos que seguir para crear una VM en <em>unRaid</em> sería el siguiente (hay miles de artículos explicando esto, pero yo lo pongo, porque me sirve como apunte para cuando lo necesite):</p>
+<ul>
+<li>Desde la interfaz web de unRAID:
+<ul>
+<li>
+<p>Crear nueva VM</p>
+</li>
+<li>
+<p>Definir CPU, RAM y disco</p>
+</li>
+<li>
+<p>Elegir BIOS (SeaBIOS / OVMF)</p>
+</li>
+<li>
+<p>Red en modo bridge</p>
+</li>
+<li>
+<p>Gráfica: <strong>SPICE</strong></p>
+</li>
+<li>
+<p>Vídeo: <strong>QXL</strong></p>
+</li>
+<li>
+<p>Audio:</p>
+<ul>
+<li>Windows XP → <code>ac97</code></li>
+<li>Windows 7 → <code>ich9</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>nota: Toda la <strong>definición de hardware</strong> debe hacerse desde <em>unRaid</em>.</p>
+</blockquote>
+<ul>
+<li>Arrancar y usar la VM desde virt-manager
+<ul>
+<li>Conectarse al host unRAID</li>
+<li>Arrancar la VM</li>
+<li>Abrir la consola gráfica</li>
+<li>Instalar y configurar el sistema operativo</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>nota: Virt-Manager actúa únicamente como <em>Pantalla + teclado + ratón remotos</em></p>
+</blockquote>
+<p>A continuación os pongo unos consejos que he ido recogiendo a medida que he ido haciendo pruebas:</p>
+<ul>
+<li><strong>Buenas prácticas</strong>:
+<ul>
+<li>Crear y modificar las VMs desde el servidor <em>unRaid</em>.</li>
+<li>Usar <em>Virt-Manager</em> para el uso diario.</li>
+</ul>
+</li>
+<li><strong>No recomendado</strong>:
+<ul>
+<li>Crear VMs desde <em>Virt-Manager</em> en <em>unRaid</em>.</li>
+<li>Cambiar el hardware de la máquina virtual desde <em>Virt-Manager</em>.</li>
+<li>Editar el fichero <code>XML</code> manualmente.</li>
+</ul>
+</li>
+</ul>
+<p>Como resumen final, se podría decir que:</p>
+<ul>
+<li>Virt-Manager puede usarse como <strong>cliente remoto</strong></li>
+<li>No requiere el stack completo de virtualización local</li>
+<li>unRAID <strong>define y gestiona</strong> las VMs</li>
+<li>Virt-Manager <strong>se conecta y se usa</strong></li>
+<li>Es el método más limpio y estable</li>
+</ul>
+<blockquote>
+<p>nota: <strong>unRAID manda, virt-manager se usa</strong></p>
+</blockquote>
+<p>Con este artículo, doy por finalizados mis artículos con respecto a la instalación, configuración y uso de <strong>QEMU + Virt-Manager</strong> en <strong>Arch Linux</strong>.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

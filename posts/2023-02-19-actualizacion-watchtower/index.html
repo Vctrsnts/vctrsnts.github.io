@@ -1,0 +1,187 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Cambiando watchtower por diun y vuelta a watchtower · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2023-02-19-actualizacion-watchtower/">
+
+
+
+
+
+
+<meta name="description" content="Tal como había indicado en este post, explica cómo empecé usar watchtower pero con resultados muy extraños.
+En principio, parecía que funciona la primera después de indicarle que trabajara en el modo bridge con respecto a la red, o lo que es lo mismo, que se conecte a la red donde están el resto de contenedores.
+Pero después de esa primera vez, no había vuelto a funcionar de ninguna manera.
+Me puse a investigar a ver qué era lo que estaba pasando, porque si revisaba el log de watchtower veía todo el rato que escaneados=0; actualizados=0; fallos=0 o sea, que no encontraba ningún contenedor y eso que estaba en la misma red.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Cambiando watchtower por diun y vuelta a watchtower">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Tal como había indicado en este post, explica cómo empecé usar watchtower pero con resultados muy extraños.
+En principio, parecía que funciona la primera después de indicarle que trabajara en el modo bridge con respecto a la red, o lo que es lo mismo, que se conecte a la red donde están el resto de contenedores.
+Pero después de esa primera vez, no había vuelto a funcionar de ninguna manera.
+Me puse a investigar a ver qué era lo que estaba pasando, porque si revisaba el log de watchtower veía todo el rato que escaneados=0; actualizados=0; fallos=0 o sea, que no encontraba ningún contenedor y eso que estaba en la misma red.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Cambiando watchtower por diun y vuelta a watchtower</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2023-02-19">
+        2023-02-19
+      </time>
+      · 3 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Tal como había indicado en este <a href="/posts/2023-01-25-usando-watchtower">post</a>, explica cómo empecé usar <strong>watchtower</strong> pero con resultados muy extraños.</p>
+<p>En principio, parecía que funciona la primera después de indicarle que trabajara en el <strong>modo bridge</strong> con respecto a la red, o lo que es lo mismo, que se conecte a la red donde están el resto de contenedores.</p>
+<p>Pero después de esa primera vez, no había vuelto a funcionar de ninguna manera.</p>
+<p>Me puse a investigar a ver qué era lo que estaba pasando, porque si revisaba el <code>log</code> de watchtower veía todo el rato que <em>escaneados=0; actualizados=0; fallos=0</em> o sea, que no encontraba ningún contenedor y eso que estaba en la misma red.</p>
+<p>Pregunté en el canal de <strong>atareao.es</strong> a ver si me podían dar alguna pista, pero no sabían de dónde podía venir el problema.</p>
+<p>Al final, cansado, desistí de usarlo porque no conseguía mi propósito y estaba gastando recursos del servidor inútilmente.</p>
+<p>Así mismo, vi, que en <a href="https://hub.docker.com">docker-hub</a> te aconsejaban que mejor que <strong>watchtower</strong> era usar <strong>diun</strong>. Y me puse con ello.</p>
+<p>Después de la configuración y lanzamiento parecía que me encontraba los contenedores y que buscaba (hay que matizar, que <strong>diun</strong> solamente te informa de los contenedores que tendrías que actualizar, no actualiza).</p>
+<p>Todo parecía que iba bien, y lo único que me faltaba era la parte de la notificación. Lo configuré a través de <strong>telegram</strong>, pero sin ningún resultado. Y eso que había encontrado sitios donde te indicaban cómo hacerlo.</p>
+<p>En todos los sitios, te aconsejaban que lo mejor, era tener un fichero dentro del directorio de configuración de <strong>diun</strong> con todas las opciones importates incluido el <em>token</em> y el <em>chat_id</em> de tu canal de telegram. Pero en mi caso, sin ningún resultado.</p>
+<p>Ya no sabía qué hacer, <strong>watchtower</strong> que no me funciona y ahora <strong>diun</strong> tampoco. O soy yo que tengo un problema o mi servidor tiene el problema. Y vuelta a empezar.</p>
+<p>Hasta que he encontrado una pagina <a href="https://www.marcodaleo.com/posts/watchtower-telegram">web</a> con una configuración de <strong>watchtower</strong> que tenía buena pinta y la probé. Qué podía salir mal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">watchtower</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">containrrr/watchtower</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">SERVER_NAME</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">watchtower</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#39;/var/run/docker.sock:/var/run/docker.sock&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">TZ=Europe/Andorra</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">WATCHTOWER_LIFECYCLE_HOOKS=True</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">WATCHTOWER_NOTIFICATIONS=shoutrrr</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">WATCHTOWER_NOTIFICATION_URL=telegram://BOT_TOKEN@telegram/?channels=CHAT_ID</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">WATCHTOWER_DEBUG=true</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">WATCHTOWER_CLEANUP=true</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">WATCHTOWER_SCHEDULE=@daily</span>
+</span></span></code></pre></div><p>Entonces me he llevado una sorpresa, porque todo empezó a funcionar correctamente. Me actualizó todos los contenedores que tenían el <em>label</em> de <strong>watchtower</strong> activado.</p>
+<p>Volvemos a estar como en el principio, parece que todo funciona correctamente, pero esta vez, tiene mejor pinta.</p>
+<p>Como siempre, seguiremos investigando a ver si esta vez es la definitiva.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.marcodaleo.com/posts/watchtower-telegram">Watchtower and Telegram notifications</a></li>
+<li><a href="https://razinj.dev/docker-images-and-containers-update-notifications">Get Docker Images and Containers Updates Notifications</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>De i3WM ( X11 ) a Sway ( Wayland ) - 1 · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-09-15-i3wm-sway-1/">
+
+
+
+
+
+
+<meta name="description" content="Como podéis leer en este artículo, tenía ya a mi disposición un substituto en caso de fallo grave de mi portátil que venía usando hasta ahora. Y eso es lo que ha pasado. El pobre ha pasado a mejor vida.
+Como dice el refrán &amp;amp;ldquo;el rey ha muerto, viva el rey&amp;amp;rdquo; y esto es que el que estaba en el banquillo, ya puede salir a jugar 😂.
+Tengo pensado hacer una serie de 3 artículos que serán los siguientes (incluyendo este):
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="De i3WM ( X11 ) a Sway ( Wayland ) - 1">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Como podéis leer en este artículo, tenía ya a mi disposición un substituto en caso de fallo grave de mi portátil que venía usando hasta ahora. Y eso es lo que ha pasado. El pobre ha pasado a mejor vida.
+Como dice el refrán &amp;amp;ldquo;el rey ha muerto, viva el rey&amp;amp;rdquo; y esto es que el que estaba en el banquillo, ya puede salir a jugar 😂.
+Tengo pensado hacer una serie de 3 artículos que serán los siguientes (incluyendo este):
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">De i3WM ( X11 ) a Sway ( Wayland ) - 1</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2025-09-12">
+        2025-09-12
+      </time>
+      · 6 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/sway/">
+            #Sway
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Como podéis leer en este <a href="/posts/2023-09-11-substitutos-portatil">artículo</a>, tenía ya a mi disposición un substituto en caso de fallo grave de mi portátil que venía usando hasta ahora. Y eso es lo que ha pasado. El pobre ha pasado a mejor vida.</p>
+<p>Como dice el refrán &ldquo;<em>el rey ha muerto, viva el rey</em>&rdquo; y esto es que el que estaba en el banquillo, ya puede salir a jugar 😂.</p>
+<p>Tengo pensado hacer una serie de 3 artículos que serán los siguientes (incluyendo este):</p>
+<ul>
+<li><a href="/posts/2025-09-15-i3wm-sway-1">De i3WM (X11) a Sway (Wayland) - 1</a></li>
+<li><a href="/posts/2025-10-05-i3wm-sway-2">De i3WM (X11) a Sway (Wayland) - 2</a></li>
+<li><a href="/posts/2025-10-15-i3wm-sway-3">De i3WM (X11) a Sway (Wayland) - 3</a></li>
+</ul>
+<p>Donde explicaré todo el proceso de instalación, configuración y refinamiento hasta llegar a donde me encuentro ahora y que seguramente no será el final, siempre puedes encontrar nuevas ideas para mejorar tu configuración.</p>
+<blockquote>
+<p>nota: La red es vasta e infinita - Motoko Kusanagi</p>
+</blockquote>
+<h2 id="-introducción">◇ Introducción</h2>
+<p>El porqué de este cambio, es al 100% por fallos severos en el hardware. El teclado, USB, batería, estaban fallando. O sea un fallo a gran escala, además del espacio que ocupaba que eso también era un handicap.</p>
+<p>Pero lo que tenía claro es que para hacer el cambio tenía que seguir un par de pautas que eran inamovibles:</p>
+<ul>
+<li>Seguir usando <em>Debian GNU/Linux unstable</em>.</li>
+<li>Seguir usando <em>I3wm</em></li>
+<li>A ser posible cambiar a <em>Wayland</em> para ir empezando a utilizar, lo que teóricamente será el futuro.</li>
+</ul>
+<p>Partiendo de estas premisas y si quería conseguirlas, tenía un problema que <em>I3wm</em> no está pensado para funcionar en <em>Wayland</em>, si quería dar el salto, tenía que buscar una alternativa y esta me la dio, en primera instancia, como no puede ser otro <strong>@atareao</strong> con sus diversos <a href="https://atareao.es/?s=sway">artículos</a> hablando de <strong>sway</strong> y sus bondades (que no han tenido que ser muchas porque rápidamente lo abandonó 😇 ) y dio el salto a otros <em>tiling</em>. Pero como bien dice él, para gustos, colores&hellip;</p>
+<p>Pues ya teníamos una cosa más de la lista solucionada. Teníamos <em>Debian</em>, teníamos al substituto de <em>I3wm</em> y teníamos a <em>Wayland</em>, pues ya lo teníamos todo, solo me faltaba instalarlo. Pero esta vez, no quería dar un salto de fe, como hice con <em>I3wm</em> en su momento y quería tenerlo todo bien preparado y que el cambio no fuera tan traumático como lo fue con el anterior cambio.</p>
+<p>Así que me puse a buscar información del funcionamiento de <em>sway</em> y las opiniones que tenía la gente al respecto, y así mirando, me encontré con un youtuber, que estoy empezando a seguir donde en uno de sus <a href="https://www.youtube.com/watch?v=sKOWqAm70jc">vídeos</a>, explicaba, que había creado un <code>script</code> para la completa instalación y configuración de <em>sway</em>. Y como tenía un portátil libre (<strong>T480</strong>), pues me decidí a probarlo. Y qué queréis que os diga, me gustó cómo se desenvolvía tanto el script como sway. Pero claro, todo estaba configurado al gusto de <strong>@JustAGuy Linux</strong>. Aquí pensé, si él puede hacerse un <code>script</code> para instalar sway, porque no lo puedo hacer yo y todo configurado a mi gusto. Pues me lié la manta a la cabeza y me puse a hacer mi propio script de instalación de sway, pero eso sí, adaptado a mis necesidades y sobre todo con la ayuda de <strong>Copilot</strong>.</p>
+<p>Dentro de estas necesidades, que seguramente alguna ya sabréis cuál es:</p>
+<ul>
+<li>Instalación base de <em>Debian GNU/Linux unstable</em>.</li>
+<li>Instalación de <em>Wayland</em>.</li>
+<li>Instalación de <em>sway</em>.</li>
+<li>Configuración de <em>sway</em> siguiendo los temas que me gustan (Nordic, Nord), o sea, temas oscuros.</li>
+</ul>
+<h2 id="-el-script-de-preparación">◇ El script de preparación</h2>
+<p>Como ya he comentado, a partir de la idea que había visto en el vídeo de <strong>@JustAGuy Linux</strong>, creé mi propio script para la instalación y configuración de <strong>sway</strong>. Este procedimiento, está dividido en <code>3 script</code>, donde cada uno se encarga de una parte del proceso:</p>
+<h3 id="00-preparaciosh">00-preparacio.sh</h3>
+<p>Este es el que se encarga desde una instalación básica de <em>Debian GNU/Linux testing</em>, eliminar los paquetes que no son necesarios, procedimiento que siempre sigo después de cada instalación personal de Debian, y luego, salto a la rama <strong>unstable</strong> (que vengo usando desde hace unos 20 años sin ningún problema).</p>
+<p>Os voy a poner las partes más importantes del script para que veáis un poco cómo va. Si queréis el script al completo o el procedimiento de instalación, lo podéis encontrar <a href="https://github.com/Vctrsnts/debian-installer-sway">aquí</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1. Desactivar la instalacion de paquetes sugeridos y recomendados</span>
+</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Configurando APT para evitar la instalacion de paquetes recomendados y sugeridos...&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;APT::Install-Recommends &#34;false&#34;;&#39;</span> | sudo tee /etc/apt/apt.conf.d/99-no-recommends.conf
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;APT::Install-Suggests &#34;false&#34;;&#39;</span> | sudo tee -a /etc/apt/apt.conf.d/99-no-recommends.conf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2. Instalar localepurge (es un paquete que considero basico en cualquier instalación de Debian GNU/Linux)</span>
+</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Instalando localepurge para limpiar idiomas no deseados...&#34;</span>
+</span></span><span style="display:flex;"><span>sudo apt install -y localepurge
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 3. Preguntar por la version de Debian actual y modificar sources.list</span>
+</span></span><span style="display:flex;"><span>read -p <span style="color:#e6db74">&#34;Por favor, introduce el nombre de la version actual de Debian (ej. &#39;forky&#39;): &#34;</span> current_version
+</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Modificando /etc/apt/sources.list para apuntar a &#39;testing&#39;...&#34;</span>
+</span></span><span style="display:flex;"><span>sudo sed -i <span style="color:#e6db74">&#34;s/</span>$current_version<span style="color:#e6db74">/testing/g&#34;</span> /etc/apt/sources.list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Actualizando e instalando paquetes del repositorio &#39;testing&#39;...&#34;</span>
+</span></span><span style="display:flex;"><span>sudo apt -y update <span style="color:#f92672">&amp;&amp;</span> sudo apt -y upgrade
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 4. Modificar sources.list para usar &#39;unstable&#39; (sid) y actualizar</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Reemplaza &#39;testing&#39; por &#39;unstable&#39;.</span>
+</span></span><span style="display:flex;"><span>sudo sed -i <span style="color:#e6db74">&#39;s/testing/unstable/g&#39;</span> /etc/apt/sources.list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Actualizando e instalando paquetes del repositorio &#39;unstable&#39; (full-upgrade)...&#34;</span>
+</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;¡ADVERTENCIA! El siguiente paso podría eliminar paquetes. Revisa la salida de la consola cuidadosamente antes de confirmar.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Nota: Se ha quitado el flag -y para que el usuario pueda revisar los cambios.</span>
+</span></span><span style="display:flex;"><span>sudo apt -y update <span style="color:#f92672">&amp;&amp;</span> sudo apt -y full-upgrade
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Eliminamos paquetes conocidos, en mi caso, son estos</span>
+</span></span><span style="display:flex;"><span>pkgs<span style="color:#f92672">=(</span>
+</span></span><span style="display:flex;"><span>  bluez bluetooth debian-faq debian-reference-common 
+</span></span><span style="display:flex;"><span>  debian-reference-es doc-debian manpages manpages-es nano 
+</span></span><span style="display:flex;"><span>  emacsen-common aspell aspell-es dictionaries-common 
+</span></span><span style="display:flex;"><span>  ispanish ispell wspanish task-spanish laptop-detect
+</span></span><span style="display:flex;"><span>  apt-listchanges reportbug python3-reportbug
+</span></span><span style="display:flex;"><span>  python3-apt distro-info-data iso-codes libpython3.13-minimal
+</span></span><span style="display:flex;"><span>  python3-requests python3-debian python3-charset-normalizer 
+</span></span><span style="display:flex;"><span>  python3-urllib3 python3-idna lsb-release python-apt-common
+</span></span><span style="display:flex;"><span>  python3-certifi python3-chardet python3-debconf 
+</span></span><span style="display:flex;"><span>  python3-debianbts python3 libpython3-stdlib python3.13
+</span></span><span style="display:flex;"><span>  libpython3.13-stdlib python3-minimal python3.13-minimal
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sudo apt purge -y <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>pkgs[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> sudo apt -y autoremove
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># =========================================================================</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Descargamos el ZIP con el resto de archivos / configuraciones necesarias</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># =========================================================================</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Nombre del repositorio en formato usuario/repositorio</span>
+</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Iniciem la descarrega dels script&#34;</span>
+</span></span><span style="display:flex;"><span>REPO<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Vctrsnts/debian-installer-sway&#34;</span>
+</span></span><span style="display:flex;"><span>ZIP_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;debian-installer-sway.zip&#34;</span>
+</span></span><span style="display:flex;"><span>TARGET_FOLDER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;debian-installer-sway&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Descargar el ZIP con nombre personalizado</span>
+</span></span><span style="display:flex;"><span>wget -O <span style="color:#e6db74">&#34;</span>$ZIP_FILE<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$ZIP_URL<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Se ejecuta la actualización del funcionamiento de los sources&#34;</span>
+</span></span><span style="display:flex;"><span>sudo apt -y modernize-sources
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Eliminamos aplicacion aptitude&#34;</span>
+</span></span><span style="display:flex;"><span>sudo apt purge -y aptitude w3m task-laptop task-spanish <span style="color:#f92672">&amp;&amp;</span> sudo apt -y autoremove
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Instalem aplicacions wireless&#34;</span>
+</span></span><span style="display:flex;"><span>sudo apt install -y iw wireless-tools wpasupplicant wireless-regdb
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exit <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>Una vez finaliza este primer script, nos ha dejado el fichero <em>zip</em> donde está el resto de scripts para seguir. Únicamente, nosotros tenemos que hacer un simple <code>unzip debian-installer-sway.zip</code> y listo.</p>
+<p>Aquí lo dejamos para un siguiente artículo, porque si no, se puede extender mucho y hacerse pesado.</p>
+<p>Hasta la próxima, donde explicaré la instalación de <strong>Wayland</strong> junto con <strong>Sway</strong> y todos los paquetes que he instalado para mis necesidades.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://swaywm.org">Sway</a></li>
+<li><a href="https://www.youtube.com/watch?v=sKOWqAm70jc">Sway Installation - New Script</a></li>
+<li><a href="https://www.youtube.com/watch?v=XUdu3xx6iWs">Build a Minimalist Linux Desktop with SwayWM – Part 1</a></li>
+<li><a href="https://www.youtube.com/watch?v=egh43A8Tlh8">Build a Minimalist Linux Desktop with SwayWM – Part 2</a></li>
+<li><a href="https://www.youtube.com/watch?v=zzPJCMl11k4">Build a Minimalist Linux Desktop with SwayWM – Part 3</a></li>
+<li><a href="https://www.youtube.com/watch?v=jFz5gLqv-FM">Linux &amp; Theming - The Ultimate Guide</a></li>
+<li><a href="https://www.youtube.com/watch?v=e7bezUA6G4g">How I Set Up My Sway Window Manager on Debian 12</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

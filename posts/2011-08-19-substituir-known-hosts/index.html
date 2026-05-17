@@ -1,0 +1,177 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Sustituir una clave antigua de known_hosts · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2011-08-19-substituir-known-hosts/">
+
+
+
+
+
+
+<meta name="description" content="Es posible que más de una vez nos hayamos encontrado con un mensaje donde nuestro sistema nos indica que la clave pública de nuestro servidor, o del servidor al que nos queremos conectar ha cambiado o a otras posibilidades que ya indicaremos más adelante.
+usuari@debian:~$ ssh servidor-ssh @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @ WARNING: REMOTE @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY! Someone could be eavesdropping on you right now (man-in-the-middle attack)! It is also possible that the RSA host key has just been changed. The fingerprint for the RSA key sent by the remote host is 00:ff:00:ff:00:ff:00:ff:00:ff:00:ff:00:ff:00:ff. Please contact your system administrator. Add correct host key in /home/usuario/.ssh/known_hosts to get rid of this message. Offending key in /home/usuario/.ssh/known_hosts:8 RSA host key for localhost has changed and you have requested strict checking. Host key verification failed. Este error se produce debido a que ha fallado la autenticación de la clave pública ssh del servidor. Esto podría ser debido a:
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Sustituir una clave antigua de known_hosts">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Es posible que más de una vez nos hayamos encontrado con un mensaje donde nuestro sistema nos indica que la clave pública de nuestro servidor, o del servidor al que nos queremos conectar ha cambiado o a otras posibilidades que ya indicaremos más adelante.
+usuari@debian:~$ ssh servidor-ssh @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @ WARNING: REMOTE @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY! Someone could be eavesdropping on you right now (man-in-the-middle attack)! It is also possible that the RSA host key has just been changed. The fingerprint for the RSA key sent by the remote host is 00:ff:00:ff:00:ff:00:ff:00:ff:00:ff:00:ff:00:ff. Please contact your system administrator. Add correct host key in /home/usuario/.ssh/known_hosts to get rid of this message. Offending key in /home/usuario/.ssh/known_hosts:8 RSA host key for localhost has changed and you have requested strict checking. Host key verification failed. Este error se produce debido a que ha fallado la autenticación de la clave pública ssh del servidor. Esto podría ser debido a:
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Sustituir una clave antigua de known_hosts</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2011-08-19">
+        2011-08-19
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+          <a href="/tags/ssh/">
+            #SSH
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Es posible que más de una vez nos hayamos encontrado con un mensaje donde nuestro sistema nos indica que la clave pública de nuestro servidor, o del servidor al que nos queremos conectar ha cambiado o a otras posibilidades que ya indicaremos más adelante.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ ssh servidor-ssh
+</span></span><span style="display:flex;"><span>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+</span></span><span style="display:flex;"><span>@ WARNING: REMOTE 
+</span></span><span style="display:flex;"><span>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+</span></span><span style="display:flex;"><span>IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+</span></span><span style="display:flex;"><span>Someone could be eavesdropping on you right now <span style="color:#f92672">(</span>man-in-the-middle attack<span style="color:#f92672">)</span>!
+</span></span><span style="display:flex;"><span>It is also possible that the RSA host key has just been changed.
+</span></span><span style="display:flex;"><span>The fingerprint <span style="color:#66d9ef">for</span> the RSA key sent by the remote host is
+</span></span><span style="display:flex;"><span>00:ff:00:ff:00:ff:00:ff:00:ff:00:ff:00:ff:00:ff.
+</span></span><span style="display:flex;"><span>Please contact your system administrator.
+</span></span><span style="display:flex;"><span>Add correct host key in /home/usuario/.ssh/known_hosts to get rid of this message.
+</span></span><span style="display:flex;"><span>Offending key in /home/usuario/.ssh/known_hosts:8
+</span></span><span style="display:flex;"><span>RSA host key <span style="color:#66d9ef">for</span> localhost has changed and you have requested strict checking.
+</span></span><span style="display:flex;"><span>Host key verification failed.
+</span></span></code></pre></div><p>Este error se produce debido a que ha fallado la autenticación de la clave pública ssh del servidor. Esto podría ser debido a:</p>
+<ul>
+<li>Un intento de ataque <em>man in the middle</em>.</li>
+<li>Reinstalación del sistema donde se está ejecutando <code>SSH</code> y no nos hemos acordado de hacer una copia de su clave.</li>
+</ul>
+<p>Esto provoca que por seguridad, en clientes configurados con la opción <code>StrictHostKeyChecking=yes</code> no te permita conectar al servidor.</p>
+<p>Una manera rápida de solucionar esto sería conectar forzando ignorar este aviso:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ ssh -o <span style="color:#e6db74">&#34;StrictHostKeyChecking=yes&#34;</span> servidor-ssh
+</span></span></code></pre></div><p>Por supuesto, esta no es la manera más adecuada de hacerlo, primero, porque si lo hacemos sin ninguna comprobación podríamos ser víctimas de ataque que hablábamos antes, y segundo, porque el aviso no desaparecerá en futuras conexiones.</p>
+<p>Si efectivamente verificamos que se trata de una simple cambio de IP, DNS o reinstalación de sistema (comprobando que el nuevo fingerprint coincide con el del servidor), tenemos que borrar la clave vieja.</p>
+<p>Antiguamente, podíamos editar el archivo <code>~/.ssh/known_hosts</code> directamente, pero actualmente los nombres de los hosts en este archivo están <em>ocultos</em> mediante HMAC. Es por ello que para borrar dicha clave tendremos que ejecutar:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ ssh-keygen -R servidor-ssh
+</span></span></code></pre></div><p>La próxima vez que conectemos, el cliente ssh preguntará si deseamos conectar y guardar la nueva clave.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

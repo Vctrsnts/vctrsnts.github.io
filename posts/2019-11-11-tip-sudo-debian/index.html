@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>TIP sobre SUDO en GNU/Linux · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2019-11-11-tip-sudo-debian/">
+
+
+
+
+
+
+<meta name="description" content="Después de mucho tiempo, pongo un TIP para que no se me olvide en caso de necesitarlo.
+A lo mejor pongo más de uno, porque después me cuesta mucho buscarlos de nuevo. Así que aquí va el primero.
+Para instalar y configurar sudo, los pasos (los que yo utilizo) son los siguientes:
+root@debian:~# apt-get install sudo Una vez se ha instalado, ejecutamos: visudo
+Esta instrucción se usa, para que en caso de trabajar con este fichero más de una persona, no se pierda la información de las modificaciones que va haciendo cada usuario, por eso es recomendable, aunque también se puede hacer editando el fichero:
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="TIP sobre SUDO en GNU/Linux">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Después de mucho tiempo, pongo un TIP para que no se me olvide en caso de necesitarlo.
+A lo mejor pongo más de uno, porque después me cuesta mucho buscarlos de nuevo. Así que aquí va el primero.
+Para instalar y configurar sudo, los pasos (los que yo utilizo) son los siguientes:
+root@debian:~# apt-get install sudo Una vez se ha instalado, ejecutamos: visudo
+Esta instrucción se usa, para que en caso de trabajar con este fichero más de una persona, no se pierda la información de las modificaciones que va haciendo cada usuario, por eso es recomendable, aunque también se puede hacer editando el fichero:
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">TIP sobre SUDO en GNU/Linux</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2019-11-11">
+        2019-11-11
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Después de mucho tiempo, pongo un <strong>TIP</strong> para que no se me olvide en caso de necesitarlo.</p>
+<p>A lo mejor pongo más de uno, porque después me cuesta mucho buscarlos de nuevo. Así que aquí va el primero.</p>
+<p>Para instalar y configurar sudo, los pasos (los que yo utilizo) son los siguientes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@debian:~# apt-get install sudo
+</span></span></code></pre></div><p>Una vez se ha instalado, ejecutamos: <code>visudo</code></p>
+<p>Esta instrucción se usa, para que en caso de trabajar con este fichero más de una persona, no se pierda la información de las modificaciones que va haciendo cada usuario, por eso es recomendable, aunque también se puede hacer editando el fichero:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@debian:~#vi /etc/sudoers
+</span></span></code></pre></div><p>La definición de este fichero es la siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nombre_usuario nombre_equipo <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>usuario:grupo<span style="color:#f92672">)</span> comando_restringir
+</span></span></code></pre></div><ul>
+<li>
+<p>En este caso, vamos a dar permisos a un usuario en concreto: <code>tu_usuario ALL=(ALL:ALL) ALL</code></p>
+<ul>
+<li>Lo que hace es que al usuario <code>tu_usuario</code> le damos permiso para que en cualquier equipo pueda ejecutar cualquier comando en nombre de cualquier usuario y grupo.</li>
+</ul>
+</li>
+<li>
+<p>Dar permisos de root a un usuario: <code>tu_usuario tu_maquina=(root:root) ALL</code></p>
+<ul>
+<li>Lo que hacemos es dar permisos a <code>tu_usuario</code> en <code>tu_maquina</code> para ejecutar cualquier comando en nombre de <code>root</code>.</li>
+<li>La diferencia con la instrucción de antes, es que en este caso, solo lo podrá hacer en la máquina <code>tu_maquina</code> y solo lo podrá hacer en nombre del usuario <code>root</code>.</li>
+</ul>
+</li>
+<li>
+<p>Desactivar usuario root:</p>
+<ul>
+<li>Una vez tenemos configurado sudo a nuestro gusto, en mi caso, he desactivado el acceso al usuario <code>root</code> de la siguiente manera:</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>nota: Antes de seguir adelante, se tiene que estar seguro de que toda la configuración de sudo está correctamente, porque entonces no podremos volver atrás y podríamos tener graves problemas.</p>
+</blockquote>
+<p>Para bloquear al usuario root ejecutamos la siguiente instrucción:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ sudo usermod --lock --expiredate 1979-01-01 root
+</span></span></code></pre></div><p>Una vez ejecutado este comando, el usuario <code>root</code> queda desactivado y todas las instrucciones se realizan a través de sudo.</p>
+<p>En el caso de querer reactivar al usuario <code>root</code>, tan solo tendríamos que ejecutar el siguiente comando:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ sudo usermod --unlock --expiredate <span style="color:#ae81ff">99999</span> root
+</span></span></code></pre></div><p>El primer TIP ya está listo.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://geekland.eu/configurar-sudo-en-linux">Configurar SUDO</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

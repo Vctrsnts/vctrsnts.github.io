@@ -1,0 +1,192 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Descargar Podcast a través de Flexget · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2021-05-30-flexget-podcast/">
+
+
+
+
+
+
+<meta name="description" content="Gracias que tengo docker puedo usar la imagen que he creado de Flexget, una aplicación que a través de un fichero yaml, permite descargar lo que quieras incluidos podcast.
+En principio me gustan los que tengas que ver con la tecnología y sobre todo lo que tenga que ver con GNU/Linux. Pero a parte de estos también tengo un podcast de historia que me encanta mucho y cuando me acuerdo lo escucho. Este podcast se llama En Guàrdia.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Descargar Podcast a través de Flexget">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Gracias que tengo docker puedo usar la imagen que he creado de Flexget, una aplicación que a través de un fichero yaml, permite descargar lo que quieras incluidos podcast.
+En principio me gustan los que tengas que ver con la tecnología y sobre todo lo que tenga que ver con GNU/Linux. Pero a parte de estos también tengo un podcast de historia que me encanta mucho y cuando me acuerdo lo escucho. Este podcast se llama En Guàrdia.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Descargar Podcast a través de Flexget</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2021-05-30">
+        2021-05-30
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Gracias que tengo docker puedo usar la imagen que he creado de <a href="https://flexget.com">Flexget</a>, una aplicación que a través de un fichero <strong>yaml</strong>, permite descargar lo que quieras incluidos podcast.</p>
+<p>En principio me gustan los que tengas que ver con la tecnología y sobre todo lo que tenga que ver con GNU/Linux. Pero a parte de estos también tengo un podcast de historia que me encanta mucho y cuando me acuerdo lo escucho. Este podcast se llama <a href="https://www.ccma.cat/catradio/en-guardia">En Guàrdia</a>.</p>
+<p>Buscando información al final conseguí averiguar que a través de <strong>Flexget</strong> se pueden descargar Podcast así que me puse a ello y gracias a un script para dicho propósito ya puedo descargar los podcast de este programa sin preocuparme.</p>
+<p>Este script está compuesto por 2 secciones. Estas secciones son el <strong>template</strong>, que consiste en una plantilla con los filtros que se tiene que tener en cuenta a la hora de descargar los podcast.</p>
+<p>Una vez definido el <strong>template</strong>, pasamos a definir la tarea <strong>task</strong> donde en base al <strong>template</strong> se encargará de descargar los podcast.</p>
+<p>La primera parte del script <strong>template</strong> está compuesto por los siguientes filtros (en mi caso):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">templates</span>:
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">podcast</span>:
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">accept_all</span>: <span style="color:#66d9ef">yes</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e"># PER A QUE SOLAMENT DESCARREGUI ELS 5 ULTIMS PODCAST</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">limit_new</span>: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e"># COM VOLEN QUE ES DIGUI EL FITXER DESCARREGAT</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e"># ABANS I DESPRÉS DE LA CONFIGURACIÓ DEL NOM PORTA DOBLES COMETES</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">set</span>:
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">filename</span>: <span style="color:#75715e"># NOM AMB QUE ES DESCARREGARA EL FITXER MP3</span>
+</span></span></code></pre></div><p>Ahora vamos a poner el script que se encarga de descargar (en base al <strong>template</strong>) los podcast:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DESCARREGA DE PODCAST</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">tasks</span>:
+</span></span><span style="display:flex;"><span> <span style="color:#75715e"># PODCAST EN GUARDIA</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">podCastEnGuardia</span>:
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">template</span>: <span style="color:#ae81ff">podcast</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e"># RSS (XML) del programa</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">rss</span>: <span style="color:#ae81ff">https://dinamics.ccma.cat/public/podcast/catradio/xml/4/4/podprograma944.xml</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e"># DIRECTORI DE DESCARREGA</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">download</span>: <span style="color:#ae81ff">/media/podcast</span>
+</span></span></code></pre></div><p>Por último podríamos poner el <strong>calendario</strong> de ejecución de este script, en mi caso, le indico que todas las tareas <strong>tasks</strong> que empiezen por <strong>podCast</strong> se ejecuten una vez al día:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># CALENDARI EXECUCIÓ DE LES TASQUES</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">schedules</span>:
+</span></span><span style="display:flex;"><span> <span style="color:#75715e"># DESCARREGA PODCAST</span>
+</span></span><span style="display:flex;"><span> - <span style="color:#f92672">tasks</span>: [<span style="color:#e6db74">&#39;podCast*&#39;</span>]
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">interval</span>:
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">days</span>: <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>Este script tiene que estar en el fichero <code>config.yml</code> de flexget. Lo que se puede hacer antes, es probar que todo funciona correctamente a través de la instrucción (dentro de docker):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ flexget --test execute --task podCastEnGuardia --dump
+</span></span></code></pre></div><p>Ahora solamente nos queda disfrutar.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://flexget.com">Flexget</a></li>
+<li><a href="https://forums.unraid.net/topic/46910-simple-podcast-downloader-script/">Script para descargar podcast con flexget</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

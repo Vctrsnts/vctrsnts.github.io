@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Matrix - 1. Instalación y configuración · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-03-25-instal-config-matrix/">
+
+
+
+
+
+
+<meta name="description" content="A partir de unos artículos de Lorenzo y de uGeek (podéis encontrar más información en la referencia), me picó la curiosidad sobre cómo sería tener mi propio servidor de mensajería y poderlo utilizar para enviar las notificaciones de mis servicios y así no depender tanto de Telegram.
+De ahí viene este nuevo artículo, donde explicaré todo el proceso de instalación y uso de mi nuevo servidor Matrix en mi VPS y os aviso que no ha sido nada sencillo.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Matrix - 1. Instalación y configuración">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="A partir de unos artículos de Lorenzo y de uGeek (podéis encontrar más información en la referencia), me picó la curiosidad sobre cómo sería tener mi propio servidor de mensajería y poderlo utilizar para enviar las notificaciones de mis servicios y así no depender tanto de Telegram.
+De ahí viene este nuevo artículo, donde explicaré todo el proceso de instalación y uso de mi nuevo servidor Matrix en mi VPS y os aviso que no ha sido nada sencillo.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Matrix - 1. Instalación y configuración</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2025-03-25">
+        2025-03-25
+      </time>
+      · 9 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/vps/">
+            #VPS
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+          <a href="/tags/matrix/">
+            #Matrix
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>A partir de unos artículos de <a href="https://atareao.es/?s=matrix">Lorenzo</a> y de <a href="https://ugeek.github.io">uGeek</a> (podéis encontrar más información en la referencia), me picó la curiosidad sobre cómo sería tener mi propio servidor de mensajería y poderlo utilizar para enviar las notificaciones de mis servicios y así no depender tanto de <em>Telegram</em>.</p>
+<p>De ahí viene este nuevo artículo, donde explicaré todo el proceso de instalación y uso de mi nuevo servidor <strong>Matrix</strong> en mi VPS y os aviso que no ha sido nada sencillo.</p>
+<blockquote>
+<p>nota: Pero antes, tengo que tirarle un poco de las orejas a <strong>Lorenzo</strong>, porque la información que tiene puesta en su <strong>página web</strong> o en su repositorio de <strong>GitHub</strong> es muy floja con respecto a la instalación y configuración de todo lo que se necesita para su correcto uso, y eso me ha lastrado mucho a la hora de realizar toda la instalación y configuración.
+Porque cuando tienes algo por donde empezar, todo se hace más fácil y no como esta vez que ha sido como tirarte a la piscina sin saber nadar y sin flotador. Que sí, he aprendido mucho, pero no es lo más recomendable.
+Que conste que no es ninguna recriminación hacia <strong>Lorenzo</strong>, porque seguro que tendrá algún motivo para no haberlo subido a su repositorio, pero es que ha sido como un dolor de muelas todo el proceso. 😭</p>
+</blockquote>
+<p>Después del tirón de orejas, viene lo bueno, la explicación de todo lo necesario para tener un servidor de <strong>Matrix</strong> en marcha y a pleno rendimiento, aunque aún le faltan algunas cosas que explicaré en próximos artículos.</p>
+<p>Lo primero es decidir qué servidor de <em>Matrix</em> utilizar. Como he dicho, <strong>uGeek</strong> y <strong>Lorenzo</strong> usan 2 muy diferentes entre ellos, te recomiendo que leas los artículos que hablan de ello porque son muy interesantes, y estos servidores son:</p>
+<ul>
+<li><em>uGeek</em>: <a href="https://github.com/matrix-org/synapse">Synapse</a></li>
+<li><em>Lorenzo</em>: <a href="https://conduit.rs">Conduit</a></li>
+</ul>
+<p>En principio, el que recomienda <strong>Matrix</strong> es que se use <em>Synapse</em>, pero es un poco pesado de usar para las cosas que, en mi caso quiero hacer, que son básicamente:</p>
+<ul>
+<li>Un solo usuario 😁</li>
+<li>Solo enviará notificaciones de los servicios que tengo activos tanto en mi servidor doméstico como de mi VPS.</li>
+<li>El volumen de notificaciones que tendrá que enviar es muy bajo.</li>
+</ul>
+<p>En este caso, para este tipo de uso, según lo que he podido leer, y <strong>atareao</strong> pone mucho énfasis en este punto, el mejor es <strong>Conduit</strong> por los pocos recursos que necesita así como los que consume.</p>
+<p>Así que en primera instancia me fui a por la instalación de <strong>Conduit</strong> como servidor de <strong>Matrix</strong> y como he dicho, <strong>Lorenzo</strong> no lo ha puesto nada fácil, porque no había subido a su repositorio, como siempre hace, el <code>docker-compose</code> para la instalación, y ha sido una tarea ardua y nada sencilla.</p>
+<p>Eso sí, lo cortés no quita lo valiente, y tengo que decir que <em>Lorenzo</em> sí que puso el <code>docker-compose</code> en este <a href="https://atareao.es/podcast/crear-bots-en-matrix">artículo</a>, para instalar el servidor de <em>Matrix</em> y el cliente <em>Cinny</em>, pero no de la manera que nos tiene acostumbrados.</p>
+<blockquote>
+<p>nota: Opinión personal: Con respecto a los artículos y más concretamente los vídeos de <em>Lorenzo</em>, antes sí explicaba todo el proceso de instalación, <em>en plan rápido y explicaba un poco por encima lo que hace cada cosa</em>, pero ya era algo por donde empezar, ahora en los nuevos vídeos esto no lo hace y se hace un poco más difícil ver y entender todo el conjunto. Que sí, de esta manera aprendes más, pero el inicio es más cuesta arriba.</p>
+</blockquote>
+<p>Pues como iba diciendo, tenía un <code>docker-compose.yml</code> por el que empezar a trastear y en mi caso quedó de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span> <span style="color:#f92672">cinny</span>:
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">image</span>: <span style="color:#ae81ff">ajbura/cinny:latest</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">init</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">matrixCinny</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">internal</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>     <span style="color:#75715e"># Es el GitHub de Cinny, podéis encontrar un config.json para comenzar</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">${HOME}/config/matrix/cinny/config.json:/app/config.json</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.enable=true</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.services.cinny.loadbalancer.server.port=80</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.cinny-secure.entrypoints=websecure</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.cinny-secure.rule=Host(`${CINNY_SERVER}`)</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.cinny-secure.tls=true</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#75715e"># En este caso, encontré falta de información respecto a lo que hacen exactamente estos 2 middlewares.</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#75715e"># Más o menos ahora tengo claro qué hacen, pero...</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.cinny-secure.middlewares=traefik-real-ip@file,http2https@file</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.cinny-secure.tls.certresolver=letsencrypt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">conduit</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">matrixconduit/matrix-conduit:latest</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">matrixConduit</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">init</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">${HOME}/config/matrix/db:/var/lib/matrix-conduit/</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">${HOME}/config/matrix/conduit.toml:/conduit.toml</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">CONDUIT_CONFIG</span>: <span style="color:#ae81ff">/conduit.toml</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">RUST_BACKTRACE</span>: <span style="color:#ae81ff">full</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">internal</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.enable=true</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.services.conduit.loadbalancer.server.port=6167</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.routers.conduit-secure.entrypoints=websecure</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.routers.conduit-secure.rule=Host(`${MATRIX_SERVER}`)</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.routers.conduit-secure.tls=true</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.routers.conduit-secure.tls.certresolver=letsencrypt</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.routers.conduit-secure.middlewares=cors-headers@docker</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.middlewares.cors-headers.headers.accessControlAllowOriginList=*</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.middlewares.cors-headers.headers.accessControlAllowHeaders=Origin, X-Requested-With, Content-Type, Accept, Authorization</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.middlewares.cors-headers.headers.accessControlAllowMethods=GET, POST, PUT, DELETE, OPTIONS</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">well-known</span>:
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nginx:latest</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">matrixNginx</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">internal</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">${HOME}/config/matrix/nginx/matrix.conf:/etc/nginx/conf.d/matrix.conf</span> <span style="color:#75715e"># the config to serve the .well-known/matrix files</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">${HOME}/config/matrix/nginx/www:/var/www/</span> <span style="color:#75715e"># location of the client and server .well-known-files</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.enable=true</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.to-matrix-wellknown.rule=Host(`${MATRIX_SERVER}`) &amp;&amp; PathPrefix(`/.well-known/matrix`)</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.to-matrix-wellknown.tls=true</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.to-matrix-wellknown.tls.certresolver=letsencrypt</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.to-matrix-wellknown.middlewares=cors-headers@docker</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.middlewares.cors-headers.headers.accessControlAllowOriginList=*</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.middlewares.cors-headers.headers.accessControlAllowHeaders=Origin, X-Requested-With, Content-Type, Accept, Authorization</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.middlewares.cors-headers.headers.accessControlAllowMethods=GET, POST, PUT, DELETE, OPTIONS</span>
+</span></span></code></pre></div><p>Esto es el <code>docker-compose.yml</code> como ya he dicho, para <em>Cinny</em>, <em>Conduit</em> y <em>WellKnown</em> (Nginx), este último, por lo que he ido leyendo, entiendo que se usa más para todas las funcionalidades de cuando tu servidor de <em>Matrix</em> está federado con el resto de servidores, pero que en teoría, para un uso normal no haría falta, pero si lo usa <em>Lorenzo</em> seguramente algo se me escapa. <em>Donde manda patrón, no manda marinero</em>.</p>
+<p>Así mismo, aparte del <code>docker-compose.yml</code> también se tienen que hacer unas modificaciones en el <strong>proxy</strong> que estés utilizando, que en mi caso es <strong>traefik</strong>. Las modificaciones que se tienen que hacer en el fichero <code>traefik.yml</code> son:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">experimental</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">plugins</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">geoBlock</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">moduleName</span>: <span style="color:#e6db74">&#34;github.com/PascalMinder/geoblock&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;v0.2.5&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">traefik-real-ip</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">modulename</span>: <span style="color:#ae81ff">github.com/soulbalz/traefik-real-ip</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#ae81ff">v1.0.3</span>
+</span></span></code></pre></div><p>A continuación la modificación que se tiene que hacer en <code>dynamic.yml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">http</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">middlewares</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">http2https</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">redirectScheme</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">scheme</span>: <span style="color:#ae81ff">https</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">permanent</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">traefik-real-ip</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">plugin</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">traefik-real-ip</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">excludednets</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#e6db74">&#34;1.1.1.1/24&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cors-headers</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">headers</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">accessControlAllowOriginList</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;*&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">accessControlAllowHeaders</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Origin&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;X-Requested-With&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Content-Type&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Accept&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Authorization&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">accessControlAllowMethods</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;GET&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;POST&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;PUT&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;DELETE&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;OPTIONS&#34;</span>
+</span></span><span style="display:flex;"><span>          
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">routers</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">conduit-secure</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">rule</span>: <span style="color:#e6db74">&#34;Host(`${MATRIX_SERVER}`)&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">entryPoints</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#e6db74">&#34;websecure&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Servicio docker del Servidor de Matrix, en mi caso, Conduit</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">service</span>: <span style="color:#e6db74">&#34;conduit&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">tls</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">certResolver</span>: <span style="color:#e6db74">&#34;letsencrypt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">conduit</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">loadBalancer</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">servers</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e"># URL del servicio de Conduit</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">url</span>: <span style="color:#e6db74">&#34;http://conduit:6167&#34;</span>
+</span></span></code></pre></div><p>Con esto, ya tendría que funcionar sin ningún problema nuestro <em>servidor de Matrix</em>. En principio es así, pero ahora es cuando te das de bruces con la realidad.</p>
+<p>Lo primero es ver que si envías un mensaje desde la consola, este llegue correctamente a tu servidor y aquí es cuando empezaron mis problemas y eso que el script es fácil. Encontré miles de scripts. Pero la diferencia que había entre unos y otros, es que unos hacían uso de <em>POST</em>, que es la versión antigua para enviar los mensajes, y otros usaban el <em>PUT</em> que es la versión más actual y que todos los servidores de <em>Matrix</em> aceptan.</p>
+<p>No os podéis imaginar la de problemas que tenía.</p>
+<p>Llegué hasta un punto de eliminar el servidor de <strong>Conduit</strong> y probar con <strong>Synapse</strong> a ver si el problema radicaba en eso. También hice múltiples modificaciones a los ficheros de traefik (<code>traefik.yml</code> y <code>dynamic.yml</code>) y no conseguía que nada funcionase. El problema no estaba en el servidor que utilizase, sino más bien, en el <em>script</em>. Aquí fue donde sí que pedí ayuda a <em>Lorenzo</em> porque no sabía por dónde salir y fue cuando me pasó el <em>script</em> que lo solucionó todo y que pongo a continuación:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#! /bin/bash
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>MATRIX_SERVER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://matrix.myserver.org&#34;</span>
+</span></span><span style="display:flex;"><span>TOKEN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TOKEN_MATRIX&#34;</span>
+</span></span><span style="display:flex;"><span>ROOM_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ROOM_ID:matrix.myserver.org&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>curl -XPUT <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    -H <span style="color:#e6db74">&#34;Authorization: Bearer </span><span style="color:#e6db74">${</span>TOKEN<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    -d <span style="color:#e6db74">&#39;{&#34;msgtype&#34;:&#34;m.text&#34;,&#34;body&#34;:&#34;hello world&#34;}&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://</span><span style="color:#e6db74">${</span>MATRIX_SERVER<span style="color:#e6db74">}</span><span style="color:#e6db74">/_matrix/client/v3/rooms/</span><span style="color:#e6db74">${</span>ROOM_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">${</span>MATRIX_SERVER<span style="color:#e6db74">}</span><span style="color:#e6db74">/send/m.room.message/</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#39;+%s%3N&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>Con este simple <em>script</em> todo volvió a la vida y yo por fin podía ver la luz al final del camino.</p>
+<p>No paré de enviar mensajes desde la consola al cliente, desde el cliente al móvil, desde el móvil al cliente y ahora sí, todo funcionaba correctamente.</p>
+<p>Lo único que no me acababa de funcionar bien, era el tema de enviar imágenes, esto viene porque en una de las tareas que quiero usar, es necesario enviar imágenes, y no había manera de que en el cliente del portátil se pudieran ver las imágenes. En cambio en el móvil sí que las veía.</p>
+<p>Para que veáis lo frustrante que es, llegué a probar todos los clientes habidos y por haber a través de web y en todos me pasaba lo mismo. Me pasé 3 días peleando contra esto y en todos me daba de bruces contra la pared. Hasta que se me ocurrió la brillante idea 💡, ¿por qué no lo hice antes?, de preguntar en el foro de <em>Conduit</em>. Lo que me respondieron era para darme de collejas hasta en el carnet de identidad. La pregunta era muy simple, <em>¿tienes el navegador en modo incógnito?</em> 🤯</p>
+<p>No me lo podía creer, no podía ser que por estar con esta configuración no se vieran las imágenes, pues ya os lo podéis imaginar. Sí, por esta tontería no se pueden ver las imágenes. Desactivé esa opción y las imágenes que enviaba las podía ver sin problemas en el cliente de mi portátil 🤬.</p>
+<p>Llevaba 3 días intentando solucionar este problema y todo era por culpa del navegador <em>Firefox</em> que me estaba apuñalando por la espalda. Que es culpa mía porque podía haberlo preguntado antes, pero quién iba a pensar que por estar en <em>modo incógnito</em> se bloquearan las imágenes. Una cosa más que ya tenía solucionada.</p>
+<p>Lo único que me faltaba era que los servicios pudieran enviar imágenes pero esto, ya os puedo decir que hasta donde yo sé, no es posible, porque por lo que he llegado a entender, y eso que he hecho miles de pruebas, y he leído mucho sobre este tema, es que primero se tiene que enviar la imagen al servidor de <em>Matrix</em>, para que te dé una especie de <em>URL</em>, más concretamente un <strong>MXC</strong> y luego con esta dirección tú ya puedes enviar un mensaje con esa imagen adjunta. Y no todos los servicios con los que se puede usar <em>Matrix</em> tienen ese tipo de funcionalidad implementada.</p>
+<p>Aunque <em>Matrix</em> mismo podría cambiar esta manera de funcionar y funcionar de la misma manera que <em>Telegram</em>, <em>Discord</em> o <em>Slack</em>.</p>
+<p>Pero bueno, ya podía hacer funcionar correctamente mi servidor de Matrix y podía enviar y recibir mensajes entre mis diferentes dispositivos.</p>
+<p>Ahora solamente queda la opción de sacarle jugo al nuevo servicio. Pero esto ya lo explicaré en otro artículo que este me parece que ya se está haciendo muy largo. Porque también os tengo que decir que tuve que sudar sangre y lágrimas para conseguir lo que yo quería.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://atareao.es/podcast/crear-bots-en-matrix">535 - Crear bots en Matrix</a></li>
+<li><a href="https://atareao.es/podcast/de-mattermost-a-matrix">522 - De Mattermost a Matrix</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2022-07-11-conduit-el-matrix-escrito-en-rust.html">Conduit. El Matrix escrito en Rust</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2021-01-28-servidor-de-mensajeria-matrix-synapse-en-raspberry-ubuntu-debian--con-docker.html">Servidor de mensajería Matrix Synapse, en Raspberry, Ubuntu, Debian… con Docker</a></li>
+<li><a href="https://cinny.in">Cinny</a></li>
+<li><a href="https://github.com/matrix-org/synapse">Synapse</a></li>
+<li><a href="https://conduit.rs">Conduit</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

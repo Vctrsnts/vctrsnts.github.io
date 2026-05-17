@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Historia del cambio de terminal · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-01-13-cambiando-a-wezterm/">
+
+
+
+
+
+
+<meta name="description" content="Este es un artículo, que como puedes ver, es un artículo muy parecido a los que ha escrito Lorenzo, de Atareao, porque es algo que, si te pones a pensar, es una de las aplicaciones que más se utilizan en GNU/Linux pero a la que no se le da mucha importancia.
+Nos estamos refiriendo a la terminal.
+Esa aplicación, en mi caso, no era una cosa a la que le diera mucha importancia. Siempre usaba la que venía por defecto en el Desktop que instalaba en ese momento, konsole en el caso de KDE, xfce4-terminal en el caso de XFCE, o sino en el caso de usar los Windows Tiling Manager que el mejor ejemplo se podría decir que es i3-WM, también usaba xfce4-terminal. Pero al usar los que venían por defecto, siempre, en mi caso, me encontraba un poco limitado porque si quieres trabajar con diferentes paneles o escritorios, tienes que usar diferentes pestañas y tienes que ir saltando de pestaña en pestaña y eso era un poco rollo.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Historia del cambio de terminal">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Este es un artículo, que como puedes ver, es un artículo muy parecido a los que ha escrito Lorenzo, de Atareao, porque es algo que, si te pones a pensar, es una de las aplicaciones que más se utilizan en GNU/Linux pero a la que no se le da mucha importancia.
+Nos estamos refiriendo a la terminal.
+Esa aplicación, en mi caso, no era una cosa a la que le diera mucha importancia. Siempre usaba la que venía por defecto en el Desktop que instalaba en ese momento, konsole en el caso de KDE, xfce4-terminal en el caso de XFCE, o sino en el caso de usar los Windows Tiling Manager que el mejor ejemplo se podría decir que es i3-WM, también usaba xfce4-terminal. Pero al usar los que venían por defecto, siempre, en mi caso, me encontraba un poco limitado porque si quieres trabajar con diferentes paneles o escritorios, tienes que usar diferentes pestañas y tienes que ir saltando de pestaña en pestaña y eso era un poco rollo.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Historia del cambio de terminal</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2025-01-13">
+        2025-01-13
+      </time>
+      · 10 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Este es un artículo, que como puedes ver, es un artículo muy parecido a los que ha escrito <strong>Lorenzo</strong>, de <a href="https://atareao.es">Atareao</a>, porque es algo que, si te pones a pensar, es una de las aplicaciones que más se utilizan en <em>GNU/Linux</em> pero a la que no se le da mucha importancia.</p>
+<p>Nos estamos refiriendo a la terminal.</p>
+<p>Esa aplicación, en mi caso, no era una cosa a la que le diera mucha importancia. Siempre usaba la que venía por defecto en el <em>Desktop</em> que instalaba en ese momento, <em>konsole</em> en el caso de <strong>KDE</strong>, <em>xfce4-terminal</em> en el caso de <strong>XFCE</strong>, o sino en el caso de usar los <em>Windows Tiling Manager</em> que el mejor ejemplo se podría decir que es <strong>i3-WM</strong>, también usaba <em>xfce4-terminal</em>. Pero al usar los que venían por defecto, siempre, en mi caso, me encontraba un poco limitado porque si quieres trabajar con diferentes <em>paneles</em> o <em>escritorios</em>, tienes que usar diferentes pestañas y tienes que ir saltando de pestaña en pestaña y eso era un poco rollo.</p>
+<p>Pero todo cambió, a partir de un <a href="https://www.youtube.com/watch?v=7gmpjacFoHM">video</a> del <strong>PeladoNerd</strong> donde explicaba el uso de <strong>TMUX</strong>. Un famoso <em>multiplexor</em> donde podías tener varios <em>terminales</em> en la misma ventana.</p>
+<p>Esto era una mejora en mi manera de trabajar con respecto a lo que tenía antes. Pero aún había un pequeño problema que seguía existiendo, que aunque había logrado una mejora muy sustancial con respecto a lo que tenía antes, tenía que seguir utilizando 2 aplicaciones:</p>
+<ul>
+<li>La terminal que había instalado.</li>
+<li><em>Tmux</em> para disponer de estas mejoras.</li>
+</ul>
+<p>Aquí os pongo la configuración del fichero <code>tmux.conf</code> que estaba usando en ese momento. Nunca se sabe si os puede ser de utilidad:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">### Configuració per defecte</span>
+</span></span><span style="display:flex;"><span>set -g assume-paste-time <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Iniciem les pestanyes de TMUX per 1 en comptes de 0</span>
+</span></span><span style="display:flex;"><span>set -g base-index <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>setw -g main-pane-width <span style="color:#ae81ff">126</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#setw -g aggressive-resize off</span>
+</span></span><span style="display:flex;"><span>set -g status on
+</span></span><span style="display:flex;"><span>set -g history-limit <span style="color:#ae81ff">10000</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#set -g pane-border-format &#34;#P: #{pane_current_command}&#34;</span>
+</span></span><span style="display:flex;"><span>set -g mouse on
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Canviem la keybind per defecte</span>
+</span></span><span style="display:flex;"><span>unbind C-b
+</span></span><span style="display:flex;"><span>set -g prefix C-a
+</span></span><span style="display:flex;"><span>bind C-a send-prefix
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># custom bindings</span>
+</span></span><span style="display:flex;"><span>bind-key H resize-pane -L <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>bind-key L resize-pane -R <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>bind-key j <span style="color:#66d9ef">select</span>-pane -t :.-
+</span></span><span style="display:flex;"><span>bind-key x swap-pane -t :.0 <span style="color:#ae81ff">\;</span> <span style="color:#66d9ef">select</span>-pane -t :.0
+</span></span><span style="display:flex;"><span>bind-key k kill-pane <span style="color:#ae81ff">\;</span> <span style="color:#66d9ef">select</span>-layout main-vertical
+</span></span><span style="display:flex;"><span>bind-key v split-window -v <span style="color:#ae81ff">\;</span> <span style="color:#66d9ef">select</span>-layout main-vertical <span style="color:#ae81ff">\;</span> swap-pane -t :.0 <span style="color:#ae81ff">\;</span> <span style="color:#66d9ef">select</span>-pane -t :.0
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># EXECUTEM SCRIPT</span>
+</span></span><span style="display:flex;"><span>bind-key r run-shell <span style="color:#e6db74">&#34;~/.tmux/scripts/resize-adaptable.sh -l main-vertical -p 60&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Configuracio de diferents accions programades</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Es recarrega la configuració de tmux</span>
+</span></span><span style="display:flex;"><span>bind-key R source-file ~/.tmux.conf <span style="color:#ae81ff">\;</span> display-message <span style="color:#e6db74">&#34;Config reloaded&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Es pasa a opcio &#34;paste-buffer&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#bind-key p paste-buffer</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Es pasa a opció &#34;copy-mode&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#bind-key c copy-mode</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Configuració del Status Bar</span>
+</span></span><span style="display:flex;"><span>set-window-option -g window-status-format <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>set-window-option -g window-status-current-format <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Configuració del color del Status Bar</span>
+</span></span><span style="display:flex;"><span>set-option -g status-bg colour235 <span style="color:#75715e">#base02</span>
+</span></span><span style="display:flex;"><span>set-option -g status-fg yellow <span style="color:#75715e">#yellow</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Es visualitzar la adreça IP</span>
+</span></span><span style="display:flex;"><span>set -g status-left-length <span style="color:#ae81ff">178</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Configuració per a la visualització de la adreça IP</span>
+</span></span><span style="display:flex;"><span>DEFAULT_GW<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>ip route | grep <span style="color:#e6db74">&#39;default&#39;</span> | awk <span style="color:#e6db74">&#39;{print $3}&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set -g status-left <span style="color:#e6db74">&#34;#[fg=green][#P] #[fg=yellow]#(ip address | grep &#39;enp3s0&#39; | grep &#39;inet &#39; | awk &#39;{print \&#34;inet \&#34;</span>$2<span style="color:#e6db74">}&#39;)#[fg=red]#(ip address | grep &#39;wlp8s0&#39; | grep &#39;inet &#39; | awk &#39;{print \&#34;inet \&#34;</span>$2<span style="color:#e6db74">}&#39;) #[fg=white]208.67.222.222 (#(ping -c1 208.67.222.222 | grep time | cut -f4 -d&#39;=&#39;)) #[fg=white]#(ip route | grep &#39;default&#39; | awk &#39;{print \&#34;gateway \&#34;</span>$3<span style="color:#e6db74">}&#39;) (#(ping -c1 </span>$DEFAULT_GW<span style="color:#e6db74"> | grep time | cut -f4 -d&#39;=&#39;))&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set -g status-right-length <span style="color:#ae81ff">60</span>
+</span></span><span style="display:flex;"><span>set -g status-right <span style="color:#e6db74">&#34;#[fg=yellow]%d %b %Y #[fg=green]%H:%M&#34;</span>
+</span></span></code></pre></div><p>Si os fijáis, hay un script (que os pongo a continuación) que lo que hacía era redimensionar el tamaño del panel al de la pantalla, porque no había forma de que esto se hiciera automáticamente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lflag<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>pflag<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>tflag<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> getopts l:p:t: name;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> $name in
+</span></span><span style="display:flex;"><span>    l<span style="color:#f92672">)</span>    lflag<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>      layout_name<span style="color:#f92672">=</span>$OPTARG;;
+</span></span><span style="display:flex;"><span>    p<span style="color:#f92672">)</span>    pflag<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>          percentage<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$OPTARG<span style="color:#e6db74">&#34;</span>;;
+</span></span><span style="display:flex;"><span>    t<span style="color:#f92672">)</span>    tflag<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>          target<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$OPTARG<span style="color:#e6db74">&#34;</span>;;
+</span></span><span style="display:flex;"><span>    ?<span style="color:#f92672">)</span>   printf <span style="color:#e6db74">&#34;Usage: %s: [-l layout-name] [-p percentage] [-t target-window]\n&#34;</span> $0
+</span></span><span style="display:flex;"><span>          exit 2;;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -z <span style="color:#e6db74">&#34;</span>$pflag<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ! <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$percentage<span style="color:#e6db74">&#34;</span> -eq <span style="color:#e6db74">&#34;</span>$percentage<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span> 2&gt; /dev/null; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        printf <span style="color:#e6db74">&#34;Percentage (-p) must be an integer&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>        exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -z <span style="color:#e6db74">&#34;</span>$lflag<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $layout_name !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;main-horizontal&#39;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">[</span> $layout_name !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;main-vertical&#39;</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        printf <span style="color:#e6db74">&#34;layout name must be main-horizontal or main-vertical&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>        exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$layout_name<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;main-vertical&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    MAIN_PANE_SIZE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr <span style="color:#66d9ef">$(</span>tmux display -p <span style="color:#e6db74">&#39;#{window_width}&#39;</span><span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\*</span> $percentage <span style="color:#ae81ff">\/</span> 100<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    MAIN_SIZE_OPTION<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;main-pane-width&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$layout_name<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;main-horizontal&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    MAIN_PANE_SIZE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>expr <span style="color:#66d9ef">$(</span>tmux display -p <span style="color:#e6db74">&#39;#{window_height}&#39;</span><span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\*</span> $percentage <span style="color:#ae81ff">\/</span> 100<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    MAIN_SIZE_OPTION<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;main-pane-height&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -z <span style="color:#e6db74">&#34;</span>$target<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    tmux setw -t $target $MAIN_SIZE_OPTION $MAIN_PANE_SIZE; tmux <span style="color:#66d9ef">select</span>-layout -t $target $layout_name
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    tmux setw $MAIN_SIZE_OPTION $MAIN_PANE_SIZE; tmux <span style="color:#66d9ef">select</span>-layout $layout_name
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exit <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>Con esta configuración estuve un montón de tiempo porque desconocía que más allá de esto había más cosas.</p>
+<p>Todo esto cambió, cuando descubrí a <a href="https://atareao.es">Lorenzo</a> donde en uno de sus <a href="https://atareao.es/podcast/kitty-el-mejor-terminal-para-linux">artículos</a> explicaba que había encontrado una nueva terminal donde todo lo que, en mi caso necesitaba, ya estaba implementado por defecto. Y esta aplicación, no era otra que <a href="https://sw.kovidgoyal.net/kitty">Kitty</a>. Teniendo en cuenta que las opiniones de <strong>Lorenzo</strong> las tengo en muy alta estima, pues decidí probar esta nueva <em>terminal</em>.</p>
+<p>Desde el momento que la instalé y la configuré, aquí tenéis el fichero de configuración de <code>kitty.conf</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># vim:fileencoding=utf-8:ft=conf:foldmethod=marker</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: Fonts {</span>
+</span></span><span style="display:flex;"><span>  font_family      Fira Code
+</span></span><span style="display:flex;"><span>  bold_font        auto
+</span></span><span style="display:flex;"><span>  italic_font      auto
+</span></span><span style="display:flex;"><span>  bold_italic_font auto
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  font_size 10.0
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: }</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: Cursor customization {</span>
+</span></span><span style="display:flex;"><span>  cursor <span style="color:#75715e">#f19618</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: }</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: Scrollback {</span>
+</span></span><span style="display:flex;"><span>  scrollback_lines <span style="color:#ae81ff">2000</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: }</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: Mouse {</span>
+</span></span><span style="display:flex;"><span>  detect_urls yes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  copy_on_select yes
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: }</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: Terminal bell {</span>
+</span></span><span style="display:flex;"><span>  enable_audio_bell silence
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: }</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: Window layout {</span>
+</span></span><span style="display:flex;"><span>  enabled_layouts tall
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  window_border_width 5.0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  window_padding_width 3.0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  hide_window_decorations no
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: }</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: Color scheme {</span>
+</span></span><span style="display:flex;"><span>  foreground <span style="color:#75715e">#e5e1cf</span>
+</span></span><span style="display:flex;"><span>  background <span style="color:#75715e">#0e1419</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  background_opacity 0.8
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  selection_foreground <span style="color:#75715e">#0e1419</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  selection_background <span style="color:#75715e">#243340</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  color0 <span style="color:#75715e">#000000</span>
+</span></span><span style="display:flex;"><span>  color8 <span style="color:#75715e">#323232</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#: black</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  color1 <span style="color:#75715e">#ff3333</span>
+</span></span><span style="display:flex;"><span>  color9 <span style="color:#75715e">#ff6565</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#: red</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  color2  <span style="color:#75715e">#b8cc52</span>
+</span></span><span style="display:flex;"><span>  color10 <span style="color:#75715e">#e9fe83</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#: green</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  color3  <span style="color:#75715e">#e6c446</span>
+</span></span><span style="display:flex;"><span>  color11 <span style="color:#75715e">#fff778</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#: yellow</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  color4  <span style="color:#75715e">#36a3d9</span>
+</span></span><span style="display:flex;"><span>  color12 <span style="color:#75715e">#68d4ff</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#: blue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  color5  <span style="color:#75715e">#f07078</span>
+</span></span><span style="display:flex;"><span>  color13 <span style="color:#75715e">#ffa3aa</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#: magenta</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  color6  <span style="color:#75715e">#95e5cb</span>
+</span></span><span style="display:flex;"><span>  color14 <span style="color:#75715e">#c7fffc</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#: cyan</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  color7  <span style="color:#75715e">#ffffff</span>
+</span></span><span style="display:flex;"><span>  color15 <span style="color:#75715e">#ffffff</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: }</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: Advanced {</span>
+</span></span><span style="display:flex;"><span>  allow_remote_control yes
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: }</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: Keyboard shortcuts {</span>
+</span></span><span style="display:flex;"><span>  kitty_mod ctrl+shift
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#: Clipboard {</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  map kitty_mod+c copy_to_clipboard
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: }</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: Window management {</span>
+</span></span><span style="display:flex;"><span>  map kitty_mod+enter new_window
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: }</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: Font sizes {</span>
+</span></span><span style="display:flex;"><span>  map kitty_mod+plus      change_font_size all +2.0
+</span></span><span style="display:flex;"><span>  map kitty_mod+minus     change_font_size all -2.0
+</span></span><span style="display:flex;"><span>  map kitty_mod+backspace change_font_size all <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#: }</span>
+</span></span></code></pre></div><p>Me encantó su funcionamiento y su facilidad de uso, eso sí, después de que te hayas acostumbrado a las combinaciones de teclas que se tienen que usar, pero en mi caso, eran pocas, así que no tuve ningún problema en adaptarme a ellas.</p>
+<p>Pero como dice el refrán, <em>todo lo bueno se acaba</em> y eso me pasó. Un día, en una actualización de <em>kitty</em>, todo dejó de funcionar. Dejar de funcionar no es la palabra correcta, lo que pasó, es que todo se fue a la 💩.</p>
+<p>El problema que tenía, es que mientras lo estaba usando, me aparecían símbolos en la terminal como si se estuvieran pulsando teclas aleatoriamente, sin ningún motivo, cuando esto no era así. Podía dejar de usar el teclado y los caracteres seguían apareciendo en la pantalla.</p>
+<p>Lo primero que hice fue borrar la configuración que tenía hasta el momento, a ver si había habido algún cambio y por eso tenía este problema, pero todo seguía igual. También borré el paquete y lo volví a instalar, pero sin ningún cambio.</p>
+<p>Busqué información, tanto en la web de <em>kitty</em> como en la web de <em>Debian GNU/Linux</em> para ver si alguien había reportado este fallo. Pero lo único que encontré es a 2 personas que sí que lo habían reportado, pero en una versión anterior a la que yo estaba usando, el problema se había solucionado, pero eso había pasado hace un par de años. Así que esa no era mi solución. Pues viendo los problemas que tenía, me puse a buscar otra terminal que me diera las mismas cosas que había tenido hasta ahora con <em>kitty</em> pero sin este molesto problema.</p>
+<p>¿Qué hacemos cuando tienes un problema de este tipo? Pues preguntas al <strong>profesor Lorenzo</strong>, porque él ya había hecho una lista de todos los posibles candidatos.</p>
+<p>Me pasó esta página <a href="https://github.com/cdleon/awesome-terminals">web</a>, que a él le había ayudado mucho en su elección donde podías ver todas las ventajas e inconvenientes de cada opción. Al final me decidí usar <a href="https://github.com/wez/wezterm">wezterm</a> que ofrecía lo mismo que <em>kitty</em>.</p>
+<p>La única pega que tiene es que para instalar el paquete en <em>Debian GNU/Linux</em>, tienes que <a href="https://wezfurlong.org/wezterm/install/linux.html#__tabbed_1_3">instalarlo</a> por fuera del sistema. Una cosa que no me gusta mucho. También tienes la opción de instalarlo a través de <em>AppImage</em>, <em>Flatpak</em>, pero para según qué aplicaciones, las prefiero tener instaladas correctamente en el sistema.</p>
+<p>El fichero de configuración que estoy usando actualmente es el siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Configuración básica para WezTerm</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> wezterm <span style="color:#f92672">=</span> require <span style="color:#e6db74">&#39;wezterm&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> act <span style="color:#f92672">=</span> wezterm.action
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- Actualiza la barra de estado cada 1 segundo</span>
+</span></span><span style="display:flex;"><span>  status_update_interval <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, 
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- Fuente</span>
+</span></span><span style="display:flex;"><span>  font <span style="color:#f92672">=</span> wezterm.font(<span style="color:#e6db74">&#34;Fira Code&#34;</span>), <span style="color:#75715e">-- Cambia esto a la fuente que prefieras</span>
+</span></span><span style="display:flex;"><span>  font_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">10.5</span>, <span style="color:#75715e">-- Tamaño de la fuente</span>
+</span></span><span style="display:flex;"><span>  default_cursor_style <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;BlinkingBar&#34;</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- Ligaduras tipográficas</span>
+</span></span><span style="display:flex;"><span>  font_rules <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      intensity <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Bold&#34;</span>,
+</span></span><span style="display:flex;"><span>      font <span style="color:#f92672">=</span> wezterm.font_with_fallback({<span style="color:#e6db74">&#34;Fira Code&#34;</span>, <span style="color:#e6db74">&#34;Monospace&#34;</span>})
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- Colores</span>
+</span></span><span style="display:flex;"><span>  color_scheme <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Dracula&#34;</span>, <span style="color:#75715e">-- Cambia esto por el esquema que más te guste</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- Estilo de la ventana</span>
+</span></span><span style="display:flex;"><span>  window_padding <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    left <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>, <span style="color:#75715e">-- Espaciado desde la izquierda</span>
+</span></span><span style="display:flex;"><span>    right <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>, <span style="color:#75715e">-- Espaciado desde la derecha</span>
+</span></span><span style="display:flex;"><span>    top <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>, <span style="color:#75715e">-- Espaciado superior</span>
+</span></span><span style="display:flex;"><span>    bottom <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>, <span style="color:#75715e">-- Espaciado inferior</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- Establecer el esquema de la barra de título</span>
+</span></span><span style="display:flex;"><span>  window_background_opacity <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.98</span>, <span style="color:#75715e">-- Opacidad de la ventana</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- Activar ligaduras de fuentes</span>
+</span></span><span style="display:flex;"><span>  use_fancy_tab_bar <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">-- Mostrar una barra de pestañas con los nombres de las pestañas</span>
+</span></span><span style="display:flex;"><span>  tab_bar_at_bottom <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, <span style="color:#75715e">-- Coloca la barra de pestañas en la parte superior (cambiar a `true` si prefieres abajo)</span>
+</span></span><span style="display:flex;"><span>  hide_tab_bar_if_only_one_tab <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- Comportamiento de las pestañas</span>
+</span></span><span style="display:flex;"><span>  default_prog <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;/bin/bash&#34;</span>}, <span style="color:#75715e">-- Cambia por tu shell preferido (zsh, fish, etc.)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  inactive_pane_hsb <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    saturation <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.8</span>,
+</span></span><span style="display:flex;"><span>    brightness <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.1</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- Teclas de acceso rápido</span>
+</span></span><span style="display:flex;"><span>  keys <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- Dividir el terminal</span>
+</span></span><span style="display:flex;"><span>    {key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;v&#34;</span>, mods<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CTRL|SUPER&#34;</span>, action<span style="color:#f92672">=</span>act{SplitVertical<span style="color:#f92672">=</span>{domain<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CurrentPaneDomain&#34;</span>}}},
+</span></span><span style="display:flex;"><span>    {key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;h&#34;</span>, mods<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CTRL|SUPER&#34;</span>, action<span style="color:#f92672">=</span>act{SplitHorizontal<span style="color:#f92672">=</span>{domain<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CurrentPaneDomain&#34;</span>}}},
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- Crear una nueva pestaña</span>
+</span></span><span style="display:flex;"><span>    {key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;t&#34;</span>, mods<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CTRL|SHIFT&#34;</span>, action<span style="color:#f92672">=</span>wezterm.action{SpawnTab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CurrentPaneDomain&#34;</span>}},
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- Cambiar entre pestañas</span>
+</span></span><span style="display:flex;"><span>    {key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;LeftArrow&#34;</span>, mods<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CTRL|SUPER&#34;</span>, action<span style="color:#f92672">=</span>act{ActivatePaneDirection<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Next&#34;</span>}},
+</span></span><span style="display:flex;"><span>    {key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RightArrow&#34;</span>, mods<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CTRL|SUPER&#34;</span>, action<span style="color:#f92672">=</span>act{ActivatePaneDirection<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Prev&#34;</span>}}
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- Habilitar el &#34;scrollback&#34; (historial de la terminal)</span>
+</span></span><span style="display:flex;"><span>  scrollback_lines <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000</span>, <span style="color:#75715e">-- Aumenta el número de líneas del historial de la terminal</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">-- Configuración avanzada para la terminal</span>
+</span></span><span style="display:flex;"><span>  window_decorations <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;NONE&#34;</span>, <span style="color:#75715e">-- Puedes elegir entre &#34;NONE&#34;, &#34;TITLE&#34;, &#34;RESIZE&#34;, etc.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  mouse_bindings <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    {event<span style="color:#f92672">=</span>{Up<span style="color:#f92672">=</span>{streak<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, button<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Right&#34;</span>}}, mods<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;NONE&#34;</span>, action<span style="color:#f92672">=</span>wezterm.action{PasteFrom<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;PrimarySelection&#34;</span>}},
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Tal como yo lo tengo configurado, me funciona perfectamente para las necesidades que tengo y lo más extraño, es que no tengo los problemas con las pulsaciones fantasma que me ocurrían con <em>kitty</em>, porque también había pensado que el portátil se había roto, pero claro, si con otra terminal el problema no aparece, pues el problema está en <em>kitty</em>.</p>
+<p>Aun así, intenté darle una nueva oportunidad a <em>kitty</em>, para ver si con alguna nueva actualización, se había solucionado el problema de las pulsaciones, pero el problema seguía persistiendo. Hasta intenté usar <em>kitty</em> con el fichero mínimo de configuración necesario para su funcionamiento, pero ni aun así, el error seguía.</p>
+<p>Así, que no me quedó otra cosa, que volver a <em>wezterm</em> que tan buen sabor de boca me había dejado y por eso, aún lo sigo usando hasta este momento y que espero que sea para mucho tiempo.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=7gmpjacFoHM">POR QUE LOS SRE USAN MAC ? Mis herramientas de trabajo (Parte 2)</a></li>
+<li><a href="https://github.com/tmux/tmux">Tmux</a></li>
+<li><a href="https://atareao.es/podcast/kitty-el-mejor-terminal-para-linux">253 - Kitty, el mejor terminal para Linux</a></li>
+<li><a href="https://atareao.es/podcast/las-aplicaciones-imprescindibles-en-linux-en-2024">560 - Las aplicaciones imprescindibles en Linux en 2024</a></li>
+<li><a href="https://atareao.es/podcast/batalla-de-terminales-en-linux-wezterm">571 - Batalla de terminales en Linux. Wezterm</a></li>
+<li><a href="https://github.com/cdleon/awesome-terminals">awesome-terminals</a></li>
+<li><a href="https://github.com/wez/wezterm">Wezterm</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

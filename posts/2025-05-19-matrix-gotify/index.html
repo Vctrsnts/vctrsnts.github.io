@@ -1,0 +1,211 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Matrix - 3. De Matrix a Gotify · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-05-19-matrix-gotify/">
+
+
+
+
+
+
+<meta name="description" content="Como bien sabéis, porque lo expliqué en este artículo y en este otro, estaba usando Matrix como servidor de comunicación entre mis servidores y un servidor. Pero, mientras más lo usaba, más desesperación me producía, porque, puede parecer una tontería, pero en el móvil no recibía las notificaciones de los mensajes que me llegaban al cliente de Matrix, que en este caso era FluffyChat.
+Lo había instalado tanto de F-Droid como de la Play Store y en los dos casos, con el mismo resultado: no me llegaban las notificaciones. También había probado Element con el mismo resultado. Instalé Synapse también en el VPS para ver si el problema estaba en Conduit, pero ni así lograba que me llegaran las notificaciones.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Matrix - 3. De Matrix a Gotify">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Como bien sabéis, porque lo expliqué en este artículo y en este otro, estaba usando Matrix como servidor de comunicación entre mis servidores y un servidor. Pero, mientras más lo usaba, más desesperación me producía, porque, puede parecer una tontería, pero en el móvil no recibía las notificaciones de los mensajes que me llegaban al cliente de Matrix, que en este caso era FluffyChat.
+Lo había instalado tanto de F-Droid como de la Play Store y en los dos casos, con el mismo resultado: no me llegaban las notificaciones. También había probado Element con el mismo resultado. Instalé Synapse también en el VPS para ver si el problema estaba en Conduit, pero ni así lograba que me llegaran las notificaciones.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Matrix - 3. De Matrix a Gotify</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2025-05-20">
+        2025-05-20
+      </time>
+      · 4 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/vps/">
+            #VPS
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+          <a href="/tags/matrix/">
+            #Matrix
+          </a>
+        
+          <a href="/tags/gotify/">
+            #Gotify
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Como bien sabéis, porque lo expliqué en este <a href="/posts/2025-03-25-instal-config-matrix">artículo</a> y en este <a href="/posts/2025-03-27-pushbits">otro</a>, estaba usando <strong>Matrix</strong> como servidor de comunicación entre mis servidores y un servidor. Pero, mientras más lo usaba, más desesperación me producía, porque, puede parecer una tontería, pero en el móvil no recibía las notificaciones de los mensajes que me llegaban al cliente de <strong>Matrix</strong>, que en este caso era <strong>FluffyChat</strong>.</p>
+<p>Lo había instalado tanto de <strong>F-Droid</strong> como de la <strong>Play Store</strong> y en los dos casos, con el mismo resultado: no me llegaban las notificaciones. También había probado <strong>Element</strong> con el mismo resultado. Instalé <strong>Synapse</strong> también en el VPS para ver si el problema estaba en <strong>Conduit</strong>, pero ni así lograba que me llegaran las notificaciones.</p>
+<p>Investigué por todos sitios, <em>GitHub</em> de <em>Conduit</em>, matrix de <em>Conduit</em>, y siempre con los mismos resultados: o no me respondían, o no entendían el motivo de por qué no funcionaba.</p>
+<p>Al final ya no sabía qué hacer, hasta que <a href="https://elblogdelazaro.org/gu%C3%ADa-paso-a-paso-c%C3%B3mo-instalar-gotify-en-unraid">Carlos M.</a> publicó un nuevo artículo de cómo instalar <strong>Gotify</strong> en <strong>unRAID</strong>. En mi caso no sería en <strong>unRAID</strong>, porque, si no, tengo que abrir el servidor al mundo entero y es una cosa que quiero evitar, pero como tengo el VPS, pues decidí instalarlo ahí.</p>
+<p>Tengo que decir que yo ya jugaba con un poco de ventaja con respecto a <strong>Gotify</strong>, porque hace un par de años, antes de usar <strong>Telegram</strong> como servidor de notificaciones de mis servicios y de <strong>unRAID</strong>, lo había utilizado, pero no me acababa de convencer, porque eso de tener dos aplicaciones abiertas en el móvil, <em>Telegram</em> y a la vez <em>Gotify</em> para recibir las notificaciones, pues me parecía un derroche de batería, así que al final lo acabé poniendo todo en <em>Telegram</em> porque era la que más usaba.</p>
+<p>Así que, de vuelta al ruedo, a realizar la instalación de <strong>Gotify</strong> a través de su correspondiente <code>docker-compose</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span> <span style="color:#f92672">gotify</span>:
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">image</span>: <span style="color:#ae81ff">gotify/server:latest</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">gotify</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">env_file</span>:
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">gotify.env</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">${HOME}/config/gotify:/app/data</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">proxy</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.enable=true</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.services.gotify.loadbalancer.server.port=80</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.gotify.entrypoints=websecure</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.gotify.rule=Host(`${GOTIFY_SERVER}`)</span>
+</span></span></code></pre></div><p>Lo único que hay que tener en cuenta es el fichero <code>gotify.env</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>TZ<span style="color:#f92672">=</span>Europe/Andorra
+</span></span></code></pre></div><p>Que es donde se configura la zona horaria, pero el resto es como cualquier otro <em>docker-compose</em>. Ahora solamente queda hacer un <code>docker compose up -d gotify</code> y listo. Y, como además lo tengo configurado para que use <em>Traefik</em> siguiendo los magníficos artículos que pone a disposición del público <strong>atareo</strong>, pues es todo mucho más fácil.</p>
+<p>Lo que sí tengo que agradecer a <strong>Lázaro</strong> es que en su <a href="https://elblogdelazaro.org/gu%C3%ADa-paso-a-paso-c%C3%B3mo-instalar-gotify-en-unraid">artículo</a> explica muy bien todo el tema de las aplicaciones, que seguramente fue una de las razones por las que me eché para atrás con <strong>Gotify</strong> cuando lo usé la primera vez, junto con que puedes poner los iconos de cada aplicación, pues ya lo tenía todo en marcha. Solo me faltaba instalar la aplicación en el móvil y ya tenía todas las notificaciones de mis servicios a mi disposición y encima diferenciadas por aplicaciones (salas), para que todo estuviera más claro y fácil de entender:</p>
+<ul>
+<li>Backups
+<ul>
+<li>En mi caso, las copias de seguridad las hago a través de <strong>restic</strong>, otro artículo que tengo que hacer (y también gracias a <strong>atareao</strong> por dar a conocer el sistema de copias que él usa), y que junto a un <em>script</em> de <strong>Gotify</strong> podía estar informado de cuándo y cómo se habían hecho las copias de seguridad.</li>
+</ul>
+</li>
+<li>flexGet</li>
+<li>unRAID</li>
+<li>Gestión de Podcast</li>
+<li>Y más cosas que quiera añadir gracias a los plugins que tiene
+<ul>
+<li>Aquí tengo que hacer un inciso, los que yo encontré son un poco 🙁 y no se les puede sacar mucho provecho.</li>
+</ul>
+</li>
+</ul>
+<p>El script en cuestión es el siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># SCRIPT PER ENVIAR LES NOTIFICACIONS</span>
+</span></span><span style="display:flex;"><span>curl -s -S --data <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;{&#34;message&#34;: &#34;&#39;</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>DIR_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.xml&#34;</span><span style="color:#e6db74">&#39;&#34;, &#34;title&#34;: &#34;&#39;</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>TITLE_RSS<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#39;&#34;, \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;priority&#34;:&#39;</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>GOTIFY_PRIORITY<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#39;, &#34;extras&#34;: {&#34;client::display&#34;: \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  {&#34;contentType&#34;: &#34;text/markdown&#34;}}}&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#39;Content-Type: application/json&#39;</span> <span style="color:#e6db74">&#34;</span>$GOTIFY_SERVER<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>Con esto, ya tengo de nuevo en marcha mi sistema de notificaciones para sustituir <strong>Telegram</strong> por algo más <strong>libre</strong> y así tener <strong>más libertad digital</strong>, tal como dice <strong>Lorenzo</strong>.</p>
+<p>Los que tengáis el dashboard de <strong>HomePage</strong>, sabed que si usáis <strong>Gotify</strong> tenéis un widget que podéis usar y tener a la vista las <em>aplicaciones</em>, los <em>clientes</em> y los <em>mensajes</em> recibidos. En este <a href="/posts/2024-06-03-usando-homepage-2">artículo</a> tenéis una imagen de cómo queda.</p>
+<p>Aquí tengo que hacer un inciso: no os penséis que me he olvidado de <strong>Matrix</strong>, aún lo tengo en la cabeza, metido molestando y riéndose de mí porque no lo he hecho funcionar correctamente, algo parecido a esto:</p>
+<p><img src="imagen.jpg" alt="" title="Pensando"></p>
+<p>Pero tiene que saber que a mí me cuesta mucho darme por vencido y que al final conseguiré hacer funcionar correctamente a <strong>Matrix</strong>, pero ya explicaré en otro artículo cómo me va mi lucha contra él.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.org/gu%C3%ADa-paso-a-paso-c%C3%B3mo-instalar-gotify-en-unraid">Guía Paso a Paso: Cómo Instalar Gotify en Unraid</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

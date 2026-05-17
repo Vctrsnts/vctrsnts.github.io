@@ -1,0 +1,204 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>TIP Sobre Docker · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2020-02-16-tip-docker/">
+
+
+
+
+
+
+<meta name="description" content="Últimamente me he metido en el mundo de Docker para mi Raspberry y se me ha abierto un mundo nuevo de posibilidades infinitas.
+A continuación pongo un TIP sobre Docker y el mantenimiento (eliminación) de volúmenes / imágenes que ya no se utilizan.
+◇ ELIMINAR TODO LO NO USADO En el caso de que lleguemos al punto de tener nuestro sistema hecho un desastre, hay un comando en Docker que sirve para limpiar imágenes, contenedores, volúmenes y dispositivos de red, que no estén asociadas a ningún contenedor.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="TIP Sobre Docker">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Últimamente me he metido en el mundo de Docker para mi Raspberry y se me ha abierto un mundo nuevo de posibilidades infinitas.
+A continuación pongo un TIP sobre Docker y el mantenimiento (eliminación) de volúmenes / imágenes que ya no se utilizan.
+◇ ELIMINAR TODO LO NO USADO En el caso de que lleguemos al punto de tener nuestro sistema hecho un desastre, hay un comando en Docker que sirve para limpiar imágenes, contenedores, volúmenes y dispositivos de red, que no estén asociadas a ningún contenedor.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">TIP Sobre Docker</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2020-02-16">
+        2020-02-16
+      </time>
+      · 3 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Últimamente me he metido en el mundo de <strong>Docker</strong> para mi <strong>Raspberry</strong> y se me ha abierto un mundo nuevo de posibilidades infinitas.</p>
+<p>A continuación pongo un TIP sobre Docker y el mantenimiento (eliminación) de volúmenes / imágenes que ya no se utilizan.</p>
+<h2 id="-eliminar-todo-lo-no-usado">◇ ELIMINAR TODO LO NO USADO</h2>
+<p>En el caso de que lleguemos al punto de tener nuestro sistema hecho un desastre, hay un comando en <strong>Docker</strong> que sirve para limpiar imágenes, contenedores, volúmenes y dispositivos de red, que no estén asociadas a ningún contenedor.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker system prune
+</span></span></code></pre></div><p>Si le añadimos el <code>flag -a</code> al final, borraremos también:</p>
+<ul>
+<li>Todos los contenedores parados</li>
+<li>Todas las imágenes que no se estén usando en ese momento.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker system prune -a
+</span></span></code></pre></div><h2 id="-borrar-imágenes-de-docker">◇ BORRAR IMÁGENES DE DOCKER</h2>
+<h3 id="borrar-imágenes">Borrar Imágenes</h3>
+<p>Para ver las imágenes que tenemos en el sistema, podemos usar el comando: <code>docker images -a</code></p>
+<p>Gracias al <code>flag -a</code> veremos todas las imágenes de Docker (incluidas las imágenes intermedias).</p>
+<p>Una vez localizada la imagen que queremos borrar, utilizaremos su <code>ID</code> para borrarla:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker rmi
+</span></span></code></pre></div><h3 id="borrar-imágenes-colgadas-dangling-images">Borrar imágenes &ldquo;colgadas&rdquo; (dangling images)</h3>
+<p>Las imágenes colgadas son las capas de imágenes que no se están utilizando en ningún contenedor, tanto que estén en funcionamiento como que estén parados. Estas imágenes pueden ser borradas en la gran mayoría de las veces. Podemos ver estas imágenes con el comando:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker images -f dangling<span style="color:#f92672">=</span>true
+</span></span></code></pre></div><p>Para borrarlas:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker images purge
+</span></span></code></pre></div><h3 id="borrar-todas-las-imágenes">Borrar todas las imágenes</h3>
+<p>Si queremos borrar todas las imágenes, podemos ejecutar:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker rmi <span style="color:#66d9ef">$(</span>docker images -a -q<span style="color:#66d9ef">)</span>
+</span></span></code></pre></div><h2 id="-borrar-contenedores-docker">◇ BORRAR CONTENEDORES DOCKER</h2>
+<h3 id="borrar-contenedores">Borrar Contenedores</h3>
+<p>Primero debemos localizar los contenedores que queremos borrar, para ello ejecutaremos el comando:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker ps -a
+</span></span></code></pre></div><p>Para borrarlos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker rm
+</span></span></code></pre></div><p>Si no quieres que un contenedor se quede ahí una vez parado, puedes lanzar el proceso con el <code>flag -rm</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker run -rm
+</span></span></code></pre></div><h3 id="borrar-contenedores-mediante-filtros">Borrar contenedores mediante filtros</h3>
+<p>Podemos usar filtros para seleccionar contenedores, por ejemplo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker ps -a -s status<span style="color:#f92672">=</span>exited -f status<span style="color:#f92672">=</span>created
+</span></span></code></pre></div><p>Combinándolos con los comandos anteriores, sirve para borrarlos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker rm <span style="color:#66d9ef">$(</span>docker ps -a -f status<span style="color:#f92672">=</span>exited -f status<span style="color:#f92672">=</span>created -q<span style="color:#66d9ef">)</span>
+</span></span></code></pre></div><h3 id="parar-y-borrar-todos-los-contenedores-docker">Parar y borrar todos los contenedores Docker</h3>
+<p>También podemos parar y borrar todos los contenedores con un solo comando:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker rm <span style="color:#66d9ef">$(</span>docker ps -a -q<span style="color:#66d9ef">)</span>
+</span></span></code></pre></div><h2 id="-borrando-volúmenes-de-docker">◇ BORRANDO VOLÚMENES DE DOCKER</h2>
+<h3 id="borrar-volúmenes">Borrar volúmenes</h3>
+<p>Para ver los volúmenes que tenemos en el sistema, podemos usar el comando:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker volume ls
+</span></span></code></pre></div><p>Cuando localizamos el volumen, lo podemos borrar con:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker volume rm
+</span></span></code></pre></div><h3 id="borrar-volúmenes-colgados-dangling-volume">Borrar volúmenes colgados (dangling volume)</h3>
+<p>Los volúmenes colgados son aquellos que no están conectados a ningún contenedor. Ten en cuenta que es posible que haya volúmenes en ese estado que no tengan que ser borrados. Para verlos utilizaremos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker volume ls -f dangling<span style="color:#f92672">=</span>true
+</span></span></code></pre></div><p>Localizaremos los que queremos borrar y lo haremos con el mismo comando del punto anterior:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker volume rm
+</span></span></code></pre></div><p>Si queremos borrar todos los dangling volumes, ejecutaremos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker volume prune
+</span></span></code></pre></div><h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.vidaxp.com/tecnologia/como-borrar-imagenes-contenedores-y-volumenes-docker">Como borrar containers, imagenes, etc&hellip;</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

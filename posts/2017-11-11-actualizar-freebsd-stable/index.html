@@ -1,0 +1,177 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Actualizar FreeBSD (STABLE) · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2017-11-11-actualizar-freebsd-stable/">
+
+
+
+
+
+
+<meta name="description" content="Aquí va otra entrada con respecto a FreeBSD.
+En este caso, es cómo se puede hacer la actualización del sistema STABLE, es la que estoy usando yo en estos momentos.
+Lo primero que tenemos que instalar el subversion, para hacer esto, se hace de la siguiente manera:
+root@freebsd:~# pkg install subversion Una vez tenemos instalado subversion, lo siguiente es actualizar el sistema, lo vuelvo a repetir, yo lo hago de esta manera:
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Actualizar FreeBSD (STABLE)">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Aquí va otra entrada con respecto a FreeBSD.
+En este caso, es cómo se puede hacer la actualización del sistema STABLE, es la que estoy usando yo en estos momentos.
+Lo primero que tenemos que instalar el subversion, para hacer esto, se hace de la siguiente manera:
+root@freebsd:~# pkg install subversion Una vez tenemos instalado subversion, lo siguiente es actualizar el sistema, lo vuelvo a repetir, yo lo hago de esta manera:
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Actualizar FreeBSD (STABLE)</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2019-11-11">
+        2019-11-11
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/freebsd/">
+            #FreeBSD
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Aquí va otra entrada con respecto a <strong>FreeBSD</strong>.</p>
+<p>En este caso, es cómo se puede hacer la actualización del sistema <strong>STABLE</strong>, es la que estoy usando yo en estos momentos.</p>
+<p>Lo primero que tenemos que instalar el <code>subversion</code>, para hacer esto, se hace de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@freebsd:~# pkg install subversion
+</span></span></code></pre></div><p>Una vez tenemos instalado <code>subversion</code>, lo siguiente es actualizar el sistema, lo vuelvo a repetir, yo lo hago de esta manera:</p>
+<p>Lo primero, es actualizar es el <strong>árbol del sistema</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rootfreebsd:~# svn checkout https://svn.freebsd.org/base/stable/11 /usr/src
+</span></span></code></pre></div><p>Ahora pasamos a actualizar el sistema</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@freebsd:~# svn update /usr/src
+</span></span></code></pre></div><p>Esto tarda un rato, dependiendo de la velocidad que tengáis.</p>
+<p>Una vez, haya finalizado la actualización, se recomienda leer el fichero <code>/usr/src/UPDATING</code> para ver las modificaciones que comporta esta actualización y a continuación:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@freebsd:~# cd /usr/src
+</span></span><span style="display:flex;"><span>root@freebsd:~# make -j4 buildworld
+</span></span></code></pre></div><p>En la anterior instrucción, a mi entender, <strong>compila / construye</strong> el sistema, por eso, tomadlo con calma.</p>
+<p>He puesto <code>-j4</code> porque son el número de <code>CPU / CORES</code> que quiero que use esta instrucción. A más <code>cpu / cores</code>, más rápido irá la compilación, pero puede repercutir en la máquina, eso sois vosotros los que tenéis que encontrar el punto intermedio.</p>
+<p>Ahora, pasamos a:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@freebsd:~# make -j4 kernel
+</span></span></code></pre></div><p>Se aplica la misma norma que en la anterior instrucción.</p>
+<p>Una vez que se ha realizado la compilación del sistema y del kernel, reiniciamos el sistema</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@freebsd:~# shutdown -r now
+</span></span></code></pre></div><p>Ahora, a mi entender, actualizamos el sistema, con la siguiente instrucción :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@freebsd:~# cd /usr/src
+</span></span><span style="display:flex;"><span>root@freebsd:~# make installworld
+</span></span></code></pre></div><p>Cuando finalice, hacemos lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@freebsd:~# mergemarster -Ui
+</span></span></code></pre></div><p>Para finalizar, reiniciamos el sistema.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@freebsd:~# shutdown -r now
+</span></span></code></pre></div><p>Con esto, ya tenemos el sistema actualizado.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

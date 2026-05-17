@@ -1,0 +1,160 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Raspberry Pi. Actualizando a Jessie · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2016-04-02-rpi-actualizando-jessie/">
+
+
+
+
+
+
+<meta name="description" content="Tal como había explicado en el anterior capítulo, después de tener mi RPI con Whezzy y viendo que habían sacado una nueva versión Jessie-Lite de Raspbian decidí realizar un full-upgrade para actualizar el sistema.
+Pero ahí confiado de mí, a partir de ese momento, empezaron todos mis problemas que me replantearon el futuro de mi RPI.
+La actualización fue fácil y sencilla, al estilo Debian GNU/Linux, cambiar los sources que apuntan a Wheezy y hacer que apunten a Jessie. En principio no tendría que haber habido ningún problema, pero qué equivocado estaba.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Raspberry Pi. Actualizando a Jessie">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Tal como había explicado en el anterior capítulo, después de tener mi RPI con Whezzy y viendo que habían sacado una nueva versión Jessie-Lite de Raspbian decidí realizar un full-upgrade para actualizar el sistema.
+Pero ahí confiado de mí, a partir de ese momento, empezaron todos mis problemas que me replantearon el futuro de mi RPI.
+La actualización fue fácil y sencilla, al estilo Debian GNU/Linux, cambiar los sources que apuntan a Wheezy y hacer que apunten a Jessie. En principio no tendría que haber habido ningún problema, pero qué equivocado estaba.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Raspberry Pi. Actualizando a Jessie</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2016-04-02">
+        2016-04-02
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Tal como había explicado en el anterior capítulo, después de tener mi RPI con Whezzy y viendo que habían sacado una nueva versión <a href="https://www.raspberrypi.org/downloads/raspbian">Jessie-Lite</a> de Raspbian decidí realizar un <code>full-upgrade</code> para actualizar el sistema.</p>
+<p>Pero ahí confiado de mí, a partir de ese momento, empezaron todos mis problemas que me replantearon el futuro de mi RPI.</p>
+<p>La actualización fue fácil y sencilla, al estilo <strong>Debian GNU/Linux</strong>, cambiar los <code>sources</code> que apuntan a <strong>Wheezy</strong> y hacer que apunten a <strong>Jessie</strong>. En principio no tendría que haber habido ningún problema, pero qué equivocado estaba.</p>
+<p>El fichero que se tiene que cambiar es:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo vi /etc/apt/sources.list
+</span></span></code></pre></div><p>Y donde pone <strong>Wheezy</strong>, cambiarlo por <strong>Jessie</strong> y todo solucionado, pero una vez que reinicié el sistema y accedí a la Raspberry, empezaron a aparecer los problemas.</p>
+<p>A primera vista, lo que pude observar, fue que cada cierto tiempo perdía la conexión a internet sin ninguna explicación y no había forma de reconectar sino era reiniciando el sistema.</p>
+<p>Después de buscar un poco de información y no encontrar nada, decidí volver a realizar la instalación limpia de mi RPI con <strong>Wheezy</strong> y todo volvió a la normalidad (ya sé, fui un cobarde, pero &hellip;)</p>
+<p>Pero he aquí amigo, que como soy un poco culo inquieto y después de recibir el nuevo juguete que le iba a poner a la RPI, decidí volver a darle una nueva oportunidad <strong>Jessie-Lite</strong> y hacer una instalación limpia y nueva a la Raspberry y parece ser que le gustó mucho, porque lleva 1 semana en <strong>Jessie</strong> y sin ningún problema ni caída de red&hellip;</p>
+<p>En el próximo <a href="/posts/2016-04-02-rpi-instalando-jessie-lite">artículo</a>, explicaré el proceso de instalación de <strong>Jessie</strong> en la Raspberry.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.raspberrypi.org/downloads/raspbian">Jessie-Lite</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

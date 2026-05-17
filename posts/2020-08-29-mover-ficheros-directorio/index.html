@@ -1,0 +1,161 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Mover ficheros de un arbol de directorios a un directorio · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2020-08-29-mover-ficheros-directorio/">
+
+
+
+
+
+
+<meta name="description" content="A veces tengo que mover varios ficheros (normalmente epub - libros electrónicos). Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.
+Pero buscando por internet, encontré una instrucción en Bash que hace lo mismo. La instrucción es la siguiente:
+usuari@debian:~$ find . -type f -name *.ext -exec mv {} /tmp \; Donde:
+.ext: extensión de los ficheros que queremos mover Hasta aquí hemos llegado. A ver si en un futuro, voy poniendo otras instrucciones que me son de utilidad y nunca se sabe, también os pueden servir.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Mover ficheros de un arbol de directorios a un directorio">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="A veces tengo que mover varios ficheros (normalmente epub - libros electrónicos). Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.
+Pero buscando por internet, encontré una instrucción en Bash que hace lo mismo. La instrucción es la siguiente:
+usuari@debian:~$ find . -type f -name *.ext -exec mv {} /tmp \; Donde:
+.ext: extensión de los ficheros que queremos mover Hasta aquí hemos llegado. A ver si en un futuro, voy poniendo otras instrucciones que me son de utilidad y nunca se sabe, también os pueden servir.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Mover ficheros de un arbol de directorios a un directorio</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2020-08-29">
+        2020-08-29
+      </time>
+      · 1 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/programaci%C3%B3n/">
+            @Programación
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/bash/">
+            #Bash
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>A veces tengo que mover varios ficheros (normalmente epub - libros electrónicos). Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.</p>
+<p>Pero buscando por internet, encontré una instrucción en <strong>Bash</strong> que hace lo mismo. La instrucción es la siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ find . -type f -name *.ext -exec mv <span style="color:#f92672">{}</span> /tmp <span style="color:#ae81ff">\;</span>
+</span></span></code></pre></div><p>Donde:</p>
+<ul>
+<li><strong>.ext</strong>: extensión de los ficheros que queremos mover</li>
+</ul>
+<p>Hasta aquí hemos llegado. A ver si en un futuro, voy poniendo otras instrucciones que me son de utilidad y nunca se sabe, también os pueden servir.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

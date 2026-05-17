@@ -1,0 +1,202 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Mi nuevo mediacenter - ThinkCenter m710q · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2022-11-08-cambiando-mediacenter/">
+
+
+
+
+
+
+<meta name="description" content="Como ya mencione en el articulo que hablaba sobre el cambio de servidor Mi nuevo servidor, me di cuenta de que me quedaba con la RPI4 de 4Gb sin utilizar.
+Así que decidí cambiar la antigua RPI3, donde empezaba ya a tener problemas con los nuevos codecs con que venían las películas (HEVC 10b-AC3), y cambiarla por la RPI4 con soporte para estos nuevos codecs y que no usaba por haberla sustituido por el Dell.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Mi nuevo mediacenter - ThinkCenter m710q">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Como ya mencione en el articulo que hablaba sobre el cambio de servidor Mi nuevo servidor, me di cuenta de que me quedaba con la RPI4 de 4Gb sin utilizar.
+Así que decidí cambiar la antigua RPI3, donde empezaba ya a tener problemas con los nuevos codecs con que venían las películas (HEVC 10b-AC3), y cambiarla por la RPI4 con soporte para estos nuevos codecs y que no usaba por haberla sustituido por el Dell.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Mi nuevo mediacenter - ThinkCenter m710q</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2022-11-08">
+        2022-11-08
+      </time>
+      · 7 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/hardware/">
+            #Hardware
+          </a>
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+          <a href="/tags/thinkcenter/">
+            #ThinkCenter
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Como ya mencione en el articulo que hablaba sobre el cambio de servidor <a href="/posts/2022-05-26-nuevo-servidor">Mi nuevo servidor</a>, me di cuenta de que me quedaba con la RPI4 de 4Gb sin utilizar.</p>
+<p>Así que decidí cambiar la antigua RPI3, donde empezaba ya a tener problemas con los nuevos codecs con que venían las películas (HEVC 10b-AC3), y cambiarla por la RPI4 con soporte para estos nuevos codecs y que no usaba por haberla sustituido por el Dell.</p>
+<p>Me puse manos a la obra con ello, pero ya os digo que me decepcionó un montón la RPI4.</p>
+<p>Lo primero fue bajarme la imagen compatible de Libreelec para mi RPI4 y su posterior instalación. Todo esto conectado a un monitor que tengo en casa para estas pruebas / instalaciones.</p>
+<p>No tuve ningún problema a la hora de la instalación y de la configuración (Wifi, plugins, conexión a SAMBA, etc&hellip;) todo perfecto. Luego lo conecto al TV que tengo en el salón con un conversor de HDMI a micro-HDMI y no funcionaba. No se veía nada, todo en negro. Aquí es donde pienso que no he hecho bien la instalación / configuración, que no lee correctamente la resolución, o sea las cosas más normales que te puedas imaginar.</p>
+<p>Busqué información por inet, pregunté a uno de los canales de Telegram donde estoy que tratan sobre las RPI4 como mediacenter, etc&hellip; y todos me decían que tenía que forzar la resolución a través del fichero <code>config.txt</code>. Todo sin obtener ningún resultado.</p>
+<p>Al final me cansé de trastear con la RPI4, y eso que había hecho miles de instalaciones pensando que ahí es donde residía el problema. Al final ya me quedó claro que el problema no era la instalación, sino el conversor de HDMI a micro-HDMI que no funcionaba correctamente. Así que el siguiente paso fue comprar un cable de HDMI a micro-HDMI.</p>
+<p>Una vez que me llegó el cable correcto, vuelta a hacer una nueva instalación conectando la RPI4 al monitor de pruebas. Todo funcionaba a las mil maravillas, la WIFI excelente, la imagen perfecta, ahí es donde me dije: pues ya está todo en marcha y listo para volver a funcionar. ¡Ay, iluso de mí!</p>
+<p>Me llevé la RPI4 al TV del comedor y la conecté y no me lo podía creer, todo funcionaba perfectamente. Pues ya está, lo vuelvo a tener todo en perfecto estado y en marcha hasta que puse a usar la RPI4 con la WIFI y aquí es donde se me cayó el mundo encima.</p>
+<p>No me lo podía creer, la WIFI no funcionaba ni a patadas, la película se quedaba congelada y no se veía nada. Yo tirándome de los pelos porque no entendía nada, si hasta hace 5 minutos todo funcionaba correctamente y ahora de golpe y porrazo no funciona nada. Volvemos a estar como en el principio.</p>
+<p>A partir de aquí todo fueron problemas. Pero vamos a explicar todo lo sucedido paso a paso.</p>
+<p>Lo primero fue copiar la imagen de Libreelec en el SSD e iniciamos la instalación / configuración de Libreelec. Todo funciona perfectamente hasta llegar a la configuración de la <code>WIFI</code> (y esto sí que es para mear y no echar gota).</p>
+<p>Después de buscar información como un loco, veo que hay un error (validado y reportado) en el diseño de la Raspberry que es que, cuando usas la WIFI, esta se <code>acopla</code> a la señal del cable HDMI y hace que se anule la señal WIFI. Para solucionar este problema se puede hacer de 3 maneras:</p>
+<ul>
+<li><strong>Solución difícil</strong>, cambiar de canal en el que emite tu router por otro diferente para que no se acople a la señal del cable HDMI.</li>
+<li><strong>Solución fácil</strong>, desactivar la WIFI de la Raspberry y usar un conector USB-WIFI.</li>
+<li><strong>Solución ideal</strong>, esperar a que Raspberry saque un nuevo firmware que solucione este problema. Se comenta que hasta finales de año no estará disponible.</li>
+</ul>
+<p>En mi caso, lo que hice fue escoger la solución fácil: me compré un USB-WIFI y volví de nuevo a configurar la RPI4B, esperando, por fin, poder usarla como HTC.</p>
+<p>Volvemos a reiniciar la configuración de la WIFI sin ningún problema, esta vez ya tenemos la RPI4B conectada a la WIFI, pero parece ser que entre el SSD conectado a través de USB, el mando a distancia conectado a través de USB y el USB de la WIFI, la Raspberry no podía manejar correctamente toda la <code>información</code> que recibía.</p>
+<p>Para que os hagáis una idea, la RPI3B funcionaba mejor que la RPI4B y eso que esta última (siempre lo añado a todos mis Libreelec) había creado el fichero <code>advancedsettings.xml</code> donde le añado lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;advancedsettings version<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span> &lt;cache&gt;
+</span></span><span style="display:flex;"><span>   &lt;buffermode&gt;4&lt;/buffermode&gt;
+</span></span><span style="display:flex;"><span>   &lt;memorysize&gt;0&lt;/memorysize&gt;
+</span></span><span style="display:flex;"><span> &lt;/cache&gt;
+</span></span><span style="display:flex;"><span>&lt;/advancedsettings&gt;
+</span></span></code></pre></div><p>Donde:</p>
+<ul>
+<li><code>buffermode</code>: le indica a Kodi qué tipo de buffer se va a usar (en mi caso, selecciono el valor <code>4</code> para el tratamiento de ficheros a través de samba, nfs).</li>
+<li><code>memorysize</code>: le indica a Kodi de qué manera va a usar la RAM (en mi caso, selecciono el valor <code>0</code> para que dé preferencia al SSD/HDD en vez de a la RAM).</li>
+</ul>
+<p>De esta manera se consigue que mientras se visualiza la película / serie, se descargue el fichero y no tener problemas a la hora de la visualización.</p>
+<p>Pero en mi caso, esto no pasa, para que os hagáis una idea de cómo funciona, había veces (da igual qué versión de mkv fuera, 264, 265) que Kodi se quedaba colgado, incluso usando un SSD.</p>
+<p>Al final, cansado de ver que era imposible usar la RPI4B, empecé a investigar y a preguntar en un canal de Telegram sobre usar la Raspberry como HTC y se llegó a la conclusión de que era el USB el que se colapsaba y en cambio esto mismo (en la RPI3B) no pasa, porque como por defecto uso la WIFI que ya lleva incorporada, pues&hellip;</p>
+<p>Así estamos, usando la RPI4B como HTC, desilusionado ante el mal funcionamiento de lo que tendría que ser la mejor Raspberry hasta el momento.</p>
+<p>Por eso digo que maldito el día que se me ocurrió cambiar mi RPI3 (sé que era un cambio necesario, la tecnología siempre está en constante evolución y más los codecs para ver las películas son los que mandan) a la RPI4, y ahora la tengo tirada en casa sin usar, por culpa de este problema, aunque 😉 podría haberla vendido y sacarme una pasta, porque tal como están las RPI4, ganaría pasta seguro, pero me da pena venderla, porque nunca se sabe cuándo te va a hacer falta una.</p>
+<p>Así que después (de nuevo, pregunté en otro canal de Telegram) me aconsejaron que lo mejor, y para ahorrarme futuros problemas, es tener un PC conectado a la TV del comedor y me ahorro todos los problemas derivados con los codecs y el soporte de estos, porque en un PC normal y corriente tiene más recorrido que la RPI4.</p>
+<p>Fue lo que hice: volví a mi canal favorito de Thinkpads de Telegram y pregunté si a alguno le sobraba algún Tiny. Y ten por seguro que siempre hay alguien que le sobra un Tiny.</p>
+<p>Como todo en este mundo, es mutable y ante la posibilidad de conseguir a buen precio un <a href="https://icecat.biz/es/p/lenovo/10mr0047us/thinkcentre-pcs-workstations-m710q-36768136.html">Lenovo ThinkCenter M710q</a>, así que me lancé de cabeza por él.</p>
+<p><img src="imagen.jpg" alt="" title="Lenovo ThinkCenter M710q"></p>
+<p>Ya me veis, de tener 2 RPI (RPI4 con 4Gb como servidor y una RPI3 como mediacenter) a tener un Tiny Lenovo m710q con 8Gb y un i5-6500 como mediacenter y un Dell Optiplex 3050 con 8Gb y un i5-7500 como servidor.</p>
+<p>Por eso digo que a veces no hay mal que por bien no venga.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://libreelec.tv">Libreelec</a></li>
+<li><a href="https://www.adslzone.net/2019/11/28/problemas-wifi-raspberry-pi-4/%5D">RPI4B pierde cobertura Wifi</a></li>
+<li><a href="https://www.enricozini.org/blog/2019/himblick/raspberry-pi-4-loses-wifi-at-2560x1440-screen-resolution/">Raspberry Pi 4 WiFi stops working at 2560x1440 screen resolution</a></li>
+<li><a href="https://kodi.wiki/view/Advancedsettings.xml">Cambiar el funcionamiento de la cache en Kodi</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

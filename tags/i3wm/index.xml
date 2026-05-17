@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>I3wm on Si lo haces, hazlo bien!</title>
+    <link>https://vctrsnts.github.io/tags/i3wm/</link>
+    <description>Recent content in I3wm on Si lo haces, hazlo bien!</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Fri, 13 Jan 2023 00:00:00 +0100</lastBuildDate>
+    <atom:link href="https://vctrsnts.github.io/tags/i3wm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mejoras en mi escritorio (i3-wm)</title>
+      <link>https://vctrsnts.github.io/posts/2023-01-13-mejoras-i3/</link>
+      <pubDate>Fri, 13 Jan 2023 00:00:00 +0100</pubDate>
+      <guid>https://vctrsnts.github.io/posts/2023-01-13-mejoras-i3/</guid>
+      <description>&lt;p&gt;Después de mucho tiempo usando &lt;a href=&#34;https://vctrsnts.github.io/posts/2020-08-06-usando-i3-wm&#34;&gt;i3-wm&lt;/a&gt;, estaba constantemente cambiando de wallpaper (seguramente a más de uno le pasa), pensé que habría alguna manera de hacer que cada X tiempo el wallpaper que estoy utilizando cambiara automáticamente, de los que tengo en el directorio donde los guardo.&lt;/p&gt;&#xA;&lt;p&gt;Así que me puse a la búsqueda de cómo se puede hacer.&lt;/p&gt;&#xA;&lt;p&gt;Encontré unas cuantas maneras de hacer lo que yo quería:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Primer &lt;a href=&#34;https://forum.codeselfstudy.com/t/desktop-background-switcher-for-i3wm/1044&#34;&gt;script&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Segundo &lt;a href=&#34;https://github.com/levinit/i3wm-config/blob/master/i3/wallpaper.sh&#34;&gt;script&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Yo me quedé con la idea del segundo script, aunque le añadí la posibilidad de enviar notificaciones al escritorio de los cambios de fondos de pantalla a través de &lt;code&gt;notify-send&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Usando i3-wm</title>
+      <link>https://vctrsnts.github.io/posts/2020-08-06-usando-i3-wm/</link>
+      <pubDate>Thu, 06 Aug 2020 00:00:00 +0200</pubDate>
+      <guid>https://vctrsnts.github.io/posts/2020-08-06-usando-i3-wm/</guid>
+      <description>&lt;p&gt;Aquí va una nueva entrada y en este caso hace referencia a &lt;a href=&#34;https://i3wm.org&#34;&gt;i3wm&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Primero un poco de historia con respecto al porqué de este post. Desde hace años (cuando &lt;strong&gt;KDE&lt;/strong&gt; se volvió tan pesado y desapareció el paquete kde-minimal) cambié a &lt;strong&gt;XFCE4&lt;/strong&gt; y todo fue bien, hasta que vi que (en mi opinión), se había estancado, por eso decidí hacer un cambio y hablando con gente de &lt;a href=&#34;https://exdebian.org&#34;&gt;exDebian&lt;/a&gt; me aconsejaron probar &lt;strong&gt;i3wm&lt;/strong&gt;. Así que empecé a buscar información y fue cuando encontré esta colección de 3 vídeos en &lt;a href=&#34;https://www.youtube.com/playlist?list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf&#34;&gt;Youtube - i3wm&lt;/a&gt; que me abrieron las puertas a &lt;strong&gt;i3wm&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

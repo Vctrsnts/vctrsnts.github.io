@@ -1,0 +1,170 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>El desastre del siglo · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-04-10-desastre-siglo/">
+
+
+
+
+
+
+<meta name="description" content="Si recordáis este artículo Por fin VPS para hacer pruebas y luego leéis lo que me ha pasado, entenderéis porque titulo este artículo como lo titulo.
+nota: Porque no es para menos.
+Como dije en el artículo que os he comentado, desde hace un tiempo, conseguí, al fin, una instancia gratuita de Oracle Cloud que me servía para hacer pruebas y tener algún docker activado (proxy, searxng, umani, etc&amp;amp;hellip;) y que siempre va bien que esté en otro sitio, porque nunca se sabe y más si a alguien se le ocurre la idea de bloquear Telegram en Espanya.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="El desastre del siglo">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Si recordáis este artículo Por fin VPS para hacer pruebas y luego leéis lo que me ha pasado, entenderéis porque titulo este artículo como lo titulo.
+nota: Porque no es para menos.
+Como dije en el artículo que os he comentado, desde hace un tiempo, conseguí, al fin, una instancia gratuita de Oracle Cloud que me servía para hacer pruebas y tener algún docker activado (proxy, searxng, umani, etc&amp;amp;hellip;) y que siempre va bien que esté en otro sitio, porque nunca se sabe y más si a alguien se le ocurre la idea de bloquear Telegram en Espanya.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">El desastre del siglo</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2024-04-10">
+        2024-04-10
+      </time>
+      · 3 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/vps/">
+            #VPS
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Si recordáis este artículo <a href="/posts/2023-09-24-VPS-pruebas">Por fin VPS para hacer pruebas</a> y luego leéis lo que me ha pasado, entenderéis porque titulo este artículo como lo titulo.</p>
+<blockquote>
+<p>nota: <strong>Porque no es para menos</strong>.</p>
+</blockquote>
+<p>Como dije en el artículo que os he comentado, desde hace un tiempo, conseguí, al fin, una instancia gratuita de <em>Oracle Cloud</em> que me servía para hacer pruebas y tener algún docker activado (proxy, searxng, umani, etc&hellip;) y que siempre va bien que esté en otro sitio, porque nunca se sabe y más si a alguien se le ocurre la idea de <strong>bloquear Telegram en Espanya</strong>.</p>
+<p>Esta instancia aunque era de <strong>ARM</strong> pero estaba muy bien equipada:</p>
+<ul>
+<li>24Gb de RAM</li>
+<li>50Gb de HDD</li>
+<li>SO. Ubuntu</li>
+</ul>
+<p>Lo tenía todo, pero un buen día, se me ocurrió la brillante idea, que tal como lo tenía montado en ese momento, todo en una sola máquina, era tirar los recursos en 4 contenedores que nunca iban a saturar al equipo. Entonces dije, <strong>porque no hacer 2 máquinas</strong> y tenemos más posibilidades. Y fue lo que hice, pero antes de todo ello, apagué la máquina que tenía activa y la borré, para así poder crear otra nueva a mi gusto. Qué estupidez hice en ese momento, si lo llego a saber&hellip;</p>
+<p>Y cuando ya lo tenía todo preparado para crear una nueva instancia pero más reducida, aquí vino el desastre, era imposible crear una nueva. No había manera, ni dejando que pasara unas horas ni unos días. Siempre obtenía el mismo mensaje, <strong>No hay recursos</strong>, lo que sí que podía hacer, era crear una instancia en AMD64, pero claro con la limitación de <strong>1Gb de RAM</strong>.</p>
+<p>En ese momento, fue cuando saltaron todas mis alarmas. Con otra email que tengo, intenté crear una nueva cuenta, pero esta vez en otro sitio, porque no hay posibilidad de cambiar de sitio las instancias gratuitas, pero me encontré en el mismo problema, <strong>no hay recursos</strong>. Así que ahora mismo, me encuentro sin poder usar ninguna instancia de Oracle.</p>
+<p>Por ese motivo me he dado de baja (con lo que me costó conseguirlo), para ver si cuando haya pasado unos meses, puedo volver a intentar darme de alta de nuevo.</p>
+<p>Pero de momento, ahora estoy usando una instancia de <strong>Google Cloud</strong>, sé que no es lo mismo, porque solo tengo a mi disposición:</p>
+<ul>
+<li>1Gb de RAM</li>
+<li>30Gb de HDD</li>
+</ul>
+<p>Pero bueno, menos es nada.</p>
+<p>Lo que sí que estoy pensando, es en un futuro, alquilar un VPS un poco decente, y no tener que preocuparme de cualquier problema. Pero claro, lo que me gustaría sería un VPS que no fuera muy caro, porque no quiero nada por el estilo de Oracle (RAM, CPU, HDD), pero tampoco quiero tan limitado como tengo ahora mismo con Google. Pero a ver donde encuentro algo así y que esa económico.</p>
+<p>Si alguien de los que me lee, puede aconsejarme algún VPS, le estaré muy agradecido.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

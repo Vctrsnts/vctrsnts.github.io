@@ -1,0 +1,173 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Usando Calibre-Web · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2020-04-12-usando-calibre-web/">
+
+
+
+
+
+
+<meta name="description" content="Después del descubrimiento de docker, tal como dije en otra entrada se ha abierto un nuevo mundo de posibilidades por explorar. Y en este caso hemos descubierto calibre-web.
+La idea me gustó, porque así, voy quitando peso al portátil y doy más uso a la RPI3b (de momento a la espera de cambiar a una 4) y además, con el HDD de 4Tb que viene en camino, pues nos pusimos a ello.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Usando Calibre-Web">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Después del descubrimiento de docker, tal como dije en otra entrada se ha abierto un nuevo mundo de posibilidades por explorar. Y en este caso hemos descubierto calibre-web.
+La idea me gustó, porque así, voy quitando peso al portátil y doy más uso a la RPI3b (de momento a la espera de cambiar a una 4) y además, con el HDD de 4Tb que viene en camino, pues nos pusimos a ello.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Usando Calibre-Web</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2020-04-12">
+        2020-04-12
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Después del descubrimiento de <strong>docker</strong>, tal como dije en otra entrada se ha abierto un nuevo mundo de posibilidades por explorar. Y en este caso hemos descubierto <strong>calibre-web</strong>.</p>
+<p>La idea me gustó, porque así, voy quitando peso al portátil y doy más uso a la RPI3b (de momento a la espera de cambiar a una 4) y además, con el <em>HDD de 4Tb</em> que viene en camino, pues nos pusimos a ello.</p>
+<p>Lo primero fue bajarse la imagen correcta y construir el <code>docker-compose.yaml</code> correcto (a continuación pongo el que yo uso):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">calibre</span>:
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">image</span>: <span style="color:#ae81ff">linuxserver/calibre-web</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">calibre</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">9393</span>:<span style="color:#ae81ff">8083</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">PUID=1001</span>
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">PGID=1001</span>
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">TZ=Europe/Madrid</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">${STORAGE}/config/calibre:/config</span>
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">${MEDIA}/ebooks:/books</span>
+</span></span></code></pre></div><p>Luego hay que hacer un simple:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ docker-compose up -d calibre
+</span></span></code></pre></div><p>Ya lo tienes funcionando sin ningún problema (aunque no es del todo cierto) porque para empezar a funcionar correctamente tienes que ponerle la librería (<em>metadata.db</em>) que venías usando hasta este momento. Una vez hecho esto ya tienes tu <strong>calibre-web</strong> en funcionamiento.</p>
+<p>El único problema que tenía yo y que no me gustaba, es que a la hora de subir los libros (tienes que dar permiso para que se pueda hacer) los datos del libro y la carátula, no te los coge de los metadatos del propio libro, sino que busca la información a través de <strong>Google</strong> o de <strong>Douban</strong> y esto yo no quería que fuera así.</p>
+<p>Después de investigar, probar otras aplicaciones (es una lástima que no haya el <strong>calibre</strong> disponible para la arquitectura <strong>ARM</strong>, porque para <strong>x86</strong> sí que está), ninguna me gustaba tanto como <strong>calibre-web</strong>. Hasta que al final, revisando los ficheros que tiene el container, dentro del <em>directorio app</em> hay unos ficheros de información (podrían estar más accesibles o estar en la documentación del container) te informa que si instalas (la imagen se basa en ubuntu) el paquete <strong>lxml</strong> se puede tener acceso a los <strong>metadatas</strong> de los libros, así que me puse a ello:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo apt-get update
+</span></span><span style="display:flex;"><span>usuari@raspberry:~$ sudo apt-get install --no-install-recommends python3-lxml
+</span></span></code></pre></div><p>Después de instalar el paquete, probé a subir un libro y ya sí que funcionó como yo quería, como la versión de calibre que te instalas en modo local.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

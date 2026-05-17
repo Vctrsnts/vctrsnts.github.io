@@ -1,0 +1,226 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Cambiar Debian GNU/Linux por FreeBSD? · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2016-08-20-cambiar-linux-freebsd/">
+
+
+
+
+
+
+<meta name="description" content=" nota: Antes de nada, decir que esto no es una crítica a FreeBSD ni una guerra de cuál es mejor (porque de eso, si buscas en cualquier foro de FreeBSD o de GNU/Linux encontrarás muchas y mejores).
+Es mi opinión personal como usuario desde hace muchos años de Debian GNU/Linux (empecé con Debian GNU/Linux Potato) con respecto a la transición de Debian GNU/Linux a FreeBSD.
+Después de hacer esta aclaración, ya podemos empezar&amp;amp;hellip; 😉
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Cambiar Debian GNU/Linux por FreeBSD?">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content=" nota: Antes de nada, decir que esto no es una crítica a FreeBSD ni una guerra de cuál es mejor (porque de eso, si buscas en cualquier foro de FreeBSD o de GNU/Linux encontrarás muchas y mejores).
+Es mi opinión personal como usuario desde hace muchos años de Debian GNU/Linux (empecé con Debian GNU/Linux Potato) con respecto a la transición de Debian GNU/Linux a FreeBSD.
+Después de hacer esta aclaración, ya podemos empezar&amp;amp;hellip; 😉
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Cambiar Debian GNU/Linux por FreeBSD?</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2016-08-20">
+        2016-08-20
+      </time>
+      · 7 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/freebsd/">
+            #FreeBSD
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <blockquote>
+<p>nota: Antes de nada, decir que esto no es una crítica a <a href="https://www.freebsd.org">FreeBSD</a> ni una guerra de cuál es mejor (porque de eso, si buscas en cualquier foro de FreeBSD o de GNU/Linux encontrarás muchas y mejores).</p>
+</blockquote>
+<p>Es mi opinión personal como usuario desde hace muchos años de <strong>Debian GNU/Linux</strong> (empecé con <strong>Debian GNU/Linux Potato</strong>) con respecto a la transición de <a href="https://www.debian.org/index.es.html">Debian GNU/Linux</a> a <a href="https://www.freebsd.org">FreeBSD</a>.</p>
+<p>Después de hacer esta aclaración, ya podemos empezar&hellip; 😉</p>
+<p>Todo esto viene a raíz del pésimo modo (en mi opinión) en que se ha llevado a cabo la implementación de <a href="https://es.wikipedia.org/wiki/Systemd">Systemd</a> en <strong>Debian GNU/Linux</strong>. A raíz de este cambio, estuve buscando alternativas, pero todas las versiones de Linux ya tienen implementado <strong>Systemd</strong> en su interior y la única alternativa que quedaba era <strong>FreeBSD</strong>. Y desde hace un par de meses, vengo haciendo pruebas en mi <strong>Dell XPS</strong> (junto con un HDD de 250GB) con <strong>FreeBSD</strong> y a continuación explico mi opinión personal con respecto a su instalación y uso (que conste que esto lo estoy escribiendo desde <strong>Debian GNU/Linux</strong>).</p>
+<blockquote>
+<p>nota: Repito, es mi opinión personal.</p>
+</blockquote>
+<h2 id="-instalación">◇ Instalación</h2>
+<p>Es como se realizaba hace un par de años en <strong>Debian GNU/Linux</strong>, así que no es muy complicada. Lo único que veo es la falta de <strong>UTF</strong>, aparte de esto, una instalación muy fácil y sencilla. Y eso, que yo no usé todo el HDD como única partición, sino que hice las siguientes (costumbre de <strong>Debian GNU/Linux</strong>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mount point     size
+</span></span><span style="display:flex;"><span>----------      -----------
+</span></span><span style="display:flex;"><span>/               5Gb
+</span></span><span style="display:flex;"><span>/tmp            5Gb
+</span></span><span style="display:flex;"><span>/usr            24Gb
+</span></span><span style="display:flex;"><span>/usr/home       190Gb
+</span></span><span style="display:flex;"><span>/var            5Gb
+</span></span><span style="display:flex;"><span>swap            3.5Gb
+</span></span></code></pre></div><h2 id="-paquetes">◇ Paquetes</h2>
+<p>Luego está todo el tema de la instalación de paquetes, en mi opinión, ahora con <code>pkg</code> han hecho un gran paso en su usabilidad, aunque aún están los ports (un tema que me trae de cabeza y que nunca he logrado entender), aparte de que en mi portátil, no puedo usarlos, porque por cuestiones de temperatura no podía hacerlo.</p>
+<h2 id="-configuración-sistema">◇ Configuración sistema</h2>
+<p>La configuración del sistema es fácil, en principio, si no tienes nada raro, toda esta ya se ha realizado en la instalación.</p>
+<h2 id="-temperatura-del-sistema">◇ Temperatura del sistema</h2>
+<p>La temperatura, este es otro tema que me ha traído de cabeza, porque todo el rato el ventilador estaba funcionando (eso sí, la tecnología <strong>Optimus</strong>, no ayuda mucho). Para que os hagáis una idea:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>|   Uso   | Debian GNU/Linux | FreeBSD |
+</span></span><span style="display:flex;"><span>| ------- | ---------------- | ------- |
+</span></span><span style="display:flex;"><span>| Normal  |        54º       |   65º   | 
+</span></span><span style="display:flex;"><span>| Intenso |        65º       |   85º   |
+</span></span></code></pre></div><p>En cambio, después de unas <a href="https://forums.freebsd.org/threads/57176">modificaciones</a> en la configuración del sistema que me aconsejaron en el <a href="https://forums.freebsd.org">Forum de FreeBSD</a> (qué sería de mí sin ellos), he conseguido tener las mismas temperaturas que tenía en <strong>Debian GNU/Linux</strong> en <strong>FreeBSD</strong> 😉</p>
+<h2 id="-xorg-slim-xfce">◇ Xorg, Slim, Xfce</h2>
+<p>Desde hace mucho tiempo que uso Xfce, no necesito más y encima consume pocos recursos. Además están en FreeBSD, qué más se puede pedir.</p>
+<p>La instalación, como dije antes a través de pkg, es muy fácil, sin ningún problema, aunque tengo que decir que para la configuración de Xorg (Optimus, ayudando) es un poco diferente a como lo pinta en el Handbook y como te lo intentan vender en el Foro.</p>
+<p>Porque digo esto, según el <a href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x-config.html">Handbook</a>(5.4.8) ya no es necesario crear el fichero <code>xorg.conf</code> para que todo funcione correctamente, pero en mi caso, no sé si por culpa de <strong>Optimus</strong> o qué, si no tenía el fichero <code>xorg.conf</code>, <code>startx</code> no me funcionaba. Después de mucho preguntar en el foro de FreeBSD, creo que al final me creyeron cuando dije que sin fichero no me funcionaba.</p>
+<p>Después de activar <strong>Slim</strong> junto con <strong>DBUS</strong> y <strong>HAL</strong>, ya tenía mi <strong>Xfce</strong> funcionando y en perfecto estado.</p>
+<h2 id="-aplicaciones-varias">◇ Aplicaciones varias</h2>
+<p>Ahora mismo, en <strong>Debian GNU/Linux</strong> uso las siguientes aplicaciones, todas muy básicas:</p>
+<ul>
+<li>Firefox.</li>
+<li>VirtualBox</li>
+<li>Clementine</li>
+<li>Xpdf</li>
+<li>Filezilla</li>
+<li>Claws Mail</li>
+<li>Chromium</li>
+<li>Wicd</li>
+<li>Xfburn</li>
+<li>Mplayer</li>
+<li>Calibre</li>
+</ul>
+<p>Yo creo que todas estas aplicaciones están todas portadas a FreeBSD, a excepción de Wicd, que me recomendaron como alternativa usar <a href="https://opal.com/freebsd/ports/net-mgmt/wifimgr">wifimgr</a>.</p>
+<h2 id="-hardware-externo">◇ Hardware externo</h2>
+<p>Porque tengo una sección sobre el <strong>Hardware</strong>, porque lo único que me quedaba por probar es todo el tema de los USB (pendrive, ebook), no uso nada más.</p>
+<p>Aquí es donde viene el problema, <strong>FreeBSD</strong> no tiene portado el paquete <code>xfce-volman</code>, así que tienes que tirar de <a href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/usb-disks.html">Handbook</a>.</p>
+<p>Parezco un poco repetitivo, pero en la documentación te lo ponen como que es muy fácil, pero realmente no es así. Tienes que modificar más de un fichero, que si no te lo explican (no viene en la documentación) no logras que funcione. Pero gracias a un usuario del foro de FreeBSD, conseguí que funcionara, pero de aquella manera. Me explico.</p>
+<p>Conectaba un pendrive (marca Toshiba), <strong>Xfce</strong> me lo detectaba correctamente, clicaba en él y todo correcto, podía trabajar con él correctamente. Lo desmontaba y todo perfecto.</p>
+<p>El problema venía con otro pendrive (marca Sandisk), lo conectaba, lo intentaba montar y ahí es donde tenía el problema. No me lo detectaba. Al final, me aparecía un mensaje indicando <code>Dispositivo Desconocido</code>. Y lo más raro de todo es que si extraía el pendrive, el sistema se reiniciaba solo&hellip;. :o</p>
+<h2 id="-documentación">◇ Documentación</h2>
+<p>Cuando me refiero a la documentación, no estoy diciendo que sea mala, desordenada ni nada por el estilo. Yo solamente la comparo con la documentación que hay con respecto a <strong>Debian GNU/Linux</strong> y con toda la documentación existente de GNU/Linux.</p>
+<p>Se puede decir que la documentación como tal de <strong>GNU/Linux</strong> no existe, son miles de páginas desperdigadas por todo internet, en cambio la documentación que hay sobre <strong>FreeBSD</strong>, sabes que está en un único sitio y todo bien puesto.</p>
+<p>A mi modo de ver, es una ventaja y un inconveniente y ahora explico el motivo de por qué digo esto.</p>
+<p>Cuando digo que es una ventaja, es correcto, solamente un grupo de personas crean, controlan y modifican la documentación y no hay miles de documentos desperdigados.</p>
+<p>El inconveniente es que toda la documentación ha sido realizada a través de una máquina virtual de VirtualBox (se puede ver si revisas un poco el Handbook)</p>
+<p><img src="imagen.png" alt="" title="BSD Install"></p>
+<p>Esto para mí es un inconveniente, porque la documentación se basa en una máquina estándar que muy poca gente dispone (ni yo mismo) y cuando vas a buscar ayuda en esta documentación con respecto a cualquier problema que no hayan contemplado, pues te vas a volver loco, pendrive, configuración <code>Xorg</code>, etc.. No hay información sobre qué hacer con respecto a estos problemas que ellos nunca se han encontrado/contemplado, porque en una máquina virtual, esos problemas no se pueden dar.</p>
+<p>Sí, tienes el foro, pero dependiendo de cómo hagas la pregunta y lo experimentado que seas en el tema FreeBSD, a lo mejor no te responden (que conste que eso nunca ha sido mi caso), pero sí que me ha pasado que en la lista oficial en castellano que estoy suscripto, envié primero mis dudas con respecto a FreeBSD (las mismas que envié al foro) y aún estoy esperando. Que conste que no es una crítica, pero&hellip;</p>
+<p>Así mismo, con respecto a la documentación de GNU/Linux, yo la veo más útil que la documentación de FreeBSD, porque es documentación que la ha realizado la gente sobre sus propias instalaciones en sus propias máquinas, máquinas reales, y esto es positivo, porque seguramente más gente se ha encontrado el problema de Optimus, es un ejemplo, pero seguro que habrá otros casos, y ellos explican la solución que han tomado con respecto a este problema. Puede que a ti te sirva o no, pero es un punto de partida que puedes tomar.</p>
+<p>En cambio, esto, en FreeBSD no lo veo, porque como la documentación solamente está controlada por el grupo de FreeBSD, pues&hellip;</p>
+<h2 id="-conclusión">◇ Conclusión</h2>
+<p>Esta es la opinión que he sacado después de las pruebas que he realizado a FreeBSD, a mi modo de ver, aún quedan algunas cosas por pulir.</p>
+<p>Cuando digo a pulir, me estoy refiriendo a facilitar la vida a los usuarios que quieren usar este sistema. Ejemplo claro <code>PKG</code>.</p>
+<p>Digo esto, porque seguramente más gente que antes estaba contenta con las diferentes distribuciones que existían en GNU/Linux, pero al ver el camino que se ha tomado <strong>Systemd</strong>, estarán pensando lo mismo que yo y estarán sopesando la idea de pasar a <strong>FreeBSD</strong> y pueden haber pequeñas cosas que les puedan echar atrás.</p>
+<p>Sí, tenemos <strong>PCBSD</strong>, pero es lo mismo que digo con respecto a Ubuntu y <strong>Debian GNU/Linux</strong>. Porque vas a usar un sucedáneo, si tienes el original.</p>
+<p>Esto no quiere decir que vaya a desistir de él. Me gustaría realizar la migración a FreeBSD y poder abrir una nueva etapa de mi vida, tal como hice con <strong>Debian GNU/Linux</strong>.</p>
+<p>Esto lo digo con pena, porque veo que <strong>Debian GNU/Linux</strong> no ha sabido tratar el tema de <code>Systemd</code> como era de esperar respecto a la filosofía que ellos representan&hellip;</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.freebsd.org">FreeBSD</a></li>
+<li><a href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/usb-disks.html">Handbook</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

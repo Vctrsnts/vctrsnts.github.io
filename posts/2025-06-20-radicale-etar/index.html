@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Adiós GCalendar. Hola Radicale · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-06-20-radicale-etar/">
+
+
+
+
+
+
+<meta name="description" content="A partir de este articulo de Carlos M.., del que sigo tanto su blog como su canal de Mastodon, me picó la curiosidad de si yo también podría tener un calendario ajeno al control de Google y si le sacaría todo el partido para ello.
+Pues qué queréis que os diga, si con el calendario de Google lo uso para apuntar 3 notas, ¿por qué no voy a sacarle partido a mi propio calendario, pero controlado por mí? Aparte de que también permite tener tu propia agenda de contactos y que esta no esté al alcance de Google.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Adiós GCalendar. Hola Radicale">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="A partir de este articulo de Carlos M.., del que sigo tanto su blog como su canal de Mastodon, me picó la curiosidad de si yo también podría tener un calendario ajeno al control de Google y si le sacaría todo el partido para ello.
+Pues qué queréis que os diga, si con el calendario de Google lo uso para apuntar 3 notas, ¿por qué no voy a sacarle partido a mi propio calendario, pero controlado por mí? Aparte de que también permite tener tu propia agenda de contactos y que esta no esté al alcance de Google.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Adiós GCalendar. Hola Radicale</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2025-06-20">
+        2025-06-20
+      </time>
+      · 5 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/vps/">
+            #VPS
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>A partir de este <a href="https://elblogdelazaro.org/sincronizar-gnome-calendar-con-un-servidor-caldav">articulo</a> de <strong>Carlos M..</strong>, del que sigo tanto su <a href="https://elblogdelazaro.org/">blog</a> como su canal de Mastodon, me picó la curiosidad de si yo también podría tener un calendario ajeno al control de Google y si le sacaría todo el partido para ello.</p>
+<p>Pues qué queréis que os diga, si con el <em>calendario de Google</em> lo uso para apuntar 3 notas, ¿por qué no voy a sacarle partido a mi propio calendario, pero controlado por mí? Aparte de que también permite tener tu propia agenda de contactos y que esta no esté al alcance de <em>Google</em>.</p>
+<p>Entonces me empapé con el articulo de <strong>Carlos M..</strong> y busqué toda la información posible sobre la aplicación que él estaba usando, <a href="https://radicale.org/v3.html">Radicale</a>.</p>
+<p>En principio, cuesta un poco entender el funcionamiento que tiene, pero lo explicaré en lengua vernácula para que todos nos podamos entender. <strong>Radicale</strong> es un servidor de calendarios donde tú los creas y luego, con diferentes aplicaciones, usas esos calendarios que has creado.</p>
+<blockquote>
+<p>nota: Como ya he informado, <strong>Radicale</strong> también permite tener una agenda de contactos, de la que también haré uso, y así no tenerla vinculada por la cuenta de <strong>Google</strong>, pero eso no quita que los contactos que tengo en mi cuenta de <strong>GMail</strong> los vaya a borrar. Me servirán como copia de respaldo por si algún día pasa alguna cosa.</p>
+</blockquote>
+<p>Cuando ya tenemos claro lo que queremos hacer, ahora viene la parte más <strong>fácil</strong> o <strong>difícil</strong>, según se mire: la instalación del mismo. Pero gracias a <strong>Docker</strong> y a la búsqueda de información de cómo se hace, se vuelve muy fácil.</p>
+<p>Lo primero es el <code>docker-compose.yml</code>, que en mi caso es el siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">radicale</span>:
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">image</span>: <span style="color:#ae81ff">grepular/radicale:3</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">calendarRadicale</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">proxy</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">user</span>: <span style="color:#ae81ff">root</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">${HOME}/config/radicale/config:/etc/radicale/config:ro</span>
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">${HOME}/config/radicale/users:/etc/radicale/users:ro</span>
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">${HOME}/config/radicale/data:/var/lib/radicale</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">traefik.enable=true</span>
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">traefik.http.services.radicale.loadbalancer.server.port=5232</span>
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">traefik.http.routers.radicale.entrypoints=websecure</span>
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">traefik.http.routers.radicale.rule=Host(`${RADICALE_SERVER}`)</span>
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">traefik.http.routers.radicale.middlewares=cors-headers@docker</span>
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">traefik.http.middlewares.cors-headers.headers.accessControlAllowOriginList=*</span>
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">traefik.http.middlewares.cors-headers.headers.accessControlAllowHeaders=Origin, X-Requested-With, Content-Type, Accept, Authorization</span>
+</span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">traefik.http.middlewares.cors-headers.headers.accessControlAllowMethods=GET, POST, PUT, DELETE, OPTIONS</span>
+</span></span></code></pre></div><p>Como os podéis dar cuenta, también he añadido las etiquetas de <strong>Traefik</strong> para que así me dé un plus más de seguridad, aparte de toda la que ya tiene (que nunca es poca).</p>
+<p>Aunque si vais a esta <a href="https://github.com/Kozea/Radicale/wiki/Installing-on-Docker">dirección</a>, podéis encontrar el Docker que os facilita la propia aplicación de <strong>Radicale</strong>.</p>
+<blockquote>
+<p>nota:
+Lo que sí que tenéis que tener en cuenta es que, antes de iniciar el servicio de Docker de <strong>Radicale</strong>, tenéis que haber creado los siguientes ficheros:</p>
+<ul>
+<li><code>config.yml</code>, donde estará la configuración del servicio.</li>
+<li><code>user</code>, donde estarán los usuarios que tienen acceso al servicio.</li>
+</ul>
+</blockquote>
+<p>En el caso de la configuración, en la página web de <strong>Radicale</strong>, más concretamente en su <a href="https://github.com/Kozea/Radicale/blob/master/config">GitHub</a>, podéis encontrar el fichero de configuración por defecto, el cual luego puedes modificar a tu gusto.</p>
+<p>Luego pasamos a añadir los usuarios que tendrán acceso. Esto se hace mediante <code>htpasswd -B -c /path/to/users usuari</code>; luego te pide la contraseña para ese usuario. Una vez has ejecutado esta instrucción, te aparece el fichero <code>users</code> con el siguiente formato:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari:password_encriptat
+</span></span></code></pre></div><p>Cuando ya tenemos el fichero de configuración y el fichero de usuarios, ahora sí que podemos <strong>instalar</strong> el contenedor de <strong>Radicale</strong> mediante la famosa invocación a nuestro dios <strong>Docker Compose</strong> 😂</p>
+<p>Después de esto, ya tenemos instalado nuestro propio calendario; ahora solo hace falta acceder a él y empezar a crear los calendarios que necesitemos.</p>
+<blockquote>
+<p>nota: En mi caso, lo que he hecho ha sido descargar el calendario tanto de aniversarios como de tareas que ya tenía en <strong>Google Calendar</strong> y los he importado a <strong>Radicale</strong>.</p>
+</blockquote>
+<p>Para importar los calendarios, una vez los has descargado de Google, accedes a tu servidor de calendarios y accedes a la opción de la flecha azul:</p>
+<p><img src="imagen.png" alt="" title="Importar Calendario"></p>
+<p>Te pide el fichero, lo seleccionas y listo. Lo único que te queda es cambiar el nombre del calendario y listo.</p>
+<blockquote>
+<p>nota: Lo que sí que he visto es que hay unos plugins para modificar las funcionalidades del calendario, como cambiar la visualización de la web y que se pueda ver el calendario, pero no he descubierto cómo hacerlo. Además, como lo voy a usar, de momento, solo en el móvil, pues&hellip;</p>
+</blockquote>
+<p>Una vez ya tenemos todo preparado y configurado en el servidor, en mi caso me falta la configuración de mi móvil, que es donde más lo voy a utilizar. Lo primero es instalar la aplicación <a href="https://www.davx5.com">DAVx5</a> para tener acceso a los calendarios.</p>
+<blockquote>
+<p>nota: No voy a explicar cómo se hace la configuración de esta APK, que se puede descargar en <a href="https://f-droid.org/ca">F-Droid</a>, porque podéis encontrar mucha información al respecto. Lo que sí que voy a comentar es lo que hice después de tener configurado el acceso y la sincronización de mis calendarios.</p>
+</blockquote>
+<p>Una vez que tenía esta parte hecha, me puse a buscar la mejor aplicación de calendario que al menos no compartiera mis datos con todo el mundo y encontré 3 candidatos:</p>
+<ul>
+<li>
+<p><a href="https://f-droid.org/packages/ws.xsoh.etar/">Etar</a></p>
+</li>
+<li>
+<p><a href="https://f-droid.org/en/packages/at.bitfire.icsdroid/">ICSx</a></p>
+<ul>
+<li>De los mismos creadores que <strong>DAVx5</strong></li>
+</ul>
+</li>
+<li>
+<p><a href="https://play.google.com/store/apps/details?id=org.withouthat.acalendar&amp;hl=es_ES">ACalendar</a></p>
+<ul>
+<li>Que me la recomendó, cómo no, <strong>Carlos M.</strong></li>
+</ul>
+</li>
+</ul>
+<p>Pero quería algo lo más <em>libre</em> posible, porque si había salido de la sartén de <strong>Google</strong>, no quería caer en las brasas de otro, y quién mejor que la IA para aclarar estas dudas.</p>
+<p>Le puse las 3 aplicaciones y que tenían que cumplir con estos 3 requisitos; si no todos, al menos el primero y el segundo. Estos requisitos son:</p>
+<ul>
+<li>Funcionar con el servidor <strong>Radicale</strong></li>
+<li>Ser <em>Open Source</em></li>
+<li>No compartir mis datos con otras empresas</li>
+</ul>
+<p>El único que cumplía con estos 3 requisitos era <strong>Etar</strong>, así que lo he instalado y de momento no estoy teniendo ningún problema y no tiene nada que envidiar al resto.</p>
+<p>Pero aún no ha llegado ningún día con alguna tarea pendiente, así que a ver cómo funciona y cómo se comporta llegado ese día.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.org/sincronizar-gnome-calendar-con-un-servidor-caldav">Sincronizar GNOME Calendar con un servidor CalDAV</a></li>
+<li><a href="https://github.com/Kozea/Radicale/blob/master/config">Radicale Config</a></li>
+<li><a href="https://github.com/Kozea/Radicale/wiki/Installing-on-Docker">Radicale Docker</a></li>
+<li><a href="https://f-droid.org/packages/ws.xsoh.etar/">Etar</a></li>
+<li><a href="https://f-droid.org/en/packages/at.bitfire.icsdroid">ICSx</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=org.withouthat.acalendar&amp;hl=es_ES">ACalendar</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

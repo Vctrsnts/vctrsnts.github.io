@@ -1,0 +1,158 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Descargar Podcast a través de Flexgetx - Annexo · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2021-06-07-flexget-podcast-annexo/">
+
+
+
+
+
+
+<meta name="description" content="Como había explicado en este articulo o en este otro articulo, explicaba como crear una imagen de docker o como usar dicha imagen, flexget, para descargar podcast a través de los RSS que puedes conseguir.
+Pero me di cuenta, que usar tus propias imágenes de docker, o están muy bien hechas y con cada nueva versión de la original, actualizas la tuya, o puedes acabar teniendo problemas, que era lo que me pasaba, decidí que era mejor usar la versión base del creador, en este caso de flexget, para así evitarme futuros problemas y tener siempre, que me interese, la última versión de container.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Descargar Podcast a través de Flexgetx - Annexo">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Como había explicado en este articulo o en este otro articulo, explicaba como crear una imagen de docker o como usar dicha imagen, flexget, para descargar podcast a través de los RSS que puedes conseguir.
+Pero me di cuenta, que usar tus propias imágenes de docker, o están muy bien hechas y con cada nueva versión de la original, actualizas la tuya, o puedes acabar teniendo problemas, que era lo que me pasaba, decidí que era mejor usar la versión base del creador, en este caso de flexget, para así evitarme futuros problemas y tener siempre, que me interese, la última versión de container.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Descargar Podcast a través de Flexgetx - Annexo</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2021-06-07">
+        2021-06-07
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Como había explicado en este <a href="/posts/2020-12-14-crear-imagen-docker">articulo</a> o en este otro <a href="/posts/2021-05-30-flexget-podcast">articulo</a>, explicaba como crear una imagen de <code>docker</code> o como usar dicha imagen, <strong>flexget</strong>, para descargar podcast a través de los <code>RSS</code> que puedes conseguir.</p>
+<p>Pero me di cuenta, que usar tus propias imágenes de docker, o están muy bien hechas y con cada nueva versión de la original, actualizas la tuya, o puedes acabar teniendo problemas, que era lo que me pasaba, decidí que era mejor usar la versión base del creador, en este caso de <code>flexget</code>, para así evitarme futuros problemas y tener siempre, que me interese, la última versión de container.</p>
+<p>Además, como desde las últimas versiones, se le puede añadir un directorio <code>custom-cont-init.d</code> donde, en el caso que tú quieres, creas un fichero bash con el nombre <code>entrypoint.sh</code> con, en mi caso, las siguientes instrucciones:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/with-contenv bash
+</span></span></span><span style="display:flex;"><span>apk add -q --no-cache eye3d mediainfo ffmpeg wget
+</span></span></code></pre></div><p>Para que una vez se cree y se ejecute por primera vez, se hará uso de este script para instalar, cada vez que lo crees de nuevo, las aplicaciones que tú quieras. En mi caso, son para el tratamiento de los podcasts que descargo. Y así, me ahorro el tener que acordame de si está instalado o no, cada nueva vez que creo dicho container, porque se hace automáticamente.</p>
+<p>Es una gran mejora, que uso en varios de los containers, donde tengo aplicaciones que uso, pero que no están dentro del propio container de origen.</p>
+<p>Sé que podría hacer una imagen especial para mí, pero entonces volvería a tener los mismo problemas que os estaba explicando al principio.</p>
+<p>Para mí, no merece la pena todo el trabajo y stress que me supondría.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

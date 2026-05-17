@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sway on Si lo haces, hazlo bien!</title>
+    <link>https://vctrsnts.github.io/tags/sway/</link>
+    <description>Recent content in Sway on Si lo haces, hazlo bien!</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 15 Oct 2025 00:00:00 +0200</lastBuildDate>
+    <atom:link href="https://vctrsnts.github.io/tags/sway/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>De i3WM ( X11 ) a Sway ( Wayland ) - 3</title>
+      <link>https://vctrsnts.github.io/posts/2025-10-15-i3wm-sway-3/</link>
+      <pubDate>Wed, 15 Oct 2025 00:00:00 +0200</pubDate>
+      <guid>https://vctrsnts.github.io/posts/2025-10-15-i3wm-sway-3/</guid>
+      <description>&lt;p&gt;Pues llegamos al tercer y último artículo donde explico la transición de &lt;strong&gt;I3wm&lt;/strong&gt; a &lt;strong&gt;Sway&lt;/strong&gt; y las sensaciones que estoy teniendo mientras lo uso y por último mi conclusión final.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-compatibilidad-con-aplicaciones&#34;&gt;◇ Compatibilidad con aplicaciones&lt;/h2&gt;&#xA;&lt;p&gt;Con respecto a la integración y compatibilidad de las aplicaciones que uso normalmente no he tenido ningún problema. Todo está funcionando correctamente y sin problemas remarcables.&lt;/p&gt;&#xA;&lt;p&gt;Las aplicaciones &lt;em&gt;diferentes&lt;/em&gt; que por necesidad estoy usando, son las siguientes:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>De i3WM ( X11 ) a Sway ( Wayland ) - 2</title>
+      <link>https://vctrsnts.github.io/posts/2025-10-05-i3wm-sway-2/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0200</pubDate>
+      <guid>https://vctrsnts.github.io/posts/2025-10-05-i3wm-sway-2/</guid>
+      <description>&lt;p&gt;Después del primer &lt;a href=&#34;https://vctrsnts.github.io/posts/2025-09-15-i3wm-sway-1&#34;&gt;artículo&lt;/a&gt;, donde explicaba la preparación de mi equipo. Ahora os explicaré cómo hice la instalación de &lt;strong&gt;sway&lt;/strong&gt; y los problemas que me encontré. Que si tengo de decirlo, fueron muy pocos.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-script-de-instalación&#34;&gt;◇ Script de instalación&lt;/h2&gt;&#xA;&lt;p&gt;Este script es el que se encarga de realizar la instalación completa, o mejor dicho, de todo lo necesario para que en el momento de reiniciar el equipo, &lt;strong&gt;sway&lt;/strong&gt; funcione correctamente (podéis encontrar una versión completa en mi &lt;a href=&#34;https://github.com/Vctrsnts/debian-installer-sway&#34;&gt;github&lt;/a&gt;).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>De i3WM ( X11 ) a Sway ( Wayland ) - 1</title>
+      <link>https://vctrsnts.github.io/posts/2025-09-15-i3wm-sway-1/</link>
+      <pubDate>Fri, 12 Sep 2025 00:00:00 +0200</pubDate>
+      <guid>https://vctrsnts.github.io/posts/2025-09-15-i3wm-sway-1/</guid>
+      <description>&lt;p&gt;Como podéis leer en este &lt;a href=&#34;https://vctrsnts.github.io/posts/2023-09-11-substitutos-portatil&#34;&gt;artículo&lt;/a&gt;, tenía ya a mi disposición un substituto en caso de fallo grave de mi portátil que venía usando hasta ahora. Y eso es lo que ha pasado. El pobre ha pasado a mejor vida.&lt;/p&gt;&#xA;&lt;p&gt;Como dice el refrán &amp;ldquo;&lt;em&gt;el rey ha muerto, viva el rey&lt;/em&gt;&amp;rdquo; y esto es que el que estaba en el banquillo, ya puede salir a jugar 😂.&lt;/p&gt;&#xA;&lt;p&gt;Tengo pensado hacer una serie de 3 artículos que serán los siguientes (incluyendo este):&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

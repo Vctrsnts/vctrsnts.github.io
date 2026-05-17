@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Raspberry Pi. Configurando la Raspberry · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2016-04-02-rpi-configurando-raspberry/">
+
+
+
+
+
+
+<meta name="description" content="Después de la instalación viene la configuración y en mi caso hice lo siguiente.
+Acceder al sistema introduciendo el usuario y password. Los datos son los siguientes:
+usuario: pi password: raspberrypi Una vez hemos accedido al sistema, ejecutamos la siguiente instrucción:
+usuari@raspberry:~$ sudo raspi-config Con ello accedemos al menú de configuración inicial de la Raspberry donde podremos configurar las siguientes opciones (al lado de cada opción, viene una breve explicación de lo que hace cada una):
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Raspberry Pi. Configurando la Raspberry">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Después de la instalación viene la configuración y en mi caso hice lo siguiente.
+Acceder al sistema introduciendo el usuario y password. Los datos son los siguientes:
+usuario: pi password: raspberrypi Una vez hemos accedido al sistema, ejecutamos la siguiente instrucción:
+usuari@raspberry:~$ sudo raspi-config Con ello accedemos al menú de configuración inicial de la Raspberry donde podremos configurar las siguientes opciones (al lado de cada opción, viene una breve explicación de lo que hace cada una):
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Raspberry Pi. Configurando la Raspberry</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2016-04-02">
+        2016-04-02
+      </time>
+      · 4 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Después de la instalación viene la configuración y en mi caso hice lo siguiente.</p>
+<p>Acceder al sistema introduciendo el usuario y password. Los datos son los siguientes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuario: pi
+</span></span><span style="display:flex;"><span>password: raspberrypi
+</span></span></code></pre></div><p>Una vez hemos accedido al sistema, ejecutamos la siguiente instrucción:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo raspi-config
+</span></span></code></pre></div><p>Con ello accedemos al menú de configuración inicial de la Raspberry donde podremos configurar las siguientes opciones (al lado de cada opción, viene una breve explicación de lo que hace cada una):</p>
+<p><img src="raspi-config.png" alt="" title="Raspi Config"></p>
+<p>En mi caso, las que he utilizado son las siguientes:</p>
+<ul>
+<li><code>Expand Filesystem</code>: Expandir el SO para ocupar toda la SD, después nos aconseja reiniciar. Yo lo hago.</li>
+<li><code>Change User Password</code>: Cambiamos el password del usuario <code>usuari</code>.</li>
+<li><code>Enable Boot to Desktop/Scratch</code>: Selecciono la opción de inicio en <code>consola</code>.</li>
+<li><code>Internationalisation Options</code>: Poner en castellano nuestro sistema. Yo selecciono <code>es_ES.UTF-8</code></li>
+<li><code>Advanced Options</code>: En este caso, está la opción de cambiar el nombre de <code>host</code> de nuestra Raspberry. Yo lo hago.</li>
+</ul>
+<p>Después de la configuración inicial, en mi caso, hago una actualización del <code>firmware</code> de la Raspberry mediante la siguiente instrucción:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo rpi-update
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># en caso de que visualices el siguiente mensaje:</span>
+</span></span><span style="display:flex;"><span>usuari@raspberry:~$ Command not found
+</span></span></code></pre></div><p>Te está indicando que no tienes instalado este paquete, solamente tienes que instalarlo a través de apt-get de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo apt-get install rpi-update
+</span></span></code></pre></div><p>Una vez que hemos instalado el paquete, ahora sí que podemos pasar a realizar la actualización del firmware, kernel y módulos de nuestra Raspberry.</p>
+<p><img src="rpi_update.png" alt="" title="RPI Update"></p>
+<p>Cuando el procedimiento de actualización ha finalizado, yo tengo por costumbre instalar los siguientes paquetes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo apt-get install deborphan localepurge
+</span></span></code></pre></div><p>Para que:</p>
+<ul>
+<li><code>deborphan</code>: elimina los paquetes / librerías que han quedado huérfanas o que ya no se utilizan. Además, nos será de mucha utilidad, cuando empecemos a eliminar paquetes que no son necesarios (esto es en mi caso).</li>
+<li><code>localepurge</code>: elimina los idiomas que no se están usando en nuestro sistema</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo apt-get purge <span style="color:#66d9ef">$(</span>deborphan --libdevel<span style="color:#66d9ef">)</span>
+</span></span></code></pre></div><p>Una vez realizada esta mini-limpieza, lo que hago es cambiarle el password a <strong>root</strong>, porque no me gusta usar <code>sudo</code>, esto lo hago a través de:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo passwd
+</span></span></code></pre></div><p>Entonces, te pedirá que pongas el nuevo password de <strong>root</strong>.</p>
+<p>Después añado el usuario que voy a utilizar y borro al usuario <code>usuari</code> que viene por defecto en la instalación. Una medida más de seguridad.</p>
+<p>Las instrucciones para realizar esta acción son las siguientes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ su -
+</span></span><span style="display:flex;"><span>password:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>root@raspberry:~# adduser miUsuario
+</span></span><span style="display:flex;"><span>Adding user <span style="color:#e6db74">&#39;miUsuario&#39;</span> ...
+</span></span><span style="display:flex;"><span>Adding new group <span style="color:#e6db74">&#39;miUsuario&#39;</span> <span style="color:#f92672">(</span>1001<span style="color:#f92672">)</span> ...
+</span></span><span style="display:flex;"><span>Adding new user <span style="color:#e6db74">&#39;miUsuario&#39;</span> <span style="color:#f92672">(</span>1002<span style="color:#f92672">)</span> with group <span style="color:#e6db74">&#39;miUsuario&#39;</span>
+</span></span><span style="display:flex;"><span>Creating home directory <span style="color:#e6db74">&#39;/home/miUsuario&#39;</span>
+</span></span><span style="display:flex;"><span>Copying files from <span style="color:#e6db74">&#39;/etc/skel&#39;</span>
+</span></span><span style="display:flex;"><span>Enter new UNIX password:
+</span></span><span style="display:flex;"><span>Retype new UNIX password:
+</span></span><span style="display:flex;"><span>passwd: password update successfully
+</span></span><span style="display:flex;"><span>Changing the user information <span style="color:#66d9ef">for</span> miUsuario
+</span></span><span style="display:flex;"><span>Enter the new value, or press ENTER <span style="color:#66d9ef">for</span> the default
+</span></span><span style="display:flex;"><span> Full Name <span style="color:#f92672">[]</span>:
+</span></span><span style="display:flex;"><span> Rom Number <span style="color:#f92672">[]</span>:
+</span></span><span style="display:flex;"><span> Work Phone <span style="color:#f92672">[]</span>:
+</span></span><span style="display:flex;"><span> Home Phone <span style="color:#f92672">[]</span>:
+</span></span><span style="display:flex;"><span> Oher <span style="color:#f92672">[]</span>:
+</span></span><span style="display:flex;"><span>Is the information correct? <span style="color:#f92672">[</span>Y/n<span style="color:#f92672">]</span> y
+</span></span></code></pre></div><p>Una vez que ya he creado el usuario que voy a usar a partir de ahora, paso a borrar el usuario que viene por defecto. En este caso <code>usuari</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ su -
+</span></span><span style="display:flex;"><span>password:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>root@raspberry:~# deluser --remove-home usuari
+</span></span></code></pre></div><p>Lo que hace esta instrucción, aparte de borrar al usuario <code>usuari</code>, es borrar también el directorio del usuario.</p>
+<p>Una cosa que también he realizado, ha sido usar <code>apt-get</code> en vez de <code>aptitude</code>, porque se vuelve lento.</p>
+<p>El problema es que en <code>aptitude</code> se puede deshabilitar la opción de que te instale los paquetes <strong>sugeridos</strong> y / o <strong>recomendados</strong>.</p>
+<p>También, se pueden deshabilitar, si se crea un fichero en:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@raspberry:~# vi /etc/apt/apt.conf.d/10norecommends
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>APT::Install-Recommends <span style="color:#e6db74">&#34;false&#34;</span>;
+</span></span><span style="display:flex;"><span>APT::Install-Suggets <span style="color:#e6db74">&#34;false&#34;</span>;
+</span></span></code></pre></div><p>Con estas 2 opciones, cada vez que nosotros vayamos a realizar un:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@raspberry:~# apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get upgrade
+</span></span></code></pre></div><p>Nos mostrará los paquetes recomendados y los sugeridos, pero no nos los instalará si es que no lo hacemos nosotros mismos.</p>
+<p>Después de esto ya tenemos funcionando nuestra Raspberry. En próximos capítulos, explicaremos cómo <a href="/posts/2016-04-03-rpi-configurar-red">configurar la red</a> (porque por lo visto en <strong>Jessie</strong> es diferente) y más cosas que explicaré.</p>
+<p>Hasta la próxima&hellip;</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

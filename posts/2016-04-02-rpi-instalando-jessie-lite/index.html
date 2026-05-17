@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Raspberry Pi. Instalando Jessie-Lite · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2016-04-02-rpi-instalando-jessie-lite/">
+
+
+
+
+
+
+<meta name="description" content="Como dije en el anterior capítulo, después de recibir mi nuevo juguete:
+Toshiba Canvio Connect II 1 TB Después de ver el correcto funcionamiento de mi nuevo HD, lo primero que hice, fue formatearlo con ext-4 y crear las particiones necesarias que iba a utilizar en la Raspberry. Pero no nos adelantemos a los acontecimientos.
+Para realizar una instalación limpia, lo primero que hice fue bajarme la imagen de Jessie-Lite que podéis encontrar aquí. Yo escogí la Lite. En esta no viene ningún gestor de ventanas ni paquetes innecesarios para funcionar en modo servidor.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Raspberry Pi. Instalando Jessie-Lite">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Como dije en el anterior capítulo, después de recibir mi nuevo juguete:
+Toshiba Canvio Connect II 1 TB Después de ver el correcto funcionamiento de mi nuevo HD, lo primero que hice, fue formatearlo con ext-4 y crear las particiones necesarias que iba a utilizar en la Raspberry. Pero no nos adelantemos a los acontecimientos.
+Para realizar una instalación limpia, lo primero que hice fue bajarme la imagen de Jessie-Lite que podéis encontrar aquí. Yo escogí la Lite. En esta no viene ningún gestor de ventanas ni paquetes innecesarios para funcionar en modo servidor.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Raspberry Pi. Instalando Jessie-Lite</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2016-04-02">
+        2016-04-02
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Como dije en el anterior capítulo, después de recibir mi nuevo juguete:</p>
+<ul>
+<li><a href="https://www.amazon.es/gp/product/B00TB7K8FA/ref=oh_aui_detailpage_o00_s00?ie=UTF8&amp;psc=1">Toshiba Canvio Connect II 1 TB</a></li>
+</ul>
+<p>Después de ver el correcto funcionamiento de mi nuevo HD, lo primero que hice, fue formatearlo con <strong>ext-4</strong> y crear las particiones necesarias que iba a utilizar en la Raspberry. Pero no nos adelantemos a los acontecimientos.</p>
+<p>Para realizar una instalación limpia, lo primero que hice fue bajarme la imagen de <strong>Jessie-Lite</strong> que podéis encontrar <a href="https://www.Raspberrypi.org/downloads/raspbian">aquí</a>. Yo escogí la <code>Lite</code>. En esta no viene ningún gestor de ventanas ni paquetes innecesarios para funcionar en modo servidor.</p>
+<p>Una vez descargada, copié la imagen a la SD (lo hice desde mi portátil en <strong>GNU/Linux</strong>, supongo que para <em>Windows</em> tiene que haber alguna aplicación que haga lo mismo):</p>
+<p>Lo primero, es insertar la tarjeta SD y realizar la instrucción <code>mount</code> para descubrir qué dispositivo es nuestra SD:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ mount
+</span></span></code></pre></div><p>Obtendrás un listado con todos los dispositivos conectados. En mi caso, la tarjeta SD, era:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ /dev/mmcblk0
+</span></span></code></pre></div><p>Después de obtener esta información, solamente nos queda copiar la imagen a la SD.</p>
+<blockquote>
+<p>nota: Hay que tener una cosa en cuenta a la hora de copiar la imagen en la SD, es que toda la información que pueda haber en la SD, se perderá</p>
+</blockquote>
+<p>La instrucción para realizar la copia (<strong>se tiene que hacer como root</strong>) es la siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@raspberry:~# dd bs<span style="color:#f92672">=</span>4M <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>2016-03-18-raspbian-jessie-lite.img of<span style="color:#f92672">=</span>/dev/mmcblk0
+</span></span><span style="display:flex;"><span>462+1 records in
+</span></span><span style="display:flex;"><span>463+0 records out
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1941962752</span> bytes <span style="color:#f92672">(</span>1.9 GB<span style="color:#f92672">)</span> copied, 256.996 s, 7.6 MB/s
+</span></span></code></pre></div><blockquote>
+<p>nota: Como se puede ver, a la opción bs, se le asigna el valor de 4M, está puesto así, porque si se pone la opción 1M, el volcado de la información tardaría mucho.</p>
+</blockquote>
+<p>Esto, lo que hará, es copiar la imagen en nuestra SD, tener en cuenta, que en mi caso, estaba en el mismo directorio donde tenía la imagen, en caso contrario, tengo que poner todo el path de donde se encuentra la imagen.</p>
+<p>Una vez se ha realizado la copia, solamente nos queda insertar la SD en nuestra RPI y a jugar&hellip;</p>
+<p>Ahora solamente nos quedará realizar la configuración inicial y algunos cambios (que he realizado yo) que lo explicaré en el siguiente capítulo.</p>
+<p>Hasta otra&hellip;</p>
+<blockquote>
+<p>nota: Si queréis obtener más información, podéis mirar este <a href="https://elinux.org/RPi_Easy_SD_Card_Setup">link</a> donde se explica más detalladamente el proceso tanto para Linux, Windows y Mac</p>
+</blockquote>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://elinux.org/RPi_Easy_SD_Card_Setup">Creación SD de imagen Raspberry</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

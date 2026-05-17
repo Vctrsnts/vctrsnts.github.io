@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Nuevo sitio web · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-12-23-nueva-web/">
+
+
+
+
+
+
+<meta name="description" content="Que no cunda el pánico ante el título de este artículo.
+No voy a hacer ningún cambio en esta web ni voy a borrarlo todo e irme de ermitaño a una cueva 🤣
+Solamente es para informar, que como tenía en WordPress una página web donde iba subiendo los libros que he ido leyendo durante estos años, pues &amp;amp;hellip;
+De la misma manera que me pasó antes, cuando di el salto a GitHub para tener un poco más de control sobre la web, más que WordPress seguro que lo tengo, pues he hecho lo mismo pero esta vez en GitLab.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Nuevo sitio web">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Que no cunda el pánico ante el título de este artículo.
+No voy a hacer ningún cambio en esta web ni voy a borrarlo todo e irme de ermitaño a una cueva 🤣
+Solamente es para informar, que como tenía en WordPress una página web donde iba subiendo los libros que he ido leyendo durante estos años, pues &amp;amp;hellip;
+De la misma manera que me pasó antes, cuando di el salto a GitHub para tener un poco más de control sobre la web, más que WordPress seguro que lo tengo, pues he hecho lo mismo pero esta vez en GitLab.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Nuevo sitio web</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2024-12-23">
+        2024-12-23
+      </time>
+      · 5 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/web/">
+            @Web
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/hugo/">
+            #Hugo
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Que no cunda el pánico ante el título de este artículo.</p>
+<p>No voy a hacer ningún cambio en esta web ni voy a borrarlo todo e irme de ermitaño a una cueva 🤣</p>
+<p>Solamente es para informar, que como tenía en <strong>WordPress</strong> una página web donde iba subiendo los libros que he ido leyendo durante estos años, pues &hellip;</p>
+<p>De la misma manera que me pasó antes, cuando di el salto a <strong>GitHub</strong> para tener un poco más de control sobre la web, más que <em>WordPress</em> seguro que lo tengo, pues he hecho lo mismo pero esta vez en <strong>GitLab</strong>.</p>
+<p>A parte de toda la creación de los artículos, donde sigo usando <strong>Jekyll</strong> para la generación del sitio estático, también me ha servido para aprender cómo es el funcionamiento de <strong>GitLab</strong>. Eso sí, tengo que decir que es muy diferente a <strong>GitHub</strong> en todo, o en casi todo.</p>
+<p>Lo veo todo más lioso y más confuso, me resultó más fácil <strong>GitHub</strong>, pero eso sí tengo que decir que los <a href="https://elblogdelazaro.org/search/?q=GitLab">artículos</a> de <strong>Carlos M.</strong> me sirvieron de punta de lanza para resolver todas las dudas que me iban surgiendo con respecto al funcionamiento y creación de un sitio en <strong>GitLab</strong>.</p>
+<p>De nuevo <strong>gracias Lázaro por tus artículos</strong>.</p>
+<p>También, tengo que decir que me apoyé en <strong>Copilot</strong> (y tengo que decir que me ayudó más que <strong>ChatGPT</strong>), para crear un script que me facilitara el proceso de subir los archivos a mi repositorio, porque siempre lo he encontrado tedioso y complicado.</p>
+<p>El script que estoy usando actualmente para subir los archivos resultantes de mi sitio a <strong>GitLab</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  <span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Up2GitLab 0.2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Actualizar fácil y rápidamente tu repositorio de GitLab</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># (CC) 2024 Victor Santos</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># https://vctrsnts.github.io</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Bajo licencia GNU/GPL</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Modo de uso: ejecútalo de la siguiente manera:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># sh up2GitLab.sh</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Actualización de la public key con GitLab porque siempre tenía problemas con la key</span>
+</span></span><span style="display:flex;"><span>  eval <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>ssh-agent -s<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  ssh-add /root/.ssh/idKeyGitLab
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Validación de que estamos &#39;conectados&#39; a GitLab</span>
+</span></span><span style="display:flex;"><span>  ssh -T git@gitlab.com
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  sleep <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># A través de Docker, actualizamos el fichero RSS</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># docker exec jekyll_book bundle exec jekyll build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># cp ../Gemfile .</span>
+</span></span><span style="display:flex;"><span>  docker exec jekyll_book bundle exec jekyll build
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  sleep <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  cp ../Gemfile .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Solicita el mensaje del commit</span>
+</span></span><span style="display:flex;"><span>  read -p <span style="color:#e6db74">&#34;Introduce el mensaje del commit: &#34;</span> commit_message
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rm -rf .fuse*
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Asegúrate de estar en el directorio del repositorio</span>
+</span></span><span style="display:flex;"><span>  repo_dir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;directori on esta el _site de jekyll&#34;</span>
+</span></span><span style="display:flex;"><span>  cd <span style="color:#e6db74">&#34;</span>$repo_dir<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">||</span> <span style="color:#f92672">{</span> echo <span style="color:#e6db74">&#34;Directorio del repositorio no encontrado&#34;</span>; exit 1; <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Establecer el repositorio remoto (opcional, si no está ya configurado)</span>
+</span></span><span style="display:flex;"><span>  remote_repo<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;el teu repositori de GitLab&#34;</span>
+</span></span><span style="display:flex;"><span>  git remote add origin <span style="color:#e6db74">&#34;</span>$remote_repo<span style="color:#e6db74">&#34;</span> 2&gt;/dev/null
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Configurar la reconciliación de ramas divergentes</span>
+</span></span><span style="display:flex;"><span>  git config --global pull.rebase false
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Añade todos los cambios al índice</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> ! git add .; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Error al añadir cambios&#34;</span>
+</span></span><span style="display:flex;"><span>      exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Realiza el commit con el siguiente mensaje</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> ! git commit -m <span style="color:#e6db74">&#34;</span>$commit_message<span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Error al realizar el commit. Verifica que haya cambios para subir.&#34;</span>
+</span></span><span style="display:flex;"><span>      exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Realiza el push a la rama master</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> ! git push origin main --force; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Error al realizar el push a la rama master&#34;</span>
+</span></span><span style="display:flex;"><span>      exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Registro de actividades</span>
+</span></span><span style="display:flex;"><span>  log_file<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$repo_dir<span style="color:#e6db74">/push_log.txt&#34;</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span><span style="color:#e6db74">: Commit realizado con el mensaje &#39;</span>$commit_message<span style="color:#e6db74">&#39; y push a la rama master&#34;</span> &gt;&gt; <span style="color:#e6db74">&#34;</span>$log_file<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;Cambios subidos con éxito a la rama master.&#34;</span>
+</span></span></code></pre></div><p>Algunos os chocará el porqué añado la <strong>key</strong> momentos antes de hacer el <em>push</em>, esto lo hago, porque como tengo aparte del repositorio de <strong>GitLab</strong> también tengo el repositorio de <strong>GitHub</strong> y a veces el sistema se volvía loco, no he encontrado explicación a esto, prefiero hacerlo de esta manera y así me evito problemas y mezclas de ficheros entre los diferentes sitios. No tendría que pasar, pero nunca se sabe. Los caminos del señor son inescrutables 😇.</p>
+<p>Así mismo, también tengo un <code>sleep 10</code> porque de esa manera evito que a la hora de actualizar mi repositorio me suba un fichero <code>.fuse*</code> a <strong>GitLab</strong>, pero no funciona del todo bien. Esto es debido, a que antes de actualizar el repositorio, ejecuto <code>docker exec jekyll_book bundle exec jekyll build</code> para regenerar los siguientes ficheros:</p>
+<ul>
+<li><code>feed.xml</code></li>
+<li><code>sitemap.xml</code></li>
+<li><code>robots.txt</code></li>
+</ul>
+<p>Con la dirección correcta del sitio, porque sino, a la hora de subirlo al repositorio, me lo subía con la IP por defecto de <strong>Jekyll</strong>, que no es otra que <em><a href="http://0.0.0.0:4000">http://0.0.0.0:4000</a></em> y de esta manera, es lo que he encontrado yo, pone la correcta.</p>
+<p>Con este script, subo los archivos al repositorio de <strong>GitLab</strong>, espero los 5 minutos de rigor para que se actualice el sistema y ya lo tengo todo actualizado y listo para visitar.</p>
+<p>Además como también tiene el feed que junto al script que podéis encontrar en este <a href="/posts/2024-12-10-publicar-redes-sociales">artículo</a> voy publicando, eso sí en <a href="https://www.tumblr.com/vctrsnts">Tumblr</a>, para no mezclar artículos de diferentes temáticas (informática, tecnología, etc..) con los artículos de los libros en Mastodon. Eso sí, tengo que pensar si los publico en <a href="https://bsky.app/profile/vctrsnts.bsky.social">BlueSky</a> o no que es más como un <strong>Twitter - X</strong> pero en sus comienzos. A ver cuánto dura.</p>
+<p>Después de todo esto, <a href="https://vsantos.envs.net">aquí</a> podéis encontrar la nueva página web donde voy colgando los libros que he leído.</p>
+<blockquote>
+<p>nota:
+Antes de nada, avisar que la web, está en <strong>Catalán</strong>. Sé que un sitio de este estilo, ya de por sí, tendrá pocas visitas y aún menos si está en catalán.
+Hasta aquí puedo leer, porque sino me encendería y este no es ni el lugar para eso 🤬 🔥.</p>
+</blockquote>
+<p>Espero que os sea de utilidad y encontréis libros que os gusten y que yo ya he leído. Si tenéis dudas, podéis contactar conmigo, para preguntar sobre alguno en concreto.</p>
+<blockquote>
+<p>nota: Aún me faltan por añadir unos cuantos más. Es lo malo que tiene ir a trabajar en Rodalies / Renfe, que tienes mucho tiempo libre 🤣.</p>
+</blockquote>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.org/posts/2018-12-10-sitio-web-estatico-gitlab">Cómo crear un sitio web estático en Gitlab Pages</a></li>
+<li><a href="https://elblogdelazaro.org/posts/2017-09-23-jekyll-y-gitlab">Como crear un blog con Jekyll y Gitlab Pages</a></li>
+<li><a href="https://vctrsnts.envs.net">Parlem de llibres</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

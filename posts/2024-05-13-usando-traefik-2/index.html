@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Usando Traefik - 2 · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-05-13-usando-traefik-2/">
+
+
+
+
+
+
+<meta name="description" content="De nuevo, con otro artículo de Traefik, en este caso, como se instala / activa el plugin GeoBlock para así, tal como indica su nombre, Traefik en base al país de origen de la IP, lo bloquea o no.
+En este caso, igual que en el anterior artículo, partimos de la base de que también me encontré con problemas a la hora de poder usar este plugin, tanto en su instalación, como en su configuración. Pero como ya tenía la experiencia de instalar y activar toda la sección de la redirección, esta vez, me resultó un poco más fácil, solo un poco, todo porque ya entendía, más o menos como funcionaba traefik.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Usando Traefik - 2">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="De nuevo, con otro artículo de Traefik, en este caso, como se instala / activa el plugin GeoBlock para así, tal como indica su nombre, Traefik en base al país de origen de la IP, lo bloquea o no.
+En este caso, igual que en el anterior artículo, partimos de la base de que también me encontré con problemas a la hora de poder usar este plugin, tanto en su instalación, como en su configuración. Pero como ya tenía la experiencia de instalar y activar toda la sección de la redirección, esta vez, me resultó un poco más fácil, solo un poco, todo porque ya entendía, más o menos como funcionaba traefik.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Usando Traefik - 2</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2024-05-13">
+        2024-05-13
+      </time>
+      · 5 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/vps/">
+            #VPS
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>De nuevo, con otro artículo de <strong>Traefik</strong>, en este caso, como se instala / activa el plugin <strong>GeoBlock</strong> para así, tal como indica su nombre, <strong>Traefik</strong> en base al país de origen de la <strong>IP</strong>, lo bloquea o no.</p>
+<p>En este caso, igual que en el anterior artículo, partimos de la base de que también me encontré con problemas a la hora de poder usar este plugin, tanto en su instalación, como en su configuración. Pero como ya tenía la experiencia de instalar y activar toda la sección de la redirección, esta vez, me resultó un poco más fácil, solo un poco, todo porque ya entendía, más o menos como funcionaba <strong>traefik</strong>.</p>
+<p>Hay que tener en cuenta, que la información, o el hilo del que tirar lo encontré gracias a nuestro querido Lorenzo (<a href="https://atareao.es">atareao</a>) y en especial de este <a href="https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik">artículo</a>.</p>
+<p>Para activar este plugin, lo primero es acceder a nuestra web de configuración de <strong>traefik</strong> e iremos a la sección de <strong>plugins</strong> y buscamos el que queremos instalar, que en este caso es <strong>GeoBlock</strong>. Aquí hay que tener una cosa en mente, si buscamos, nos aparecerán 2 plugins pero con una pequeña diferencia. La versión de cada uno:</p>
+<ul>
+<li>GeoBlock v0.2.2</li>
+<li>GeoBlock v0.2.8</li>
+</ul>
+<p>En nuestro caso, iremos a por la documentación de la versión <strong>v0.2.8</strong>, pero utilizaremos una versión anterior para que nuestro sistema sea más estable (en mi caso, he usado la versión <strong>v0.2.5</strong>). Lo que si que podemos hacer, es cuando veamos que todo funciona correctamente, es pasar a una versión superior (<strong>v0.2.6 - 7</strong>).</p>
+<p>Ahora es cuando viene la parte más importante, como <strong>instalar</strong> este plugin. Para ello, nos tenemos que ir al archivo de configuración de <code>traefik.yml</code>:</p>
+<h3 id="traefikyml">traefik.yml</h3>
+<p>Añadimos las líneas que <strong>instalan</strong> y <strong>activan</strong> este plugin:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">experimental</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">plugins</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">geoBlock</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">moduleName</span>: <span style="color:#e6db74">&#34;github.com/PascalMinder/geoblock&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;v0.2.5&#34;</span>
+</span></span></code></pre></div><p>Con esto indicamos lo siguiente:</p>
+<ul>
+<li>
+<p>Queremos que use el plugin que se encuentra en <strong>github.com/PascalMinder</strong></p>
+<ul>
+<li>Esto es así, porque también tenemos la posibilidad de instalar este plugin desde local.</li>
+</ul>
+</li>
+<li>
+<p>La versión que usaremos, que en este caso es la versión <strong>v0.2.5</strong></p>
+</li>
+</ul>
+<p>Aquí lo importante es el nombre que le hemos dado en la configuración de <code>GeoBlock</code>, porque más adelante lo usaremos y si no ponemos el mismo, tendremos problemas.</p>
+<p>Una vez, ya tenemos hecho esto, pasamos a la configuración del plugin en sí, que se hace desde el archivo <code>dynamic.yml</code>:</p>
+<h3 id="dynamicyml">dynamic.yml</h3>
+<blockquote>
+<p>nota: Recordar que ya habíamos añadido la configuración del usuario y password para los servicios que nos interesan, la configuración de <strong>GeoBlock</strong> se añade a continuación:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">http</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># EL NOMBRE DE LA SECCIÓN DE CONFIGURACIÓN DE GEOBLOCK</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">myGeoBlock</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">plugin</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># EL MISMO NOMBRE QUE TENEMOS EN EL ARCHIVO TRAEFIK.YML</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">geoBlock</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">silentStartUp</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">allowLocalRequests</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">logLocalRequests</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">logAllowedRequests</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">logApiRequests</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">api</span>: <span style="color:#e6db74">&#34;https://get.geojs.io/v1/ip/country/{ip}&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">cacheSize</span>: <span style="color:#ae81ff">15</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">forceMonthlyUpdate</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">allowUnknownCountries</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">unknownCountryApiResponse</span>: <span style="color:#e6db74">&#34;nil&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">countries</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">PAISES QUE TIENEN ACCESO A NUESTROS SERVICIOS</span>
+</span></span></code></pre></div><p>Esta sección tiene muchas posibilidades para añadir, pero en mi caso, siguiendo las pautas de <strong>Lorenzo</strong> he usado las siguientes:</p>
+<ul>
+<li><strong>Countries</strong>: Los países que tienen acceso a este proxy.</li>
+<li><strong>API</strong>: Con esta opción, es desde donde a partir de la IP que accede a nuestro proxy, saber de que país es y bloquear en caso de que no sea de uno de los países escogidos 😉</li>
+</ul>
+<p>Estas son en grandes rasgos las más importantes, las otras opciones podéis buscar para que sirven.</p>
+<p>Una vez, que ya tenemos <strong>GeoBlock</strong> configurado, en principio, ya está todo listo para funcionar. Pero os recomiendo que detengáis el docker de <strong>traefik</strong> y lo volváis a iniciar para asegurar de que coge la nueva configuración.</p>
+<blockquote>
+<p>nota:
+Antes de nada, voy a hacer un inciso porque, para ver si todo el sistema funciona correctamente, tenemos que acceder a los logs de <strong>traefik</strong> para ver que hace. En este caso, tenemos 2 opciones:</p>
+<ul>
+<li>Acceder directamente al contenedor de traefik y monitorizar los archivos de configuración <code>access.log</code>, <code>traefik.log</code>.</li>
+<li>Usar un pequeño script que, de nuevo tengo que darle las gracias a <strong>Lorenzo</strong> nos permite visualizar los logs mediante una pequeña instrucción y de un contenedor</li>
+</ul>
+</blockquote>
+<p>El script en cuestión se llama <code>dless</code> que es una variante del <code>less</code> original.</p>
+<h3 id="localbindless">./local/bin/dless</h3>
+<p>Que contiene lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    command<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -n <span style="color:#e6db74">&#34;</span>$command<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#e6db74">&#34;</span>$command<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> *<span style="color:#e6db74">&#34;:&#34;</span>* <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        container<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>command%:*<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>        filepath<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>command##*:<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        docker exec -it <span style="color:#e6db74">&#34;</span>$container<span style="color:#e6db74">&#34;</span> tail -f <span style="color:#e6db74">&#34;</span>$filepath<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>En mi caso, lo he configurado para que haga un <strong>tail -f</strong> del archivo en cuestión, tú puedes poner la instrucción que más te guste. Yo tengo <strong>tail</strong>, porque así puedo hacer un seguimiento del archivo en cuestión.</p>
+<p>Para poderlo usar, antes tenemos que modificar nuestro fichero <code>.bashrc</code> para añadir la ubicación del script de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># AFEGIM DLESS</span>
+</span></span><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span>~/.local/bin:$PATH
+</span></span></code></pre></div><p>Para usarlo hacemos lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~dless traefik:/var/log/traefik/access.log
+</span></span></code></pre></div><p>Donde:</p>
+<ul>
+<li><strong>traefik</strong>: Es el contenedor al que queremos acceder</li>
+<li><code>/var/log/traefik/access.log</code>: La ruta y el archivo que queremos controlar.</li>
+</ul>
+<p>Yo, en mi caso, hice unas cuantas pruebas para ver si funcionaba correctamente. Como tengo una VPN (plugin) en el navegador, lo que hice fue activarla y indicar que a partir de ese momento, salía desde un país no permitido para ver que pasaba. Y funcionaba correctamente, porque me denegaba el acceso, después, desconectaba la VPN o indicaba que salía de uno de los <strong>países permitidos</strong> no tenía ningún problema y podía acceder a los servicios que tengo en este servidor.</p>
+<p>Pues ya tenemos un nivel más de protección para nuestro servidor.</p>
+<p>Ahora solo me falta poder <strong>activar</strong> el plugin de <strong>crowdsec</strong> para traefik, pero eso ya es otro cantar. Es para niveles avanzados y yo ahora mismo estoy en nivel intermedio, pero buscando la información necesaria para llegar a ese nivel 😉</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://atareao.es/podcast/exprimiendo-tu-proxy-inverso-traefik">532 - Exprimiendo tu proxy inverso Traefik</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

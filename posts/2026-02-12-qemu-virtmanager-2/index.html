@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Instalar Qemu y VirtManager en Arch - 2 · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-02-12-qemu-virtmanager-2/">
+
+
+
+
+
+
+<meta name="description" content="En este segundo artículo, explicaremos un poco cómo me voy adaptando a usar VirtManager en vez de VirtualBox y las modificaciones que he tenido que hacer en mi flujo de trabajo con respecto al usar VirtManager.
+Hay que partir de la base que el uso que le doy yo a VirtManager es muy básico, esto se debe, a que no he encontrado alternativas que me gusten a las diferentes aplicaciones que uso.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Instalar Qemu y VirtManager en Arch - 2">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="En este segundo artículo, explicaremos un poco cómo me voy adaptando a usar VirtManager en vez de VirtualBox y las modificaciones que he tenido que hacer en mi flujo de trabajo con respecto al usar VirtManager.
+Hay que partir de la base que el uso que le doy yo a VirtManager es muy básico, esto se debe, a que no he encontrado alternativas que me gusten a las diferentes aplicaciones que uso.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Instalar Qemu y VirtManager en Arch - 2</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-02-12">
+        2026-02-12
+      </time>
+      · 5 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/arch/">
+            #Arch
+          </a>
+        
+          <a href="/tags/qemu/">
+            #QEMU
+          </a>
+        
+          <a href="/tags/samba/">
+            #Samba
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>En este segundo artículo, explicaremos un poco cómo me voy adaptando a usar <em>VirtManager</em> en vez de <em>VirtualBox</em> y las modificaciones que he tenido que hacer en mi flujo de trabajo con respecto al usar <em>VirtManager</em>.</p>
+<p>Hay que partir de la base que el uso que le doy yo a <em>VirtManager</em> es muy básico, esto se debe, a que no he encontrado alternativas que me gusten a las diferentes aplicaciones que uso.</p>
+<p>Además, como no quiero usar muchos recursos para esto, pues como sistema operativo que virtualizo es principalmente un <em>Windows XP</em>, y porque no funcionan correctamente con <em>Windows 2000</em>, porque si no 😀. Sí, lo siento, soy un nostálgico con respecto a los <em>SO</em>.</p>
+<p>Las aplicaciones a las que me refiero, son las siguientes:</p>
+<ul>
+<li><strong>mp3Tag</strong> → Para modificar la información de los archivos de música.</li>
+<li><strong>PDFSam</strong> → Para unificar archivos PDF. Seguramente en Arch hay alguno mejor, pero estoy acostumbrado a este.</li>
+<li><strong>IrfanView</strong> → Para gestionar imágenes. No he encontrado ninguno que lo supere.</li>
+<li><strong>TransmissionGui</strong> → Me gusta tenerlo para emergencias cuando el acceso por web no funciona.</li>
+<li><strong>aMuleGUI</strong> → Para gestionar la descarga de ISO de mis distribuciones favoritas.</li>
+</ul>
+<p>Muchos pensaréis, que la mayoría de las aplicaciones que uso, se podrían encontrar en <strong>Arch Linux</strong>, pero es que me gustan estas y estoy tan habituado a usarlas, además, son tan simples que no requieren mucho esfuerzo 😆.</p>
+<p>Pero es aquí donde está el problema principal, que tener directorios compartidos entre Arch Linux o cualquier otro <em>GNU/Linux</em> y <em>VirtManager</em> no se hace de la misma manera que con <em>VirtualBox</em>, y por eso tuve que buscarme una alternativa funcional viendo que las opciones que tiene <em>VirtManager</em> con <em>Windows XP</em> no funcionan, por ser un sistema operativo muy antiguo.</p>
+<p>Y no encontré una mejor manera que a través de <em>SAMBA</em>.</p>
+<blockquote>
+<p>nota: Habiendo miles de manuales para la instalación de <em>Samba</em>, ¿cómo vengo aquí a crear un nuevo artículo con la instalación y configuración de Samba en Arch?, pero como siempre he dicho, este es mi almacén particular del conocimiento, para que, llegado el momento, lo tenga que volver a hacer, encontrar más fácilmente la información de cómo se hace y si además, os puede servir de ayuda, mejor que mejor 😀.</p>
+</blockquote>
+<p>Ahora vayamos a lo más importante, la instalación y configuración de <em>Samba</em> en <em>Arch Linux</em> para poderlo usar en <em>Windows XP</em>.</p>
+<h2 id="-instalación-de-samba-en-arch-linux">◇ Instalación de Samba en Arch Linux</h2>
+<p>Es lo más fácil de todo y se hace de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ sudo pacman -S samba
+</span></span></code></pre></div><p>Una vez tenemos <em>samba</em> instalado, pasamos a crear el directorio que compartiremos con <em>Windows XP</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ mkdir -p /home/usuario/Compartida
+</span></span><span style="display:flex;"><span>usuari@archlinux:~/ chmod <span style="color:#ae81ff">777</span> /home/usuario/Compartida
+</span></span></code></pre></div><h2 id="-configuración-de-samba">◇ Configuración de Samba</h2>
+<p>Es también, fácil de hacer, solamente se tiene que modificar el archivo <code>/etc/samba/smb.conf</code>, en mi caso al final del archivo he añadido lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>[<span style="color:#ae81ff">global]</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">workgroup = WORKGROUP</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">map to guest = Bad User</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">interfaces = lo virbr0</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">bind interfaces only = yes</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">Compartida]</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">path = /home/usuari/Compartida</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">browseable = yes</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">read only = no</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">guest ok = yes</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">force user = usuari</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">create mask = 0664</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">directory mask = 0775</span>
+</span></span></code></pre></div><p>Donde:</p>
+<ul>
+<li><code>guest ok = yes</code> → permite acceso sin usuario/contraseña.</li>
+<li><code>interfaces</code> → limita Samba a escuchar solo en la interfaz de <strong>lo</strong> y en la red virtual <strong>NAT</strong>.</li>
+</ul>
+<h2 id="-habilitar-y-arrancar-los-servicios">◇ Habilitar y arrancar los servicios</h2>
+<p>Una vez ya hemos configurado nuestro archivo para <em>samba</em>, pasamos a habilitar e iniciar los servicios de <em>samba</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ sudo systemctl enable --now smb nmb
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verificar que Samba está activo:</span>
+</span></span><span style="display:flex;"><span>usuari@archlinux:~/ systemctl status smb
+</span></span><span style="display:flex;"><span>usuari@archlinux:~/ systemctl status nmb
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># reiniciamos los servicios</span>
+</span></span><span style="display:flex;"><span>usuari@archlinux:~/ sudo systemctl restart smb nmb
+</span></span></code></pre></div><h2 id="-configuración-de-virt-manager">◇ Configuración de virt-manager</h2>
+<p>Ahora nos vamos a realizar la configuración en <em>VirtManager</em>:</p>
+<ul>
+<li>Abrir virt-manager y seleccionar tu máquina virtual.</li>
+<li>Ir a Detalles → <code>NIC (Interfaz de red)</code>.
+<ul>
+<li>Asegurarte de que la Fuente de red está configurada como <code>Virtual network 'default': NAT</code></li>
+</ul>
+</li>
+</ul>
+<p>Con <em>NAT</em>, la VM tiene acceso a Internet y puede ver al host en la dirección <code>10.0.2.2</code>.</p>
+<h2 id="-acceso-desde-windows-xp-invitado">◇ Acceso desde Windows XP invitado</h2>
+<ul>
+<li>En el explorador de archivos de Windows, escribe en la barra de direcciones <code>\\10.0.2.1\Compartida</code>
+<ul>
+<li>La IP depende de cómo tengas configurada tu máquina virtual y la que le haya dado <em>Virt-Manager</em> a tu máquina virtual, únicamente tienes que saber que para acceder al directorio compartido tienes que poner la IP de tu máquina (local) dentro de esta red ficticia, siendo esta <code>1</code>.</li>
+</ul>
+</li>
+<li>Si configuraste <code>guest ok = yes</code> entrarás directamente.
+<ul>
+<li>En el caso de que quieras acceso con usuario y contraseña, se tiene que hacer lo siguiente:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ sudo smbpasswd -a usuari
+</span></span></code></pre></div><ul>
+<li>Modifica el bloque en <code>smb.conf</code> añadiendo lo siguiente <code>valid users = usuario</code></li>
+<li>Ahora podrás copiar y pegar archivos entre el host Arch Linux y el invitado Windows.</li>
+</ul>
+<h2 id="-hablemos-de-seguridad">◇ Hablemos de seguridad</h2>
+<p>Si usamos <strong>NAT</strong>, el recurso compartido solo podrá ser accesible desde la máquina virtual, no desde la red externa. Además, si quieres puedes añadir más seguridad para que <em>samba</em> solo <em>escuche</em> las peticiones que le vengan de <em>lo</em> y de <em>virbr0</em> y que no se exponga a tu <em>LAN</em>.</p>
+<p>Esto se consigue añadiendo lo siguiente <code>interfaces = lo virbr0</code> en el fichero de configuración de <em>samba</em>.</p>
+<p>De esta manera, tenemos ya configurado nuestro <em>samba</em> para poderlo usar, en mi caso, con la máquina virtual. A lo mejor existe otro método mejor, pero yo no lo he encontrado. Si vosotros lo conocéis estaré deseoso de aprenderlo.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.youtube.com/@Ruben-Linux">Ruben</a></li>
+<li><a href="https://www.youtube.com/watch?v=HN-krqqblOA">Instalación de Qemu, KVM y Virt Manager en Arch Linux</a></li>
+<li><a href="https://www.virtualbox.org">VirtualBox</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

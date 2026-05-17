@@ -1,0 +1,161 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Crear fichero de logs en bash · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2021-06-09-crear-fichero-log-bash/">
+
+
+
+
+
+
+<meta name="description" content="A veces tienes la necesidad de crear un fichero de log para saber cuando se ejecuta un proceso en un script que puedes haber creado, aquí pongo el que yo uso.
+A través del siguiente código de bash, podemos crear nuestro propio fichero de logs:
+tie=/tmp/script_final.log* # PER SAPIGUER LA DATA D&amp;amp;#39;INICI* hi=`date`* # PER SAPIGUER LA DATA FINAL* hf=`date`* echo $hf&amp;amp;#34; &amp;amp;#34; &amp;amp;gt;&amp;amp;gt; $tie* Con esto ya tenemos nuestro log
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Crear fichero de logs en bash">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="A veces tienes la necesidad de crear un fichero de log para saber cuando se ejecuta un proceso en un script que puedes haber creado, aquí pongo el que yo uso.
+A través del siguiente código de bash, podemos crear nuestro propio fichero de logs:
+tie=/tmp/script_final.log* # PER SAPIGUER LA DATA D&amp;amp;#39;INICI* hi=`date`* # PER SAPIGUER LA DATA FINAL* hf=`date`* echo $hf&amp;amp;#34; &amp;amp;#34; &amp;amp;gt;&amp;amp;gt; $tie* Con esto ya tenemos nuestro log
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Crear fichero de logs en bash</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2021-06-09">
+        2021-06-09
+      </time>
+      · 1 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/programaci%C3%B3n/">
+            @Programación
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+          <a href="/tags/bash/">
+            #Bash
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>A veces tienes la necesidad de crear un fichero de log para saber cuando se ejecuta un proceso en un script que puedes haber creado, aquí pongo el que yo uso.</p>
+<p>A través del siguiente código de bash, podemos crear nuestro propio fichero de logs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tie<span style="color:#f92672">=</span>/tmp/script_final.log*
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># PER SAPIGUER LA DATA D&#39;INICI*</span>
+</span></span><span style="display:flex;"><span>hi<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>date<span style="color:#e6db74">`</span>*
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># PER SAPIGUER LA DATA FINAL*</span>
+</span></span><span style="display:flex;"><span>hf<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>date<span style="color:#e6db74">`</span>*
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo $hf<span style="color:#e6db74">&#34; &#34;</span> &gt;&gt; $tie*
+</span></span></code></pre></div><p>Con esto ya tenemos nuestro log</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

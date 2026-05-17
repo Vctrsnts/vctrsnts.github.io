@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>XFCE on Si lo haces, hazlo bien!</title>
+    <link>https://vctrsnts.github.io/tags/xfce/</link>
+    <description>Recent content in XFCE on Si lo haces, hazlo bien!</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Sun, 24 Nov 2013 00:00:00 +0100</lastBuildDate>
+    <atom:link href="https://vctrsnts.github.io/tags/xfce/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Renombrar masivamente ficheros en Thunar</title>
+      <link>https://vctrsnts.github.io/posts/2013-11-24-renombrar-ficheros-thunar/</link>
+      <pubDate>Sun, 24 Nov 2013 00:00:00 +0100</pubDate>
+      <guid>https://vctrsnts.github.io/posts/2013-11-24-renombrar-ficheros-thunar/</guid>
+      <description>&lt;p&gt;Como siempre va bien tener estas notas, por si las volvemos a necesitar&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Aquí os pongo, cómo a través del gestor de ficheros Thunar (por defecto en XFCE) realizar un renombrado masivo de ficheros&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Volvemos a las andadas después de estar un poco liado, con un nuevo TIP (de los que siempre van bien) para cuando hay necesidad de utilizarlo.&lt;/p&gt;&#xA;&lt;p&gt;En este caso, es cómo cambiar el nombre de varios ficheros a la vez, a través del gestor de ficheros Thunar (por defecto en XFCE).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cambiar dinámicamente el fondo de pantalla en XFCE</title>
+      <link>https://vctrsnts.github.io/posts/2013-01-09-fondo-pantalla-xfce/</link>
+      <pubDate>Wed, 09 Jan 2013 00:00:00 +0100</pubDate>
+      <guid>https://vctrsnts.github.io/posts/2013-01-09-fondo-pantalla-xfce/</guid>
+      <description>&lt;p&gt;Después de hacer limpieza de mi portátil (borrar ese espacio en el HD que no utilizaba para nada), he instalado de nuevo mi querido &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt;, y como estaba un poco cansado de KDE, lleno de programas que no utilizo, me decidí probar XFCE.&lt;/p&gt;&#xA;&lt;p&gt;Pero una de las pocas cosas que hecho de menos en XFCE, sé que puede parecer una tontería, pero 😉 es el cambio dinámico de wallpapers. Así que después de una búsqueda por inet, encontré esta chuleta (que la pongo a continuación) como apunte para mí o por si alguien le puede servir de ayuda:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

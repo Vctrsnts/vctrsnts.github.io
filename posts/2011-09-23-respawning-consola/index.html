@@ -1,0 +1,162 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Error respawning en consola · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2011-09-23-respawning-consola/">
+
+
+
+
+
+
+<meta name="description" content="No sé si os ha pasado a vosotros, pero después de una instalación limpia de Debian GNU/Linux, siempre me aparecía en la consola (antes de instalar KDE). Al final me cansé de visualizar este error INIT: ID &amp;amp;ldquo;co&amp;amp;rdquo; respawning too fast: disabled for 5 minutes, porque llega a ser cansino.
+Entonces buscando info por inet, encontré este sitio donde salía la solución a este problema:
+Se tiene que editar el fichero /etc/inittab y comentaremos la línea:
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Error respawning en consola">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="No sé si os ha pasado a vosotros, pero después de una instalación limpia de Debian GNU/Linux, siempre me aparecía en la consola (antes de instalar KDE). Al final me cansé de visualizar este error INIT: ID &amp;amp;ldquo;co&amp;amp;rdquo; respawning too fast: disabled for 5 minutes, porque llega a ser cansino.
+Entonces buscando info por inet, encontré este sitio donde salía la solución a este problema:
+Se tiene que editar el fichero /etc/inittab y comentaremos la línea:
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Error respawning en consola</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2011-09-23">
+        2011-09-23
+      </time>
+      · 1 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/bash/">
+            #Bash
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>No sé si os ha pasado a vosotros, pero después de una instalación limpia de <strong>Debian GNU/Linux</strong>, siempre me aparecía en la consola (antes de instalar KDE). Al final me cansé de visualizar este error <strong>INIT: ID &ldquo;co&rdquo; respawning too fast: disabled for 5 minutes</strong>, porque llega a ser cansino.</p>
+<p>Entonces buscando info por inet, encontré este <a href="https://forums.debian.net/viewtopic.php?f=30&amp;t=65460">sitio</a> donde salía la solución a este problema:</p>
+<p>Se tiene que editar el fichero <code>/etc/inittab</code> y comentaremos la línea:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>co:2345:respawn:/sbin/getty hvc0 <span style="color:#ae81ff">9600</span> linux
+</span></span></code></pre></div><p>dejándola de la siguiente manera :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Lo hemos comentado para desactivarlo</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># co:2345:respawn:/sbin/getty hvc0 9600 linux</span>
+</span></span></code></pre></div><p>Bueno, espero que os sirva&hellip;</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://forums.debian.net//viewtopic.php?f=30&amp;t=65460">Error after installing Debian &lsquo;Testing&rsquo; - INIT</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Controlando la temperatura del servidor · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-10-20-controlado-temperatura-servidor/">
+
+
+
+
+
+
+<meta name="description" content="Como ya comenté en el anterior articulo, donde explicaba que había puesto un Xeon en mi servidor y todo lo referente a la temperatura.
+Pero claro, eso me gustaría verlo reflejado en unRAID, porque hasta ahora, solamente había podido visualizar la temperatura de la CPU; de la placa base era imposible, cuando teóricamente los Tiny son equipos con componentes muy normales y comunes.
+Pues en este caso, de comunes lo tienen todo menos los sensores de control de la temperatura. Además, unRAID no ayudaba mucho con ello. Seguramente muchos diréis: ¿y por qué no instalas el plugin Dynamix System Temperature y problema solucionado?
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Controlando la temperatura del servidor">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Como ya comenté en el anterior articulo, donde explicaba que había puesto un Xeon en mi servidor y todo lo referente a la temperatura.
+Pero claro, eso me gustaría verlo reflejado en unRAID, porque hasta ahora, solamente había podido visualizar la temperatura de la CPU; de la placa base era imposible, cuando teóricamente los Tiny son equipos con componentes muy normales y comunes.
+Pues en este caso, de comunes lo tienen todo menos los sensores de control de la temperatura. Además, unRAID no ayudaba mucho con ello. Seguramente muchos diréis: ¿y por qué no instalas el plugin Dynamix System Temperature y problema solucionado?
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Controlando la temperatura del servidor</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2024-10-20">
+        2024-10-20
+      </time>
+      · 4 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/hardware/">
+            #Hardware
+          </a>
+        
+          <a href="/tags/unraid/">
+            #unRAID
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Como ya comenté en el anterior <a href="/posts/2024-10-19-modificando-servidor-2">articulo</a>, donde explicaba que había puesto un <strong>Xeon</strong> en mi servidor y todo lo referente a la temperatura.</p>
+<p>Pero claro, eso me gustaría verlo reflejado en <strong>unRAID</strong>, porque hasta ahora, solamente había podido visualizar la temperatura de la CPU; de la placa base era imposible, cuando teóricamente los Tiny son equipos con componentes muy normales y comunes.</p>
+<p>Pues en este caso, de comunes lo tienen todo menos los sensores de control de la temperatura. Además, <strong>unRAID</strong> no ayudaba mucho con ello. Seguramente muchos diréis: ¿y por qué no instalas el plugin <strong>Dynamix System Temperature</strong> y problema solucionado?</p>
+<p>Ya lo tengo instalado y aun así, lo único que podía visualizar era la temperatura de la CPU:</p>
+<p><img src="configure_temperature_01.jpg" alt="" title="Configurando Temperatura"></p>
+<p>Eso que teóricamente <em>sensors</em> funcionaba correctamente. Eso creía yo.</p>
+<p>Así que, después de instalar el <strong>Xeon</strong>, me propuse visualizar todas las temperaturas posibles para así controlar mejor el servidor, porque no es lo mismo tener un <em>i5-6500T</em> que un <strong>Xeon</strong>. Y lo primero de todo era saber qué <strong>sensor</strong> se tenía que usar para poder visualizar la información de ellos. Y resultó que me tocó el peor de todos, el que es más complicado de hacer funcionar. Ni más ni menos que el <strong>nct6683</strong>.</p>
+<p>En todos los sitios que encontraba información, porque me resultó muy difícil, decían que no era nada fácil hacerlo funcionar en GNU/Linux, pero yo seguí buscando hasta que encontré la siguiente <a href="https://fun2ex.com/fixed-z370m-pro4-unraid-temperature-problem">web</a>, donde explicaban qué se tenía que hacer para hacer funcionar los sensores del <strong>nct6683</strong>.</p>
+<p>Lo que había que hacer es ejecutar lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@unRaid: modprobe coretemp
+</span></span><span style="display:flex;"><span>root@unRaid: modprobe -r nct6683
+</span></span><span style="display:flex;"><span>root@unRaid: modprobe nct6683 force<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>Lo probé, y mira por dónde que dio resultado. Podía ver todos los sensores disponibles en la placa, incluido la velocidad del ventilador.</p>
+<p><img src="configure_temperature_02.jpg" alt="" title="Configurando Temperatura"></p>
+<p>Así que me dije: pues mira, no ha sido tan difícil como parecía.</p>
+<p>Ingenuo de mí. <strong>unRAID</strong> no hace nada para facilitar las cosas, sino todo lo contrario, las complica, y cada vez me estoy dando cuenta de ello.</p>
+<p>Lo que pasa es que, si reinicias <strong>unRAID</strong>, todo se pierde y ya no detecta nada. Así que tenía que buscar una manera de que esta configuración fuera permanente. Busqué información sobre qué hacer en estos casos en <strong>unRAID</strong> y un <a href="https://forums.unraid.net/topic/18959-script-to-enable-sata-controllers-without-kernel-modification/">hilo</a> decía que, si pones un fichero <code>bash</code> en <code>/boot/config</code>, el sistema lo ejecuta cuando se inicia. Pero no pasaba así, y si quería que los sensores volvieran a funcionar, tenía que volver a ejecutar las 3 instrucciones de nuevo.</p>
+<p>En otro <a href="https://forums.unraid.net/topic/143931-how-can-i-get-modules-to-load-on-reboot-automatically/">hilo</a>, decía que si lo pones en <code>/boot/custom/scripts</code> también funcionaba, pero en mi caso ninguno de los dos casos era el correcto.</p>
+<p>No veía la manera de cómo solucionar la cosa, hasta que recordé que tengo un <code>script</code> que se ejecuta cada vez que se inician los arrays, que me instala las aplicaciones necesarias para hacer publicaciones en <em>Mastodon</em>, y pensé: ¿por qué no? Si ejecuto el <code>bash</code> cada vez que se inicia el array, tendría que funcionar sin ningún problema.</p>
+<p>No tenía nada que perder, y lo probé. Y resultó perfecto. Ya podía visualizar correctamente la temperatura de la CPU, de la placa base y la velocidad del ventilador. ¿Qué más se podía pedir? Pero eso sí, tener que recurrir a scripts para hacer esto me parece un poco 😡</p>
+<p>Así se puede ver cómo queda actualmente:</p>
+<p><img src="configure_temperature_03.jpg" alt="" title="Configurando Temperatura"></p>
+<p>Un pasito más que he dado para tener mi servidor como a mí me gusta.</p>
+<p>Ahora estoy pensando en conseguir que pueda enviar mis copias de seguridad del móvil al servidor. He oído que hay un docker que se llama <strong>Syncthing</strong> que hace algo parecido, pero tengo que estudiarlo más.</p>
+<p>¿Vosotros qué servicios de Docker tenéis y qué pensáis que son indispensables de tener en un servidor?</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://fun2ex.com/fixed-z370m-pro4-unraid-temperature-problem">Resolve the issue of the ASRock Z370M-Pro4 motherboard not being able to obtain fan speed in Unraid</a></li>
+<li><a href="https://forums.unraid.net/topic/115301-%E6%B8%A9%E5%BA%A6%E6%A3%80%E6%B5%8B%E6%8F%92%E4%BB%B6%E6%97%A0%E6%B3%95%E6%A3%80%E6%B5%8B%E5%88%B0%E4%B8%BB%E6%9D%BF%E9%A3%8E%E6%89%87%E7%9A%84%E8%BD%AC%E9%80%9F">El complemento de detección de temperatura no puede detectar la velocidad del ventilador de la placa base, <strong>web en chino</strong></a></li>
+<li><a href="https://forums.unraid.net/topic/18959-script-to-enable-sata-controllers-without-kernel-modification/">Script to enable SATA Controllers without kernel modification</a></li>
+<li><a href="https://forums.unraid.net/topic/143931-how-can-i-get-modules-to-load-on-reboot-automatically/">How can I get modules to load on reboot automatically?</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

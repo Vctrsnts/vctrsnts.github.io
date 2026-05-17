@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Mejoras en mi escritorio (i3-wm) · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2023-01-13-mejoras-i3/">
+
+
+
+
+
+
+<meta name="description" content="Después de mucho tiempo usando i3-wm, estaba constantemente cambiando de wallpaper (seguramente a más de uno le pasa), pensé que habría alguna manera de hacer que cada X tiempo el wallpaper que estoy utilizando cambiara automáticamente, de los que tengo en el directorio donde los guardo.
+Así que me puse a la búsqueda de cómo se puede hacer.
+Encontré unas cuantas maneras de hacer lo que yo quería:
+Primer script Segundo script Yo me quedé con la idea del segundo script, aunque le añadí la posibilidad de enviar notificaciones al escritorio de los cambios de fondos de pantalla a través de notify-send.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Mejoras en mi escritorio (i3-wm)">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Después de mucho tiempo usando i3-wm, estaba constantemente cambiando de wallpaper (seguramente a más de uno le pasa), pensé que habría alguna manera de hacer que cada X tiempo el wallpaper que estoy utilizando cambiara automáticamente, de los que tengo en el directorio donde los guardo.
+Así que me puse a la búsqueda de cómo se puede hacer.
+Encontré unas cuantas maneras de hacer lo que yo quería:
+Primer script Segundo script Yo me quedé con la idea del segundo script, aunque le añadí la posibilidad de enviar notificaciones al escritorio de los cambios de fondos de pantalla a través de notify-send.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Mejoras en mi escritorio (i3-wm)</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2023-01-13">
+        2023-01-13
+      </time>
+      · 4 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/linux/">
+            @Linux
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/i3wm/">
+            #i3wm
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Después de mucho tiempo usando <a href="/posts/2020-08-06-usando-i3-wm">i3-wm</a>, estaba constantemente cambiando de wallpaper (seguramente a más de uno le pasa), pensé que habría alguna manera de hacer que cada X tiempo el wallpaper que estoy utilizando cambiara automáticamente, de los que tengo en el directorio donde los guardo.</p>
+<p>Así que me puse a la búsqueda de cómo se puede hacer.</p>
+<p>Encontré unas cuantas maneras de hacer lo que yo quería:</p>
+<ul>
+<li>Primer <a href="https://forum.codeselfstudy.com/t/desktop-background-switcher-for-i3wm/1044">script</a></li>
+<li>Segundo <a href="https://github.com/levinit/i3wm-config/blob/master/i3/wallpaper.sh">script</a></li>
+</ul>
+<p>Yo me quedé con la idea del segundo script, aunque le añadí la posibilidad de enviar notificaciones al escritorio de los cambios de fondos de pantalla a través de <code>notify-send</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/bash
+</span></span></span><span style="display:flex;"><span>shopt -s nullglob
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -z <span style="color:#66d9ef">$(</span>which feh<span style="color:#66d9ef">)</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;wallpaper err: Can not find command feh.&#34;</span> &gt; ~/i3wm-wallpaper.err
+</span></span><span style="display:flex;"><span>    exit <span style="color:#ae81ff">127</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DIRECTORIO DONDE ESTÁN LOS FONDOS DE PANTALLA</span>
+</span></span><span style="display:flex;"><span>path<span style="color:#f92672">=</span>~/.config/wallpapers
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># TIEMPO / INTERVALO ENTRE LOS CAMBIOS DE FONDO DE PANTALLA</span>
+</span></span><span style="display:flex;"><span>interval<span style="color:#f92672">=</span>59m
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># INICIO DEL SCRIPT</span>
+</span></span><span style="display:flex;"><span>cd $path
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># BUCLE PRINCIPAL DEL SCRIPT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> true
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  files<span style="color:#f92672">=()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> i in *.jpg *.png;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">[[</span> -f $i <span style="color:#f92672">]]</span> <span style="color:#f92672">&amp;&amp;</span> files<span style="color:#f92672">+=(</span><span style="color:#e6db74">&#34;</span>$i<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  range<span style="color:#f92672">=</span><span style="color:#e6db74">${#</span>files[@]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  CURRENT_WALLPAPER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>files[RANDOM % range]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  CURRENT_IMAGE<span style="color:#f92672">=</span>$path<span style="color:#e6db74">&#34;/&#34;</span>$CURRENT_WALLPAPER
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">((</span>range<span style="color:#f92672">))</span> <span style="color:#f92672">&amp;&amp;</span> feh --bg-scale <span style="color:#e6db74">&#34;</span>$CURRENT_WALLPAPER<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># ENVIAMOS LA NOTIFICACIÓN AL SISTEMA PARA QUE SE VEA EN PANTALLA</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>  notify-send -i <span style="color:#e6db74">&#34;</span>$CURRENT_IMAGE<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#39;Desktop Changed&#39;</span> <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>basename -- <span style="color:#e6db74">&#34;</span>$CURRENT_WALLPAPER<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  sleep $interval
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>El script en esencia es muy simple. Lo único que hace es poner en un <code>array</code> todos los archivos del directorio que le indicas donde estarán las imágenes (<code>wallpapers</code>), para que cada X minutos (<code>interval</code>) que hayas configurado haga el cambio de fondo de pantalla y te notifique (<code>notify-send</code>) de dicho cambio. Se necesita el paquete <strong>libnotify-bin</strong> para que te avise del cambio.</p>
+<p>Lo único que queda es configurar el fichero de <code>i3-wm</code> para que:</p>
+<ul>
+<li>Haga la carga inicial del wallpaper</li>
+<li>Inicie el script del cambio de wallpaper, que a su vez tomará el control y cada X tiempo (según tengas configurado) irá realizando el cambio de fondo de pantalla</li>
+</ul>
+<p>Para que funcione, tienes que añadir lo siguiente en el fichero de configuración:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># PARA VISUALIZAR EL FONDO DE PANTALLA</span>
+</span></span><span style="display:flex;"><span>exec_always --no-startup-id feh --bg-scale --no-fehbg ~/.config/wallpapers/Wallpaper_10.jpg
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># AQUÍ SE CONFIGURA EL CAMBIO AUTOMÁTICO DEL WALLPAPER</span>
+</span></span><span style="display:flex;"><span>exec --no-startup-id ~/.config/i3/scripts/wallpaper.sh &amp;
+</span></span></code></pre></div><p>La otra modificación que he realizado ha sido la de que en la barra de <code>i3-wm</code> (<code>i3blocks</code>) me informe de los paquetes que se tienen que actualizar. Era una información que me gustaba tener y después de mucho buscar, encontré el <a href="https://github.com/vivien/i3blocks-contrib">comando / instrucción</a> que me daba lo que necesitaba.</p>
+<p>Lo primero, necesitas el script <code>apt-upgrades</code> y descargarlo en algún sitio desde donde puedas tener acceso. En mi caso lo he dejado en el directorio de <code>i3-wm/scripts</code>, que es donde tengo todos los scripts que uso para <code>i3-wm</code>.</p>
+<p>El script en cuestión (tener en cuenta que depende de <strong>aptitude</strong>) hace lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Copyright (C) 2015 James Murphy</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Licensed under the terms of the GNU GPL v2 only.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># i3blocks blocklet script to display pending system upgrades</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PENDING_SYMBOL<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>PENDING_SYMBOL<span style="color:#66d9ef">:-</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>SYMBOL_ONLY<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>SYMBOL_ONLY<span style="color:#66d9ef">:-</span>0<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>ALWAYS_PRINT<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>ALWAYS_PRINT<span style="color:#66d9ef">:-</span>1<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PENDING_COLOR<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>PENDING_COLOR<span style="color:#66d9ef">:-</span><span style="color:#e6db74">&#34;#FF0000&#34;</span><span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>NONPENDING_COLOR<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>NONPENDING_COLOR<span style="color:#66d9ef">:-</span><span style="color:#e6db74">&#34;#FFFFFF&#34;</span><span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> getopts s:oc:n:Nh opt; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$opt<span style="color:#e6db74">&#34;</span> in
+</span></span><span style="display:flex;"><span>        s<span style="color:#f92672">)</span> PENDING_SYMBOL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$OPTARG<span style="color:#e6db74">&#34;</span> ;;
+</span></span><span style="display:flex;"><span>        o<span style="color:#f92672">)</span> SYMBOL_ONLY<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> ;;
+</span></span><span style="display:flex;"><span>        c<span style="color:#f92672">)</span> PENDING_COLOR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$OPTARG<span style="color:#e6db74">&#34;</span> ;;
+</span></span><span style="display:flex;"><span>        n<span style="color:#f92672">)</span> NONPENDING_COLOR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$OPTARG<span style="color:#e6db74">&#34;</span> ;;
+</span></span><span style="display:flex;"><span>        N<span style="color:#f92672">)</span> ALWAYS_PRINT<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> ;;
+</span></span><span style="display:flex;"><span>        h<span style="color:#f92672">)</span> printf <span style="color:#e6db74">&#34;Usage...&#34;</span> <span style="color:#f92672">&amp;&amp;</span> exit 0;;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>read upgraded new removed held &lt; &lt;<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>aptitude full-upgrade --simulate --assume-yes |<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    grep -m1 <span style="color:#e6db74">&#39;^[0-9]\+ packages upgraded,&#39;</span> |<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    tr -cd <span style="color:#e6db74">&#39;0-9 &#39;</span> |<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    tr <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#e6db74">&#39;\n&#39;</span> |<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    grep <span style="color:#e6db74">&#39;[0-9]\+&#39;</span> |<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    xargs echo<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> $upgraded !<span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">]]</span> <span style="color:#f92672">||</span> <span style="color:#f92672">[[</span> $new !<span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">]]</span> <span style="color:#f92672">||</span> <span style="color:#f92672">[[</span> $removed !<span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">]]</span> <span style="color:#f92672">||</span> <span style="color:#f92672">[[</span> $held !<span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$PENDING_COLOR<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$PENDING_SYMBOL$upgraded<span style="color:#e6db74">/</span>$new<span style="color:#e6db74">/</span>$removed<span style="color:#e6db74">/</span>$held<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#f92672">[[</span> $ALWAYS_PRINT <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$NONPENDING_COLOR<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$PENDING_SYMBOL$upgraded<span style="color:#e6db74">/</span>$new<span style="color:#e6db74">/</span>$removed<span style="color:#e6db74">/</span>$held<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>Una vez tengas el script, vamos a la configuración del archivo de <code>i3block.conf</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>apt_upgrades<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>command<span style="color:#f92672">=</span>/home/usuari/.config/i3/scripts/apt-upgrades
+</span></span><span style="display:flex;"><span>interval<span style="color:#f92672">=</span><span style="color:#ae81ff">1440</span>
+</span></span><span style="display:flex;"><span>signal<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>label<span style="color:#f92672">=</span>
+</span></span></code></pre></div><p>Cuando ya tenemos configurada toda la parte del usuario, solamente nos queda configurar la parte de <strong>root</strong>, que es el encargado de realizar el <code>aptitude update</code> para actualizar los paquetes y que a su vez hace que el script obtenga los paquetes a actualizar.</p>
+<p>Para eso, tenemos que hacer lo siguiente (a través de <code>sudo</code>, en mi caso):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo -i
+</span></span></code></pre></div><p>Una vez tenemos acceso a la consola de <code>root</code>, pasamos a configurar el <code>cron</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>crontab -e
+</span></span></code></pre></div><p>Ahora pasamos a la creación de nuestro cron:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>@daily aptitude update
+</span></span></code></pre></div><p>Y con este sencillo script obtenemos la siguiente información:</p>
+<ul>
+<li>Los paquetes a actualizar</li>
+<li>Los nuevos paquetes que se van a instalar</li>
+<li>Los paquetes que se van a eliminar</li>
+<li>Los paquetes que no se actualizarán</li>
+</ul>
+<p>Todo esto, claro está, siempre que realices la actualización.</p>
+<p>En pantalla quedaría de la siguiente manera:</p>
+<p><img src="imagen.png" alt="" title="APT Upgrade"></p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://forum.codeselfstudy.com/t/desktop-background-switcher-for-i3wm/1044">Primera versión del script</a></li>
+<li><a href="https://github.com/levinit/i3wm-config/blob/master/i3/wallpaper.sh">Segunda versión del script</a></li>
+<li><a href="https://github.com/levinit/i3wm-config/blob/master/i3/config">Modificación en el config</a></li>
+<li><a href="https://github.com/vivien/i3blocks-contrib">apt-upgrades</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

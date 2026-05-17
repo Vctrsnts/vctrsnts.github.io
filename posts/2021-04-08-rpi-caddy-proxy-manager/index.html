@@ -1,0 +1,211 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Cambiando Traefik por Caddy · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2021-04-08-rpi-caddy-proxy-manager/">
+
+
+
+
+
+
+<meta name="description" content="Anteriormente venía usando Traefik, pero como ya he comentado, era muy difícil de mantener y de configurar, a parte de las múltiples opciones que tiene. Ante esto, me resultaba muy tedioso su uso, así que decidí buscar otra alternativa más fácil.
+Después de buscar y leer a mis blogueros preferidos:
+uGeek El Blog de Lazaro Vi que los dos recomendaban:
+Caddy Nginx Proxy Manager Cada uso con sus ventajas e inconvenientes, aunque me tiraba más npm (para abreviar) por el gui que tenía, me decidí por caddy, porque una de sus virtudes es que podías tener url del siguiente estilo:
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Cambiando Traefik por Caddy">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Anteriormente venía usando Traefik, pero como ya he comentado, era muy difícil de mantener y de configurar, a parte de las múltiples opciones que tiene. Ante esto, me resultaba muy tedioso su uso, así que decidí buscar otra alternativa más fácil.
+Después de buscar y leer a mis blogueros preferidos:
+uGeek El Blog de Lazaro Vi que los dos recomendaban:
+Caddy Nginx Proxy Manager Cada uso con sus ventajas e inconvenientes, aunque me tiraba más npm (para abreviar) por el gui que tenía, me decidí por caddy, porque una de sus virtudes es que podías tener url del siguiente estilo:
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Cambiando Traefik por Caddy</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2021-04-08">
+        2021-04-08
+      </time>
+      · 3 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Anteriormente venía usando Traefik, pero como ya he comentado, era muy difícil de mantener y de configurar, a parte de las múltiples opciones que tiene. Ante esto, me resultaba muy tedioso su uso, así que decidí buscar otra alternativa más fácil.</p>
+<p>Después de buscar y leer a mis blogueros preferidos:</p>
+<ul>
+<li><a href="https://ugeek.github.io">uGeek</a></li>
+<li><a href="https://elblogdelazaro.org">El Blog de Lazaro</a></li>
+</ul>
+<p>Vi que los dos recomendaban:</p>
+<ul>
+<li><a href="https://caddyserver.com">Caddy</a></li>
+<li><a href="https://nginxproxymanager.com">Nginx Proxy Manager</a></li>
+</ul>
+<p>Cada uso con sus ventajas e inconvenientes, aunque me tiraba más npm (para abreviar) por el gui que tenía, me decidí por caddy, porque una de sus virtudes es que podías tener url del siguiente estilo:</p>
+<ul>
+<li><code>music.tudominio.duckdns.org</code>.</li>
+</ul>
+<p>Además el poder tener todos tus servicios activos y con su correspondiente certificado solamente con un fichero de texto.</p>
+<p>Eso es una ventaja, porque se parece más a una <code>URL</code> de verdad. Y por eso me decidí por <code>Caddy</code>, aunque al final tuve que tirar por npm, ya lo comentaré en otro <a href="/posts/2021-05-07-rpi-nginx-proxy-manager">articulo</a>.</p>
+<h2 id="-qué-es-caddy">◇ Qué es Caddy</h2>
+<p>Caddy es un potente servidor web de código abierto desarrollado en <em>go</em>. Simplifica su infraestructura y se encarga de las renovaciones de certificados.</p>
+<p>Funciona muy bien en contenedores porque no tiene dependencias.</p>
+<p>Aunque la mayoría de la gente lo usa como servidor web o proxy, es una excelente opción también para:</p>
+<ul>
+<li>Servidor web</li>
+<li>proxy inverso</li>
+<li>proxy de sidecar</li>
+<li>equilibrador de carga</li>
+<li>Puerta de enlace API</li>
+<li>controlador de ingreso</li>
+<li>administrador de sistemas</li>
+<li>supervisor de proceso</li>
+<li>programador de tareas (cualquier proceso de larga duración)</li>
+</ul>
+<h2 id="-creando-el-docker">◇ Creando el docker</h2>
+<p>Caddy requiere acceso de escritura a dos ubicaciones: un directorio de datos y un directorio de configuración.</p>
+<p>Recuerda que para generar los certificados de Let&rsquo;s Encrypt, Caddy necesita tener abiertos los puertos 80 y 443.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.7&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">caddy</span>:
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">image</span>: <span style="color:#ae81ff">caddy</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>     - <span style="color:#e6db74">&#34;80:80&#34;</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#e6db74">&#34;443:443&#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">./Caddyfile:/etc/caddy/Caddyfile:ro</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">./data/caddy/data:/data</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">./data/caddy/config:/config</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">caddy  </span>
+</span></span></code></pre></div><p>Creamos el archivo <code>Caddyfile</code>, donde irá la configuración de nuestro proxy inverso.</p>
+<p>Voy a exponer mi docker de <strong>Spotify</strong> personal al mundo para así a través del móvil poder escuchar la música que tengo en el servidor, en concreto, <strong>Navidrome</strong> (ya explicaré en otro <a href="/posts/2021-04-01-rpi-spotify">articulo</a> como tener tu propio <strong>Spotify</strong> en funcionamiento).</p>
+<p>Caddy se encargará de exponer este servicio a la red generando el certificado con Let&rsquo;s Encrypt, que en mi caso, como ya he dicho, es mi Spotify privado y así no tener que depender de nadie.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">music.midominio.duckdns.org {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">reverse_proxy http://192.168.1.100:4533</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Así de rápido y de sencillo tengo mi proxy inverso en funcionamiento junto con mi certificado SSL. Y lo más interesante, es que cuando llegue el momento de que el certificado vaya a caducar, el mismo caddy se encargará de actualizarlo.</p>
+<h4 id="-referencia">◇ Referencia:</h4>
+<ul>
+<li><a href="https://ugeek.github.io/blog/post/2021-02-19-proxy-inverso-con-caddy.html">Proxy Inverso con Caddy</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Creando tu propio Servidor de Música privada · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2021-04-01-rpi-spotify/">
+
+
+
+
+
+
+<meta name="description" content="Cuando tienes un servidor de bajo consumo como una Raspberry y empiezas a usar Docker, aparte de descubrir un nuevo mundo (no me canso de decirlo), también descubres nuevas formas de torturar tu mente.
+Porque digo eso, porque cuando piensas que ya has conseguido todo lo que necesitas, tu cabezita piensa: &amp;amp;ldquo;aprovéchate de tu servidor y escucha tu música en el móvil&amp;amp;rdquo;.
+Ahí es cuando te dices: ¿por qué no me pongo a investigar si existe esta posibilidad?
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Creando tu propio Servidor de Música privada">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Cuando tienes un servidor de bajo consumo como una Raspberry y empiezas a usar Docker, aparte de descubrir un nuevo mundo (no me canso de decirlo), también descubres nuevas formas de torturar tu mente.
+Porque digo eso, porque cuando piensas que ya has conseguido todo lo que necesitas, tu cabezita piensa: &amp;amp;ldquo;aprovéchate de tu servidor y escucha tu música en el móvil&amp;amp;rdquo;.
+Ahí es cuando te dices: ¿por qué no me pongo a investigar si existe esta posibilidad?
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Creando tu propio Servidor de Música privada</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2021-05-08">
+        2021-05-08
+      </time>
+      · 3 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Cuando tienes un servidor de bajo consumo como una Raspberry y empiezas a usar Docker, aparte de descubrir un nuevo mundo (no me canso de decirlo), también descubres nuevas formas de torturar tu mente.</p>
+<p>Porque digo eso, porque cuando piensas que ya has conseguido todo lo que necesitas, tu cabezita piensa: &ldquo;aprovéchate de tu servidor y escucha tu música en el móvil&rdquo;.</p>
+<p><img src="imagen.jpg" alt="" title="Pensando"></p>
+<p>Ahí es cuando te dices: ¿por qué no me pongo a investigar si existe esta posibilidad?</p>
+<p>Solamente falta que sigas a <a href="https://ugeek.github.io">uGeek Podcast</a> (increíble todo lo que llega a hacer con su servidor) y ya te mete el gusanito en el cuerpo de <em>si él puedo, ¿por qué yo no?</em> y ya la tenemos liada.</p>
+<p>He seguido todos sus cambios de contenedores que él ha hecho y los he probado todos:</p>
+<ul>
+<li><a href="https://github.com/spl0k/supysonic">Supysonic</a>: El primero que usé y estuvo bien, hasta que&hellip;</li>
+<li><a href="https://github.com/sentriz/gonic">Gonic</a>: Uno de los mejores que he usado, pero no sé, encuentro que le falta algo, pero no sé qué es&hellip;</li>
+<li><a href="https://github.com/navidrome/navidrome">Navidrome</a>: Junto a Gonic, el mejor, y este sí que tiene un no sé qué que siempre vuelvo a él (será la web, desde el que puedes escuchar música)</li>
+</ul>
+<p>El mejor, en mi opinión, como he dicho antes <strong>Navidrome</strong>, no sé qué es, pero me encanta, su simpleza, los pocos recursos que consume del servidor. Lo tiene todo. Eso sí, no tiene nada que echarle en cara a <strong>Gonic</strong>, pero a este último le falta algo que no sé qué es, y eso que es igual de fácil y consume tan pocos recursos como <strong>Navidrome</strong>.</p>
+<p>Después de esta breve explicación, pasamos a la instalación y configuración de mi <strong>Spotify</strong> privado.</p>
+<p>Como todo en Docker, solamente se tiene que añadir en tu fichero <code>docker-compose.yml</code> la configuración necesaria para instalar <strong>Navidrome</strong>, que en mi caso es la siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>navidrome:
+</span></span><span style="display:flex;"><span> image: deluan/navidrome:latest
+</span></span><span style="display:flex;"><span> container_name: navidrome
+</span></span><span style="display:flex;"><span> user: 1000:1000 
+</span></span><span style="display:flex;"><span> ports:
+</span></span><span style="display:flex;"><span>   - <span style="color:#e6db74">&#34;4533:4533&#34;</span>
+</span></span><span style="display:flex;"><span> restart: unless-stopped
+</span></span><span style="display:flex;"><span> environment:
+</span></span><span style="display:flex;"><span>   ND_TRANSCODINGCACHESIZE: 100MB
+</span></span><span style="display:flex;"><span>   ND_SCANSCHEDULE: <span style="color:#e6db74">&#34;@every 1h&#34;</span>
+</span></span><span style="display:flex;"><span>   ND_SESSIONTIMEOUT: 24h
+</span></span><span style="display:flex;"><span>   ND_LASTFM_ENABLED: <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>   ND_LASTFM_APIKEY: <span style="color:#e6db74">&#34;API DE LASTFM&#34;</span>
+</span></span><span style="display:flex;"><span>   ND_LASTFM_SECRET: <span style="color:#e6db74">&#34;API DE LASTFM&#34;</span>
+</span></span><span style="display:flex;"><span>   ND_LASTFM_LANGUAGE: <span style="color:#e6db74">&#34;es&#34;</span>
+</span></span><span style="display:flex;"><span>   ND_SPOTIFY_ID: <span style="color:#e6db74">&#34;API DE SPOTIFY&#34;</span>
+</span></span><span style="display:flex;"><span>   ND_SPOTIFY_SECRET: <span style="color:#e6db74">&#34;API DE SPOTIFY&#34;</span>
+</span></span><span style="display:flex;"><span> volumes:
+</span></span><span style="display:flex;"><span>   - <span style="color:#e6db74">${</span>STORAGE<span style="color:#e6db74">}</span>/config/navidrome:/data
+</span></span><span style="display:flex;"><span>   - <span style="color:#e6db74">${</span>MEDIA<span style="color:#e6db74">}</span>/audio/Music:/music:ro
+</span></span></code></pre></div><p>Yo he puesto las opciones de configuración que uso o las que más me interesan, que son:</p>
+<ul>
+<li><code>ND_SCANSCHEDULE</code>: Cada cuánto actualiza la biblioteca</li>
+<li><code>ND_LASTFM_ENABLED</code>: Si quiero usar la API de LastFM (para que me dé una descripción de los artistas que tengo)</li>
+<li><code>ND_SPOTIFY_ID</code>: Si quiero usar la API de Spotify (lo mismo que en el caso de LastFM)</li>
+</ul>
+<p>Ahora solamente queda levantar el contenedor:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:/# docker-compose up -d navidrome
+</span></span></code></pre></div><p>Aquí es cuando se hace la magia. A lo mejor tarda un poco en estar disponible, porque está escaneando toda la música que tienes, pero cuando digo tardar, son un par de segundos. Porque lo escanea todo a una velocidad increíble.</p>
+<p>Lo único que te queda es instalar una app en tu móvil, en mi caso <a href="https://substreamerapp.com">Substreamer</a>, conectarte a tu servidor, que en este caso te viene bien tener configurado un <a href="/posts/2021-05-07-rpi-nginx-proxy-manager">proxy server</a> con su correspondiente certificado y disfrutar.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://ugeek.github.io/blog/post/2020-09-16-navidrome-la-alternativa-a-airsonic-desarrollada-en-go.html">Navidrome</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2020-05-06-gonic-el-mejor-y-mas-ligero-servidor-de-musica-con-api-subsonic.html">Gonic</a></li>
+<li><a href="https://ugeek.github.io/blog/post/2019-12-31-supysonic-0-5-0-total-compatibilidad-con-todos-los-clientes-subsonic.html">Supysonic</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

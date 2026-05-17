@@ -1,0 +1,201 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Script para actualizar tu GitHub · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2022-11-22-script-update-git/">
+
+
+
+
+
+
+<meta name="description" content="Buscando maneras de facilitarme el trabajo con GitHub que es donde tengo alojada mi web (más bien son mis proyectos, apuntes y cosas por es estilo) porque para subir cualquier cosa a GitHub era una tocada de huevos en mi caso.
+Así que me puse a buscar algún script para ayudarme a realizar las actualizaciones de mis repositorios en Git, y después de mucho buscar, al final lo encontré.
+Es el siguiente que pongo a continuación
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Script para actualizar tu GitHub">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Buscando maneras de facilitarme el trabajo con GitHub que es donde tengo alojada mi web (más bien son mis proyectos, apuntes y cosas por es estilo) porque para subir cualquier cosa a GitHub era una tocada de huevos en mi caso.
+Así que me puse a buscar algún script para ayudarme a realizar las actualizaciones de mis repositorios en Git, y después de mucho buscar, al final lo encontré.
+Es el siguiente que pongo a continuación
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Script para actualizar tu GitHub</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2022-11-22">
+        2022-11-22
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/programaci%C3%B3n/">
+            @Programación
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/github/">
+            #GitHub
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Buscando maneras de facilitarme el trabajo con <a href="https://www.github.com">GitHub</a> que es donde tengo alojada mi web (más bien son mis proyectos, apuntes y cosas por es estilo) porque para subir cualquier cosa a <code>GitHub</code> era una tocada de huevos en mi caso.</p>
+<p>Así que me puse a buscar algún script para ayudarme a realizar las actualizaciones de mis repositorios en Git, y después de mucho buscar, al final lo encontré.</p>
+<p>Es el siguiente que pongo a continuación</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Actualitzar ràpidament el teu repositori de Git</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># (CC) 2011 Alfonso Saavedra &#34;Son Link&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># http://sonlinkblog.blogspot.com</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Bajo licencia GNU/GPL</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># up2Git.sh &lt;ficheros&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Comprovem si el directori en el que estem, es un repositori de Git</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -d <span style="color:#e6db74">&#39;.git&#39;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#39;Aquest directori no conte un repositori de Git&#39;</span>
+</span></span><span style="display:flex;"><span> exit -1
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Ara validem i l&#39;hi hem passat algun parametre</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $# <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#34;Up2Git: ¡Error! No l&#39;hi has passat cap parametre&#34;</span>
+</span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#34;up2Git fitxer_1 fitxer_2 ... fitxer_N&#34;</span>
+</span></span><span style="display:flex;"><span> exit -1
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span> <span style="color:#75715e"># Revisem els parametres per validar si son fitxers o directori</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">for</span> file in $*; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -e $file <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>     echo <span style="color:#e6db74">&#34;Up2Git: L&#39;arxiu o directori </span>$file<span style="color:#e6db74"> no existeix&#34;</span>
+</span></span><span style="display:flex;"><span>     exit -1
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span> <span style="color:#75715e"># Si hem arribat fins aqui, informem a Git dels arxius a pujar</span>
+</span></span><span style="display:flex;"><span> git add $*
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span> <span style="color:#75715e"># Aixo ens demana el missatge del commit</span>
+</span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#34;Informi del missatge del commit:&#34;</span>
+</span></span><span style="display:flex;"><span> read TXT
+</span></span><span style="display:flex;"><span> git commit -m <span style="color:#e6db74">&#34;</span>$TXT<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#75715e"># i finalitzem pujant els arxius</span>
+</span></span><span style="display:flex;"><span> git push origin master
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>Para usarlo, en mi caso, lo hago de la siguiente manera :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ bash up2Git.sh .
+</span></span></code></pre></div><p>El script es de <code>Alfonso Saavedra</code> a él todo mi agradecimiento, por facilitarme el tener mis repositorios de GitHub actualizados.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://sonlinkblog.blogspot.com">Son Link</a></li>
+<li><a href="https://gist.github.com/son-link/890903">Script</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

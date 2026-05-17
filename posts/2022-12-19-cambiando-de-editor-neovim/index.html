@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Cambiando de editor. Neovim · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2022-12-19-cambiando-de-editor-neovim/">
+
+
+
+
+
+
+<meta name="description" content="Cansado un poco de tener que siempre usar editores fáciles (estilo mousepad) o que dejaban de tener soporte (Atom) y que además no me hacían la vida fácil para integrarse con GitHub, intenté buscar un nuevo editor que lo tuviera todo y mirando los vídeos de Atareao me fijé en que tenía una guía de instalación y de uso de Neovim, clónico de Vim, y me puse con ello.
+Porque una de mis ilusiones, era saber utilizar y poder sacarle todo el partido a Vim, pero por falta de tiempo o ganas, nunca me había puesto, pero gracias a los vídeos de Atareao me entró el gusanillo y &amp;amp;hellip;
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Cambiando de editor. Neovim">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Cansado un poco de tener que siempre usar editores fáciles (estilo mousepad) o que dejaban de tener soporte (Atom) y que además no me hacían la vida fácil para integrarse con GitHub, intenté buscar un nuevo editor que lo tuviera todo y mirando los vídeos de Atareao me fijé en que tenía una guía de instalación y de uso de Neovim, clónico de Vim, y me puse con ello.
+Porque una de mis ilusiones, era saber utilizar y poder sacarle todo el partido a Vim, pero por falta de tiempo o ganas, nunca me había puesto, pero gracias a los vídeos de Atareao me entró el gusanillo y &amp;amp;hellip;
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Cambiando de editor. Neovim</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2022-12-19">
+        2022-12-19
+      </time>
+      · 5 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/programaci%C3%B3n/">
+            @Programación
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/neovim/">
+            #Neovim
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Cansado un poco de tener que siempre usar editores fáciles (estilo <code>mousepad</code>) o que dejaban de tener soporte (<code>Atom</code>) y que además no me hacían la vida fácil para integrarse con GitHub, intenté buscar un nuevo editor que lo tuviera todo y mirando los vídeos de <a href="https://atareao.es">Atareao</a> me fijé en que tenía una guía de instalación y de uso de <code>Neovim</code>, clónico de Vim, y me puse con ello.</p>
+<p>Porque una de mis ilusiones, era saber utilizar y poder sacarle todo el partido a Vim, pero por falta de tiempo o ganas, nunca me había puesto, pero gracias a los vídeos de <code>Atareao</code> me entró el gusanillo y &hellip;</p>
+<p>Para empezar, <a href="https://atareao.es">Lorenzo</a> tiene una excelente guía para iniciarse y usarlo donde todo está muy bien explicado (aunque aún tengo algunas dudas para aclarar), pero para un uso sencillo y sin muchas complicaciones tienes más que suficiente, si quieres más, ahí es donde tú, tienes que ponerte a investigar con más intensidad.</p>
+<p>Para que te hagas una idea, todo lo podéis leer a partir del artículo de <a href="2022-11-14-publicar-feed-mastodon.md">Publicar feed en Mastodon</a> todo lo estoy escribiendo con <code>Neovim</code> y me parece que me voy a quedar en él, porque tal como lo tengo, y eso, que aún tengo algunas cosas que pulir, me parece perfecto la funcionalidad que tiene.</p>
+<p>Yo no voy a explicar todos los pasos que tienes que hacer para instalarlo y su posterior configuración, porque eso mirando los vídeos de <code>atareao.es</code> lo puede hacer tú solo, pero lo que sí que voy a poner, son mis ficheros de configuración que estoy utilizando actualmente (aunque también los podéis encontrar en mis dot_files), que a lo mejor te pueden servir de ayuda.</p>
+<p>La estructura de ficheros para la configuración de <code>Neovim</code> es de la siguiente manera:</p>
+<ul>
+<li><strong>nvim</strong>
+<ul>
+<li><em>lua</em>
+<ul>
+<li><code>plugins</code>: Donde tenemos las configuraciones de todos los plugins que usamos
+<ul>
+<li><code>packer.lua</code>: Fichero donde se definen los plugins que se van a cargar (de donde los tiene que conseguir) así como la configuración que van a tener</li>
+</ul>
+</li>
+<li><code>settings.lua</code>: Opciones de configuración general de neovim</li>
+<li><code>keymaps.lua</code>: Configuración de las opciones de teclado de neovim</li>
+</ul>
+</li>
+<li><em>spell</em>: Donde tenemos todos los archivos de idiomas que usamos</li>
+<li><em>templates</em>: Los templates / plantillas que usamos</li>
+<li><em>init.lua</em>: Fichero de inicio de neovim junto con los plugins que se van a utilizar:w</li>
+</ul>
+</li>
+</ul>
+<h3 id="initlua">init.lua</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>--[[
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">██╗███╗   ██╗██╗████████╗██╗     ██╗   ██╗ █████╗</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">██║████╗  ██║██║╚══██╔══╝██║     ██║   ██║██╔══██╗</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">██║██╔██╗ ██║██║   ██║   ██║     ██║   ██║███████║</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">██║██║╚██╗██║██║   ██║   ██║     ██║   ██║██╔══██║</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">██║██║ ╚████║██║   ██║██╗███████╗╚██████╔╝██║  ██║</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Neovim init file</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Version</span>: <span style="color:#ae81ff">0.8.1</span> - <span style="color:#ae81ff">2022</span><span style="color:#ae81ff">/11/14</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Maintainer</span>: <span style="color:#ae81ff">Vctrsnts</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Website</span>: <span style="color:#ae81ff">https://vctrsnts.github.io</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Referencia</span>: <span style="color:#ae81ff">https://github.com/brainfucksec/neovim-lua</span>
+</span></span><span style="display:flex;"><span>--]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>-- <span style="color:#ae81ff">Import Lua Modules</span>
+</span></span><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">require(&#39;settings&#39;)                                   -- Fitxer dels Settings</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">require(&#39;keymaps&#39;)			                              -- Fitxer de la configuració del teclat</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>-- <span style="color:#ae81ff">Comença la carrega de plugins</span>
+</span></span><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">require(&#39;plugins/packer&#39;)		                          -- Gestor de Plugins</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">require(&#39;plugins/autosave&#39;)                           -- Plugin per a realitzar el AutoSave</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">require(&#39;plugins/ayu&#39;)			                          -- Color Theme</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">require(&#39;plugins/neo-tree&#39;)                           -- filebrowser</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">require(&#39;plugins/feline&#39;)                             -- statusline</span>
+</span></span></code></pre></div><h3 id="settingslua">settings.lua</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>-- <span style="color:#ae81ff">Neovim API Aliases</span>
+</span></span><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">local cmd = vim.cmd</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">local exec = vim.api.nvim_exec</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">local fn = vim.fn</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">local g = vim.g</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">local opt = vim.opt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>-- <span style="color:#ae81ff">Configuració General</span>
+</span></span><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">g.mapleader = &#39;;&#39;					                            -- Canviar leader a coma</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.swapfile = false					                        -- No fe servir swapfile</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>-- <span style="color:#ae81ff">Neovim UI</span>
+</span></span><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.number = true					                            -- Es visualitzar els numeros de les linias</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.relativenumber = true				                      -- Es visualitzar el numero relatiu de la linia</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.foldmethod = &#39;marker&#39;				                      -- Activada folding (default &#39;foldmarker&#39;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.splitright = true					                        -- vertical split to the right</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.splitbelow = true					                        -- horizontal split to the bottom</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.linebreak = true					                        -- wrap on word boundary</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.colorcolumn = &#39;80&#39;					                      -- Es visualitzar la linia que marca els 80 caracters</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.termguicolors = true </span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.guifont = &#34;Fira Code&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">g.neovide_cursor_vfx_mode = &#34;railgun&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.list = true</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.listchars = &#39;tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>-- <span style="color:#ae81ff">Corrector ortogràfic per llenguatge</span>
+</span></span><span style="display:flex;"><span>---------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">exec ([[</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">augroup markdownSpell</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">autocmd!</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">autocmd FileType mardown setlocal spell Spelllang=es</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">autocmd BufRead,BufNewFile *.md setlocal spell spelllang=es</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">augroup END</span>
+</span></span><span style="display:flex;"><span>]], <span style="color:#66d9ef">false</span><span style="color:#ae81ff">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>-- <span style="color:#ae81ff">Tabs, indent</span>
+</span></span><span style="display:flex;"><span>---------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.expandtab = true					                        -- use spaces instead of tabs</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.shiftwidth = 2					                          -- shift 2 spaces when tab</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.tabstop = 2						                            -- 1 tab == 2 spaces</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.smartindent = true					                      -- autoindent new lines</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>-- <span style="color:#ae81ff">Memory, CPU</span>
+</span></span><span style="display:flex;"><span>---------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.hidden = true                                     -- enable background buffers</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.lazyredraw = true                                 -- faster scrolling</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.synmaxcol = 1000                                  -- max column for syntax highlight</span>
+</span></span></code></pre></div><h3 id="keymapslua">keymaps.lua</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>-- <span style="color:#ae81ff">VARIABLES / ALIASES</span>
+</span></span><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">local map = vim.api.nvim_set_keymap</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">local default_opts = {noremap = true, silent = true}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">local cmd = vim.cmd</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#f92672">-- Applications &amp; Plugins shortcuts</span>:
+</span></span><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--
+</span></span><span style="display:flex;"><span>-- <span style="color:#ae81ff">nvim-tree</span>
+</span></span><span style="display:flex;"><span>--
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">map(&#39;n&#39;, &#39;&lt;C-n&gt;&#39;, &#39;:Neotree toggle&lt;CR&gt;&#39;, default_opts)       -- open/close</span>
+</span></span></code></pre></div><h3 id="packerlua">packer.lua</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>--[[
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">S&#39;ENCARREGA DE TOTA LA CONFIGURACIÓ / CARREGA DE PLUGINS</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Plugin manager</span>: <span style="color:#ae81ff">packer.nvim</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">https://github.com/wbthomason/packer.nvim</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">For information about installed plugins see the README</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">neovim-lua/README.md</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">https://github.com/brainfucksec/neovim-lua#readme</span>
+</span></span><span style="display:flex;"><span>--]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">local fn = vim.fn</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">local install_path = fn.stdpath(&#39;data&#39;)..&#39;/site/pack/packer/start/packer.nvim&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">if fn.empty(fn.glob(install_path)) &gt; 0 then</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">packer_bootstrap = fn.system({&#39;git&#39;, &#39;clone&#39;, &#39;--depth&#39;, &#39;1&#39;, &#39;https://github.com/wbthomason/packer.nvim&#39;, install_path})</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">return require(&#39;packer&#39;).startup(function(use)</span>
+</span></span><span style="display:flex;"><span> -- <span style="color:#ae81ff">My plugins here</span>
+</span></span><span style="display:flex;"><span> -- <span style="color:#ae81ff">use &#39;foo1/bar1.nvim&#39;</span>
+</span></span><span style="display:flex;"><span> -- <span style="color:#ae81ff">use &#39;foo2/bar2.nvim&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> -- <span style="color:#ae81ff">Automatically set up your configuration after cloning packer.nvim</span>
+</span></span><span style="display:flex;"><span> -- <span style="color:#ae81ff">Put this at the end after all plugins</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">use &#39;wbthomason/packer.nvim&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> -------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span> -- <span style="color:#ae81ff">colorschemes</span>
+</span></span><span style="display:flex;"><span> -------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">use &#39;Shatur/neovim-ayu&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> -------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span> -- <span style="color:#ae81ff">Activem Icones</span>
+</span></span><span style="display:flex;"><span> -------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">use &#39;kyazdani42/nvim-web-devicons&#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">use &#39;adelarsq/vim-devicons-emoji&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> -------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span> -- <span style="color:#ae81ff">Activem Explorer / Navegador de directoris</span>
+</span></span><span style="display:flex;"><span> -------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">use {</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#39;nvim-neo-tree/neo-tree.nvim&#39;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">branch = &#34;v2.x&#34;,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">requires = {</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;nvim-lua/plenary.nvim&#34;</span>,
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;kyazdani42/nvim-web-devicons&#34;</span>, -- <span style="color:#ae81ff">not strictly required, but recommended</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;MunifTanjim/nui.nvim&#34;</span>
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span> -------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span> -- <span style="color:#ae81ff">Activem Status Line</span>
+</span></span><span style="display:flex;"><span> -------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">use (&#39;Iron-E/nvim-highlite&#39;)</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">use {</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#39;feline-nvim/feline.nvim&#39;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">requires = {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;nvim-web-devicons&#39;</span>
+</span></span><span style="display:flex;"><span>   },
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> -------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span> -- <span style="color:#ae81ff">Activem el AutoSave</span>
+</span></span><span style="display:flex;"><span> -------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">use &#34;Pocco81/auto-save.nvim&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> -------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span> -- <span style="color:#ae81ff">Final del fitxer de configuració de plugins</span>
+</span></span><span style="display:flex;"><span> -------------------------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">if packer_bootstrap then</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">require(&#39;packer&#39;).sync()</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">end)</span>
+</span></span></code></pre></div><p>Pues, ya has podido comprobar cómo lo tengo yo configurado y a pleno rendimiento, pero tal como he dicho al principio, aún falta por pulir algunas cosas.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=SoDjVPr5_Go&amp;list=PL3lTiK2rXrUEL52KOZcTBsoLMndfFBV2Q">Guia sobre Neovim - Atareao.es</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

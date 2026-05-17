@@ -1,0 +1,202 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-05-21-restic-copias-locales-1/">
+
+
+
+
+
+
+<meta name="description" content="Lo primero y antes de nada, tengo que dar las gracias a Carlos M. de El Blog de Lázaro y a Lorenzo de Atareao, por todo el conocimiento que me han aportado, porque sin eso yo no podría haber hecho lo que voy a explicar en este artículo. Muchas gracias 👏.
+Ahora vamos a explicar cómo, gracias a estas 2 increíbles personas, he creado mi perfecto (para mí) sistema de copias de seguridad.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Restic &#43; Backrest &#43; MiniO - 1">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Lo primero y antes de nada, tengo que dar las gracias a Carlos M. de El Blog de Lázaro y a Lorenzo de Atareao, por todo el conocimiento que me han aportado, porque sin eso yo no podría haber hecho lo que voy a explicar en este artículo. Muchas gracias 👏.
+Ahora vamos a explicar cómo, gracias a estas 2 increíbles personas, he creado mi perfecto (para mí) sistema de copias de seguridad.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Restic &#43; Backrest &#43; MiniO - 1</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2025-05-22">
+        2025-05-22
+      </time>
+      · 4 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/unraid/">
+            #unRAID
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Lo primero y antes de nada, tengo que dar las gracias a <strong>Carlos M.</strong> de <a href="https://elblogdelazaro.org">El Blog de Lázaro</a> y a <strong>Lorenzo</strong> de <a href="https://atareao.es">Atareao</a>, por todo el conocimiento que me han aportado, porque sin eso yo no podría haber hecho lo que voy a explicar en este artículo. Muchas gracias 👏.</p>
+<p>Ahora vamos a explicar cómo, gracias a estas 2 increíbles personas, he creado mi perfecto (para mí) sistema de copias de seguridad.</p>
+<blockquote>
+<p>nota: Tengo que decir que me falta la parte de externalizar las copias, pero es muy parecido a lo que tengo ahora, así que no debería haber muchos problemas.</p>
+</blockquote>
+<p>Lo primero y más básico es explicar lo que quiero hacer:</p>
+<ul>
+<li>Mediante <strong>Restic</strong>, hacer las copias de seguridad de mi equipo personal y llevarlas al servidor local con <strong>unRAID</strong>.</li>
+<li><strong>Atareao</strong> explica que lo correcto es hacer una copia de seguridad en local, otra en el servidor local y una en un VPS externo.
+<ul>
+<li>Yo entiendo que las copias en local, si te falla el HDD/SSD del equipo no sirven de nada, así que mejor hacer solo copia de seguridad en servidor local (que ya tengo implementado) y otra en VPS externo (que me falta por implementar).</li>
+</ul>
+</li>
+<li>Mantener la regla de <em>7 copias diarias</em>, <em>4 semanales</em>, <em>6 mensuales</em>. Me parece un poco excesivo, pero nunca se sabe; más vale prevenir que curar.</li>
+</ul>
+<p>Así que me puse a ello. Pero lo primero era tener un HDD para guardar las copias de seguridad, y eso ahora mismo, con mi nuevo <a href="/posts/2025-04-20-modificaciones-servidor-3">servidor</a> es muy sencillo: simplemente he aprovechado un HDD de 1 TB que tenía por aquí tirado, lo he conectado a <em>unRAID</em> y a funcionar. De nuevo, tengo que dar las gracias a <strong>@Mr. H</strong>, por el increíble diseño que ha hecho.</p>
+<p>Una vez que ya tenía mi disco para las copias de seguridad, venía el momento de instalar <strong>Restic</strong> en mi equipo personal. En Debian GNU/Linux, con un simple <strong>APT</strong> lo tienes instalado:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ sudo apt install restic
+</span></span></code></pre></div><p>Ya está instalado.</p>
+<p>Ahora pasamos a las cosas más complicadas: la instalación de <strong>Backrest</strong> y de <strong>MiniIO</strong>.</p>
+<p>Pero “complicado” si no estás en <strong>unRAID</strong>, porque si no es tan fácil como ir a la sección <strong>Apps</strong>, buscar <strong>Backrest</strong> e instalar. No voy a explicar cómo se hace la instalación en <strong>unRAID</strong>, primero porque es muy sencilla y solo tienes que configurar lo que aparece, y si no hay suficiente con esto, tienes este otro recurso, porque <strong>Lázaro</strong> ha hecho un <a href="https://elblogdelazaro.org/backrest-una-interfaz-web-para-restic-backup">artículo</a> donde lo explica mucho mejor, así que ¿para qué reinventar la rueda?</p>
+<p><img src="backrest_01.jpg" alt="" title="Backrest"></p>
+<p><img src="minio.png" alt="" title="MiniIO"></p>
+<p>Una vez que tenemos <strong>Backrest</strong>, solo nos falta la instalación de <strong>MiniIO</strong> y, como antes, mejor leer el <a href="https://atareao.es/podcast/no-pierdas-tus-datos-backups-infalibles">artículo</a> de <strong>Lorenzo</strong>, que también lo explica muy bien.</p>
+<blockquote>
+<p>nota: Lo que hay que tener en cuenta a la hora de instalar <strong>MiniIO</strong> es la nota que añade el creador de este Docker para cuando se usa en <strong>unRAID</strong>:</p>
+<p>Attention: Unfortunately due to changes in Minio, the unRAID file system is no longer supported. The only way to get Minio to work on unRAID now is by mapping a single disk directly or setting up a V-Disk.</p>
+</blockquote>
+<p>En mi caso, no he tenido ningún problema, porque solo tengo un HDD para las copias de seguridad, pero siempre hay que tenerlo en cuenta.</p>
+<h2 id="-a-tener-en-cuenta-en-la-configuración-de-nuestro-repositorio-en-backrest">◇ A tener en cuenta en la configuración de nuestro repositorio en Backrest</h2>
+<p>A la hora de realizar la instalación de <strong>Backrest</strong>, tenemos que tener en cuenta que la <strong>IP local</strong> tiene que ser la de nuestro servidor, que es el que recibe las copias de seguridad de <strong>Restic</strong> desde nuestro equipo local.</p>
+<p>Asimismo, en mi caso no tengo configurado ningún plan de gestión de copias, porque eso se encarga el script de <code>bash</code> que tengo en mi equipo local para hacer las copias de seguridad.</p>
+<p>Después de este pequeño apunte, voy a explicar algunas cosas sobre el uso y funcionamiento de <strong>Restic</strong> que nos pueden venir bien para más adelante.</p>
+<h3 id="1-saber-el-estado-de-las-copias">1. Saber el estado de las copias:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ restic -r /path/to/backup snapshots
+</span></span></code></pre></div><h3 id="2-para-crear-copias-de-seguridad-de-varios-directorios">2. Para crear copias de seguridad de varios directorios</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ restic -r /path/to/backup backup /dir_1 /dir_2 etc....
+</span></span></code></pre></div><h3 id="3-para-restaurar-copia-de-seguridad">3. Para restaurar copia de seguridad</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ restic -r /path/to/backup restore latest --target /dir_recuperar
+</span></span></code></pre></div><h3 id="4-borrar-repositorios-para-solo-mantener-x-copias">4. Borrar repositorios para solo mantener X copias</h3>
+<blockquote>
+<p>nota: En este caso, como ejemplo, hemos puesto 6.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ restic -r /path/to/backup forget --keep-last <span style="color:#ae81ff">6</span> prune
+</span></span></code></pre></div><h3 id="5-borrar-backups-de-más-de-30-días">5. Borrar backups de más de 30 días</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ restic -r /path/to/backup forget --keep-within 30d
+</span></span></code></pre></div><p>Ahora vendría la parte más interesante: cómo hacer uso de estas 3 aplicaciones para manejar nuestras copias de seguridad. Pero esto lo explicaré en el siguiente <a href="/posts/2025-05-22-restic-copias-locales-2">artículo</a>, porque si no, este puede salir muy largo y volverse muy pesado.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.org/tags/restic">El Blog de Lázaro - Restic</a></li>
+<li><a href="https://atareao.es/podcast/no-pierdas-tus-datos-backups-infalibles">677 - No pierdas tus datos. Backups infalibles</a></li>
+<li><a href="https://atareao.es/podcast/backups-en-android-con-restic">680 - Backups en Android con Restic</a></li>
+<li><a href="https://geekland.eu/copias-de-seguridad-con-restic-de-forma-automatica">Cómo hacer copias de seguridad cifradas con Restic de forma automática</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

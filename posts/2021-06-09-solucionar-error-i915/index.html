@@ -1,0 +1,182 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Solucionar error i915 en gráfica Intel · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2021-06-09-solucionar-error-i915/">
+
+
+
+
+
+
+<meta name="description" content="Desde que Debian GNU/Linux sacó la versión del kernel 5.4 en mi portátil fue recurrente los flashes en la pantalla y el siguiente error:
+[drm:intel_cpu_fifo_underrun_irq_handler [i915]] *ERROR* CPU pipe A FIFO underrun La solución que todo el mundo me decía era eliminar el paquete del driver de xserver-xorg-video-intel y usar el por defecto del kernel. Pero lo entendía que significaba eso (realmente era así), no sabía como se tenía que hacer, porque si hacía eso perdía todo el XORG, al final en este hilo me indicaron que si hacía esto, solo se borraba el metapaquete de xserver-xorg-video-all pero nada más.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Solucionar error i915 en gráfica Intel">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Desde que Debian GNU/Linux sacó la versión del kernel 5.4 en mi portátil fue recurrente los flashes en la pantalla y el siguiente error:
+[drm:intel_cpu_fifo_underrun_irq_handler [i915]] *ERROR* CPU pipe A FIFO underrun La solución que todo el mundo me decía era eliminar el paquete del driver de xserver-xorg-video-intel y usar el por defecto del kernel. Pero lo entendía que significaba eso (realmente era así), no sabía como se tenía que hacer, porque si hacía eso perdía todo el XORG, al final en este hilo me indicaron que si hacía esto, solo se borraba el metapaquete de xserver-xorg-video-all pero nada más.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Solucionar error i915 en gráfica Intel</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2021-06-09">
+        2021-06-09
+      </time>
+      · 2 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/hardware/">
+            #Hardware
+          </a>
+        
+          <a href="/tags/debian/">
+            #Debian
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Desde que <strong>Debian GNU/Linux</strong> sacó la versión del kernel 5.4 en mi portátil fue recurrente los flashes en la pantalla y el siguiente error:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>drm:intel_cpu_fifo_underrun_irq_handler <span style="color:#f92672">[</span>i915<span style="color:#f92672">]]</span> *ERROR* CPU pipe A FIFO underrun
+</span></span></code></pre></div><p>La solución que todo el mundo me decía era eliminar el paquete del driver de <em>xserver-xorg-video-intel</em> y usar el por defecto del kernel. Pero lo entendía que significaba eso (realmente era así), no sabía como se tenía que hacer, porque si hacía eso perdía todo el <strong>XORG</strong>, al final en este <a href="https://forums.debian.net/viewtopic.php?f=7&amp;t=149472&amp;p=737807#p737807">hilo</a> me indicaron que si hacía esto, solo se borraba el metapaquete de <strong>xserver-xorg-video-all</strong> pero nada más.</p>
+<p>Al final di con la solución en el foro de <a href="https://exdebian.org/foro/como-solucionar-drmi965irqhandler-i915-error-cpu-pipe-fifo-underrun-solucionado">exDebian.org</a>.</p>
+<p>Lo que tienes que hacer es crear (en mi caso, funciona) el siguiente fichero <code>20-intel.conf</code> con el siguiente contenido:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ ls etc/X11/
+</span></span></code></pre></div><p>Si no aparece <code>xorg.conf.d</code> vas a tener que crear la carpeta</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ su
+</span></span><span style="display:flex;"><span>usuari@debian:~$ mkdir /etc/X11/xorg.conf.d
+</span></span></code></pre></div><p>Y luego crear el archivo <code>20-intel.conf</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ su
+</span></span><span style="display:flex;"><span>usuari@debian:~$ vi /etc/X11/xorg.conf.d/20-intel.conf
+</span></span></code></pre></div><p>Dentro del mismo poner el siguiente texto</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Section <span style="color:#e6db74">&#34;Device&#34;</span>
+</span></span><span style="display:flex;"><span>    Identifier  <span style="color:#e6db74">&#34;Intel Graphics&#34;</span>
+</span></span><span style="display:flex;"><span>    Driver      <span style="color:#e6db74">&#34;intel&#34;</span>
+</span></span><span style="display:flex;"><span>    Option      <span style="color:#e6db74">&#34;AccelMethod&#34;</span>  <span style="color:#e6db74">&#34;uxa&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#Option      &#34;AccelMethod&#34;  &#34;sna&#34;</span>
+</span></span><span style="display:flex;"><span>EndSection
+</span></span></code></pre></div><p>Si al hacer los cambios <strong>Debian GNU/Linux</strong> no inicia desde grub, seleccionar el <strong>recovery mode</strong> y eliminas el archivo</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rm /etc/X11/xorg.conf.d/20-intel.conf
+</span></span></code></pre></div><p>Donde indicas que siga usando el mismo driver que venía usando, lo único que cambias es (en palabras del post).</p>
+<blockquote>
+<p>nota:
+Realmente, lo que has hecho es indicarle que use el mismo driver, modificando el método para la aceleración 3d. Intel pasó a usar el método <strong>sna</strong> por defecto en detrimento del método <strong>uxa</strong>, que es el que se venía usando. El problema está en que <strong>sna</strong>, no siempre va bien con todas las intel, con lo que se mantuvo la posibilidad de usar uno u otro. Si la gráfica es algo vieja, es normal que <strong>uxa</strong> te dé buenos resultados. Por el contrario en gráficas nuevas, <strong>sna</strong> es el que mejor funciona.</p>
+</blockquote>
+<p>Con esta simple modificación, que hice hace 2 semanas, no me han vuelto a aparecer los flashes en la pantalla del portátil.</p>
+<p>Espero que os sea de utilidad</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://forums.unraid.net/topic/46910-simple-podcast-downloader-script/">Como solucionar <em>ERROR</em> CPU pipe A FIFO underrun?</a></li>
+<li><a href="https://forums.debian.net/viewtopic.php?f=7&amp;t=149472">Problems (flash on screen) with i915</a></li>
+<li><a href="https://exdebian.org/foro/como-solucionar-drmi965irqhandler-i915-error-cpu-pipe-fifo-underrun-solucionado">exDebian.org</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

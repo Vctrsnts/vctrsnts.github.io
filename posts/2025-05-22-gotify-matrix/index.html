@@ -1,0 +1,235 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Matrix - 4. De vuelta al inicio, de Gotify a Matrix · Si lo haces, hazlo bien!</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-05-22-gotify-matrix/">
+
+
+
+
+
+
+<meta name="description" content="Como ya expliqué en este artículo, ante la imposibilidad de usar Matrix me pasé a Gotify aunque me negué a dejar de lado a Matrix y seguí investigando, el porqué no funcionaba correctamente y así llegado el momento, poderlo usar o sino, tener una alternativa Gotify.
+Aquí sí que tengo que dar las gracias a Lorenzo de atareao, por toda la ayuda que me ofreció para resolver el problema que tenía 👏.
+">
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+<meta property="og:title"
+      content="Matrix - 4. De vuelta al inicio, de Gotify a Matrix">
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:description"
+      content="Como ya expliqué en este artículo, ante la imposibilidad de usar Matrix me pasé a Gotify aunque me negué a dejar de lado a Matrix y seguí investigando, el porqué no funcionaba correctamente y así llegado el momento, poderlo usar o sino, tener una alternativa Gotify.
+Aquí sí que tengo que dar las gracias a Lorenzo de atareao, por toda la ayuda que me ofreció para resolver el problema que tenía 👏.
+">
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="0ea958a5-6877-4731-adcc-15c279b2bb93">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/feed/">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Matrix - 4. De vuelta al inicio, de Gotify a Matrix</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2025-05-25">
+        2025-05-25
+      </time>
+      · 4 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/vps/">
+            #VPS
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+          <a href="/tags/matrix/">
+            #Matrix
+          </a>
+        
+          <a href="/tags/gotify/">
+            #Gotify
+          </a>
+        
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Como ya expliqué en este <a href="/posts/2025-05-19-matrix-gotify">artículo</a>, ante la imposibilidad de usar <strong>Matrix</strong> me pasé a <strong>Gotify</strong> aunque me negué a dejar de lado a <em>Matrix</em> y seguí investigando, el porqué no funcionaba correctamente y así llegado el momento, poderlo usar o sino, tener una alternativa <em>Gotify</em>.</p>
+<p>Aquí sí que tengo que dar las gracias a <strong>Lorenzo</strong> de <strong>atareao</strong>, por toda la ayuda que me ofreció para resolver el problema que tenía 👏.</p>
+<p>Lo primero fue facilitarme el <code>docker-compose.yml</code> que él estaba usando para <strong>Matrix</strong>, os lo pongo a continuación por si os sirve de ayuda, pero modificado para mis necesidades:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">conduit</span>:
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">image</span>: <span style="color:#ae81ff">matrixconduit/matrix-conduit:latest</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">matrixConduit</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">${HOME}/config/matrix/db:/var/lib/matrix-conduit/</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">RUST_BACKTRACE</span>: <span style="color:#ae81ff">full</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">CONDUIT_LOG</span>: <span style="color:#ae81ff">warn</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">CONDUIT_SERVER_NAME</span>: <span style="color:#ae81ff">matrix.servidor.org</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">CONDUIT_DATABASE_PATH</span>: <span style="color:#ae81ff">/var/lib/matrix-conduit/</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">CONDUIT_DATABASE_BACKEND</span>: <span style="color:#ae81ff">rocksdb</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">CONDUIT_PORT</span>: <span style="color:#ae81ff">6167</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">CONDUIT_MAX_REQUEST_SIZE</span>: <span style="color:#ae81ff">20_000_000</span> <span style="color:#75715e"># in bytes, ~20 MB</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">CONDUIT_ALLOW_REGISTRATION</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">CONDUIT_ALLOW_FEDERATION</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">CONDUIT_ALLOW_CHECK_FOR_UPDATES</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">CONDUIT_ENABLE_LIGHTNING_BOLT</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">CONDUIT_TRUSTED_SERVERS</span>: <span style="color:#e6db74">&#39;[&#34;matrix.org&#34; ]&#39;</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">CONDUIT_ADDRESS</span>: <span style="color:#ae81ff">0.0.0.0</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">CONDUIT_CONFIG</span>: <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#75715e"># Ignore this</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">proxy</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.enable=true</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.services.conduit.loadbalancer.server.port=6167</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.conduit.entrypoints=websecure</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.conduit.rule=Host(`${MATRIX_SERVER}`)</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.conduit-secure.tls=true</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.conduit-secure.tls.certresolver=letsencrypt</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.routers.conduit.middlewares=cors-headers@docker</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.middlewares.cors-headers.headers.accessControlAllowOriginList=*</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.middlewares.cors-headers.headers.accessControlAllowHeaders=Origin, X-Requested-With, Content-Type, Accept, Authorization</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik.http.middlewares.cors-headers.headers.accessControlAllowMethods=GET, POST, PUT, DELETE, OPTIONS</span>
+</span></span></code></pre></div><p>Con este simple <code>docker</code> es lo único que se necesita para instalar <strong>Matrix</strong>, no como lo tenía yo <a href="/posts/2025-03-25-instal-config-matrix">antes</a> que eso sí que era complicado, ahora sí que ya teníamos todas las herramientas para hacer funcionar a <strong>Matrix</strong>, o eso creía yo.</p>
+<p>Una vez que ya tenía el <strong>docker</strong>, lo único que me quedaba era probarlo, porque esta nueva manera de instalación, era mucho más sencilla que la que yo tenía antes. Pues aquí vamos a ver qué resultado obtenemos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ docker compose up -d conduit
+</span></span></code></pre></div><p>Después de la instalación, todo funcionaba correctamente, pero seguía con el problema de que las notificaciones no me llegaban al móvil.</p>
+<p>Aquí busqué ayuda de todo el mundo, para saber el porqué seguía sin funcionarme las notificaciones, también probé <strong>Synapse</strong>, pero con el mismo resultado, también llamé a todas las puertas y todas me las encontraba cerradas o miraban la mirilla, pero no me abrían la puerta ;), hasta que al final pedí ayuda a <strong>atareao</strong> que muy amablemente se ofreció a ver si conseguíamos llevar a buen puerto este problema que tenía, porque él, con esta misma configuración, no tenía problemas.</p>
+<p>Os pongo un resumen de todo cómo fue todo, porque sino sería muy largo todo y os daréis cuenta de lo que una pequeña cosa, los problemas que puede llegar a dar:</p>
+<blockquote>
+<p>nota:
+<strong>atareao:</strong> ¿Cuántos usuarios tienes en Matrix?<!-- raw HTML omitted -->
+<strong>yo:</strong> Uno solo, que es el adm que soy yo<!-- raw HTML omitted -->
+<strong>atareao:</strong> Crea otro usuario y manda los mensajes con el otro usuario<!-- raw HTML omitted --></p>
+</blockquote>
+<p>Aquí fue cuando mi cerebro explotó en mil trocitos y pidiendo a <strong>@Atareao</strong> que acabe con mi sufrimiento 🥹<!-- raw HTML omitted --></p>
+<blockquote>
+<p>nota:
+<strong>yo:</strong> <em>@atareao</em> ¿Tienes cerca alguna cuerda larga y un barranco?<!-- raw HTML omitted -->
+<strong>yo:</strong> Para que me ates y me lances por ese barranco<!-- raw HTML omitted -->
+<strong>yo:</strong> He hecho lo que has comentado<!-- raw HTML omitted -->
+<strong>yo:</strong> He creado un usuario que es el administrador de los canales y luego me he creado mi usuario.<!-- raw HTML omitted -->
+<strong>yo:</strong> Entonces el adm me ha invitado a los canales y con el script que te he pasado estoy enviando mensajes a la sala y me aparecen las notificaciones<!-- raw HTML omitted -->
+<strong>yo:</strong> Por eso, yo me ato de pies y manos y tú solo tienes que empujarme hacia el barranco<!-- raw HTML omitted -->
+<strong>atareao:</strong> Ya&hellip; Tiene lógica que si te envías a ti mismo un mensaje no te notifique que tienes un mensaje nuevo<!-- raw HTML omitted --></p>
+</blockquote>
+<p>Llevaba 1 mes con este problema al que no le encontraba solución, y todo era por culpa de que solamente tenía un único usuario, y por eso las notificaciones no me llegaban. Que si te pones a pensar, tiene su lógica, porque uno envía un mensaje al canal, para que al resto de usuarios les llegue la notificación. Pero claro es una cosa que no piensas, hasta que alguien te hace caer en ello.</p>
+<p>Gracias <strong>atareao</strong> por toda la ayuda que me has dado.</p>
+<p>Ahora sí que sí, tengo a pleno rendimiento mi servidor de matrix para poder usarlo para las notificaciones de todos mis servicios.</p>
+<p>De momento, tengo en funcionamiento:</p>
+<ul>
+<li>El envío de notificaciones cuando se generan los archivos <code>XML</code> de los podcast que descargo.</li>
+<li>Las notificaciones de la ejecución de las copias de seguridad, que lo podréis ver en este <a href="/posts/2025-05-22-restic-copias-locales-2">artículo</a>.</li>
+</ul>
+<p>Me quedan pendientes las notificaciones:</p>
+<ul>
+<li>Notificaciones de <strong>unRaid</strong></li>
+<li>Notificaciones de <strong>flexGet</strong></li>
+</ul>
+<p>Pero con estas tendré que pelearme un poco más porque tengo que usar <strong>pushBits</strong>, tal como expliqué en este <a href="/posts/2025-03-27-pushbits">artículo</a>.</p>
+<p>Alguna cosa más de la que me gustaría estar informado, pero para eso tengo que investigar si se puede hacer o no. Ya os iré informando de los progresos que voy teniendo.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://github.com/atareao/self-hosted/tree/main/matrix">atareao - gitHub</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>
