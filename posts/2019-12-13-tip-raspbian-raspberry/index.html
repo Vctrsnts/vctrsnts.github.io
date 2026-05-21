@@ -10,7 +10,7 @@
 
 <title>TIP Sobre Raspbian / Raspberry · Si lo haces, hazlo bien!</title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2019-12-13-tip-raspbian-raspberry/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2019-12-13-tip-raspbian-raspberry/">
 
 
 
@@ -23,6 +23,8 @@ root@raspberry:~# vi /boot/config.txt Y luego añadimos lo siguiente :
 dtoverlay=disable-wifi dtoverlay=disable-bt ◇ Obtener más voltaje en las salidas de USB root@raspberry:~# vi /boot/config.txt Luego añadimos lo siguiente:
 max_usb_current=1 ◇ Alias SSH A continuación, pongo un atajo (que he descubierto hace poco de un Youtuber llamado PeladoNerd) para cuando tenemos que conectarnos a máquinas remotas a través de SSH, en vez de estar escribiendo todo el rato la IP, Puerto y Usuario, se puede hacer a través de un alias.
 ">
+
+
 
 
 
@@ -46,24 +48,44 @@ max_usb_current=1 ◇ Alias SSH A continuación, pongo un atajo (que he descubie
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
 
-
-<meta property="og:title"
-      content="TIP Sobre Raspbian / Raspberry">
+<meta property="og:title" content="TIP Sobre Raspbian / Raspberry">
+<meta property="og:description" content="A continuación pongo unos cuantos TIPS más con respecto a Raspbian, mayormente para que no se me olviden para más adelante 😉
+◇ Desactivar la wifi y el bluetooth de la Raspberry Para hacer esto, solamente se tiene que modificar un fichero :
+root@raspberry:~# vi /boot/config.txt Y luego añadimos lo siguiente :
+dtoverlay=disable-wifi dtoverlay=disable-bt ◇ Obtener más voltaje en las salidas de USB root@raspberry:~# vi /boot/config.txt Luego añadimos lo siguiente:
+max_usb_current=1 ◇ Alias SSH A continuación, pongo un atajo (que he descubierto hace poco de un Youtuber llamado PeladoNerd) para cuando tenemos que conectarnos a máquinas remotas a través de SSH, en vez de estar escribiendo todo el rato la IP, Puerto y Usuario, se puede hacer a través de un alias.
+">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2019-12-13-tip-raspbian-raspberry/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
 <meta property="og:type" content="article">
 
 
 
-<meta property="og:description"
-      content="A continuación pongo unos cuantos TIPS más con respecto a Raspbian, mayormente para que no se me olviden para más adelante 😉
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TIP Sobre Raspbian / Raspberry">
+<meta name="twitter:description" content="A continuación pongo unos cuantos TIPS más con respecto a Raspbian, mayormente para que no se me olviden para más adelante 😉
 ◇ Desactivar la wifi y el bluetooth de la Raspberry Para hacer esto, solamente se tiene que modificar un fichero :
 root@raspberry:~# vi /boot/config.txt Y luego añadimos lo siguiente :
 dtoverlay=disable-wifi dtoverlay=disable-bt ◇ Obtener más voltaje en las salidas de USB root@raspberry:~# vi /boot/config.txt Luego añadimos lo siguiente:
 max_usb_current=1 ◇ Alias SSH A continuación, pongo un atajo (que he descubierto hace poco de un Youtuber llamado PeladoNerd) para cuando tenemos que conectarnos a máquinas remotas a través de SSH, en vez de estar escribiendo todo el rato la IP, Puerto y Usuario, se puede hacer a través de un alias.
 ">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+
+
 
 
 <link rel="icon" href="/favicon.ico">
@@ -73,11 +95,7 @@ max_usb_current=1 ◇ Alias SSH A continuación, pongo un atajo (que he descubie
 
 
 
-
-
-<script defer
-        src="https://umami.ahnenerbe.duckdns.org/script.js"
-        data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
+<script defer src="https://umami.ahnenerbe.duckdns.org/script.js" data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
 </script>
 
 
@@ -124,6 +142,8 @@ max_usb_current=1 ◇ Alias SSH A continuación, pongo un atajo (que he descubie
             #Raspberry Pi
           </a>
         
+      
+
       
     </p>
   </header>

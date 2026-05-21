@@ -10,7 +10,7 @@
 
 <title>Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!</title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-05-23-restic-copias-locales-3/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-05-23-restic-copias-locales-3/">
 
 
 
@@ -20,6 +20,8 @@
 <meta name="description" content="Este será el tercer y último artículo (en principio), donde explico la manera en que estoy realizando mis copias de seguridad. Seguramente hay métodos mejores, pero este es el que mejor se adapta a mis necesidades. Tal como dije en el anterior artículo, únicamente me faltaba realizar la configuración de las copias de seguridad a mi servidor externo (VPS), pero antes de meternos de lleno con este tema.
 Quiero ampliar cómo se realiza la configuración de las copias de seguridad, esta explicación sirve tanto para las copias de seguridad en el servidor local como en uno externo.
 ">
+
+
 
 
 
@@ -43,21 +45,38 @@ Quiero ampliar cómo se realiza la configuración de las copias de seguridad, es
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
 
-
-<meta property="og:title"
-      content="Restic &#43; Backrest &#43; MinIO - 3">
+<meta property="og:title" content="Restic &#43; Backrest &#43; MinIO - 3">
+<meta property="og:description" content="Este será el tercer y último artículo (en principio), donde explico la manera en que estoy realizando mis copias de seguridad. Seguramente hay métodos mejores, pero este es el que mejor se adapta a mis necesidades. Tal como dije en el anterior artículo, únicamente me faltaba realizar la configuración de las copias de seguridad a mi servidor externo (VPS), pero antes de meternos de lleno con este tema.
+Quiero ampliar cómo se realiza la configuración de las copias de seguridad, esta explicación sirve tanto para las copias de seguridad en el servidor local como en uno externo.
+">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2025-05-23-restic-copias-locales-3/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
 <meta property="og:type" content="article">
 
 
 
-<meta property="og:description"
-      content="Este será el tercer y último artículo (en principio), donde explico la manera en que estoy realizando mis copias de seguridad. Seguramente hay métodos mejores, pero este es el que mejor se adapta a mis necesidades. Tal como dije en el anterior artículo, únicamente me faltaba realizar la configuración de las copias de seguridad a mi servidor externo (VPS), pero antes de meternos de lleno con este tema.
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Restic &#43; Backrest &#43; MinIO - 3">
+<meta name="twitter:description" content="Este será el tercer y último artículo (en principio), donde explico la manera en que estoy realizando mis copias de seguridad. Seguramente hay métodos mejores, pero este es el que mejor se adapta a mis necesidades. Tal como dije en el anterior artículo, únicamente me faltaba realizar la configuración de las copias de seguridad a mi servidor externo (VPS), pero antes de meternos de lleno con este tema.
 Quiero ampliar cómo se realiza la configuración de las copias de seguridad, esta explicación sirve tanto para las copias de seguridad en el servidor local como en uno externo.
 ">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+
+
 
 
 <link rel="icon" href="/favicon.ico">
@@ -67,11 +86,7 @@ Quiero ampliar cómo se realiza la configuración de las copias de seguridad, es
 
 
 
-
-
-<script defer
-        src="https://umami.ahnenerbe.duckdns.org/script.js"
-        data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
+<script defer src="https://umami.ahnenerbe.duckdns.org/script.js" data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
 </script>
 
 
@@ -122,6 +137,8 @@ Quiero ampliar cómo se realiza la configuración de las copias de seguridad, es
             #Docker
           </a>
         
+      
+
       
     </p>
   </header>

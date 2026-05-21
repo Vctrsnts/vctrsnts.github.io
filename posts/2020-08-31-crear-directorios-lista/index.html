@@ -10,7 +10,7 @@
 
 <title>Crear directorios a partir de un fichero de texto · Si lo haces, hazlo bien!</title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2020-08-31-crear-directorios-lista/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2020-08-31-crear-directorios-lista/">
 
 
 
@@ -22,6 +22,8 @@ Pero buscando por internet, encontré una instrucción en BASH que hace lo mismo
 usuari@debian:~$ xargs -I{} mkdir -p &amp;amp;#34;{}&amp;amp;#34; &amp;amp;lt; dirs.txt Donde:
 dirs.txt: El fichero donde están los directorios a crear Hasta aquí hemos llegado. A ver si en un futuro, voy poniendo otras instrucciones que me son de utilidad y nunca se sabe, también os pueden servir.
 ">
+
+
 
 
 
@@ -45,23 +47,42 @@ dirs.txt: El fichero donde están los directorios a crear Hasta aquí hemos lleg
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
 
-
-<meta property="og:title"
-      content="Crear directorios a partir de un fichero de texto">
+<meta property="og:title" content="Crear directorios a partir de un fichero de texto">
+<meta property="og:description" content="A veces tengo que crear unos cuantos directorios (normalmente para música). Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.
+Pero buscando por internet, encontré una instrucción en BASH que hace lo mismo. La instrucción es la siguiente:
+usuari@debian:~$ xargs -I{} mkdir -p &amp;amp;#34;{}&amp;amp;#34; &amp;amp;lt; dirs.txt Donde:
+dirs.txt: El fichero donde están los directorios a crear Hasta aquí hemos llegado. A ver si en un futuro, voy poniendo otras instrucciones que me son de utilidad y nunca se sabe, también os pueden servir.
+">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2020-08-31-crear-directorios-lista/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
 <meta property="og:type" content="article">
 
 
 
-<meta property="og:description"
-      content="A veces tengo que crear unos cuantos directorios (normalmente para música). Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crear directorios a partir de un fichero de texto">
+<meta name="twitter:description" content="A veces tengo que crear unos cuantos directorios (normalmente para música). Si son 5 no pasa nada, pero cuando son más de 20, pues al final te cansas un poco.
 Pero buscando por internet, encontré una instrucción en BASH que hace lo mismo. La instrucción es la siguiente:
 usuari@debian:~$ xargs -I{} mkdir -p &amp;amp;#34;{}&amp;amp;#34; &amp;amp;lt; dirs.txt Donde:
 dirs.txt: El fichero donde están los directorios a crear Hasta aquí hemos llegado. A ver si en un futuro, voy poniendo otras instrucciones que me son de utilidad y nunca se sabe, también os pueden servir.
 ">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+
+
 
 
 <link rel="icon" href="/favicon.ico">
@@ -71,11 +92,7 @@ dirs.txt: El fichero donde están los directorios a crear Hasta aquí hemos lleg
 
 
 
-
-
-<script defer
-        src="https://umami.ahnenerbe.duckdns.org/script.js"
-        data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
+<script defer src="https://umami.ahnenerbe.duckdns.org/script.js" data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
 </script>
 
 
@@ -126,6 +143,8 @@ dirs.txt: El fichero donde están los directorios a crear Hasta aquí hemos lleg
             #Debian
           </a>
         
+      
+
       
     </p>
   </header>

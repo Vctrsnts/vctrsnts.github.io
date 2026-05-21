@@ -10,7 +10,7 @@
 
 <title>Usando Traefik - 4 · Si lo haces, hazlo bien!</title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2024-07-26-usando-traefik-4/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-07-26-usando-traefik-4/">
 
 
 
@@ -21,6 +21,8 @@
 Antes de lanzarte a la piscina directamente, te aconsejo que les eches un vistazo a este artículo de atareao donde habla de crowdsec y también a este video, que me ha servido como guía en todo el proceso.
 Si sigues leyendo este artículo, es que ya has revisado los artículos y el video que te he aconsejado antes, así que ya podemos empezar. Para empezar, partimos de la configuración inicial que tengo en traefik y que podéis ver en los diferentes artículos, podemos empezar con la instalación de crowdsec.
 ">
+
+
 
 
 
@@ -44,22 +46,40 @@ Si sigues leyendo este artículo, es que ya has revisado los artículos y el vid
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
 
-
-<meta property="og:title"
-      content="Usando Traefik - 4">
+<meta property="og:title" content="Usando Traefik - 4">
+<meta property="og:description" content="Tal como indiqué en este artículo, lo único que me faltaba por añadir a traefik para tener mi VPS lo más seguro posible era crowdsec y por fin, ya lo tengo instalado.
+Antes de lanzarte a la piscina directamente, te aconsejo que les eches un vistazo a este artículo de atareao donde habla de crowdsec y también a este video, que me ha servido como guía en todo el proceso.
+Si sigues leyendo este artículo, es que ya has revisado los artículos y el video que te he aconsejado antes, así que ya podemos empezar. Para empezar, partimos de la configuración inicial que tengo en traefik y que podéis ver en los diferentes artículos, podemos empezar con la instalación de crowdsec.
+">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2024-07-26-usando-traefik-4/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
 <meta property="og:type" content="article">
 
 
 
-<meta property="og:description"
-      content="Tal como indiqué en este artículo, lo único que me faltaba por añadir a traefik para tener mi VPS lo más seguro posible era crowdsec y por fin, ya lo tengo instalado.
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Usando Traefik - 4">
+<meta name="twitter:description" content="Tal como indiqué en este artículo, lo único que me faltaba por añadir a traefik para tener mi VPS lo más seguro posible era crowdsec y por fin, ya lo tengo instalado.
 Antes de lanzarte a la piscina directamente, te aconsejo que les eches un vistazo a este artículo de atareao donde habla de crowdsec y también a este video, que me ha servido como guía en todo el proceso.
 Si sigues leyendo este artículo, es que ya has revisado los artículos y el video que te he aconsejado antes, así que ya podemos empezar. Para empezar, partimos de la configuración inicial que tengo en traefik y que podéis ver en los diferentes artículos, podemos empezar con la instalación de crowdsec.
 ">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+
+
 
 
 <link rel="icon" href="/favicon.ico">
@@ -69,11 +89,7 @@ Si sigues leyendo este artículo, es que ya has revisado los artículos y el vid
 
 
 
-
-
-<script defer
-        src="https://umami.ahnenerbe.duckdns.org/script.js"
-        data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
+<script defer src="https://umami.ahnenerbe.duckdns.org/script.js" data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
 </script>
 
 
@@ -124,6 +140,8 @@ Si sigues leyendo este artículo, es que ya has revisado los artículos y el vid
             #Docker
           </a>
         
+      
+
       
     </p>
   </header>
