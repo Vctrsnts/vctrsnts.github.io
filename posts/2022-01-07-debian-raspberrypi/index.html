@@ -10,7 +10,7 @@
 
 <title>Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4 · Si lo haces, hazlo bien!</title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2022-01-07-debian-raspberrypi/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2022-01-07-debian-raspberrypi/">
 
 
 
@@ -43,7 +43,7 @@ Así que ahora voy a explicar los pasos que he hecho, en mi caso, para poder rea
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 <meta property="og:title"
@@ -70,8 +70,8 @@ Así que ahora voy a explicar los pasos que he hecho, en mi caso, para poder rea
 
 
 <script defer
-        src="https://umami.leibstandarte.duckdns.org/script.js"
-        data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46">
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
 </script>
 
 
@@ -135,7 +135,53 @@ Así que ahora voy a explicar los pasos que he hecho, en mi caso, para poder rea
 <li>La última versión del <a href="https://github.com/pftf/RPi4/releases">firmware UEFI para la Raspberry Pi 4</a></li>
 <li>Que la <strong>EEPROM</strong> de nuestra Raspberry Pi esté a la última versión. Esto último se puede saber si al iniciar la Raspberry Pi nos aparece un código <strong>QR</strong> a la derecha de la pantalla.</li>
 </ul>
-<p><img src="last_eeprom.png" alt="" title="Last EEPROM"></p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2022-01-07-debian-raspberrypi/last_eeprom_hu_714b97ee6a5e9d78.webp 480w,
+      /posts/2022-01-07-debian-raspberrypi/last_eeprom_hu_2183d9bb91ccfe46.webp 768w,
+      /posts/2022-01-07-debian-raspberrypi/last_eeprom_hu_acd55749b65a4326.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2022-01-07-debian-raspberrypi/last_eeprom_hu_6f6078adbd84cde9.jpg"
+    alt=""
+    width="1200"
+    height="900"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+<figcaption>Last EEPROM</figcaption>
+
+
+</figure>
+
+
+</p>
 <p>En el caso del <strong>firmware UEFI</strong> (100% libre), nos obliga a usar <strong>GPT</strong> en vez de <strong>MBR</strong> y también tenemos que usar <strong>ESP</strong> (EFI System Partition) en lugar de la <strong>msftdata</strong>.</p>
 <p>Después de tener claros estos matices, vamos a realizar el particionado de nuestro HDD; en mi caso, lo he realizado con GPARTED, donde todo lo que tenemos que hacer es más fácil.</p>
 <p>Los pasos a realizar son los siguientes:</p>
@@ -152,7 +198,53 @@ Así que ahora voy a explicar los pasos que he hecho, en mi caso, para poder rea
 </span></span></code></pre></div><p>Una vez montada la imagen, tenemos que copiar todo el contenido de este directorio a la primera partición, incluido el directorio <strong>.disk</strong>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo cp -r /directorio/destino /directorio/primera_particion
 </span></span></code></pre></div><p>Una vez hemos realizado esto (esto es lo que hice yo, porque si no, el SO live (Xubuntu) no me detectaba la primera partición), volvemos a nuestro GPARTED, seleccionamos la primera partición, seleccionamos los <strong>flags</strong> de la partición y marcamos <strong>boot</strong> y <strong>esp</strong>.</p>
-<p><img src="gparted_flags.png" alt="" title="GParted"></p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2022-01-07-debian-raspberrypi/gparted_flags_hu_d98a99cff56b24dc.webp 480w,
+      /posts/2022-01-07-debian-raspberrypi/gparted_flags_hu_11c26722e6b75549.webp 768w,
+      /posts/2022-01-07-debian-raspberrypi/gparted_flags_hu_44c75914e6c52495.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2022-01-07-debian-raspberrypi/gparted_flags_hu_22a93c7992e4bbd4.jpg"
+    alt=""
+    width="1200"
+    height="821"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+<figcaption>GParted</figcaption>
+
+
+</figure>
+
+
+</p>
 <p>Ahora ya tenemos preparado nuestro HDD para instalar <strong>Debian GNU/Linux</strong>.</p>
 <p>Procedemos a conectar el HDD a la Raspberry Pi y si todo ha ido bien, podemos ver la pantalla de instalación de <strong>Debian GNU/Linux</strong> de toda la vida.</p>
 <p>Una vez finalizada la instalación, solamente nos queda disfrutar de nuestra <strong>Debian GNU/Linux</strong> de toda la vida.</p>

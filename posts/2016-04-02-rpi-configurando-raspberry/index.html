@@ -10,7 +10,7 @@
 
 <title>Raspberry Pi. Configurando la Raspberry · Si lo haces, hazlo bien!</title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2016-04-02-rpi-configurando-raspberry/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2016-04-02-rpi-configurando-raspberry/">
 
 
 
@@ -45,7 +45,7 @@ usuari@raspberry:~$ sudo raspi-config Con ello accedemos al menú de configuraci
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 <meta property="og:title"
@@ -74,8 +74,8 @@ usuari@raspberry:~$ sudo raspi-config Con ello accedemos al menú de configuraci
 
 
 <script defer
-        src="https://umami.leibstandarte.duckdns.org/script.js"
-        data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46">
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
 </script>
 
 
@@ -134,7 +134,53 @@ usuari@raspberry:~$ sudo raspi-config Con ello accedemos al menú de configuraci
 </span></span></code></pre></div><p>Una vez hemos accedido al sistema, ejecutamos la siguiente instrucción:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo raspi-config
 </span></span></code></pre></div><p>Con ello accedemos al menú de configuración inicial de la Raspberry donde podremos configurar las siguientes opciones (al lado de cada opción, viene una breve explicación de lo que hace cada una):</p>
-<p><img src="raspi-config.png" alt="" title="Raspi Config"></p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2016-04-02-rpi-configurando-raspberry/raspi-config_hu_7f435809acc4fa13.webp 480w,
+      /posts/2016-04-02-rpi-configurando-raspberry/raspi-config_hu_f00b90f69d26e549.webp 768w,
+      /posts/2016-04-02-rpi-configurando-raspberry/raspi-config_hu_7fb29fc7609feba2.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2016-04-02-rpi-configurando-raspberry/raspi-config_hu_3e13e2c418a8defd.jpg"
+    alt=""
+    width="1200"
+    height="363"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+<figcaption>Raspi Config</figcaption>
+
+
+</figure>
+
+
+</p>
 <p>En mi caso, las que he utilizado son las siguientes:</p>
 <ul>
 <li><code>Expand Filesystem</code>: Expandir el SO para ocupar toda la SD, después nos aconseja reiniciar. Yo lo hago.</li>
@@ -150,7 +196,53 @@ usuari@raspberry:~$ sudo raspi-config Con ello accedemos al menú de configuraci
 </span></span></code></pre></div><p>Te está indicando que no tienes instalado este paquete, solamente tienes que instalarlo a través de apt-get de la siguiente manera:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo apt-get install rpi-update
 </span></span></code></pre></div><p>Una vez que hemos instalado el paquete, ahora sí que podemos pasar a realizar la actualización del firmware, kernel y módulos de nuestra Raspberry.</p>
-<p><img src="rpi_update.png" alt="" title="RPI Update"></p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2016-04-02-rpi-configurando-raspberry/rpi_update_hu_7c6eb86e95b9282c.webp 480w,
+      /posts/2016-04-02-rpi-configurando-raspberry/rpi_update_hu_5155fffb433dfabb.webp 768w,
+      /posts/2016-04-02-rpi-configurando-raspberry/rpi_update_hu_3c98a774e2719d5f.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2016-04-02-rpi-configurando-raspberry/rpi_update_hu_5d0d1461cb2a7cc0.jpg"
+    alt=""
+    width="1200"
+    height="948"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+<figcaption>RPI Update</figcaption>
+
+
+</figure>
+
+
+</p>
 <p>Cuando el procedimiento de actualización ha finalizado, yo tengo por costumbre instalar los siguientes paquetes:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo apt-get install deborphan localepurge
 </span></span></code></pre></div><p>Para que:</p>

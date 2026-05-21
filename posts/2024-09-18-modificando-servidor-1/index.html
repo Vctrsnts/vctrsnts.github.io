@@ -10,7 +10,7 @@
 
 <title>Modificaciones en el servidor - 1 · Si lo haces, hazlo bien!</title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2024-09-18-modificando-servidor-1/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-09-18-modificando-servidor-1/">
 
 
 
@@ -43,7 +43,7 @@ Esto viene como consecuencia de que durante buena parte del verano habían estad
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 <meta property="og:title"
@@ -70,8 +70,8 @@ Esto viene como consecuencia de que durante buena parte del verano habían estad
 
 
 <script defer
-        src="https://umami.leibstandarte.duckdns.org/script.js"
-        data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46">
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
 </script>
 
 
@@ -132,7 +132,53 @@ Esto viene como consecuencia de que durante buena parte del verano habían estad
 <p>Así que me puse con las modificaciones&hellip;</p>
 <p>Y estas modificaciones, como no puede ser de otra manera, se las tengo que agradecer a <strong>@harebonse</strong> del canal de <strong>HomeLabs.Club</strong> por crear una caja, o más concretamente <strong>Lenovo ThinkCentre NAS/drive case</strong>, y que a la vez se le pueden añadir hasta 6 HDDs, que no son pocos.</p>
 <p>De nuevo, gracias por todo el trabajo&hellip; Y como una imagen vale más que mil palabras, aquí pongo una imagen de cómo es el diseño de esta caja:</p>
-<p><img src="server_01.jpg" alt="" title="Diseño TiNAS 1ª versión"></p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2024-09-18-modificando-servidor-1/server_01_hu_156d0890bf343bfa.webp 480w,
+      /posts/2024-09-18-modificando-servidor-1/server_01_hu_4b53556efd8b3dbc.webp 768w,
+      /posts/2024-09-18-modificando-servidor-1/server_01_hu_cb41ba36bf5bd021.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2024-09-18-modificando-servidor-1/server_01_hu_57612c14ee2ed56d.jpg"
+    alt=""
+    width="1200"
+    height="900"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+<figcaption>Diseño TiNAS 1ª versión</figcaption>
+
+
+</figure>
+
+
+</p>
 <p>Antes de empezar con la modificación real del servidor, necesitaba tener todos los materiales necesarios para hacer el cambio, que en este caso son:</p>
 <ul>
 <li>Ventiladores ARCTIC P14</li>
@@ -148,9 +194,101 @@ Esto viene como consecuencia de que durante buena parte del verano habían estad
 <p>Lo que sí que hay que tener en cuenta es que, como puede aceptar hasta 6 HDDs, la caja está diseñada para que puedas acoplar una fuente de alimentación de 12V para los HDD. En mi caso, yo obtenía la alimentación directamente de la placa del Tiny y, como uso un transformador de 135W, al usar solamente 4 HDDs no es necesario añadir la fuente adicional.</p>
 <p>También hay que tener en cuenta que se le puede añadir una placa controladora <strong>P822</strong> para los HDDs, porque la caja tiene los agujeros específicos para dicha placa.</p>
 <p>Para finalizar, os pongo un par de fotos de cómo queda todo el montaje en mi servidor:</p>
-<p><img src="server_02.jpg" alt="" title="Diseño TiNAS 1ª versión"></p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2024-09-18-modificando-servidor-1/server_02_hu_db59c1ae57d7daa7.webp 480w,
+      /posts/2024-09-18-modificando-servidor-1/server_02_hu_ee32db9e7df64a51.webp 768w,
+      /posts/2024-09-18-modificando-servidor-1/server_02_hu_566e6f7c2289c944.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2024-09-18-modificando-servidor-1/server_02_hu_8ca24ec2c5fc94e3.jpg"
+    alt=""
+    width="1200"
+    height="1593"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+<figcaption>Diseño TiNAS 1ª versión</figcaption>
+
+
+</figure>
+
+
+</p>
 <p>Aquí hay que tener en cuenta que la posición de la tapa delantera está al revés (equivocación mía, pero que en mi caso es positiva). El ventilador tendría que estar más arriba para así llevar el aire, aparte de a los HDDs, también a la controladora, pero como este no es mi caso, está así para que el mayor flujo de aire vaya hacia los discos.</p>
-<p><img src="server_03.jpg" alt="" title="Diseño TiNAS 1ª versión"></p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2024-09-18-modificando-servidor-1/server_03_hu_694725cb97e74447.webp 480w,
+      /posts/2024-09-18-modificando-servidor-1/server_03_hu_d8443906aaa3845e.webp 768w,
+      /posts/2024-09-18-modificando-servidor-1/server_03_hu_42937d36cc3f58a6.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2024-09-18-modificando-servidor-1/server_03_hu_7ced8bced94db05.jpg"
+    alt=""
+    width="1200"
+    height="1593"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+<figcaption>Diseño TiNAS 1ª versión</figcaption>
+
+
+</figure>
+
+
+</p>
 <p>Como podéis ver, mis vacaciones han sido interesantes. Pocas modificaciones en mi servidor, pero de gran calado.</p>
 <h4 id="-referencia">◇ Referencia</h4>
 <ul>

@@ -378,3 +378,21 @@ article blockquote {
 .taxonomy-items a:hover {
   color: var(--accent);
 }
+picture {
+  display: block;
+  margin: 1.5rem 0;
+}
+
+picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  border-radius: 12px;
+
+  /* evita CLS */
+  aspect-ratio: attr(width) / attr(height);
+
+  /* mejora visual */
+  object-fit: cover;
+}

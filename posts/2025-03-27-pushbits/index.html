@@ -10,7 +10,7 @@
 
 <title>Matrix - 2. PushBits, la pasarela que faltaba · Si lo haces, hazlo bien!</title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-03-27-pushbits/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-03-27-pushbits/">
 
 
 
@@ -43,7 +43,7 @@ Después de la instalación de matrix, ahora tenía que configurar los servicios
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 <meta property="og:title"
@@ -70,8 +70,8 @@ Después de la instalación de matrix, ahora tenía que configurar los servicios
 
 
 <script defer
-        src="https://umami.leibstandarte.duckdns.org/script.js"
-        data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46">
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
 </script>
 
 
@@ -272,7 +272,53 @@ Después de la instalación de matrix, ahora tenía que configurar los servicios
 </blockquote>
 <p>Cuando tengas creada la sala / aplicación, obtendrás un <strong>token</strong> que será el que tendrás que utilizar para validarte con <em>PushBits</em> y, a su vez, este se comunicará con la sala de <em>matrix</em>. Y te puedo asegurar que funciona a la perfección 🎉.</p>
 <p>Ya solo nos queda configurar <em>unRaid</em> para que se envíen las notificaciones y, como este está preparado para <em>PushBits</em>, pues todo perfecto:</p>
-<p><img src="imagen.png" alt="" title="PushBits"></p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2025-03-27-pushbits/imagen_hu_7c2e62aef935c8d0.webp 480w,
+      /posts/2025-03-27-pushbits/imagen_hu_b3de0fabd4bb0548.webp 768w,
+      /posts/2025-03-27-pushbits/imagen_hu_e017abf9b61fdbdb.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2025-03-27-pushbits/imagen_hu_516c5ca369b3e336.jpg"
+    alt=""
+    width="1200"
+    height="212"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+<figcaption>PushBits</figcaption>
+
+
+</figure>
+
+
+</p>
 <p>De la misma manera que <em>unRaid</em> funciona con <em>PushBits</em>, <em>flexget</em>, como tiene la posibilidad de enviar notificaciones a través de <em>Gotify</em> y <em>PushBits</em> puede <em>simular</em> a este, pues nada más sencillo:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">notify-all</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">notify</span>:

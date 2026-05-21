@@ -10,7 +10,7 @@
 
 <title>Usando HomePage. El Dashboard - 3 · Si lo haces, hazlo bien!</title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-06-20-usando-homepage-3/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-06-20-usando-homepage-3/">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 <meta property="og:title"
@@ -68,8 +68,8 @@
 
 
 <script defer
-        src="https://umami.leibstandarte.duckdns.org/script.js"
-        data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46">
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
 </script>
 
 
@@ -159,10 +159,102 @@
 </span></span></code></pre></div><p>Pero claro, aquí lo tenía así, pero en el caso de querer hacerlo mediante la aplicación de <strong>unRAID</strong>, ¿cómo se tiene que hacer? Además en <strong>homepage</strong>, como sabéis, hay unas variables para pasar parámetros a las opciones que pueden estar normalmente en un archivo <code>.env</code>, pero claro, ¿cómo se hace para pasar este fichero a <strong>homepage</strong>?</p>
 <p>De nuevo, a buscar más información. Si os dais cuenta, he empezado por una cosa y aún no he acabado y tengo más problemas, pero vayamos por partes 😀. Lo primero es lo primero, y esto es conseguir pasar el archivo <code>.env</code> a <strong>homepage</strong> y esto al final, después de buscar en <strong>unRAID</strong>, se hace de la siguiente manera.</p>
 <p>Cuando instalas la aplicación, se tiene que activar la opción <strong>expert</strong> que te da más opciones que modificar. Una vez la tienes activada, tienes que ir a la opción <strong>Extra Parameters</strong> y añadir lo siguiente:</p>
-<p><img src="homepage_01.png" alt="" title="Afegim fitxer .env"></p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2025-06-20-usando-homepage-3/homepage_01_hu_ff9a3db34c83f7ba.webp 480w,
+      /posts/2025-06-20-usando-homepage-3/homepage_01_hu_ec92c67c3cafd859.webp 768w,
+      /posts/2025-06-20-usando-homepage-3/homepage_01_hu_1a626163cfceb54f.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2025-06-20-usando-homepage-3/homepage_01_hu_53133cc5a67e5ac9.jpg"
+    alt=""
+    width="1200"
+    height="480"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+<figcaption>Afegim fitxer .env</figcaption>
+
+
+</figure>
+
+
+</p>
 <p>He iniciamos la aplicación. Pero en mi caso seguía apareciendo el mensaje y eso que había añadido la variable <strong>HOMEPAGE_ALLOWED_HOSTS</strong> con la IP de servidor y el puerto. Esto se tiene que hacer siempre que no uses el puerto por defecto (3000). Pues nada, a seguir investigando.</p>
 <p>Al final he encontrado la solución, que es añadir en la plantilla de <strong>homepage</strong> esta opción de la siguiente manera:</p>
-<p><img src="homepage_02.png" alt="" title="Afegim fitxer .env"></p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2025-06-20-usando-homepage-3/homepage_02_hu_530a6b0f67ff1e.webp 480w,
+      /posts/2025-06-20-usando-homepage-3/homepage_02_hu_f3fa353a7361f2cd.webp 768w,
+      /posts/2025-06-20-usando-homepage-3/homepage_02_hu_5da9f2aa80bbe943.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2025-06-20-usando-homepage-3/homepage_02_hu_d87a7fca48ddd981.jpg"
+    alt=""
+    width="1200"
+    height="302"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+<figcaption>Afegim fitxer .env</figcaption>
+
+
+</figure>
+
+
+</p>
 <p>Se puede ver que tanto el identificador de la variable como la variable en sí, yo les he puesto el mismo nombre, <strong>HOMEPAGE_ALLOWED_HOSTS</strong> y como valor, la IP de mi servidor y de nuevo a reiniciar el contenedor. Pero esta vez hemos tenido suerte y <strong>homepage</strong> ha empezado a funcionar perfectamente y con la configuración que tenía anteriormente.</p>
 <p>Lo único malo es que tengo algunos iconos descargados porque no los tiene implementados este dashboard. Así que tenía que buscar la manera de suplir lo que tenía antes con el nuevo funcionamiento. He probado de todo:</p>
 <ul>
@@ -180,7 +272,53 @@
 </span></span><span style="display:flex;"><span>│   └── favicon-16x16.png
 </span></span><span style="display:flex;"><span>└── src/
 </span></span></code></pre></div><p>Entonces he copiado los iconos aquí dentro y todo ha funcionado correctamente, pero claro, en el caso de detener el contenedor los iconos se perderán porque no se guardan y al final he utilizado la magia de <em>docker</em> y los volúmenes. He creado el directorio <code>/public/icons</code>, pero <code>icons</code> está en el host y esto lo he hecho a través de un nuevo <strong>path</strong> que se añade en la plantilla de configuración de la siguiente manera:</p>
-<p><img src="homepage_03.png" alt="" title="Afegim Path"></p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2025-06-20-usando-homepage-3/homepage_03_hu_4c966192d2865bbc.webp 480w,
+      /posts/2025-06-20-usando-homepage-3/homepage_03_hu_7b62b168f8ec3367.webp 768w,
+      /posts/2025-06-20-usando-homepage-3/homepage_03_hu_6a6de3f9390f2b5f.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2025-06-20-usando-homepage-3/homepage_03_hu_ec40fad9022f37b6.jpg"
+    alt=""
+    width="1200"
+    height="296"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+<figcaption>Afegim Path</figcaption>
+
+
+</figure>
+
+
+</p>
 <p>Y con esto tengo acceso al directorio <code>public</code> donde tengo los iconos pero sin perderlos. Ya tenemos a la vista la meta de esta nueva instalación de <strong>homepage</strong> mediante la tienda de aplicaciones de <strong>unRAID</strong>.</p>
 <p>Asimismo, la otra cosa que también me traía de cabeza es que en el widget de <strong>PiHole</strong> no podía ver ninguna información, porque el código de API me ha cambiado. Es un tema que siempre me ha llevado de cabeza y no soy el [único](Pihole V6 widget API authentication error) que tiene este problema.</p>
 <p>Al final me he puesto con ello, buscando información de cómo se tiene que hacer correctamente. Había encontrado este <a href="https://www.youtube.com/watch?v=mC3tjysJ01E">vídeo</a> donde explica cómo se tiene que hacer, pero es un poco antiguo, porque en este sentido, <strong>PiHole</strong> ha cambiado su manera de obtener el código de <strong>API</strong>.</p>

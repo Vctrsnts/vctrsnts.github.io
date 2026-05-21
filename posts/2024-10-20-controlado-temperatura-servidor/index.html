@@ -10,7 +10,7 @@
 
 <title>Controlando la temperatura del servidor · Si lo haces, hazlo bien!</title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2024-10-20-controlado-temperatura-servidor/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-10-20-controlado-temperatura-servidor/">
 
 
 
@@ -44,7 +44,7 @@ Pues en este caso, de comunes lo tienen todo menos los sensores de control de la
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 <meta property="og:title"
@@ -72,8 +72,8 @@ Pues en este caso, de comunes lo tienen todo menos los sensores de control de la
 
 
 <script defer
-        src="https://umami.leibstandarte.duckdns.org/script.js"
-        data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46">
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
 </script>
 
 
@@ -133,7 +133,53 @@ Pues en este caso, de comunes lo tienen todo menos los sensores de control de la
 <p>Pero claro, eso me gustaría verlo reflejado en <strong>unRAID</strong>, porque hasta ahora, solamente había podido visualizar la temperatura de la CPU; de la placa base era imposible, cuando teóricamente los Tiny son equipos con componentes muy normales y comunes.</p>
 <p>Pues en este caso, de comunes lo tienen todo menos los sensores de control de la temperatura. Además, <strong>unRAID</strong> no ayudaba mucho con ello. Seguramente muchos diréis: ¿y por qué no instalas el plugin <strong>Dynamix System Temperature</strong> y problema solucionado?</p>
 <p>Ya lo tengo instalado y aun así, lo único que podía visualizar era la temperatura de la CPU:</p>
-<p><img src="configure_temperature_01.jpg" alt="" title="Configurando Temperatura"></p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2024-10-20-controlado-temperatura-servidor/configure_temperature_01_hu_8c1448f65e57c6aa.webp 480w,
+      /posts/2024-10-20-controlado-temperatura-servidor/configure_temperature_01_hu_f7df9b71e169809d.webp 768w,
+      /posts/2024-10-20-controlado-temperatura-servidor/configure_temperature_01_hu_df85937362157cf2.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2024-10-20-controlado-temperatura-servidor/configure_temperature_01_hu_3e9471b95ec7b02c.jpg"
+    alt=""
+    width="1200"
+    height="460"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+<figcaption>Configurando Temperatura</figcaption>
+
+
+</figure>
+
+
+</p>
 <p>Eso que teóricamente <em>sensors</em> funcionaba correctamente. Eso creía yo.</p>
 <p>Así que, después de instalar el <strong>Xeon</strong>, me propuse visualizar todas las temperaturas posibles para así controlar mejor el servidor, porque no es lo mismo tener un <em>i5-6500T</em> que un <strong>Xeon</strong>. Y lo primero de todo era saber qué <strong>sensor</strong> se tenía que usar para poder visualizar la información de ellos. Y resultó que me tocó el peor de todos, el que es más complicado de hacer funcionar. Ni más ni menos que el <strong>nct6683</strong>.</p>
 <p>En todos los sitios que encontraba información, porque me resultó muy difícil, decían que no era nada fácil hacerlo funcionar en GNU/Linux, pero yo seguí buscando hasta que encontré la siguiente <a href="https://fun2ex.com/fixed-z370m-pro4-unraid-temperature-problem">web</a>, donde explicaban qué se tenía que hacer para hacer funcionar los sensores del <strong>nct6683</strong>.</p>
@@ -142,7 +188,53 @@ Pues en este caso, de comunes lo tienen todo menos los sensores de control de la
 </span></span><span style="display:flex;"><span>root@unRaid: modprobe -r nct6683
 </span></span><span style="display:flex;"><span>root@unRaid: modprobe nct6683 force<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
 </span></span></code></pre></div><p>Lo probé, y mira por dónde que dio resultado. Podía ver todos los sensores disponibles en la placa, incluido la velocidad del ventilador.</p>
-<p><img src="configure_temperature_02.jpg" alt="" title="Configurando Temperatura"></p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2024-10-20-controlado-temperatura-servidor/configure_temperature_02_hu_9005705e6602db5e.webp 480w,
+      /posts/2024-10-20-controlado-temperatura-servidor/configure_temperature_02_hu_b9fc5efd4f7d2ca.webp 768w,
+      /posts/2024-10-20-controlado-temperatura-servidor/configure_temperature_02_hu_b8a8ad6e88159183.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2024-10-20-controlado-temperatura-servidor/configure_temperature_02_hu_66ed654646134953.jpg"
+    alt=""
+    width="1200"
+    height="466"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+<figcaption>Configurando Temperatura</figcaption>
+
+
+</figure>
+
+
+</p>
 <p>Así que me dije: pues mira, no ha sido tan difícil como parecía.</p>
 <p>Ingenuo de mí. <strong>unRAID</strong> no hace nada para facilitar las cosas, sino todo lo contrario, las complica, y cada vez me estoy dando cuenta de ello.</p>
 <p>Lo que pasa es que, si reinicias <strong>unRAID</strong>, todo se pierde y ya no detecta nada. Así que tenía que buscar una manera de que esta configuración fuera permanente. Busqué información sobre qué hacer en estos casos en <strong>unRAID</strong> y un <a href="https://forums.unraid.net/topic/18959-script-to-enable-sata-controllers-without-kernel-modification/">hilo</a> decía que, si pones un fichero <code>bash</code> en <code>/boot/config</code>, el sistema lo ejecuta cuando se inicia. Pero no pasaba así, y si quería que los sensores volvieran a funcionar, tenía que volver a ejecutar las 3 instrucciones de nuevo.</p>
@@ -150,7 +242,53 @@ Pues en este caso, de comunes lo tienen todo menos los sensores de control de la
 <p>No veía la manera de cómo solucionar la cosa, hasta que recordé que tengo un <code>script</code> que se ejecuta cada vez que se inician los arrays, que me instala las aplicaciones necesarias para hacer publicaciones en <em>Mastodon</em>, y pensé: ¿por qué no? Si ejecuto el <code>bash</code> cada vez que se inicia el array, tendría que funcionar sin ningún problema.</p>
 <p>No tenía nada que perder, y lo probé. Y resultó perfecto. Ya podía visualizar correctamente la temperatura de la CPU, de la placa base y la velocidad del ventilador. ¿Qué más se podía pedir? Pero eso sí, tener que recurrir a scripts para hacer esto me parece un poco 😡</p>
 <p>Así se puede ver cómo queda actualmente:</p>
-<p><img src="configure_temperature_03.jpg" alt="" title="Configurando Temperatura"></p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2024-10-20-controlado-temperatura-servidor/configure_temperature_03_hu_c5c6b4682db26371.webp 480w,
+      /posts/2024-10-20-controlado-temperatura-servidor/configure_temperature_03_hu_a848e85843293661.webp 768w,
+      /posts/2024-10-20-controlado-temperatura-servidor/configure_temperature_03_hu_64f16d4acc48292d.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2024-10-20-controlado-temperatura-servidor/configure_temperature_03_hu_b4c4aa6894a83ec7.jpg"
+    alt=""
+    width="1200"
+    height="581"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+<figcaption>Configurando Temperatura</figcaption>
+
+
+</figure>
+
+
+</p>
 <p>Un pasito más que he dado para tener mi servidor como a mí me gusta.</p>
 <p>Ahora estoy pensando en conseguir que pueda enviar mis copias de seguridad del móvil al servidor. He oído que hay un docker que se llama <strong>Syncthing</strong> que hace algo parecido, pero tengo que estudiarlo más.</p>
 <p>¿Vosotros qué servicios de Docker tenéis y qué pensáis que son indispensables de tener en un servidor?</p>
