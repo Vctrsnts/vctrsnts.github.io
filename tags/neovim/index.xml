@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Neovim on Si lo haces, hazlo bien!</title>
-    <link>/tags/neovim/</link>
+    <link>https://vctrsnts.github.io/tags/neovim/</link>
     <description>Recent content in Neovim on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Mon, 19 Dec 2022 00:00:00 +0100</lastBuildDate>
-    <atom:link href="/tags/neovim/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/tags/neovim/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cambiando de editor. Neovim</title>
-      <link>/posts/2022-12-19-cambiando-de-editor-neovim/</link>
+      <link>https://vctrsnts.github.io/posts/2022-12-19-cambiando-de-editor-neovim/</link>
       <pubDate>Mon, 19 Dec 2022 00:00:00 +0100</pubDate>
-      <guid>/posts/2022-12-19-cambiando-de-editor-neovim/</guid>
+      <guid>https://vctrsnts.github.io/posts/2022-12-19-cambiando-de-editor-neovim/</guid>
       <description>&lt;p&gt;Cansado un poco de tener que siempre usar editores fáciles (estilo &lt;code&gt;mousepad&lt;/code&gt;) o que dejaban de tener soporte (&lt;code&gt;Atom&lt;/code&gt;) y que además no me hacían la vida fácil para integrarse con GitHub, intenté buscar un nuevo editor que lo tuviera todo y mirando los vídeos de &lt;a href=&#34;https://atareao.es&#34;&gt;Atareao&lt;/a&gt; me fijé en que tenía una guía de instalación y de uso de &lt;code&gt;Neovim&lt;/code&gt;, clónico de Vim, y me puse con ello.&lt;/p&gt;&#xA;&lt;p&gt;Porque una de mis ilusiones, era saber utilizar y poder sacarle todo el partido a Vim, pero por falta de tiempo o ganas, nunca me había puesto, pero gracias a los vídeos de &lt;code&gt;Atareao&lt;/code&gt; me entró el gusanillo y &amp;hellip;&lt;/p&gt;</description>
     </item>
   </channel>
