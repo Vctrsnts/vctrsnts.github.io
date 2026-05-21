@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>KDE on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/tags/kde/</link>
+    <link>https://vctrsnts.codeberg.page/tags/kde/</link>
     <description>Recent content in KDE on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Sat, 06 Jun 2009 00:00:00 +0200</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/tags/kde/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.codeberg.page/tags/kde/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ya tenemos KDE4</title>
-      <link>https://vctrsnts.github.io/posts/2009-06-06-tenemos-kde4/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2009-06-06-tenemos-kde4/</link>
       <pubDate>Sat, 06 Jun 2009 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2009-06-06-tenemos-kde4/</guid>
-      <description>&lt;p&gt;Pues sí, después de una instalación no tan traumática como me esperaba, ya hemos instalado KDE 4.2.&lt;/p&gt;&#xA;&lt;p&gt;Aquí podéis ver un screenshot de cómo le sienta esta nueva versión de KDE a mi equipo.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&#xA;  &#xA;  &#xA;  &#xA;&#xA;  &#xA;&#xA;&lt;figure class=&#34;article-image&#34;&gt;&#xA;&#xA;&lt;picture&gt;&#xA;&#xA;  &lt;source&#xA;    type=&#34;image/webp&#34;&#xA;    srcset=&#34;&#xA;      /posts/2009-06-06-tenemos-kde4/imagen_hu_72dc0abc1a4c0a1d.webp 480w,&#xA;      /posts/2009-06-06-tenemos-kde4/imagen_hu_cbbb895391280d7e.webp 768w,&#xA;      /posts/2009-06-06-tenemos-kde4/imagen_hu_ebf7538ecfd7437f.webp 1200w&#xA;    &#34;&#xA;    sizes=&#34;&#xA;      (max-width: 600px) 100vw,&#xA;      (max-width: 900px) 90vw,&#xA;      1200px&#xA;    &#34;&#xA;  &gt;&#xA;&#xA;  &lt;img&#xA;    src=&#34;https://vctrsnts.github.io/posts/2009-06-06-tenemos-kde4/imagen_hu_805283e22d2af32d.jpg&#34;&#xA;    alt=&#34;&#34;&#xA;    width=&#34;1200&#34;&#xA;    height=&#34;960&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    decoding=&#34;async&#34;&#xA;  &gt;&#xA;&#xA;&lt;/picture&gt;&#xA;&#xA;&#xA;&lt;figcaption&gt;Screenshot&lt;/figcaption&gt;&#xA;&#xA;&#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;En principio, las primeras sensaciones han sido un poco extrañas &lt;del&gt;&lt;a href=&#34;https://www.esdebian.org/foro/32406/experiencias-kde4&#34;&gt;los comprobaréis aquí&lt;/a&gt;&lt;/del&gt;, pero después cuando te vas acostumbrando, pues&amp;hellip;&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/posts/2009-06-06-tenemos-kde4/</guid>
+      <description>&lt;p&gt;Pues sí, después de una instalación no tan traumática como me esperaba, ya hemos instalado KDE 4.2.&lt;/p&gt;&#xA;&lt;p&gt;Aquí podéis ver un screenshot de cómo le sienta esta nueva versión de KDE a mi equipo.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&#xA;  &#xA;  &#xA;  &#xA;&#xA;  &#xA;&#xA;&lt;figure class=&#34;article-image&#34;&gt;&#xA;&#xA;&lt;picture&gt;&#xA;&#xA;  &lt;source&#xA;    type=&#34;image/webp&#34;&#xA;    srcset=&#34;&#xA;      /posts/2009-06-06-tenemos-kde4/imagen_hu_72dc0abc1a4c0a1d.webp 480w,&#xA;      /posts/2009-06-06-tenemos-kde4/imagen_hu_cbbb895391280d7e.webp 768w,&#xA;      /posts/2009-06-06-tenemos-kde4/imagen_hu_ebf7538ecfd7437f.webp 1200w&#xA;    &#34;&#xA;    sizes=&#34;&#xA;      (max-width: 600px) 100vw,&#xA;      (max-width: 900px) 90vw,&#xA;      1200px&#xA;    &#34;&#xA;  &gt;&#xA;&#xA;  &lt;img&#xA;    src=&#34;https://vctrsnts.codeberg.page/posts/2009-06-06-tenemos-kde4/imagen_hu_805283e22d2af32d.jpg&#34;&#xA;    alt=&#34;&#34;&#xA;    width=&#34;1200&#34;&#xA;    height=&#34;960&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    decoding=&#34;async&#34;&#xA;  &gt;&#xA;&#xA;&lt;/picture&gt;&#xA;&#xA;&#xA;&lt;figcaption&gt;Screenshot&lt;/figcaption&gt;&#xA;&#xA;&#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;En principio, las primeras sensaciones han sido un poco extrañas &lt;del&gt;&lt;a href=&#34;https://www.esdebian.org/foro/32406/experiencias-kde4&#34;&gt;los comprobaréis aquí&lt;/a&gt;&lt;/del&gt;, pero después cuando te vas acostumbrando, pues&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>KDE 4.2 ha entrado en SID</title>
-      <link>https://vctrsnts.github.io/posts/2009-04-09-kd4-sid/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2009-04-09-kd4-sid/</link>
       <pubDate>Thu, 09 Apr 2009 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2009-04-09-kd4-sid/</guid>
+      <guid>https://vctrsnts.codeberg.page/posts/2009-04-09-kd4-sid/</guid>
       <description>&lt;p&gt;Todos los usuarios de &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; están de enhorabuena (me incluyo yo mismo).&lt;/p&gt;&#xA;&lt;p&gt;Como diría mucha gente &lt;em&gt;ja l&amp;rsquo;ha tenim aquí&lt;/em&gt;, pero en este caso es nuestro querido &lt;strong&gt;KDE 4.2&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Tal como se puede ver en este &lt;a href=&#34;https://lists.debian.org/debian-kde/2009/03/msg00157.html&#34;&gt;mail&lt;/a&gt;, se notifica que durante esta semana irán entrando los paquetes de KDE 4 en &lt;strong&gt;UNSTABLE&lt;/strong&gt;. Así que a upgradear&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Este no será mi caso. Yo me esperaré a que esté todo más calmado y entonces realizaré una instalación limpia de todo el sistema&amp;hellip;&lt;/p&gt;</description>
     </item>
   </channel>
