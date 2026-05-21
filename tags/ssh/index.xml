@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SSH on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.codeberg.page/tags/ssh/</link>
+    <link>/tags/ssh/</link>
     <description>Recent content in SSH on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Mon, 04 Apr 2016 00:00:00 +0200</lastBuildDate>
-    <atom:link href="https://vctrsnts.codeberg.page/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Raspberry Pi. Acceso a través de ssh</title>
-      <link>https://vctrsnts.codeberg.page/posts/2016-04-04-rpi-acceso-traves-ssh/</link>
+      <link>/posts/2016-04-04-rpi-acceso-traves-ssh/</link>
       <pubDate>Mon, 04 Apr 2016 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2016-04-04-rpi-acceso-traves-ssh/</guid>
+      <guid>/posts/2016-04-04-rpi-acceso-traves-ssh/</guid>
       <description>&lt;p&gt;Una vez que ya tenemos nuestra Raspberry en marcha y funcionando ahora viene la parte divertida, cómo acceder a ella desde el exterior. En mi caso desde otra ubicación y además con un poco de seguridad para que nadie pueda acceder a ella (recordar que esto se tiene que hacer desde el equipo que se va a conectar a la Raspberry).&lt;/p&gt;&#xA;&lt;p&gt;Esto se consigue a través de nuestro bien intencionado &lt;code&gt;ssh&lt;/code&gt; y una correcta configuración que pasaré a explicar a continuación.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sustituir una clave antigua de known_hosts</title>
-      <link>https://vctrsnts.codeberg.page/posts/2011-08-19-substituir-known-hosts/</link>
+      <link>/posts/2011-08-19-substituir-known-hosts/</link>
       <pubDate>Fri, 19 Aug 2011 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2011-08-19-substituir-known-hosts/</guid>
+      <guid>/posts/2011-08-19-substituir-known-hosts/</guid>
       <description>&lt;p&gt;Es posible que más de una vez nos hayamos encontrado con un mensaje donde nuestro sistema nos indica que la clave pública de nuestro servidor, o del servidor al que nos queremos conectar ha cambiado o a otras posibilidades que ya indicaremos más adelante.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;usuari@debian:~$ ssh servidor-ssh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@ WARNING: REMOTE &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Someone could be eavesdropping on you right now &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;man-in-the-middle attack&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;!&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;It is also possible that the RSA host key has just been changed.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;The fingerprint &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; the RSA key sent by the remote host is&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;00:ff:00:ff:00:ff:00:ff:00:ff:00:ff:00:ff:00:ff.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Please contact your system administrator.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Add correct host key in /home/usuario/.ssh/known_hosts to get rid of this message.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Offending key in /home/usuario/.ssh/known_hosts:8&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;RSA host key &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; localhost has changed and you have requested strict checking.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Host key verification failed.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Este error se produce debido a que ha fallado la autenticación de la clave pública ssh del servidor. Esto podría ser debido a:&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Arch on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.codeberg.page/tags/arch/</link>
+    <link>/tags/arch/</link>
     <description>Recent content in Arch on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Thu, 05 Mar 2026 00:00:00 +0100</lastBuildDate>
-    <atom:link href="https://vctrsnts.codeberg.page/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/arch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tengo hard-hopping</title>
-      <link>https://vctrsnts.codeberg.page/posts/2026-03-05-hard-hopping/</link>
+      <link>/posts/2026-03-05-hard-hopping/</link>
       <pubDate>Thu, 05 Mar 2026 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2026-03-05-hard-hopping/</guid>
+      <guid>/posts/2026-03-05-hard-hopping/</guid>
       <description>&lt;p&gt;Os preguntaréis a qué viene este artículo, porque ¿qué es eso de &lt;strong&gt;hard hopping&lt;/strong&gt;?&lt;/p&gt;&#xA;&lt;p&gt;Seguramente solo conocéis el &lt;strong&gt;distro hopping&lt;/strong&gt;, que se conoce como el impulso de cambiar frecuentemente entre distintas distribuciones de GNU/Linux. Pero eso de &lt;strong&gt;hard hopping&lt;/strong&gt; ¿qué es?&lt;/p&gt;&#xA;&lt;p&gt;Como tal, esta palabra seguramente no existe, me la acabo de inventar, pero yo lo describo como el &lt;em&gt;impulso de cambiar frecuentemente de hardware o equipo informático sin llegar a estar contento con lo que se tiene&lt;/em&gt;, y eso es lo que me ha sucedido últimamente, hasta conseguir lo que tengo actualmente y que cumplimenta todas mis expectativas; aún se podría mejorar un poco, pero el ansia ya no es tan grande.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Instalar Qemu y VirtManager en Arch - 3</title>
-      <link>https://vctrsnts.codeberg.page/posts/2026-02-28-qemu-virtmanager-3/</link>
+      <link>/posts/2026-02-28-qemu-virtmanager-3/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2026-02-28-qemu-virtmanager-3/</guid>
+      <guid>/posts/2026-02-28-qemu-virtmanager-3/</guid>
       <description>&lt;p&gt;Aquí va el tercero y último artículo con respecto a &lt;strong&gt;Qemu&lt;/strong&gt; y &lt;strong&gt;VirtManager&lt;/strong&gt;, pero en este caso, lo explico desde la manera de usarlo como cliente de una máquina creada en &lt;strong&gt;unRaid&lt;/strong&gt; y que podemos usar como si estuviera en local que es mi caso.&lt;/p&gt;&#xA;&lt;p&gt;En este caso, tal como he dicho al principio, es conectar la máquina virtual que tengo creada en mi servidor unRaid y poderla usar en mi equipo local, como si fuera otra máquina más, pero ubicada en otro sitio. A continuación os explico cómo lo hice y por si os puede servir de ayuda.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Instalar Qemu y VirtManager en Arch - 2</title>
-      <link>https://vctrsnts.codeberg.page/posts/2026-02-12-qemu-virtmanager-2/</link>
+      <link>/posts/2026-02-12-qemu-virtmanager-2/</link>
       <pubDate>Thu, 12 Feb 2026 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2026-02-12-qemu-virtmanager-2/</guid>
+      <guid>/posts/2026-02-12-qemu-virtmanager-2/</guid>
       <description>&lt;p&gt;En este segundo artículo, explicaremos un poco cómo me voy adaptando a usar &lt;em&gt;VirtManager&lt;/em&gt; en vez de &lt;em&gt;VirtualBox&lt;/em&gt; y las modificaciones que he tenido que hacer en mi flujo de trabajo con respecto al usar &lt;em&gt;VirtManager&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Hay que partir de la base que el uso que le doy yo a &lt;em&gt;VirtManager&lt;/em&gt; es muy básico, esto se debe, a que no he encontrado alternativas que me gusten a las diferentes aplicaciones que uso.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mi primera incidencia en Arch Linux</title>
-      <link>https://vctrsnts.codeberg.page/posts/2026-01-27-arch-incidencia/</link>
+      <link>/posts/2026-01-27-arch-incidencia/</link>
       <pubDate>Tue, 27 Jan 2026 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2026-01-27-arch-incidencia/</guid>
+      <guid>/posts/2026-01-27-arch-incidencia/</guid>
       <description>&lt;p&gt;Pensaba que iba a ser uno de los pocos elegidos que nunca iba a tener problemas con Arch Linux, pero ya os puedo decir que he dejado de ser uno, por hacer la tontería más grande que nunca me ha pasado. Y esta ha sido borrar &lt;strong&gt;SystemD&lt;/strong&gt; e impidiendo que se pudiera iniciar el sistema.&lt;/p&gt;&#xA;&lt;p&gt;Seguramente os estaréis preguntando cómo ha podido suceder eso, pero es tan simple que había instalado el paquete &lt;code&gt;base-devel&lt;/code&gt; y &lt;code&gt;fakeroot&lt;/code&gt; y así poder utilizar el paquete &lt;code&gt;pacman-contrib&lt;/code&gt; y poder usar &lt;code&gt;checkupdates&lt;/code&gt; y encuentras otra manera más fácil de usarlo sin todos los paquetes que te indica el sistema y vas y te pones a eliminar paquetes como si no hubiera un mañana, pues pasa lo que pasa. Que me cargo el sistema y yo sin enterarme hasta que reinició el sistema.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Instalar Qemu y VirtManager en Arch - 1</title>
-      <link>https://vctrsnts.codeberg.page/posts/2026-01-15-qemu-virtmanager-1/</link>
+      <link>/posts/2026-01-15-qemu-virtmanager-1/</link>
       <pubDate>Thu, 15 Jan 2026 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2026-01-15-qemu-virtmanager-1/</guid>
+      <guid>/posts/2026-01-15-qemu-virtmanager-1/</guid>
       <description>&lt;p&gt;Este artículo es más un resumen o unos apuntes para mí, de cómo se hace la instalación de &lt;strong&gt;Qemu&lt;/strong&gt; y &lt;strong&gt;VirtManager&lt;/strong&gt; en &lt;strong&gt;Arch&lt;/strong&gt;, basado en este &lt;a href=&#34;https://www.youtube.com/watch?v=HN-krqqblOA&#34;&gt;video&lt;/a&gt; que podéis encontrar en &lt;strong&gt;Youtube&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Nunca se sabe si puede desaparecer o no, pero yo me lo guardo, por si acaso.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;nota: Antes de empezar lo primero es agradecer a &lt;a href=&#34;https://www.youtube.com/@Ruben-Linux&#34;&gt;Ruben&lt;/a&gt; por esta excelente guía de instalación.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Desde hace mucho tiempo, he estado usando &lt;a href=&#34;https://www.virtualbox.org&#34;&gt;VirtualBox&lt;/a&gt;, pero últimamente con tanto cambio de equipo, había empezado a notar, que la temperatura de la CPU (incluso con un &lt;strong&gt;Xeon&lt;/strong&gt;) era un poco alta, por no decir, más de lo normal, a la hora de utilizar este programa para virtualizar.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mis aplicaciones por defecto 2025</title>
-      <link>https://vctrsnts.codeberg.page/posts/2025-12-28-aplicaciones-2025/</link>
+      <link>/posts/2025-12-28-aplicaciones-2025/</link>
       <pubDate>Sun, 28 Dec 2025 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2025-12-28-aplicaciones-2025/</guid>
-      <description>&lt;p&gt;Tal como inicié a finales del 2024 con el &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2024-12-11-mis-aplicaciones-2024&#34;&gt;artículo&lt;/a&gt; sobre las aplicaciones que uso, pues aquí tenéis las aplicaciones de este año, donde ya digo, que ha sido un año muy convulso con referencia a las aplicaciones que estoy usando últimamente.&lt;/p&gt;&#xA;&lt;p&gt;Es lo que me pasa a mí, que gracias a estos listados, descubro nuevas cosas que me son útiles y que por mi cuenta, nunca habría pensado en ello.&lt;/p&gt;</description>
+      <guid>/posts/2025-12-28-aplicaciones-2025/</guid>
+      <description>&lt;p&gt;Tal como inicié a finales del 2024 con el &lt;a href=&#34;/posts/2024-12-11-mis-aplicaciones-2024&#34;&gt;artículo&lt;/a&gt; sobre las aplicaciones que uso, pues aquí tenéis las aplicaciones de este año, donde ya digo, que ha sido un año muy convulso con referencia a las aplicaciones que estoy usando últimamente.&lt;/p&gt;&#xA;&lt;p&gt;Es lo que me pasa a mí, que gracias a estos listados, descubro nuevas cosas que me son útiles y que por mi cuenta, nunca habría pensado en ello.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hola Arch Linux. Adiós Debian GNU/Linux</title>
-      <link>https://vctrsnts.codeberg.page/posts/2025-11-04-arch-debian/</link>
+      <link>/posts/2025-11-04-arch-debian/</link>
       <pubDate>Tue, 04 Nov 2025 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2025-11-04-arch-debian/</guid>
+      <guid>/posts/2025-11-04-arch-debian/</guid>
       <description>&lt;p&gt;Todas las despedidas son amargas. Siento decirlo, pero 😭 así no, Debian GNU/Linux me has fallado. Nuestra relación de más de 25 años no tendría que haber acabado de esta manera. Tan abrupta y repentinamente.&lt;/p&gt;&#xA;&lt;p&gt;Pero así ha sido, un desencuentro con respecto a &lt;a href=&#34;https://hypr.land/&#34;&gt;hyprland&lt;/a&gt;, que entiendo que en &lt;strong&gt;stable&lt;/strong&gt; estén los paquetes estables y a prueba de fallos (con lo que conlleva, versiones un poco antiguas), pero no puede ser que en &lt;strong&gt;unstable&lt;/strong&gt; esté aún la versión &lt;strong&gt;0.41.1&lt;/strong&gt; y, en cambio, la oficial (cuando estoy escribiendo este artículo) sea la &lt;strong&gt;0.51.1&lt;/strong&gt;. Esto no está bien&amp;hellip;&lt;/p&gt;</description>
     </item>
   </channel>

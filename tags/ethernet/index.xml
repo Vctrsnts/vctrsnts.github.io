@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ethernet on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.codeberg.page/tags/ethernet/</link>
+    <link>/tags/ethernet/</link>
     <description>Recent content in Ethernet on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Mon, 04 Apr 2016 00:00:00 +0200</lastBuildDate>
-    <atom:link href="https://vctrsnts.codeberg.page/tags/ethernet/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/ethernet/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Raspberry Pi. Acceso a través de ssh</title>
-      <link>https://vctrsnts.codeberg.page/posts/2016-04-04-rpi-acceso-traves-ssh/</link>
+      <link>/posts/2016-04-04-rpi-acceso-traves-ssh/</link>
       <pubDate>Mon, 04 Apr 2016 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2016-04-04-rpi-acceso-traves-ssh/</guid>
+      <guid>/posts/2016-04-04-rpi-acceso-traves-ssh/</guid>
       <description>&lt;p&gt;Una vez que ya tenemos nuestra Raspberry en marcha y funcionando ahora viene la parte divertida, cómo acceder a ella desde el exterior. En mi caso desde otra ubicación y además con un poco de seguridad para que nadie pueda acceder a ella (recordar que esto se tiene que hacer desde el equipo que se va a conectar a la Raspberry).&lt;/p&gt;&#xA;&lt;p&gt;Esto se consigue a través de nuestro bien intencionado &lt;code&gt;ssh&lt;/code&gt; y una correcta configuración que pasaré a explicar a continuación.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Configurar la red</title>
-      <link>https://vctrsnts.codeberg.page/posts/2016-04-03-rpi-configurar-red/</link>
+      <link>/posts/2016-04-03-rpi-configurar-red/</link>
       <pubDate>Sun, 03 Apr 2016 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2016-04-03-rpi-configurar-red/</guid>
+      <guid>/posts/2016-04-03-rpi-configurar-red/</guid>
       <description>&lt;p&gt;Ahora que ya tenemos configurada y funcionando nuestra Raspberry, ahora le toca el turno a la red (en mi caso, quiero ip fija).&lt;/p&gt;&#xA;&lt;p&gt;Para realizar la configuración, ya no se hace antes, modificando el fichero:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@raspberry:~# /etc/network/interfaces&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ahora se modifica el fichero:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@raspberry:~# vi /etc/dhcpcd.conf&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;En mi caso, como quiero que tenga ip fija, yo lo dejo configurado de esta manera:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;interface eth0&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;static ip_address &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 192.168.0.2/24&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;static routers &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 192.168.0.1&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;static domain_name_servers &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 80.58.61.250 80.58.61.254&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Yo estoy usando &lt;code&gt;vi&lt;/code&gt;, otras personas a lo mejor usan &lt;code&gt;nano&lt;/code&gt;, cuestión de gustos&amp;hellip;&lt;/p&gt;</description>
     </item>
   </channel>

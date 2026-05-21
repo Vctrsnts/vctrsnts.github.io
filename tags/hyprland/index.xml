@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hyprland on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.codeberg.page/tags/hyprland/</link>
+    <link>/tags/hyprland/</link>
     <description>Recent content in Hyprland on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Tue, 04 Nov 2025 00:00:00 +0100</lastBuildDate>
-    <atom:link href="https://vctrsnts.codeberg.page/tags/hyprland/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/hyprland/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hola Arch Linux. Adiós Debian GNU/Linux</title>
-      <link>https://vctrsnts.codeberg.page/posts/2025-11-04-arch-debian/</link>
+      <link>/posts/2025-11-04-arch-debian/</link>
       <pubDate>Tue, 04 Nov 2025 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2025-11-04-arch-debian/</guid>
+      <guid>/posts/2025-11-04-arch-debian/</guid>
       <description>&lt;p&gt;Todas las despedidas son amargas. Siento decirlo, pero 😭 así no, Debian GNU/Linux me has fallado. Nuestra relación de más de 25 años no tendría que haber acabado de esta manera. Tan abrupta y repentinamente.&lt;/p&gt;&#xA;&lt;p&gt;Pero así ha sido, un desencuentro con respecto a &lt;a href=&#34;https://hypr.land/&#34;&gt;hyprland&lt;/a&gt;, que entiendo que en &lt;strong&gt;stable&lt;/strong&gt; estén los paquetes estables y a prueba de fallos (con lo que conlleva, versiones un poco antiguas), pero no puede ser que en &lt;strong&gt;unstable&lt;/strong&gt; esté aún la versión &lt;strong&gt;0.41.1&lt;/strong&gt; y, en cambio, la oficial (cuando estoy escribiendo este artículo) sea la &lt;strong&gt;0.51.1&lt;/strong&gt;. Esto no está bien&amp;hellip;&lt;/p&gt;</description>
     </item>
   </channel>

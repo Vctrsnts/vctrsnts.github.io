@@ -8,9 +8,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Restic &#43; Backrest &#43; MiniO - 2 · Si lo haces, hazlo bien!</title>
+<title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-05-22-restic-copias-locales-2/">
+Restic &#43; Backrest &#43; MiniO - 2 · Si lo haces, hazlo bien!
+
+</title>
+
+<link rel="canonical" href="/posts/2025-05-22-restic-copias-locales-2/">
 
 
 
@@ -20,6 +24,13 @@
 <meta name="description" content="Continuamos con esta segunda parte donde explicaremos cómo sacar provecho de estas 3 aplicaciones. En este caso, explicaré el script que estoy usando para realizar las copias, que es una variación de uno que tiene Lorenzo en su GitHub, pero que en mi caso, en vez de ser un fichero jinja, es un fichero en Bash a pelo.
 nota: No entiendo el sentido que tiene utilizar los ficheros jinja. Sé que es una plantilla para la creación de un fichero al vuelo, pero cómo utilizarlos es lo que se me escapa. Ya le preguntaremos a Lorenzo su función o a ver si tiene algún podcast donde lo explique.
 ">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
 
 
 
@@ -50,15 +61,28 @@ nota: No entiendo el sentido que tiene utilizar los ficheros jinja. Sé que es u
 <meta property="og:description" content="Continuamos con esta segunda parte donde explicaremos cómo sacar provecho de estas 3 aplicaciones. En este caso, explicaré el script que estoy usando para realizar las copias, que es una variación de uno que tiene Lorenzo en su GitHub, pero que en mi caso, en vez de ser un fichero jinja, es un fichero en Bash a pelo.
 nota: No entiendo el sentido que tiene utilizar los ficheros jinja. Sé que es una plantilla para la creación de un fichero al vuelo, pero cómo utilizarlos es lo que se me escapa. Ya le preguntaremos a Lorenzo su función o a ver si tiene algún podcast donde lo explique.
 ">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2025-05-22-restic-copias-locales-2/">
+<meta property="og:url" content="/posts/2025-05-22-restic-copias-locales-2/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
 <meta property="og:type" content="article">
 
 
+<meta property="article:published_time" content="2025-05-27T00:00:00&#43;02:00">
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+
+
+
+<meta property="article:tag" content="unRAID">
+
+<meta property="article:tag" content="Docker">
+
+
+
+
+
+
+<meta property="og:image" content="/logo_post.jpg">
 
 
 
@@ -70,9 +94,7 @@ nota: No entiendo el sentido que tiene utilizar los ficheros jinja. Sé que es u
 ">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
-
-
+<meta name="twitter:image" content="/logo_post.jpg">
 
 
 
@@ -86,7 +108,9 @@ nota: No entiendo el sentido que tiene utilizar los ficheros jinja. Sé que es u
 
 
 
-<script defer src="https://umami.ahnenerbe.duckdns.org/script.js" data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
 </script>
 
 
@@ -328,9 +352,9 @@ nota: No entiendo el sentido que tiene utilizar los ficheros jinja. Sé que es u
   <source
     type="image/webp"
     srcset="
-      /posts/2025-05-22-restic-copias-locales-2/imagen_hu_4e8381bb10fee82d.webp 480w,
-      /posts/2025-05-22-restic-copias-locales-2/imagen_hu_14ed0bc608cf99e2.webp 768w,
-      /posts/2025-05-22-restic-copias-locales-2/imagen_hu_4f64851f289b9e.webp 1200w
+      /posts/2025-05-22-restic-copias-locales-2/imagen_hu_15ebce2d56bb558.webp 480w,
+      /posts/2025-05-22-restic-copias-locales-2/imagen_hu_d87e7af91fd30b56.webp 768w,
+      /posts/2025-05-22-restic-copias-locales-2/imagen_hu_82437457e37ff86a.webp 1200w
     "
     sizes="
       (max-width: 600px) 100vw,
@@ -340,7 +364,7 @@ nota: No entiendo el sentido que tiene utilizar los ficheros jinja. Sé que es u
   >
 
   <img
-    src="/posts/2025-05-22-restic-copias-locales-2/imagen_hu_e1d2a5cc99cbc1ec.jpg"
+    src="/posts/2025-05-22-restic-copias-locales-2/imagen_hu_ec1a807ac9f0ca09.jpg"
     alt=""
     width="1200"
     height="329"
