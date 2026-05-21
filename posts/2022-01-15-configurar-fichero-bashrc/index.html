@@ -10,7 +10,7 @@
 
 <title>Configurar el fichero .bashrc para descomprimir ficheros · Si lo haces, hazlo bien!</title>
 
-<link rel="canonical" href="https://vctrsnts.github.io/posts/2022-01-15-configurar-fichero-bashrc/">
+<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2022-01-15-configurar-fichero-bashrc/">
 
 
 
@@ -54,7 +54,7 @@ Esto se consigue añadiendo un alias con las opciones / programas más comunes p
 Lo primero es editar nuestro fichero .basrch y hacerle las siguientes modificaciones:
 #### EXTRACCIÓ DE FITXERS # usage: ex &amp;amp;lt;file&amp;amp;gt; ex () { if [ -f $1 ] ; then case $1 in *.tar.bz2) tar xjf $1 ;; *.tar.gz) tar xzf $1 ;; *.bz2) bunzip2 $1 ;; *.rar) unrar x $1 ;; *.gz) gunzip $1 ;; *.tar) tar xf $1 ;; *.tbz2) tar xjf $1 ;; *.tgz) tar xzf $1 ;; *.zip) unzip $1 ;; *.Z) uncompress $1;; *.7z) 7z x $1 ;; *.deb) ar x $1 ;; *.tar.xz) tar xf $1 ;; *.tar.zst) unzstd $1 ;; *) echo &amp;amp;#34;&amp;amp;#39;$1&amp;amp;#39; no es pot extreure via ex()&amp;amp;#34; ;; esac else echo &amp;amp;#34;&amp;amp;#39;$1&amp;amp;#39; no es un fitxer valid&amp;amp;#34; fi } Con esto lo que conseguimos es que para descomprimir cualquier fichero lo podemos hacer de la siguiente manera:
 ">
-<meta property="og:url" content="https://vctrsnts.github.io/posts/2022-01-15-configurar-fichero-bashrc/">
+<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2022-01-15-configurar-fichero-bashrc/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -62,7 +62,7 @@ Lo primero es editar nuestro fichero .basrch y hacerle las siguientes modificaci
 
 
 
-<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
 
 
 
@@ -76,7 +76,7 @@ Lo primero es editar nuestro fichero .basrch y hacerle las siguientes modificaci
 ">
 
 
-<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
 
 
 
