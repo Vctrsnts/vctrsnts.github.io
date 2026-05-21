@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ReiserFS on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.codeberg.page/tags/reiserfs/</link>
+    <link>https://vctrsnts.github.io/tags/reiserfs/</link>
     <description>Recent content in ReiserFS on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Mon, 27 Apr 2009 00:00:00 +0200</lastBuildDate>
-    <atom:link href="https://vctrsnts.codeberg.page/tags/reiserfs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/tags/reiserfs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Recuperar Archivos en ReiserFS</title>
-      <link>https://vctrsnts.codeberg.page/posts/2009-04-27-recuperar-archivos-reiserfs/</link>
+      <link>https://vctrsnts.github.io/posts/2009-04-27-recuperar-archivos-reiserfs/</link>
       <pubDate>Mon, 27 Apr 2009 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2009-04-27-recuperar-archivos-reiserfs/</guid>
+      <guid>https://vctrsnts.github.io/posts/2009-04-27-recuperar-archivos-reiserfs/</guid>
       <description>&lt;p&gt;A continuación explicaré los pasos necesarios para recuperar un archivo/s eliminado de una partición creada con &lt;strong&gt;ReiserFS&lt;/strong&gt;, que en principio funciona correctamente en &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Como root, desmonta la partición &lt;strong&gt;ReiserFS&lt;/strong&gt; para recuperar los archivos (en este caso usaremos &lt;code&gt;/home&lt;/code&gt; como ejemplo):&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@debian:/# umount /home&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Si te muestra un mensaje parecido a &lt;code&gt;umount: /home: device is busy&lt;/code&gt;, significa que algo se está usando en dicha partición. Tendrás que pasarte a modo de usuario simple (consola) o puedes usar un cdrom live:&lt;/p&gt;</description>
     </item>
   </channel>
