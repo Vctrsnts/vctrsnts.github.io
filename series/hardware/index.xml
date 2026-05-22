@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hardware on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/series/hardware/</link>
+    <link>https://vctrsnts.codeberg.page/series/hardware/</link>
     <description>Recent content in Hardware on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Sun, 20 Apr 2025 00:00:00 +0200</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/series/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.codeberg.page/series/hardware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Modificaciones en el servidor - 3</title>
-      <link>https://vctrsnts.github.io/posts/2025-04-20-modificaciones-servidor-3/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2025-04-20-modificaciones-servidor-3/</link>
       <pubDate>Sun, 20 Apr 2025 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2025-04-20-modificaciones-servidor-3/</guid>
-      <description>&lt;p&gt;Este nuevo artículo no sabía si llamarlo &lt;strong&gt;Modificaciones en el servidor - 3&lt;/strong&gt; o &lt;strong&gt;La imaginación humana no tiene límites&lt;/strong&gt;, porque una vez que hayáis leído este artículo pensaréis lo mismo que yo.&lt;/p&gt;&#xA;&lt;p&gt;Como recordaréis, en este &lt;a href=&#34;https://vctrsnts.github.io/posts/2024-10-19-modificando-servidor-2&#34;&gt;artículo&lt;/a&gt; os comentaba que después de los últimos cambios, mi servidor había quedado de la siguiente manera:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Intel Xeon e2286M&lt;/li&gt;&#xA;&lt;li&gt;32Gb de RAM&lt;/li&gt;&#xA;&lt;li&gt;4 HDD&amp;rsquo;s&#xA;&lt;ul&gt;&#xA;&lt;li&gt;1 HDD de 18Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 16Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 12Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 1Tb&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Este lo uso para copias de seguridad.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Lo más importante es saber el porqué de este cambio. Al principio todo iba correctamente, aunque había momentos en que notaba que los discos duros me hacían el tonto, como si se desconectasen o se reiniciasen, pero como me lo hacía pocas veces, pues no le hacía mucho caso, porque como pasaba poco, pues nada.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/posts/2025-04-20-modificaciones-servidor-3/</guid>
+      <description>&lt;p&gt;Este nuevo artículo no sabía si llamarlo &lt;strong&gt;Modificaciones en el servidor - 3&lt;/strong&gt; o &lt;strong&gt;La imaginación humana no tiene límites&lt;/strong&gt;, porque una vez que hayáis leído este artículo pensaréis lo mismo que yo.&lt;/p&gt;&#xA;&lt;p&gt;Como recordaréis, en este &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2024-10-19-modificando-servidor-2&#34;&gt;artículo&lt;/a&gt; os comentaba que después de los últimos cambios, mi servidor había quedado de la siguiente manera:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Intel Xeon e2286M&lt;/li&gt;&#xA;&lt;li&gt;32Gb de RAM&lt;/li&gt;&#xA;&lt;li&gt;4 HDD&amp;rsquo;s&#xA;&lt;ul&gt;&#xA;&lt;li&gt;1 HDD de 18Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 16Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 12Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 1Tb&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Este lo uso para copias de seguridad.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Lo más importante es saber el porqué de este cambio. Al principio todo iba correctamente, aunque había momentos en que notaba que los discos duros me hacían el tonto, como si se desconectasen o se reiniciasen, pero como me lo hacía pocas veces, pues no le hacía mucho caso, porque como pasaba poco, pues nada.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Modificaciones en el servidor - 2</title>
-      <link>https://vctrsnts.github.io/posts/2024-10-19-modificando-servidor-2/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2024-10-19-modificando-servidor-2/</link>
       <pubDate>Sat, 19 Oct 2024 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2024-10-19-modificando-servidor-2/</guid>
+      <guid>https://vctrsnts.codeberg.page/posts/2024-10-19-modificando-servidor-2/</guid>
       <description>&lt;p&gt;Se ha venido una nueva modificación en el servidor, y una más, pero esta vez, ha sido más a nivel de hardware que de software.&lt;/p&gt;&#xA;&lt;p&gt;Como sabréis, si no os habéis dado cuenta leyendo algunos de mis artículos, estoy subscrito al canal de telegram de &lt;a href=&#34;https://homelabs.club&#34;&gt;HomeLabs.club&lt;/a&gt;, donde siempre tienen alguna nueva cosa para liarte la manta a la cabeza.&lt;/p&gt;&#xA;&lt;p&gt;Una de estas cosas, fue un sorteo que hicieron entre los miembros VIP del canal y como nunca tengo muchas esperanzas en este tipo de sorteos, pues me apunté. Nunca se sabe lo que puede pasar.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Modificaciones en el servidor - 1</title>
-      <link>https://vctrsnts.github.io/posts/2024-09-18-modificando-servidor-1/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2024-09-18-modificando-servidor-1/</link>
       <pubDate>Wed, 18 Sep 2024 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2024-09-18-modificando-servidor-1/</guid>
-      <description>&lt;p&gt;Durante estas vacaciones he modificado un poco el aspecto de mi servidor con la finalidad de que todo estuviera un poco más ordenado y más homogéneo, porque por una parte, tenía mi &lt;a href=&#34;https://vctrsnts.github.io/posts/2024-03-07-cambiando-unraid&#34;&gt;servidor&lt;/a&gt; por un lado y, por otro, en un caddy metálico de discos comprado en AliExpress, los HDD, al que le había puesto este &lt;a href=&#34;https://www.amazon.es/dp/B09SLPRYYZ&#34;&gt;ventilador&lt;/a&gt; para bajar la temperatura de los mismos.&lt;/p&gt;&#xA;&lt;p&gt;Esto viene como consecuencia de que durante buena parte del verano habían estado a unos agradables 45º - 50º y, que yo sepa, estas temperaturas no son muy buenas para un HDD, aunque sean HDDs para servidores, que ya de por sí tendrían que estar preparados para el calor, pero es una cosa que no quería comprobar.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/posts/2024-09-18-modificando-servidor-1/</guid>
+      <description>&lt;p&gt;Durante estas vacaciones he modificado un poco el aspecto de mi servidor con la finalidad de que todo estuviera un poco más ordenado y más homogéneo, porque por una parte, tenía mi &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2024-03-07-cambiando-unraid&#34;&gt;servidor&lt;/a&gt; por un lado y, por otro, en un caddy metálico de discos comprado en AliExpress, los HDD, al que le había puesto este &lt;a href=&#34;https://www.amazon.es/dp/B09SLPRYYZ&#34;&gt;ventilador&lt;/a&gt; para bajar la temperatura de los mismos.&lt;/p&gt;&#xA;&lt;p&gt;Esto viene como consecuencia de que durante buena parte del verano habían estado a unos agradables 45º - 50º y, que yo sepa, estas temperaturas no son muy buenas para un HDD, aunque sean HDDs para servidores, que ya de por sí tendrían que estar preparados para el calor, pero es una cosa que no quería comprobar.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
