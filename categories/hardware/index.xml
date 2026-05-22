@@ -2,255 +2,248 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hardware on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.codeberg.page/categories/hardware/</link>
+    <link>https://vctrsnts.github.io/categories/hardware/</link>
     <description>Recent content in Hardware on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Thu, 05 Mar 2026 00:00:00 +0100</lastBuildDate>
-    <atom:link href="https://vctrsnts.codeberg.page/categories/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/categories/hardware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tengo hard-hopping</title>
-      <link>https://vctrsnts.codeberg.page/posts/2026-03-05-hard-hopping/</link>
+      <link>https://vctrsnts.github.io/posts/2026-03-05-hard-hopping/</link>
       <pubDate>Thu, 05 Mar 2026 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2026-03-05-hard-hopping/</guid>
+      <guid>https://vctrsnts.github.io/posts/2026-03-05-hard-hopping/</guid>
       <description>&lt;p&gt;Os preguntaréis a qué viene este artículo, porque ¿qué es eso de &lt;strong&gt;hard hopping&lt;/strong&gt;?&lt;/p&gt;&#xA;&lt;p&gt;Seguramente solo conocéis el &lt;strong&gt;distro hopping&lt;/strong&gt;, que se conoce como el impulso de cambiar frecuentemente entre distintas distribuciones de GNU/Linux. Pero eso de &lt;strong&gt;hard hopping&lt;/strong&gt; ¿qué es?&lt;/p&gt;&#xA;&lt;p&gt;Como tal, esta palabra seguramente no existe, me la acabo de inventar, pero yo lo describo como el &lt;em&gt;impulso de cambiar frecuentemente de hardware o equipo informático sin llegar a estar contento con lo que se tiene&lt;/em&gt;, y eso es lo que me ha sucedido últimamente, hasta conseguir lo que tengo actualmente y que cumplimenta todas mis expectativas; aún se podría mejorar un poco, pero el ansia ya no es tan grande.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Modificaciones en el servidor - 3</title>
-      <link>https://vctrsnts.codeberg.page/posts/2025-04-20-modificaciones-servidor-3/</link>
+      <link>https://vctrsnts.github.io/posts/2025-04-20-modificaciones-servidor-3/</link>
       <pubDate>Sun, 20 Apr 2025 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2025-04-20-modificaciones-servidor-3/</guid>
-      <description>&lt;p&gt;Este nuevo artículo no sabía si llamarlo &lt;strong&gt;Modificaciones en el servidor - 3&lt;/strong&gt; o &lt;strong&gt;La imaginación humana no tiene límites&lt;/strong&gt;, porque una vez que hayáis leído este artículo pensaréis lo mismo que yo.&lt;/p&gt;&#xA;&lt;p&gt;Como recordaréis, en este &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2024-10-19-modificando-servidor-2&#34;&gt;artículo&lt;/a&gt; os comentaba que después de los últimos cambios, mi servidor había quedado de la siguiente manera:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Intel Xeon e2286M&lt;/li&gt;&#xA;&lt;li&gt;32Gb de RAM&lt;/li&gt;&#xA;&lt;li&gt;4 HDD&amp;rsquo;s&#xA;&lt;ul&gt;&#xA;&lt;li&gt;1 HDD de 18Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 16Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 12Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 1Tb&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Este lo uso para copias de seguridad.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Lo más importante es saber el porqué de este cambio. Al principio todo iba correctamente, aunque había momentos en que notaba que los discos duros me hacían el tonto, como si se desconectasen o se reiniciasen, pero como me lo hacía pocas veces, pues no le hacía mucho caso, porque como pasaba poco, pues nada.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2025-04-20-modificaciones-servidor-3/</guid>
+      <description>&lt;p&gt;Este nuevo artículo no sabía si llamarlo &lt;strong&gt;Modificaciones en el servidor - 3&lt;/strong&gt; o &lt;strong&gt;La imaginación humana no tiene límites&lt;/strong&gt;, porque una vez que hayáis leído este artículo pensaréis lo mismo que yo.&lt;/p&gt;&#xA;&lt;p&gt;Como recordaréis, en este &lt;a href=&#34;https://vctrsnts.github.io/posts/2024-10-19-modificando-servidor-2&#34;&gt;artículo&lt;/a&gt; os comentaba que después de los últimos cambios, mi servidor había quedado de la siguiente manera:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Intel Xeon e2286M&lt;/li&gt;&#xA;&lt;li&gt;32Gb de RAM&lt;/li&gt;&#xA;&lt;li&gt;4 HDD&amp;rsquo;s&#xA;&lt;ul&gt;&#xA;&lt;li&gt;1 HDD de 18Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 16Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 12Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 1Tb&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Este lo uso para copias de seguridad.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Lo más importante es saber el porqué de este cambio. Al principio todo iba correctamente, aunque había momentos en que notaba que los discos duros me hacían el tonto, como si se desconectasen o se reiniciasen, pero como me lo hacía pocas veces, pues no le hacía mucho caso, porque como pasaba poco, pues nada.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Controlando la temperatura del servidor</title>
-      <link>https://vctrsnts.codeberg.page/posts/2024-10-20-controlado-temperatura-servidor/</link>
+      <link>https://vctrsnts.github.io/posts/2024-10-20-controlado-temperatura-servidor/</link>
       <pubDate>Sun, 20 Oct 2024 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2024-10-20-controlado-temperatura-servidor/</guid>
-      <description>&lt;p&gt;Como ya comenté en el anterior &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2024-10-19-modificando-servidor-2&#34;&gt;articulo&lt;/a&gt;, donde explicaba que había puesto un &lt;strong&gt;Xeon&lt;/strong&gt; en mi servidor y todo lo referente a la temperatura.&lt;/p&gt;&#xA;&lt;p&gt;Pero claro, eso me gustaría verlo reflejado en &lt;strong&gt;unRAID&lt;/strong&gt;, porque hasta ahora, solamente había podido visualizar la temperatura de la CPU; de la placa base era imposible, cuando teóricamente los Tiny son equipos con componentes muy normales y comunes.&lt;/p&gt;&#xA;&lt;p&gt;Pues en este caso, de comunes lo tienen todo menos los sensores de control de la temperatura. Además, &lt;strong&gt;unRAID&lt;/strong&gt; no ayudaba mucho con ello. Seguramente muchos diréis: ¿y por qué no instalas el plugin &lt;strong&gt;Dynamix System Temperature&lt;/strong&gt; y problema solucionado?&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2024-10-20-controlado-temperatura-servidor/</guid>
+      <description>&lt;p&gt;Como ya comenté en el anterior &lt;a href=&#34;https://vctrsnts.github.io/posts/2024-10-19-modificando-servidor-2&#34;&gt;articulo&lt;/a&gt;, donde explicaba que había puesto un &lt;strong&gt;Xeon&lt;/strong&gt; en mi servidor y todo lo referente a la temperatura.&lt;/p&gt;&#xA;&lt;p&gt;Pero claro, eso me gustaría verlo reflejado en &lt;strong&gt;unRAID&lt;/strong&gt;, porque hasta ahora, solamente había podido visualizar la temperatura de la CPU; de la placa base era imposible, cuando teóricamente los Tiny son equipos con componentes muy normales y comunes.&lt;/p&gt;&#xA;&lt;p&gt;Pues en este caso, de comunes lo tienen todo menos los sensores de control de la temperatura. Además, &lt;strong&gt;unRAID&lt;/strong&gt; no ayudaba mucho con ello. Seguramente muchos diréis: ¿y por qué no instalas el plugin &lt;strong&gt;Dynamix System Temperature&lt;/strong&gt; y problema solucionado?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Modificaciones en el servidor - 2</title>
-      <link>https://vctrsnts.codeberg.page/posts/2024-10-19-modificando-servidor-2/</link>
+      <link>https://vctrsnts.github.io/posts/2024-10-19-modificando-servidor-2/</link>
       <pubDate>Sat, 19 Oct 2024 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2024-10-19-modificando-servidor-2/</guid>
+      <guid>https://vctrsnts.github.io/posts/2024-10-19-modificando-servidor-2/</guid>
       <description>&lt;p&gt;Se ha venido una nueva modificación en el servidor, y una más, pero esta vez, ha sido más a nivel de hardware que de software.&lt;/p&gt;&#xA;&lt;p&gt;Como sabréis, si no os habéis dado cuenta leyendo algunos de mis artículos, estoy subscrito al canal de telegram de &lt;a href=&#34;https://homelabs.club&#34;&gt;HomeLabs.club&lt;/a&gt;, donde siempre tienen alguna nueva cosa para liarte la manta a la cabeza.&lt;/p&gt;&#xA;&lt;p&gt;Una de estas cosas, fue un sorteo que hicieron entre los miembros VIP del canal y como nunca tengo muchas esperanzas en este tipo de sorteos, pues me apunté. Nunca se sabe lo que puede pasar.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Modificaciones en el servidor - 1</title>
-      <link>https://vctrsnts.codeberg.page/posts/2024-09-18-modificando-servidor-1/</link>
+      <link>https://vctrsnts.github.io/posts/2024-09-18-modificando-servidor-1/</link>
       <pubDate>Wed, 18 Sep 2024 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2024-09-18-modificando-servidor-1/</guid>
-      <description>&lt;p&gt;Durante estas vacaciones he modificado un poco el aspecto de mi servidor con la finalidad de que todo estuviera un poco más ordenado y más homogéneo, porque por una parte, tenía mi &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2024-03-07-cambiando-unraid&#34;&gt;servidor&lt;/a&gt; por un lado y, por otro, en un caddy metálico de discos comprado en AliExpress, los HDD, al que le había puesto este &lt;a href=&#34;https://www.amazon.es/dp/B09SLPRYYZ&#34;&gt;ventilador&lt;/a&gt; para bajar la temperatura de los mismos.&lt;/p&gt;&#xA;&lt;p&gt;Esto viene como consecuencia de que durante buena parte del verano habían estado a unos agradables 45º - 50º y, que yo sepa, estas temperaturas no son muy buenas para un HDD, aunque sean HDDs para servidores, que ya de por sí tendrían que estar preparados para el calor, pero es una cosa que no quería comprobar.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2024-09-18-modificando-servidor-1/</guid>
+      <description>&lt;p&gt;Durante estas vacaciones he modificado un poco el aspecto de mi servidor con la finalidad de que todo estuviera un poco más ordenado y más homogéneo, porque por una parte, tenía mi &lt;a href=&#34;https://vctrsnts.github.io/posts/2024-03-07-cambiando-unraid&#34;&gt;servidor&lt;/a&gt; por un lado y, por otro, en un caddy metálico de discos comprado en AliExpress, los HDD, al que le había puesto este &lt;a href=&#34;https://www.amazon.es/dp/B09SLPRYYZ&#34;&gt;ventilador&lt;/a&gt; para bajar la temperatura de los mismos.&lt;/p&gt;&#xA;&lt;p&gt;Esto viene como consecuencia de que durante buena parte del verano habían estado a unos agradables 45º - 50º y, que yo sepa, estas temperaturas no son muy buenas para un HDD, aunque sean HDDs para servidores, que ya de por sí tendrían que estar preparados para el calor, pero es una cosa que no quería comprobar.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Equipo en la recámara</title>
-      <link>https://vctrsnts.codeberg.page/posts/2023-09-11-substitutos-portatil/</link>
+      <link>https://vctrsnts.github.io/posts/2023-09-11-substitutos-portatil/</link>
       <pubDate>Mon, 11 Sep 2023 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2023-09-11-substitutos-portatil/</guid>
-      <description>&lt;p&gt;Como ya decía en el anterior &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2023-08-01-de-nuevo-cambiando-servidor&#34;&gt;articulo&lt;/a&gt;, donde hablaba sobre el nuevo cambio de servidor que había hecho, el canal de &lt;a href=&#34;https://homelabs.club&#34;&gt;HomeLabs.Club&lt;/a&gt; es una mala influencia, tenéis que hacerme caso y ahora lo entenderéis mejor.&lt;/p&gt;&#xA;&lt;p&gt;Muchas de las personas, después de comprar el &lt;strong&gt;m910x&lt;/strong&gt;, le hacen un &lt;strong&gt;mod&lt;/strong&gt;, que consiste en sobreescribir la BIOS del &lt;strong&gt;ThinkCentre&lt;/strong&gt;. Con esta modificación de la BIOS, a parte de permitir más memoria RAM, también te permite añadir CPU&amp;rsquo;s de otras generaciones, para obtener más información puedes visualizar este &lt;a href=&#34;https://www.youtube.com/watch?v=ZDUWrwq1PXE&#34;&gt;video&lt;/a&gt; creado por uno de los miembros del canal.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2023-09-11-substitutos-portatil/</guid>
+      <description>&lt;p&gt;Como ya decía en el anterior &lt;a href=&#34;https://vctrsnts.github.io/posts/2023-08-01-de-nuevo-cambiando-servidor&#34;&gt;articulo&lt;/a&gt;, donde hablaba sobre el nuevo cambio de servidor que había hecho, el canal de &lt;a href=&#34;https://homelabs.club&#34;&gt;HomeLabs.Club&lt;/a&gt; es una mala influencia, tenéis que hacerme caso y ahora lo entenderéis mejor.&lt;/p&gt;&#xA;&lt;p&gt;Muchas de las personas, después de comprar el &lt;strong&gt;m910x&lt;/strong&gt;, le hacen un &lt;strong&gt;mod&lt;/strong&gt;, que consiste en sobreescribir la BIOS del &lt;strong&gt;ThinkCentre&lt;/strong&gt;. Con esta modificación de la BIOS, a parte de permitir más memoria RAM, también te permite añadir CPU&amp;rsquo;s de otras generaciones, para obtener más información puedes visualizar este &lt;a href=&#34;https://www.youtube.com/watch?v=ZDUWrwq1PXE&#34;&gt;video&lt;/a&gt; creado por uno de los miembros del canal.&lt;/p&gt;</description>
     </item>
     <item>
       <title>De nuevo, cambiando de servidor local</title>
-      <link>https://vctrsnts.codeberg.page/posts/2023-08-01-de-nuevo-cambiando-servidor/</link>
+      <link>https://vctrsnts.github.io/posts/2023-08-01-de-nuevo-cambiando-servidor/</link>
       <pubDate>Tue, 01 Aug 2023 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2023-08-01-de-nuevo-cambiando-servidor/</guid>
-      <description>&lt;p&gt;Tal como avisé en este &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2023-01-19-mis-nuevos-juguetes&#34;&gt;articulo&lt;/a&gt; o en este otro &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2022-05-26-nuevo-servidor&#34;&gt;articulo&lt;/a&gt;, decía que había cambiado de servidor y que, a parte, tenía unos juguetes nuevos. Pero queréis un consejo: alejaros de los canales de Telegram, en especial de &lt;a href=&#34;https://homelabs.club&#34;&gt;este&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Que conste que estoy dentro del canal y es un grupo muy querido por mí, porque aconsejan, te ayudan en todo lo que pueden, pero son como el diablo, te llevan por el mal camino.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2023-08-01-de-nuevo-cambiando-servidor/</guid>
+      <description>&lt;p&gt;Tal como avisé en este &lt;a href=&#34;https://vctrsnts.github.io/posts/2023-01-19-mis-nuevos-juguetes&#34;&gt;articulo&lt;/a&gt; o en este otro &lt;a href=&#34;https://vctrsnts.github.io/posts/2022-05-26-nuevo-servidor&#34;&gt;articulo&lt;/a&gt;, decía que había cambiado de servidor y que, a parte, tenía unos juguetes nuevos. Pero queréis un consejo: alejaros de los canales de Telegram, en especial de &lt;a href=&#34;https://homelabs.club&#34;&gt;este&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Que conste que estoy dentro del canal y es un grupo muy querido por mí, porque aconsejan, te ayudan en todo lo que pueden, pero son como el diablo, te llevan por el mal camino.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mis nuevos juguetes</title>
-      <link>https://vctrsnts.codeberg.page/posts/2023-01-19-mis-nuevos-juguetes/</link>
+      <link>https://vctrsnts.github.io/posts/2023-01-19-mis-nuevos-juguetes/</link>
       <pubDate>Mon, 23 Jan 2023 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2023-01-19-mis-nuevos-juguetes/</guid>
+      <guid>https://vctrsnts.github.io/posts/2023-01-19-mis-nuevos-juguetes/</guid>
       <description>&lt;p&gt;A través de este &lt;a href=&#34;https://podcastlinux.com/posts/podcastlinux/129-Podcast-Linux&#34;&gt;podcast&lt;/a&gt; que escuché hace algún tiempo, siempre me quedó el gusanillo de tener uno, y eso que estoy muy contento con mi &lt;strong&gt;Lenovo Ideapad Y700&lt;/strong&gt;, pero siempre me quedó esa espina clavada&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;A parte de que también me apunté a este canal de &lt;a href=&#34;https://t.me/Thinkpad_es&#34;&gt;Thinkpads&lt;/a&gt; de Telegram y eso ya fue lo definitivo. Te tengo que avisar de que si a mí me llaman friki, los que forman parte de este canal lo son a un nivel que no te puedes imaginar; para que veáis el nivel que tienen, hay miembros de este canal que tienen casi todos los modelos de Thinkpads habidos y por haber, solo por el mero hecho de tenerlos 😲 Algunos sí que los utilizan, pero no todos.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Funcionamiento extraño con mi portátil (Ideapad Y700 - 17ISK)</title>
-      <link>https://vctrsnts.codeberg.page/posts/2023-01-12-problemas-y700-17isk/</link>
+      <link>https://vctrsnts.github.io/posts/2023-01-12-problemas-y700-17isk/</link>
       <pubDate>Thu, 12 Jan 2023 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2023-01-12-problemas-y700-17isk/</guid>
+      <guid>https://vctrsnts.github.io/posts/2023-01-12-problemas-y700-17isk/</guid>
       <description>&lt;p&gt;Desde hace un par de días, no se si desde que actualicé la BIOS al portátil (Lenovo Ideapad Y700 17ISK, versión &lt;strong&gt;CDCN54WW&lt;/strong&gt;), y me ha pasado una cosa muy extraña. El teclado en el momento de iniciarse el sistema ha dejado de funcionar.&lt;/p&gt;&#xA;&lt;p&gt;Así de repente, el teclado ha dejado de funcionar, sin razón aparente, pero también con un funcionamiento raro, porque las teclas de función (F1, etc&amp;hellip;) sí que funcionaban o hacer un &lt;code&gt;ctrl+alt+sup&lt;/code&gt; también funcionaba.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mi nuevo mediacenter - ThinkCenter m710q</title>
-      <link>https://vctrsnts.codeberg.page/posts/2022-11-08-cambiando-mediacenter/</link>
+      <link>https://vctrsnts.github.io/posts/2022-11-08-cambiando-mediacenter/</link>
       <pubDate>Tue, 08 Nov 2022 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2022-11-08-cambiando-mediacenter/</guid>
-      <description>&lt;p&gt;Como ya mencione en el articulo que hablaba sobre el cambio de servidor &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2022-05-26-nuevo-servidor&#34;&gt;Mi nuevo servidor&lt;/a&gt;, me di cuenta de que me quedaba con la RPI4 de 4Gb sin utilizar.&lt;/p&gt;&#xA;&lt;p&gt;Así que decidí cambiar la antigua RPI3, donde empezaba ya a tener problemas con los nuevos codecs con que venían las películas (HEVC 10b-AC3), y cambiarla por la RPI4 con soporte para estos nuevos codecs y que no usaba por haberla sustituido por el Dell.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2022-11-08-cambiando-mediacenter/</guid>
+      <description>&lt;p&gt;Como ya mencione en el articulo que hablaba sobre el cambio de servidor &lt;a href=&#34;https://vctrsnts.github.io/posts/2022-05-26-nuevo-servidor&#34;&gt;Mi nuevo servidor&lt;/a&gt;, me di cuenta de que me quedaba con la RPI4 de 4Gb sin utilizar.&lt;/p&gt;&#xA;&lt;p&gt;Así que decidí cambiar la antigua RPI3, donde empezaba ya a tener problemas con los nuevos codecs con que venían las películas (HEVC 10b-AC3), y cambiarla por la RPI4 con soporte para estos nuevos codecs y que no usaba por haberla sustituido por el Dell.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mi nuevo servidor</title>
-      <link>https://vctrsnts.codeberg.page/posts/2022-05-26-nuevo-servidor/</link>
+      <link>https://vctrsnts.github.io/posts/2022-05-26-nuevo-servidor/</link>
       <pubDate>Thu, 26 May 2022 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2022-05-26-nuevo-servidor/</guid>
+      <guid>https://vctrsnts.github.io/posts/2022-05-26-nuevo-servidor/</guid>
       <description>&lt;p&gt;Sé que llevo mucho tiempo sin publicar nada, pero he estado liado haciendo cambios en el servidor (RPI4).&lt;/p&gt;&#xA;&lt;p&gt;Como sabéis, antes tenía una Raspberry Pi 4 de 4Gb, pero para algunas cosas se me quedaba pillado y pensé que podía usarla como mediacenter, y cambiar la RPI3 que tenía por esta.&lt;/p&gt;&#xA;&lt;p&gt;Como estoy en el grupo de Telegram de Thinkpads (unos frikis de cuidado), pues a un compañero del canal que tenía un Dell a la venta se lo compré. Y como siempre, cuando me llegó, me sentí como un niño con zapatos nuevos.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4</title>
-      <link>https://vctrsnts.codeberg.page/posts/2022-01-07-debian-raspberrypi/</link>
+      <link>https://vctrsnts.github.io/posts/2022-01-07-debian-raspberrypi/</link>
       <pubDate>Fri, 07 Jan 2022 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2022-01-07-debian-raspberrypi/</guid>
+      <guid>https://vctrsnts.github.io/posts/2022-01-07-debian-raspberrypi/</guid>
       <description>&lt;p&gt;Cuando tienes una Raspberry Pi y ves que el &lt;strong&gt;SO&lt;/strong&gt; recomendado es Raspberry Pi OS (antigua Raspbian), siempre me queda la cosa de no poder instalar &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; ARM64. Pero desde que actualizaron la versión del firmware y &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; empezó a tener versiones más estables, eso ya ha pasado a posible.&lt;/p&gt;&#xA;&lt;p&gt;Así que ahora voy a explicar los pasos que he hecho, en mi caso, para poder realizar y usar &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; ARM64 en una Raspberry Pi 4 (4Gb).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Solucionar error i915 en gráfica Intel</title>
-      <link>https://vctrsnts.codeberg.page/posts/2021-06-09-solucionar-error-i915/</link>
+      <link>https://vctrsnts.github.io/posts/2021-06-09-solucionar-error-i915/</link>
       <pubDate>Wed, 09 Jun 2021 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2021-06-09-solucionar-error-i915/</guid>
+      <guid>https://vctrsnts.github.io/posts/2021-06-09-solucionar-error-i915/</guid>
       <description>&lt;p&gt;Desde que &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; sacó la versión del kernel 5.4 en mi portátil fue recurrente los flashes en la pantalla y el siguiente error:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;drm:intel_cpu_fifo_underrun_irq_handler &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;i915&lt;span style=&#34;color:#f92672&#34;&gt;]]&lt;/span&gt; *ERROR* CPU pipe A FIFO underrun&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;La solución que todo el mundo me decía era eliminar el paquete del driver de &lt;em&gt;xserver-xorg-video-intel&lt;/em&gt; y usar el por defecto del kernel. Pero lo entendía que significaba eso (realmente era así), no sabía como se tenía que hacer, porque si hacía eso perdía todo el &lt;strong&gt;XORG&lt;/strong&gt;, al final en este &lt;a href=&#34;https://forums.debian.net/viewtopic.php?f=7&amp;amp;t=149472&amp;amp;p=737807#p737807&#34;&gt;hilo&lt;/a&gt; me indicaron que si hacía esto, solo se borraba el metapaquete de &lt;strong&gt;xserver-xorg-video-all&lt;/strong&gt; pero nada más.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Descargar Podcast a través de Flexgetx - Annexo</title>
-      <link>https://vctrsnts.codeberg.page/posts/2021-06-07-flexget-podcast-annexo/</link>
+      <link>https://vctrsnts.github.io/posts/2021-06-07-flexget-podcast-annexo/</link>
       <pubDate>Mon, 07 Jun 2021 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2021-06-07-flexget-podcast-annexo/</guid>
-      <description>&lt;p&gt;Como había explicado en este &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2020-12-14-crear-imagen-docker&#34;&gt;articulo&lt;/a&gt; o en este otro &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2021-05-30-flexget-podcast&#34;&gt;articulo&lt;/a&gt;, explicaba como crear una imagen de &lt;code&gt;docker&lt;/code&gt; o como usar dicha imagen, &lt;strong&gt;flexget&lt;/strong&gt;, para descargar podcast a través de los &lt;code&gt;RSS&lt;/code&gt; que puedes conseguir.&lt;/p&gt;&#xA;&lt;p&gt;Pero me di cuenta, que usar tus propias imágenes de docker, o están muy bien hechas y con cada nueva versión de la original, actualizas la tuya, o puedes acabar teniendo problemas, que era lo que me pasaba, decidí que era mejor usar la versión base del creador, en este caso de &lt;code&gt;flexget&lt;/code&gt;, para así evitarme futuros problemas y tener siempre, que me interese, la última versión de container.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2021-06-07-flexget-podcast-annexo/</guid>
+      <description>&lt;p&gt;Como había explicado en este &lt;a href=&#34;https://vctrsnts.github.io/posts/2020-12-14-crear-imagen-docker&#34;&gt;articulo&lt;/a&gt; o en este otro &lt;a href=&#34;https://vctrsnts.github.io/posts/2021-05-30-flexget-podcast&#34;&gt;articulo&lt;/a&gt;, explicaba como crear una imagen de &lt;code&gt;docker&lt;/code&gt; o como usar dicha imagen, &lt;strong&gt;flexget&lt;/strong&gt;, para descargar podcast a través de los &lt;code&gt;RSS&lt;/code&gt; que puedes conseguir.&lt;/p&gt;&#xA;&lt;p&gt;Pero me di cuenta, que usar tus propias imágenes de docker, o están muy bien hechas y con cada nueva versión de la original, actualizas la tuya, o puedes acabar teniendo problemas, que era lo que me pasaba, decidí que era mejor usar la versión base del creador, en este caso de &lt;code&gt;flexget&lt;/code&gt;, para así evitarme futuros problemas y tener siempre, que me interese, la última versión de container.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Descargar Podcast a través de Flexget</title>
-      <link>https://vctrsnts.codeberg.page/posts/2021-05-30-flexget-podcast/</link>
+      <link>https://vctrsnts.github.io/posts/2021-05-30-flexget-podcast/</link>
       <pubDate>Sun, 30 May 2021 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2021-05-30-flexget-podcast/</guid>
+      <guid>https://vctrsnts.github.io/posts/2021-05-30-flexget-podcast/</guid>
       <description>&lt;p&gt;Gracias que tengo docker puedo usar la imagen que he creado de &lt;a href=&#34;https://flexget.com&#34;&gt;Flexget&lt;/a&gt;, una aplicación que a través de un fichero &lt;strong&gt;yaml&lt;/strong&gt;, permite descargar lo que quieras incluidos podcast.&lt;/p&gt;&#xA;&lt;p&gt;En principio me gustan los que tengas que ver con la tecnología y sobre todo lo que tenga que ver con GNU/Linux. Pero a parte de estos también tengo un podcast de historia que me encanta mucho y cuando me acuerdo lo escucho. Este podcast se llama &lt;a href=&#34;https://www.ccma.cat/catradio/en-guardia&#34;&gt;En Guàrdia&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Creando tu propio Servidor de Música privada</title>
-      <link>https://vctrsnts.codeberg.page/posts/2021-04-01-rpi-spotify/</link>
+      <link>https://vctrsnts.github.io/posts/2021-04-01-rpi-spotify/</link>
       <pubDate>Sat, 08 May 2021 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2021-04-01-rpi-spotify/</guid>
-      <description>&lt;p&gt;Cuando tienes un servidor de bajo consumo como una Raspberry y empiezas a usar Docker, aparte de descubrir un nuevo mundo (no me canso de decirlo), también descubres nuevas formas de torturar tu mente.&lt;/p&gt;&#xA;&lt;p&gt;Porque digo eso, porque cuando piensas que ya has conseguido todo lo que necesitas, tu cabezita piensa: &amp;ldquo;aprovéchate de tu servidor y escucha tu música en el móvil&amp;rdquo;.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&#xA;  &#xA;  &#xA;  &#xA;&#xA;  &#xA;&#xA;&lt;figure class=&#34;article-image&#34;&gt;&#xA;&#xA;&lt;picture&gt;&#xA;&#xA;  &lt;source&#xA;    type=&#34;image/webp&#34;&#xA;    srcset=&#34;&#xA;      /posts/2021-04-01-rpi-spotify/imagen_hu_55c3762b5a10a3ea.webp 480w,&#xA;      /posts/2021-04-01-rpi-spotify/imagen_hu_c8fa7e3b14dc7c29.webp 768w,&#xA;      /posts/2021-04-01-rpi-spotify/imagen_hu_94c474800fa7645b.webp 1200w&#xA;    &#34;&#xA;    sizes=&#34;&#xA;      (max-width: 600px) 100vw,&#xA;      (max-width: 900px) 90vw,&#xA;      1200px&#xA;    &#34;&#xA;  &gt;&#xA;&#xA;  &lt;img&#xA;    src=&#34;https://vctrsnts.codeberg.page/posts/2021-04-01-rpi-spotify/imagen_hu_f891ea341ea67ae9.jpg&#34;&#xA;    alt=&#34;&#34;&#xA;    width=&#34;1200&#34;&#xA;    height=&#34;1200&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    decoding=&#34;async&#34;&#xA;  &gt;&#xA;&#xA;&lt;/picture&gt;&#xA;&#xA;&#xA;&lt;figcaption&gt;Pensando&lt;/figcaption&gt;&#xA;&#xA;&#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2021-04-01-rpi-spotify/</guid>
+      <description>&lt;p&gt;Cuando tienes un servidor de bajo consumo como una Raspberry y empiezas a usar Docker, aparte de descubrir un nuevo mundo (no me canso de decirlo), también descubres nuevas formas de torturar tu mente.&lt;/p&gt;&#xA;&lt;p&gt;Porque digo eso, porque cuando piensas que ya has conseguido todo lo que necesitas, tu cabezita piensa: &amp;ldquo;aprovéchate de tu servidor y escucha tu música en el móvil&amp;rdquo;.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&#xA;  &#xA;  &#xA;  &#xA;&#xA;  &#xA;&#xA;&lt;figure class=&#34;article-image&#34;&gt;&#xA;&#xA;&lt;picture&gt;&#xA;&#xA;  &lt;source&#xA;    type=&#34;image/webp&#34;&#xA;    srcset=&#34;&#xA;      /posts/2021-04-01-rpi-spotify/imagen_hu_55c3762b5a10a3ea.webp 480w,&#xA;      /posts/2021-04-01-rpi-spotify/imagen_hu_c8fa7e3b14dc7c29.webp 768w,&#xA;      /posts/2021-04-01-rpi-spotify/imagen_hu_94c474800fa7645b.webp 1200w&#xA;    &#34;&#xA;    sizes=&#34;&#xA;      (max-width: 600px) 100vw,&#xA;      (max-width: 900px) 90vw,&#xA;      1200px&#xA;    &#34;&#xA;  &gt;&#xA;&#xA;  &lt;img&#xA;    src=&#34;https://vctrsnts.github.io/posts/2021-04-01-rpi-spotify/imagen_hu_f891ea341ea67ae9.jpg&#34;&#xA;    alt=&#34;&#34;&#xA;    width=&#34;1200&#34;&#xA;    height=&#34;1200&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    decoding=&#34;async&#34;&#xA;  &gt;&#xA;&#xA;&lt;/picture&gt;&#xA;&#xA;&#xA;&lt;figcaption&gt;Pensando&lt;/figcaption&gt;&#xA;&#xA;&#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Nginx-Proxy-Manager en la Raspberry</title>
-      <link>https://vctrsnts.codeberg.page/posts/2021-05-07-rpi-nginx-proxy-manager/</link>
+      <link>https://vctrsnts.github.io/posts/2021-05-07-rpi-nginx-proxy-manager/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2021-05-07-rpi-nginx-proxy-manager/</guid>
+      <guid>https://vctrsnts.github.io/posts/2021-05-07-rpi-nginx-proxy-manager/</guid>
       <description>&lt;p&gt;Aquí tenemos otra entrada más que hace referencia a mi RPI y a ese inmenso océano que se ha abierto al descubrir Docker.&lt;/p&gt;&#xA;&lt;p&gt;Una vez que tienes tu propio &lt;strong&gt;Spotify&lt;/strong&gt;, el siguiente paso que quieres hacer, es acceder a él desde exterior y para hacer esto tienes 2 maneras de hacerlo:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Abrir directamente el puerto de tu &lt;em&gt;Spotify&lt;/em&gt; con el riesgo que conlleva.&lt;/li&gt;&#xA;&lt;li&gt;Utilizar un &lt;em&gt;Proxy&lt;/em&gt; para que a través de &lt;em&gt;https&lt;/em&gt;, junto a un certificado SSL para darle más seguridad, acceder a este servicio sintiéndote un poco más seguro.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Entonces, para hacer esto (segunda opción), no vayamos a ponerle las cosas fáciles a los &lt;strong&gt;crackers&lt;/strong&gt;, tenemos varias opciones (voy a poner las que he usado) y todas disponibles con Docker:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cambiando Traefik por Caddy</title>
-      <link>https://vctrsnts.codeberg.page/posts/2021-04-08-rpi-caddy-proxy-manager/</link>
+      <link>https://vctrsnts.github.io/posts/2021-04-08-rpi-caddy-proxy-manager/</link>
       <pubDate>Thu, 08 Apr 2021 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2021-04-08-rpi-caddy-proxy-manager/</guid>
+      <guid>https://vctrsnts.github.io/posts/2021-04-08-rpi-caddy-proxy-manager/</guid>
       <description>&lt;p&gt;Anteriormente venía usando Traefik, pero como ya he comentado, era muy difícil de mantener y de configurar, a parte de las múltiples opciones que tiene. Ante esto, me resultaba muy tedioso su uso, así que decidí buscar otra alternativa más fácil.&lt;/p&gt;&#xA;&lt;p&gt;Después de buscar y leer a mis blogueros preferidos:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ugeek.github.io&#34;&gt;uGeek&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://elblogdelazaro.org&#34;&gt;El Blog de Lazaro&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Vi que los dos recomendaban:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://caddyserver.com&#34;&gt;Caddy&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://nginxproxymanager.com&#34;&gt;Nginx Proxy Manager&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Cada uso con sus ventajas e inconvenientes, aunque me tiraba más npm (para abreviar) por el gui que tenía, me decidí por caddy, porque una de sus virtudes es que podías tener url del siguiente estilo:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Externalizando copias de seguridad</title>
-      <link>https://vctrsnts.codeberg.page/posts/2021-01-18-rpi-externalizando-copias-seguridad/</link>
+      <link>https://vctrsnts.github.io/posts/2021-01-18-rpi-externalizando-copias-seguridad/</link>
       <pubDate>Mon, 18 Jan 2021 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2021-01-18-rpi-externalizando-copias-seguridad/</guid>
-      <description>&lt;p&gt;Este articulo es una continuación al que hice hace un par de días con respecto a realizar copias de seguridad en mi RPI4 con &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2021-01-17-rpi-copias-seguridad&#34;&gt;rsnapshot&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Está bien hacer copias de seguridad de los ficheros más importantes del sistema, pero hay un problema, que si estas copias están en el mismo HDD que el resto del sistema, en caso de que el HDD falle, pierdes todas las copias de seguridad que habías hecho.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2021-01-18-rpi-externalizando-copias-seguridad/</guid>
+      <description>&lt;p&gt;Este articulo es una continuación al que hice hace un par de días con respecto a realizar copias de seguridad en mi RPI4 con &lt;a href=&#34;https://vctrsnts.github.io/posts/2021-01-17-rpi-copias-seguridad&#34;&gt;rsnapshot&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Está bien hacer copias de seguridad de los ficheros más importantes del sistema, pero hay un problema, que si estas copias están en el mismo HDD que el resto del sistema, en caso de que el HDD falle, pierdes todas las copias de seguridad que habías hecho.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Haciendo copias de seguridad</title>
-      <link>https://vctrsnts.codeberg.page/posts/2021-01-17-rpi-copias-seguridad/</link>
+      <link>https://vctrsnts.github.io/posts/2021-01-17-rpi-copias-seguridad/</link>
       <pubDate>Sun, 17 Jan 2021 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2021-01-17-rpi-copias-seguridad/</guid>
+      <guid>https://vctrsnts.github.io/posts/2021-01-17-rpi-copias-seguridad/</guid>
       <description>&lt;p&gt;Otro capítulo más con respecto a la configuración de de mi RPI4, en este caso son las copias de seguridad de la información más importante.&lt;/p&gt;&#xA;&lt;p&gt;Tal como he dicho en otros artículos, desde que conocí Docker, se abrió un nuevo mundo y para esto, no iba a ser menos.&lt;/p&gt;&#xA;&lt;p&gt;Para realizar las copias de seguridad quería usar esta imagen &lt;a href=&#34;https://hub.docker.com/r/pablokbs/rsnapshot-cron/tags?page=1&amp;amp;ordering=last_updated&#34;&gt;rsnapshot&lt;/a&gt;, hecha por PeladoNerd, pero no funciona. No está compilada para ARM, le di un toque por octubre, pero supongo que por trabajo, no ha podido solucionar el problema, así que tuve que buscarme otras opciones. Y como no, salió al rescate &lt;a href=&#34;https://hub.docker.com/r/linuxserver/rsnapshot&#34;&gt;linuxserver&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Instalar y configurar fail2ban</title>
-      <link>https://vctrsnts.codeberg.page/posts/2020-11-08-rpi-usando-fail2ban/</link>
+      <link>https://vctrsnts.github.io/posts/2020-11-08-rpi-usando-fail2ban/</link>
       <pubDate>Sun, 08 Nov 2020 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2020-11-08-rpi-usando-fail2ban/</guid>
-      <description>&lt;p&gt;Siguiendo con mis capítulos con respecto a la configuración y uso de mi RPI4 (también explicado en este otro &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2020-10-30-rpi-cambiando-equipo&#34;&gt;articulo&lt;/a&gt;, pues ahora pasamos a añadir una protección más y que en todos los sitios donde explican su configuración, se preguntan, porque no está instalada por defecto en todos los sistemas GNU/Linux.&lt;/p&gt;&#xA;&lt;p&gt;Esta protección es &lt;strong&gt;fail2ban&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Su funcionalidad es la de monitorizar todos los intentos de conexión a los servicios que hayas indicado en el fichero de configuración, &lt;code&gt;jail.local&lt;/code&gt; y cuando ve que una &lt;code&gt;IP&lt;/code&gt; intenta hacer más de un intento fallido, &lt;em&gt;bloquea - banea&lt;/em&gt; durante el tiempo que tú hayas indicado.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2020-11-08-rpi-usando-fail2ban/</guid>
+      <description>&lt;p&gt;Siguiendo con mis capítulos con respecto a la configuración y uso de mi RPI4 (también explicado en este otro &lt;a href=&#34;https://vctrsnts.github.io/posts/2020-10-30-rpi-cambiando-equipo&#34;&gt;articulo&lt;/a&gt;, pues ahora pasamos a añadir una protección más y que en todos los sitios donde explican su configuración, se preguntan, porque no está instalada por defecto en todos los sistemas GNU/Linux.&lt;/p&gt;&#xA;&lt;p&gt;Esta protección es &lt;strong&gt;fail2ban&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Su funcionalidad es la de monitorizar todos los intentos de conexión a los servicios que hayas indicado en el fichero de configuración, &lt;code&gt;jail.local&lt;/code&gt; y cuando ve que una &lt;code&gt;IP&lt;/code&gt; intenta hacer más de un intento fallido, &lt;em&gt;bloquea - banea&lt;/em&gt; durante el tiempo que tú hayas indicado.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Cambiando el equipo</title>
-      <link>https://vctrsnts.codeberg.page/posts/2020-10-30-rpi-cambiando-equipo/</link>
+      <link>https://vctrsnts.github.io/posts/2020-10-30-rpi-cambiando-equipo/</link>
       <pubDate>Fri, 30 Oct 2020 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2020-10-30-rpi-cambiando-equipo/</guid>
+      <guid>https://vctrsnts.github.io/posts/2020-10-30-rpi-cambiando-equipo/</guid>
       <description>&lt;p&gt;Ante la noticia de que iban a sacar una nueva &lt;a href=&#34;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/?resellerType=home&#34;&gt;Raspberry Pi&lt;/a&gt; con varias mejoras (más vale tarde que nunca que ya hablaremos más adelante) y pensé si ya era hora de cambiar mi Raspberry Pi 3b por la nueva versión.&lt;/p&gt;&#xA;&lt;p&gt;Pero cuál, porque la fundación se ha liado la manta a la cabeza y ha sacado unas cuantas versiones interesantes:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Raspberry Pi4 con 1Gb de RAM aunque esta desapareció rápidamente. No tenía sentido&lt;/li&gt;&#xA;&lt;li&gt;Raspberry Pi4 con 2Gb de RAM que ahora es el nivel inicial de la familia&lt;/li&gt;&#xA;&lt;li&gt;Raspberry Pi4 con 4Gb de RAM, esto ya son palabras mayores&lt;/li&gt;&#xA;&lt;li&gt;Raspberry Pi4 con 8Gb de RAM, pero se han vuelto locos&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;A parte de las mejoras que han introducido, que no entraré a fondo, porque todo el mundo las sabe, pero:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Calibre-Web</title>
-      <link>https://vctrsnts.codeberg.page/posts/2020-04-12-usando-calibre-web/</link>
+      <link>https://vctrsnts.github.io/posts/2020-04-12-usando-calibre-web/</link>
       <pubDate>Sun, 12 Apr 2020 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2020-04-12-usando-calibre-web/</guid>
+      <guid>https://vctrsnts.github.io/posts/2020-04-12-usando-calibre-web/</guid>
       <description>&lt;p&gt;Después del descubrimiento de &lt;strong&gt;docker&lt;/strong&gt;, tal como dije en otra entrada se ha abierto un nuevo mundo de posibilidades por explorar. Y en este caso hemos descubierto &lt;strong&gt;calibre-web&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;La idea me gustó, porque así, voy quitando peso al portátil y doy más uso a la RPI3b (de momento a la espera de cambiar a una 4) y además, con el &lt;em&gt;HDD de 4Tb&lt;/em&gt; que viene en camino, pues nos pusimos a ello.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Pasos para instalar Docker en Raspbian</title>
-      <link>https://vctrsnts.codeberg.page/posts/2020-03-08-rpi-usando-docker/</link>
+      <link>https://vctrsnts.github.io/posts/2020-03-08-rpi-usando-docker/</link>
       <pubDate>Sun, 08 Mar 2020 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2020-03-08-rpi-usando-docker/</guid>
+      <guid>https://vctrsnts.github.io/posts/2020-03-08-rpi-usando-docker/</guid>
       <description>&lt;p&gt;Siempre me pasa lo mismo, me hago mis chuletas y apuntes, pero nunca me pongo cómo se realiza la instalación sobre la cual funcionan las chuletas.&lt;/p&gt;&#xA;&lt;p&gt;Por eso, ahora voy a explicar cómo se realiza la instalación de &lt;strong&gt;Docker&lt;/strong&gt; en &lt;strong&gt;Raspbian&lt;/strong&gt; (en mi caso sobre una &lt;strong&gt;Raspberry pi 3b&lt;/strong&gt;)&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;nota: Actualmente tengo una RPI4B de 4Gb, pero el proceso es el mismo.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;A continuación explicamos el proceso de instalación de Docker:&lt;/p&gt;</description>
     </item>
     <item>
       <title>TIP Sobre Raspbian / Raspberry</title>
-      <link>https://vctrsnts.codeberg.page/posts/2019-12-13-tip-raspbian-raspberry/</link>
+      <link>https://vctrsnts.github.io/posts/2019-12-13-tip-raspbian-raspberry/</link>
       <pubDate>Fri, 13 Dec 2019 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2019-12-13-tip-raspbian-raspberry/</guid>
+      <guid>https://vctrsnts.github.io/posts/2019-12-13-tip-raspbian-raspberry/</guid>
       <description>&lt;p&gt;A continuación pongo unos cuantos &lt;strong&gt;TIPS&lt;/strong&gt; más con respecto a Raspbian, mayormente para que no se me olviden para más adelante 😉&lt;/p&gt;&#xA;&lt;h2 id=&#34;-desactivar-la-wifi-y-el-bluetooth-de-la-raspberry&#34;&gt;◇ Desactivar la wifi y el bluetooth de la Raspberry&lt;/h2&gt;&#xA;&lt;p&gt;Para hacer esto, solamente se tiene que modificar un fichero :&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@raspberry:~# vi /boot/config.txt&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Y luego añadimos lo siguiente :&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dtoverlay&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;disable-wifi&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dtoverlay&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;disable-bt&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;-obtener-más-voltaje-en-las-salidas-de-usb&#34;&gt;◇ Obtener más voltaje en las salidas de USB&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@raspberry:~# vi /boot/config.txt&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Luego añadimos lo siguiente:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;max_usb_current&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;-alias-ssh&#34;&gt;◇ Alias SSH&lt;/h2&gt;&#xA;&lt;p&gt;A continuación, pongo un atajo (que he descubierto hace poco de un Youtuber llamado &lt;a href=&#34;https://www.youtube.com/channel/UCrBzBOMcUVV8ryyAU_c6P5g&#34;&gt;PeladoNerd&lt;/a&gt;) para cuando tenemos que conectarnos a máquinas remotas a través de &lt;code&gt;SSH&lt;/code&gt;, en vez de estar escribiendo todo el rato la &lt;strong&gt;IP&lt;/strong&gt;, &lt;strong&gt;Puerto&lt;/strong&gt; y &lt;strong&gt;Usuario&lt;/strong&gt;, se puede hacer a través de un alias.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Acceso a través de ssh</title>
-      <link>https://vctrsnts.codeberg.page/posts/2016-04-04-rpi-acceso-traves-ssh/</link>
+      <link>https://vctrsnts.github.io/posts/2016-04-04-rpi-acceso-traves-ssh/</link>
       <pubDate>Mon, 04 Apr 2016 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2016-04-04-rpi-acceso-traves-ssh/</guid>
+      <guid>https://vctrsnts.github.io/posts/2016-04-04-rpi-acceso-traves-ssh/</guid>
       <description>&lt;p&gt;Una vez que ya tenemos nuestra Raspberry en marcha y funcionando ahora viene la parte divertida, cómo acceder a ella desde el exterior. En mi caso desde otra ubicación y además con un poco de seguridad para que nadie pueda acceder a ella (recordar que esto se tiene que hacer desde el equipo que se va a conectar a la Raspberry).&lt;/p&gt;&#xA;&lt;p&gt;Esto se consigue a través de nuestro bien intencionado &lt;code&gt;ssh&lt;/code&gt; y una correcta configuración que pasaré a explicar a continuación.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Configurar la red</title>
-      <link>https://vctrsnts.codeberg.page/posts/2016-04-03-rpi-configurar-red/</link>
+      <link>https://vctrsnts.github.io/posts/2016-04-03-rpi-configurar-red/</link>
       <pubDate>Sun, 03 Apr 2016 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2016-04-03-rpi-configurar-red/</guid>
+      <guid>https://vctrsnts.github.io/posts/2016-04-03-rpi-configurar-red/</guid>
       <description>&lt;p&gt;Ahora que ya tenemos configurada y funcionando nuestra Raspberry, ahora le toca el turno a la red (en mi caso, quiero ip fija).&lt;/p&gt;&#xA;&lt;p&gt;Para realizar la configuración, ya no se hace antes, modificando el fichero:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@raspberry:~# /etc/network/interfaces&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ahora se modifica el fichero:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@raspberry:~# vi /etc/dhcpcd.conf&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;En mi caso, como quiero que tenga ip fija, yo lo dejo configurado de esta manera:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;interface eth0&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;static ip_address &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 192.168.0.2/24&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;static routers &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 192.168.0.1&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;static domain_name_servers &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 80.58.61.250 80.58.61.254&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Yo estoy usando &lt;code&gt;vi&lt;/code&gt;, otras personas a lo mejor usan &lt;code&gt;nano&lt;/code&gt;, cuestión de gustos&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Iniciar desde un HDD externo</title>
-      <link>https://vctrsnts.codeberg.page/posts/2016-04-03-rpi-iniciar-hd-externo/</link>
+      <link>https://vctrsnts.github.io/posts/2016-04-03-rpi-iniciar-hd-externo/</link>
       <pubDate>Sun, 03 Apr 2016 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2016-04-03-rpi-iniciar-hd-externo/</guid>
+      <guid>https://vctrsnts.github.io/posts/2016-04-03-rpi-iniciar-hd-externo/</guid>
       <description>&lt;p&gt;Después de haber configurado la red, ahora pasaré a explicar cómo extraer la información de la raíz &lt;code&gt;/&lt;/code&gt; de la SD para pasarla a un HDD externo y así alargar la vida de nuestra &lt;em&gt;SD&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Haciendo este cambio, solamente se usará la SD en el momento del inicio, luego todo funcionará desde el HDD externo. El proceso es un poco largo, pero a la larga beneficioso.&lt;/p&gt;&#xA;&lt;p&gt;Lo primero que tenemos que hacer, es realizar una imagen de nuestra SD, tal como se encuentra ahora. Yo el proceso lo explicaré bajo la premisa de que estás con Linux.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Actualizando a Jessie</title>
-      <link>https://vctrsnts.codeberg.page/posts/2016-04-02-rpi-actualizando-jessie/</link>
+      <link>https://vctrsnts.github.io/posts/2016-04-02-rpi-actualizando-jessie/</link>
       <pubDate>Sat, 02 Apr 2016 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2016-04-02-rpi-actualizando-jessie/</guid>
+      <guid>https://vctrsnts.github.io/posts/2016-04-02-rpi-actualizando-jessie/</guid>
       <description>&lt;p&gt;Tal como había explicado en el anterior capítulo, después de tener mi RPI con Whezzy y viendo que habían sacado una nueva versión &lt;a href=&#34;https://www.raspberrypi.org/downloads/raspbian&#34;&gt;Jessie-Lite&lt;/a&gt; de Raspbian decidí realizar un &lt;code&gt;full-upgrade&lt;/code&gt; para actualizar el sistema.&lt;/p&gt;&#xA;&lt;p&gt;Pero ahí confiado de mí, a partir de ese momento, empezaron todos mis problemas que me replantearon el futuro de mi RPI.&lt;/p&gt;&#xA;&lt;p&gt;La actualización fue fácil y sencilla, al estilo &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt;, cambiar los &lt;code&gt;sources&lt;/code&gt; que apuntan a &lt;strong&gt;Wheezy&lt;/strong&gt; y hacer que apunten a &lt;strong&gt;Jessie&lt;/strong&gt;. En principio no tendría que haber habido ningún problema, pero qué equivocado estaba.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Configurando la Raspberry</title>
-      <link>https://vctrsnts.codeberg.page/posts/2016-04-02-rpi-configurando-raspberry/</link>
+      <link>https://vctrsnts.github.io/posts/2016-04-02-rpi-configurando-raspberry/</link>
       <pubDate>Sat, 02 Apr 2016 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2016-04-02-rpi-configurando-raspberry/</guid>
+      <guid>https://vctrsnts.github.io/posts/2016-04-02-rpi-configurando-raspberry/</guid>
       <description>&lt;p&gt;Después de la instalación viene la configuración y en mi caso hice lo siguiente.&lt;/p&gt;&#xA;&lt;p&gt;Acceder al sistema introduciendo el usuario y password. Los datos son los siguientes:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;usuario: pi&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;password: raspberrypi&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Una vez hemos accedido al sistema, ejecutamos la siguiente instrucción:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;usuari@raspberry:~$ sudo raspi-config&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Con ello accedemos al menú de configuración inicial de la Raspberry donde podremos configurar las siguientes opciones (al lado de cada opción, viene una breve explicación de lo que hace cada una):&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Funcionamiento de la RPI</title>
-      <link>https://vctrsnts.codeberg.page/posts/2016-04-02-rpi-funcionamiento-raspberry/</link>
+      <link>https://vctrsnts.github.io/posts/2016-04-02-rpi-funcionamiento-raspberry/</link>
       <pubDate>Sat, 02 Apr 2016 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2016-04-02-rpi-funcionamiento-raspberry/</guid>
-      <description>&lt;p&gt;De nuevo en la brecha. Después de tanto tiempo sin publicar nada, aquí vuelvo.&lt;/p&gt;&#xA;&lt;p&gt;Y para continuar con esta serie de artículos, qué mejor que explicar mis experiencias con ella &lt;strong&gt;Raspberry Pi&lt;/strong&gt;, cómo me ha ido todo este tiempo con mi regalo &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2013-11-25-rpi-peque%C3%B1o-juguete&#34;&gt;Raspberry Pi&lt;/a&gt; y los planes de futuro que tengo para ella, que algunos ya se han ido cumpliendo.&lt;/p&gt;&#xA;&lt;p&gt;Lo primero, es explicar el funcionamiento y opinión con respecto a su uso que he tenido durante este tiempo&amp;hellip;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Raspberry Pi. Instalando Jessie-Lite</title>
-      <link>https://vctrsnts.codeberg.page/posts/2016-04-02-rpi-instalando-jessie-lite/</link>
-      <pubDate>Sat, 02 Apr 2016 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2016-04-02-rpi-instalando-jessie-lite/</guid>
-      <description>&lt;p&gt;Como dije en el anterior capítulo, después de recibir mi nuevo juguete:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.amazon.es/gp/product/B00TB7K8FA/ref=oh_aui_detailpage_o00_s00?ie=UTF8&amp;amp;psc=1&#34;&gt;Toshiba Canvio Connect II 1 TB&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Después de ver el correcto funcionamiento de mi nuevo HD, lo primero que hice, fue formatearlo con &lt;strong&gt;ext-4&lt;/strong&gt; y crear las particiones necesarias que iba a utilizar en la Raspberry. Pero no nos adelantemos a los acontecimientos.&lt;/p&gt;&#xA;&lt;p&gt;Para realizar una instalación limpia, lo primero que hice fue bajarme la imagen de &lt;strong&gt;Jessie-Lite&lt;/strong&gt; que podéis encontrar &lt;a href=&#34;https://www.Raspberrypi.org/downloads/raspbian&#34;&gt;aquí&lt;/a&gt;. Yo escogí la &lt;code&gt;Lite&lt;/code&gt;. En esta no viene ningún gestor de ventanas ni paquetes innecesarios para funcionar en modo servidor.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2016-04-02-rpi-funcionamiento-raspberry/</guid>
+      <description>&lt;p&gt;De nuevo en la brecha. Después de tanto tiempo sin publicar nada, aquí vuelvo.&lt;/p&gt;&#xA;&lt;p&gt;Y para continuar con esta serie de artículos, qué mejor que explicar mis experiencias con ella &lt;strong&gt;Raspberry Pi&lt;/strong&gt;, cómo me ha ido todo este tiempo con mi regalo &lt;a href=&#34;https://vctrsnts.github.io/posts/2013-11-25-rpi-peque%C3%B1o-juguete&#34;&gt;Raspberry Pi&lt;/a&gt; y los planes de futuro que tengo para ella, que algunos ya se han ido cumpliendo.&lt;/p&gt;&#xA;&lt;p&gt;Lo primero, es explicar el funcionamiento y opinión con respecto a su uso que he tenido durante este tiempo&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Mi pequeño nuevo juguete</title>
-      <link>https://vctrsnts.codeberg.page/posts/2013-11-25-rpi-peque%C3%B1o-juguete/</link>
+      <link>https://vctrsnts.github.io/posts/2013-11-25-rpi-peque%C3%B1o-juguete/</link>
       <pubDate>Mon, 25 Nov 2013 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2013-11-25-rpi-peque%C3%B1o-juguete/</guid>
-      <description>&lt;p&gt;Pues nada. Desde hace un par de meses, tengo a mi disposición un nuevo juguete. La Raspberry modelo B, con las siguientes características:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Un procesador ARM11 a 700 MHz&lt;/li&gt;&#xA;&lt;li&gt;Procesador gráfico a medida que acelera por hardware el vídeo H264 (mpeg4)&lt;/li&gt;&#xA;&lt;li&gt;512 MB de memoria RAM&lt;/li&gt;&#xA;&lt;li&gt;2 puertos USB&lt;/li&gt;&#xA;&lt;li&gt;Una salida de audio y vídeo HDMI&lt;/li&gt;&#xA;&lt;li&gt;Conector de red Ethernet RJ45 (10/100 mbps)&lt;/li&gt;&#xA;&lt;li&gt;Entrada de corriente microUSB&lt;/li&gt;&#xA;&lt;li&gt;Lector de tarjetas SD&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&#xA;  &#xA;  &#xA;  &#xA;&#xA;  &#xA;&#xA;&lt;figure class=&#34;article-image&#34;&gt;&#xA;&#xA;&lt;picture&gt;&#xA;&#xA;  &lt;source&#xA;    type=&#34;image/webp&#34;&#xA;    srcset=&#34;&#xA;      /posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_dc057f1430dc2464.webp 480w,&#xA;      /posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_7fbd7b7bbb5da909.webp 768w,&#xA;      /posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_46c8991df41f2846.webp 1200w&#xA;    &#34;&#xA;    sizes=&#34;&#xA;      (max-width: 600px) 100vw,&#xA;      (max-width: 900px) 90vw,&#xA;      1200px&#xA;    &#34;&#xA;  &gt;&#xA;&#xA;  &lt;img&#xA;    src=&#34;https://vctrsnts.codeberg.page/posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_215cf636145d6424.jpg&#34;&#xA;    alt=&#34;&#34;&#xA;    width=&#34;1200&#34;&#xA;    height=&#34;1200&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    decoding=&#34;async&#34;&#xA;  &gt;&#xA;&#xA;&lt;/picture&gt;&#xA;&#xA;&#xA;&lt;figcaption&gt;Raspberry Pi&lt;/figcaption&gt;&#xA;&#xA;&#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2013-11-25-rpi-peque%C3%B1o-juguete/</guid>
+      <description>&lt;p&gt;Pues nada. Desde hace un par de meses, tengo a mi disposición un nuevo juguete. La Raspberry modelo B, con las siguientes características:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Un procesador ARM11 a 700 MHz&lt;/li&gt;&#xA;&lt;li&gt;Procesador gráfico a medida que acelera por hardware el vídeo H264 (mpeg4)&lt;/li&gt;&#xA;&lt;li&gt;512 MB de memoria RAM&lt;/li&gt;&#xA;&lt;li&gt;2 puertos USB&lt;/li&gt;&#xA;&lt;li&gt;Una salida de audio y vídeo HDMI&lt;/li&gt;&#xA;&lt;li&gt;Conector de red Ethernet RJ45 (10/100 mbps)&lt;/li&gt;&#xA;&lt;li&gt;Entrada de corriente microUSB&lt;/li&gt;&#xA;&lt;li&gt;Lector de tarjetas SD&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&#xA;  &#xA;  &#xA;  &#xA;&#xA;  &#xA;&#xA;&lt;figure class=&#34;article-image&#34;&gt;&#xA;&#xA;&lt;picture&gt;&#xA;&#xA;  &lt;source&#xA;    type=&#34;image/webp&#34;&#xA;    srcset=&#34;&#xA;      /posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_dc057f1430dc2464.webp 480w,&#xA;      /posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_7fbd7b7bbb5da909.webp 768w,&#xA;      /posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_46c8991df41f2846.webp 1200w&#xA;    &#34;&#xA;    sizes=&#34;&#xA;      (max-width: 600px) 100vw,&#xA;      (max-width: 900px) 90vw,&#xA;      1200px&#xA;    &#34;&#xA;  &gt;&#xA;&#xA;  &lt;img&#xA;    src=&#34;https://vctrsnts.github.io/posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_215cf636145d6424.jpg&#34;&#xA;    alt=&#34;&#34;&#xA;    width=&#34;1200&#34;&#xA;    height=&#34;1200&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    decoding=&#34;async&#34;&#xA;  &gt;&#xA;&#xA;&lt;/picture&gt;&#xA;&#xA;&#xA;&lt;figcaption&gt;Raspberry Pi&lt;/figcaption&gt;&#xA;&#xA;&#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;/p&gt;</description>
     </item>
     <item>
       <title>USB se monta sólo como lectura</title>
-      <link>https://vctrsnts.codeberg.page/posts/2013-11-24-usb-lectura/</link>
+      <link>https://vctrsnts.github.io/posts/2013-11-24-usb-lectura/</link>
       <pubDate>Sat, 23 Nov 2013 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2013-11-24-usb-lectura/</guid>
+      <guid>https://vctrsnts.github.io/posts/2013-11-24-usb-lectura/</guid>
       <description>&lt;p&gt;Por si a alguien le vuelve a pasar lo mismo que a mí, aquí pongo una pequeña ayuda de lo que se puede hacer antes de tirar a la basura un USB, que, cada vez que lo montas, está como lectura&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Me pasó el otro día, que al conectar el USB, este solamente estaba disponible como lectura y me era imposible grabar en él. Busqué información sobre cómo arreglar este problema y en principio, todo lo que encontraba, era información diciendo, que el usb estaba en las últimas&amp;hellip; Pero después de mucho buscar, encontré una &lt;del&gt;&lt;a href=&#34;&#34;&gt;solución&lt;/a&gt;&lt;/del&gt; que podía dar algo de luz&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Deshabilitar tarjeta NVIDIA Optimus en Debian GNU/Linux</title>
-      <link>https://vctrsnts.codeberg.page/posts/2012-11-11-optimus-debian/</link>
+      <link>https://vctrsnts.github.io/posts/2012-11-11-optimus-debian/</link>
       <pubDate>Sun, 11 Nov 2012 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2012-11-11-optimus-debian/</guid>
+      <guid>https://vctrsnts.github.io/posts/2012-11-11-optimus-debian/</guid>
       <description>&lt;p&gt;Después de mucho buscar al final, pude encontrar un sitio &lt;del&gt;&lt;a href=&#34;https://pedrobonilla.blogspot.com.es/2011/11/deshabilitar-tarjeta-nvidia-en-sistema.html&#34;&gt;aquí&lt;/a&gt;&lt;/del&gt; donde te explicaba cómo desactivar la tarjeta gráfica Nvidia de mi portátil Dell XPS 15. Estaba ya cansado de escuchar el ventilador funcionando todo el rato por culpa de una tarjeta gráfica que no utilizaba. Así que lo pongo a continuación porque así se difunde más fácilmente y lo guardo para mí como apuntes&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;El siguiente procedimiento sirve para deshabilitar (o desactivar) una tarjeta NVIDIA cuando contamos con un sistema híbrido de gráficos, es decir, cuando contamos con dos tarjetas de vídeo. El objetivo es reducir el consumo de energía en Linux, ya que no existe un buen soporte para gráficos híbridos en este sistema operativo (ni existirá en el corto plazo, aparentemente).&lt;/p&gt;</description>
     </item>
   </channel>

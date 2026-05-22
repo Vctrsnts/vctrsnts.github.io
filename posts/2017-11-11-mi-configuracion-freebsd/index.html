@@ -10,21 +10,18 @@
 
 <title>
 
-Mi configuración en FreeBSD · Si lo haces, hazlo bien!
+Mi configuración de FreeBSD · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2017-11-11-mi-configuracion-freebsd/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2017-11-11-mi-configuracion-freebsd/">
 
 
 
 
 
 
-<meta name="description" content="Siguiendo con mis entradas que hacen referencia a FreeBSD, a continuación dejo la que uso en mi portátil Lenovo Y700 y que parece ser que funciona correctamente.
-A lo mejor en el futuro la voy modificando dependiendo del funcionamiento que vaya teniendo&amp;amp;hellip;
-root@freebsd:~# vi /boot/loader.conf # CONSOLA kern.vty=vt # Esto es una cosa que tengo que seguir investigando, porque no acaba de funcionar # correctamente. kern.vt.fb.default_mode=&amp;amp;#34;1440x900&amp;amp;#34; hw.vga.textmode=1 # ACPI IBM/LENOVO acpi_ibm_load=&amp;amp;#34;YES&amp;amp;#34; acpi_video_load=&amp;amp;#34;YES&amp;amp;#34; hint.p4tcc.0.disabled=1 hint.acpi_throttle.0.disabled=1 # WIFI # LO TENGO DESACTIVADO, PORQUE NO LO USO, PERO... #if_iwm_load=&amp;amp;#34;YES&amp;amp;#34; #iwm7265fw_load=&amp;amp;#34;YES&amp;amp;#34; root@freebsd:~# vi /etc.rc.conf # ESTO YA VIENE POR DEFECTE DESPUES DE INSTALAR EL SISTEMA clear_tmp_enable=&amp;amp;#34;YES&amp;amp;#34; sendmail_enable=&amp;amp;#34;NONE&amp;amp;#34; keymap = &amp;amp;#34;es.acc&amp;amp;#34; hostname = &amp;amp;#34;miMaquina&amp;amp;#34; ifconfig_xxx = &amp;amp;#34;inet x.x.x.x netmask 255.255.255.0&amp;amp;#34; defaultrouter = &amp;amp;#34;x.x.x.x&amp;amp;#34; dumpdev = &amp;amp;#34;AUTO&amp;amp;#34; # COSAS QUE HE AÑADIDO # NTP_DATE (TENGO QUE SEGUIR INVESTIGANDO PORQUE NO ME ACABA DE FUNCIONAR # CORRECTAMENTE) ntpd_enable = &amp;amp;#34;YES&amp;amp;#34; # XORG dbus_enable = &amp;amp;#34;YES&amp;amp;#34; hald_enable = &amp;amp;#34;YES&amp;amp;#34; # POWERD powerd_enable = &amp;amp;#34;YES&amp;amp;#34; performance_cx_lowert = &amp;amp;#34;Cmax&amp;amp;#34; economy_cx_lowert = &amp;amp;#34;Cmax&amp;amp;#34; # SSH (DE MOMENTO NO LO TENGO CONFIGURADO), ASI QUE, DESACTIVADO sshd_enable = &amp;amp;#34;NO&amp;amp;#34; # WIFI (DESACTIVADO PORQUE NO LO USO) #wlans_iwm0 = &amp;amp;#34;wlan0&amp;amp;#34; ifconfig_wlan0 = &amp;amp;#34;WPA SYNCDHCP&amp;amp;#34; root@freebsd:~# vi /etc/sysctl.conf # Desactivamos el Speaker hw.syscons.bell = 0 root@freebsd:~# vi /etc/fstab proc	/proc	procfs	rw	0	0 De momento, esto es todo.
-">
+<meta name="description" content="Mi configuración de FreeBSD">
 
 
 
@@ -58,12 +55,9 @@ root@freebsd:~# vi /boot/loader.conf # CONSOLA kern.vty=vt # Esto es una cosa qu
 
 
 
-<meta property="og:title" content="Mi configuración en FreeBSD · Si lo haces, hazlo bien!">
-<meta property="og:description" content="Siguiendo con mis entradas que hacen referencia a FreeBSD, a continuación dejo la que uso en mi portátil Lenovo Y700 y que parece ser que funciona correctamente.
-A lo mejor en el futuro la voy modificando dependiendo del funcionamiento que vaya teniendo&amp;amp;hellip;
-root@freebsd:~# vi /boot/loader.conf # CONSOLA kern.vty=vt # Esto es una cosa que tengo que seguir investigando, porque no acaba de funcionar # correctamente. kern.vt.fb.default_mode=&amp;amp;#34;1440x900&amp;amp;#34; hw.vga.textmode=1 # ACPI IBM/LENOVO acpi_ibm_load=&amp;amp;#34;YES&amp;amp;#34; acpi_video_load=&amp;amp;#34;YES&amp;amp;#34; hint.p4tcc.0.disabled=1 hint.acpi_throttle.0.disabled=1 # WIFI # LO TENGO DESACTIVADO, PORQUE NO LO USO, PERO... #if_iwm_load=&amp;amp;#34;YES&amp;amp;#34; #iwm7265fw_load=&amp;amp;#34;YES&amp;amp;#34; root@freebsd:~# vi /etc.rc.conf # ESTO YA VIENE POR DEFECTE DESPUES DE INSTALAR EL SISTEMA clear_tmp_enable=&amp;amp;#34;YES&amp;amp;#34; sendmail_enable=&amp;amp;#34;NONE&amp;amp;#34; keymap = &amp;amp;#34;es.acc&amp;amp;#34; hostname = &amp;amp;#34;miMaquina&amp;amp;#34; ifconfig_xxx = &amp;amp;#34;inet x.x.x.x netmask 255.255.255.0&amp;amp;#34; defaultrouter = &amp;amp;#34;x.x.x.x&amp;amp;#34; dumpdev = &amp;amp;#34;AUTO&amp;amp;#34; # COSAS QUE HE AÑADIDO # NTP_DATE (TENGO QUE SEGUIR INVESTIGANDO PORQUE NO ME ACABA DE FUNCIONAR # CORRECTAMENTE) ntpd_enable = &amp;amp;#34;YES&amp;amp;#34; # XORG dbus_enable = &amp;amp;#34;YES&amp;amp;#34; hald_enable = &amp;amp;#34;YES&amp;amp;#34; # POWERD powerd_enable = &amp;amp;#34;YES&amp;amp;#34; performance_cx_lowert = &amp;amp;#34;Cmax&amp;amp;#34; economy_cx_lowert = &amp;amp;#34;Cmax&amp;amp;#34; # SSH (DE MOMENTO NO LO TENGO CONFIGURADO), ASI QUE, DESACTIVADO sshd_enable = &amp;amp;#34;NO&amp;amp;#34; # WIFI (DESACTIVADO PORQUE NO LO USO) #wlans_iwm0 = &amp;amp;#34;wlan0&amp;amp;#34; ifconfig_wlan0 = &amp;amp;#34;WPA SYNCDHCP&amp;amp;#34; root@freebsd:~# vi /etc/sysctl.conf # Desactivamos el Speaker hw.syscons.bell = 0 root@freebsd:~# vi /etc/fstab proc	/proc	procfs	rw	0	0 De momento, esto es todo.
-">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2017-11-11-mi-configuracion-freebsd/">
+<meta property="og:title" content="Mi configuración de FreeBSD · Si lo haces, hazlo bien!">
+<meta property="og:description" content="Mi configuración de FreeBSD">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2017-11-11-mi-configuracion-freebsd/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -82,20 +76,17 @@ root@freebsd:~# vi /boot/loader.conf # CONSOLA kern.vty=vt # Esto es una cosa qu
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mi configuración en FreeBSD · Si lo haces, hazlo bien!">
-<meta name="twitter:description" content="Siguiendo con mis entradas que hacen referencia a FreeBSD, a continuación dejo la que uso en mi portátil Lenovo Y700 y que parece ser que funciona correctamente.
-A lo mejor en el futuro la voy modificando dependiendo del funcionamiento que vaya teniendo&amp;amp;hellip;
-root@freebsd:~# vi /boot/loader.conf # CONSOLA kern.vty=vt # Esto es una cosa que tengo que seguir investigando, porque no acaba de funcionar # correctamente. kern.vt.fb.default_mode=&amp;amp;#34;1440x900&amp;amp;#34; hw.vga.textmode=1 # ACPI IBM/LENOVO acpi_ibm_load=&amp;amp;#34;YES&amp;amp;#34; acpi_video_load=&amp;amp;#34;YES&amp;amp;#34; hint.p4tcc.0.disabled=1 hint.acpi_throttle.0.disabled=1 # WIFI # LO TENGO DESACTIVADO, PORQUE NO LO USO, PERO... #if_iwm_load=&amp;amp;#34;YES&amp;amp;#34; #iwm7265fw_load=&amp;amp;#34;YES&amp;amp;#34; root@freebsd:~# vi /etc.rc.conf # ESTO YA VIENE POR DEFECTE DESPUES DE INSTALAR EL SISTEMA clear_tmp_enable=&amp;amp;#34;YES&amp;amp;#34; sendmail_enable=&amp;amp;#34;NONE&amp;amp;#34; keymap = &amp;amp;#34;es.acc&amp;amp;#34; hostname = &amp;amp;#34;miMaquina&amp;amp;#34; ifconfig_xxx = &amp;amp;#34;inet x.x.x.x netmask 255.255.255.0&amp;amp;#34; defaultrouter = &amp;amp;#34;x.x.x.x&amp;amp;#34; dumpdev = &amp;amp;#34;AUTO&amp;amp;#34; # COSAS QUE HE AÑADIDO # NTP_DATE (TENGO QUE SEGUIR INVESTIGANDO PORQUE NO ME ACABA DE FUNCIONAR # CORRECTAMENTE) ntpd_enable = &amp;amp;#34;YES&amp;amp;#34; # XORG dbus_enable = &amp;amp;#34;YES&amp;amp;#34; hald_enable = &amp;amp;#34;YES&amp;amp;#34; # POWERD powerd_enable = &amp;amp;#34;YES&amp;amp;#34; performance_cx_lowert = &amp;amp;#34;Cmax&amp;amp;#34; economy_cx_lowert = &amp;amp;#34;Cmax&amp;amp;#34; # SSH (DE MOMENTO NO LO TENGO CONFIGURADO), ASI QUE, DESACTIVADO sshd_enable = &amp;amp;#34;NO&amp;amp;#34; # WIFI (DESACTIVADO PORQUE NO LO USO) #wlans_iwm0 = &amp;amp;#34;wlan0&amp;amp;#34; ifconfig_wlan0 = &amp;amp;#34;WPA SYNCDHCP&amp;amp;#34; root@freebsd:~# vi /etc/sysctl.conf # Desactivamos el Speaker hw.syscons.bell = 0 root@freebsd:~# vi /etc/fstab proc	/proc	procfs	rw	0	0 De momento, esto es todo.
-">
+<meta name="twitter:title" content="Mi configuración de FreeBSD · Si lo haces, hazlo bien!">
+<meta name="twitter:description" content="Mi configuración de FreeBSD">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -110,8 +101,8 @@ root@freebsd:~# vi /boot/loader.conf # CONSOLA kern.vty=vt # Esto es una cosa qu
 
 
 <script defer
-        src="https://umami.ahnenerbe.duckdns.org/script.js"
-        data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
+        src="https://umami.leibstandarte.duckdns.org/script.js"
+        data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46">
 </script>
 
 
@@ -136,7 +127,7 @@ root@freebsd:~# vi /boot/loader.conf # CONSOLA kern.vty=vt # Esto es una cosa qu
 
 <article class="h-entry">
   <header class="post-header">
-    <h1 class="p-name">Mi configuración en FreeBSD</h1>
+    <h1 class="p-name">Mi configuración de FreeBSD</h1>
     <p class="meta">
       <time class="dt-published" datetime="2019-11-11">
         2019-11-11

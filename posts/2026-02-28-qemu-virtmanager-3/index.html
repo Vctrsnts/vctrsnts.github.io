@@ -14,16 +14,14 @@ Instalar Qemu y VirtManager en Arch - 3 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2026-02-28-qemu-virtmanager-3/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-02-28-qemu-virtmanager-3/">
 
 
 
 
 
 
-<meta name="description" content="Aquí va el tercero y último artículo con respecto a Qemu y VirtManager, pero en este caso, lo explico desde la manera de usarlo como cliente de una máquina creada en unRaid y que podemos usar como si estuviera en local que es mi caso.
-En este caso, tal como he dicho al principio, es conectar la máquina virtual que tengo creada en mi servidor unRaid y poderla usar en mi equipo local, como si fuera otra máquina más, pero ubicada en otro sitio. A continuación os explico cómo lo hice y por si os puede servir de ayuda.
-">
+<meta name="description" content="Usando Samba con QEMU y VirtManager">
 
 
 
@@ -58,10 +56,8 @@ En este caso, tal como he dicho al principio, es conectar la máquina virtual qu
 
 
 <meta property="og:title" content="Instalar Qemu y VirtManager en Arch - 3 · Si lo haces, hazlo bien!">
-<meta property="og:description" content="Aquí va el tercero y último artículo con respecto a Qemu y VirtManager, pero en este caso, lo explico desde la manera de usarlo como cliente de una máquina creada en unRaid y que podemos usar como si estuviera en local que es mi caso.
-En este caso, tal como he dicho al principio, es conectar la máquina virtual que tengo creada en mi servidor unRaid y poderla usar en mi equipo local, como si fuera otra máquina más, pero ubicada en otro sitio. A continuación os explico cómo lo hice y por si os puede servir de ayuda.
-">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2026-02-28-qemu-virtmanager-3/">
+<meta property="og:description" content="Usando Samba con QEMU y VirtManager">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-02-28-qemu-virtmanager-3/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -77,24 +73,24 @@ En este caso, tal como he dicho al principio, es conectar la máquina virtual qu
 
 <meta property="article:tag" content="QEMU">
 
+<meta property="article:tag" content="Samba">
 
 
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Instalar Qemu y VirtManager en Arch - 3 · Si lo haces, hazlo bien!">
-<meta name="twitter:description" content="Aquí va el tercero y último artículo con respecto a Qemu y VirtManager, pero en este caso, lo explico desde la manera de usarlo como cliente de una máquina creada en unRaid y que podemos usar como si estuviera en local que es mi caso.
-En este caso, tal como he dicho al principio, es conectar la máquina virtual que tengo creada en mi servidor unRaid y poderla usar en mi equipo local, como si fuera otra máquina más, pero ubicada en otro sitio. A continuación os explico cómo lo hice y por si os puede servir de ayuda.
-">
+<meta name="twitter:description" content="Usando Samba con QEMU y VirtManager">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -109,8 +105,8 @@ En este caso, tal como he dicho al principio, es conectar la máquina virtual qu
 
 
 <script defer
-        src="https://umami.ahnenerbe.duckdns.org/script.js"
-        data-website-id="8642e197-61bf-4cdf-924a-3d2384b59425">
+        src="https://umami.leibstandarte.duckdns.org/script.js"
+        data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46">
 </script>
 
 
@@ -159,6 +155,10 @@ En este caso, tal como he dicho al principio, es conectar la máquina virtual qu
         
           <a href="/tags/qemu/">
             #QEMU
+          </a>
+        
+          <a href="/tags/samba/">
+            #Samba
           </a>
         
       

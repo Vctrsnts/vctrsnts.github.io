@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Samba on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.codeberg.page/tags/samba/</link>
+    <link>https://vctrsnts.github.io/tags/samba/</link>
     <description>Recent content in Samba on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 12 Feb 2026 00:00:00 +0100</lastBuildDate>
-    <atom:link href="https://vctrsnts.codeberg.page/tags/samba/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0100</lastBuildDate>
+    <atom:link href="https://vctrsnts.github.io/tags/samba/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Instalar Qemu y VirtManager en Arch - 2</title>
-      <link>https://vctrsnts.codeberg.page/posts/2026-02-12-qemu-virtmanager-2/</link>
-      <pubDate>Thu, 12 Feb 2026 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2026-02-12-qemu-virtmanager-2/</guid>
-      <description>&lt;p&gt;En este segundo artículo, explicaremos un poco cómo me voy adaptando a usar &lt;em&gt;VirtManager&lt;/em&gt; en vez de &lt;em&gt;VirtualBox&lt;/em&gt; y las modificaciones que he tenido que hacer en mi flujo de trabajo con respecto al usar &lt;em&gt;VirtManager&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Hay que partir de la base que el uso que le doy yo a &lt;em&gt;VirtManager&lt;/em&gt; es muy básico, esto se debe, a que no he encontrado alternativas que me gusten a las diferentes aplicaciones que uso.&lt;/p&gt;</description>
+      <title>Instalar Qemu y VirtManager en Arch - 3</title>
+      <link>https://vctrsnts.github.io/posts/2026-02-28-qemu-virtmanager-3/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0100</pubDate>
+      <guid>https://vctrsnts.github.io/posts/2026-02-28-qemu-virtmanager-3/</guid>
+      <description>&lt;p&gt;Aquí va el tercero y último artículo con respecto a &lt;strong&gt;Qemu&lt;/strong&gt; y &lt;strong&gt;VirtManager&lt;/strong&gt;, pero en este caso, lo explico desde la manera de usarlo como cliente de una máquina creada en &lt;strong&gt;unRaid&lt;/strong&gt; y que podemos usar como si estuviera en local que es mi caso.&lt;/p&gt;&#xA;&lt;p&gt;En este caso, tal como he dicho al principio, es conectar la máquina virtual que tengo creada en mi servidor unRaid y poderla usar en mi equipo local, como si fuera otra máquina más, pero ubicada en otro sitio. A continuación os explico cómo lo hice y por si os puede servir de ayuda.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

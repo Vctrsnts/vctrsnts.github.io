@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homepage on Si lo haces, hazlo bien!</title>
+    <link>https://vctrsnts.github.io/series/homepage/</link>
+    <description>Recent content in Homepage on Si lo haces, hazlo bien!</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Sat, 21 Jun 2025 00:00:00 +0200</lastBuildDate>
+    <atom:link href="https://vctrsnts.github.io/series/homepage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Usando HomePage. El Dashboard - 3</title>
+      <link>https://vctrsnts.github.io/posts/2025-06-20-usando-homepage-3/</link>
+      <pubDate>Sat, 21 Jun 2025 00:00:00 +0200</pubDate>
+      <guid>https://vctrsnts.github.io/posts/2025-06-20-usando-homepage-3/</guid>
+      <description>&lt;p&gt;Un nuevo artículo hablando sobre &lt;strong&gt;homepage&lt;/strong&gt;, este magnífico &lt;em&gt;dashboard&lt;/em&gt; al que le tengo mucho cariño y que hace un tiempo realizó una actualización en su configuración y que en mi caso, usuario de portátil, no me funcionaba correctamente, porque las &lt;strong&gt;5 columnas&lt;/strong&gt; que yo utilizo no se veían correctamente. Abrí un &lt;em&gt;issue&lt;/em&gt; sobre este problema y parece ser que con la última actualización ha solucionado este problema y ahora explicaré cómo lo he hecho.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Usando HomePage. El Dashboard - 2</title>
+      <link>https://vctrsnts.github.io/posts/2024-06-03-usando-homepage-2/</link>
+      <pubDate>Mon, 03 Jun 2024 00:00:00 +0200</pubDate>
+      <guid>https://vctrsnts.github.io/posts/2024-06-03-usando-homepage-2/</guid>
+      <description>&lt;p&gt;Como ya comenté en el anterior &lt;a href=&#34;https://vctrsnts.github.io/posts/2024-02-12-usando-homepage-1&#34;&gt;articulo&lt;/a&gt;, donde hablaba de que estaba usando &lt;strong&gt;HomePage&lt;/strong&gt; con una configuración &lt;em&gt;normal&lt;/em&gt; y muy &lt;em&gt;simple&lt;/em&gt;, pero que a la vez era funcional, por no decir básica para cuando te inicias, pero me faltaba algo, en resumen, quería algo más&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Entonces, buscando información, acabé en el &lt;a href=&#34;https://www.github.com/gethomepage&#34;&gt;GitHub&lt;/a&gt;, que es lo que tenía que haber hecho desde el principio. Descubrí este &lt;a href=&#34;https://github.com/gethomepage/homepage/discussions/473&#34;&gt;hilo&lt;/a&gt;, donde la gente compartía sus &lt;em&gt;dashboards&lt;/em&gt; junto con los ficheros de configuración. Y tengo que decir que había cosas muy chulas y muy curradas y, lo más importante, cosas que no sabía que se podían hacer.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Usando HomePage. El Dashboard - 1</title>
+      <link>https://vctrsnts.github.io/posts/2024-02-12-usando-homepage-1/</link>
+      <pubDate>Mon, 12 Feb 2024 00:00:00 +0100</pubDate>
+      <guid>https://vctrsnts.github.io/posts/2024-02-12-usando-homepage-1/</guid>
+      <description>&lt;p&gt;Después de escuchar el &lt;a href=&#34;https://ugeek.github.io/post/2021-05-24-homer-mi-dashboard-favorito.html&#34;&gt;podcast&lt;/a&gt; de &lt;strong&gt;uGeek&lt;/strong&gt;, donde hablaba de los &lt;strong&gt;dashboards&lt;/strong&gt; y en especial del que él usaba, &lt;strong&gt;Homer&lt;/strong&gt;, me decidí a probarlo a ver qué tal funcionaba la cosa, porque la idea de tener todo lo que más utilizo al alcance de la mano o la información más importante de tu servidor siempre disponible, pues es interesante. Así que me decidí a instalar y probar &lt;strong&gt;Homer&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Al principio no necesitaba nada más, pero poco a poco, cuanto más te adentras en el mundo de los &lt;strong&gt;dashboards&lt;/strong&gt;, ves las infinitas posibilidades que tienes a tu alcance y que en el caso de &lt;strong&gt;Homer&lt;/strong&gt; no me las daba. Así que me decidí a buscar otros que pudieran ampliar la información que me podían mostrar y no encontraba el más adecuado hasta que leí el &lt;a href=&#34;https://elblogdelazaro.org/posts/2023-06-21-docker-homepage-dashboard/&#34;&gt;artículo&lt;/a&gt; de &lt;strong&gt;Carlos M.&lt;/strong&gt;, donde hablaba de &lt;a href=&#34;https://github.com/gethomepage/homepage&#34;&gt;HomePage&lt;/a&gt; y de las múltiples opciones que tenía. Y puedo decir que sí, tiene muchas opciones de configuración que te pueden ayudar a visualizar toda la información que puedas necesitar.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
