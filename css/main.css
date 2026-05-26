@@ -120,6 +120,13 @@ code {
     Menlo,
     monospace;
 }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: #e6db74;
+  background-color: #272822;
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+}
 
 .intro {
   border-top: 1px solid var(--muted);

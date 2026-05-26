@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+
+Usando Podman - Instalación y configuración · Si lo haces, hazlo bien!
+
+</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-05-26-usando-podman-1/">
+
+
+
+
+
+
+<meta name="description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
+
+
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+
+<meta property="og:title" content="Usando Podman - Instalación y configuración · Si lo haces, hazlo bien!">
+<meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-05-26-usando-podman-1/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
+
+
+<meta property="og:type" content="article">
+
+
+<meta property="article:published_time" content="2026-05-26T00:00:00&#43;02:00">
+
+
+
+
+<meta property="article:tag" content="Podman">
+
+
+
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Usando Podman - Instalación y configuración · Si lo haces, hazlo bien!">
+<meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<script defer
+        src="https://umami.leibstandarte.duckdns.org/script.js"
+        data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/index.xml">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Usando Podman - Instalación y configuración</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-05-26">
+        2026-05-26
+      </time>
+      · 5 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/podman/">
+            #Podman
+          </a>
+        
+      
+
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Antes de empezar, quiero que quede bien claro una cosa: el porqué de este y los siguientes artículos hablando de Podman.</p>
+<blockquote>
+<p>nota:</p>
+<p>Esto no va a ser una alternativa a todos los articulos que ha publicado <a href="https://atareao.es/?s=podman">atareao</a> en referencia a <strong>Podman</strong>. Nunca lo haria ni es lo que querría, nunca voy a poder conseguir el nivel tan alto de exigencia que tiene <strong>Atareo</strong>.</p>
+<p>Solamente son artículos basados en mi proceso de instalación, configuración, gestión y uso de Podman a nivel amateur.</p>
+<p>Siento que me repito, pero no quiero ni pretendo llegar al nivel top que tiene Lorenzo, pero nunca se sabe, para un no iniciado o una persona que está empezando en Podman, a lo mejor le sirven y cuando tenga más conocimientos sobre <strong>Podman</strong>, ya puede pasar a leer los artículos del maestro Lorenzo.</p>
+</blockquote>
+<p>Después de esta aclaración, os explico un poco los motivos por los que voy a usar <strong>Podman</strong> en sustitución de <strong>Docker</strong>.</p>
+<p>Muchos os preguntaréis, si es que alguien visita este blog 😅, el porqué de este cambio. Es bastante fácil, el principal no es otro que porque lo ha aconsejado <a href="https://atareao.es/podcast/por-que-estoy-abandonando-docker-adios-al-demonio">atareao</a>. Esta sería la explicación más fácil y aquí acabaríamos.</p>
+<p>Pero la realidad es que hay más motivos a parte del que os he indicado antes.</p>
+<p>Uno de ellos es aprender y adquirir nuevos conocimientos, que nunca van mal. El otro es aumentar la seguridad de mi VPS.</p>
+<p>Y eso también se puede unir a lo de por qué <strong>atareao</strong> lo aconseja.</p>
+<p>Para que os hagáis una idea, y usando una analogía basada en <strong>Señor de los Anillos</strong> que cualquier friki podrá entender, <strong>Docker</strong> es como el <a href="https://es.wikipedia.org/wiki/Anillo_%C3%9Anico">anillo único</a>.</p>
+<blockquote>
+<p>Un Anillo para gobernarlos a todos. Un Anillo para encontrarlos, un Anillo para atraerlos a todos y atarlos en las tinieblas.</p>
+</blockquote>
+<p>Esto es <strong>Docker</strong>. Todo es controlado por el <em>daemon</em> (sé que podría decir demonio, pero no sé, me gusta más daemon) de <strong>Docker</strong> y además en modo <strong>root</strong>.</p>
+<blockquote>
+<p>nota:</p>
+<p>Sé que se puede hacer rootless, pero ya es más complicado. Al menos para mí lo fue y no acabó de funcionar nada bien.</p>
+</blockquote>
+<p>Está bien porque puedes hacerlo todo, pero el problema viene como tengas un contenedor con algún error que permita acceso al servidor o que tu hayas configurado por error algun acceso sin protección al servidor. Entonces ya la tenemos liada.</p>
+<p>En cambio, <strong>Podman</strong>, siguiendo nuestra analogía con <em>El Señor de los Anillos</em>, hace que cada contenedor sea como un único <a href="https://es.wikipedia.org/wiki/Anillos_de_Poder">anillo de poder</a> donde ninguno tiene acceso al resto.</p>
+<p>Todos están encerrados en su pequeño mundo, parecido a <a href="https://es.wikipedia.org/wiki/Gollum">Gollum</a>, sin poder de interacción con el exterior, siempre que tú no lo hayas permitido previamente.</p>
+<p>Después de nuestra explicación <em>friki</em> del día, vamos a por <strong>Podman</strong>, que son muchos y valientes 😅.</p>
+<h2 id="-instalación-y-configuración-de-la-base">◇ Instalación y configuración de la base</h2>
+<p>Siguiendo las pautas que ha dado <strong>atareao</strong> en este <a href="https://atareao.es/podcast/la-guia-definitiva-de-hardening-y-despliegue-en-podman-de-0-a-produccion-en-2-minutos">artículo</a> y usando como base su <a href="https://raw.githubusercontent.com/atareao/self-hosted-podman/refs/heads/main/setup.sh">script</a>, yo lo he <a href="https://codeberg.org/vctrsnts/self-hosted-podman/raw/branch/main/setup.sh">modificado</a> un poco para poder usarlo en un VPS con <em>Debian GNU/Linux Trixie</em> y con algunas modificaciones propias.</p>
+<p>Las modificaciones que he realizado son las siguientes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># PARA QUE NO INSTALE LOS PAQUETES RECOMENDADOS</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 01NORECOMMEND</span>
+</span></span><span style="display:flex;"><span>cat <span style="color:#e6db74">&lt;&lt;EOF &gt;&gt; /etc/apt/apt.conf.d/01norecommend
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">APT::Install-Recommends &#34;0&#34;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">APT::Install-Suggests &#34;0&#34;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 10NORECOMMENDS</span>
+</span></span><span style="display:flex;"><span>cat <span style="color:#e6db74">&lt;&lt;EOF &gt;&gt; /etc/apt/apt.conf.d/10norecommends
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">APT::Install-Recommends &#34;false&#34;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">APT::Install-Suggets &#34;false&#34;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span></code></pre></div><p>Lo que hago es crear estos 2 archivos, <code>01norecommend</code> y <code>10norecommends</code>, para que no instale los paquetes recomendados.</p>
+<p>Porque muchas veces acabas instalando paquetes que realmente no necesitas. Es la costumbre. No es obligatorio, pero…</p>
+<p>El resto del script lo que hace es:</p>
+<ul>
+<li>Instalación de <strong>Podman</strong> y paquetes necesarios:
+<ul>
+<li><em>fish</em>: Para mejorar la usabilidad de Podman.</li>
+<li><em>fail2ban</em>: Para mejorar la seguridad del servidor.</li>
+<li><em>ufw</em>: Firewall.</li>
+</ul>
+</li>
+<li>Configuración de <strong>Podman</strong> a nivel del kernel.</li>
+<li>Configuración de <strong>ssh</strong>.</li>
+<li>Configuración de los usuarios de acceso al sistema:
+<ul>
+<li>A través de <strong>ssh</strong> y clave pública para el acceso al usuario <em>admin</em> y a través de <code>su - apps</code> para el acceso al usuario que gestionará <strong>Podman</strong>.</li>
+<li>El usuario <em>apps</em> usará <strong>fish</strong> en lugar de bash para agilizar y mejorar todo el uso de <strong>Podman</strong>.
+<ul>
+<li>Aquí tengo que decir que no le veía ningún sentido a esto, pero después de usarlo unas cuantas semanas, le veo la utilidad que decía <strong>atareao</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Configuración de <em>fail2ban</em>.</li>
+<li>Configuración de <em>ufw</em>.</li>
+</ul>
+<p>Con este script ya tenemos todo el sistema preparado para ejecutar el siguiente script: <code>setup_apps.sh</code>.</p>
+<h2 id="-instalación-de-aplicaciones-necesarias-para-la-gestión-de-podman">◇ Instalación de aplicaciones necesarias para la gestión de Podman</h2>
+<p>Una vez que ya tenemos la base creada, en mi caso me vuelvo a conectar al servidor, pero accediendo al usuario <em>admin</em> y de ahí paso al usuario <em>apps</em>, que es el encargado de realizar toda la gestión de <strong>Podman</strong>.</p>
+<p>Para llevar a cabo esto, necesitamos usar el segundo script, <code>setup_apps.sh</code>.</p>
+<p>De nuevo, he tomado como base el <a href="https://raw.githubusercontent.com/atareao/self-hosted-podman/refs/heads/main/setup_apps.sh">script</a> de <strong>atareao</strong>, pero lo he <a href="https://codeberg.org/vctrsnts/self-hosted-podman/raw/branch/main/setup_apps.sh">modificado</a> para que funcione directamente en fish.</p>
+<p>Lo que hace este script es:</p>
+<ul>
+<li>Actualizar el fichero de configuración de <strong>fish</strong>:
+<ul>
+<li><code>config.fish</code>.</li>
+<li><code>fish_variables</code>.</li>
+</ul>
+</li>
+<li>Crear una configuración mínima de vim:
+<ul>
+<li><code>.vimrc</code>.</li>
+</ul>
+</li>
+<li>Activar el modo rootless para el usuario <em>apps</em>.</li>
+<li>Descargar las aplicaciones necesarias para el uso de los <em>secret en Podman</em>.
+<ul>
+<li>Recomiendo leer el <a href="https://atareao.es/podcast/deja-de-usar-contrasenas-en-tus-docker-compose-descubre-podman-secrets">artículo</a> y ver el <a href="https://www.youtube.com/watch?v=nhcLfzud_2I">vídeo</a> correspondiente, donde <strong>atareao</strong> nos da la explicación.</li>
+</ul>
+</li>
+<li>Configurar permisos de los directorios importantes.</li>
+</ul>
+<p>Después de la ejecución del mismo, ya hemos llegado al final de este primer artículo, donde hemos instalado la base para poder usar <strong>Podman</strong> en <em>Debian GNU/Linux Trixie</em> y lo hemos dejado todo a punto para la instalación de los containers más importantes que, en mi caso, son:</p>
+<ul>
+<li><em>traefik</em></li>
+<li><em>crowdsec</em></li>
+<li><em>pocketid</em></li>
+<li><em>dockge</em></li>
+</ul>
+<p>Pero esto ya os lo explicaré en otro artículo.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://atareao.es/podcast/por-que-estoy-abandonando-docker-adios-al-demonio">¿Por qué estoy abandonando Docker? Adiós al Demonio</a></li>
+<li><a href="https://atareao.es/podcast/por-que-no-deberias-usar-root-en-tus-contenedores-y-como-arreglarlo">Por qué NO deberías usar ROOT en tus Contenedores (y cómo arreglarlo)</a></li>
+<li><a href="https://atareao.es/podcast/adios-a-docker-compose-como-usar-pods-en-podman-paso-a-paso">Adiós a Docker Compose. Cómo usar PODS en Podman. Paso a Paso</a></li>
+<li><a href="https://atareao.es/podcast/quadlets-la-pieza-secreta-de-podman-que-cambiara-tu-servidor-para-siempre">Quadlets. La pieza secreta de Podman que cambiará tu servidor para siempre</a></li>
+<li><a href="https://atareao.es/podcast/deja-de-usar-contrasenas-en-tus-docker-compose-descubre-podman-secrets">¡Deja de usar contraseñas en tus Docker Compose! Descubre Podman Secrets</a></li>
+<li><a href="https://atareao.es/podcast/evita-contenedores-zombie-guia-maestra-de-health-checks-en-podman">Evita Contenedores ZOMBIE. Guía Maestra de Health Checks en Podman</a></li>
+<li><a href="https://atareao.es/podcast/rollbacks-automaticos-en-podman-como-watchtower-pero-mejor">Rollbacks Automáticos en Podman. Como WatchTower pero mejor</a></li>
+<li><a href="https://atareao.es/podcast/la-guia-definitiva-de-logs-en-podman-automatizacion-quadlets-y-vector">La guía definitiva de Logs en Podman. Automatización, Quadlets y Vector</a></li>
+<li><a href="https://atareao.es/podcast/adios-docker-como-configurar-traefik-con-podman-rootless-y-seguro">¡Adiós Docker! Cómo configurar Traefik con Podman (Rootless y Seguro)</a></li>
+<li><a href="https://atareao.es/podcast/la-guia-definitiva-de-hardening-y-despliegue-en-podman-de-0-a-produccion-en-2-minutos">La guía definitiva de Hardening y Despliegue en Podman. De 0 a Producción en 2 minutos</a></li>
+<li><a href="https://atareao.es/podcast/lo-mejor-de-dos-mundos-despliega-docker-compose-en-podman-con-dockge">Lo mejor de dos mundos. Despliega Docker Compose en Podman con Dockge</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>
