@@ -14,7 +14,7 @@ Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4 · Si lo haces, haz
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2022-01-07-debian-raspberrypi/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2022-01-07-debian-raspberrypi/">
 
 
 
@@ -57,7 +57,7 @@ Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4 · Si lo haces, haz
 
 <meta property="og:title" content="Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="A ver como se comportar Debian en mi nueva RPI 4">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2022-01-07-debian-raspberrypi/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2022-01-07-debian-raspberrypi/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4 · Si lo haces, haz
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4 · Si lo haces, haz
 <meta name="twitter:description" content="A ver como se comportar Debian en mi nueva RPI 4">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -210,8 +210,6 @@ Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4 · Si lo haces, haz
 </picture>
 
 
-<figcaption>Last EEPROM</figcaption>
-
 
 </figure>
 
@@ -273,8 +271,6 @@ Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4 · Si lo haces, haz
 </picture>
 
 
-<figcaption>GParted</figcaption>
-
 
 </figure>
 
@@ -284,7 +280,8 @@ Raspberry Pi. Instalar Debian GNU/Linux en la Raspberry Pi 4 · Si lo haces, haz
 <p>Procedemos a conectar el HDD a la Raspberry Pi y si todo ha ido bien, podemos ver la pantalla de instalación de <strong>Debian GNU/Linux</strong> de toda la vida.</p>
 <p>Una vez finalizada la instalación, solamente nos queda disfrutar de nuestra <strong>Debian GNU/Linux</strong> de toda la vida.</p>
 <blockquote>
-<p>nota: Al finalizar la instalación, lo que yo hice fue reducir la partición de 648Mb a 260Mb para así después añadir ese espacio extra a la partición del sistema. 260Mb es el mínimo que (en mi caso) GPARTED no me transformaba la primera partición de <strong>FAT32</strong> a <strong>FAT16</strong>.</p>
+<p><strong>Nota</strong></p>
+<p>Al finalizar la instalación, lo que yo hice fue reducir la partición de 648Mb a 260Mb para así después añadir ese espacio extra a la partición del sistema. 260Mb es el mínimo que (en mi caso) GPARTED no me transformaba la primera partición de <strong>FAT32</strong> a <strong>FAT16</strong>.</p>
 </blockquote>
 <p>Para llevar a cabo esto, en mi caso, borré todo lo que se había añadido a la hora de <em>descomprimir</em> la ISO de <strong>Debian GNU/Linux</strong>. El <em>firmware UEFI</em> también lo dejo. En total todo el espacio ocupado (en mi caso) son 15.6Mb.</p>
 <p>En el caso de tener una Raspberry Pi de 4Gb o más, el sistema está configurado para que solamente aproveche 3Gb de RAM. Para usar toda la RAM que tenemos, tenemos que desactivar un parámetro del <strong>boot</strong> de <strong>UEFI</strong>, se hace de la siguiente manera:</p>

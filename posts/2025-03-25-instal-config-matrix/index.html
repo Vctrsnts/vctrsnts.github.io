@@ -14,7 +14,7 @@ Matrix - 1. Instalación y configuración · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-03-25-instal-config-matrix/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-03-25-instal-config-matrix/">
 
 
 
@@ -57,7 +57,7 @@ Matrix - 1. Instalación y configuración · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Matrix - 1. Instalación y configuración · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Instalando y configurando matrix">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2025-03-25-instal-config-matrix/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2025-03-25-instal-config-matrix/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -80,7 +80,7 @@ Matrix - 1. Instalación y configuración · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -90,7 +90,7 @@ Matrix - 1. Instalación y configuración · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Instalando y configurando matrix">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -171,9 +171,10 @@ Matrix - 1. Instalación y configuración · Si lo haces, hazlo bien!
     <p>A partir de unos artículos de <a href="https://atareao.es/?s=matrix">Lorenzo</a> y de <a href="https://ugeek.github.io">uGeek</a> (podéis encontrar más información en la referencia), me picó la curiosidad sobre cómo sería tener mi propio servidor de mensajería y poderlo utilizar para enviar las notificaciones de mis servicios y así no depender tanto de <em>Telegram</em>.</p>
 <p>De ahí viene este nuevo artículo, donde explicaré todo el proceso de instalación y uso de mi nuevo servidor <strong>Matrix</strong> en mi VPS y os aviso que no ha sido nada sencillo.</p>
 <blockquote>
-<p>nota: Pero antes, tengo que tirarle un poco de las orejas a <strong>Lorenzo</strong>, porque la información que tiene puesta en su <strong>página web</strong> o en su repositorio de <strong>GitHub</strong> es muy floja con respecto a la instalación y configuración de todo lo que se necesita para su correcto uso, y eso me ha lastrado mucho a la hora de realizar toda la instalación y configuración.
-Porque cuando tienes algo por donde empezar, todo se hace más fácil y no como esta vez que ha sido como tirarte a la piscina sin saber nadar y sin flotador. Que sí, he aprendido mucho, pero no es lo más recomendable.
-Que conste que no es ninguna recriminación hacia <strong>Lorenzo</strong>, porque seguro que tendrá algún motivo para no haberlo subido a su repositorio, pero es que ha sido como un dolor de muelas todo el proceso. 😭</p>
+<p><strong>Nota</strong></p>
+<p>Antes de nada, tengo que tirarle un poco de las orejas a Lorenzo. La información disponible tanto en su página web como en su repositorio de GitHub me ha parecido bastante escasa en cuanto a instalación y configuración, y eso me complicó mucho todo el proceso.</p>
+<p>Cuando tienes una buena base desde la que empezar, todo resulta mucho más sencillo. En este caso, ha sido como tirarse a la piscina sin saber nadar y sin flotador. Sí, he aprendido muchísimo durante el proceso, pero no es precisamente la forma más cómoda de hacerlo. 😅</p>
+<p>Que conste que no es una crítica hacia Lorenzo; seguro que tendrá sus motivos para no documentarlo más a fondo. Pero, sinceramente, todo el proceso ha sido un auténtico dolor de muelas. 😭</p>
 </blockquote>
 <p>Después del tirón de orejas, viene lo bueno, la explicación de todo lo necesario para tener un servidor de <strong>Matrix</strong> en marcha y a pleno rendimiento, aunque aún le faltan algunas cosas que explicaré en próximos artículos.</p>
 <p>Lo primero es decidir qué servidor de <em>Matrix</em> utilizar. Como he dicho, <strong>uGeek</strong> y <strong>Lorenzo</strong> usan 2 muy diferentes entre ellos, te recomiendo que leas los artículos que hablan de ello porque son muy interesantes, y estos servidores son:</p>
@@ -191,7 +192,9 @@ Que conste que no es ninguna recriminación hacia <strong>Lorenzo</strong>, porq
 <p>Así que en primera instancia me fui a por la instalación de <strong>Conduit</strong> como servidor de <strong>Matrix</strong> y como he dicho, <strong>Lorenzo</strong> no lo ha puesto nada fácil, porque no había subido a su repositorio, como siempre hace, el <code>docker-compose</code> para la instalación, y ha sido una tarea ardua y nada sencilla.</p>
 <p>Eso sí, lo cortés no quita lo valiente, y tengo que decir que <em>Lorenzo</em> sí que puso el <code>docker-compose</code> en este <a href="https://atareao.es/podcast/crear-bots-en-matrix">artículo</a>, para instalar el servidor de <em>Matrix</em> y el cliente <em>Cinny</em>, pero no de la manera que nos tiene acostumbrados.</p>
 <blockquote>
-<p>nota: Opinión personal: Con respecto a los artículos y más concretamente los vídeos de <em>Lorenzo</em>, antes sí explicaba todo el proceso de instalación, <em>en plan rápido y explicaba un poco por encima lo que hace cada cosa</em>, pero ya era algo por donde empezar, ahora en los nuevos vídeos esto no lo hace y se hace un poco más difícil ver y entender todo el conjunto. Que sí, de esta manera aprendes más, pero el inicio es más cuesta arriba.</p>
+<p><strong>Nota</strong></p>
+<p>Opinión personal: en los artículos y, sobre todo, en los vídeos antiguos, Lorenzo explicaba el proceso completo de instalación de forma rápida y comentaba por encima qué hacía cada cosa. No era una guía muy detallada, pero al menos servía como punto de partida.</p>
+<p>En los vídeos más recientes ya no lo hace tanto, y eso hace que sea más difícil entender todo el conjunto al principio. Sí, probablemente así aprendes más por tu cuenta, pero la curva de entrada también se hace bastante más cuesta arriba.</p>
 </blockquote>
 <p>Pues como iba diciendo, tenía un <code>docker-compose.yml</code> por el que empezar a trastear y en mi caso quedó de la siguiente manera:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span> <span style="color:#f92672">cinny</span>:

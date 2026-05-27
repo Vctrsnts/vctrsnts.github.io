@@ -14,7 +14,7 @@ Restic &#43; Backrest &#43; MiniO - 2 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-05-22-restic-copias-locales-2/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-05-22-restic-copias-locales-2/">
 
 
 
@@ -57,7 +57,7 @@ Restic &#43; Backrest &#43; MiniO - 2 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Restic &#43; Backrest &#43; MiniO - 2 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Seguimos con Backrest y MiniOS">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2025-05-22-restic-copias-locales-2/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2025-05-22-restic-copias-locales-2/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Restic &#43; Backrest &#43; MiniO - 2 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Restic &#43; Backrest &#43; MiniO - 2 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Seguimos con Backrest y MiniOS">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -164,11 +164,13 @@ Restic &#43; Backrest &#43; MiniO - 2 · Si lo haces, hazlo bien!
   <section class="e-content">
     <p>Continuamos con esta segunda parte donde explicaremos cómo sacar provecho de estas 3 aplicaciones. En este caso, explicaré el script que estoy usando para realizar las copias, que es una variación de uno que tiene <strong>Lorenzo</strong> en su <a href="https://github.com/atareao/dotfiles/blob/main/.local/bin/backup.sh.jinja">GitHub</a>, pero que en mi caso, en vez de ser un fichero <strong>jinja</strong>, es un fichero en Bash a pelo.</p>
 <blockquote>
-<p>nota: No entiendo el sentido que tiene utilizar los ficheros <strong>jinja</strong>. Sé que es una plantilla para la creación de un fichero al vuelo, pero cómo utilizarlos es lo que se me escapa. Ya le preguntaremos a <strong>Lorenzo</strong> su función o a ver si tiene algún <em>podcast</em> donde lo explique.</p>
+<p><strong>Nota</strong></p>
+<p>No entiendo el sentido que tiene utilizar los ficheros <strong>jinja</strong>. Sé que es una plantilla para la creación de un fichero al vuelo, pero cómo utilizarlos es lo que se me escapa. Ya le preguntaremos a <strong>Lorenzo</strong> su función o a ver si tiene algún <em>podcast</em> donde lo explique.</p>
 </blockquote>
 <p>Aquí tenéis el <em>script</em> que estoy usando ahora mismo (versionado del original de <strong>atareao</strong>) pero para mis necesidades.</p>
 <blockquote>
-<p>nota: Esta primera parte es la función del <code>script</code>, la cual se encarga de enviar las notificaciones, ahora sí, a mi servidor de <strong>Matrix</strong>.</p>
+<p><strong>Nota</strong></p>
+<p>Esta primera parte es la función del <code>script</code>, la cual se encarga de enviar las notificaciones, ahora sí, a mi servidor de <strong>Matrix</strong>.</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Funció per a notificar les accions del script</span>
 </span></span><span style="display:flex;"><span>enviarNotificacions<span style="color:#f92672">(){</span>
@@ -210,7 +212,8 @@ Restic &#43; Backrest &#43; MiniO - 2 · Si lo haces, hazlo bien!
 </span></span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>MATRIX_SERVER<span style="color:#e6db74">}</span><span style="color:#e6db74">/_matrix/client/v3/rooms/</span><span style="color:#e6db74">${</span>MATRIX_ROOM<span style="color:#e6db74">}</span><span style="color:#e6db74">/send/m.room.message/</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#39;+%s%3N&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><blockquote>
-<p>nota: Esta segunda parte del <code>script</code> es la que sí se encarga de llevar a cabo las copias de seguridad en mi equipo local.</p>
+<p><strong>Nota</strong></p>
+<p>Esta segunda parte del <code>script</code> es la que sí se encarga de llevar a cabo las copias de seguridad en mi equipo local.</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
@@ -321,7 +324,8 @@ Restic &#43; Backrest &#43; MiniO - 2 · Si lo haces, hazlo bien!
 <p>Con esto ya podrías dar por finalizado el procedimiento de copias de seguridad. Pero recordando un Docker que había conocido gracias a <strong>Lázaro</strong>, que no es otro que <strong>Backrest</strong>, era el encargado de realizar las copias de seguridad de mi servidor local y subirlas a <strong>Mega</strong>, pero todo se fue 💩 en el momento en que empezaron a fallar los HDD por culpa de la <a href="/posts/2025-04-20-modificaciones-servidor-3">alimentación</a>, así que lo dejé de lado.</p>
 <p>Para hacer un breve resumen de lo que es <strong>Backrest</strong>, es un <em>cliente gráfico</em> de <strong>Restic</strong>, y si eso era así, podía utilizarlo como cliente de mis copias de seguridad situadas en el servidor local. Lo único que tenía que hacer era informar dónde estaban estas copias y qué tipo de servicio estaba usando (<strong>S3</strong>).</p>
 <blockquote>
-<p>nota: Con respecto a <strong>Backrest</strong>, os recomiendo que vayáis a leer el <a href="https://elblogdelazaro.org/backrest-backups-en-nubes-s3">articulo</a> de <strong>Carlos M.</strong> que tiene en su página web.</p>
+<p><strong>Nota</strong></p>
+<p>Con respecto a <strong>Backrest</strong>, os recomiendo que vayáis a leer el <a href="https://elblogdelazaro.org/backrest-backups-en-nubes-s3">articulo</a> de <strong>Carlos M.</strong> que tiene en su página web.</p>
 </blockquote>
 <p>Asimismo, si os fijáis, en el script, concretamente en la parte que se encarga de hacer las copias de seguridad, tenemos estas 2 variables u opciones <strong>TAG_1</strong> y <strong>TAG_2</strong>:</p>
 <ul>
@@ -368,8 +372,6 @@ Restic &#43; Backrest &#43; MiniO - 2 · Si lo haces, hazlo bien!
 
 </picture>
 
-
-<figcaption>BackRest</figcaption>
 
 
 </figure>

@@ -14,7 +14,7 @@ Instalar Qemu y VirtManager en Arch - 1 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2026-01-15-qemu-virtmanager-1/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-01-15-qemu-virtmanager-1/">
 
 
 
@@ -57,7 +57,7 @@ Instalar Qemu y VirtManager en Arch - 1 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Instalar Qemu y VirtManager en Arch - 1 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Instalar QEMU">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2026-01-15-qemu-virtmanager-1/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-01-15-qemu-virtmanager-1/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Instalar Qemu y VirtManager en Arch - 1 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Instalar Qemu y VirtManager en Arch - 1 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Instalar QEMU">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -165,13 +165,15 @@ Instalar Qemu y VirtManager en Arch - 1 · Si lo haces, hazlo bien!
     <p>Este artículo es más un resumen o unos apuntes para mí, de cómo se hace la instalación de <strong>Qemu</strong> y <strong>VirtManager</strong> en <strong>Arch</strong>, basado en este <a href="https://www.youtube.com/watch?v=HN-krqqblOA">video</a> que podéis encontrar en <strong>Youtube</strong>.</p>
 <p>Nunca se sabe si puede desaparecer o no, pero yo me lo guardo, por si acaso.</p>
 <blockquote>
-<p>nota: Antes de empezar lo primero es agradecer a <a href="https://www.youtube.com/@Ruben-Linux">Ruben</a> por esta excelente guía de instalación.</p>
+<p><strong>Nota</strong></p>
+<p>Antes de empezar lo primero es agradecer a <a href="https://www.youtube.com/@Ruben-Linux">Ruben</a> por esta excelente guía de instalación.</p>
 </blockquote>
 <p>Desde hace mucho tiempo, he estado usando <a href="https://www.virtualbox.org">VirtualBox</a>, pero últimamente con tanto cambio de equipo, había empezado a notar, que la temperatura de la CPU (incluso con un <strong>Xeon</strong>) era un poco alta, por no decir, más de lo normal, a la hora de utilizar este programa para virtualizar.</p>
 <p>Desde hace un par de semanas, supongo que como tengo <strong>Arch</strong>, me voy fijando más en todas las noticias que hacen referencia a este sistema, había escuchado a miembros del canal de telegram de <a href="https://t.me/atareao_con_linux/37878">atareao</a> donde se comentaba, que habían notado una gran mejora a la hora de usar <strong>Qemu</strong> en comparación de <strong>VirtualBox</strong>.</p>
 <p>Me puse a buscar información de qué había de cierto en esto, además, de buscar también, cómo se realiza la instalación en <strong>Arch</strong> y me encontré este estupendo <a href="https://www.youtube.com/watch?v=HN-krqqblOA">video</a>, donde está explicado todo perfectamente y muy fácilmente de seguir. Pero como ya he dicho antes, me apunto las instrucciones, porque nunca sabes qué puede pasar.</p>
 <blockquote>
-<p>nota: Lo que sí que puedo decir, es que pasadas ya unas cuantas semanas que llevo usando <em>Qemu</em>, puedo decir que sí que hay una diferencia en el consumo de recursos entre <em>Qemu</em> y <em>VirtualBox</em>.</p>
+<p><strong>Nota</strong></p>
+<p>Lo que sí que puedo decir, es que pasadas ya unas cuantas semanas que llevo usando <em>Qemu</em>, puedo decir que sí que hay una diferencia en el consumo de recursos entre <em>Qemu</em> y <em>VirtualBox</em>.</p>
 </blockquote>
 <p>Después de esta pequeña introducción, ahora pasamos a lo más importante, cómo se realiza la instalación.</p>
 <h2 id="-capacidad-de-virtualización-de-nuestra-cpu">◇ Capacidad de virtualización de nuestra CPU</h2>

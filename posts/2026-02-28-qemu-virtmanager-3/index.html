@@ -14,7 +14,7 @@ Instalar Qemu y VirtManager en Arch - 3 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2026-02-28-qemu-virtmanager-3/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-02-28-qemu-virtmanager-3/">
 
 
 
@@ -57,7 +57,7 @@ Instalar Qemu y VirtManager en Arch - 3 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Instalar Qemu y VirtManager en Arch - 3 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Usando Samba con QEMU y VirtManager">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2026-02-28-qemu-virtmanager-3/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-02-28-qemu-virtmanager-3/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -80,7 +80,7 @@ Instalar Qemu y VirtManager en Arch - 3 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -90,7 +90,7 @@ Instalar Qemu y VirtManager en Arch - 3 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Usando Samba con QEMU y VirtManager">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -222,7 +222,8 @@ Instalar Qemu y VirtManager en Arch - 3 · Si lo haces, hazlo bien!
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@archlinux:~/ sudo pacman -S virt-manager libvirt virt-viewer spice-gtk openssh
 </span></span></code></pre></div><p>Una vez ya tenemos instalados los paquetes necesarios, procedemos a realizar la conexión mediante SSH.</p>
 <blockquote>
-<p>nota: Lo que sí que tenemos que tener en cuenta, es que <strong>virt-manager</strong> asume que la conexión a través de <em>SSH</em> se realiza por el <strong>puerto 22</strong>, en mi caso, yo tenía configurada la conexión de <em>SSH</em> (<code>./ssh/config</code>) a mi servidor <em>unRaid</em>:</p>
+<p><strong>Nota</strong></p>
+<p>Lo que sí que tenemos que tener en cuenta, es que <strong>virt-manager</strong> asume que la conexión a través de <em>SSH</em> se realiza por el <strong>puerto 22</strong>, en mi caso, yo tenía configurada la conexión de <em>SSH</em> (<code>./ssh/config</code>) a mi servidor <em>unRaid</em>:</p>
 </blockquote>
 <pre tabindex="0"><code class="language-ssh" data-lang="ssh">Host unRaid
     HostName 192.168.1.100
@@ -244,26 +245,13 @@ Instalar Qemu y VirtManager en Arch - 3 · Si lo haces, hazlo bien!
 <ul>
 <li>Desde la interfaz web de unRAID:
 <ul>
-<li>
-<p>Crear nueva VM</p>
-</li>
-<li>
-<p>Definir CPU, RAM y disco</p>
-</li>
-<li>
-<p>Elegir BIOS (SeaBIOS / OVMF)</p>
-</li>
-<li>
-<p>Red en modo bridge</p>
-</li>
-<li>
-<p>Gráfica: <strong>SPICE</strong></p>
-</li>
-<li>
-<p>Vídeo: <strong>QXL</strong></p>
-</li>
-<li>
-<p>Audio:</p>
+<li>Crear nueva VM</li>
+<li>Definir CPU, RAM y disco</li>
+<li>Elegir BIOS (SeaBIOS / OVMF)</li>
+<li>Red en modo bridge</li>
+<li>Gráfica: <strong>SPICE</strong></li>
+<li>Vídeo: <strong>QXL</strong></li>
+<li>Audio:
 <ul>
 <li>Windows XP → <code>ac97</code></li>
 <li>Windows 7 → <code>ich9</code></li>
@@ -273,7 +261,8 @@ Instalar Qemu y VirtManager en Arch - 3 · Si lo haces, hazlo bien!
 </li>
 </ul>
 <blockquote>
-<p>nota: Toda la <strong>definición de hardware</strong> debe hacerse desde <em>unRaid</em>.</p>
+<p><strong>Nota</strong></p>
+<p>Toda la <strong>definición de hardware</strong> debe hacerse desde <em>unRaid</em>.</p>
 </blockquote>
 <ul>
 <li>Arrancar y usar la VM desde virt-manager
@@ -286,7 +275,8 @@ Instalar Qemu y VirtManager en Arch - 3 · Si lo haces, hazlo bien!
 </li>
 </ul>
 <blockquote>
-<p>nota: Virt-Manager actúa únicamente como <em>Pantalla + teclado + ratón remotos</em></p>
+<p><strong>Nota</strong></p>
+<p>Virt-Manager actúa únicamente como <em>Pantalla + teclado + ratón remotos</em></p>
 </blockquote>
 <p>A continuación os pongo unos consejos que he ido recogiendo a medida que he ido haciendo pruebas:</p>
 <ul>
@@ -313,7 +303,8 @@ Instalar Qemu y VirtManager en Arch - 3 · Si lo haces, hazlo bien!
 <li>Es el método más limpio y estable</li>
 </ul>
 <blockquote>
-<p>nota: <strong>unRAID manda, virt-manager se usa</strong></p>
+<p><strong>Nota</strong>**</p>
+<p>unRAID manda, virt-manager se usa**</p>
 </blockquote>
 <p>Con este artículo, doy por finalizados mis artículos con respecto a la instalación, configuración y uso de <strong>QEMU + Virt-Manager</strong> en <strong>Arch Linux</strong>.</p>
 <h4 id="-referencia">◇ Referencia</h4>

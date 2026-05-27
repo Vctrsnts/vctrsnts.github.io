@@ -14,7 +14,7 @@ Opinión Personal sobre unRAID - Positivas · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2024-06-13-opinion-unraid-1/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-06-13-opinion-unraid-1/">
 
 
 
@@ -57,7 +57,7 @@ Opinión Personal sobre unRAID - Positivas · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Opinión Personal sobre unRAID - Positivas · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Que opinió sobre unRAID">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2024-06-13-opinion-unraid-1/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2024-06-13-opinion-unraid-1/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -76,7 +76,7 @@ Opinión Personal sobre unRAID - Positivas · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -86,7 +86,7 @@ Opinión Personal sobre unRAID - Positivas · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Que opinió sobre unRAID">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -165,9 +165,9 @@ Opinión Personal sobre unRAID - Positivas · Si lo haces, hazlo bien!
 <p>Yo lo resumo en como tener un sistema de RAID&rsquo;s con los consiguientes discos espejo, pero sin ser un RAID.</p>
 <p>Lo único que hay que tener en cuenta es la parte de la <em>paridad</em> del HDD de respaldo que has de tener, pero eso implica que, si todos tus HDD suman 32Tb de información o es el máximo a lo que podrías llegar, necesitas un HDD de esa capacidad, <em>incorrecto</em>, o más para cubrir esa paridad. Que si quieres no es obligatorio tenerlo, yo en mi caso no lo tengo, porque para las 4 cosas que tengo no me merece la pena, pero nunca se sabe.</p>
 <blockquote>
-<p>nota:
-Tengo que hacer un inciso en este apartado que me ha corregido <a href="https://elblogdelazaro.org">Carlos M.</a> con respecto a esta afirmación por parte mía. El ejemplo que me dice, es que si tienes 10 HDD de 4Tb cada uno, en total 40Tb, solo necesitarás un único HDD de 4Tb para hacer el de paridad.
-Pero claro, esto si lo tienes configurado de esta manera o de alguna manera similar, pero en el caso, como tengo yo, que tengo 2 HDD, uno de 18Tb y otro de 16Tb, entiendo que tendré que tener un HDD de como mínimo 18Tb. Que es aquí donde yo he cometido el error, pensando que tendrías que tener un HDD con la capacidad máxima (en mi caso, 32Tb). Fallo mío. 😰</p>
+<p><strong>Nota</strong></p>
+<p><a href="https://elblogdelazaro.org">Carlos M.</a> me corrigió un detalle importante. Si tienes 10 HDD de 4 TB (40 TB en total), solo necesitas un HDD de 4 TB para la paridad, siempre que la configuración esté planteada así.</p>
+<p>En mi caso, al tener discos de 18 TB y 16 TB, el disco de paridad debe ser, como mínimo, de 18 TB. Mi error fue pensar que debía cubrir la capacidad total combinada (32 TB). 😰</p>
 </blockquote>
 <p>Así mismo, también hay que tener en cuenta, que lo primero que se tiene que hacer una vez has puesto un nuevo HDD en el servidor, es hacer un <em>PreClear</em> de este mismo para comprobar la <em>salud</em> de HDD, pero hay que tener en cuenta una cosa que dependiendo de la capacidad del HDD puedes estar con el HDD conectado y haciendo las validaciones correspondientes del <em>PreClear</em> durante unas 96 horas, esto es lo que me pasó a mí y lo expliqué en este <a href="/posts/2024-03-07-cambiando-unraid">artículo</a>. Que sino estás preparado pues de puede sorprender y asustar, pero si luego entiendes que lo hace para validar el HDD, pues no está mal, porque si se tira, como fue mi caso, 96 horas y no le pasa nada al HDD, está en buenas condiciones. Aunque nunca puedes dar un 100%, pero bueno, un 90% si.</p>
 <p>Para eso, prefiero tener un buen sistema de copias de seguridad para salvaguardar la información que a mi si que me interesa no perder.</p>

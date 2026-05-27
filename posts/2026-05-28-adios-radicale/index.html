@@ -1,0 +1,215 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+
+Adios Radicale. Hola de nuevo GCalendar · Si lo haces, hazlo bien!
+
+</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-05-28-adios-radicale/">
+
+
+
+
+
+
+<meta name="description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
+
+
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+
+<meta property="og:title" content="Adios Radicale. Hola de nuevo GCalendar · Si lo haces, hazlo bien!">
+<meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-05-28-adios-radicale/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
+
+
+<meta property="og:type" content="article">
+
+
+<meta property="article:published_time" content="2026-05-28T00:00:00&#43;02:00">
+
+
+
+
+<meta property="article:tag" content="VPS">
+
+<meta property="article:tag" content="Docker">
+
+
+
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Adios Radicale. Hola de nuevo GCalendar · Si lo haces, hazlo bien!">
+<meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<script defer
+        src="https://umami.leibstandarte.duckdns.org/script.js"
+        data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/index.xml">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Adios Radicale. Hola de nuevo GCalendar</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-05-28">
+        2026-05-28
+      </time>
+      · 1 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/vps/">
+            #VPS
+          </a>
+        
+          <a href="/tags/docker/">
+            #Docker
+          </a>
+        
+      
+
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Como recordaréis, tenía un <a href="/posts/2025-06-20-radicale-etar">articulo</a> en el que explicaba que abandonaba GCalendar —el magnífico calendario de Google 😉— para montar mi propio sistema y así tener el control total.</p>
+<p>Pero, lamentablemente, este experimento terminó hace un par de semanas, y no ha sido porque no lo intentara. 😭</p>
+<p>El problema es que, con la siguiente configuración del contrainer:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">radicale</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">grepular/radicale:3</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">calendarRadicale</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">proxy</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">user</span>: <span style="color:#ae81ff">root</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">${HOME}/config/radicale/config:/etc/radicale/config:ro</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">${HOME}/config/radicale/users:/etc/radicale/users:ro</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">${HOME}/config/radicale/data:/var/lib/radicale</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.enable=true</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.services.radicale.loadbalancer.server.port=5232</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.routers.radicale.entrypoints=websecure</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.routers.radicale.rule=Host(`${RADICALE_SERVER}`)</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.routers.radicale.middlewares=cors-headers@docker</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.middlewares.cors-headers.headers.accessControlAllowOriginList=*</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.middlewares.cors-headers.headers.accessControlAllowHeaders=Origin, X-Requested-With, Content-Type, Accept, Authorization</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.http.middlewares.cors-headers.headers.accessControlAllowMethods=GET, POST, PUT, DELETE, OPTIONS</span>
+</span></span></code></pre></div><p>Cada vez que actualizaba la imagen del mismo, se perdían todos los contactos, citas y tareas, y tenía que volver a cargarlos desde cero.</p>
+<p>Probablemente el problema estaba en mi configuración, ya que seguramente me faltaba ajustar algún detalle. Sin embargo, revisando la documentación del container no encontraba nada que explicara este comportamiento.</p>
+<p>Por ello, y a pesar de intentarlo, he decidido retirarlo de mi stack por ahora, hasta disponer de más tiempo para revisarlo en profundidad. La idea es migrarlo a Podman y aprovechar ese cambio para darle una segunda oportunidad, esta vez con una configuración más sólida.</p>
+<p>El tiempo dirá…</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://radicale.org/v3.html">Radicale</a></li>
+<li><a href="https://gitlab.com/grepular/docker-radicale">Grepular - Radicale</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

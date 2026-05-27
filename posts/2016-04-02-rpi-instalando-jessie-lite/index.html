@@ -10,18 +10,18 @@
 
 <title>
 
- · Si lo haces, hazlo bien!
+Raspberry Pi. Instalando Jessie-Lite · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2016-04-02-rpi-instalando-jessie-lite/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2016-04-02-rpi-instalando-jessie-lite/">
 
 
 
 
 
 
-<meta name="description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+<meta name="description" content="Instalando Jessie-Lite en RPI">
 
 
 
@@ -55,32 +55,38 @@
 
 
 
-<meta property="og:title" content=" · Si lo haces, hazlo bien!">
-<meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2016-04-02-rpi-instalando-jessie-lite/">
+<meta property="og:title" content="Raspberry Pi. Instalando Jessie-Lite · Si lo haces, hazlo bien!">
+<meta property="og:description" content="Instalando Jessie-Lite en RPI">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2016-04-02-rpi-instalando-jessie-lite/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
 <meta property="og:type" content="article">
 
 
+<meta property="article:published_time" content="2016-04-02T00:00:00&#43;02:00">
+
+
+
+
+<meta property="article:tag" content="Raspberry Pi">
 
 
 
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content=" · Si lo haces, hazlo bien!">
-<meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+<meta name="twitter:title" content="Raspberry Pi. Instalando Jessie-Lite · Si lo haces, hazlo bien!">
+<meta name="twitter:description" content="Instalando Jessie-Lite en RPI">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -121,14 +127,28 @@
 
 <article class="h-entry">
   <header class="post-header">
-    <h1 class="p-name"></h1>
+    <h1 class="p-name">Raspberry Pi. Instalando Jessie-Lite</h1>
     <p class="meta">
-      <time class="dt-published" datetime="0001-01-01">
-        0001-01-01
+      <time class="dt-published" datetime="2016-04-02">
+        2016-04-02
       </time>
       · 2 min
       
+        ·
+        
+          <a class="p-category" href="/categories/hardware/">
+            @Hardware
+          </a>
+        
+      
 
+      
+        ·
+        
+          <a href="/tags/raspberry-pi/">
+            #Raspberry Pi
+          </a>
+        
       
 
       
@@ -136,15 +156,7 @@
   </header>
 
   <section class="e-content">
-    <h2 id="categories---hardware-">]&mdash;
-author     : &ldquo;vsantos&rdquo;
-title      : &ldquo;Raspberry Pi. Instalando Jessie-Lite&rdquo;
-description: &ldquo;Instalando Jessie-Lite en RPI&rdquo;
-date       : &ldquo;2016-04-02&rdquo;
-draft      : false
-tags       : [ &ldquo;Raspberry Pi&rdquo; ]
-categories : [ &ldquo;Hardware&rdquo; ]</h2>
-<p>Como dije en el anterior capítulo, después de recibir mi nuevo juguete:</p>
+    <p>Como dije en el anterior capítulo, después de recibir mi nuevo juguete:</p>
 <ul>
 <li><a href="https://www.amazon.es/gp/product/B00TB7K8FA/ref=oh_aui_detailpage_o00_s00?ie=UTF8&amp;psc=1">Toshiba Canvio Connect II 1 TB</a></li>
 </ul>
@@ -157,7 +169,8 @@ categories : [ &ldquo;Hardware&rdquo; ]</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ /dev/mmcblk0
 </span></span></code></pre></div><p>Después de obtener esta información, solamente nos queda copiar la imagen a la SD.</p>
 <blockquote>
-<p>nota: Hay que tener una cosa en cuenta a la hora de copiar la imagen en la SD, es que toda la información que pueda haber en la SD, se perderá</p>
+<p><strong>Nota</strong></p>
+<p>Hay que tener una cosa en cuenta a la hora de copiar la imagen en la SD, es que toda la información que pueda haber en la SD, se perderá</p>
 </blockquote>
 <p>La instrucción para realizar la copia (<strong>se tiene que hacer como root</strong>) es la siguiente:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@raspberry:~# dd bs<span style="color:#f92672">=</span>4M <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>2016-03-18-raspbian-jessie-lite.img of<span style="color:#f92672">=</span>/dev/mmcblk0
@@ -165,14 +178,16 @@ categories : [ &ldquo;Hardware&rdquo; ]</h2>
 </span></span><span style="display:flex;"><span>463+0 records out
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">1941962752</span> bytes <span style="color:#f92672">(</span>1.9 GB<span style="color:#f92672">)</span> copied, 256.996 s, 7.6 MB/s
 </span></span></code></pre></div><blockquote>
-<p>nota: Como se puede ver, a la opción bs, se le asigna el valor de 4M, está puesto así, porque si se pone la opción 1M, el volcado de la información tardaría mucho.</p>
+<p><strong>Nota</strong></p>
+<p>Como se puede ver, a la opción bs, se le asigna el valor de 4M, está puesto así, porque si se pone la opción 1M, el volcado de la información tardaría mucho.</p>
 </blockquote>
 <p>Esto, lo que hará, es copiar la imagen en nuestra SD, tener en cuenta, que en mi caso, estaba en el mismo directorio donde tenía la imagen, en caso contrario, tengo que poner todo el path de donde se encuentra la imagen.</p>
 <p>Una vez se ha realizado la copia, solamente nos queda insertar la SD en nuestra RPI y a jugar&hellip;</p>
 <p>Ahora solamente nos quedará realizar la configuración inicial y algunos cambios (que he realizado yo) que lo explicaré en el siguiente capítulo.</p>
 <p>Hasta otra&hellip;</p>
 <blockquote>
-<p>nota: Si queréis obtener más información, podéis mirar este <a href="https://elinux.org/RPi_Easy_SD_Card_Setup">link</a> donde se explica más detalladamente el proceso tanto para Linux, Windows y Mac</p>
+<p><strong>Nota</strong></p>
+<p>Si queréis obtener más información, podéis mirar este <a href="https://elinux.org/RPi_Easy_SD_Card_Setup">link</a> donde se explica más detalladamente el proceso tanto para Linux, Windows y Mac</p>
 </blockquote>
 <h4 id="-referencia">◇ Referencia</h4>
 <ul>

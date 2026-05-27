@@ -14,7 +14,7 @@ Opinión Personal sobre unRAID - Negativas · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2024-06-23-opinion-unraid-2/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-06-23-opinion-unraid-2/">
 
 
 
@@ -57,7 +57,7 @@ Opinión Personal sobre unRAID - Negativas · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Opinión Personal sobre unRAID - Negativas · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Opinión negativa sobre uNRAID">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2024-06-23-opinion-unraid-2/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2024-06-23-opinion-unraid-2/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -76,7 +76,7 @@ Opinión Personal sobre unRAID - Negativas · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -86,7 +86,7 @@ Opinión Personal sobre unRAID - Negativas · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Opinión negativa sobre uNRAID">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -172,13 +172,15 @@ Opinión Personal sobre unRAID - Negativas · Si lo haces, hazlo bien!
 <p>Pero el problema es que a parte de Python, también necesitas otros programas, como podría ser <em>Mastodon.py</em>, <em>Twython</em> y <em>feedparser</em> y que tienes que instalar a través de <code>pip install</code> y esto es lo que no acabo de entender. El motivo por el cual no hacen lo mismo que otras distribuciones que mediante, me voy a centrar en la distribución que hace más de 20 años que uso, y esta no es otra que <em>GNU/Debian</em>, y esto se haría de la siguiente manera con <code>apt install python3-twython</code> o <code>apt install python3-feedparser</code> ya tienes estos programas instalados y no como en <em>unRaid</em> que lo tienes que hacer a través de python <code>pip install feedparser</code>.</p>
 <p>Yo esto lo veo como una desventaja. Porque además, es que si te vas a la paquetería de <em>Slackware</em> estos paquetes <del>si que están disponibles y eso por eso que no entiendo porque no se pueden instalar</del>.</p>
 <blockquote>
-<p>nota: Aquí hago un inciso, porque he buscado estos paquetes en la distribución de <em>Slackware</em> y no están disponibles para su instalación, entonces entiendo que se tiene que hacer a través de <code>pip install</code>, pero aun así me resulta extraño. Será que estoy acostumbrado a GNU/Debian.</p>
+<p><strong>Nota</strong></p>
+<p>Aquí hago un inciso, porque he buscado estos paquetes en la distribución de <em>Slackware</em> y no están disponibles para su instalación, entonces entiendo que se tiene que hacer a través de <code>pip install</code>, pero aun así me resulta extraño. Será que estoy acostumbrado a GNU/Debian.</p>
 </blockquote>
 <p>Luego para acabarlo de rematar, una vez que los instalas y en el caso de que se reinicie el servidor, nos puede pasar a todos, estos se tienen que volver a instalar. No le encuentro ningún sentido, porque si es un paquete que tu has instalado, significa que es algo que tu quieres y necesitas, sino no lo instalarías.</p>
 <p>Esto me ha pasado al querer usar el paquete <strong>lame</strong> para recodificar un mp3 (que es un paquete que si que está en la paquetería de <em>Slackware</em>). Primero que no estaba disponible a través de la paquetería de <em>unRaid</em> así que tuve que ir a la paquetería de <em>Slackware</em> e instalarlo pero no me funcionaba y, vuelvo a repetir, cuando se reinicia el servidor, el paquete se pierde.</p>
 <p>Esto tiene una fácil solución, pero que sino lo sabes, pues&hellip; (culpa mía por no leer la documentación de <em>unRaid</em>, pero digamos la verdad, quien se lee los manuales), todo se soluciona básicamente si copiamos el paquete en <code>boot/extra</code> para que así la próxima vez, el servidor instale la aplicación. Pero en mi caso, esto no funcionaba y no sabía el motivo y es un punto que no me acaba de gustar y que se tendría que mejorar para futuras versiones, que cualquier aplicación externa a <em>unRaid</em> se pierda después de un reinicio. Tienes la opción de ponerla en <code>boot/extra</code>, pero lo tienes que hacer y si no lo sabes, pues&hellip;</p>
 <blockquote>
-<p>nota: Buscando información sobre la paquetería de <em>slackware</em> he encontrado este <a href="https://cameronjtinker.com/posts/installing-system-packages-on-unraid-aka-slackware">artículo</a> donde explica cual es la manera correcta de instalar, paquetería externa en nuestro <em>unRaid</em> y funciona correctamente. Me he descargado <strong>lame</strong> y he seguido las indicaciones y de momento lo tengo funcionado.
+<p><strong>Nota</strong></p>
+<p>Buscando información sobre la paquetería de <em>slackware</em> he encontrado este <a href="https://cameronjtinker.com/posts/installing-system-packages-on-unraid-aka-slackware">artículo</a> donde explica cual es la manera correcta de instalar, paquetería externa en nuestro <em>unRaid</em> y funciona correctamente. Me he descargado <strong>lame</strong> y he seguido las indicaciones y de momento lo tengo funcionado.
 Esto se hace a través de la siguiente instrucción <code>upgradepkg --install-new paquete.txz</code></p>
 </blockquote>
 <p>Ya hemos instalado la aplicación, pero no tendría que ser tan difícil si ya tenemos dentro del propio <em>unRaid</em> la posibilidad de instalar aplicaciones <em>externas</em> a través del plugin <em>NerdTools</em> pues se le tendría que sacar más provecho.</p>

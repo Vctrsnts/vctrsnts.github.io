@@ -14,7 +14,7 @@ Cambiando a Hugo · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-06-09-cambiando-hugo/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-06-09-cambiando-hugo/">
 
 
 
@@ -57,7 +57,7 @@ Cambiando a Hugo · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Cambiando a Hugo · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Utilizando Hugo">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2025-06-09-cambiando-hugo/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2025-06-09-cambiando-hugo/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -76,7 +76,7 @@ Cambiando a Hugo · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -86,7 +86,7 @@ Cambiando a Hugo · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Utilizando Hugo">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -183,11 +183,13 @@ Cambiando a Hugo · Si lo haces, hazlo bien!
 </span></span></code></pre></div><p>Entonces, en el directorio <code>themes</code>, descargas el tema que quieres utilizar (en mi caso después de probar muchos el que más me ha gustado es <a href="https://github.com/dillonzq/LoveIt">LoveIt</a>.</p>
 <p>Una vez que ya tenemos nuestro tema preferido, ahora es cuando nos ponemos realmente a configurar el tema a nuestro gusto.</p>
 <blockquote>
-<p>nota: Esta es la parte más difícil, porque hasta que no te habitúas al fichero de configuración de <strong>Hugo</strong> vas un poco perdido. Es extraño que esto no me pasase con Jekyll, veía más amena la configuración de este último.</p>
+<p><strong>Nota</strong></p>
+<p>Esta es la parte más difícil, porque hasta que no te habitúas al fichero de configuración de <strong>Hugo</strong> vas un poco perdido. Es extraño que esto no me pasase con Jekyll, veía más amena la configuración de este último.</p>
 </blockquote>
 <p>Eso sí, una vez que entiendes más o menos cómo va todo y para qué sirve cada opción, se avanza más rápidamente.</p>
 <blockquote>
-<p>nota: Lo que sí que hay que tener en cuenta es la versión de <strong>Hugo</strong> que estás utilizando, porque no todos los temas están actualizados para las nuevas versiones.</p>
+<p><strong>Nota</strong></p>
+<p>Lo que sí que hay que tener en cuenta es la versión de <strong>Hugo</strong> que estás utilizando, porque no todos los temas están actualizados para las nuevas versiones.</p>
 </blockquote>
 <p>Lo primero que hice fue modificar la configuración del buscador, por defecto utiliza <strong>algolia</strong>, pero cuando hice pruebas, en mi caso, no funcionaba nada bien, no sé si la culpa es porque comenté algún código que era necesario anteriormente. En este caso, lo que yo hice fue usar <strong>lunr</strong>, que en mi caso me funciona perfectamente y me gusta más.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>  <span style="color:#75715e"># Search config</span>
@@ -206,7 +208,8 @@ Cambiando a Hugo · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">Simpleicons</span>: <span style="color:#ae81ff">bluesky</span>
 </span></span></code></pre></div><p>En este caso, sustituye el icono que viene por defecto en el fichero <code>social.yml</code> por este, yo lo cambié por el 5 que era el de FaceBook 😁 y con esto, ya hemos añadido <strong>BlueSky</strong> a nuestro tema.</p>
 <blockquote>
-<p>nota: Cuando digo que me gusta mucho este tema es por estas cosas, porque el proyecto aunque parece que está abandonado no lo está.</p>
+<p><strong>Nota</strong></p>
+<p>Cuando digo que me gusta mucho este tema es por estas cosas, porque el proyecto aunque parece que está abandonado no lo está.</p>
 </blockquote>
 <p>Para finalizar, siguiendo otro de los muchos y fantásticos artículos que puedes encontrar en el <a href="https://elblogdelazaro.org/adi%C3%B3s-a-google-analitycs-con-umami">blogdelazaro</a> que tiene como me gusta usar <strong>Umami</strong> para saber quién accede a mi sitio web, podéis estar tranquilos, porque es el sistema menos intrusivo de <em>analizadores</em> que por defecto no está implementado en el tema y que yo iba a hacer añadiendo el script en el <em>header</em> de la web y listo. Pero de nuevo, cada vez me gusta más este tema, alguien también había hecho la petición y había implementado un <a href="https://github.com/dillonzq/LoveIt/pull/761/files">Pull Request</a> sobre esta petición donde explicaba todas las modificaciones necesarias para activar esta nueva funcionalidad.</p>
 <p>Lo primero es añadir esto en el fichero de configuración <code>hugo.toml</code>:</p>
@@ -276,7 +279,8 @@ Cambiando a Hugo · Si lo haces, hazlo bien!
 </ul>
 <p>Miles de cambios, miles de configuraciones, modificaciones de ficheros, de nombres y sin conseguir nada. Lo único que conseguía era como máximo un <em>404 - Not Found</em> o una pantalla en blanco, y sé que tenía que funcionar, porque el ejemplo de <strong>LoveIt</strong> funciona correctamente.</p>
 <blockquote>
-<p>nota: Eso sí, tengo que decir que el ejemplo que ponen en los temas lía un poco, porque no concuerda con la estructura que luego tú tienes, pero como base, sirve.</p>
+<p><strong>Nota</strong></p>
+<p>Eso sí, tengo que decir que el ejemplo que ponen en los temas lía un poco, porque no concuerda con la estructura que luego tú tienes, pero como base, sirve.</p>
 </blockquote>
 <p>Hasta que ayer, no sé si la inspiración vino en mi ayuda, y eso fue cuando la <strong>IA</strong> me dijo que en las nuevas versiones de <strong>Hugo</strong>, los 2 ficheros que se encargan de las <em>Etiquetas</em> y las <em>Categorías</em> se tienen que ubicar en el directorio <code>_default</code>. Ya no perdía nada, así que lo probé. Y funcionó a la primera. No sé por qué antes no había funcionado correctamente, porque esta misma prueba ya la había hecho anteriormente, eso sí, como modificaciones en el fichero <code>hugo.toml</code>, y no sé si era por eso que no funcionaba, pero ahora todo funcionaba perfectamente.</p>
 <p>Aquí sí que fue cuando vi la luz al final del túnel, ya tenía el nuevo tema en <strong>Hugo</strong> y funcionando a las mil maravillas. Y qué queréis que os diga, me gusta mucho porque tiene todo lo que yo necesito, la máxima amplitud de la pantalla con el texto del artículo, porque eso de que los artículos ocupen tan poco no me gusta nada. Además, los enlaces, sin que tú tengas que hacer nada, ya te los abre en una nueva pestaña. O sea que tiene todo lo que yo necesito.</p>

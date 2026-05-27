@@ -14,7 +14,7 @@ Mis tips en Debian GNU/Linux · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-07-08-tips-debian/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-07-08-tips-debian/">
 
 
 
@@ -57,7 +57,7 @@ Mis tips en Debian GNU/Linux · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Mis tips en Debian GNU/Linux · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Consejos de uso en Debian">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2025-07-08-tips-debian/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2025-07-08-tips-debian/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Mis tips en Debian GNU/Linux · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Mis tips en Debian GNU/Linux · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Consejos de uso en Debian">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -210,7 +210,8 @@ Mis tips en Debian GNU/Linux · Si lo haces, hazlo bien!
 <h2 id="-betterfox">◇ BetterFox</h2>
 <p>Este <strong>TIP</strong> tiene que ver más con <strong>Firefox</strong> que con Debian GNU/Linux, pero como este navegador es uno de los más utilizados en el sistema del pingüino, además, como el camino que está tomando es un poco preocupante, pues han empezado a salir maneras de mejorar la funcionalidad y privacidad. Una de estas opciones para mejorar <strong>Firefox</strong> es la que podemos encontrar en <a href="https://github.com/yokoffing/Betterfox">betterFox</a> y que descubrí también viendo este <a href="https://www.youtube.com/watch?v=JuHIwCFx34Q">video</a> y que mediante la modificación a través de un <code>script</code> de algunas de las opciones de <strong>about</strong> mejora, según su creador, la velocidad y la privacidad del mismo, sin tener que renunciar a él.</p>
 <blockquote>
-<p>nota: Antes de continuar, te recomiendo que te guardes tu bookmark.html y los plugins que utilizas, porque si continúas, una vez que has eliminado tu perfil, inicias <strong>Firefox</strong> como si lo acabaras de instalar.</p>
+<p><strong>Nota</strong></p>
+<p>Antes de continuar, te recomiendo que te guardes tu bookmark.html y los plugins que utilizas, porque si continúas, una vez que has eliminado tu perfil, inicias <strong>Firefox</strong> como si lo acabaras de instalar.</p>
 </blockquote>
 <p>Lo primero que tienes que hacer una vez que has descargado el <code>script</code> <a href="https://github.com/yokoffing/Betterfox/blob/main/user.js">user.js</a>, y es el que nos recomienda el creador del mismo, es borrar el perfil que tenemos actualmente. Mediante la siguiente instrucción <code>about:profiles</code> puedes ver tu <em>perfil</em> y dónde está ubicado. Cuando ya lo sabes, borras el directorio, que en el caso de <strong>Debian GNU/Linux</strong>, normalmente, lo puedes encontrar en <code>.mozilla/firefox</code>. Una vez hecho esto, vuelves a iniciar el navegador e inmediatamente lo cierras.</p>
 <p>Mediante esta acción, consigues que te vuelva a crear un nuevo perfil, y lo que hacemos a continuación es borrar todo el contenido de este nuevo perfil y copiamos el archivo <code>user.js</code> en el directorio de nuestro perfil y volvemos a iniciar <strong>Firefox</strong> provocando que se cargue con la configuración de nuestro <code>script</code>.</p>

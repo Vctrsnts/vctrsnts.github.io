@@ -14,7 +14,7 @@ Usando Traefik - 2 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2024-05-13-usando-traefik-2/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-05-13-usando-traefik-2/">
 
 
 
@@ -57,7 +57,7 @@ Usando Traefik - 2 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Usando Traefik - 2 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Seguimos con la configuración de traefik y sus plugins">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2024-05-13-usando-traefik-2/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2024-05-13-usando-traefik-2/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Usando Traefik - 2 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Usando Traefik - 2 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Seguimos con la configuración de traefik y sus plugins">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -181,21 +181,19 @@ Usando Traefik - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;v0.2.5&#34;</span>
 </span></span></code></pre></div><p>Con esto indicamos lo siguiente:</p>
 <ul>
-<li>
-<p>Queremos que use el plugin que se encuentra en <strong>github.com/PascalMinder</strong></p>
+<li>Queremos que use el plugin que se encuentra en <strong>github.com/PascalMinder</strong>
 <ul>
 <li>Esto es así, porque también tenemos la posibilidad de instalar este plugin desde local.</li>
 </ul>
 </li>
-<li>
-<p>La versión que usaremos, que en este caso es la versión <strong>v0.2.5</strong></p>
-</li>
+<li>La versión que usaremos, que en este caso es la versión <strong>v0.2.5</strong></li>
 </ul>
 <p>Aquí lo importante es el nombre que le hemos dado en la configuración de <code>GeoBlock</code>, porque más adelante lo usaremos y si no ponemos el mismo, tendremos problemas.</p>
 <p>Una vez, ya tenemos hecho esto, pasamos a la configuración del plugin en sí, que se hace desde el archivo <code>dynamic.yml</code>:</p>
 <h3 id="dynamicyml">dynamic.yml</h3>
 <blockquote>
-<p>nota: Recordar que ya habíamos añadido la configuración del usuario y password para los servicios que nos interesan, la configuración de <strong>GeoBlock</strong> se añade a continuación:</p>
+<p><strong>Nota</strong></p>
+<p>Recordar que ya habíamos añadido la configuración del usuario y password para los servicios que nos interesan, la configuración de <strong>GeoBlock</strong> se añade a continuación:</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">http</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e"># EL NOMBRE DE LA SECCIÓN DE CONFIGURACIÓN DE GEOBLOCK</span>
@@ -223,8 +221,8 @@ Usando Traefik - 2 · Si lo haces, hazlo bien!
 <p>Estas son en grandes rasgos las más importantes, las otras opciones podéis buscar para que sirven.</p>
 <p>Una vez, que ya tenemos <strong>GeoBlock</strong> configurado, en principio, ya está todo listo para funcionar. Pero os recomiendo que detengáis el docker de <strong>traefik</strong> y lo volváis a iniciar para asegurar de que coge la nueva configuración.</p>
 <blockquote>
-<p>nota:
-Antes de nada, voy a hacer un inciso porque, para ver si todo el sistema funciona correctamente, tenemos que acceder a los logs de <strong>traefik</strong> para ver que hace. En este caso, tenemos 2 opciones:</p>
+<p><strong>Nota</strong></p>
+<p>Antes de nada, voy a hacer un inciso porque, para ver si todo el sistema funciona correctamente, tenemos que acceder a los logs de <strong>traefik</strong> para ver que hace. En este caso, tenemos 2 opciones:</p>
 <ul>
 <li>Acceder directamente al contenedor de traefik y monitorizar los archivos de configuración <code>access.log</code>, <code>traefik.log</code>.</li>
 <li>Usar un pequeño script que, de nuevo tengo que darle las gracias a <strong>Lorenzo</strong> nos permite visualizar los logs mediante una pequeña instrucción y de un contenedor</li>

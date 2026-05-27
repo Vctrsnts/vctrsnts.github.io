@@ -14,7 +14,7 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2024-07-26-usando-traefik-4/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-07-26-usando-traefik-4/">
 
 
 
@@ -57,7 +57,7 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Usando Traefik - 4 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Mas sobre Traefik">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2024-07-26-usando-traefik-4/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2024-07-26-usando-traefik-4/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Mas sobre Traefik">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -208,7 +208,9 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;XXX.XXX.XXX.XXX&#34;</span>
 </span></span></code></pre></div><p>Que es el fichero donde indicaremos a <strong>crowdsec</strong> las <strong>IP</strong> que son de confianza. Yo he puesto, la ip desde la que siempre me conecto al <em>VPS</em> para que así no la tenga encuenta, aunque más adelante haremos una prueba para ver el funcionamiento de <strong>crowdsec</strong> con respecto a esta <em>IP</em>.</p>
 <blockquote>
-<p>nota: Antes de nada, informar que en el fichero de <code>docker-compose.yml</code> donde tengo <strong>traefik</strong> también tengo la configuración de <strong>crowdsec</strong>, porque me ha resultado más fácil, si lo haces con diferentes ficheros <code>yml</code> hay que tener un par de cosas en cuenta que ya os informaré llegado el momento.</p>
+<p><strong>Nota</strong></p>
+<p>Antes de nada, comentar que la configuración de Crowdsec la tengo incluida en el mismo fichero docker-compose.yml donde está Traefik, ya que así me ha resultado más sencillo.</p>
+<p>Si se utiliza una configuración separada en varios ficheros .yml, hay que tener en cuenta algunos detalles que explicaré más adelante.</p>
 </blockquote>
 <p>Una vez que tenemos esto claro, empezamos añadiendo a nuestro fichero de <code>docker-compose.yml</code> lo necesario para <strong>crowdsec</strong>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#</span>
@@ -237,14 +239,10 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">traefik</span>
 </span></span></code></pre></div><p>En la configuración hay que tener en cuenta un par de cosas:</p>
 <ul>
-<li>
-<p><code>depedens_on:</code> Aquí le indicamos a <strong>crowdsec</strong> que no puede iniciarse si no está antes <strong>traefik</strong> en funcionamiento. Es como una medida de seguridad.</p>
-</li>
-<li>
-<p><code>COLLECTIONS: &quot;crowdsecurity/linux crowdsecurity/traefik crowdsecurity/sshd&quot;</code></p>
+<li><code>depedens_on:</code> Aquí le indicamos a <strong>crowdsec</strong> que no puede iniciarse si no está antes <strong>traefik</strong> en funcionamiento. Es como una medida de seguridad.</li>
+<li><code>COLLECTIONS: &quot;crowdsecurity/linux crowdsecurity/traefik crowdsecurity/sshd&quot;</code>
 <ul>
-<li>
-<p>Yo lo entiendo, como las alertas o lo que tiene que <em>tener en cuentra</em> <strong>crowdsec</strong> para luego tomar las acciones necesarias. Hay muchas más opciones que puedes ir añadiendo. Las puedes encontrar <a href="https://app.crowdsec.net/hub/collections">aquí</a>. En mi caso he puesto:</p>
+<li>Yo lo entiendo, como las alertas o lo que tiene que <em>tener en cuentra</em> <strong>crowdsec</strong> para luego tomar las acciones necesarias. Hay muchas más opciones que puedes ir añadiendo. Las puedes encontrar <a href="https://app.crowdsec.net/hub/collections">aquí</a>. En mi caso he puesto:
 <ul>
 <li><code>crowdsecurity/linux</code> para los posibles <strong>bugs</strong> que pueda tener <strong>Linux</strong></li>
 <li><code>crowdsecurity/traefik</code> para los posibles <strong>bugs</strong> de <strong>traefik</strong></li>
@@ -253,12 +251,8 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 </li>
 </ul>
 </li>
-<li>
-<p><code>networks</code> tanto <em>traefik</em>, <em>crowdsec</em> y <em>bounces-traefik</em>, que lo explicaré más adelante, tienen que estar en la misma <em>red</em> para que se puedan comunicar entre ellos.</p>
-</li>
-<li>
-<p>También tenemos que tener en cuenta los <em>volúmenes</em> que vamos a usar en <strong>crowdsec</strong>, que en este caso son los que pongo a continuación:</p>
-</li>
+<li><code>networks</code> tanto <em>traefik</em>, <em>crowdsec</em> y <em>bounces-traefik</em>, que lo explicaré más adelante, tienen que estar en la misma <em>red</em> para que se puedan comunicar entre ellos.</li>
+<li>También tenemos que tener en cuenta los <em>volúmenes</em> que vamos a usar en <strong>crowdsec</strong>, que en este caso son los que pongo a continuación:</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span> <span style="color:#f92672">volumes</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">crowdsec-db</span>:
@@ -268,7 +262,10 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">traefik_log</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">traefik_log</span>
 </span></span></code></pre></div><blockquote>
-<p>nota: Si os fijáis, he puesto el mismo nombre de volumen para los logs que tengo en <em>traefik</em> a <em>crowdsec</em> porque comparten el mismo fichero de <code>docker-compose.yml</code>, pero aquí hay que tener una cosa en cuenta, en caso de que lo tengas en <em>ficheros / stacks</em> diferentes tienes que añadir, en el caso de los <em>logs</em> de <em>crowdsec</em> que afectan a <em>traefik</em>, la opción <code>external: true</code> porque indicas que los <em>logs</em> están en otro <em>docker-compose</em>, si se puede decir así, quedando de la siguiente manera:</p>
+<p><strong>Nota</strong></p>
+<p>Si os fijáis, he utilizado el mismo volumen de logs para <em>Traefik</em> y <em>Crowdsec</em> porque ambos comparten el mismo fichero <code>docker-compose.yml</code>.</p>
+<p>Sin embargo, si los tienes en ficheros o stacks diferentes, debes añadir la opción external: true en el volumen de logs que utiliza Crowdsec para acceder a los logs de Traefik. De esta forma indicas que el volumen ha sido creado desde otro docker-compose.</p>
+<p>Quedaría de la siguiente manera:</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span> <span style="color:#f92672">volumes</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">crowdsec-db</span>:
@@ -283,7 +280,8 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 </span></span></code></pre></div><p>Después de esto, podemos revisar los <em>logs</em> de <em>crowdsec</em> para ver si de momento vamos por buen camino y también podemos verificar si <em>traefik</em> aún está vivo.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$docker logs -f crowdsec
 </span></span></code></pre></div><blockquote>
-<p>nota: Si has llegado hasta aquí, el único fallo que puedes tener es que los <em>logs</em> de <em>traefik</em> no estén accesibles a <em>crowdsec</em>, para eso fíjate bien en como <em>montas</em> los volúmenes.</p>
+<p><strong>Nota</strong></p>
+<p>Si has llegado hasta aquí, el único fallo que puedes tener es que los <em>logs</em> de <em>traefik</em> no estén accesibles a <em>crowdsec</em>, para eso fíjate bien en como <em>montas</em> los volúmenes.</p>
 </blockquote>
 <p>Otra pruebas que puedes hacer es acceder a <em>crowdsec</em> y ver si tienes acceso directo a los ficheros de la siguiente manera:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$docker exec -it crowdsec sh
@@ -310,7 +308,10 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">crowdsec</span>
 </span></span></code></pre></div><p>Aquí a parte del <code>depends_on</code>, donde indicamos a <strong>bouncer-traefik</strong> que no se puede iniciar si antes no está <strong>crowdsec</strong>, <code>networks</code>, lo mismo que con <strong>crowdsec</strong> y <strong>traefik</strong>, los 3 en la misma red.</p>
 <blockquote>
-<p>nota: En este contenedor, lo más importante y con lo que tenemos que tener más cuidado es con <code>CROWDSEC_BOUNCER_API_KEY</code>. Es la <em>API</em> que nos da <em>crowdsec</em> para <em>bouncer-traefik</em> y solo aparece una vez, si no te apuntas este código, en pocas palabras, tendrás que volver a realizar la instalación de <em>traefik</em>, <em>crowdsec</em> y <em>bouncer-traefik</em>. Te lo digo por experiencia. Seguramente hay alguna manera de evitar esto, pero yo no lo he encontrado. Y además, así se aprende algo nuevo.</p>
+<p><strong>Nota</strong></p>
+<p>En este contenedor, el parámetro más importante y con el que debemos tener especial cuidado es <code>CROWDSEC_BOUNCER_API_KEY</code>. Se trata de la <em>API</em> que genera Crowdsec para <em>bouncer-traefik</em> y solo se muestra una única vez.</p>
+<p>Por ello, es muy importante guardar este código. Si lo pierdes, probablemente tendrás que reinstalar <em>Traefik</em>, <em>Crowdsec</em> y <em>bouncer-traefik</em> para generar una nueva clave. Te lo digo por experiencia.</p>
+<p>Seguramente exista alguna forma de recuperarla o regenerarla sin reinstalar todo, pero yo no la he encontrado. Al menos, sirve para aprender algo nuevo. 😅</p>
 </blockquote>
 <p>Para obtener el código de la <strong>API</strong> se hace a través de la siguiente instrucción:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$docker exec crowdsec cscli bouncers add bouncer-traefik
@@ -348,7 +349,8 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$docker compose up -d traefik --force-recreate
 </span></span></code></pre></div><p>Si volvemos a revisar los <em>logs</em> de <strong>traefik</strong> y todo sigue funcionando correctamente es que lo hemos conseguido. Otra prueba que podemos hacer es acceder a los servicios que tenemos en el servidor que si todo funciona bien, tendremos acceso, si no, la hemos cagado 💩</p>
 <blockquote>
-<p>nota: Ahora pasamos a ver el funcionamiento de <strong>crowdsec</strong> en vivo, esto lo podemos hacer de la siguiente, pero os informo, queda a vuestra libre elección. Esta prueba, consiste en bloquear nuestra ip de acceso al servidor. Esto se hace de la siguiente manera:</p>
+<p><strong>Nota</strong></p>
+<p>Ahora pasamos a ver el funcionamiento de <strong>crowdsec</strong> en vivo, esto lo podemos hacer de la siguiente, pero os informo, queda a vuestra libre elección. Esta prueba, consiste en bloquear nuestra ip de acceso al servidor. Esto se hace de la siguiente manera:</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$docker exec crowdsec cscli decisions add --ip nuestra_ip_de_acceso
 </span></span></code></pre></div><p>Una vez que <em>hemos baneado nuestra propia ip</em>, para asegurarnos de ello, pasamos a verificar que es así mediante:</p>
@@ -368,8 +370,8 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 <p>Espero que te sirva y que puedas aprender tanto como he aprendido yo.</p>
 <h4 id="-referencia">◇ Referencia</h4>
 <ul>
-<li><a href="https://technotim.live/posts/crowdsec-traefik">Documentación - CrowdSec &amp; Traefik Tutorial</a></li>
-<li><a href="https://www.youtube.com/watch?v=-GxUP6bNxF0">Video - CrowdSec &amp; Traefik Tutorial</a></li>
+<li><a href="https://technotim.live/posts/crowdsec-traefik">Documentación - Crowdsec &amp; Traefik Tutorial</a></li>
+<li><a href="https://www.youtube.com/watch?v=-GxUP6bNxF0">Video - Crowdsec &amp; Traefik Tutorial</a></li>
 <li><a href="https://atareao.es/podcast/mas-herramientas-para-proteger-tu-linux/">528 - Más herramientas para proteger tu Linux</a></li>
 <li><a href="https://github.com/atareao/self-hosted/blob/main/traefik/traefik.yml">GitHub Atareao - Traefik</a></li>
 <li><a href="https://github.com/atareao/self-hosted/blob/main/crowdsec/docker-compose.yml">GitHub Atareao - Crowdsec</a></li>

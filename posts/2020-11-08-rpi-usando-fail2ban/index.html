@@ -14,7 +14,7 @@ Raspberry Pi. Instalar y configurar fail2ban · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2020-11-08-rpi-usando-fail2ban/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2020-11-08-rpi-usando-fail2ban/">
 
 
 
@@ -57,7 +57,7 @@ Raspberry Pi. Instalar y configurar fail2ban · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Raspberry Pi. Instalar y configurar fail2ban · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Utilizando fail2ban en RPI">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2020-11-08-rpi-usando-fail2ban/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2020-11-08-rpi-usando-fail2ban/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Raspberry Pi. Instalar y configurar fail2ban · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Raspberry Pi. Instalar y configurar fail2ban · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Utilizando fail2ban en RPI">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -198,7 +198,8 @@ Raspberry Pi. Instalar y configurar fail2ban · Si lo haces, hazlo bien!
 </span></span></code></pre></div><p>Ahora, nos toca disfrutar de los baneos, que puedes ver en el fichero de los:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ sudo tail -f /var/log/fail2ban.log
 </span></span></code></pre></div><blockquote>
-<p>nota: Que como dice un youtuber famoso <a href="https://www.youtube.com/channel/UCrBzBOMcUVV8ryyAU_c6P5g">PeladoNerd</a>, es un ejercicio muy saludable.</p>
+<p><strong>Nota</strong></p>
+<p>Que como dice un youtuber famoso <a href="https://www.youtube.com/channel/UCrBzBOMcUVV8ryyAU_c6P5g">PeladoNerd</a>, es un ejercicio muy saludable.</p>
 </blockquote>
 <p>Así mismo, también pongo el código necesario para poder <code>desbanear</code> nuestra ip de acceso a la raspberry (me ha pasado más de una vez), lo que se tiene que hacer es lo siguiente:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@raspberry:~$ fail2ban-client set sshd unbanip x.x.x.x

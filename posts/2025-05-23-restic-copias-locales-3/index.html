@@ -14,7 +14,7 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-05-23-restic-copias-locales-3/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-05-23-restic-copias-locales-3/">
 
 
 
@@ -57,7 +57,7 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Hablamos de copias de seguridad entre Backrest i MinIO">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2025-05-23-restic-copias-locales-3/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2025-05-23-restic-copias-locales-3/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Hablamos de copias de seguridad entre Backrest i MinIO">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -179,7 +179,9 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${HOME}/backup:/data</span>
 </span></span></code></pre></div><blockquote>
-<p>nota: Tengo que decir que esta información no está, o yo al menos no he sabido cómo encontrarla en la web de <strong>MinIO</strong>, en teoría hay un fichero <a href="https://github.com/minio/minio/tree/master/docs/orchestration/docker-compose">docker-compose</a> que nos tendría que facilitar la vida a la hora de realizar la instalación, pero que en realidad nos la complica porque añade cosas, que para la gran mayoría, como es mi caso, no es necesario. Así que gracias a otra fuente, he podido encontrar un <a href="https://thanhtunguet.info/posts/install-minio-using-docker-compose">docker-compose</a> que en mi caso me ha ido muy bien y que gracias a ese fichero, ya tengo mi contenedor de <strong>MinIO</strong> en marcha.</p>
+<p><strong>Nota</strong></p>
+<p>Tengo que decir que esta información no aparece —o al menos yo no he sabido encontrarla— en la web de MinIO. En teoría, existe un fichero docker-compose que debería facilitar la instalación, pero en la práctica la complica, ya que añade configuraciones que, en la mayoría de casos (como el mío), no son necesarias.</p>
+<p>Gracias a otra fuente, he podido encontrar un docker-compose más sencillo que me ha funcionado perfectamente y con el que ya tengo el contenedor de MinIO en marcha.</p>
 </blockquote>
 <p>También te añado los <strong>labels</strong> necesarios en caso de que tengas <strong>Traefik</strong> para su configuración:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span> <span style="color:#f92672">labels</span>:
@@ -212,11 +214,8 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.routers.minio.rule=Host(`${MINIO_CONSOLE}`)</span>
 </span></span></code></pre></div><p>El segundo problema que me encontré es que <strong>MinIO</strong> utiliza 2 puertos para poder ser utilizado:</p>
 <ul>
-<li>
-<p><strong>9000</strong>: Es el puerto de la API que se utiliza para las copias de seguridad.</p>
-</li>
-<li>
-<p><strong>9001</strong>: Es el puerto de acceso para la GUI.</p>
+<li><strong>9000</strong>: Es el puerto de la API que se utiliza para las copias de seguridad.</li>
+<li><strong>9001</strong>: Es el puerto de acceso para la GUI.
 <ul>
 <li>Con este puerto no tenía ningún problema, porque es el que ya había configurado con <em>Traefik</em>.</li>
 </ul>
@@ -261,7 +260,9 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;s3:</span><span style="color:#e6db74">${</span>VPS_MINIO_URL<span style="color:#e6db74">}</span><span style="color:#e6db74">/backup|</span><span style="color:#e6db74">${</span>VPS_AWS_ACCESS_KEY_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">|</span><span style="color:#e6db74">${</span>VPS_AWS_SECRET_ACCESS_KEY<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">)</span>
 </span></span></code></pre></div><blockquote>
-<p>nota: He tenido que hacer una corrección al script, porque tenía <code>declare -A REPOS</code> y lo que hace es indicar que el primer elemento es la clave del array y el segundo elemento es el valor, por eso solamente me estaba haciendo las copias de seguridad externas (VPS) y no las hacía en mi servidor local.</p>
+<p><strong>Nota</strong></p>
+<p>He tenido que hacer una corrección en el script, ya que tenía declarado <code>declare -A REPOS</code>. Esto indica que el primer elemento del array es la clave y el segundo el valor.</p>
+<p>Por este motivo, el script solo estaba realizando las copias de seguridad externas (VPS) y no las del servidor local.</p>
 </blockquote>
 <p>Aquí indicamos en el array <code>REPOS</code> las dos <em>URL</em> de los servidores con <strong>MinIO</strong> junto con las claves <strong>AWS_ACCESS_KEY_ID</strong> y <strong>AWS_SECRET_ACCESS_KEY</strong> separado por <strong>|</strong>, para que esta información se cargue directamente cada vez que acceda a un servidor para enviar las copias de seguridad.</p>
 <p>La otra modificación que se tiene que hacer es en los <strong>for</strong> donde realizará la tarea de <em>crear las copias</em>, <em>verificar</em>, <em>eliminar</em> las antiguas en cada servidor y esto se hace a través de:</p>
@@ -336,7 +337,9 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 </ul>
 <p>Con esto ya tengo implementado mi sistema de copias de seguridad. Pero aun así, quiero añadir una capa más de seguridad que es, aprovechando que tengo <a href="https://mega.io">Mega</a>, me gustaría enviarlas aquí, para tener una copia fuera, lo podemos llamar así, de mi control, eso sí, con la información encriptada, por si pasa algo tanto con el servidor local como con el VPS y que la pueda recuperar llegado el momento.</p>
 <blockquote>
-<p>nota: Con respecto a la modificación del menú por parte de <strong>MinIO</strong>, parece ser que ha sido una <a href="https://www.reddit.com/r/minio/comments/1kuzugc/administrator_panel_missing_on_docker_desktop">decisión</a> de solamente dar soporte de seguridad a la versión <em>community</em>, por eso y gracias al canal de <strong>Atareao</strong>, he descubierto esta <a href="https://kopia.io/docs/reference/command-line/common/repository-connect-s3">aplicación</a>, que tendré que investigar quién no dice que use esta para sustituir a <strong>MinIO</strong>.</p>
+<p><strong>Nota</strong></p>
+<p>Con respecto a la modificación del menú por parte de <strong>MinIO</strong>, parece ser que ha sido una <a href="https://www.reddit.com/r/minio/comments/1kuzugc/administrator_panel_missing_on_docker_desktop">decisión</a> para limitar el soporte de seguridad a la versión <em>Community</em>.</p>
+<p>Gracias al canal de Atareao, he descubierto esta <a href="https://kopia.io/docs/reference/command-line/common/repository-connect-s3">aplicación</a>, que tendré que investigar como posible sustituta de <strong>MinIO</strong>..</p>
 </blockquote>
 <p>El tiempo lo dirá.</p>
 <h4 id="-referencia">◇ Referencia</h4>

@@ -14,7 +14,7 @@ Instalando y configurando Traefik · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2024-04-19-traefik/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-04-19-traefik/">
 
 
 
@@ -57,7 +57,7 @@ Instalando y configurando Traefik · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Instalando y configurando Traefik · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Usando traefik como proxy inverso">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2024-04-19-traefik/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2024-04-19-traefik/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Instalando y configurando Traefik · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Instalando y configurando Traefik · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Usando traefik como proxy inverso">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -212,8 +212,8 @@ Instalando y configurando Traefik · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">proxy</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">true</span>
 </span></span></code></pre></div><blockquote>
-<p>nota:
-Antes de lanzarnos a la piscina con la instalación, tenemos que tener en cuenta 2 cosas, en mi caso estoy usando un fichero <code>.env</code> donde tengo las variables, los passwords y las URL que utilizo:</p>
+<p><strong>Nota</strong></p>
+<p>Antes de lanzarnos a la piscina con la instalación, tenemos que tener en cuenta 2 cosas, en mi caso estoy usando un fichero <code>.env</code> donde tengo las variables, los passwords y las URL que utilizo:</p>
 <ul>
 <li><code>${HOME}</code> que es el directorio <em>HOME</em> de mi usuario</li>
 <li><code>${TRAEFIK_SERVER}</code> que es la <em>URL</em> de acceso a este servicio.</li>
@@ -309,7 +309,8 @@ Antes de lanzarnos a la piscina con la instalación, tenemos que tener en cuenta
 <p>Si todo va bien, ya lo tenemos en funcionamiento y además, con el certificado SSL para conectarnos al <strong>dashboard</strong> y si hemos activado la seguridad de acceso a través de usuarios, antes del acceso, nos pedirá el usuario y password.</p>
 <p>Con esto, ya tenemos la instalación de traefik en marcha. Ahora viene lo más difícil, que es configurar el resto de servicios para que hagan uso de <strong>traefik</strong> y poder usarlo.</p>
 <blockquote>
-<p>nota: Aquí tengo que informar que el fichero <code>docker-compose.yml</code> de <em>traefik</em> ha sufrido algunas modificaciones como consecuencia de lo que podéis leer en este [articulo], quedando de la siguiente manera:</p>
+<p><strong>Nota</strong></p>
+<p>Aquí tengo que informar que el fichero <code>docker-compose.yml</code> de <em>traefik</em> ha sufrido algunas modificaciones como consecuencia de lo que podéis leer en este [articulo], quedando de la siguiente manera:</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
 </span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">traefik.enable=true</span>

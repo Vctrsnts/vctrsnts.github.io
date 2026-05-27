@@ -14,7 +14,7 @@ Crear RSS de los podcast que sigo · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2023-07-23-crear-rss-podcast/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2023-07-23-crear-rss-podcast/">
 
 
 
@@ -57,7 +57,7 @@ Crear RSS de los podcast que sigo · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Crear RSS de los podcast que sigo · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Crear RSS a traves de script en python">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2023-07-23-crear-rss-podcast/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2023-07-23-crear-rss-podcast/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -80,7 +80,7 @@ Crear RSS de los podcast que sigo · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -90,7 +90,7 @@ Crear RSS de los podcast que sigo · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Crear RSS a traves de script en python">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -173,8 +173,10 @@ Crear RSS de los podcast que sigo · Si lo haces, hazlo bien!
 <p>Así mismo, también empecé a seguir a unos podcaster que hablan sobre tecnología (<a href="https://ugeek.github.io">uGeek</a>, <a href="https://atareao.es">Atareao</a>, <a href="https://papafriki.gitlab.io/podcast">PapaFriki</a>, etc&hellip;) y me he aficionado a ellos, así que también los puse en la lista de seguimiento. Pero claro, yo los puedo escuchar cuando puedo y este año (2023) ha sido un poco difícil, porque he tenido un año muy complicado.</p>
 <p>Entonces empecé a investigar la manera de descargar los podcast automáticamente y sí que existe, más información en este <a href="/posts/2021-05-30-flexget-podcast">artículo</a>. Y que además, también se puede hacer lo mismo con los otros podcast, mientras tengan un fichero <em><strong>RSS</strong></em>, se puede descargar. Así que lo más importante, conseguir los podcast ya estaba hecho. Pero claro, ahora faltaba la parte de poderlos escuchar.</p>
 <blockquote>
-<p>nota: Antes un pequeño inciso sobre mi manera de tratar los ficheros de podcast. Al principio, los podcast los trataba como si fueran ficheros de música normales y corrientes, pero siempre intentaba tenerlos separados de la música, en un directorio los podcast y en otro la música, pero a la hora de escuchar, siempre acababan juntándose en la aplicación del móvil que usaba (<strong>D-Sub</strong>, <strong>Tempo</strong>, etc&hellip;), así que me puse a investigar y gracias a unos de los podcast, valga la redundancia, de <a href="https://ugeek.github.io/post/2022-12-07-charla-con-atareao-sobre-servicios-y-mucho-mas.html">uGeek</a>, donde explicaba que él estaba intentando crear su propio feed de los podcast que seguía, para que así, a través del móvil o cualquier otra aplicación, poderlos escuchar cuando fuera posible.</p>
+<p><strong>Nota</strong></p>
+<p>Antes, un pequeño inciso sobre mi manera de tratar los ficheros de podcast. Al principio los trataba como si fueran ficheros de música normales y corrientes, intentando mantener separados los podcast y la música en directorios distintos, pero a la hora de escucharlos siempre acababan mezclándose en la aplicación del móvil que usaba (D-Sub, Tempo, etc…).</p>
 </blockquote>
+<p>Así que me puse a investigar y, gracias a uno de los podcast —valga la redundancia— de uGeek, descubrí que estaba intentando crear su propio feed de podcast para poder escucharlos desde el móvil o cualquier otra aplicación cuando le fuera posible.</p>
 <p>Esa idea me gustó mucho y me puse a investigar, porque los conocimientos que tengo yo de bash son muy pocos y llegar al nivel para hacer lo que estaba explicando <strong>uGeek</strong> sería muy complicado.</p>
 <p>Después de mucho buscar y probar, encontré este <a href="https://github.com/amsehili/genRSS">proyecto</a> en GitHub, que a través de un fichero Python, se crea automáticamente el fichero RSS del directorio que tú le indicabas junto con el título y descripción y después, este mismo fichero RSS, lo puedes exponer a internet, para que cualquier aplicación lectora de RSS (sobre todo las aplicaciones de podcast que funcionan a través de ellos) pudiera tener acceso a estos podcast.</p>
 <p>Aquí pongo un ejemplo de cómo uso yo este fichero:</p>

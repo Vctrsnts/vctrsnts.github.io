@@ -14,7 +14,7 @@ Adiós GCalendar. Hola Radicale · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-06-20-radicale-etar/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-06-20-radicale-etar/">
 
 
 
@@ -57,7 +57,7 @@ Adiós GCalendar. Hola Radicale · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Adiós GCalendar. Hola Radicale · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Utilizando alternativas libres a GCalendar">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2025-06-20-radicale-etar/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2025-06-20-radicale-etar/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Adiós GCalendar. Hola Radicale · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Adiós GCalendar. Hola Radicale · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Utilizando alternativas libres a GCalendar">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -167,7 +167,9 @@ Adiós GCalendar. Hola Radicale · Si lo haces, hazlo bien!
 <p>Entonces me empapé con el articulo de <strong>Carlos M..</strong> y busqué toda la información posible sobre la aplicación que él estaba usando, <a href="https://radicale.org/v3.html">Radicale</a>.</p>
 <p>En principio, cuesta un poco entender el funcionamiento que tiene, pero lo explicaré en lengua vernácula para que todos nos podamos entender. <strong>Radicale</strong> es un servidor de calendarios donde tú los creas y luego, con diferentes aplicaciones, usas esos calendarios que has creado.</p>
 <blockquote>
-<p>nota: Como ya he informado, <strong>Radicale</strong> también permite tener una agenda de contactos, de la que también haré uso, y así no tenerla vinculada por la cuenta de <strong>Google</strong>, pero eso no quita que los contactos que tengo en mi cuenta de <strong>GMail</strong> los vaya a borrar. Me servirán como copia de respaldo por si algún día pasa alguna cosa.</p>
+<p><strong>Nota</strong></p>
+<p>Como ya he comentado, Radicale también permite gestionar una agenda de contactos, función que también voy a utilizar para desvincularla de mi cuenta de Google.</p>
+<p>Eso sí, no voy a borrar los contactos que tengo en GMail, ya que me servirán como copia de seguridad por si algún día ocurre algún problema.</p>
 </blockquote>
 <p>Cuando ya tenemos claro lo que queremos hacer, ahora viene la parte más <strong>fácil</strong> o <strong>difícil</strong>, según se mire: la instalación del mismo. Pero gracias a <strong>Docker</strong> y a la búsqueda de información de cómo se hace, se vuelve muy fácil.</p>
 <p>Lo primero es el <code>docker-compose.yml</code>, que en mi caso es el siguiente:</p>
@@ -194,8 +196,8 @@ Adiós GCalendar. Hola Radicale · Si lo haces, hazlo bien!
 </span></span></code></pre></div><p>Como os podéis dar cuenta, también he añadido las etiquetas de <strong>Traefik</strong> para que así me dé un plus más de seguridad, aparte de toda la que ya tiene (que nunca es poca).</p>
 <p>Aunque si vais a esta <a href="https://github.com/Kozea/Radicale/wiki/Installing-on-Docker">dirección</a>, podéis encontrar el Docker que os facilita la propia aplicación de <strong>Radicale</strong>.</p>
 <blockquote>
-<p>nota:
-Lo que sí que tenéis que tener en cuenta es que, antes de iniciar el servicio de Docker de <strong>Radicale</strong>, tenéis que haber creado los siguientes ficheros:</p>
+<p><strong>Nota</strong></p>
+<p>Lo que sí que tenéis que tener en cuenta es que, antes de iniciar el servicio de Docker de <strong>Radicale</strong>, tenéis que haber creado los siguientes ficheros:</p>
 <ul>
 <li><code>config.yml</code>, donde estará la configuración del servicio.</li>
 <li><code>user</code>, donde estarán los usuarios que tienen acceso al servicio.</li>
@@ -207,7 +209,8 @@ Lo que sí que tenéis que tener en cuenta es que, antes de iniciar el servicio 
 </span></span></code></pre></div><p>Cuando ya tenemos el fichero de configuración y el fichero de usuarios, ahora sí que podemos <strong>instalar</strong> el contenedor de <strong>Radicale</strong> mediante la famosa invocación a nuestro dios <strong>Docker Compose</strong> 😂</p>
 <p>Después de esto, ya tenemos instalado nuestro propio calendario; ahora solo hace falta acceder a él y empezar a crear los calendarios que necesitemos.</p>
 <blockquote>
-<p>nota: En mi caso, lo que he hecho ha sido descargar el calendario tanto de aniversarios como de tareas que ya tenía en <strong>Google Calendar</strong> y los he importado a <strong>Radicale</strong>.</p>
+<p><strong>Nota</strong></p>
+<p>En mi caso, lo que he hecho ha sido descargar el calendario tanto de aniversarios como de tareas que ya tenía en <strong>Google Calendar</strong> y los he importado a <strong>Radicale</strong>.</p>
 </blockquote>
 <p>Para importar los calendarios, una vez los has descargado de Google, accedes a tu servidor de calendarios y accedes a la opción de la flecha azul:</p>
 <p>
@@ -250,8 +253,6 @@ Lo que sí que tenéis que tener en cuenta es que, antes de iniciar el servicio 
 </picture>
 
 
-<figcaption>Importar Calendario</figcaption>
-
 
 </figure>
 
@@ -259,25 +260,23 @@ Lo que sí que tenéis que tener en cuenta es que, antes de iniciar el servicio 
 </p>
 <p>Te pide el fichero, lo seleccionas y listo. Lo único que te queda es cambiar el nombre del calendario y listo.</p>
 <blockquote>
-<p>nota: Lo que sí que he visto es que hay unos plugins para modificar las funcionalidades del calendario, como cambiar la visualización de la web y que se pueda ver el calendario, pero no he descubierto cómo hacerlo. Además, como lo voy a usar, de momento, solo en el móvil, pues&hellip;</p>
+<p><strong>Nota</strong></p>
+<p>Lo que sí que he visto es que hay unos plugins para modificar las funcionalidades del calendario, como cambiar la visualización de la web y que se pueda ver el calendario, pero no he descubierto cómo hacerlo. Además, como lo voy a usar, de momento, solo en el móvil, pues&hellip;</p>
 </blockquote>
 <p>Una vez ya tenemos todo preparado y configurado en el servidor, en mi caso me falta la configuración de mi móvil, que es donde más lo voy a utilizar. Lo primero es instalar la aplicación <a href="https://www.davx5.com">DAVx5</a> para tener acceso a los calendarios.</p>
 <blockquote>
-<p>nota: No voy a explicar cómo se hace la configuración de esta APK, que se puede descargar en <a href="https://f-droid.org/ca">F-Droid</a>, porque podéis encontrar mucha información al respecto. Lo que sí que voy a comentar es lo que hice después de tener configurado el acceso y la sincronización de mis calendarios.</p>
+<p><strong>Nota</strong></p>
+<p>No voy a explicar cómo se hace la configuración de esta APK, que se puede descargar en <a href="https://f-droid.org/ca">F-Droid</a>, porque podéis encontrar mucha información al respecto. Lo que sí que voy a comentar es lo que hice después de tener configurado el acceso y la sincronización de mis calendarios.</p>
 </blockquote>
 <p>Una vez que tenía esta parte hecha, me puse a buscar la mejor aplicación de calendario que al menos no compartiera mis datos con todo el mundo y encontré 3 candidatos:</p>
 <ul>
-<li>
-<p><a href="https://f-droid.org/packages/ws.xsoh.etar/">Etar</a></p>
-</li>
-<li>
-<p><a href="https://f-droid.org/en/packages/at.bitfire.icsdroid/">ICSx</a></p>
+<li><a href="https://f-droid.org/packages/ws.xsoh.etar/">Etar</a></li>
+<li><a href="https://f-droid.org/en/packages/at.bitfire.icsdroid/">ICSx</a>
 <ul>
 <li>De los mismos creadores que <strong>DAVx5</strong></li>
 </ul>
 </li>
-<li>
-<p><a href="https://play.google.com/store/apps/details?id=org.withouthat.acalendar&amp;hl=es_ES">ACalendar</a></p>
+<li><a href="https://play.google.com/store/apps/details?id=org.withouthat.acalendar&amp;hl=es_ES">ACalendar</a>
 <ul>
 <li>Que me la recomendó, cómo no, <strong>Carlos M.</strong></li>
 </ul>

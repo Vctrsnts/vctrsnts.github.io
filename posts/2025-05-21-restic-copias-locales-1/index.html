@@ -14,7 +14,7 @@ Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-05-21-restic-copias-locales-1/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-05-21-restic-copias-locales-1/">
 
 
 
@@ -57,7 +57,7 @@ Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Vamos a utilizar Restic, BackRest y MinIOS para las copias de seguridad">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2025-05-21-restic-copias-locales-1/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2025-05-21-restic-copias-locales-1/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Vamos a utilizar Restic, BackRest y MinIOS para las copias de seguridad">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -165,16 +165,14 @@ Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!
     <p>Lo primero y antes de nada, tengo que dar las gracias a <strong>Carlos M.</strong> de <a href="https://elblogdelazaro.org">El Blog de Lázaro</a> y a <strong>Lorenzo</strong> de <a href="https://atareao.es">Atareao</a>, por todo el conocimiento que me han aportado, porque sin eso yo no podría haber hecho lo que voy a explicar en este artículo. Muchas gracias 👏.</p>
 <p>Ahora vamos a explicar cómo, gracias a estas 2 increíbles personas, he creado mi perfecto (para mí) sistema de copias de seguridad.</p>
 <blockquote>
-<p>nota: Tengo que decir que me falta la parte de externalizar las copias, pero es muy parecido a lo que tengo ahora, así que no debería haber muchos problemas.</p>
+<p><strong>Nota</strong></p>
+<p>Tengo que decir que me falta la parte de externalizar las copias, pero es muy parecido a lo que tengo ahora, así que no debería haber muchos problemas.</p>
 </blockquote>
 <p>Lo primero y más básico es explicar lo que quiero hacer:</p>
 <ul>
 <li>Mediante <strong>Restic</strong>, hacer las copias de seguridad de mi equipo personal y llevarlas al servidor local con <strong>unRAID</strong>.</li>
-<li><strong>Atareao</strong> explica que lo correcto es hacer una copia de seguridad en local, otra en el servidor local y una en un VPS externo.
-<ul>
+<li><strong>Atareao</strong> explica que lo correcto es hacer una copia de seguridad en local, otra en el servidor local y una en un VPS externo.</li>
 <li>Yo entiendo que las copias en local, si te falla el HDD/SSD del equipo no sirven de nada, así que mejor hacer solo copia de seguridad en servidor local (que ya tengo implementado) y otra en VPS externo (que me falta por implementar).</li>
-</ul>
-</li>
 <li>Mantener la regla de <em>7 copias diarias</em>, <em>4 semanales</em>, <em>6 mensuales</em>. Me parece un poco excesivo, pero nunca se sabe; más vale prevenir que curar.</li>
 </ul>
 <p>Así que me puse a ello. Pero lo primero era tener un HDD para guardar las copias de seguridad, y eso ahora mismo, con mi nuevo <a href="/posts/2025-04-20-modificaciones-servidor-3">servidor</a> es muy sencillo: simplemente he aprovechado un HDD de 1 TB que tenía por aquí tirado, lo he conectado a <em>unRAID</em> y a funcionar. De nuevo, tengo que dar las gracias a <strong>@Mr. H</strong>, por el increíble diseño que ha hecho.</p>
@@ -223,8 +221,6 @@ Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!
 </picture>
 
 
-<figcaption>Backrest</figcaption>
-
 
 </figure>
 
@@ -270,8 +266,6 @@ Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!
 </picture>
 
 
-<figcaption>MiniIO</figcaption>
-
 
 </figure>
 
@@ -279,7 +273,8 @@ Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!
 </p>
 <p>Una vez que tenemos <strong>Backrest</strong>, solo nos falta la instalación de <strong>MiniIO</strong> y, como antes, mejor leer el <a href="https://atareao.es/podcast/no-pierdas-tus-datos-backups-infalibles">artículo</a> de <strong>Lorenzo</strong>, que también lo explica muy bien.</p>
 <blockquote>
-<p>nota: Lo que hay que tener en cuenta a la hora de instalar <strong>MiniIO</strong> es la nota que añade el creador de este Docker para cuando se usa en <strong>unRAID</strong>:</p>
+<p><strong>Nota</strong></p>
+<p>Lo que hay que tener en cuenta a la hora de instalar <strong>MiniIO</strong> es la nota que añade el creador de este Docker para cuando se usa en <strong>unRAID</strong>:</p>
 <p>Attention: Unfortunately due to changes in Minio, the unRAID file system is no longer supported. The only way to get Minio to work on unRAID now is by mapping a single disk directly or setting up a V-Disk.</p>
 </blockquote>
 <p>En mi caso, no he tenido ningún problema, porque solo tengo un HDD para las copias de seguridad, pero siempre hay que tenerlo en cuenta.</p>
@@ -295,7 +290,8 @@ Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ restic -r /path/to/backup restore latest --target /dir_recuperar
 </span></span></code></pre></div><h3 id="4-borrar-repositorios-para-solo-mantener-x-copias">4. Borrar repositorios para solo mantener X copias</h3>
 <blockquote>
-<p>nota: En este caso, como ejemplo, hemos puesto 6.</p>
+<p><strong>Nota</strong></p>
+<p>En este caso, como ejemplo, hemos puesto 6.</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ restic -r /path/to/backup forget --keep-last <span style="color:#ae81ff">6</span> prune
 </span></span></code></pre></div><h3 id="5-borrar-backups-de-más-de-30-días">5. Borrar backups de más de 30 días</h3>

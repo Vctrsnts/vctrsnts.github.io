@@ -14,7 +14,7 @@ Solucionar error i915 en gráfica Intel · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2021-06-09-solucionar-error-i915/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2021-06-09-solucionar-error-i915/">
 
 
 
@@ -57,7 +57,7 @@ Solucionar error i915 en gráfica Intel · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Solucionar error i915 en gráfica Intel · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Errores en la iGPU i915 de Intel">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2021-06-09-solucionar-error-i915/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2021-06-09-solucionar-error-i915/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Solucionar error i915 en gráfica Intel · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Solucionar error i915 en gráfica Intel · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Errores en la iGPU i915 de Intel">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -185,8 +185,8 @@ Solucionar error i915 en gráfica Intel · Si lo haces, hazlo bien!
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rm /etc/X11/xorg.conf.d/20-intel.conf
 </span></span></code></pre></div><p>Donde indicas que siga usando el mismo driver que venía usando, lo único que cambias es (en palabras del post).</p>
 <blockquote>
-<p>nota:
-Realmente, lo que has hecho es indicarle que use el mismo driver, modificando el método para la aceleración 3d. Intel pasó a usar el método <strong>sna</strong> por defecto en detrimento del método <strong>uxa</strong>, que es el que se venía usando. El problema está en que <strong>sna</strong>, no siempre va bien con todas las intel, con lo que se mantuvo la posibilidad de usar uno u otro. Si la gráfica es algo vieja, es normal que <strong>uxa</strong> te dé buenos resultados. Por el contrario en gráficas nuevas, <strong>sna</strong> es el que mejor funciona.</p>
+<p><strong>Nota</strong></p>
+<p>Realmente, lo que has hecho es indicarle que use el mismo driver, modificando el método para la aceleración 3d. Intel pasó a usar el método <strong>sna</strong> por defecto en detrimento del método <strong>uxa</strong>, que es el que se venía usando. El problema está en que <strong>sna</strong>, no siempre va bien con todas las intel, con lo que se mantuvo la posibilidad de usar uno u otro. Si la gráfica es algo vieja, es normal que <strong>uxa</strong> te dé buenos resultados. Por el contrario en gráficas nuevas, <strong>sna</strong> es el que mejor funciona.</p>
 </blockquote>
 <p>Con esta simple modificación, que hice hace 2 semanas, no me han vuelto a aparecer los flashes en la pantalla del portátil.</p>
 <p>Espero que os sea de utilidad</p>

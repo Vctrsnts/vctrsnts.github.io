@@ -14,7 +14,7 @@ Matrix - 2. PushBits, la pasarela que faltaba · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-03-27-pushbits/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-03-27-pushbits/">
 
 
 
@@ -57,7 +57,7 @@ Matrix - 2. PushBits, la pasarela que faltaba · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Matrix - 2. PushBits, la pasarela que faltaba · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Cuando no puede ser, pues tenemos más alternativas y pushbits es una de ellas">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2025-03-27-pushbits/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2025-03-27-pushbits/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -80,7 +80,7 @@ Matrix - 2. PushBits, la pasarela que faltaba · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -90,7 +90,7 @@ Matrix - 2. PushBits, la pasarela que faltaba · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Cuando no puede ser, pues tenemos más alternativas y pushbits es una de ellas">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -187,11 +187,13 @@ Matrix - 2. PushBits, la pasarela que faltaba · Si lo haces, hazlo bien!
 <p>Es una cosa que pude comprobar yo mismo, porque encontré el archivo que utiliza <em>flexget</em> para manejar las notificaciones, y se podía ver claramente cómo los envíos se hacen mediante una versión anterior a la que se usa actualmente en <em>matrix</em>. Pues empezamos bien. La primera en la frente.</p>
 <p>También quería usar <em>matrix</em> para que mi servidor de <em>unRaid</em> me enviara todas las notificaciones, y aquí va la segunda en la frente, <em>unRaid</em> no está preparado, de momento, para hacer uso de <em>matrix</em>. Qué bien empezamos. Con lo que había sufrido para instalar <em>matrix</em> y voy y me encuentro que las dos primeras cosas que quiero usar <em>matrix</em> no están soportadas. Así que, ¿iba a hacer ahora? ¿Desinstalar <em>matrix</em> y volver a <em>telegram</em>?</p>
 <blockquote>
-<p>nota: Como decía <a href="https://es.wikipedia.org/wiki/George_Patton">George S. Patton</a>, <strong>Nunca estás vencido hasta que lo admites</strong>.</p>
+<p><strong>Nota</strong></p>
+<p>Como decía <a href="https://es.wikipedia.org/wiki/George_Patton">George S. Patton</a>, <strong>Nunca estás vencido hasta que lo admites</strong>.</p>
 </blockquote>
 <p>Así que me puse a investigar por la opción más importante y <em>necesaria</em>: hacer que <em>unRaid</em> pudiera enviar las notificaciones a <em>matrix</em>. Después de mucho investigar, encontré esta <a href="https://forums.unraid.net/topic/122107-matrix-notification-agent">pregunta</a> en el foro de <em>unRaid</em>, que al principio no acababa de entender, pero me explicaron que hay un servicio en Docker que se llama <a href="https://www.pushbits.io">PushBits</a> que hace de puente entre <em>matrix</em> y cualquier otro servicio, porque <strong>simula</strong> que estás enviando los mensajes a un servidor de <strong>Gotify</strong>, y actualmente hay muchos más servicios que pueden enviar notificaciones a <em>Gotify</em>, y uno de estos es <em>unRaid</em>, que, aparte de poder enviar notificaciones a un servidor <em>Gotify</em>, también permite el envío de notificaciones a <em>PushBits</em>.</p>
 <blockquote>
-<p>nota: Tengo que decir que esto mismo lo hace <a href="https://atareao.es">atareao</a> pero a través de <strong>webhooks</strong>, creo que se dice, pero es un tema que no acabo de entender del todo, así que de momento voy por este camino. Eso no quiere decir que en el momento en que entienda más del tema haga el cambio.</p>
+<p><strong>Nota</strong></p>
+<p>Tengo que decir que esto mismo lo hace <a href="https://atareao.es">atareao</a> pero a través de <strong>webhooks</strong>, creo que se dice, pero es un tema que no acabo de entender del todo, así que de momento voy por este camino. Eso no quiere decir que en el momento en que entienda más del tema haga el cambio.</p>
 </blockquote>
 <p>Pues ya tenía todo lo necesario para que tanto <em>unRaid</em> como <em>flexget</em> pudieran enviar mensajes a <em>Gotify</em>. ¿Seguro que lo tenía todo? Faltaba la parte más difícil de todas, la instalación y configuración. Y aquí se viene otro baño de realidad. En el repositorio de <a href="https://github.com/pushbits/server">Pushbits</a> no encontraba nada de cómo hacer posible la instalación a través de <code>docker-compose.yml</code> y cómo usarlo después.</p>
 <p>Así que de nuevo a investigar. Nunca se va a acabar esto de investigar 😓. Lo único que me alegra es que cuando deje de investigar solo será por dos posibilidades: o soy tan listo que lo sé todo 🤣, cosa difícil, o es que estoy muerto 💀.</p>
@@ -305,7 +307,8 @@ Matrix - 2. PushBits, la pasarela que faltaba · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># En aquest cas, estic creant una sala / aplicació per a flexget</span>
 </span></span><span style="display:flex;"><span>/app $ pbcli application create flexget --url http://172.20.0.5:8080 --username admin
 </span></span></code></pre></div><blockquote>
-<p>nota: Cuando pongas la <strong>URL</strong> ten en cuenta que es la URL del contenedor donde está corriendo PushBits.</p>
+<p><strong>Nota</strong></p>
+<p>Cuando pongas la <strong>URL</strong> ten en cuenta que es la URL del contenedor donde está corriendo PushBits.</p>
 </blockquote>
 <p>Cuando tengas creada la sala / aplicación, obtendrás un <strong>token</strong> que será el que tendrás que utilizar para validarte con <em>PushBits</em> y, a su vez, este se comunicará con la sala de <em>matrix</em>. Y te puedo asegurar que funciona a la perfección 🎉.</p>
 <p>Ya solo nos queda configurar <em>unRaid</em> para que se envíen las notificaciones y, como este está preparado para <em>PushBits</em>, pues todo perfecto:</p>
@@ -348,8 +351,6 @@ Matrix - 2. PushBits, la pasarela que faltaba · Si lo haces, hazlo bien!
 
 </picture>
 
-
-<figcaption>PushBits</figcaption>
 
 
 </figure>
