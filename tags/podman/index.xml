@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Podman on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/tags/podman/</link>
+    <link>https://vctrsnts.codeberg.page/tags/podman/</link>
     <description>Recent content in Podman on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Tue, 26 May 2026 00:00:00 +0200</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/tags/podman/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.codeberg.page/tags/podman/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Usando Podman - Instalación y configuración</title>
-      <link>https://vctrsnts.github.io/posts/2026-05-26-usando-podman-1/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2026-05-26-usando-podman-1/</link>
       <pubDate>Tue, 26 May 2026 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2026-05-26-usando-podman-1/</guid>
+      <guid>https://vctrsnts.codeberg.page/posts/2026-05-26-usando-podman-1/</guid>
       <description>&lt;p&gt;Antes de empezar, quiero que quede bien claro una cosa: el porqué de este y los siguientes artículos hablando de Podman.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Esto no va a ser una alternativa a todos los articulos que ha publicado &lt;a href=&#34;https://atareao.es/?s=podman&#34;&gt;atareao&lt;/a&gt; en referencia a &lt;strong&gt;Podman&lt;/strong&gt;. Nunca lo haria ni es lo que querría, nunca voy a poder conseguir el nivel tan alto de exigencia que tiene &lt;strong&gt;Atareo&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Solamente son artículos basados en mi proceso de instalación, configuración, gestión y uso de Podman a nivel amateur.&lt;/p&gt;</description>
     </item>
   </channel>
