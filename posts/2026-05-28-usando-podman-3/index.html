@@ -1,0 +1,210 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+
+Usando Podman - Apuntalando la base · Si lo haces, hazlo bien!
+
+</title>
+
+<link rel="canonical" href="http://192.6.0.40:1313/posts/2026-05-28-usando-podman-3/">
+
+
+
+
+
+
+<meta name="description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
+
+
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+
+<meta property="og:title" content="Usando Podman - Apuntalando la base · Si lo haces, hazlo bien!">
+<meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+<meta property="og:url" content="http://192.6.0.40:1313/posts/2026-05-28-usando-podman-3/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
+
+
+<meta property="og:type" content="article">
+
+
+<meta property="article:published_time" content="2026-05-28T00:00:00&#43;02:00">
+
+
+
+
+<meta property="article:tag" content="Podman">
+
+
+
+
+
+
+<meta property="og:image" content="http://192.6.0.40:1313/logo_post.jpg">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Usando Podman - Apuntalando la base · Si lo haces, hazlo bien!">
+<meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+<meta name="twitter:image" content="http://192.6.0.40:1313/logo_post.jpg">
+
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<script defer
+        src="https://umami.leibstandarte.duckdns.org/script.js"
+        data-website-id="5112cdbc-e0e2-4bb9-8270-d677d8fd2a46">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/index.xml">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Usando Podman - Apuntalando la base</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-05-28">
+        2026-05-28
+      </time>
+      · 3 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/podman/">
+            #Podman
+          </a>
+        
+      
+
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Espero que este sea el ultimo articulo con respecto a mis experiencias sobre la migración de <strong>Docker</strong> a <strong>Podman</strong>.</p>
+<p>Como recordareis, en el anterior <a href="/posts/2026-06-01-usando-podman-2">articulo</a> habiamos instalado <strong>Traefik</strong> y <strong>Crowdsec</strong> y su integración en el sistema. Ahora lo que vamos a hacer es instalar <strong>PocketID</strong> y la configuración de este junto con <strong>Traefik</strong>.</p>
+<p>Recordar, que la instalación de <strong>Traefik</strong>, <strong>Crowdsec</strong> la habiamos hecho a traves de <strong>quadles</strong> y es que tambien vamos a hacer lo mismo con <strong>PocketID</strong> y <strong>Dockge</strong>.</p>
+<h2 id="-instalación-y-configuración-de-pocketid">◇ Instalación y configuración de PocketID</h2>
+<p>Lo primero que necesitamos son los archivos para <strong>PocketID</strong> que podeis encontrar <a href="https://codeberg.org/vctrsnts/self-hosted-podman/src/branch/main/.config/containers/available/pocketid">aqui</a> y que la estructura es la siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>~/.config/containers/availables/PocketID/
+</span></span><span style="display:flex;"><span>├── pocketid-data.volume
+</span></span><span style="display:flex;"><span>└── pocketid.container.jinja
+</span></span></code></pre></div><h3 id="funcionamiento-de-los-archivos-jinja">Funcionamiento de los archivos <code>jinja</code></h3>
+<p>Tal como hos habia comentado en el anterior articulo sobre los archivos <code>jinja</code>; estos con archivos normales, pero que hemos añadido <em>variables</em> que al ejecutar el binario de <code>jinrender</code>, que habiamos instalado en el proceso de <a href="/posts/2026-05-26-usando-podman-1">creación</a> del usuario <em>apps</em>, lo que hace, es acceder a nuestra <strong>crypta</strong> y substituir estas <em>variables</em> por los valores correctos que tenemos almacenados.</p>
+<p>Para hacer esto, solo tenemos que substituir donde tendria que ir la información valiosa por su <em>variable</em>, como por ejemplo aqui:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#75715e"># pocketid.container.jinja</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Label=traefik.http.routers.pocketid.rule=Host(`auth.{{ env.FQDN }}`)</span>
+</span></span></code></pre></div><p>Ahora, solo tenemos que usar <code>unjinja</code>, función que hemos creado para <strong>fish</strong> y que nos facilita todo este proceso y ya tendremos el archivo resultante. Recordar que tambien tenemos que hacer lo mismo, para el archivo <code>dashboard-auth.yml.jinja</code> y que nos quedaria de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#75715e"># pocketid.container.jinja</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Label=traefik.http.routers.pocketid.rule=Host(`auth.tuServidor.com`)</span>
+</span></span></code></pre></div><p>Despues de toda la configuración, unicamente nos queda iniciar el container de <strong>PocketID</strong>, recordando que lo hemos hecho para que funcione en modo <strong>quadlet</strong>, asi que tenemos que hacer:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ systemctl --user start pocketid
+</span></span></code></pre></div><p>Una vez iniciado, para acceder a la web, tenemos que hacerlo a traves de la siguiente <em>URL</em> <code>https://auth.tuServidor.com/signup/setup</code> donde ya podremos finalizar el proceso de configuración.</p>
+<p>Después de esto, voy a hacer un inciso para explicar como se finaliza la configuración de <strong>Traefik</strong>, del dashboard para poder acceder a el a traves de <strong>PocketID</strong></p>
+<h2 id="-finalizar-la-configuración-de-traefik">◇ Finalizar la configuración de Traefik</h2>
+<p>En principio, en el anterior articulo, habiamos dado por finalizado la instalación y configuración de <strong>Traefik</strong>, eso es cierto al 99%, lo unico que nos habiamos dejado a medias, era el acceso a su <em>dashboard</em>, pero de una manera seguro, y ahora que tenemos <strong>PocketID</strong> en funcionamiento, ya podemos proceder a ello.</p>
+<p>Lo primero que tenemos que hacer, es añadir la aplicación de <strong>Traefik</strong> a <strong>PocketID</strong>. Los pasos son bien sencillos, <a href="https://github.com/atareao/self-hosted-podman">atareao</a> nos lo facilita, pero yo lo voy a condensar todo en lo importante:</p>
+<ul>
+<li>Vamos a <strong>Administration &gt; OIDC Clients</strong> y añadimos uno nuevo.</li>
+<li><strong>Name</strong>: Traefik</li>
+<li><strong>Callback URL</strong>: https://*.tuServidor/oidc/callback
+<ul>
+<li>Aqui tengo una duda de si se tiene que poner exactamente <code>https://*.tuServidor.com/oidc/callback</code> o <code>https://traefik.tuServidor.com/oidc/callback</code>. Pero en mi caso pondre la segunda opción.</li>
+</ul>
+</li>
+<li><strong>Client Launcher URL</strong>:</li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>
