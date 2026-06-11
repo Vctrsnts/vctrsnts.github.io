@@ -1,0 +1,592 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+
+Instalado y usando Beszel · Si lo haces, hazlo bien!
+
+</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-06-10-usando-beszel/">
+
+
+
+
+
+
+<meta name="description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
+
+
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+
+<meta property="og:title" content="Instalado y usando Beszel · Si lo haces, hazlo bien!">
+<meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-06-10-usando-beszel/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
+
+
+<meta property="og:type" content="article">
+
+
+<meta property="article:published_time" content="2026-06-10T00:00:00&#43;02:00">
+
+
+
+
+<meta property="article:tag" content="VPS">
+
+<meta property="article:tag" content="Podman">
+
+
+
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Instalado y usando Beszel · Si lo haces, hazlo bien!">
+<meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="6608b7e7-8981-44c1-965f-4266bfc3bab5">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/index.xml">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Instalado y usando Beszel</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-06-10">
+        2026-06-10
+      </time>
+      · 7 min
+      
+        ·
+        
+          <a class="p-category" href="/categories/self-hosting/">
+            @Self-Hosting
+          </a>
+        
+      
+
+      
+        ·
+        
+          <a href="/tags/vps/">
+            #VPS
+          </a>
+        
+          <a href="/tags/podman/">
+            #Podman
+          </a>
+        
+      
+
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Este es un artículo que si no fuera por <a href="https://www.ochobitshacenunbyte.com">davidochobits</a> no existiría. Gracias <strong>David</strong> 👏</p>
+<p>Conocí esta aplicación gracias a este <a href="https://mastodon.social/@davidochobits/116585529261127875">toot</a> de <strong>David</strong> en <em>Mastodon</em> y me lo guardé para cuando tuviera más tiempo y poder echarle un vistazo, porque la monitorización de nuestros equipos, <em>no lo vamos a negar</em>, es un tema que a todos los frikis del <em>self-hosting</em> nos interesa.</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Pero eso sí, sin llegar al extremo de tener mil aplicaciones y tanta información que nos perdamos en ella.</p>
+</blockquote>
+<p>Como bien dice <strong>David</strong>, existen aplicaciones de primer nivel como, por ejemplo:</p>
+<ul>
+<li><a href="https://www.librenms.org">LibreNMS</a></li>
+<li><a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a></li>
+<li><a href="https://www.netdata.cloud">Netdata</a></li>
+</ul>
+<h3 id="por-qué-beszel">¿Por qué Beszel?</h3>
+<p>En mi opinión, si no es que tienes un equipo potente (tipo empresarial), estas herramientas son, como dice el refrán, &ldquo;matar moscas a cañonazos&rdquo;.</p>
+<p>Sí, te van a dar mucha información sobre tu servidor o VPS, pero ¿necesitas tanta información?</p>
+<p>Hazte la pregunta: ¿necesito tanta? O, como es mi caso, con mi VPS, un <a href="/posts/2025-04-20-modificaciones-servidor-3">TiNAS</a> o una <em>Raspberry Pi</em>, con la información más importante tengo más que suficiente.</p>
+<p>Mientras pueda ver:</p>
+<ul>
+<li>La carga de RAM</li>
+<li>Uso de CPU</li>
+<li>Uso de red</li>
+<li>Procesos en ejecución</li>
+</ul>
+<p>Con esto tengo más que suficiente.</p>
+<p>Pero si eres un <strong>apasionado</strong> de las estadísticas y de las gráficas, las aplicaciones que antes te he mencionado son las tuyas.</p>
+<p>Si no, aquí es donde <a href="https://www.beszel.dev/">Beszel</a> hace su aparición para mostrarte lo que necesitas, ni más ni menos.</p>
+<p>Después de esta pequeña presentación, ahora pasaremos a explicar mi proceso de instalación de esta aplicación en mi VPS con <em>Podman</em>.</p>
+<h2 id="-requisitos">◇ Requisitos</h2>
+<p>Antes de cualquier instalación, hay que tener presente que necesitas tener:</p>
+<ul>
+<li><a href="/posts/2026-05-26-usando-podman-1">Podman</a> en funcionamiento. Es lo que estoy utilizando junto con <strong>Dockge</strong> para facilitarme la vida a la hora de añadir cualquier container.</li>
+<li><a href="/posts/2026-06-01-usando-podman-2">Traefik</a> en funcionamiento y configurado.</li>
+<li>Acceso a <a href="/posts/2026-06-06-usando-podman-3">PocketID</a>.</li>
+</ul>
+<p>Si os fijáis, partimos de la base que ya hemos ido montando con anterioridad, porque lo importante a partir de ahora es tener una buena base sobre la que construir todo nuestro sistema.</p>
+<h2 id="-instalación">◇ Instalación</h2>
+<p>Una vez que ya tenemos todo preparado para la instalación, pasamos a realizarla.</p>
+<p>En mi caso he utilizado el siguiente <code>compose</code>. Recordad que estoy utilizando <strong>Dockge</strong> para estos menesteres:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">beszel</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">henrygd/beszel</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">beszel</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">proxy</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">beszel</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${PODMAN_STORAGE_PATH}/.config/beszel_data:/beszel_data:rw</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${PODMAN_STORAGE_PATH}/.config/beszel_socket:/beszel_socket</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">USER_CREATION</span>: <span style="color:#e6db74">&#34;false&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">DISABLE_PASSWORD_AUTH</span>: <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">CMD</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">/beszel</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">health</span>
+</span></span><span style="display:flex;"><span>        - --<span style="color:#ae81ff">url</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">http://localhost:8090</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.enable=true</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.services.beszel.loadbalancer.server.port=8090</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.routers.beszel.entrypoints=websecure</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.routers.beszel.tls.certresolver=myresolver</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.routers.beszel.rule=Host(`${FQDN}`)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">beszel</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">beszel</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">proxy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">x-dockge</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">urls</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">https://{FQDN}</span>
+</span></span></code></pre></div><p>Como podéis ver, también tenemos la configuración de <strong>Beszel</strong> para poder utilizarlo con <strong>Traefik</strong>.</p>
+<p>Una vez tenemos esto, solamente nos queda iniciar el container.</p>
+<p>Ahora pasaremos a realizar la configuración de <strong>Beszel</strong> junto con <strong>PocketID</strong> para poder acceder con total seguridad.</p>
+<h2 id="-configuración-de-pocketid">◇ Configuración de PocketID</h2>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Antes de empezar, nos tenemos que asegurar de que nuestro correo electrónico está verificado en <strong>PocketID</strong>. Para ello accedemos a nuestros datos de usuario y veremos un <strong>icono de un sobre</strong> en color rojo:</p>
+</blockquote>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-06-10-usando-beszel/imagen_01_hu_b1d533bbf9a87368.webp 480w,
+      /posts/2026-06-10-usando-beszel/imagen_01_hu_c58326383d464315.webp 768w,
+      /posts/2026-06-10-usando-beszel/imagen_01_hu_28b9f4d9bc7f7ace.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2026-06-10-usando-beszel/imagen_01_hu_430d93050deaf9e6.jpg"
+    alt=""
+    width="1200"
+    height="132"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<p>Esto significa que nuestro correo electrónico no está verificado. Hacemos clic y pasará a verde.</p>
+<p>Con esto ya hemos verificado nuestro correo y nos ahorramos muchos problemas futuros.</p>
+<p>Ahora ya podemos dar de alta nuestra nueva aplicación en <strong>PocketID</strong>.</p>
+<p>En mi caso he utilizado los siguientes datos:</p>
+<ul>
+<li>Name: Beszel</li>
+<li>Redirect URI: <a href="https://beszel.tudominio.com/api/oauth2-redirect">https://beszel.tudominio.com/api/oauth2-redirect</a></li>
+<li>Emails Verified = ON</li>
+<li>Usuario con correo electrónico verificado (<em>lo hemos hecho con anterioridad</em>).</li>
+</ul>
+<p>Con estos datos ya hemos dado de alta nuestra aplicación.</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Antes de salir de <strong>PocketID</strong>, tenemos que acceder a la opción <em>Show more details</em> y apuntarnos los siguientes datos, que necesitaremos más adelante:</p>
+<ul>
+<li>Client ID</li>
+<li>Client Secret</li>
+<li>Auth URL</li>
+<li>Token URL</li>
+<li>Userinfo URL</li>
+</ul>
+</blockquote>
+<h2 id="-configuración-de-beszel">◇ Configuración de Beszel</h2>
+<p>Antes de acceder tenemos que crear un superusuario (root), pero esto se hace desde el propio container de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>podman exec -it beszel sh
+</span></span><span style="display:flex;"><span>beszel superuser upsert admin@localhost.com password
+</span></span></code></pre></div><p>Ahora procedemos a realizar la configuración de <strong>Beszel</strong>.</p>
+<p>Para ello accedemos a:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://beszel.tudominio.com/_/#/settings
+</span></span></code></pre></div><p>Desde ahí accedemos al panel de configuración de superusuario utilizando el usuario que hemos creado anteriormente.</p>
+<p>Cuando estamos dentro, nos dirigimos a:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Collections &gt; users &gt; Authentication &gt; OAuth2
+</span></span></code></pre></div><p>Procedemos a añadir un <strong>provider</strong> del tipo <strong>OIDC Generic</strong>, donde los datos que tenemos que introducir son los que nos hemos apuntado anteriormente:</p>
+<ul>
+<li>Client ID</li>
+<li>Client Secret</li>
+<li>Auth URL</li>
+<li>Token URL</li>
+<li>Userinfo URL</li>
+<li>Scope: <strong>openid email profile</strong></li>
+</ul>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Marcamos las opciones:</p>
+<ul>
+<li>Enable PKCE: ON</li>
+<li>Fetch user info: ON</li>
+</ul>
+</blockquote>
+<p>Con esto ya tenemos en marcha nuestra aplicación de <strong>Beszel</strong> y configurada correctamente para acceder a través de <strong>PocketID</strong>.</p>
+<h3 id="aumentando-la-seguridad">Aumentando la seguridad</h3>
+<p>Una vez configurado el acceso a <strong>Beszel</strong> a través de <strong>PocketID</strong>, lo recomendable es desactivar cualquier tipo de acceso que no sea mediante <strong>PocketID</strong>.</p>
+<p>Para ello solamente tenemos que añadir:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">USER_CREATION</span>: <span style="color:#e6db74">&#34;false&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">DISABLE_PASSWORD_AUTH=true</span>
+</span></span></code></pre></div><p>Lo añadimos al <code>compose</code> de <strong>Beszel</strong>, reiniciamos el container y ya tenemos una capa adicional de protección.</p>
+<h2 id="-instalación-de-beszel-agent">◇ Instalación de Beszel-Agent</h2>
+<p>Hasta ahora hemos estado hablando de <strong>Beszel</strong>, pero todavía no hemos hablado de cómo obtendremos las gráficas.</p>
+<p>La cuestión es que <strong>Beszel</strong> solo es el 50 % de la instalación. Ahora nos falta configurar el otro 50 %.</p>
+<h3 id="qué-es-el-agent">¿Qué es el Agent?</h3>
+<p>Un <strong>agent</strong> se podría definir como un satélite que está en un servidor y que envía la información al centro de control (<strong>Beszel</strong>).</p>
+<h3 id="alta-del-sistema-en-beszel">Alta del sistema en Beszel</h3>
+<p>Para añadir este <strong>agent</strong>, añadimos un nuevo sistema donde nos aparecerá algo parecido a esto:</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-06-10-usando-beszel/imagen_02_hu_7f5d3b221b6732ba.webp 480w,
+      /posts/2026-06-10-usando-beszel/imagen_02_hu_28505a370f92493d.webp 768w,
+      /posts/2026-06-10-usando-beszel/imagen_02_hu_de84964f053b1281.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2026-06-10-usando-beszel/imagen_02_hu_c93752f8a38a0d00.jpg"
+    alt=""
+    width="1200"
+    height="946"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Tengo que decir que esta fue la parte que más me costó entender. Pero buscando en la documentación de <strong>Beszel</strong>, al final lo conseguí.</p>
+</blockquote>
+<p>Como podemos ver, los datos que nos pide son los siguientes:</p>
+<ul>
+<li>
+<p><strong>Name</strong>: <em>miServidor</em></p>
+<ul>
+<li>Aquí puedes poner el nombre del VPS o algo que identifique al agente.</li>
+</ul>
+</li>
+<li>
+<p><strong>Host / IP</strong>: <code>/beszel_socket/beszel.socket</code></p>
+<ul>
+<li>En nuestro caso, como el agente y el centro de control están en el mismo equipo, la comunicación entre ambas aplicaciones se realiza a través del socket.</li>
+</ul>
+</li>
+<li>
+<p><strong>Public Key</strong></p>
+<ul>
+<li>Nos apuntamos este dato porque lo necesitaremos para crear el container del agent.</li>
+</ul>
+</li>
+<li>
+<p><strong>Token</strong></p>
+<ul>
+<li>Lo mismo que en el punto anterior.</li>
+</ul>
+</li>
+</ul>
+<p>Con estos datos ya podemos proceder a la creación del container del agente de <strong>Beszel</strong>.</p>
+<h3 id="creación-del-container">Creación del container</h3>
+<p>En mi caso, como únicamente quiero controlar el mismo VPS, se puede añadir el <strong>agent</strong> en el mismo archivo <code>compose</code> del container de <strong>Beszel</strong>.</p>
+<p>Solamente tenemos que añadir lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Recordar que TOKEN y KEY los hemos obtenido antes</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">beszel-agent</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">henrygd/beszel-agent:latest</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">beszel-agent</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">network_mode</span>: <span style="color:#ae81ff">host</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">${PODMAN_STORAGE_PATH}/.config/beszel_socket:/beszel_socket</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/run/user/&lt;UID&gt;/podman/podman.sock:/run/podman/podman.sock:ro</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">LISTEN</span>: <span style="color:#ae81ff">/beszel_socket/beszel.sock</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">HUB_URL</span>: <span style="color:#ae81ff">http://localhost:8090</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">TOKEN</span>: <span style="color:#ae81ff">${TOKEN}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">KEY</span>: <span style="color:#ae81ff">${KEY}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">DOCKER_HOST</span>: <span style="color:#ae81ff">unix:///run/podman/podman.sock</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">test</span>: [<span style="color:#e6db74">&#39;CMD&#39;</span>, <span style="color:#e6db74">&#39;/agent&#39;</span>, <span style="color:#e6db74">&#39;health&#39;</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">120s</span>
+</span></span></code></pre></div><p>Cuando lo tenemos todo, ya podemos iniciar el container.</p>
+<p>Si accedemos a la web de <strong>Beszel</strong>, ya deberíamos poder ver la información que nos interesa:</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-06-10-usando-beszel/imagen_03_hu_e76ae6b63888acc.webp 480w,
+      /posts/2026-06-10-usando-beszel/imagen_03_hu_ffe41d97e7b9edaf.webp 768w,
+      /posts/2026-06-10-usando-beszel/imagen_03_hu_f41b5bc0c77518b.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2026-06-10-usando-beszel/imagen_03_hu_ac6fc5c3fa3c7f64.jpg"
+    alt=""
+    width="1200"
+    height="101"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<h2 id="-integración-con-homepage">◇ Integración con Homepage</h2>
+<p>Un punto a favor de <strong>Beszel</strong> es que tiene una perfecta integración con <a href="https://gethomepage.dev">Homepage</a>, con lo que podemos ver información básica del estado de nuestro VPS.</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-06-10-usando-beszel/imagen_04_hu_24ddaa4b48758b46.webp 480w,
+      /posts/2026-06-10-usando-beszel/imagen_04_hu_dcf5466a19497bc.webp 768w,
+      /posts/2026-06-10-usando-beszel/imagen_04_hu_2e9d8f1af698d2be.webp 1200w
+    "
+    sizes="
+      (max-width: 600px) 100vw,
+      (max-width: 900px) 90vw,
+      1200px
+    "
+  >
+
+  <img
+    src="/posts/2026-06-10-usando-beszel/imagen_04_hu_c269b8aa9e8b7dc4.jpg"
+    alt=""
+    width="1200"
+    height="389"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<p>Lo único que tenemos que añadir a nuestro fichero de configuración de <strong>Homepage</strong>, concretamente a <code>services.yml</code>, es lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#f92672">Beszel</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">/icons/beszel.png</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">href</span>: <span style="color:#ae81ff">https://beszel.tudominio.com</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Open Source Monitoring</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">siteMonitor</span>: <span style="color:#ae81ff">https://beszel.tudominio.com</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">widget</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">beszel</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">url</span>: <span style="color:#ae81ff">https://beszel.tudominio.com</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">username</span>: {{<span style="color:#ae81ff">HOMEPAGE_VAR_BESZELUSR}}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">password</span>: {{<span style="color:#ae81ff">HOMEPAGE_VAR_BESZELPWD}}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">systemId</span>: <span style="color:#ae81ff">Ahnenerbe</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">version</span>: <span style="color:#ae81ff">2</span> <span style="color:#75715e"># optional, default is 1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">fields</span>: [<span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#e6db74">&#34;cpu&#34;</span>, <span style="color:#e6db74">&#34;memory&#34;</span>, <span style="color:#e6db74">&#34;disk&#34;</span>, <span style="color:#e6db74">&#34;network&#34;</span>]
+</span></span></code></pre></div><p>Lo único que hay que tener en cuenta aquí es la opción <code>systemId</code>, que identifica el nombre del <strong>agent</strong> y que definimos cuando lo añadimos en <strong>Beszel</strong>.</p>
+<h2 id="-conclusión">◇ Conclusión</h2>
+<p>Pues con esto ya hemos acabado con la instalación y configuración de esta gran aplicación.</p>
+<p>Después de varias semanas utilizándola, <strong>Beszel</strong> se ha convertido en mi herramienta principal para monitorizar el VPS. Me ofrece exactamente la información que necesito sin la complejidad de otras soluciones más completas y, además, se integra perfectamente con el resto de aplicaciones que ya tengo desplegadas mediante <strong>Podman</strong>.</p>
+<p>Así que, si buscas una solución sencilla, ligera y suficiente para un VPS, un servidor doméstico o una Raspberry Pi, creo que merece mucho la pena darle una oportunidad.</p>
+<p>Y, como decía al principio, si no hubiera sido por <a href="https://www.ochobitshacenunbyte.com">David</a>, probablemente nunca habría descubierto esta aplicación.</p>
+<p>De nuevo, gracias <strong>David</strong> 👏</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.ochobitshacenunbyte.com/2026/05/16/descubre-beszel-monitorizacion-ligera-para-tus-contenedores">Descubre Beszel: Monitorización ligera para tus contenedores</a></li>
+<li><a href="https://www.beszel.dev">Beszel</a></li>
+<li><a href="https://gethomepage.dev/widgets/services/beszel">Homepage - Beszel</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>
