@@ -253,9 +253,11 @@ picture {
   margin: 1.5rem 0;
 }
 picture img {
+  max-width: 36rem;
   width: 100%;
   height: auto;
   display: block;
+  margin: 0 auto;
   border-radius: 12px;
 }
 @media (max-width: 640px) {
