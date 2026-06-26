@@ -1,0 +1,270 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+
+Cambiando Matrix por Ntfy · Si lo haces, hazlo bien!
+
+</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-06-24-usando-ntfy-1/">
+
+
+
+
+
+
+<meta name="description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
+
+
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+
+<meta property="og:title" content="Cambiando Matrix por Ntfy · Si lo haces, hazlo bien!">
+<meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-06-24-usando-ntfy-1/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
+
+
+<meta property="og:type" content="article">
+
+
+<meta property="article:published_time" content="2026-06-24T00:00:00&#43;02:00">
+
+
+
+
+<meta property="article:tag" content="Matrix">
+
+<meta property="article:tag" content="Ntfy">
+
+<meta property="article:tag" content="VPS">
+
+
+
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cambiando Matrix por Ntfy · Si lo haces, hazlo bien!">
+<meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="6608b7e7-8981-44c1-965f-4266bfc3bab5">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/index.xml">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Cambiando Matrix por Ntfy</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-06-24">
+        2026-06-24
+      </time>
+      · 4 min
+      
+      
+        · <a class="p-category" href="/categories/self-hosting/">@Self-Hosting</a>
+      
+
+      
+        ·
+        <a href="/tags/matrix/">#Matrix</a>-<a href="/tags/ntfy/">#Ntfy</a>-<a href="/tags/vps/">#VPS</a>
+      
+
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Siempre había pensado que los mandatos divinos de <strong>Lorenzo</strong> eran sagrados, pero parece ser que hay más santos en este humilde planeta e igual de famosos. Y uno de estos santos famosos no es otro que <a href="https://elblogdelazaro.org">Lázaro</a>, al que sigo desde hace mucho tiempo.</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Ahora que lo pienso, hará ya unos 7 años que sigo a <strong>Lázaro</strong>. Sí que hace tiempo. Fue cuando hubo el boom de las Raspberry y se puede decir que él iba a contracorriente, porque en vez de tener una RPI como todo el mundo, tenía una <strong>Rock64Pro</strong>.</p>
+</blockquote>
+<p>Gracias a su último <a href="https://elblogdelazaro.org/instalacion-ntfy-unraid">artículo</a>, he descubierto que había más vida fuera de <a href="https://vctrsnts.codeberg.page/tags/matrix">Matrix</a>.</p>
+<p><a href="https://ntfy.sh">Ntfy</a> se puede decir que hace lo mismo, o algo parecido, pero que resulta más fácil de instalar, gestionar y utilizar y, si lo miras fríamente, puede tener incluso más recorrido que <strong>Matrix</strong>.</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>¿A qué viene esto del recorrido?, os preguntaréis.</p>
+</blockquote>
+<h2 id="-por-qué-cambiar-matrix">◇ ¿Por qué cambiar Matrix?</h2>
+<p>Como bien sabéis, soy usuario de <a href="http://192.6.0.40:1313/tags/unraid">unRaid</a> que, sintiéndolo mucho y creo que equivocadamente, no ha implementado la posibilidad de enviar notificaciones utilizando un servidor de <strong>Matrix</strong>.</p>
+<p>Esto no es del todo cierto, porque puedes usar <a href="https://vctrsnts.codeberg.page/posts/2025-03-27-pushbits">Pushbits</a>, pero es otra capa más que añadir a <strong>Matrix</strong>, cuando lo más sencillo habría sido usar directamente <strong>Matrix</strong>.</p>
+<p>Aquí es donde <strong>Lázaro</strong> apareció con su magnífico artículo hablando de <strong>Ntfy</strong> y sus bondades. Una de las cosas que más me impactó fue que se podía usar <em>nativamente</em> con <strong>unRaid</strong>, y ahí sí que la cosa me interesó 🤔 porque hasta ahora no recibía las notificaciones que me enviaba mi servidor local.</p>
+<p>Muchos me preguntaréis por qué no usar <a href="https://gotify.net">Gotify</a>, <a href="https://discord.com">Discord</a> o incluso <a href="https://telegram.org">Telegram</a>. Aparte de que esta última tú no la controlas, sino que estás a merced de una empresa que, cuando quiera, puede cerrar el grifo y te quedas sin notificaciones.</p>
+<p>Además, todas estas son aplicaciones que no se adaptan perfectamente a mi flujo de trabajo diario. Así que gracias a <strong>Lázaro</strong> me puse a investigar y vi que <strong>Ntfy</strong> sí se amoldaba perfectamente a mi día a día y me puse a ello partiendo de la base que había compartido <strong>Lázaro</strong>.</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Gracias, Lázaro 👍</p>
+</blockquote>
+<p>Yo no voy a replicar el mismo artículo que <strong>Lázaro</strong> para el uso de <strong>Ntfy</strong> desde <strong>unRaid</strong>, sino que en mi caso, y motivado por no tener un dominio propio —que algún día tendré que abrir ese melón y así podría centralizarlo todo en mi servidor— parto de la premisa de instalarlo en mi <strong>VPS</strong> con <a href="https://vctrsnts.codeberg.page/tags/podman">Podman</a>.</p>
+<h2 id="-instalación-con-podman">◇ Instalación con Podman</h2>
+<p>Lo primero y antes de nada es tener el <code>compose</code> que he utilizado para su implementación. Recordad que, en mi caso, estoy utilizando <a href="/posts/2026-06-01-usando-podman-2">dockge</a> para la gestión de todos los containers que <em>no son importantes</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ntfy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">binwiederhier/ntfy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">ntfy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">init</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">proxy</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ntfy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">serve</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">TZ</span>: <span style="color:#ae81ff">Europe/Madrid</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_BASE_URL</span>: <span style="color:#ae81ff">https://${FQDN}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_CACHE_FILE</span>: <span style="color:#ae81ff">/etc/ntfy/cache.db</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_CACHE_DURATION</span>: <span style="color:#ae81ff">24h</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_WEB_ROOT</span>: <span style="color:#ae81ff">app</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_ATTACHMENT_EXPIRY_DURATION</span>: <span style="color:#ae81ff">24h</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_ATTACHMENT_TOTAL_SIZE_LIMIT</span>: <span style="color:#ae81ff">100M</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_ATTACHMENT_FILE_SIZE_LIMIT</span>: <span style="color:#ae81ff">15M</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_ATTACHMENT_CACHE_DIR</span>: <span style="color:#ae81ff">/etc/ntfy/attachments</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_BEHIND_PROXY</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_LOG_LEVEL</span>: <span style="color:#ae81ff">info</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_AUTH_FILE</span>: <span style="color:#ae81ff">/etc/ntfy/auth.db</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_AUTH_DEFAULT_ACCESS</span>: <span style="color:#ae81ff">deny-all</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_ENABLE_LOGIN</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_REQUIRE_LOGIN</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${PODMAN_STORAGE_PATH}/.config/ntfy/cache:/var/cache/ntfy</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${PODMAN_STORAGE_PATH}/.config/ntfy:/etc/ntfy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">CMD-SHELL</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">wget -q --tries=1 http://localhost:80/v1/health -O - | grep -Eo</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#39;&#34;healthy&#34;\s*:\s*true&#39;</span> <span style="color:#ae81ff">|| exit 1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">60s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">10s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">start_period</span>: <span style="color:#ae81ff">40s</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.enable=true</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.routers.ntfy.rule=Host(`${FQDN}`)</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.routers.ntfy.entrypoints=websecure</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.routers.ntfy.tls=true</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.routers.ntfy.tls.certresolver=myresolver</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.services.ntfy.loadbalancer.server.port=80</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ntfy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ntfy</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">proxy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">x-dockge</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">urls</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">https://{FQDN}</span>
+</span></span></code></pre></div><h2 id="-aspectos-a-tener-en-cuenta">◇ Aspectos a tener en cuenta</h2>
+<p>Lo único que hay que tener en cuenta en este <code>compose</code> son dos cosas:</p>
+<ul>
+<li><code>${PODMAN_STORAGE_PATH}/.config</code>: donde se encuentra el directorio de <strong>Ntfy</strong>.</li>
+<li><code>networks: - ntfy</code>: tengo una red interna para comunicar <strong>Ntfy</strong> con otros containers y aprovecharla para enviar notificaciones sin tener que utilizar la URL oficial de mi servicio.</li>
+</ul>
+<p>Después de tener el container, tenéis que realizar la implementación, activación y configuración del mismo, pero esto lo voy a omitir porque podéis encontrarlo muy bien explicado en el <a href="https://elblogdelazaro.org/instalacion-ntfy-unraid">artículo</a> de <strong>Lázaro</strong>.</p>
+<h2 id="-próximo-paso">◇ Próximo paso</h2>
+<p>Y lo vamos a dejar por aquí para no hacer muy largo este artículo. En el siguiente explicaré la configuración que he realizado y el uso diario que estoy haciendo.</p>
+<p>Hasta la próxima 😀</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.org/instalacion-ntfy-unraid">Instalación de ntfy en Unraid</a></li>
+<li><a href="https://ntfy.sh">Ntfy</a></li>
+<li><a href="https://blog.parravidales.es/crea-tu-propio-servidor-de-notificaciones-con-ntfy">Crea tu propio servidor de notificaciones con Ntfy</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

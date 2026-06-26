@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Podman on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.codeberg.page/tags/podman/</link>
+    <link>https://vctrsnts.github.io/tags/podman/</link>
     <description>Recent content in Podman on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Fri, 12 Jun 2026 00:00:00 +0200</lastBuildDate>
-    <atom:link href="https://vctrsnts.codeberg.page/tags/podman/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/tags/podman/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Usando Podman - Mejorando el flujo de trabajo</title>
-      <link>https://vctrsnts.codeberg.page/posts/2026-06-12-usando-podman-4/</link>
+      <link>https://vctrsnts.github.io/posts/2026-06-12-usando-podman-4/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2026-06-12-usando-podman-4/</guid>
+      <guid>https://vctrsnts.github.io/posts/2026-06-12-usando-podman-4/</guid>
       <description>&lt;p&gt;Pues ya hemos llegado al final de mi migración de &lt;strong&gt;Docker&lt;/strong&gt; a &lt;strong&gt;Podman&lt;/strong&gt;. Espero que os haya sido de utilidad, o en cambio, os ha parecido todo un poco &lt;em&gt;amateur&lt;/em&gt;, que era mi propósito inicial, y así no quitar ningún mérito al mentor espiritual que me ha ayudado y del que he sacado toda la información, que no ha sido otro que &lt;a href=&#34;https://atareao.es&#34;&gt;Maestro Lorenzo Kai&lt;/a&gt; 👏&lt;/p&gt;&#xA;&lt;p&gt;En este último artículo quiero explicar un poco todo el flujo de trabajo que se necesita o que yo he seguido para poner en marcha los containers que quiero que funcionen en modo &lt;strong&gt;quadlet&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Instalado y usando Beszel</title>
-      <link>https://vctrsnts.codeberg.page/posts/2026-06-10-usando-beszel/</link>
+      <link>https://vctrsnts.github.io/posts/2026-06-10-usando-beszel/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2026-06-10-usando-beszel/</guid>
+      <guid>https://vctrsnts.github.io/posts/2026-06-10-usando-beszel/</guid>
       <description>&lt;p&gt;Este es un artículo que si no fuera por &lt;a href=&#34;https://www.ochobitshacenunbyte.com&#34;&gt;davidochobits&lt;/a&gt; no existiría. Gracias &lt;strong&gt;David&lt;/strong&gt; 👏&lt;/p&gt;&#xA;&lt;p&gt;Conocí esta aplicación gracias a este &lt;a href=&#34;https://mastodon.social/@davidochobits/116585529261127875&#34;&gt;toot&lt;/a&gt; de &lt;strong&gt;David&lt;/strong&gt; en &lt;em&gt;Mastodon&lt;/em&gt; y me lo guardé para cuando tuviera más tiempo y poder echarle un vistazo, porque la monitorización de nuestros equipos, &lt;em&gt;no lo vamos a negar&lt;/em&gt;, es un tema que a todos los frikis del &lt;em&gt;self-hosting&lt;/em&gt; nos interesa.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Pero eso sí, sin llegar al extremo de tener mil aplicaciones y tanta información que nos perdamos en ella.&lt;/p&gt;</description>
     </item>
     <item>
       <title>RSS-Funnel - Añadiendo mejoras</title>
-      <link>https://vctrsnts.codeberg.page/posts/2026-06-08-rss-funnel-annexo/</link>
+      <link>https://vctrsnts.github.io/posts/2026-06-08-rss-funnel-annexo/</link>
       <pubDate>Mon, 08 Jun 2026 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2026-06-08-rss-funnel-annexo/</guid>
-      <description>&lt;p&gt;Si recordáis, ya había escrito otro &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2024-04-13-uno-juntarlos-todos&#34;&gt;artículo&lt;/a&gt; donde hablaba de las ventajas de este &lt;em&gt;container&lt;/em&gt;. Y, después de dos años, tengo que decir que lo sigo usando porque no he encontrado nada mejor y porque su consumo es ínfimo.&lt;/p&gt;&#xA;&lt;p&gt;Como consecuencia de la migración, le di una vuelta de tuerca a la configuración que tenía para ver si podía mejorarla en algo.&lt;/p&gt;&#xA;&lt;p&gt;Así que, buscando entre los &lt;em&gt;issues&lt;/em&gt; del repositorio —donde siempre se pueden encontrar nuevas ideas—, encontré este &lt;a href=&#34;https://github.com/shouya/rss-funnel/issues/59#issuecomment-1974776274&#34;&gt;issue&lt;/a&gt; que había abierto &lt;a href=&#34;https://ugeek.github.io&#34;&gt;uGeek&lt;/a&gt;, donde le hacía varias preguntas al creador. En una de las respuestas explica cómo añadir una imagen al feed que se genera.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2026-06-08-rss-funnel-annexo/</guid>
+      <description>&lt;p&gt;Si recordáis, ya había escrito otro &lt;a href=&#34;https://vctrsnts.github.io/posts/2024-04-13-uno-juntarlos-todos&#34;&gt;artículo&lt;/a&gt; donde hablaba de las ventajas de este &lt;em&gt;container&lt;/em&gt;. Y, después de dos años, tengo que decir que lo sigo usando porque no he encontrado nada mejor y porque su consumo es ínfimo.&lt;/p&gt;&#xA;&lt;p&gt;Como consecuencia de la migración, le di una vuelta de tuerca a la configuración que tenía para ver si podía mejorarla en algo.&lt;/p&gt;&#xA;&lt;p&gt;Así que, buscando entre los &lt;em&gt;issues&lt;/em&gt; del repositorio —donde siempre se pueden encontrar nuevas ideas—, encontré este &lt;a href=&#34;https://github.com/shouya/rss-funnel/issues/59#issuecomment-1974776274&#34;&gt;issue&lt;/a&gt; que había abierto &lt;a href=&#34;https://ugeek.github.io&#34;&gt;uGeek&lt;/a&gt;, donde le hacía varias preguntas al creador. En una de las respuestas explica cómo añadir una imagen al feed que se genera.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Podman - Apuntalando la base</title>
-      <link>https://vctrsnts.codeberg.page/posts/2026-06-06-usando-podman-3/</link>
+      <link>https://vctrsnts.github.io/posts/2026-06-06-usando-podman-3/</link>
       <pubDate>Sat, 06 Jun 2026 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2026-06-06-usando-podman-3/</guid>
-      <description>&lt;p&gt;Espero que este sea el último artículo sobre mis experiencias en la migración de &lt;strong&gt;Docker&lt;/strong&gt; a &lt;strong&gt;Podman&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Como recordaréis, en el anterior &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2026-06-01-usando-podman-2&#34;&gt;artículo&lt;/a&gt; habíamos instalado &lt;strong&gt;Traefik&lt;/strong&gt; y &lt;strong&gt;CrowdSec&lt;/strong&gt;, además de su integración en el sistema. Ahora lo que vamos a hacer es instalar &lt;strong&gt;PocketID&lt;/strong&gt; y configurarlo junto con &lt;strong&gt;Traefik&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Recordad que la instalación de &lt;strong&gt;Traefik&lt;/strong&gt; y &lt;strong&gt;CrowdSec&lt;/strong&gt; la habíamos realizado mediante &lt;strong&gt;quadlets&lt;/strong&gt;, y también vamos a hacer lo mismo con &lt;strong&gt;PocketID&lt;/strong&gt; y &lt;strong&gt;Dockge&lt;/strong&gt;.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2026-06-06-usando-podman-3/</guid>
+      <description>&lt;p&gt;Espero que este sea el último artículo sobre mis experiencias en la migración de &lt;strong&gt;Docker&lt;/strong&gt; a &lt;strong&gt;Podman&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Como recordaréis, en el anterior &lt;a href=&#34;https://vctrsnts.github.io/posts/2026-06-01-usando-podman-2&#34;&gt;artículo&lt;/a&gt; habíamos instalado &lt;strong&gt;Traefik&lt;/strong&gt; y &lt;strong&gt;CrowdSec&lt;/strong&gt;, además de su integración en el sistema. Ahora lo que vamos a hacer es instalar &lt;strong&gt;PocketID&lt;/strong&gt; y configurarlo junto con &lt;strong&gt;Traefik&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Recordad que la instalación de &lt;strong&gt;Traefik&lt;/strong&gt; y &lt;strong&gt;CrowdSec&lt;/strong&gt; la habíamos realizado mediante &lt;strong&gt;quadlets&lt;/strong&gt;, y también vamos a hacer lo mismo con &lt;strong&gt;PocketID&lt;/strong&gt; y &lt;strong&gt;Dockge&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Podman - La base de todo el sistema</title>
-      <link>https://vctrsnts.codeberg.page/posts/2026-06-01-usando-podman-2/</link>
+      <link>https://vctrsnts.github.io/posts/2026-06-01-usando-podman-2/</link>
       <pubDate>Mon, 01 Jun 2026 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2026-06-01-usando-podman-2/</guid>
-      <description>&lt;p&gt;Nuevo artículo sobre mi migración de Docker a Podman.&lt;/p&gt;&#xA;&lt;p&gt;Como ya expliqué en el primer &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2026-05-26-usando-podman-1&#34;&gt;artículo&lt;/a&gt;, os comentaba el porqué de la migración a &lt;strong&gt;Podman&lt;/strong&gt;. En este nuevo artículo, os explicaré los containers que &lt;strong&gt;para mí&lt;/strong&gt; son los más importantes y que, siguiendo el consejo de &lt;strong&gt;atareao&lt;/strong&gt;, es recomendable instalarlos a través de &lt;strong&gt;quadlets&lt;/strong&gt;, para que así toda la gestión se haga a través de &lt;strong&gt;systemd&lt;/strong&gt; y, con ello, aprovechar las ventajas que trae consigo.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2026-06-01-usando-podman-2/</guid>
+      <description>&lt;p&gt;Nuevo artículo sobre mi migración de Docker a Podman.&lt;/p&gt;&#xA;&lt;p&gt;Como ya expliqué en el primer &lt;a href=&#34;https://vctrsnts.github.io/posts/2026-05-26-usando-podman-1&#34;&gt;artículo&lt;/a&gt;, os comentaba el porqué de la migración a &lt;strong&gt;Podman&lt;/strong&gt;. En este nuevo artículo, os explicaré los containers que &lt;strong&gt;para mí&lt;/strong&gt; son los más importantes y que, siguiendo el consejo de &lt;strong&gt;atareao&lt;/strong&gt;, es recomendable instalarlos a través de &lt;strong&gt;quadlets&lt;/strong&gt;, para que así toda la gestión se haga a través de &lt;strong&gt;systemd&lt;/strong&gt; y, con ello, aprovechar las ventajas que trae consigo.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Usando Podman - Instalación y configuración</title>
-      <link>https://vctrsnts.codeberg.page/posts/2026-05-26-usando-podman-1/</link>
+      <link>https://vctrsnts.github.io/posts/2026-05-26-usando-podman-1/</link>
       <pubDate>Tue, 26 May 2026 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2026-05-26-usando-podman-1/</guid>
+      <guid>https://vctrsnts.github.io/posts/2026-05-26-usando-podman-1/</guid>
       <description>&lt;p&gt;Antes de empezar, quiero que quede bien claro una cosa: el porqué de este y los siguientes artículos hablando de Podman.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Esto no va a ser una alternativa a todos los articulos que ha publicado &lt;a href=&#34;https://atareao.es/?s=podman&#34;&gt;atareao&lt;/a&gt; en referencia a &lt;strong&gt;Podman&lt;/strong&gt;. Nunca lo haria ni es lo que querría, nunca voy a poder conseguir el nivel tan alto de exigencia que tiene &lt;strong&gt;Atareo&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Solamente son artículos basados en mi proceso de instalación, configuración, gestión y uso de Podman a nivel amateur.&lt;/p&gt;</description>
     </item>
   </channel>
