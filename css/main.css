@@ -110,17 +110,21 @@ pre code {
 .intro {
   border-top: 1px solid var(--muted);
   border-bottom: 1px solid var(--muted);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   margin-bottom: 3rem;
 }
 .intro pre {
   margin: 0;
+  padding: 0;        /* ← esto es lo que falta */
   white-space: pre-wrap;
   background: none;
   border: 0;
   color: #88c0d0;
   opacity: 0.5;
+}
+.intro pre + pre {
+  margin-top: 1.5rem;
 }
 .prompt { color: var(--accent); }
 .command { color: var(--muted); }
