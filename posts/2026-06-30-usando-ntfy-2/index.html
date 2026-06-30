@@ -1,0 +1,535 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+
+Configurando Ntfy · Si lo haces, hazlo bien!
+
+</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-06-30-usando-ntfy-2/">
+
+
+
+
+
+
+<meta name="description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
+
+
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+
+<meta property="og:title" content="Configurando Ntfy · Si lo haces, hazlo bien!">
+<meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-06-30-usando-ntfy-2/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
+
+
+<meta property="og:type" content="article">
+
+
+<meta property="article:published_time" content="2026-06-30T00:00:00&#43;02:00">
+
+
+
+
+<meta property="article:tag" content="Matrix">
+
+<meta property="article:tag" content="Ntfy">
+
+<meta property="article:tag" content="VPS">
+
+
+
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Configurando Ntfy · Si lo haces, hazlo bien!">
+<meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="6608b7e7-8981-44c1-965f-4266bfc3bab5">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/index.xml">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Configurando Ntfy</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-06-30">
+        2026-06-30
+      </time>
+      · 7 min
+      
+      
+        · <a class="p-category" href="/categories/self-hosting/">@Self-Hosting</a>
+      
+
+      
+        ·
+        <a href="/tags/matrix/">#Matrix</a> <a href="/tags/ntfy/">#Ntfy</a> <a href="/tags/vps/">#VPS</a>
+      
+
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Tal como dije en el anterior <a href="/posts/2026-06-24-usando-ntfy-1">artículo</a>, en este explicaré la configuración y el uso que le estoy dando al servicio de <strong>NTFY</strong>, y que me está sorprendiendo mucho porque, valga la redundancia, me está dando la misma información que me daba <strong>Matrix</strong>, pero sin tantas complicaciones.</p>
+<p>De nuevo, aunque suene repetitivo:</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Gracias Carlos por tu magnífico <a href="https://elblogdelazaro.org/instalacion-ntfy-unraid">artículo</a>, donde me diste a conocer <strong>NTFY</strong> 👍</p>
+</blockquote>
+<p>Ahora sí, vayamos a por <em>el rovell de l&rsquo;ou</em>.</p>
+<h2 id="-cómo-funciona-ntfy">◇ Cómo funciona NTFY</h2>
+<p>Antes de empezar con usuarios, permisos y configuraciones, primero creo que es importante entender cómo funciona todo el conjunto.</p>
+<p>A mi modo de ver, los <em>topics</em> son los buzones donde se envían las notificaciones y solamente quien <em>tiene la llave</em> para abrir ese buzón puede enviar o leer los mensajes.</p>
+<p>Es un punto que me costó pillar, pero una vez lo entiendes, el resto resulta mucho más sencillo.</p>
+<h3 id="flujo-completo-de-funcionamiento">Flujo completo de funcionamiento</h3>
+<p>Una explicación visual del proceso podría ser la siguiente (el ejemplo se explica en base al container de <em>FlexGet</em>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Flexget
+</span></span><span style="display:flex;"><span>     ↓
+</span></span><span style="display:flex;"><span>Token BOT
+</span></span><span style="display:flex;"><span>     ↓
+</span></span><span style="display:flex;"><span>Usuario BOT
+</span></span><span style="display:flex;"><span>     ↓
+</span></span><span style="display:flex;"><span>Permisos escritura:
+</span></span><span style="display:flex;"><span>- podcast-sync
+</span></span><span style="display:flex;"><span>     ↓
+</span></span><span style="display:flex;"><span>Topic podcast-sync
+</span></span><span style="display:flex;"><span>     ↓
+</span></span><span style="display:flex;"><span>Usuario USER suscrito desde móvil
+</span></span><span style="display:flex;"><span>     ↓
+</span></span><span style="display:flex;"><span>Notificación recibida
+</span></span></code></pre></div><ul>
+<li><em>FlexGet</em> genera una acción que ejecuta el script <code>sendNtfy.sh</code> (lo podeis encontrar al final de este articulo).</li>
+<li>Gracias al <em>token</em> y a los permisos de <em>escritura</em> del usuario <strong>bot</strong>, se puede enviar la notificación.</li>
+<li>La notificación llega al <em>topic</em> <code>podcast-sync</code>.</li>
+<li>Como el usuario <strong>user</strong> está suscrito al <em>topic</em> <code>podcast-sync</code> y además tiene permisos de <em>lectura</em>, recibe la notificación y la puede visualizar.</li>
+</ul>
+<p>Con este esquema ya podemos entender mejor el resto de la configuración.</p>
+<h2 id="-definición-de-usuarios">◇ Definición de usuarios</h2>
+<p>Habíamos dejado el container listo para su configuración y lo primero es la creación de los usuarios (incluido el administrador), para su posterior uso.</p>
+<p>En mi caso, he creado tres usuarios:</p>
+<ul>
+<li><strong>Usuario administrador</strong>: será el encargado del mantenimiento de la configuración. Es recomendable ponerle una contraseña suficientemente segura para no tener problemas futuros.</li>
+<li><strong>Usuario normal</strong>: será el encargado de la recepción de las notificaciones. Estará suscrito a todos los <em>topics</em> para su visualización.</li>
+<li><strong>Usuario bot</strong>: será el encargado de enviar las notificaciones a los diferentes <em>topics</em>.</li>
+</ul>
+<p>Si tuviéramos que mostrar una estructura sobre mi configuración, sería la siguiente:</p>
+<h3 id="usuario-administrador">Usuario administrador</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>administrador
+</span></span><span style="display:flex;"><span>├─ Contraseña larga y única
+</span></span><span style="display:flex;"><span>├─ Guardada en gestor de contraseñas
+</span></span><span style="display:flex;"><span>├─ Sin usar en móvil
+</span></span><span style="display:flex;"><span>├─ Sin usar en automatizaciones
+</span></span><span style="display:flex;"><span>├─ Sin tokens persistentes
+</span></span><span style="display:flex;"><span>├─ Sin suscripciones habituales
+</span></span><span style="display:flex;"><span>└─ Solo mantenimiento
+</span></span></code></pre></div><p>Este usuario:</p>
+<ul>
+<li>Crea usuarios</li>
+<li>Modifica permisos</li>
+<li>Gestiona incidencias</li>
+<li>Su uso se debe reducir al máximo para no exponerlo.</li>
+</ul>
+<h3 id="usuario-normal">Usuario normal</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>user
+</span></span><span style="display:flex;"><span>├─ Contraseña fuerte
+</span></span><span style="display:flex;"><span>├─ Usado en móvil y web
+</span></span><span style="display:flex;"><span>├─ Permisos de lectura
+</span></span><span style="display:flex;"><span>├─ Tokens solo si fueran necesarios
+</span></span><span style="display:flex;"><span>└─ Suscripciones a topics
+</span></span></code></pre></div><p>Este usuario será el que:</p>
+<ul>
+<li>Inicia sesión desde el móvil</li>
+<li>Utiliza la interfaz web</li>
+<li>Recibe las notificaciones</li>
+</ul>
+<h3 id="usuario-bot">Usuario bot</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>bot
+</span></span><span style="display:flex;"><span>├─ No usado manualmente
+</span></span><span style="display:flex;"><span>├─ Tokens permanentes
+</span></span><span style="display:flex;"><span>└─ Escritura en topics
+</span></span></code></pre></div><h2 id="-creación-de-usuarios">◇ Creación de usuarios</h2>
+<p>El procedimiento de creación de usuarios es bastante sencillo. Únicamente accedemos a la consola (<em>bash</em>) del container y es desde ahí donde los crearemos.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apps@debian ~&gt; podman exec -it ntfy sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># creación del usuario administrador</span>
+</span></span><span style="display:flex;"><span>/# ntfy user add --role<span style="color:#f92672">=</span>admin administrador
+</span></span><span style="display:flex;"><span>/# enter password:
+</span></span><span style="display:flex;"><span>/# repeat password:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># creación de usuario normal</span>
+</span></span><span style="display:flex;"><span>/# ntfy user add user
+</span></span><span style="display:flex;"><span>/# enter password:
+</span></span><span style="display:flex;"><span>/# repeat password:
+</span></span></code></pre></div><p>Con esto ya hemos creado nuestro <strong>administrador</strong> y nuestro <strong>usuario</strong>. El proceso sería exactamente el mismo para cualquier otro usuario.</p>
+<h3 id="a-tener-en-consideración">A tener en consideración</h3>
+<p>Antes de crear los usuarios, tenemos que descomentar estas líneas de nuestro <code>compose</code>, que habíamos dejado comentadas para verificar que todo funcionaba correctamente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># NTFY_AUTH_FILE: /etc/ntfy/auth.db</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># NTFY_AUTH_DEFAULT_ACCESS: deny-all</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># NTFY_ENABLE_LOGIN: true</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># NTFY_REQUIRE_LOGIN: true</span>
+</span></span></code></pre></div><p>Una vez creados los usuarios, reiniciamos el container y, a partir de este momento, siempre tendremos que autenticarnos para acceder a la web.</p>
+<h2 id="-definición-de-topics">◇ Definición de topics</h2>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Lo que sí os aconsejo es tener definidos de antemano los <em>topics</em> que vayáis a necesitar para tener una base sólida.</p>
+<p>También es recomendable que los <em>topics</em> se creen siempre en minúsculas para facilitar su gestión posterior.</p>
+</blockquote>
+<p>En mi caso, los <em>topics</em> que voy a utilizar son:</p>
+<ul>
+<li><em>podcast-sync</em>: encargado de recibir todas las notificaciones relacionadas con los <strong>podcast</strong> que sigo.</li>
+<li><em>unRaid</em>: uno de los motivos principales por los que me pasé a <strong>NTFY</strong>. Recibe todas las notificaciones de mi servidor local.</li>
+<li><em>media-transfer</em>: encargado de notificarme todas las gestiones relacionadas con películas o series.</li>
+</ul>
+<h2 id="-creación-de-topics">◇ Creación de topics</h2>
+<p>Para la creación de los <em>topics</em>, en principio no es necesario crearlos explícitamente.</p>
+<p>Los métodos para crear los topics pueden ser:</p>
+<ul>
+<li>Enviar una notificación expresamente al <em>topic</em></li>
+<li>Suscribirse al <em>topic</em></li>
+</ul>
+<p>Entonces, con el <strong>usuario normal</strong>, simplemente te suscribes a los <em>topics</em> y estos se crean automáticamente.</p>
+<h2 id="-permisos">◇ Permisos</h2>
+<p>Una vez ya tenemos los <em>topics</em> creados, necesitamos dar permisos a los usuarios para que puedan utilizarlos y aquí volvemos a acceder a la consola de <strong>NTFY</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apps@debian ~&gt; podman exec -it ntfy sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># permisos lectura (read-only) para user</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/# ntfy access user <span style="color:#e6db74">&#34;podcast-sync&#34;</span> ro
+</span></span><span style="display:flex;"><span>/# ntfy access user <span style="color:#e6db74">&#34;unRaid&#34;</span> ro
+</span></span><span style="display:flex;"><span>/# ntfy access user <span style="color:#e6db74">&#34;media-transfer&#34;</span> ro
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># permisos escritura (write-only) para bot</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/# ntfy access bot <span style="color:#e6db74">&#34;podcast-sync&#34;</span> wo
+</span></span><span style="display:flex;"><span>/# ntfy access bot <span style="color:#e6db74">&#34;unRaid&#34;</span> wo
+</span></span><span style="display:flex;"><span>/# ntfy access bot <span style="color:#e6db74">&#34;media-transfer&#34;</span> wo
+</span></span></code></pre></div><p>Ahora nos queda la parte más importante: los <strong>tokens</strong>.</p>
+<h2 id="-definición-de-tokens">◇ Definición de tokens</h2>
+<p>Siguiendo con la analogía de los buzones, los <strong>tokens</strong> son las llaves que nos permiten abrir esos buzones para entregar o recoger notificaciones.</p>
+<h3 id="creación-de-tokens">Creación de tokens</h3>
+<p>Tenemos que acceder a:</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-06-30-usando-ntfy-2/image_01_hu_15a288af4b18d18e.webp 400w,
+      /posts/2026-06-30-usando-ntfy-2/image_01_hu_40db5065ab4917cb.webp 700w,
+      /posts/2026-06-30-usando-ntfy-2/image_01_hu_5d57a1166d8fb66e.webp 900w
+    "
+    sizes="
+      (max-width: 700px) 100vw,
+      700px
+    "
+  >
+
+  <img
+    src="/posts/2026-06-30-usando-ntfy-2/image_01_hu_3bb4dc516c5b531a.jpg"
+    alt=""
+    width="900"
+    height="562"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<p><strong>Account &gt; Access tokens</strong></p>
+<p>Después pulsamos sobre <strong>Create Access Token</strong> y rellenamos:</p>
+<ul>
+<li><strong>Label</strong>: identificador que nosotros le vamos a dar. Es únicamente informativo.</li>
+<li><strong>Token Expiration</strong>: indicamos cuándo finaliza ese <strong>token</strong>.</li>
+</ul>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-06-30-usando-ntfy-2/image_02_hu_32ab428a848f439.webp 400w,
+      /posts/2026-06-30-usando-ntfy-2/image_02_hu_d9a9e48b2a70d023.webp 700w,
+      /posts/2026-06-30-usando-ntfy-2/image_02_hu_b4ed73ee416e8a7b.webp 900w
+    "
+    sizes="
+      (max-width: 700px) 100vw,
+      700px
+    "
+  >
+
+  <img
+    src="/posts/2026-06-30-usando-ntfy-2/image_02_hu_c77679a19fa2fa0a.jpg"
+    alt=""
+    width="900"
+    height="560"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<p>En mi caso, nunca expiran porque son <strong>tokens</strong> que utilizará el usuario <strong>bot</strong> para enviar notificaciones.</p>
+<p>Una vez creado el <strong>token</strong>, ya podremos enviar notificaciones a los diferentes <em>topics</em>.</p>
+<h2 id="-envío-de-notificaciones">◇ Envío de notificaciones</h2>
+<p>En mi caso, utilizaré <em>bash</em> y <em>curl</em>, porque todo se realizará desde dentro del sistema y, más concretamente, desde un container.</p>
+<p>Me he creado un pequeño script en <em>bash</em> que me simplifica bastante el trabajo.</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Este script lo utilizo para el envío de notificaciones desde el container de <strong>FlexGet</strong>, pero podéis utilizarlo como base para vuestras propias necesidades.</p>
+</blockquote>
+<h3 id="script-de-envío--sendntfysh">Script de envío — sendNtfy.sh</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># Us: ./sendNtfy.sh &#34;task&#34; &#34;autor&#34; &#34;titol&#34; &#34;contentSize&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SCRIPT_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>cd <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>dirname <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> pwd<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>taskName<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>autor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>2<span style="color:#66d9ef">:-</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>titol<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$3<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>contentSize<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>4<span style="color:#66d9ef">:-</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>ntfyServer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ntfyServer<span style="color:#66d9ef">:-</span>https://ntfy.sh<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -z <span style="color:#e6db74">&#34;</span>$taskName<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">||</span> -z <span style="color:#e6db74">&#34;</span>$titol<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">||</span> -z <span style="color:#e6db74">&#34;</span>$ntfyToken<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#39;+%Y-%m-%d %H:%M:%S&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74"> [ERROR] Falten parametres o ntfyToken no definit&#34;</span> &gt;&gt; <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SCRIPT_DIR<span style="color:#e6db74">}</span><span style="color:#e6db74">/sendNtfy.log&#34;</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ===================== TAGS =====================</span>
+</span></span><span style="display:flex;"><span>getTags<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> in
+</span></span><span style="display:flex;"><span>    downloadPodcast*<span style="color:#f92672">)</span> echo <span style="color:#e6db74">&#34;headphones&#34;</span>    ;;
+</span></span><span style="display:flex;"><span>    moveMediaMovies<span style="color:#f92672">)</span>  echo <span style="color:#e6db74">&#34;clapper&#34;</span>       ;;
+</span></span><span style="display:flex;"><span>    moveMediaSeries<span style="color:#f92672">)</span>  echo <span style="color:#e6db74">&#34;tv&#34;</span>            ;;
+</span></span><span style="display:flex;"><span>    moveBooks<span style="color:#f92672">)</span>        echo <span style="color:#e6db74">&#34;book&#34;</span>          ;;
+</span></span><span style="display:flex;"><span>    moveMusic<span style="color:#f92672">)</span>        echo <span style="color:#e6db74">&#34;musical_note&#34;</span>  ;;
+</span></span><span style="display:flex;"><span>    *<span style="color:#f92672">)</span>                echo <span style="color:#e6db74">&#34;warning&#34;</span>       ;;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tags<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>getTags <span style="color:#e6db74">&#34;</span>$taskName<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ===================== TOPICS =====================</span>
+</span></span><span style="display:flex;"><span>getTopic<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> in
+</span></span><span style="display:flex;"><span>    moveMediaMovies|moveMediaSeries<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>topicMedia<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>      ;;
+</span></span><span style="display:flex;"><span>    downloadPodcast*<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>topicPodcast<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>      ;;
+</span></span><span style="display:flex;"><span>    *<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ntfyTopicDefault<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>      ;;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ntfyTopic<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>getTopic <span style="color:#e6db74">&#34;</span>$taskName<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ===================== TITLE =====================</span>
+</span></span><span style="display:flex;"><span>getTitle<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> in
+</span></span><span style="display:flex;"><span>    downloadPodcast*<span style="color:#f92672">)</span> echo <span style="color:#e6db74">&#34;Podcast Descarregat&#34;</span>  ;;
+</span></span><span style="display:flex;"><span>    moveBooks<span style="color:#f92672">)</span>        echo <span style="color:#e6db74">&#34;Nou Llibre&#34;</span>           ;;
+</span></span><span style="display:flex;"><span>    moveMusic<span style="color:#f92672">)</span>        echo <span style="color:#e6db74">&#34;Música Descarregada&#34;</span>  ;;
+</span></span><span style="display:flex;"><span>    moveMediaMovies<span style="color:#f92672">)</span>  echo <span style="color:#e6db74">&#34;Nova Pel·lícula&#34;</span>      ;;
+</span></span><span style="display:flex;"><span>    moveMediaSeries<span style="color:#f92672">)</span>  echo <span style="color:#e6db74">&#34;Nou Capítol&#34;</span>          ;;
+</span></span><span style="display:flex;"><span>    *<span style="color:#f92672">)</span>                echo <span style="color:#e6db74">&#34;Acció desconeguda&#34;</span>    ;;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>getTitle <span style="color:#e6db74">&#34;</span>$taskName<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ===================== BODY =====================</span>
+</span></span><span style="display:flex;"><span>ntfyBody<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;​
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">📌 Titol: </span><span style="color:#e6db74">${</span>titol<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -n <span style="color:#e6db74">&#34;</span>$autor<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  ntfyBody<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ntfyBody<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$&#39;\n&#39;</span><span style="color:#e6db74">&#34;🎤 </span><span style="color:#e6db74">${</span>autor<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -n <span style="color:#e6db74">&#34;</span>$contentSize<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  ntfyBody<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ntfyBody<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$&#39;\n&#39;</span><span style="color:#e6db74">&#34;💾 Tamany: </span><span style="color:#e6db74">${</span>contentSize<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ===================== SEND =====================</span>
+</span></span><span style="display:flex;"><span>curlResponse<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -w <span style="color:#e6db74">&#34;\n%{http_code}&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --max-time <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --connect-timeout <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Authorization: Bearer </span><span style="color:#e6db74">${</span>ntfyToken<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Title: </span><span style="color:#e6db74">${</span>title<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Tags: </span><span style="color:#e6db74">${</span>tags<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Priority: default&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: text/plain&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -d <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ntfyBody<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ntfyServer<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>ntfyTopic<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>httpCode<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$curlResponse<span style="color:#e6db74">&#34;</span> | tail -n1<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>curlBody<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$curlResponse<span style="color:#e6db74">&#34;</span> | head -n-1<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ===================== LOG =====================</span>
+</span></span><span style="display:flex;"><span>logFile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SCRIPT_DIR<span style="color:#e6db74">}</span><span style="color:#e6db74">/sendNtfy.log&#34;</span>
+</span></span><span style="display:flex;"><span>maxSize<span style="color:#f92672">=</span><span style="color:#ae81ff">102400</span>  <span style="color:#75715e"># 100 KB</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -f <span style="color:#e6db74">&#34;</span>$logFile<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  currentSize<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>stat -c%s <span style="color:#e6db74">&#34;</span>$logFile<span style="color:#e6db74">&#34;</span> 2&gt;/dev/null <span style="color:#f92672">||</span> wc -c &lt; <span style="color:#e6db74">&#34;</span>$logFile<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$currentSize<span style="color:#e6db74">&#34;</span> -gt <span style="color:#e6db74">&#34;</span>$maxSize<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    : &gt; <span style="color:#e6db74">&#34;</span>$logFile<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#39;+%Y-%m-%d %H:%M:%S&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74"> [DEBUG] task=</span><span style="color:#e6db74">${</span>taskName<span style="color:#e6db74">}</span><span style="color:#e6db74"> | titol=</span><span style="color:#e6db74">${</span>titol<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &gt;&gt; <span style="color:#e6db74">&#34;</span>$logFile<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$httpCode<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;200&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$httpCode<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;202&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#39;+%Y-%m-%d %H:%M:%S&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74"> [ERROR] HTTP </span><span style="color:#e6db74">${</span>httpCode<span style="color:#e6db74">}</span><span style="color:#e6db74"> | response=</span><span style="color:#e6db74">${</span>curlBody<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &gt;&gt; <span style="color:#e6db74">&#34;</span>$logFile<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#39;+%Y-%m-%d %H:%M:%S&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74"> [OK] Sent </span><span style="color:#e6db74">${</span>taskName<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &gt;&gt; <span style="color:#e6db74">&#34;</span>$logFile<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>Como podéis ver, dependiendo de la tarea (<strong>task</strong>) se envía un título y un mensaje correspondiente.</p>
+<p>Además, también mantengo un pequeño archivo <em>log</em> por si se produce algún error y necesito revisar el motivo.</p>
+<h2 id="-conclusión">◇ Conclusión</h2>
+<p>Pues llegamos al final de esta serie de dos artículos donde he explicado la instalación y posterior configuración del container de <strong>NTFY</strong> en mi <strong>VPS</strong>.</p>
+<p>No tenía pensado que este artículo fuera tan largo, pero ha sido necesario para poder explicar todo el proceso que he llevado a cabo.</p>
+<p>Y siempre voy a estar agradecido a <strong>Carlos</strong>, alias <strong>Lázaro</strong>, por mostrarme que había más opciones aparte de <strong>Matrix</strong> 😅</p>
+<p>Nos vemos en el siguiente artículo. ¡A ver qué nos depara el futuro!</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://elblogdelazaro.org/instalacion-ntfy-unraid">Instalación de ntfy en Unraid</a></li>
+<li><a href="https://docs.ntfy.sh">Documentación NTFY</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>

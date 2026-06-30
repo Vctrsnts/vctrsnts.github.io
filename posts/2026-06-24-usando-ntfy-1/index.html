@@ -14,7 +14,7 @@ Cambiando Matrix por Ntfy · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2026-06-24-usando-ntfy-1/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-06-24-usando-ntfy-1/">
 
 
 
@@ -57,7 +57,7 @@ Cambiando Matrix por Ntfy · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Cambiando Matrix por Ntfy · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2026-06-24-usando-ntfy-1/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-06-24-usando-ntfy-1/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -80,7 +80,7 @@ Cambiando Matrix por Ntfy · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -90,7 +90,7 @@ Cambiando Matrix por Ntfy · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -144,7 +144,7 @@ Cambiando Matrix por Ntfy · Si lo haces, hazlo bien!
 
       
         ·
-        <a href="/tags/matrix/">#Matrix</a>-<a href="/tags/ntfy/">#Ntfy</a>-<a href="/tags/vps/">#VPS</a>
+        <a href="/tags/matrix/">#Matrix</a> <a href="/tags/ntfy/">#Ntfy</a> <a href="/tags/vps/">#VPS</a>
       
 
       
@@ -199,10 +199,13 @@ Cambiando Matrix por Ntfy · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_ATTACHMENT_CACHE_DIR</span>: <span style="color:#ae81ff">/etc/ntfy/attachments</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_BEHIND_PROXY</span>: <span style="color:#66d9ef">true</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_LOG_LEVEL</span>: <span style="color:#ae81ff">info</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_AUTH_FILE</span>: <span style="color:#ae81ff">/etc/ntfy/auth.db</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_AUTH_DEFAULT_ACCESS</span>: <span style="color:#ae81ff">deny-all</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_ENABLE_LOGIN</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">NTFY_REQUIRE_LOGIN</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># de momento lo comentamos</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># para verificar que todo funciona correctamente</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># posteriormente lo descomentaremos</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># NTFY_AUTH_FILE: /etc/ntfy/auth.db</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># NTFY_AUTH_DEFAULT_ACCESS: deny-all</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># NTFY_ENABLE_LOGIN: true</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># NTFY_REQUIRE_LOGIN: true</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${PODMAN_STORAGE_PATH}/.config/ntfy/cache:/var/cache/ntfy</span>
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${PODMAN_STORAGE_PATH}/.config/ntfy:/etc/ntfy</span>
