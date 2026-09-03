@@ -1,0 +1,527 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+
+Borrando un pool en unRAID · Si lo haces, hazlo bien!
+
+</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-09-02-delete-pool/">
+
+
+
+
+
+
+<meta name="description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
+
+
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+
+<meta property="og:title" content="Borrando un pool en unRAID · Si lo haces, hazlo bien!">
+<meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-09-02-delete-pool/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
+
+
+<meta property="og:type" content="article">
+
+
+<meta property="article:published_time" content="2026-09-02T00:00:00&#43;02:00">
+
+
+
+
+<meta property="article:tag" content="unRAID">
+
+
+
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Borrando un pool en unRAID · Si lo haces, hazlo bien!">
+<meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="6608b7e7-8981-44c1-965f-4266bfc3bab5">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/index.xml">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Borrando un pool en unRAID</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-09-02">
+        2026-09-02
+      </time>
+      · 4 min
+      
+      
+        · <a class="p-category" href="/categories/self-hosting/">@Self-Hosting</a>
+      
+
+      
+        ·
+        <a href="/tags/unraid/">#unRAID</a>
+      
+
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Nuevo artículo sobre una de aquellas cosas que tendría que saber hacer, que seguramente sé hacer, pero cuando llega el momento no me acuerdo y empiezo a buscar información, a trastear con todo el sistema y lo único que puedo llegar a conseguir es cargármelo todo.</p>
+<p>Pero ¿a qué viene todo esto? Muy fácil. Como sabéis, tengo un <a href="/posts/2025-04-20-modificaciones-servidor-3">servidor</a> con <strong>unRAID</strong> al que le había puesto un <strong>NVMe</strong> de 4 TB para poder descargar ISO&rsquo;s de GNU/Linux (Debian, Arch, etc.), pero a <a href="https://atareao.es/podcast/no-necesitas-una-gpu-de-3000e-para-ia-local/">atareao</a> no se le ocurre otra cosa que publicar un nuevo artículo sobre cómo montar tu propia <strong>Skynet</strong>, pero para pobres, como la llamo yo 😉</p>
+<p>Tranquilos, que de esto ya hablaré en otros artículos, que nos estamos desviando del tema principal.</p>
+<p>Así que, si, puedes tener tu propia <em>IA en local</em>, pero sin necesidad de vender un riñón. Pero claro, necesitas un <strong>SSD</strong> o un <strong>NVMe</strong> para tener una buena experiencia, dentro de las limitaciones que tenemos al no disponer de una <strong>GPU</strong>. Y teniendo ya un <strong>NVMe</strong>, ¿por qué no usarlo? 🤔</p>
+<p>La única pega es que tenía que mover todo lo que tiene y moverlo a otro sitio para luego borrar el <strong>pool</strong> y posteriormente, crear uno nuevo y poder usarlo.</p>
+<p>Aquí está el problema: como es una cosa que no haces todos los días, es cuando empiezas a trastear y lo único que puedes llegar a conseguir es cargarte el sistema, cuando tú solamente quieres usar ese <strong>NVMe</strong> para tener tu propio <em>laboratorio de IA</em>.</p>
+<p>Pero, como digo, como es una cosa que no haces cada día&hellip; 🤨 te toca buscar información sobre cómo se tiene que hacer y, al final, con lo que entendí y con lo que recorde, me puse a ello. Y con un final feliz.</p>
+<p>Así que, por ese motivo, hago este artículo: para que, si en un futuro tengo que volver a hacerlo, no tenga que volverme loco buscando información e ir a piñón fijo.</p>
+<p>Los pasos no son dificiles, pero requieren un orden concreto:</p>
+<ul>
+<li>Mover los archivos del <strong>pool</strong> a una nueva ubicación.</li>
+<li>Detener el servicio de <strong>Docker</strong>.</li>
+<li>Detener el servicio de <strong>VM</strong>, si tienes alguna.</li>
+<li>Detener el <strong>Array</strong>.</li>
+<li>Eliminar y crear el <strong>pool</strong>.</li>
+<li>Usar el nuevo <strong>pool</strong>.</li>
+</ul>
+<p>Y la imagen inicial es la siguiente:</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-09-02-delete-pool/image_01_hu_d522809facefba27.webp 400w,
+      /posts/2026-09-02-delete-pool/image_01_hu_41fa609e1a070e10.webp 700w,
+      /posts/2026-09-02-delete-pool/image_01_hu_7566b9360b13a201.webp 900w
+    "
+    sizes="
+      (max-width: 700px) 100vw,
+      700px
+    "
+  >
+
+  <img
+    src="/posts/2026-09-02-delete-pool/image_01_hu_eebf8f84cfc5c413.jpg"
+    alt=""
+    width="900"
+    height="395"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<h2 id="-mover-los-archivos">◇ Mover los archivos</h2>
+<p>Para mover los archivos de un sitio a otro, al principio yo lo hacía con un simple <strong>move</strong>, pero no funcionaba porque me dejaba los archivos como enlazados en dos ubicaciones diferentes (en el HDD de destino y en el <strong>NVMe</strong> de origen), así que lo mejor es usar la aplicación que te aconsejo instalar nada más empezar con <strong>unRAID</strong> y que sirve precisamente para eso.</p>
+<p>Esta aplicación no es otra que <strong>unbalanced</strong>.</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-09-02-delete-pool/image_02_hu_740f78171a8b9297.webp 400w,
+      /posts/2026-09-02-delete-pool/image_02_hu_594771d7a4bcb0b3.webp 700w,
+      /posts/2026-09-02-delete-pool/image_02_hu_83aa09c1f5ffb7ba.webp 900w
+    "
+    sizes="
+      (max-width: 700px) 100vw,
+      700px
+    "
+  >
+
+  <img
+    src="/posts/2026-09-02-delete-pool/image_02_hu_fe8101491654a440.jpg"
+    alt=""
+    width="900"
+    height="400"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<p>Lo único que tienes que hacer es seleccionar el <em>HDD de origen</em>, los archivos a mover y el <em>HDD de destino</em>, y él lo hace todo conservando los permisos. Pero eso sí, tómate una tila, porque tarda bastante, dependiendo de la cantidad de archivos que tengas que mover.</p>
+<h2 id="-detener-servicios-docker--vm">◇ Detener servicios (Docker / VM)</h2>
+<p>Esto es muy importante porque, si no, no puedes hacer nada.</p>
+<p>Es lo más fácil de todo el proceso.</p>
+<p>Aquí podemos ver cómo se detiene el <strong>servicio de Docker</strong>:</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-09-02-delete-pool/image_03_hu_40801186497a6ab0.webp 400w,
+      /posts/2026-09-02-delete-pool/image_03_hu_17c8554d38ef16b1.webp 700w,
+      /posts/2026-09-02-delete-pool/image_03_hu_c5cc15ae1ccec4c0.webp 900w
+    "
+    sizes="
+      (max-width: 700px) 100vw,
+      700px
+    "
+  >
+
+  <img
+    src="/posts/2026-09-02-delete-pool/image_03_hu_efb13034bef87f4a.jpg"
+    alt=""
+    width="900"
+    height="543"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Yo lo tengo en <em>enable - Yes</em>. Para desactivarlo, solo hay que seleccionar <em>No</em>, pulsar <em>Apply</em> y ya estaría desactivado.</p>
+</blockquote>
+<p>Y lo mismo para detener el <strong>servicio de VM</strong>:</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-09-02-delete-pool/image_04_hu_6fe484b6346f8ca7.webp 400w,
+      /posts/2026-09-02-delete-pool/image_04_hu_1fcf1f0beea28402.webp 700w,
+      /posts/2026-09-02-delete-pool/image_04_hu_eb7ef897ab81d1f7.webp 900w
+    "
+    sizes="
+      (max-width: 700px) 100vw,
+      700px
+    "
+  >
+
+  <img
+    src="/posts/2026-09-02-delete-pool/image_04_hu_dcf52dc9add62914.jpg"
+    alt=""
+    width="900"
+    height="391"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<h2 id="-detener-array">◇ Detener Array</h2>
+<p>Este es el punto más importante de todos, junto con los dos anteriores. Sin esto no puedes hacer nada, ni eliminar el <strong>pool</strong> ni crear uno nuevo. Es fácil de hacer, pero no por ello es menos importante.</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-09-02-delete-pool/image_05_hu_fa46496947f19e24.webp 400w,
+      /posts/2026-09-02-delete-pool/image_05_hu_c0ea9035a1d4a91.webp 700w,
+      /posts/2026-09-02-delete-pool/image_05_hu_86d73a4af4e5882e.webp 900w
+    "
+    sizes="
+      (max-width: 700px) 100vw,
+      700px
+    "
+  >
+
+  <img
+    src="/posts/2026-09-02-delete-pool/image_05_hu_4fb28ff17661ee1a.jpg"
+    alt=""
+    width="900"
+    height="390"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<p>Una vez que hemos detenido el <strong>Array</strong>, ya podemos trabajar libremente con los <strong>pools</strong> y con el propio <strong>Array</strong>, pero en mi caso, como solo voy a trabajar con el <strong>pool</strong>&hellip;</p>
+<h2 id="-eliminar-y-crear-el-pool">◇ Eliminar y crear el pool</h2>
+<p>Ahora pasamos a desvincular el <strong>NVMe</strong> del <strong>pool</strong>. Luego entramos en la configuración del <strong>pool</strong> y lo borramos mediante <em>Remove Pool</em>. Creamos el nuevo <strong>pool</strong>, que en mi caso lo voy a llamar <strong>Ollama</strong>, por lo que os comentaba al principio.</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-09-02-delete-pool/image_06_hu_22c97df42f10df2d.webp 400w,
+      /posts/2026-09-02-delete-pool/image_06_hu_c56952550037ef15.webp 700w,
+      /posts/2026-09-02-delete-pool/image_06_hu_425a9d06aec5b6f3.webp 900w
+    "
+    sizes="
+      (max-width: 700px) 100vw,
+      700px
+    "
+  >
+
+  <img
+    src="/posts/2026-09-02-delete-pool/image_06_hu_28f1669bb2b6cd1d.jpg"
+    alt=""
+    width="900"
+    height="733"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<p>Por último, asignamos el <strong>NVMe</strong> al nuevo <strong>pool</strong>.</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-09-02-delete-pool/image_07_hu_aee1759fb36df66c.webp 400w,
+      /posts/2026-09-02-delete-pool/image_07_hu_e2529bd97dadb6.webp 700w,
+      /posts/2026-09-02-delete-pool/image_07_hu_3c362eff7a17179a.webp 900w
+    "
+    sizes="
+      (max-width: 700px) 100vw,
+      700px
+    "
+  >
+
+  <img
+    src="/posts/2026-09-02-delete-pool/image_07_hu_f2be3e50c00ccc09.jpg"
+    alt=""
+    width="900"
+    height="461"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<h2 id="-usando-el-nuevo-pool">◇ Usando el nuevo pool</h2>
+<p>Después de crearlo, hay que acordarse de:</p>
+<ul>
+<li>Iniciar el <strong>Array</strong>.</li>
+<li>Iniciar el servicio de <strong>Docker</strong>.</li>
+<li>Iniciar el servicio de <strong>VM</strong>.</li>
+</ul>
+<p>Una vez que se ha iniciado todo y siempre que no tengamos ninguna incidencia en el sistema, podemos pasar a usarlo. Pero antes te aconsejo crear un <strong>share</strong> que esté ubicado en el <strong>pool</strong>; recuerda que se comportará como un directorio normal.</p>
+<p>A partir de aquí ya estamos preparados para lo que se viene en el futuro, pero de eso ya hablaremos en un próximo artículo. Aquí lo más importante es saber cómo eliminar y crear un nuevo <strong>pool</strong>.</p>
+<h4 id="-referencias">◇ Referencias</h4>
+<ul>
+<li><a href="https://atareao.es/podcast/no-necesitas-una-gpu-de-3000e-para-ia-local">No Necesitas una GPU de 3000€ para IA Local</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>
