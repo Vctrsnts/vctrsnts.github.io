@@ -14,7 +14,7 @@ Publicando nuevos artículos en RRSS · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2024-12-10-publicar-redes-sociales/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-12-10-publicar-redes-sociales/">
 
 
 
@@ -57,7 +57,7 @@ Publicando nuevos artículos en RRSS · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Publicando nuevos artículos en RRSS · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Script para publicar en el feed">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2024-12-10-publicar-redes-sociales/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2024-12-10-publicar-redes-sociales/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Publicando nuevos artículos en RRSS · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Publicando nuevos artículos en RRSS · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Script para publicar en el feed">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -294,47 +294,47 @@ Publicando nuevos artículos en RRSS · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
 </span></span><span style="display:flex;"><span>    main()
 </span></span></code></pre></div><p>A continuación, os explico lo que hace cada función ( más o menos ):</p>
-<h3 id="main">main()</h3>
+<h3 id="-main">◈ main()</h3>
 <p>Función de inicio y la que se encarga de:</p>
 <ul>
 <li>Cargar las variables del fichero general <code>load_environment_variables()</code></li>
 <li>Verificar si <code>postBsky</code>, <code>postMastodon</code>, <code>postTumblr</code> es <code>true</code>, porque si es <code>false</code>, la función de postear un mensaje en la red social correspondiente (Mastodon, Tumblr o BlueSky), no se ejecutaría.</li>
 </ul>
-<h3 id="create_tumblr_postclient-blog_name-feed_url">create_tumblr_post(client, blog_name, feed_url)</h3>
+<h3 id="-create_tumblr_postclient-blog_name-feed_url">◈ create_tumblr_post(client, blog_name, feed_url)</h3>
 <p>Función que se encarga de enviar un post a <strong>Tumblr</strong>, necesita:</p>
 <ul>
 <li><code>Client</code>, la conexión con <strong>Tumblr</strong>.</li>
 <li><code>blog_name</code>, nombre de tu blog en esta red social, esto es así, porque puedes tener más de uno.</li>
 <li><code>feed_url</code>, archivo RSS de nuestra web.</li>
 </ul>
-<h3 id="authenticate_tumblrclient_vars">authenticate_tumblr(client_vars)</h3>
+<h3 id="-authenticate_tumblrclient_vars">◈ authenticate_tumblr(client_vars)</h3>
 <p>Función que por decirlo de alguna manera, se encarga de hacer la conexión con <strong>Tumblr</strong>.</p>
-<h3 id="post_to_mastodontoken-url-feed_url">post_to_mastodon(token, url, feed_url)</h3>
+<h3 id="-post_to_mastodontoken-url-feed_url">◈ post_to_mastodon(token, url, feed_url)</h3>
 <p>Función que se encarga de postear los mensajes a <strong>Mastodon</strong>, necesita:</p>
 <ul>
 <li><code>token</code>, validación con <strong>Mastodon</strong>.</li>
 <li><code>url</code>, instancia que utilizamos.</li>
 <li><code>feed_url</code>, archivo RSS de nuestra web.</li>
 </ul>
-<h3 id="fetch_random_articlefeed_url">fetch_random_article(feed_url)</h3>
+<h3 id="-fetch_random_articlefeed_url">◈ fetch_random_article(feed_url)</h3>
 <p>Función que se encarga de seleccionar aleatoriamente un artículo para postear en las redes que tengo configuradas en este momento (Mastodon y Tumblr), no se usa para <strong>BlueSky</strong> porque esta funciona de una manera diferente. El fin es el mismo, pero 😅</p>
 <ul>
 <li><code>feed_url</code>, archivo RSS de nuestra web.</li>
 </ul>
-<h3 id="post_to_blueskyuser-password-feed_url-image_url">post_to_bluesky(user, password, feed_url, image_url)</h3>
+<h3 id="-post_to_blueskyuser-password-feed_url-image_url">◈ post_to_bluesky(user, password, feed_url, image_url)</h3>
 <p>Función que se encarga de postear los mensajes a <strong>BlueSky</strong>, necesita:</p>
 <ul>
 <li><code>user</code>, <code>password</code>, usuario y password de validación.</li>
 <li><code>feed_url</code>, archivo RSS de nuestra web.</li>
 <li><code>image_url</code>, imagen que queremos que acompañe a nuestro post.</li>
 </ul>
-<h3 id="fetch_image_dataimage_url">fetch_image_data(image_url)</h3>
+<h3 id="-fetch_image_dataimage_url">◈ fetch_image_data(image_url)</h3>
 <p>Función que se encarga de obtener la información de la imagen que quieres que acompañe al post de <strong>BlueSky</strong>.</p>
-<h3 id="select_random_itementries">select_random_item(entries)</h3>
+<h3 id="-select_random_itementries">◈ select_random_item(entries)</h3>
 <p>Función que se encarga de seleccionar aleatoriamente un artículo pero para <strong>BlueSky</strong>.</p>
-<h3 id="fetch_feed_entriesfeed_url">fetch_feed_entries(feed_url)</h3>
+<h3 id="-fetch_feed_entriesfeed_url">◈ fetch_feed_entries(feed_url)</h3>
 <p>Función que se encarga de cargar todos los ítems / artículos del fichero RSS.</p>
-<h3 id="load_environment_variables">load_environment_variables()</h3>
+<h3 id="-load_environment_variables">◈ load_environment_variables()</h3>
 <p>Función que se encarga de cargar todas las variables necesarias para el correcto funcionamiento del script, que en este caso son las siguientes:</p>
 <ul>
 <li><code>BSKY_USER</code>, <code>BSKY_PASS</code> usuario y password para <strong>BlueSky</strong></li>

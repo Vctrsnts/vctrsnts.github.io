@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.codeberg.page/tags/python/</link>
+    <link>https://vctrsnts.github.io/tags/python/</link>
     <description>Recent content in Python on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Tue, 10 Dec 2024 00:00:00 +0100</lastBuildDate>
-    <atom:link href="https://vctrsnts.codeberg.page/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Publicando nuevos artículos en RRSS</title>
-      <link>https://vctrsnts.codeberg.page/posts/2024-12-10-publicar-redes-sociales/</link>
+      <link>https://vctrsnts.github.io/posts/2024-12-10-publicar-redes-sociales/</link>
       <pubDate>Tue, 10 Dec 2024 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2024-12-10-publicar-redes-sociales/</guid>
-      <description>&lt;p&gt;Este nuevo artículo, se puede decir que es la fusión de este &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2022-11-14-publicar-feed-mastodon&#34;&gt;artículo&lt;/a&gt; y este &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2024-11-12-publicar-feed-tumblr&#34;&gt;otro&lt;/a&gt; donde explicaba cómo dar publicidad o informar en las diferentes redes sociales que estoy, &lt;strong&gt;Mastodon&lt;/strong&gt;, &lt;strong&gt;Tumblr&lt;/strong&gt; y ahora &lt;strong&gt;BlueSky&lt;/strong&gt; de los artículos nuevos que voy añadiendo así como de los antiguos, porque nunca se sabe si algún artículo anterior puede servir de ayuda a alguna persona.&lt;/p&gt;&#xA;&lt;p&gt;Pero después del anuncio que hizo &lt;strong&gt;@Yoyo308&lt;/strong&gt; de que se había apuntado en la nueva red social llamada &lt;a href=&#34;https://bsky.app&#34;&gt;BlueSky&lt;/a&gt; que quiere llegar a ser como la antigua &lt;strong&gt;Twitter&lt;/strong&gt; o la nueva &lt;strong&gt;X&lt;/strong&gt;. Eso sí, espero que no se convierta en lo mismo que es ahora &lt;strong&gt;X&lt;/strong&gt;. Lo hice, solamente para &lt;em&gt;reservar&lt;/em&gt; mi nombre de usuario.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2024-12-10-publicar-redes-sociales/</guid>
+      <description>&lt;p&gt;Este nuevo artículo, se puede decir que es la fusión de este &lt;a href=&#34;https://vctrsnts.github.io/posts/2022-11-14-publicar-feed-mastodon&#34;&gt;artículo&lt;/a&gt; y este &lt;a href=&#34;https://vctrsnts.github.io/posts/2024-11-12-publicar-feed-tumblr&#34;&gt;otro&lt;/a&gt; donde explicaba cómo dar publicidad o informar en las diferentes redes sociales que estoy, &lt;strong&gt;Mastodon&lt;/strong&gt;, &lt;strong&gt;Tumblr&lt;/strong&gt; y ahora &lt;strong&gt;BlueSky&lt;/strong&gt; de los artículos nuevos que voy añadiendo así como de los antiguos, porque nunca se sabe si algún artículo anterior puede servir de ayuda a alguna persona.&lt;/p&gt;&#xA;&lt;p&gt;Pero después del anuncio que hizo &lt;strong&gt;@Yoyo308&lt;/strong&gt; de que se había apuntado en la nueva red social llamada &lt;a href=&#34;https://bsky.app&#34;&gt;BlueSky&lt;/a&gt; que quiere llegar a ser como la antigua &lt;strong&gt;Twitter&lt;/strong&gt; o la nueva &lt;strong&gt;X&lt;/strong&gt;. Eso sí, espero que no se convierta en lo mismo que es ahora &lt;strong&gt;X&lt;/strong&gt;. Lo hice, solamente para &lt;em&gt;reservar&lt;/em&gt; mi nombre de usuario.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Publicar feed en Tumblr</title>
-      <link>https://vctrsnts.codeberg.page/posts/2024-11-12-publicar-feed-tumblr/</link>
+      <link>https://vctrsnts.github.io/posts/2024-11-12-publicar-feed-tumblr/</link>
       <pubDate>Tue, 12 Nov 2024 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2024-11-12-publicar-feed-tumblr/</guid>
-      <description>&lt;p&gt;Este artículo, podría decirse que es una continuación de este &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2022-11-14-publicar-feed-mastodon&#34;&gt;artículo&lt;/a&gt; pero en este caso, es para &lt;a href=&#34;https://www.tumblr.com&#34;&gt;Tumblr&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;La idea es la misma, pero para otra red social. Eso sí, más pequeña y desconocida o al menos para mí. Nunca había oído hablar de ella, pero nunca se sabe y así ya estoy en ella, aunque sea solamente para publicar los artículos que voy añadiendo a mi web / blog.&lt;/p&gt;&#xA;&lt;p&gt;Partimos de la base que antes de empezar tenemos que tener instalado:&lt;/p&gt;</description>
+      <guid>https://vctrsnts.github.io/posts/2024-11-12-publicar-feed-tumblr/</guid>
+      <description>&lt;p&gt;Este artículo, podría decirse que es una continuación de este &lt;a href=&#34;https://vctrsnts.github.io/posts/2022-11-14-publicar-feed-mastodon&#34;&gt;artículo&lt;/a&gt; pero en este caso, es para &lt;a href=&#34;https://www.tumblr.com&#34;&gt;Tumblr&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;La idea es la misma, pero para otra red social. Eso sí, más pequeña y desconocida o al menos para mí. Nunca había oído hablar de ella, pero nunca se sabe y así ya estoy en ella, aunque sea solamente para publicar los artículos que voy añadiendo a mi web / blog.&lt;/p&gt;&#xA;&lt;p&gt;Partimos de la base que antes de empezar tenemos que tener instalado:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Crear RSS de los podcast que sigo</title>
-      <link>https://vctrsnts.codeberg.page/posts/2023-07-23-crear-rss-podcast/</link>
+      <link>https://vctrsnts.github.io/posts/2023-07-23-crear-rss-podcast/</link>
       <pubDate>Sun, 23 Jul 2023 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2023-07-23-crear-rss-podcast/</guid>
+      <guid>https://vctrsnts.github.io/posts/2023-07-23-crear-rss-podcast/</guid>
       <description>&lt;p&gt;No sé vosotros, pero no os habéis fijado que estos últimos meses ha habido un auge con respecto a los podcast? No sé si es porque la calidad ha subido o porque hay más, pero&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Yo siempre he escuchado un programa de radio de &lt;em&gt;&lt;strong&gt;Catalunya Radio&lt;/strong&gt;&lt;/em&gt; que trata sobre la historia en general y como soy un entusiasta de la historia, pues este programa no podía faltar, pero claro, me lo programan a unas horas, que es imposible seguirlo. Así que decidí mirar si tenían la opción de descargar los programas en formato podcast, y resultó que sí era posible.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Publicar feed en Mastodon / Twitter</title>
-      <link>https://vctrsnts.codeberg.page/posts/2022-11-14-publicar-feed-mastodon/</link>
+      <link>https://vctrsnts.github.io/posts/2022-11-14-publicar-feed-mastodon/</link>
       <pubDate>Mon, 14 Nov 2022 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.codeberg.page/posts/2022-11-14-publicar-feed-mastodon/</guid>
+      <guid>https://vctrsnts.github.io/posts/2022-11-14-publicar-feed-mastodon/</guid>
       <description>&lt;p&gt;Descubrí a través del &lt;a href=&#34;https://elblogdelazaro.org&#34;&gt;Blog de Lazaro&lt;/a&gt;, que si tienes cuenta en &lt;code&gt;Mastodon&lt;/code&gt;, quien no tiene cuenta ahora tal como van las cosas en &lt;code&gt;Twitter&lt;/code&gt;,  que puedes enviar de forma aleatoria alguno de los artículos que tienes publicados en tu web.&lt;/p&gt;&#xA;&lt;p&gt;Así que después de leer su artículo y ver si yo podía hacer lo mismo, me lié la manta a la cabeza y al lío.&lt;/p&gt;&#xA;&lt;p&gt;Lo primero, es tener una cuenta y después tienes que crear un aplicación en &lt;code&gt;Mastodon&lt;/code&gt; de igual forma que se puede crear en Twitter (explicación más adelante ).&lt;/p&gt;</description>
     </item>
   </channel>

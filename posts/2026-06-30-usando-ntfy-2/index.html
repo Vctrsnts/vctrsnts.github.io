@@ -14,7 +14,7 @@ Configurando Ntfy · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2026-06-30-usando-ntfy-2/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-06-30-usando-ntfy-2/">
 
 
 
@@ -57,7 +57,7 @@ Configurando Ntfy · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Configurando Ntfy · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2026-06-30-usando-ntfy-2/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-06-30-usando-ntfy-2/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -80,7 +80,7 @@ Configurando Ntfy · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -90,7 +90,7 @@ Configurando Ntfy · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -163,7 +163,7 @@ Configurando Ntfy · Si lo haces, hazlo bien!
 <p>Antes de empezar con usuarios, permisos y configuraciones, primero creo que es importante entender cómo funciona todo el conjunto.</p>
 <p>A mi modo de ver, los <em>topics</em> son los buzones donde se envían las notificaciones y solamente quien <em>tiene la llave</em> para abrir ese buzón puede enviar o leer los mensajes.</p>
 <p>Es un punto que me costó pillar, pero una vez lo entiendes, el resto resulta mucho más sencillo.</p>
-<h3 id="flujo-completo-de-funcionamiento">Flujo completo de funcionamiento</h3>
+<h3 id="-flujo-completo-de-funcionamiento">◈ Flujo completo de funcionamiento</h3>
 <p>Una explicación visual del proceso podría ser la siguiente (el ejemplo se explica en base al container de <em>FlexGet</em>):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Flexget
 </span></span><span style="display:flex;"><span>     ↓
@@ -195,7 +195,7 @@ Configurando Ntfy · Si lo haces, hazlo bien!
 <li><strong>Usuario bot</strong>: será el encargado de enviar las notificaciones a los diferentes <em>topics</em>.</li>
 </ul>
 <p>Si tuviéramos que mostrar una estructura sobre mi configuración, sería la siguiente:</p>
-<h3 id="usuario-administrador">Usuario administrador</h3>
+<h3 id="-usuario-administrador">◈ Usuario administrador</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>administrador
 </span></span><span style="display:flex;"><span>├─ Contraseña larga y única
 </span></span><span style="display:flex;"><span>├─ Guardada en gestor de contraseñas
@@ -211,7 +211,7 @@ Configurando Ntfy · Si lo haces, hazlo bien!
 <li>Gestiona incidencias</li>
 <li>Su uso se debe reducir al máximo para no exponerlo.</li>
 </ul>
-<h3 id="usuario-normal">Usuario normal</h3>
+<h3 id="-usuario-normal">◈ Usuario normal</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>user
 </span></span><span style="display:flex;"><span>├─ Contraseña fuerte
 </span></span><span style="display:flex;"><span>├─ Usado en móvil y web
@@ -224,7 +224,7 @@ Configurando Ntfy · Si lo haces, hazlo bien!
 <li>Utiliza la interfaz web</li>
 <li>Recibe las notificaciones</li>
 </ul>
-<h3 id="usuario-bot">Usuario bot</h3>
+<h3 id="-usuario-bot">◈ Usuario bot</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>bot
 </span></span><span style="display:flex;"><span>├─ No usado manualmente
 </span></span><span style="display:flex;"><span>├─ Tokens permanentes
@@ -243,7 +243,7 @@ Configurando Ntfy · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>/# enter password:
 </span></span><span style="display:flex;"><span>/# repeat password:
 </span></span></code></pre></div><p>Con esto ya hemos creado nuestro <strong>administrador</strong> y nuestro <strong>usuario</strong>. El proceso sería exactamente el mismo para cualquier otro usuario.</p>
-<h3 id="a-tener-en-consideración">A tener en consideración</h3>
+<h3 id="-a-tener-en-consideración">◈ A tener en consideración</h3>
 <p>Antes de crear los usuarios, tenemos que descomentar estas líneas de nuestro <code>compose</code>, que habíamos dejado comentadas para verificar que todo funcionaba correctamente:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># NTFY_AUTH_FILE: /etc/ntfy/auth.db</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># NTFY_AUTH_DEFAULT_ACCESS: deny-all</span>
@@ -288,7 +288,7 @@ Configurando Ntfy · Si lo haces, hazlo bien!
 </span></span></code></pre></div><p>Ahora nos queda la parte más importante: los <strong>tokens</strong>.</p>
 <h2 id="-definición-de-tokens">◇ Definición de tokens</h2>
 <p>Siguiendo con la analogía de los buzones, los <strong>tokens</strong> son las llaves que nos permiten abrir esos buzones para entregar o recoger notificaciones.</p>
-<h3 id="creación-de-tokens">Creación de tokens</h3>
+<h3 id="-creación-de-tokens">◈ Creación de tokens</h3>
 <p>Tenemos que acceder a:</p>
 <p>
 
@@ -393,7 +393,7 @@ Configurando Ntfy · Si lo haces, hazlo bien!
 <p><strong>Nota</strong></p>
 <p>Este script lo utilizo para el envío de notificaciones desde el container de <strong>FlexGet</strong>, pero podéis utilizarlo como base para vuestras propias necesidades.</p>
 </blockquote>
-<h3 id="script-de-envío--sendntfysh">Script de envío — sendNtfy.sh</h3>
+<h3 id="-script-de-envío--sendntfysh">◈ Script de envío — sendNtfy.sh</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"># Us: ./sendNtfy.sh &#34;task&#34; &#34;autor&#34; &#34;titol&#34; &#34;contentSize&#34;</span>
 </span></span><span style="display:flex;"><span>

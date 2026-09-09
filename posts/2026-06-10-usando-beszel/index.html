@@ -14,7 +14,7 @@ Instalado y usando Beszel · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2026-06-10-usando-beszel/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-06-10-usando-beszel/">
 
 
 
@@ -57,7 +57,7 @@ Instalado y usando Beszel · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Instalado y usando Beszel · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2026-06-10-usando-beszel/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-06-10-usando-beszel/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Instalado y usando Beszel · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Instalado y usando Beszel · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -162,7 +162,7 @@ Instalado y usando Beszel · Si lo haces, hazlo bien!
 <li><a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a></li>
 <li><a href="https://www.netdata.cloud">Netdata</a></li>
 </ul>
-<h3 id="por-qué-beszel">¿Por qué Beszel?</h3>
+<h3 id="-por-qué-beszel">◈ ¿Por qué Beszel?</h3>
 <p>En mi opinión, si no es que tienes un equipo potente (tipo empresarial), estas herramientas son, como dice el refrán, &ldquo;matar moscas a cañonazos&rdquo;.</p>
 <p>Sí, te van a dar mucha información sobre tu servidor o VPS, pero ¿necesitas tanta información?</p>
 <p>Hazte la pregunta: ¿necesito tanta? O, como es mi caso, con mi VPS, un <a href="/posts/2025-04-20-modificaciones-servidor-3">TiNAS</a> o una <em>Raspberry Pi</em>, con la información más importante tengo más que suficiente.</p>
@@ -325,7 +325,7 @@ Instalado y usando Beszel · Si lo haces, hazlo bien!
 </ul>
 </blockquote>
 <p>Con esto ya tenemos en marcha nuestra aplicación de <strong>Beszel</strong> y configurada correctamente para acceder a través de <strong>PocketID</strong>.</p>
-<h3 id="aumentando-la-seguridad">Aumentando la seguridad</h3>
+<h3 id="-aumentando-la-seguridad">◈ Aumentando la seguridad</h3>
 <p>Una vez configurado el acceso a <strong>Beszel</strong> a través de <strong>PocketID</strong>, lo recomendable es desactivar cualquier tipo de acceso que no sea mediante <strong>PocketID</strong>.</p>
 <p>Para ello solamente tenemos que añadir:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">USER_CREATION</span>: <span style="color:#e6db74">&#34;false&#34;</span>
@@ -334,9 +334,9 @@ Instalado y usando Beszel · Si lo haces, hazlo bien!
 <h2 id="-instalación-de-beszel-agent">◇ Instalación de Beszel-Agent</h2>
 <p>Hasta ahora hemos estado hablando de <strong>Beszel</strong>, pero todavía no hemos hablado de cómo obtendremos las gráficas.</p>
 <p>La cuestión es que <strong>Beszel</strong> solo es el 50 % de la instalación. Ahora nos falta configurar el otro 50 %.</p>
-<h3 id="qué-es-el-agent">¿Qué es el Agent?</h3>
+<h3 id="-qué-es-el-agent">◈ ¿Qué es el Agent?</h3>
 <p>Un <strong>agent</strong> se podría definir como un satélite que está en un servidor y que envía la información al centro de control (<strong>Beszel</strong>).</p>
-<h3 id="alta-del-sistema-en-beszel">Alta del sistema en Beszel</h3>
+<h3 id="-alta-del-sistema-en-beszel">◈ Alta del sistema en Beszel</h3>
 <p>Para añadir este <strong>agent</strong>, añadimos un nuevo sistema donde nos aparecerá algo parecido a esto:</p>
 <p>
 
@@ -414,7 +414,7 @@ Instalado y usando Beszel · Si lo haces, hazlo bien!
 </li>
 </ul>
 <p>Con estos datos ya podemos proceder a la creación del container del agente de <strong>Beszel</strong>.</p>
-<h3 id="creación-del-container">Creación del container</h3>
+<h3 id="-creación-del-container">◈ Creación del container</h3>
 <p>En mi caso, como únicamente quiero controlar el mismo VPS, se puede añadir el <strong>agent</strong> en el mismo archivo <code>compose</code> del container de <strong>Beszel</strong>.</p>
 <p>Solamente tenemos que añadir lo siguiente:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Recordar que TOKEN y KEY los hemos obtenido antes</span>

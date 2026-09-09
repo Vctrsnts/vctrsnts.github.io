@@ -14,7 +14,7 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-05-23-restic-copias-locales-3/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-05-23-restic-copias-locales-3/">
 
 
 
@@ -57,7 +57,7 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Hablamos de copias de seguridad entre Backrest i MinIO">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2025-05-23-restic-copias-locales-3/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2025-05-23-restic-copias-locales-3/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Hablamos de copias de seguridad entre Backrest i MinIO">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -269,7 +269,7 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 <p>Aquí seguí el consejo de <a href="https://atareao.es/podcast/no-pierdas-tus-datos-backups-infalibles">Atareao</a> donde explica, que en su caso, igual que el mío, su equipo personal no está encendido las 24 horas y por ese motivo no se puede hacer una planificación de las copias, pero lo que sí se puede hacer, y es lo que yo también he hecho, ha sido, que cada vez que se inicie el sistema y pasados 5 minutos, para así dar tiempo a que la red esté activa (es lo que pasa en un portátil si utilizas <strong>network-manager</strong>, que necesita unos minutos en conectarse). Entonces, pasados esos minutos, se ejecuta el script de copias de seguridad, pero activado por <strong>systemd</strong>.</p>
 <p>La primera versión que hice, fue que el activador de <strong>systemd</strong> estuviera en el sistema, estilo general, en cambio, gracias a un <a href="https://elblogdelazaro.org/restic-automatiza-tus-backups-con-restic-y-systemd">artículo</a> de <strong>Carlos M.</strong> vi que se podía tener lo mismo, pero a nivel de usuario (mucho más fácil de implementar y de controlar), siguiendo estos simples pasos:</p>
 <p>Lo primero, era crear la configuración del <em>backup</em> con <em>systemd</em> para usuarios, pero en <strong>Debian GNU/Linux</strong> y esto se consigue de la siguiente manera:</p>
-<h3 id="1-estructura-de-archivos">1. Estructura de archivos</h3>
+<h2 id="-estructura-de-archivos">◇ Estructura de archivos</h2>
 <p>Ubicación de los archivos configurados:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ~/.config/systemd/user/backup.timer → Timer para ejecutar el backup <span style="color:#ae81ff">5</span> min después del arranque.
 </span></span><span style="display:flex;"><span>
@@ -278,7 +278,7 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>    ~/.local/bin/backupRestic.sh → Script de backup con Restic.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    ~/.local/bin/backup.env → Variables de entorno necesarias para el backup.
-</span></span></code></pre></div><h3 id="2-configuración-del-timer-configsystemduserbackuptimer">2. Configuración del Timer (<code>~/.config/systemd/user/backup.timer</code>)</h3>
+</span></span></code></pre></div><h2 id="-configuración-del-timer-configsystemduserbackuptimer">◇ Configuración del Timer (<code>~/.config/systemd/user/backup.timer</code>)</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Ejecuta backupRestic.sh después de cada arranque</span>
 </span></span><span style="display:flex;"><span>
@@ -288,7 +288,7 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Install]</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">timers.target</span>
-</span></span></code></pre></div><h3 id="3-configuración-del-servicio-configsystemduserbackupservice">3. Configuración del Servicio (<code>~/.config/systemd/user/backup.service</code>)</h3>
+</span></span></code></pre></div><h2 id="-configuración-del-servicio-configsystemduserbackupservice">◇ Configuración del Servicio (<code>~/.config/systemd/user/backup.service</code>)</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Restic Backup</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">After</span><span style="color:#f92672">=</span><span style="color:#e6db74">network.target</span>
@@ -297,27 +297,27 @@ Restic &#43; Backrest &#43; MinIO - 3 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">Type</span><span style="color:#f92672">=</span><span style="color:#e6db74">oneshot</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">EnvironmentFile</span><span style="color:#f92672">=</span><span style="color:#e6db74">%h/.local/bin/backup.env</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/bin/bash %h/.local/bin/backupRestic.sh</span>
-</span></span></code></pre></div><h3 id="4-desactivación-de-posibles-servicios-y-timers-activos-anteriormente">4. Desactivación de posibles servicios y timers activos anteriormente</h3>
+</span></span></code></pre></div><h2 id="-desactivación-de-posibles-servicios-y-timers-activos-anteriormente">◇ Desactivación de posibles servicios y timers activos anteriormente</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>systemctl --user stop backup.timer
 </span></span><span style="display:flex;"><span>systemctl --user disable backup.timer
 </span></span><span style="display:flex;"><span>systemctl --user disable backup.service
-</span></span></code></pre></div><h3 id="5-borrar-antiguos-archivos-creados-con-anterioridad">5. Borrar antiguos archivos creados con anterioridad</h3>
+</span></span></code></pre></div><h2 id="-borrar-antiguos-archivos-creados-con-anterioridad">◇ Borrar antiguos archivos creados con anterioridad</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>rm ~/.config/systemd/user/backup.service
 </span></span><span style="display:flex;"><span>rm ~/.config/systemd/user/backup.timer
-</span></span></code></pre></div><h3 id="6-activación-timer">6. Activación timer</h3>
+</span></span></code></pre></div><h2 id="-activación-timer">◇ Activación timer</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>systemctl --user daemon-reload
 </span></span><span style="display:flex;"><span>systemctl --user enable --now backup.timer
 </span></span><span style="display:flex;"><span>systemctl --user list-timers --all | grep backup
-</span></span></code></pre></div><h3 id="7-verificación-de-la-ejecución">7. Verificación de la ejecución</h3>
+</span></span></code></pre></div><h2 id="-verificación-de-la-ejecución">◇ Verificación de la ejecución</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>systemctl --user status backup.timer
 </span></span><span style="display:flex;"><span>journalctl --user -u backup.timer --no-pager | tail -20
 </span></span><span style="display:flex;"><span>restic snapshots
-</span></span></code></pre></div><h3 id="8-solución-de-problemas">8. Solución de problemas</h3>
+</span></span></code></pre></div><h2 id="-solución-de-problemas">◇ Solución de problemas</h2>
 <p>En caso de que a la hora de realizar las copias de seguridad, <strong>systemd</strong> esté dando un error, lo podemos visualizar con la siguiente instrucción:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>systemctl --user restart backup.timer
 </span></span><span style="display:flex;"><span>journalctl --user -u backup.timer --no-pager | tail -20
 </span></span><span style="display:flex;"><span>systemctl --user daemon-reload
-</span></span></code></pre></div><h3 id="9-notas-finales">9. Notas finales</h3>
+</span></span></code></pre></div><h2 id="-notas-finales">◇ Notas finales</h2>
 <ul>
 <li><code>backup.timer</code> ejecutará <code>backup.service</code> automáticamente 5 minutos después de cada inicio del sistema.</li>
 <li><code>backup.service</code> se ejecuta como <code>oneshot</code>, por lo que solo corre una vez y luego se detiene (eso es lo que dice la teoría).</li>

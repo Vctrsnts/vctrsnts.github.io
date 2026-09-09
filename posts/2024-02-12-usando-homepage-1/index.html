@@ -14,7 +14,7 @@ Usando HomePage. El Dashboard - 1 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2024-02-12-usando-homepage-1/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-02-12-usando-homepage-1/">
 
 
 
@@ -57,7 +57,7 @@ Usando HomePage. El Dashboard - 1 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Usando HomePage. El Dashboard - 1 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="A ver que tal nos va con HomePage">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2024-02-12-usando-homepage-1/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2024-02-12-usando-homepage-1/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Usando HomePage. El Dashboard - 1 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Usando HomePage. El Dashboard - 1 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="A ver que tal nos va con HomePage">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -188,7 +188,7 @@ Usando HomePage. El Dashboard - 1 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">61208</span>:<span style="color:#ae81ff">61208</span>
 </span></span></code></pre></div><p>Sin saberlo, tenía todo lo necesario para obtener mucha más información de la que me estaba facilitando <strong>HomePage</strong> hasta el momento, y que yo desconocía que se podía obtener, hasta que en el canal de Telegram de <a href="https://homelabs.club">HomeLabs.club</a> empezaron a hablar de ello y de las múltiples posibilidades que había, junto con una captura de pantalla de toda la información que se podía obtener. Y yo tenía a mi disposición toda esa información, pero desconocía cómo obtenerla.</p>
 <p>Después de pedir ayuda o si me podían facilitar los archivos de configuración que usaban, me los pudieron servir como base para así yo poder hacer mi configuración. Hay que remarcar que para configurar <strong>HomePage</strong> se necesitan 5 archivos <strong>yaml</strong>, donde:</p>
-<h3 id="settingsyaml">settings.yaml</h3>
+<h3 id="-settingsyaml">◈ settings.yaml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># La configuración básica del dashboard (color de fondo, idioma, disposición de la información, etc.)</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
@@ -220,7 +220,7 @@ Usando HomePage. El Dashboard - 1 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">header</span>: <span style="color:#66d9ef">false</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">style</span>: <span style="color:#ae81ff">row</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">columns</span>: <span style="color:#ae81ff">2</span>
-</span></span></code></pre></div><h3 id="servicesyaml">services.yaml</h3>
+</span></span></code></pre></div><h3 id="-servicesyaml">◈ services.yaml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Se configuran los servicios que queremos visualizar por pantalla</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
@@ -338,7 +338,7 @@ Usando HomePage. El Dashboard - 1 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">token</span>: [<span style="color:#ae81ff">token]</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">salt</span>: [<span style="color:#ae81ff">salt]</span>
 </span></span></code></pre></div><p>Lo que podéis hacer (yo lo tengo montado, más información en este <a href="/posts/2024-01-10-searxng-uno-todo">artículo</a>) es tener montado vuestro propio buscador y hacer todas las búsquedas en él y así confundir en todo lo posible al <strong>Gran Hermano</strong>.</p>
-<h3 id="widgetsyaml">widgets.yaml</h3>
+<h3 id="-widgetsyaml">◈ widgets.yaml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Donde se puede configurar el buscador o visualizar información del servidor</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
@@ -369,7 +369,7 @@ Usando HomePage. El Dashboard - 1 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">dateStyle</span>: <span style="color:#ae81ff">short</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeStyle</span>: <span style="color:#ae81ff">short</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">hourCycle</span>: <span style="color:#ae81ff">h23</span>
-</span></span></code></pre></div><h3 id="bookmarksyaml">bookmarks.yaml</h3>
+</span></span></code></pre></div><h3 id="-bookmarksyaml">◈ bookmarks.yaml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Links a las páginas web más utilizadas</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
@@ -415,7 +415,7 @@ Usando HomePage. El Dashboard - 1 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/var/run/docker.sock:/var/run/docker.sock:ro</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
 </span></span></code></pre></div><p>Una vez que ya lo tienes en funcionamiento, solamente tienes que configurar en el archivo <code>docker.yaml</code> de la siguiente manera:</p>
-<h3 id="dockeryaml">docker.yaml</h3>
+<h3 id="-dockeryaml">◈ docker.yaml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">my-docker</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">host</span>: <span style="color:#ae81ff">dockerproxy</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">2375</span>
@@ -434,7 +434,7 @@ Usando HomePage. El Dashboard - 1 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">password</span>: [<span style="color:#ae81ff">password]</span>
 </span></span></code></pre></div><p>Al final sí, ya lo tenía todo funcionando correctamente. Pero cuando comenté la solución en el canal de Telegram, me dijeron que no hacía falta tener un container más para que todo funcionase, sino que solamente hacía falta crear el siguiente fichero <code>override.conf</code> de la siguiente manera:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir -p /etc/systemd/system/docker.service.d
-</span></span></code></pre></div><h3 id="etcsystemdsystemdockerservicedoverrideconf">/etc/systemd/system/docker.service.d/override.conf</h3>
+</span></span></code></pre></div><h3 id="-etcsystemdsystemdockerservicedoverrideconf">◈ /etc/systemd/system/docker.service.d/override.conf</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[Service]</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2375 --containerd=/run/containerd/containerd.sock</span>
@@ -443,7 +443,7 @@ Usando HomePage. El Dashboard - 1 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>sudo systemctl restart docker.service
 </span></span><span style="display:flex;"><span>sudo netstat -lntp | grep dockerd
 </span></span></code></pre></div><p>Si todo ha ido bien, ya podemos detener el container <code>dockerproxy</code> y modificar el archivo <code>docker.yaml</code> de <strong>HomePage</strong> de la siguiente manera:</p>
-<h3 id="dockeryaml-1">docker.yaml</h3>
+<h3 id="-dockeryaml-1">◈ docker.yaml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">my-docker</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">host</span>: [<span style="color:#ae81ff">IP_SERVIDOR]</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">2375</span>

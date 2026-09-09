@@ -68,8 +68,9 @@ nav a {
 nav a:hover { color: var(--fg); }
 h1, h2, h3 { line-height: 1.2; }
 h1 { margin-bottom: 0.75rem; }
+/* MODIFICADO A 1.35rem, CUANDO TENIA 1.1rem */
 h2 {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   margin-bottom: 0.25rem;
 }
 h3 {

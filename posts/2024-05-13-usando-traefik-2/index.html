@@ -14,7 +14,7 @@ Usando Traefik - 2 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2024-05-13-usando-traefik-2/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-05-13-usando-traefik-2/">
 
 
 
@@ -57,7 +57,7 @@ Usando Traefik - 2 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Usando Traefik - 2 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Seguimos con la configuración de traefik y sus plugins">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2024-05-13-usando-traefik-2/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2024-05-13-usando-traefik-2/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Usando Traefik - 2 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Usando Traefik - 2 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Seguimos con la configuración de traefik y sus plugins">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -160,7 +160,7 @@ Usando Traefik - 2 · Si lo haces, hazlo bien!
 </ul>
 <p>En nuestro caso, iremos a por la documentación de la versión <strong>v0.2.8</strong>, pero utilizaremos una versión anterior para que nuestro sistema sea más estable (en mi caso, he usado la versión <strong>v0.2.5</strong>). Lo que si que podemos hacer, es cuando veamos que todo funciona correctamente, es pasar a una versión superior (<strong>v0.2.6 - 7</strong>).</p>
 <p>Ahora es cuando viene la parte más importante, como <strong>instalar</strong> este plugin. Para ello, nos tenemos que ir al archivo de configuración de <code>traefik.yml</code>:</p>
-<h3 id="traefikyml">traefik.yml</h3>
+<h3 id="-traefikyml">◈ traefik.yml</h3>
 <p>Añadimos las líneas que <strong>instalan</strong> y <strong>activan</strong> este plugin:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">experimental</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">plugins</span>:
@@ -178,7 +178,7 @@ Usando Traefik - 2 · Si lo haces, hazlo bien!
 </ul>
 <p>Aquí lo importante es el nombre que le hemos dado en la configuración de <code>GeoBlock</code>, porque más adelante lo usaremos y si no ponemos el mismo, tendremos problemas.</p>
 <p>Una vez, ya tenemos hecho esto, pasamos a la configuración del plugin en sí, que se hace desde el archivo <code>dynamic.yml</code>:</p>
-<h3 id="dynamicyml">dynamic.yml</h3>
+<h3 id="-dynamicyml">◈ dynamic.yml</h3>
 <blockquote>
 <p><strong>Nota</strong></p>
 <p>Recordar que ya habíamos añadido la configuración del usuario y password para los servicios que nos interesan, la configuración de <strong>GeoBlock</strong> se añade a continuación:</p>
@@ -217,7 +217,7 @@ Usando Traefik - 2 · Si lo haces, hazlo bien!
 </ul>
 </blockquote>
 <p>El script en cuestión se llama <code>dless</code> que es una variante del <code>less</code> original.</p>
-<h3 id="localbindless">./local/bin/dless</h3>
+<h3 id="-localbindless">◈ ./local/bin/dless</h3>
 <p>Que contiene lo siguiente:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    command<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -n <span style="color:#e6db74">&#34;</span>$command<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#e6db74">&#34;</span>$command<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> *<span style="color:#e6db74">&#34;:&#34;</span>* <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>

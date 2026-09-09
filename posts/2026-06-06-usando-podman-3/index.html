@@ -14,7 +14,7 @@ Usando Podman - Apuntalando la base · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2026-06-06-usando-podman-3/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-06-06-usando-podman-3/">
 
 
 
@@ -57,7 +57,7 @@ Usando Podman - Apuntalando la base · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Usando Podman - Apuntalando la base · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2026-06-06-usando-podman-3/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-06-06-usando-podman-3/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -76,7 +76,7 @@ Usando Podman - Apuntalando la base · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -86,7 +86,7 @@ Usando Podman - Apuntalando la base · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -156,7 +156,7 @@ Usando Podman - Apuntalando la base · Si lo haces, hazlo bien!
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>~/.config/containers/availables/PocketID/
 </span></span><span style="display:flex;"><span>├── pocketid-data.volume
 </span></span><span style="display:flex;"><span>└── pocketid.container.jinja
-</span></span></code></pre></div><h3 id="funcionamiento-de-los-archivos-jinja">Funcionamiento de los archivos <code>jinja</code></h3>
+</span></span></code></pre></div><h3 id="-funcionamiento-de-los-archivos-jinja">◈ Funcionamiento de los archivos <code>jinja</code></h3>
 <p>Tal como os había comentado en el anterior artículo sobre los archivos <code>jinja</code>, estos son archivos normales a los que hemos añadido <em>variables</em>. Al ejecutar el binario <code>jinrender</code>, que habíamos instalado durante el proceso de <a href="/posts/2026-05-26-usando-podman-1">creación</a> del usuario <em>apps</em>, este accede a nuestra <strong>crypta</strong> y sustituye dichas <em>variables</em> por los valores correctos que tenemos almacenados.</p>
 <p>Para hacerlo, únicamente tenemos que sustituir la información sensible por su correspondiente <em>variable</em>, como por ejemplo aquí:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#75715e"># pocketid.container.jinja</span>

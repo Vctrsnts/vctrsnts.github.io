@@ -14,7 +14,7 @@ Instalando y configurando Traefik · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2024-04-19-traefik/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-04-19-traefik/">
 
 
 
@@ -57,7 +57,7 @@ Instalando y configurando Traefik · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Instalando y configurando Traefik · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Usando traefik como proxy inverso">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2024-04-19-traefik/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2024-04-19-traefik/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Instalando y configurando Traefik · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Instalando y configurando Traefik · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Usando traefik como proxy inverso">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -158,7 +158,7 @@ Instalando y configurando Traefik · Si lo haces, hazlo bien!
 </ul>
 <p>Tiene unos cuantos más, pero lo mejor es ir directamente a la fuente, yo he puesto los que más me han servido.</p>
 <p>Lo primero de todo es crear el fichero de <code>docker-compose.yml</code> que en mi caso, es el siguiente:</p>
-<h3 id="docker-composeyml">docker-compose.yml</h3>
+<h3 id="-docker-composeyml">◈ docker-compose.yml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">traefik</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">traefik:v2.11.2</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">traefik</span>
@@ -208,7 +208,7 @@ Instalando y configurando Traefik · Si lo haces, hazlo bien!
 </ul>
 </blockquote>
 <p>Una vez tenemos el fichero, lo siguiente y antes de ponerlo en marcha es mejor crear los 4 ficheros que necesita para su correcto funcionamiento que son los siguientes:</p>
-<h3 id="traefikyml">traefik.yml</h3>
+<h3 id="-traefikyml">◈ traefik.yml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">api</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">dashboard</span>: <span style="color:#66d9ef">true</span>
 </span></span><span style="display:flex;"><span>
@@ -275,7 +275,7 @@ Instalando y configurando Traefik · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#    GeoBlock:</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#      moduleName: &#34;github.com/PascalMinder/geoblock&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#      version: &#34;v0.2.5&#34;</span>
-</span></span></code></pre></div><h3 id="dynamicyml">dynamic.yml</h3>
+</span></span></code></pre></div><h3 id="-dynamicyml">◈ dynamic.yml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># FITXER ON ESTAN, EN AQUEST CAS LA CONFIGURACIÓ DE LA SEGURETAT PER ACCEDIR ALS LLOCS</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">http</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">middlewares</span>:

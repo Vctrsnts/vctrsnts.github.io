@@ -14,7 +14,7 @@ Usando HomePage. El Dashboard - 2 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2024-06-03-usando-homepage-2/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-06-03-usando-homepage-2/">
 
 
 
@@ -57,7 +57,7 @@ Usando HomePage. El Dashboard - 2 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Usando HomePage. El Dashboard - 2 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Ya se ve el final del camino con HomePage">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2024-06-03-usando-homepage-2/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2024-06-03-usando-homepage-2/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Usando HomePage. El Dashboard - 2 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Usando HomePage. El Dashboard - 2 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Ya se ve el final del camino con HomePage">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -262,7 +262,7 @@ Usando HomePage. El Dashboard - 2 · Si lo haces, hazlo bien!
 <li>Gráficas <em>Servidor 2</em></li>
 </ul>
 <p>Ahora viene lo más importante: los ficheros de configuración que estoy usando:</p>
-<h3 id="settingsyaml">settings.yaml</h3>
+<h3 id="-settingsyaml">◈ settings.yaml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#### Customization</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">headerStyle</span>: <span style="color:#ae81ff">clean</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">cardBlur</span>: <span style="color:#ae81ff">md</span>
@@ -316,7 +316,7 @@ Usando HomePage. El Dashboard - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">VPS</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">mdi-google-cloud</span>
 </span></span></code></pre></div><p>Es en el archivo <code>services.yaml</code> donde definimos lo que contiene cada <strong>sección</strong> (<em>Virtualization</em>, <em>Monitoring</em>, etc.).</p>
-<h3 id="servicesyaml">services.yaml</h3>
+<h3 id="-servicesyaml">◈ services.yaml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#f92672">Virtualization</span>:
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">unRaid</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>: <span style="color:#ae81ff">unraid</span>
@@ -488,7 +488,7 @@ Usando HomePage. El Dashboard - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">...</span>
 </span></span></code></pre></div><p>Si os fijáis, podréis ver que he usado <em>variables</em> del estilo <strong>HOMEPAGE_VAR_CALIBREUSER</strong> o <strong>HOMEPAGE_VAR_PIHOLE</strong>, esto lo usamos para que el fichero quede lo más <strong>limpio</strong> posible de passwords, keys, etc., que en caso de algún problema queden expuestos.</p>
 <p>Entonces, para hacer esto, lo único que se tiene que hacer es crear un fichero <code>.env</code> con las <em>variables</em> que se necesiten, pero siempre tienen que venir precedidas de <code>HOMEPAGE_VAR_...</code> (os pondré las variables que yo he usado), aunque aquí vosotros sois libres de crear más:</p>
-<h3 id="env">.env</h3>
+<h3 id="-env">◈ .env</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># PASSWORDS CALIBRE-WEB</span>
 </span></span><span style="display:flex;"><span>HOMEPAGE_VAR_CALIBREUSER<span style="color:#f92672">=[</span>user<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>HOMEPAGE_VAR_CALIBREPASS<span style="color:#f92672">=[</span>password<span style="color:#f92672">]</span>
@@ -518,7 +518,7 @@ Usando HomePage. El Dashboard - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># PIHOLE</span>
 </span></span><span style="display:flex;"><span>HOMEPAGE_VAR_PIHOLE<span style="color:#f92672">=[</span>key<span style="color:#f92672">]</span>
-</span></span></code></pre></div><h3 id="widgetsyaml">widgets.yaml</h3>
+</span></span></code></pre></div><h3 id="-widgetsyaml">◈ widgets.yaml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#f92672">logo</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">icon</span>: [<span style="color:#ae81ff">url]</span>
 </span></span><span style="display:flex;"><span>- <span style="color:#f92672">glances</span>:
@@ -553,7 +553,7 @@ Usando HomePage. El Dashboard - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">dateStyle</span>: <span style="color:#ae81ff">short</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeStyle</span>: <span style="color:#ae81ff">short</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">hourCycle</span>: <span style="color:#ae81ff">h23</span>
-</span></span></code></pre></div><h3 id="bookmarksyaml">bookmarks.yaml</h3>
+</span></span></code></pre></div><h3 id="-bookmarksyaml">◈ bookmarks.yaml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#f92672">Blogs</span>:
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Personal</span>:
 </span></span><span style="display:flex;"><span>        - <span style="color:#f92672">href</span>: [<span style="color:#ae81ff">url]</span>

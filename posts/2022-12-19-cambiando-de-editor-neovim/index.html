@@ -14,7 +14,7 @@ Cambiando de editor. Neovim · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2022-12-19-cambiando-de-editor-neovim/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2022-12-19-cambiando-de-editor-neovim/">
 
 
 
@@ -57,7 +57,7 @@ Cambiando de editor. Neovim · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Cambiando de editor. Neovim · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Configuración para usar Neovim">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2022-12-19-cambiando-de-editor-neovim/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2022-12-19-cambiando-de-editor-neovim/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Cambiando de editor. Neovim · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Cambiando de editor. Neovim · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Configuración para usar Neovim">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -176,7 +176,7 @@ Cambiando de editor. Neovim · Si lo haces, hazlo bien!
 </ul>
 </li>
 </ul>
-<h3 id="initlua">init.lua</h3>
+<h3 id="-initlua">◈ init.lua</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>--[[
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">██╗███╗   ██╗██╗████████╗██╗     ██╗   ██╗ █████╗</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">██║████╗  ██║██║╚══██╔══╝██║     ██║   ██║██╔══██╗</span>
@@ -205,7 +205,7 @@ Cambiando de editor. Neovim · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">require(&#39;plugins/ayu&#39;)			                          -- Color Theme</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">require(&#39;plugins/neo-tree&#39;)                           -- filebrowser</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">require(&#39;plugins/feline&#39;)                             -- statusline</span>
-</span></span></code></pre></div><h3 id="settingslua">settings.lua</h3>
+</span></span></code></pre></div><h3 id="-settingslua">◈ settings.lua</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
 </span></span><span style="display:flex;"><span>-- <span style="color:#ae81ff">Neovim API Aliases</span>
 </span></span><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
@@ -263,7 +263,7 @@ Cambiando de editor. Neovim · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.hidden = true                                     -- enable background buffers</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.lazyredraw = true                                 -- faster scrolling</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">opt.synmaxcol = 1000                                  -- max column for syntax highlight</span>
-</span></span></code></pre></div><h3 id="keymapslua">keymaps.lua</h3>
+</span></span></code></pre></div><h3 id="-keymapslua">◈ keymaps.lua</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
 </span></span><span style="display:flex;"><span>-- <span style="color:#ae81ff">VARIABLES / ALIASES</span>
 </span></span><span style="display:flex;"><span>----------------------------------------------------------------------------------------------------
@@ -279,7 +279,7 @@ Cambiando de editor. Neovim · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>-- <span style="color:#ae81ff">nvim-tree</span>
 </span></span><span style="display:flex;"><span>--
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">map(&#39;n&#39;, &#39;&lt;C-n&gt;&#39;, &#39;:Neotree toggle&lt;CR&gt;&#39;, default_opts)       -- open/close</span>
-</span></span></code></pre></div><h3 id="packerlua">packer.lua</h3>
+</span></span></code></pre></div><h3 id="-packerlua">◈ packer.lua</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>--[[
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">S&#39;ENCARREGA DE TOTA LA CONFIGURACIÓ / CARREGA DE PLUGINS</span>
 </span></span><span style="display:flex;"><span>

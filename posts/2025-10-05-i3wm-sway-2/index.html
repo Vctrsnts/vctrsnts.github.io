@@ -14,7 +14,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-10-05-i3wm-sway-2/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-10-05-i3wm-sway-2/">
 
 
 
@@ -57,7 +57,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Seguimos con el salto entre I3wm i Sway, espero no hacerme daño">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2025-10-05-i3wm-sway-2/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2025-10-05-i3wm-sway-2/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Seguimos con el salto entre I3wm i Sway, espero no hacerme daño">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -153,7 +153,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
     <p>Después del primer <a href="/posts/2025-09-15-i3wm-sway-1">artículo</a>, donde explicaba la preparación de mi equipo. Ahora os explicaré cómo hice la instalación de <strong>sway</strong> y los problemas que me encontré. Que si tengo de decirlo, fueron muy pocos.</p>
 <h2 id="-script-de-instalación">◇ Script de instalación</h2>
 <p>Este script es el que se encarga de realizar la instalación completa, o mejor dicho, de todo lo necesario para que en el momento de reiniciar el equipo, <strong>sway</strong> funcione correctamente (podéis encontrar una versión completa en mi <a href="https://github.com/Vctrsnts/debian-installer-sway">github</a>).</p>
-<h3 id="01-install-swaysh">01-install-sway.sh</h3>
+<h3 id="-01-install-swaysh">◈ 01-install-sway.sh</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span>pkgs<span style="color:#f92672">=(</span>
 </span></span><span style="display:flex;"><span>  sway swaybg waybar swaylock swayidle
@@ -176,7 +176,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>sudo systemctl enable acpid
 </span></span></code></pre></div><h2 id="-configuración">◇ Configuración</h2>
 <p>Como anteriormente había mencionado, estuve haciendo pruebas en un portátil que tenía para así dejar afinado, lo máximo posible, todos los archivos de configuración tanto de sway, mako, waybar, bash, etc&hellip;</p>
-<h3 id="configsway">~/.config/sway</h3>
+<h3 id="-configsway">◈ ~/.config/sway</h3>
 <p>La configuración de <strong>sway</strong> la gran mayoría de cosas las he aprovechado de la configuración que tenía en <strong>i3wm</strong>, lo único que he añadido son unas mejoras o una mejor distribución de los archivos para en un futuro, que sea más fácil la funcionalidad que tienen y la modificación de los mismos.</p>
 <p>La estructura de directorios que tengo es la siguiente:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sway/
@@ -354,7 +354,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 
 
 </p>
-<h3 id="configwaybar">~/.config/waybar</h3>
+<h3 id="-configwaybar">◈ ~/.config/waybar</h3>
 <p>
 
 
@@ -491,7 +491,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#960050;background-color:#1e0010">Aquí</span> <span style="color:#960050;background-color:#1e0010">vendría</span> <span style="color:#960050;background-color:#1e0010">el</span> <span style="color:#960050;background-color:#1e0010">código</span> <span style="color:#960050;background-color:#1e0010">de</span> <span style="color:#960050;background-color:#1e0010">cada</span> <span style="color:#960050;background-color:#1e0010">sección</span> <span style="color:#960050;background-color:#1e0010">que</span> <span style="color:#960050;background-color:#1e0010">visualizo</span> <span style="color:#960050;background-color:#1e0010">y</span> <span style="color:#960050;background-color:#1e0010">que</span> <span style="color:#960050;background-color:#1e0010">son</span> <span style="color:#e6db74">&#34;custom&#34;</span> <span style="color:#960050;background-color:#1e0010">(propios).</span> <span style="color:#960050;background-color:#1e0010">Los</span> <span style="color:#960050;background-color:#1e0010">que</span> <span style="color:#960050;background-color:#1e0010">no</span> <span style="color:#960050;background-color:#1e0010">vienen</span> <span style="color:#960050;background-color:#1e0010">con</span> <span style="color:#960050;background-color:#1e0010">el</span> <span style="color:#960050;background-color:#1e0010">sistema</span> <span style="color:#960050;background-color:#1e0010">como</span> <span style="color:#960050;background-color:#1e0010">network</span>, <span style="color:#960050;background-color:#1e0010">clock,</span> <span style="color:#960050;background-color:#1e0010">tray</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Los scripts que uso para la información que visualizo en la barra de <strong>waybar</strong> son los siguientes:</p>
-<h3 id="configwaybarscriptsbt-statussh">~/.config/waybar/scripts/bt-status.sh</h3>
+<h3 id="-configwaybarscriptsbt-statussh">◈ ~/.config/waybar/scripts/bt-status.sh</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Script: bt_status.sh</span>
@@ -551,7 +551,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Salida JSON para waybar</span>
 </span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;{\&#34;text\&#34;: \&#34;</span>$ICON<span style="color:#e6db74">\&#34;, \&#34;tooltip\&#34;: \&#34;</span>$TOOLTIP<span style="color:#e6db74">\&#34;, \&#34;class\&#34;: \&#34;</span>$CLASS<span style="color:#e6db74">\&#34;}&#34;</span>
-</span></span></code></pre></div><h3 id="configwaybarscriptssys-resourcessh">~/.config/waybar/scripts/sys-resources.sh</h3>
+</span></span></code></pre></div><h3 id="-configwaybarscriptssys-resourcessh">◈ ~/.config/waybar/scripts/sys-resources.sh</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Script: sys-resources.sh</span>
@@ -577,7 +577,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>mem<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>free | awk <span style="color:#e6db74">&#39;/Mem:/ {printf &#34;%.0f&#34;, $3/$2 * 100}&#39;</span><span style="color:#66d9ef">)</span>
 </span></span><span style="display:flex;"><span>disk<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>df -h /home | awk <span style="color:#e6db74">&#39;NR==2 {print $4}&#39;</span><span style="color:#66d9ef">)</span>
 </span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34; </span><span style="color:#e6db74">${</span>cpu<span style="color:#e6db74">}</span><span style="color:#e6db74">%    </span><span style="color:#e6db74">${</span>mem<span style="color:#e6db74">}</span><span style="color:#e6db74">%   </span><span style="color:#e6db74">${</span>disk<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-</span></span></code></pre></div><h3 id="configwaybarscriptssys-trashsh">~/.config/waybar/scripts/sys-trash.sh</h3>
+</span></span></code></pre></div><h3 id="-configwaybarscriptssys-trashsh">◈ ~/.config/waybar/scripts/sys-trash.sh</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Script: sys-trash.sh</span>
@@ -620,7 +620,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;{\&#34;text\&#34;: \&#34;</span>$text<span style="color:#e6db74">\&#34;, \&#34;class\&#34;: \&#34;</span>$class<span style="color:#e6db74">\&#34;}&#34;</span>
-</span></span></code></pre></div><h3 id="configwaybarscriptssys-updatessh">~/.config/waybar/scripts/sys-updates.sh</h3>
+</span></span></code></pre></div><h3 id="-configwaybarscriptssys-updatessh">◈ ~/.config/waybar/scripts/sys-updates.sh</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Script: sys-updates.sh</span>
@@ -663,7 +663,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;{\&#34;text\&#34;: \&#34;</span>$text<span style="color:#e6db74">\&#34;, \&#34;class\&#34;: \&#34;</span>$class<span style="color:#e6db74">\&#34;}&#34;</span>
-</span></span></code></pre></div><h3 id="configwoficonfig">~/.config/wofi/config</h3>
+</span></span></code></pre></div><h3 id="-configwoficonfig">◈ ~/.config/wofi/config</h3>
 <p>Aquí os pongo la configuración del gestor de menús, que en este caso es <strong>wofi</strong>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">allow_images=</span><span style="color:#66d9ef">true</span>
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">image_size=</span><span style="color:#ae81ff">32</span>
@@ -674,7 +674,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">columns=</span><span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">padding:</span><span style="color:#ae81ff">5</span>
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">lines=</span><span style="color:#ae81ff">10</span>
-</span></span></code></pre></div><h3 id="configmakoconfig">~/.config/mako/config</h3>
+</span></span></code></pre></div><h3 id="-configmakoconfig">◈ ~/.config/mako/config</h3>
 <p><strong>Mako</strong> es la aplicación de notificaciones que uso. Sé que se podría usar <strong>sway-notification-center</strong>, pero es mucha cosa para lo que yo quiero. Algo simple y sencillo y <strong>mako</strong> me viene perfecto.</p>
 <p>Aquí tenéis la configuración que tengo actualmente. Lo único que hay que tener en cuenta es que el tiempo que permanecen las notificaciones es <strong>0</strong> <code>default-timeout=0</code> para así tenerlas activas y ser yo el que las desactive. No quita que más adelante me canse de esta funcionalidad y ponga un tiempo para su visualización, pero de momento me gusta verlas.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">sort=-time</span>
@@ -754,7 +754,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 </ul>
 </blockquote>
 <p>Yo lo tengo así y me funciona perfectamente. Podéis hacer pruebas, pero con esta información ya tenéis un punto de partida por donde empezar.</p>
-<h3 id="etcgreetdconfigtoml">/etc/greetd/config.toml</h3>
+<h3 id="-etcgreetdconfigtoml">◈ /etc/greetd/config.toml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">terminal</span>]
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># The VT to run the greeter on. Can be &#34;next&#34;, &#34;current&#34; or a number</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># designating the VT.</span>
@@ -773,9 +773,9 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># on the greeter. A graphical greeter may for example require the user to be</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># in the `video` group.</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">user</span> = <span style="color:#e6db74">&#34;_greetd&#34;</span>
-</span></span></code></pre></div><h3 id="etcgreetdenvironments">/etc/greetd/environments</h3>
+</span></span></code></pre></div><h3 id="-etcgreetdenvironments">◈ /etc/greetd/environments</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#a6e22e">sway</span>
-</span></span></code></pre></div><h3 id="etcgreetdgtkgreetcss">/etc/greetd/gtkgreet.css</h3>
+</span></span></code></pre></div><h3 id="-etcgreetdgtkgreetcss">◈ /etc/greetd/gtkgreet.css</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">window</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* si queréis usar un fondo de pantalla */</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">background-image</span>: url(<span style="color:#e6db74">&#34;file:///usr/share/backgrounds/login.jpg&#34;</span>);
@@ -795,7 +795,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span><span style="color:#f92672">button</span>:<span style="color:#a6e22e">hover</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#88C0D0</span>; <span style="color:#75715e">/* acento Nordic */</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="etcgreetdsway-config">/etc/greetd/sway-config</h3>
+</span></span></code></pre></div><h3 id="-etcgreetdsway-config">◈ /etc/greetd/sway-config</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">exec</span> <span style="color:#e6db74">&#34;gtkgreet -l --style /etc/greetd/gtkgreet.css; swaymsg exit&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">bindsym</span> <span style="color:#a6e22e">Mod4</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#a6e22e">Shift</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#a6e22e">e</span> <span style="color:#a6e22e">exec</span> <span style="color:#a6e22e">swaynag</span> <span style="color:#960050;background-color:#1e0010">\</span>

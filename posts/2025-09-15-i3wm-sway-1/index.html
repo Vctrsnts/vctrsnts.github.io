@@ -14,7 +14,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 1 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-09-15-i3wm-sway-1/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-09-15-i3wm-sway-1/">
 
 
 
@@ -57,7 +57,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 1 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="De i3WM ( X11 ) a Sway ( Wayland ) - 1 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Damos un salto de fe hacia Sway">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2025-09-15-i3wm-sway-1/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2025-09-15-i3wm-sway-1/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 1 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 1 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Damos un salto de fe hacia Sway">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -183,7 +183,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 1 · Si lo haces, hazlo bien!
 </ul>
 <h2 id="-el-script-de-preparación">◇ El script de preparación</h2>
 <p>Como ya he comentado, a partir de la idea que había visto en el vídeo de <strong>@JustAGuy Linux</strong>, creé mi propio script para la instalación y configuración de <strong>sway</strong>. Este procedimiento, está dividido en <code>3 script</code>, donde cada uno se encarga de una parte del proceso:</p>
-<h3 id="00-preparaciosh">00-preparacio.sh</h3>
+<h3 id="-00-preparaciosh">◈ 00-preparacio.sh</h3>
 <p>Este es el que se encarga desde una instalación básica de <em>Debian GNU/Linux testing</em>, eliminar los paquetes que no son necesarios, procedimiento que siempre sigo después de cada instalación personal de Debian, y luego, salto a la rama <strong>unstable</strong> (que vengo usando desde hace unos 20 años sin ningún problema).</p>
 <p>Os voy a poner las partes más importantes del script para que veáis un poco cómo va. Si queréis el script al completo o el procedimiento de instalación, lo podéis encontrar <a href="https://github.com/Vctrsnts/debian-installer-sway">aquí</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash

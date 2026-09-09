@@ -14,7 +14,7 @@ Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-05-21-restic-copias-locales-1/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-05-21-restic-copias-locales-1/">
 
 
 
@@ -57,7 +57,7 @@ Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Vamos a utilizar Restic, BackRest y MinIOS para las copias de seguridad">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2025-05-21-restic-copias-locales-1/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2025-05-21-restic-copias-locales-1/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Vamos a utilizar Restic, BackRest y MinIOS para las copias de seguridad">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -268,19 +268,19 @@ Restic &#43; Backrest &#43; MiniO - 1 · Si lo haces, hazlo bien!
 <p>A la hora de realizar la instalación de <strong>Backrest</strong>, tenemos que tener en cuenta que la <strong>IP local</strong> tiene que ser la de nuestro servidor, que es el que recibe las copias de seguridad de <strong>Restic</strong> desde nuestro equipo local.</p>
 <p>Asimismo, en mi caso no tengo configurado ningún plan de gestión de copias, porque eso se encarga el script de <code>bash</code> que tengo en mi equipo local para hacer las copias de seguridad.</p>
 <p>Después de este pequeño apunte, voy a explicar algunas cosas sobre el uso y funcionamiento de <strong>Restic</strong> que nos pueden venir bien para más adelante.</p>
-<h3 id="1-saber-el-estado-de-las-copias">1. Saber el estado de las copias:</h3>
+<h2 id="-saber-el-estado-de-las-copias">◇ Saber el estado de las copias:</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ restic -r /path/to/backup snapshots
-</span></span></code></pre></div><h3 id="2-para-crear-copias-de-seguridad-de-varios-directorios">2. Para crear copias de seguridad de varios directorios</h3>
+</span></span></code></pre></div><h2 id="-para-crear-copias-de-seguridad-de-varios-directorios">◇ Para crear copias de seguridad de varios directorios</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ restic -r /path/to/backup backup /dir_1 /dir_2 etc....
-</span></span></code></pre></div><h3 id="3-para-restaurar-copia-de-seguridad">3. Para restaurar copia de seguridad</h3>
+</span></span></code></pre></div><h2 id="-para-restaurar-copia-de-seguridad">◇ Para restaurar copia de seguridad</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ restic -r /path/to/backup restore latest --target /dir_recuperar
-</span></span></code></pre></div><h3 id="4-borrar-repositorios-para-solo-mantener-x-copias">4. Borrar repositorios para solo mantener X copias</h3>
+</span></span></code></pre></div><h2 id="-borrar-repositorios-para-solo-mantener-x-copias">◇ Borrar repositorios para solo mantener X copias</h2>
 <blockquote>
 <p><strong>Nota</strong></p>
 <p>En este caso, como ejemplo, hemos puesto 6.</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ restic -r /path/to/backup forget --keep-last <span style="color:#ae81ff">6</span> prune
-</span></span></code></pre></div><h3 id="5-borrar-backups-de-más-de-30-días">5. Borrar backups de más de 30 días</h3>
+</span></span></code></pre></div><h2 id="-borrar-backups-de-más-de-30-días">◇ Borrar backups de más de 30 días</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$ restic -r /path/to/backup forget --keep-within 30d
 </span></span></code></pre></div><p>Ahora vendría la parte más interesante: cómo hacer uso de estas 3 aplicaciones para manejar nuestras copias de seguridad. Pero esto lo explicaré en el siguiente <a href="/posts/2025-05-22-restic-copias-locales-2">artículo</a>, porque si no, este puede salir muy largo y volverse muy pesado.</p>
 <h4 id="-referencia">◇ Referencia</h4>

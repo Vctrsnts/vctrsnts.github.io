@@ -14,7 +14,7 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2024-07-26-usando-traefik-4/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-07-26-usando-traefik-4/">
 
 
 
@@ -57,7 +57,7 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Usando Traefik - 4 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Mas sobre Traefik">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2024-07-26-usando-traefik-4/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2024-07-26-usando-traefik-4/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Mas sobre Traefik">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -173,21 +173,21 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">├── acquis.yml</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">└── mywhitelist.yml</span>
 </span></span></code></pre></div><p>Donde tendremos:</p>
-<h3 id="acquissshyaml">acquis/ssh.yaml</h3>
+<h3 id="-acquissshyaml">◈ acquis/ssh.yaml</h3>
 <p>Que es el encargado de controlar las conexiones <strong>ssh</strong> a nuestro servidor y así, hacemos que <strong>crowdsec</strong> también las controle (ya explicaremos como).</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">filenames</span>:
 </span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">/logs/auth.log</span>
 </span></span><span style="display:flex;"><span>   - <span style="color:#ae81ff">/logs/syslog</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">labels</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">syslog</span>
-</span></span></code></pre></div><h3 id="acquisyml">acquis.yml</h3>
+</span></span></code></pre></div><h3 id="-acquisyml">◈ acquis.yml</h3>
 <p>Los ficheros <em>log</em> de <strong>traefik</strong>, tanto el <code>access.log</code> como el <code>traefik.log</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">filenames</span>:
 </span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">/var/log/traefik/*</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">labels</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">traefik</span>
 </span></span></code></pre></div><p>Por último</p>
-<h3 id="mywhitelistyml">mywhitelist.yml</h3>
+<h3 id="-mywhitelistyml">◈ mywhitelist.yml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">crowdsecurity/whitelists</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;Whitelist events from my ip addresses&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">whitelist</span>:
@@ -308,7 +308,7 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$docker compose up -d bouncer-traefik
 </span></span></code></pre></div><p>Como siempre, pueder verificar los <em>logs</em> de <strong>traefik</strong> y <strong>crowdsec</strong> para ver si todo sigue funcionando correctamente o intentando acceder a los servicios. Si puedes, de momento todo va bien.</p>
 <p>Ahora lo único que nos queda es indicar a <strong>traefik</strong> que tiene instalado <strong>crowdsec</strong> y <strong>bouncer-traefik</strong> y que haga uso de ellos. Esto se consigue modificando los siguientes ficheros:</p>
-<h3 id="dynamicyml">dynamic.yml</h3>
+<h3 id="-dynamicyml">◈ dynamic.yml</h3>
 <p>Le indicamos a <strong>traefik</strong> que tiene <em>bouncer-traefik</em> en funcionamiento y que puede hacer las consultas mediante la dirección <code>http://bouncer-traefik:8080/api/v1/forwardAuth</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">http</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">middlewares</span>:
@@ -316,7 +316,7 @@ Usando Traefik - 4 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">forwardauth</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">address</span>: <span style="color:#ae81ff">http://bouncer-traefik:8080/api/v1/forwardAuth</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">trustForwardHeader</span>: <span style="color:#66d9ef">true</span>
-</span></span></code></pre></div><h3 id="traefikyml">traefik.yml</h3>
+</span></span></code></pre></div><h3 id="-traefikyml">◈ traefik.yml</h3>
 <p>En el fichero <code>traefik.yml</code> le indicamos en que <em>consultas</em> tiene que usar <strong>crowdsec</strong> y esto se hace de la siguiente manera:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">api</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">dashboard</span>: <span style="color:#66d9ef">true</span>

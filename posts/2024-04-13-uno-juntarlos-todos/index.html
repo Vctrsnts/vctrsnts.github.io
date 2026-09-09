@@ -14,7 +14,7 @@ RSS-Funnel. Uno para controlarlos a todos · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2024-04-13-uno-juntarlos-todos/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2024-04-13-uno-juntarlos-todos/">
 
 
 
@@ -57,7 +57,7 @@ RSS-Funnel. Uno para controlarlos a todos · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="RSS-Funnel. Uno para controlarlos a todos · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Container para controlar feeds de podcast">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2024-04-13-uno-juntarlos-todos/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2024-04-13-uno-juntarlos-todos/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ RSS-Funnel. Uno para controlarlos a todos · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ RSS-Funnel. Uno para controlarlos a todos · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Container para controlar feeds de podcast">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -156,7 +156,7 @@ RSS-Funnel. Uno para controlarlos a todos · Si lo haces, hazlo bien!
 <p>Dicha aplicación es <a href="https://github.com/shouya/rss-funnel">rss-funnel</a>, que se la puede definir como un concentrador de podcas y así tener todos los feeds en uno solo y que puedes, primero tener en tu propio servidor y segundo, lo puedes controlar tú.</p>
 <p>Si solo escuchas un solo podcast, pues no te ayudará mucho, pero si sigues unos 10, como es mi caso, <em>pero si eso no es nada</em>, para mí ya son muchos 😉 pues no viene nada mal la aplicación que nos aconseja <em>uGeek</em>, y lo mejor de todo, es que puedes disponer de ella en docker. Qué más se puede pedir.</p>
 <p>Así que me lancé a por su instalación en el VPS que tenía (Google Cloud). La instalación es muy fácil, como todo en docker, aunque la configuración es un poco rebuscada, pero nada del otro mundo:</p>
-<h3 id="docker-composeyml">docker-compose.yml</h3>
+<h3 id="-docker-composeyml">◈ docker-compose.yml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rssFunnel</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">ghcr.io/shouya/rss-funnel:latest</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">rssFunnel</span>
@@ -172,7 +172,7 @@ RSS-Funnel. Uno para controlarlos a todos · Si lo haces, hazlo bien!
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usuari@debian:~$docker compose up -d rssFunnel <span style="color:#f92672">&amp;&amp;</span> docker logs -f rssFunnel
 </span></span></code></pre></div><p>La segunda instrucción siempre la pongo, porque así, puedo ver si el docker me da algún error. Que normalmente siempre me pasa, porque como nunca creo los ficheros que el contenedor necesita, pues. En este caso, el fichero que me faltaba era el <code>funnel.yaml</code> con toda la configuración de los podcast a seguir.</p>
 <p>En mi caso, es la siguiente (que te puede servir de base a ti):</p>
-<h3 id="funnelyaml">funnel.yaml</h3>
+<h3 id="-funnelyaml">◈ funnel.yaml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">endpoints</span>:
 </span></span><span style="display:flex;"><span>  - <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/rss_feed.xml</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">source</span>:
@@ -213,7 +213,7 @@ RSS-Funnel. Uno para controlarlos a todos · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>      - <span style="color:#f92672">modify_feed</span>: <span style="color:#ae81ff">feed.items = feed.items.slice(0, 100);</span>
 </span></span></code></pre></div><p>En mi caso, añadí una opción para limitar los podcast que <em>rss-funnel</em> iba a añadir en el <em>feed</em>. Quería que fueran solamente 100, porque como añada los 550 que tiene atareao, el <em>feed</em> ocuparía 10Mb.</p>
 <p>Había añadido, según la documentación era la que se tiene que usar <code>modify_feed: feed.items = feed.idtems.slice(0, 100);</code> pero como podía comprobrar, no funcionaba correctamente. Así que, siguiendo el consejo de <em>uGeek</em> fui a preguntar directamente a la fuente para saber, como se tenía que hacer, me respondió y me añadió una modificación, que le agradezco mucho, la modificación para el fichero <code>funnel.yaml</code> además de otras modificaciones:</p>
-<h3 id="funnelyaml-modificado">funnel.yaml (modificado)</h3>
+<h3 id="-funnelyaml-modificado">◈ funnel.yaml (modificado)</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">endpoints</span>:
 </span></span><span style="display:flex;"><span>  - <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/rss_feed.xml</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">source</span>:

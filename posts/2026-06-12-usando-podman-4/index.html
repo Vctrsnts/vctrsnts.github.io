@@ -14,7 +14,7 @@ Usando Podman - Mejorando el flujo de trabajo · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2026-06-12-usando-podman-4/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-06-12-usando-podman-4/">
 
 
 
@@ -57,7 +57,7 @@ Usando Podman - Mejorando el flujo de trabajo · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Usando Podman - Mejorando el flujo de trabajo · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2026-06-12-usando-podman-4/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-06-12-usando-podman-4/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -76,7 +76,7 @@ Usando Podman - Mejorando el flujo de trabajo · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -86,7 +86,7 @@ Usando Podman - Mejorando el flujo de trabajo · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -178,7 +178,7 @@ Usando Podman - Mejorando el flujo de trabajo · Si lo haces, hazlo bien!
 </span></span></code></pre></div><p>Al estilo de <code>docker stats</code> o a través de la función <code>jlogs</code> (ya explicaré más adelante cómo funciona) y así puedes ver si hay algún error o no.</p>
 <p>Aunque, personalmente, prefiero <code>podman stats</code>.</p>
 <h2 id="-funciones-de-fish">◇ Funciones de fish</h2>
-<h3 id="atareao"><strong>atareao</strong></h3>
+<h3 id="-atareao">◈ <strong>atareao</strong></h3>
 <p>Las funciones que he utilizado en el apartado anterior son funciones creadas para ser usadas en <strong>fish</strong> y que puedes encontrar <a href="https://github.com/atareao/self-hosted-podman/tree/main/.config/fish">aquí</a>, facilitadas por <strong>atareao</strong>, y que nos facilitarán todo el trabajo relacionado con los <strong>quadlet</strong>.</p>
 <p>Más concretamente, las funciones que yo considero más importantes son:</p>
 <ul>
@@ -201,7 +201,7 @@ Usando Podman - Mejorando el flujo de trabajo · Si lo haces, hazlo bien!
 </li>
 </ul>
 <p>El resto os las dejo para que las reviséis vosotros y, como yo, darle las gracias a <strong>atareao</strong> por todo el trabajo que hace desinteresadamente.</p>
-<h3 id="mías"><strong>mías</strong></h3>
+<h3 id="-mías">◈ <strong>mías</strong></h3>
 <p>Además, en mi caso, me he creado una función más, <code>jlogs</code>, que me sirve para visualizar los logs de los containers que están funcionando en modo <strong>quadlet</strong> y que podéis encontrar <a href="https://codeberg.org/vctrsnts/self-hosted-podman/src/branch/main/.config/fish/functions/jlogs.fish">aquí</a>.</p>
 <p>Lo único que hace es que, al invocar la función:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apps@debian:~$ jlogs traefik
