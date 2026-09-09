@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+
+Immich - Migración de V2 a V3 en producción · Si lo haces, hazlo bien!
+
+</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-09-07-migracion-immich-2/">
+
+
+
+
+
+
+<meta name="description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
+
+
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+
+<meta property="og:title" content="Immich - Migración de V2 a V3 en producción · Si lo haces, hazlo bien!">
+<meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-09-07-migracion-immich-2/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
+
+
+<meta property="og:type" content="article">
+
+
+<meta property="article:published_time" content="2026-09-07T00:00:00&#43;02:00">
+
+
+
+
+<meta property="article:tag" content="docker">
+
+<meta property="article:tag" content="unRAID">
+
+
+
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Immich - Migración de V2 a V3 en producción · Si lo haces, hazlo bien!">
+<meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="6608b7e7-8981-44c1-965f-4266bfc3bab5">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/index.xml">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Immich - Migración de V2 a V3 en producción</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-09-07">
+        2026-09-07
+      </time>
+      · 9 min
+      
+      
+        · <a class="p-category" href="/categories/self-hosting/">@self-hosting</a>
+      
+
+      
+        ·
+        <a href="/tags/docker/">#docker</a> <a href="/tags/unraid/">#unRAID</a>
+      
+
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Tal como había explicado en este <a href="/posts/2026-07-25-migracion-immich-1">artículo</a>, explicaba el proceso de migración desde la versión <strong>v2</strong> a la versión <strong>v3</strong> de <strong>Immich</strong> en un entorno de pruebas. Ahora toca hacer lo mismo, pero en el contenedor de producción.</p>
+<p>Como recordaréis, el despliegue de <strong>Immich</strong> mediante <strong>Docker Compose</strong> estaba formado por:</p>
+<ul>
+<li><strong>immich-server</strong></li>
+<li><strong>immich-machine-learning</strong></li>
+<li><strong>redis</strong></li>
+</ul>
+<p>Asimismo, la base de datos de <strong>PostgreSQL</strong> estaba gestionada como un contenedor independiente.</p>
+<h2 id="-migración-de-producción">◇ Migración de producción</h2>
+<p>Una vez validado todo el proceso en el entorno paralelo <code>immichTest</code>, la migración de producción consistia básicamente en repetir el mismo procedimiento que habiamos utilizado anteriormente.</p>
+<p>El objetivo es realizar el cambio con el menor tiempo de parada posible y manteniendo siempre una posibilidad de recuperación. Sé que estamos hablando de una instalación que esta ubicada en mi servidor local y es para mi uso personal, pero nunca está de más hacer las cosas rápido y bien.</p>
+<p>Además, en este caso partimos con una ventaja importante: ya hemos realizado la migración en un entorno de pruebas. Esto me ha permitido detectar y solucionar los problemas que pueden aparecer antes de tocar la instalación de producción.</p>
+<p>La arquitectura que tenemos actualmente es la siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Immich v2.7.5
+</span></span><span style="display:flex;"><span>      |
+</span></span><span style="display:flex;"><span>      +-- PostgreSQL externo
+</span></span><span style="display:flex;"><span>      |
+</span></span><span style="display:flex;"><span>      +-- pgvecto.rs
+</span></span></code></pre></div><p>Después de la migración, quiero que quede de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Immich v3
+</span></span><span style="display:flex;"><span>      |
+</span></span><span style="display:flex;"><span>      +-- PostgreSQL dentro del Compose
+</span></span><span style="display:flex;"><span>      |
+</span></span><span style="display:flex;"><span>      +-- VectorChord
+</span></span><span style="display:flex;"><span>      |
+</span></span><span style="display:flex;"><span>      +-- Redis
+</span></span></code></pre></div><p>Antes de empezar, hay una cosa que tenemos que tener muy clara: <strong>las copias de seguridad</strong>.</p>
+<p>Al igual que hicimos durante las pruebas, vamos a realizar una copia tanto de la base de datos como de la biblioteca multimedia. De esta forma, si algo sale mal durante la migración, siempre tendremos la posibilidad de volver al estado anterior.</p>
+<h2 id="-copias-de-seguridad">◇ Copias de seguridad</h2>
+<h3 id="-postgresql">◈ PostgreSQL</h3>
+<p>Creamos una nueva copia de la base de datos mediante <strong>pgAdmin</strong> con el nombre:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>backup_immich_pre_migracion.sql
+</span></span></code></pre></div><p>Esta copia nos permitirá restaurar la base de datos si aparece cualquier problema durante la migración.</p>
+<h3 id="-biblioteca-multimedia">◈ Biblioteca multimedia</h3>
+<p>También vamos a realizar una copia de nuestra biblioteca de fotos.</p>
+<p>Nos situamos en el directorio donde tenemos almacenadas todas nuestras fotografías:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>apps@unraid ~&gt; cd /ruta/de/biblioteca/photos
+</span></span></code></pre></div><p>Y realizamos la copia de seguridad (yo lo hago mediante <code>tar</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apps@unraid ~&gt; tar -cvf /ruta/del/backup/photos_pre_migracion.tar -C /ruta/de/biblioteca/photos .
+</span></span></code></pre></div><p>De esta forma tenemos dos puntos de recuperación: la base de datos y la biblioteca multimedia.</p>
+<h2 id="-detener-los-servicios-afectados-en-producción">◇ Detener los servicios afectados en producción</h2>
+<p>Antes de realizar cualquier cambio, vamos a detener todos los servicios de <strong>Immich</strong>.</p>
+<p>Esto es importante porque no queremos que ningún contenedor pueda realizar escrituras en nuestra biblioteca o en la base de datos mientras estamos modificando la instalación. De lo contrario, podríamos terminar con datos corruptos, lo que podría provocar problemas posteriormente.</p>
+<p>Para ello hacemos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apps@unraid ~&gt; docker compose stop immich-server immich-machine-learning redis
+</span></span></code></pre></div><p>Con esto detenemos los servicios que utilizan <strong>Immich</strong> y evitamos que se produzcan nuevas operaciones mientras hacemos el cambio.</p>
+<h2 id="-sustitución-de-postgresql">◇ Sustitución de PostgreSQL</h2>
+<p>En la instalación original utilizaba, tal como expliqué en el artículo de pruebas de la migración:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>tensorchord/pgvecto-rs:pg16-v0.3.0
+</span></span></code></pre></div><p>La nueva imagen que vamos a utilizar será:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ghcr.io/immich-app/postgres:16-vectorchord0.3.0-pgvectors0.3.0
+</span></span></code></pre></div><p>Eso sí, vamos a mantener el volumen existente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/ruta/de/la/bbdd/postgres
+</span></span></code></pre></div><p>De esta forma, la nueva imagen seguirá utilizando la misma base de datos que teníamos hasta ahora.</p>
+<blockquote>
+<p>Nota:</p>
+<p>No realizamos ninguna migración mediante <em>exportación/importación</em> del <em>SQL</em> porque, en este proceso, mantenemos la misma base de datos y realizamos el cambio de extensión vectorial siguiendo el procedimiento utilizado por el equipo de <strong>Immich</strong>.</p>
+</blockquote>
+<h2 id="-primer-inicio-después-del-cambio">◇ Primer inicio después del cambio</h2>
+<p>Una vez sustituida la imagen de <strong>PostgreSQL</strong>, procedemos a iniciar <strong>Immich</strong> manteniendo todavía la versión <code>IMMICH_VERSION=v2.7.5</code>.</p>
+<p>Este paso es importante porque todavía <strong>no queremos actualizar Immich a la versión 3</strong>.</p>
+<p>Primero queremos comprobar que la base de datos funciona correctamente con el cambio de las nuevas extensión:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>PGvecto.rs --&gt; VectorChord
+</span></span></code></pre></div><p>Por tanto, en este punto el objetivo es comprobar que la instalación sigue funcionando como antes, pero utilizando <strong>VectorChord</strong> en lugar de <strong>PGvecto.rs</strong>.</p>
+<p>Os recomiendo realizar las siguientes comprobaciones:</p>
+<ul>
+<li>Acceso web.</li>
+<li>Login.</li>
+<li>Biblioteca.</li>
+<li>Usuarios.</li>
+<li>Búsquedas.</li>
+<li>Machine Learning.</li>
+</ul>
+<p>En mi caso, todas estas pruebas funcionaron perfectamente.</p>
+<p>Y aquí llegó la primera alegría del proceso: la base de datos estaba funcionando correctamente con el nuevo sistema y <strong>Immich</strong> seguía operativo.</p>
+<p>Con esto ya podemos continuar con el siguiente paso, que es la actualización de <strong>Immich</strong> a la versión 3.</p>
+<h2 id="-actualización-final-a-immich-v3">◇ Actualización final a Immich v3</h2>
+<p>Ahora sí que llega el paso más importante de todo el proceso: actualizar <strong>Immich</strong> a la <em>versión 3</em>.</p>
+<p>Tal como habíamos hecho durante las pruebas, solamente tenemos que cambiar:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-env" data-lang="env"><span style="display:flex;"><span>IMMICH_VERSION<span style="color:#f92672">=</span>v2.7.5
+</span></span></code></pre></div><p>por:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-env" data-lang="env"><span style="display:flex;"><span>IMMICH_VERSION<span style="color:#f92672">=</span>v3
+</span></span></code></pre></div><p>Una vez realizado el cambio, descargamos las nuevas imágenes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker compose pull
+</span></span></code></pre></div><p>Y recreamos los servicios:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apps@unraid ~&gt; docker compose up -d immich-server immich-machine-learning redis
+</span></span></code></pre></div><p>Durante este proceso, <strong>Immich</strong> realizará automáticamente las migraciones necesarias de la base de datos.</p>
+<p>A partir de aquí ya tenemos nuestra instalación funcionando con <strong>Immich v3</strong>, <strong>PostgreSQL</strong> con <strong>VectorChord</strong> y <strong>Redis</strong> dentro del mismo entorno de <strong>Docker Compose</strong>.</p>
+<h2 id="-redis">◇ Redis</h2>
+<p>Hay una parte de la migración que finalmente no realicé y que queda pendiente para el futuro: sustituir <strong>Redis</strong> por <strong>Valkey</strong>.</p>
+<p>Actualmente seguimos utilizando:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">redis</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.io/redis:6.2-alpine</span>
+</span></span></code></pre></div><p>La documentación de <strong>Immich</strong> recomienda realizar esta migración, pero en mi caso preferí no mezclar más cambios dentro de la migración a <strong>Immich v3</strong>.</p>
+<p>Creo que es mejor hacer este tipo de cambios por separado. De esta forma, si aparece algún problema, resulta mucho más sencillo saber de dónde viene.</p>
+<p>Cuando llegue el momento de realizar el cambio de <strong>Redis</strong> a <strong>Valkey</strong>, volveré a realizar las pruebas en el entorno paralelo antes de aplicarlo en producción.</p>
+<p>Una cosa cada vez. 😅</p>
+<h2 id="-procedimiento-de-rollback">◇ Procedimiento de rollback</h2>
+<p>Con esto ya hemos terminado la migración, pero siempre puede aparecer algún problema que no habíamos previsto.</p>
+<p><em>Quien esté libre de culpa, que tire la primera piedra.</em></p>
+<p>Precisamente por eso hemos realizado las copias de seguridad antes de empezar. Si algo sale mal, tenemos que poder volver al estado anterior.</p>
+<p>En mi caso no fue necesario realizar el <em>rollback</em>, pero el procedimiento sería el siguiente.</p>
+<h3 id="-detener-la-instalación-nueva">◈ Detener la instalación nueva</h3>
+<p>Primero detenemos los servicios de <strong>Immich</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apps@unraid ~&gt; docker compose stop immich-server immich-machine-learning redis
+</span></span></code></pre></div><h3 id="-restaurar-postgresql-original">◈ Restaurar PostgreSQL original</h3>
+<p>Volvemos a utilizar la imagen original de <strong>PostgreSQL</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>tensorchord/pgvecto-rs:pg16-v0.3.0
+</span></span></code></pre></div><p>manteniendo el volumen original:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>apps@unraid ~&gt; /ruta/de/la/bbdd/postgres
+</span></span></code></pre></div><p>De esta forma volvemos a utilizar la instalación de PostgreSQL que teníamos antes de comenzar la migración.</p>
+<h3 id="-restaurar-la-biblioteca-multimedia">◈ Restaurar la biblioteca multimedia</h3>
+<p>Para recuperar la biblioteca original, restauramos la copia que hemos realizado anteriormente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apps@unraid ~&gt; tar -xvf photos_pre_migracion.tar -C /ruta/de/biblioteca/
+</span></span></code></pre></div><h3 id="-volver-a-la-versión-anterior-de-immich">◈ Volver a la versión anterior de Immich</h3>
+<p>Por último, volvemos a modificar la versión de <strong>Immich</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-env" data-lang="env"><span style="display:flex;"><span>IMMICH_VERSION<span style="color:#f92672">=</span>v2.7.5
+</span></span></code></pre></div><p>Y recreamos los contenedores:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apps@unraid ~&gt; docker compose up -d immich-server immich-machine-learning redis
+</span></span></code></pre></div><p>Con esto deberíamos volver a tener la instalación en el estado anterior a la migración.</p>
+<h2 id="-comprobaciones-posteriores-a-la-migración">◇ Comprobaciones posteriores a la migración</h2>
+<p>En mi caso, como no tuve ningún problema durante la migración, volví a realizar las mismas pruebas que había hecho después del cambio de la <strong>BBDD</strong>.</p>
+<p>La idea es comprobar que no solamente podemos acceder a <strong>Immich</strong>, sino que todos los elementos importantes siguen funcionando correctamente.</p>
+<h3 id="-aplicación-immich">◈ Aplicación Immich</h3>
+<ul>
+<li>Login correcto.</li>
+<li>Usuarios existentes.</li>
+<li>Fotografías disponibles.</li>
+<li>Vídeos reproducibles.</li>
+<li>Álbumes intactos.</li>
+<li>Comparticiones existentes.</li>
+</ul>
+<h3 id="-postgresql-1">◈ PostgreSQL</h3>
+<p>También verificamos que tenemos correctamente instaladas las extensiones necesarias mediante una consulta <code>SQL</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> extname, extversion <span style="color:#66d9ef">FROM</span> pg_extension <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> extname;
+</span></span></code></pre></div><p>Donde tendremos que encontrar:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>vector
+</span></span><span style="display:flex;"><span>vchord
+</span></span></code></pre></div><p>También verificamos que tenemos la versión correcta de <strong>PostgreSQL</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">version</span>();
+</span></span></code></pre></div><p>En este caso deberíamos obtener una versión <code>PostgreSQL 16.x</code>.</p>
+<h3 id="-docker">◈ Docker</h3>
+<p>Por último, y no menos importante, comprobamos que todos los contenedores relacionados con <strong>Immich</strong> están funcionando correctamente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker ps
+</span></span></code></pre></div><p>Donde deberíamos visualizar:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>immichServer
+</span></span><span style="display:flex;"><span>immichMachineLearning
+</span></span><span style="display:flex;"><span>immichRedis
+</span></span><span style="display:flex;"><span>immichPostgres
+</span></span></code></pre></div><p>Aunque pueda parecer una comprobación de puro trámite, nunca está de más echarle un vistazo.</p>
+<h2 id="-problemas-conocidos-y-observaciones">◇ Problemas conocidos y observaciones</h2>
+<p>En mi caso, aunque todo estaba funcionando perfectamente, al revisar los <em>logs</em> de <strong>Immich</strong> encontré un par de mensajes que me llamaron la atención.</p>
+<p>No me impedían utilizar Immich, pero creo que merece la pena dejarlos documentados por si en el futuro vuelven a aparecer o alguien se encuentra con el mismo problema.</p>
+<h3 id="-mensajes-de-vectorchord-durante-el-arranque">◈ Mensajes de VectorChord durante el arranque</h3>
+<p>Durante el inicio de PostgreSQL observé este mensaje:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>WARNING: Failed to maintain vector indexes:
+</span></span><span style="display:flex;"><span>Failed to create RPC client.
+</span></span></code></pre></div><p>Lo curioso es que, a pesar de este mensaje, todo estaba funcionando correctamente.</p>
+<p>La <strong>BBDD</strong> se iniciaba sin problemas y las extensiones estaban disponibles:</p>
+<ul>
+<li><strong>vector</strong></li>
+<li><strong>vchord</strong></li>
+</ul>
+<p>Por ese motivo, en mi caso, lo dejé como un mensaje pendiente de investigar.</p>
+<p>Si alguien sabe exactamente por qué aparece este mensaje y qué significa, ya me lo dirá. 😅</p>
+<h3 id="-error-de-usuario-root">◈ Error de usuario root</h3>
+<p>También apareció el siguiente mensaje:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>FATAL: role &#34;root&#34; does not exist
+</span></span></code></pre></div><p>Por lo que pude comprobar, algún proceso está intentando conectarse a PostgreSQL utilizando <code>root</code> como usuario.</p>
+<p>Lo curioso es que <code>root</code> es un usuario del sistema Linux y no un usuario de la base de datos.</p>
+<p>En cualquier caso, este mensaje tampoco me impedia utilizar correctamente <strong>Immich</strong>, así que lo dejo igualmente documentado como otra cosa pendiente de investigar.</p>
+<h2 id="-conclusiones">◇ Conclusiones</h2>
+<p>Pues llegamos al final de este artículo.</p>
+<p>Si hay algo que me ha quedado claro después de todo este proceso es que realizar primero la migración en un entorno paralelo ha sido todo un acierto.</p>
+<p>Gracias a las pruebas con <code>immichTest</code>, pude detectar los problemas que podían aparecer, solucionarlos y, sobre todo, llegar a la migración de producción sabiendo exactamente qué pasos tenía que realizar.</p>
+<p>Eso no significa que una migración vaya a salir siempre perfecta. Pueden aparecer problemas nuevos que no hayamos contemplado, pero al menos hemos reducido bastante los riesgos y tenemos un procedimiento de recuperación preparado.</p>
+<p>Gracias a esta migración paralela pude verificar:</p>
+<ul>
+<li>La actualización de <strong>PostgreSQL</strong> mediante el cambio de <strong>PGvecto.rs</strong> a <strong>VectorChord</strong>.</li>
+<li>La integración completa de <strong>PostgreSQL</strong> en el entorno de <code>Docker Compose</code> de <strong>Immich</strong>.</li>
+<li>La administración de <strong>PostgreSQL</strong> mediante <strong>pgAdmin</strong> a través de la red interna de Docker utilizada por <strong>Immich</strong>.</li>
+<li>La preservación y compatibilidad con los datos existentes.</li>
+<li>El mantenimiento de los nombres de servicio Docker necesarios para garantizar el correcto funcionamiento de <strong>Immich</strong>.</li>
+</ul>
+<p>Con todo esto, la arquitectura final queda de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Unraid
+</span></span><span style="display:flex;"><span>├── Docker Compose
+</span></span><span style="display:flex;"><span>├──── Immich Server
+</span></span><span style="display:flex;"><span>├──── Immich Machine Learning
+</span></span><span style="display:flex;"><span>├──── Redis
+</span></span><span style="display:flex;"><span>└──── PostgreSQL + VectorChord
+</span></span><span style="display:flex;"><span>          |
+</span></span><span style="display:flex;"><span>          |
+</span></span><span style="display:flex;"><span>       pgAdmin
+</span></span></code></pre></div><p>El proceso de migración se ha realizado de forma controlada y por fases:</p>
+<ul>
+<li>Migración de PostgreSQL.</li>
+<li>Validación con Immich v2.7.5.</li>
+<li>Actualización a Immich v3.</li>
+<li>Comprobaciones posteriores.</li>
+<li>Cambios opcionales posteriores, como la futura migración de Redis a Valkey.</li>
+</ul>
+<p>Al hacerlo de esta manera, he reducido los riesgos y, además, he mantenido un punto de restauración que me permitiría volver al estado anterior si algo hubiera salido mal.</p>
+<p>Y con esto sí que damos por finalizados los dos artículos en los que explico mi proceso de migración a <strong>Immich v3</strong>, tanto en la fase de pruebas como en producción.</p>
+<p>Actualmente lo tengo funcionando en producción sin ningún problema.</p>
+<p>Y, como siempre, si algo he aprendido de todo esto es que <strong>hacer las pruebas antes de tocar producción sigue siendo una muy buena idea</strong>. 😅</p>
+<h4 id="-referencias">◇ Referencias</h4>
+<ul>
+<li><a href="https://docs.immich.app/developer/architecture">Immich - Architecture</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+
+  <p class="footer-right">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca">CC BY-NC 4.0</a>
+  </p>
+</footer>
+
+</body>
+</html>
