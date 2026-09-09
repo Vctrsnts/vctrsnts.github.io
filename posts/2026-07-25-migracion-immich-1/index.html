@@ -14,7 +14,7 @@ Immich - Prueba de migración de V2 a V3 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2026-07-25-migracion-immich-1/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-07-25-migracion-immich-1/">
 
 
 
@@ -57,7 +57,7 @@ Immich - Prueba de migración de V2 a V3 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Immich - Prueba de migración de V2 a V3 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2026-07-25-migracion-immich-1/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-07-25-migracion-immich-1/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Immich - Prueba de migración de V2 a V3 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Immich - Prueba de migración de V2 a V3 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -205,7 +205,7 @@ Immich - Prueba de migración de V2 a V3 · Si lo haces, hazlo bien!
 </li>
 <li>Actualizar <strong>Immich</strong> a la versión <strong>V3</strong>.</li>
 </ul>
-<h3 id="11-configuración-inicial">1.1 Configuración inicial</h3>
+<h3 id="11-configuración-inicial">1.1. Configuración inicial</h3>
 <p>En la instalación original utilizaba el siguiente archivo <code>compose</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-compose.yml" data-lang="compose.yml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">immich-server</span>:
@@ -267,11 +267,11 @@ Immich - Prueba de migración de V2 a V3 · Si lo haces, hazlo bien!
 </span></span></code></pre></div><h2 id="-2-copias-de-seguridad">◇ 2. Copias de seguridad</h2>
 <p>Es muy aconsejable, por no decir imprescindible, disponer de copias de seguridad tanto de la <em>BBDD</em> como de la biblioteca multimedia de <strong>Immich</strong> (fotos, vídeos, etc.), por si surge algún problema durante la migración y tenemos que recurrir a ellas.</p>
 <p>Además, estas copias también nos servirán para crear un banco de pruebas donde validar todo el proceso antes de realizar la migración sobre el servicio en producción.</p>
-<h3 id="21-backup-de-postgresql">2.1 Backup de PostgreSQL</h3>
+<h3 id="21-backup-de-postgresql">2.1. Backup de PostgreSQL</h3>
 <p>En mi caso, la copia de seguridad de la <em>BBDD</em> la realicé mediante <strong>pgAdmin4</strong>, que podéis tener instalado en vuestro servidor.</p>
 <p>Seguí el procedimiento explicado en este <a href="https://elblogdelazaro.org/docker-gestion-de-bbdd-postgres-con-pgadmin">artículo</a> del <strong>Blog de Lázaro</strong>, que me permitió instalar la aplicación y posteriormente generar el archivo <code>20260725_backup_immich</code>.</p>
 <p>Gracias a este <em>backup</em>, podremos restaurar la <em>BBDD</em> en caso de que algo falle durante la migración o utilizarlo para crear nuestro entorno de pruebas.</p>
-<h3 id="22-backup-de-la-biblioteca-multimedia">2.2 Backup de la biblioteca multimedia</h3>
+<h3 id="22-backup-de-la-biblioteca-multimedia">2.2. Backup de la biblioteca multimedia</h3>
 <p>En cuanto a la biblioteca multimedia de <strong>Immich</strong>, como podéis ver en la configuración inicial, la tengo ubicada en:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/mnt/user/images/photos
 </span></span></code></pre></div><p>Antes de realizar cualquier copia, es recomendable detener todos los contenedores implicados para garantizar que tanto la <em>BBDD</em> como la biblioteca se encuentren en un estado consistente.</p>
@@ -317,7 +317,7 @@ Entorno de pruebas
 <li>Actualizar a <strong>Immich v3</strong>.</li>
 </ol>
 <p>Si todo funcionaba correctamente en el entorno de pruebas, solamente tendría que repetir exactamente los mismos pasos en producción.</p>
-<h3 id="31-copia-de-datos-para-el-entorno-de-pruebas">3.1 Copia de datos para el entorno de pruebas</h3>
+<h3 id="31-copia-de-datos-para-el-entorno-de-pruebas">3.1. Copia de datos para el entorno de pruebas</h3>
 <p>Para crear este banco de pruebas preparé rutas independientes para todos los servicios:</p>
 <ul>
 <li><strong>PostgreSQL</strong>: <code>/mnt/user/appdata/immichTest-postgres</code></li>
@@ -411,7 +411,7 @@ Entorno de pruebas
 </span></span><span style="display:flex;"><span>DB_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">5432</span>
 </span></span><span style="display:flex;"><span>DB_DATABASE_NAME<span style="color:#f92672">=</span>database_db
 </span></span><span style="display:flex;"><span>DB_STORAGE_TYPE<span style="color:#f92672">=</span>HDD
-</span></span></code></pre></div><h3 id="41-importancia-del-nombre-del-servicio-en-docker-compose">4.1 Importancia del nombre del servicio en Docker Compose</h3>
+</span></span></code></pre></div><h3 id="41-importancia-del-nombre-del-servicio-en-docker-compose">4.1. Importancia del nombre del servicio en Docker Compose</h3>
 <p>Hay un detalle que me hizo perder un buen rato hasta entender qué estaba ocurriendo.</p>
 <p><em>Docker Compose</em> utiliza el nombre del <strong>servicio</strong> como DNS interno dentro de la red Docker.</p>
 <p>Por ejemplo:</p>
@@ -429,7 +429,7 @@ Entorno de pruebas
 <li>El nombre del servicio es el que utiliza <em>Docker Compose</em> para resolver las conexiones internas entre contenedores.</li>
 </ul>
 <p>Entender esta diferencia evita bastantes quebraderos de cabeza cuando empiezas a trabajar con varios servicios dentro de una misma red Docker.</p>
-<h3 id="42-ajustes-del-entorno-de-pruebas">4.2 Ajustes del entorno de pruebas</h3>
+<h3 id="42-ajustes-del-entorno-de-pruebas">4.2. Ajustes del entorno de pruebas</h3>
 <p>Para evitar cualquier conflicto con el servicio en producción, cambié el nombre de todos los contenedores:</p>
 <ul>
 <li><code>immichTestServer</code></li>
@@ -461,7 +461,7 @@ Entorno de pruebas
 <li>La nueva imagen de <strong>PostgreSQL</strong> era capaz de leer y utilizar correctamente los datos existentes.</li>
 <li>La migración desde <strong>Pgvecto-RS</strong> a <strong>VectorChord</strong> se había realizado correctamente.</li>
 </ul>
-<h3 id="51-validación-de-postgresql">5.1 Validación de PostgreSQL</h3>
+<h3 id="51-validación-de-postgresql">5.1. Validación de PostgreSQL</h3>
 <p>Después de comprobar que <strong>Immich</strong> funcionaba correctamente, quería asegurarme de que la <em>BBDD</em> también estaba operativa y disponía de todas las extensiones necesarias.</p>
 <p>Para ello me conecté a <strong>PostgreSQL</strong> y ejecuté la siguiente consulta:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> extname, extversion <span style="color:#66d9ef">FROM</span> pg_extension <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> extname;
@@ -491,7 +491,7 @@ Entorno de pruebas
 <li>Las extensiones vectoriales estaban disponibles.</li>
 <li>Todo continuaba funcionando sobre <strong>Immich v2.7.5</strong>.</li>
 </ul>
-<h3 id="52-administración-de-postgresql-mediante-pgadmin">5.2 Administración de PostgreSQL mediante pgAdmin</h3>
+<h3 id="52-administración-de-postgresql-mediante-pgadmin">5.2. Administración de PostgreSQL mediante pgAdmin</h3>
 <p>Hasta este momento todo había ido sorprendentemente bien, así que tocaba conectar <strong>pgAdmin4</strong> al banco de pruebas para administrar la nueva base de datos.</p>
 <p>Y aquí llegó el primer problema 😭.</p>
 <p>Al intentar crear la conexión obtenía el siguiente error:</p>
@@ -520,14 +520,14 @@ Entorno de pruebas
 <li>Utilizar la dirección IP del servidor de <strong>unRAID</strong>.</li>
 <li>Exponer <strong>PostgreSQL</strong> a la red local.</li>
 </ul>
-<h2 id="-5-actualización-a-immich-v3">◇ 5. Actualización a Immich v3</h2>
+<h2 id="-6-actualización-a-immich-v3">◇ 6. Actualización a Immich v3</h2>
 <p>Una vez que el entorno de pruebas funcionaba correctamente con la nueva versión de <strong>PostgreSQL</strong>, únicamente quedaba dar el último paso: actualizar <strong>Immich</strong> a la versión <strong>3</strong>.</p>
 <p>Aunque pueda parecer lo contrario, esta es la parte más sencilla de todo el proceso. Basta con modificar el archivo <code>.env</code> y cambiar:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-env" data-lang="env"><span style="display:flex;"><span>IMMICH_VERSION<span style="color:#f92672">=</span>v2.7.5
 </span></span></code></pre></div><p>por:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-env" data-lang="env"><span style="display:flex;"><span>IMMICH_VERSION<span style="color:#f92672">=</span>v3
 </span></span></code></pre></div><p>Después solo hay que recrear los contenedores y, si todo ha ido bien hasta este punto, <strong>Immich</strong> realizará automáticamente las migraciones necesarias al arrancar.</p>
-<h2 id="-51-validación-de-la-actualización">◇ 5.1 Validación de la actualización</h2>
+<h3 id="61-validación-de-la-actualización">6.1. Validación de la actualización</h3>
 <p>El proceso de actualización fue completamente transparente y, en pocos minutos, ya tenía <strong>Immich v3</strong> funcionando sobre la nueva base de datos.</p>
 <p>Aun así, realicé una serie de comprobaciones para asegurarme de que todo había migrado correctamente:</p>
 <ul>
@@ -582,7 +582,7 @@ Entorno de pruebas
 
 </p>
 <p>Con estas comprobaciones pude dar por finalizada la migración del entorno de pruebas.</p>
-<h2 id="-52-pequeños-problemas-encontrados">◇ 5.2 Pequeños problemas encontrados</h2>
+<h3 id="62-pequeños-problemas-encontrados">6.2. Pequeños problemas encontrados</h3>
 <p>No todo podía salir perfecto 😅.</p>
 <p>Durante las pruebas me encontré con dos pequeños inconvenientes que, por suerte, tuvieron una solución bastante sencilla.</p>
 <h3 id="eliminación-de-imágenes-docker">Eliminación de imágenes Docker</h3>
