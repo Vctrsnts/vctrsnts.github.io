@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   
 
 <meta charset="utf-8">
@@ -14,7 +14,7 @@ Instalar y proteger Memos · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="http://192.6.0.40:1313/posts/2026-09-10-instalar-memos/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-09-10-instalar-memos/">
 
 
 
@@ -57,7 +57,7 @@ Instalar y proteger Memos · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Instalar y proteger Memos · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
-<meta property="og:url" content="http://192.6.0.40:1313/posts/2026-09-10-instalar-memos/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-09-10-instalar-memos/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -84,7 +84,7 @@ Instalar y proteger Memos · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="http://192.6.0.40:1313/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -94,7 +94,7 @@ Instalar y proteger Memos · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
 
 
-<meta name="twitter:image" content="http://192.6.0.40:1313/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -140,7 +140,7 @@ Instalar y proteger Memos · Si lo haces, hazlo bien!
       <time class="dt-published" datetime="2026-09-10">
         2026-09-10
       </time>
-      · 1 min
+      · 9 min
       
       
         · <a class="p-category" href="/categories/self-hosting/">@Self-Hosting</a>
@@ -156,24 +156,397 @@ Instalar y proteger Memos · Si lo haces, hazlo bien!
   </header>
 
   <section class="e-content">
-    <p>Tenemos nuevo articulo, pero este era uno que tenia pendiente, primero de hacer en mi VPS, y segundo de documentar todo el proceso por si tengo que volverlo a hacer en un futuro, o por si alguien le interesa.</p>
-<p>Esta idea, viene de escuchar, no me acuerdo del podcast de <strong>atareao</strong> donde lo escuche, pero en pocas palabras, explicaba que habia instalado <a href="https://usememos.com">memos</a>, que es un gestor de notas, que ultimamente esta muy de moda, a parte de la <em>IA</em> y que lo habia enlazado con su movil <strong>Android</strong>, 😱</p>
-<p>Eso mismo pense yo. Pero <strong>Lorenzo</strong> que me estas explicando. <em>Doctor, venga rapido, porque tenemos un paciente en estado critico con un ataque agudo de informatica + tecnologia + docker, y creo que es grave 😉</em></p>
+    <p>Tenemos nuevo artículo, y el culpable, como no podía ser otro, es <strong>atareao</strong>.</p>
+<p>Escuchando un podcast, no me acuerdo de cuál, <strong>Lorenzo</strong> explicaba que había instalado <a href="https://usememos.com">memos</a>, un gestor de notas que últimamente está muy de moda, y que lo había enlazado con su móvil <strong>Android</strong>. 😱</p>
+<p>Eso mismo pensé yo.</p>
 <blockquote>
 <p><strong>Nota</strong></p>
-<p>Y que siga muchos años más.</p>
+<p><em>Doctor, venga rápido, tenemos un paciente en estado crítico.</em><br />
+<em>¿Qué síntomas presenta?</em><br />
+<em>Solo habla de informática, tecnología, Android y Docker.</em><br />
+<em>Lléveme a él 😉</em></p>
 </blockquote>
+<p>Pero ya sabemos que, detrás de una mente inquieta, siempre puede esconderse un genio en potencia y, en el caso de Lorenzo, no hay duda: es un genio, por no decir un <em>supergenio</em>.</p>
+<p>En mi caso, quería reproducir el mismo flujo de trabajo y no depender de <em>WhatsApp</em> para ir añadiendo mis notas. Si tengo una aplicación que puedo controlar yo, ¿por qué dejar esto en manos de otro?</p>
+<p>El problema que tenía era que no sabía por dónde empezar. Lo fácil era la instalación de <strong>Memos</strong>, pero ¿y el resto? ¿Cómo integrar esto con <strong>Android</strong>? Aquí es donde está todo el meollo de la cuestión. La raíz del problema.</p>
+<p>Cada vez que podía, perdona <strong>atareao</strong> si he sido pesado, le preguntaba cómo funcionaba todo. Al menos quería que me diera alguna pista de la que partir. Pero lo entiendo: las personas tienen su vida y no pueden estar pendientes de todo. Tienen que priorizar. Eso sí, te falta documentar este proceso. Y esa falta de información me ponía histérico, porque no sabía por dónde empezar.</p>
+<p>Hasta que hace un par de días le pregunté a <strong>ChatGPT</strong>, que para esto va muy bien, qué tendría que hacer para conseguir este flujo de trabajo. Gracias a la <em>IA</em>, obtuve las ideas básicas de lo que necesitaba y por dónde podía empezar a investigar:</p>
+<ul>
+<li><strong>Memos</strong></li>
+<li>Configurar un <em>Token</em> de acceso en <strong>Memos</strong></li>
+<li>Una aplicación para <strong>Android</strong> que me permita enviar notas a través de un script a <strong>Memos</strong>
+<ul>
+<li>Esta aplicación es <a href="https://f-droid.org/en/packages/ch.rmy.android.http_shortcuts">HTTP Shortcuts</a></li>
+</ul>
+</li>
+<li>Conectar <strong>Memos</strong> con mi web
+<ul>
+<li>Pero esto para más adelante. De momento me conformo con los tres primeros puntos de la lista.</li>
+</ul>
+</li>
+</ul>
+<p>Así que, partiendo de esta premisa, de esa chispa, de esa idea inicial, me puse a buscar información. Busqué en el canal de <em>Telegram</em> de <strong>atareao</strong> para ver si él había comentado algo al respecto, pero no encontré nada. Lo único que me quedaba era buscar información en su web, a ver si tenía más suerte 🤩.</p>
+<p><em>La suerte favorece a los valientes</em>.</p>
+<p>Encontré, disperso por varios artículos, todo lo que necesitaba. La información estaba ahí:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=OTFACA_6byQ">Memos. Tus notas o diario en la nube autoalojadas</a></li>
+<li><a href="https://www.youtube.com/watch?v=OTFACA_6byQ">Controla TODO desde tu Android - Video</a></li>
+<li><a href="https://atareao.es/podcast/controla-todo-desde-tu-android">Controla TODO desde tu Android - Notas</a></li>
+</ul>
+<p>Con esto ya podía empezar. Solo hacía falta unir las piezas, porque todo estaba aquí, en estos artículos y vídeos. Lo tenía todo, solo faltaba saber cómo encajarlo. Y, a veces, eso es lo más difícil.</p>
+<p>Pero antes de todo esto, lo primero y más importante es la instalación y securización de <strong>Memos</strong>.</p>
+<h2 id="-instalación-del-container">◇ Instalación del container</h2>
+<p>Aquí tenéis el <code>compose.yml</code> que estoy utilizando:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">memos</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">neosmemo/memos:stable</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">memos</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">init</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">proxy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${PODMAN_STORAGE_PATH}/.config/memos:/var/opt/memos</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">MEMOS_DRIVER</span>: <span style="color:#ae81ff">sqlite</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.enable=true</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.services.memos.loadbalancer.server.port=5230</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.routers.memos.entrypoints=websecure</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.routers.memos.tls.certresolver=myresolver</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.routers.memos.rule=Host(`${FQDN}`)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">proxy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">x-dockge</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">urls</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">https://{FQDN}</span>
+</span></span></code></pre></div><p>Además, para las variables, como por ejemplo <code>{FQDN}</code>, lo tengo de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">PODMAN_STORAGE_PATH=/home/tu_usuario</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">FQDN=memos.tu.servidor.org</span>
+</span></span></code></pre></div><p>Ahora únicamente nos queda iniciar el container, que, a través de <strong>Dockge</strong>, es tan sencillo como darle al <em>play</em> y ya tenemos <strong>Memos</strong> en funcionamiento.</p>
+<h3 id="-accediendo-a-memos">◈ Accediendo a Memos</h3>
+<p>Llegados a este punto, ya tenemos <strong>Memos</strong> funcionando. Ahora toca pensar en cómo quiero acceder a él.</p>
+<p>Mi idea es utilizar <strong>PocketID</strong> como sistema de autenticación, tal como hago ahora con <strong>Traefik</strong> o <strong>Beszel</strong>. El flujo sería el siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>               ┌──────────────┐
+</span></span><span style="display:flex;"><span>               │   Pocket ID  │
+</span></span><span style="display:flex;"><span>               └──────┬───────┘
+</span></span><span style="display:flex;"><span>                      │
+</span></span><span style="display:flex;"><span>                     OIDC
+</span></span><span style="display:flex;"><span>                      │
+</span></span><span style="display:flex;"><span>                      ▼
+</span></span><span style="display:flex;"><span>               ┌──────────────┐
+</span></span><span style="display:flex;"><span>               │    Memos     │
+</span></span><span style="display:flex;"><span>               │              │
+</span></span><span style="display:flex;"><span>               │ ┌──────────┐ │
+</span></span><span style="display:flex;"><span>               │ │ Password │ │ ← sigue habilitado
+</span></span><span style="display:flex;"><span>               │ └──────────┘ │
+</span></span><span style="display:flex;"><span>               │              │
+</span></span><span style="display:flex;"><span>               │ ┌──────────┐ │
+</span></span><span style="display:flex;"><span>               │ │ Pocket ID│ │ ← SSO
+</span></span><span style="display:flex;"><span>               │ └──────────┘ │
+</span></span><span style="display:flex;"><span>               └──────────────┘
+</span></span></code></pre></div><p>Es decir, me autentico en <strong>PocketID</strong> y, una vez validado el acceso, entro en <strong>Memos</strong>.</p>
+<p>De momento, eso sí, quiero mantener habilitado el acceso mediante usuario y contraseña.</p>
 <blockquote>
 <p><strong>Nota</strong></p>
+<p>A lo mejor, en un futuro, desactivo la opción de usar <em>usuario / password</em> y dejo únicamente el acceso mediante <strong>PocketID</strong>. Tengo que estudiarlo.</p>
 </blockquote>
+<h2 id="-configuración">◇ Configuración</h2>
+<p>Una vez que hemos iniciado el container y no tenemos ningún problema, accedemos a la web y nos aparece lo siguiente:</p>
 <p>
 
 
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-09-10-instalar-memos/image_01_hu_fcdf07410d9b7479.webp 400w,
+      /posts/2026-09-10-instalar-memos/image_01_hu_572fe3d7192bef28.webp 700w,
+      /posts/2026-09-10-instalar-memos/image_01_hu_19f18d963b9ddce9.webp 900w
+    "
+    sizes="
+      (max-width: 700px) 100vw,
+      700px
+    "
+  >
+
+  <img
+    src="/posts/2026-09-10-instalar-memos/image_01_hu_a2878552ebdf4b8e.jpg"
+    alt=""
+    width="900"
+    height="903"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
 </p>
+<p>Aquí damos de alta al <em>administrador</em> de la web y, al mismo tiempo, accedemos a ella.</p>
+<p>Una vez dentro, podemos configurar algunas cosas. En mi caso, lo que hago es:</p>
+<ul>
+<li>Añadir el avatar al administrador</li>
+<li>Configurar el primer día de la semana</li>
+</ul>
+<p>Más adelante ya acabaré de revisar las diferentes opciones disponibles, pero ahora vayamos a la parte más importante de todo: la integración de <strong>Memos</strong> con <strong>PocketID</strong>. Aquí tengo que decir que nos vamos a llevar una desagradable sorpresa.</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Pero al final <strong>Posarem llum a la foscor</strong>.</p>
+</blockquote>
+<h3 id="-configurando-pocketid">◈ Configurando PocketID</h3>
+<p>Lo primero es configurar en <strong>PocketID</strong> el acceso para <strong>Memos</strong>. En esta <a href="https://pocket-id.org/docs/client-examples/memos">web</a> podemos ver los pasos que hay que seguir, pero, en resumen, lo que tenemos que hacer es lo siguiente:</p>
+<ul>
+<li>Vamos a <strong>Pocket ID</strong>, donde creamos un nuevo <em>cliente OIDC</em> que podemos llamar <strong>Memos</strong>.</li>
+<li>Podemos añadir el logo del cliente <strong>OIDC</strong>, que sería el de <strong>Memos</strong> y que podemos encontrar <a href="https://selfh.st/icons">aquí</a>.
+<ul>
+<li>Buscamos por <strong>Memos</strong> y copiamos la URL de la imagen que queremos utilizar (<em>PNG</em>, <em>WEBP</em>).</li>
+</ul>
+</li>
+<li>Establecemos la URL <strong>callback</strong> como <code>https://&lt; Memos Host &gt;/auth/callback</code>.</li>
+<li>Una vez introducidos los datos, tenemos que conservar:
+<ul>
+<li><em>Client ID</em></li>
+<li><em>Client Secret</em></li>
+<li><em>URL EndPoint</em> de autorización</li>
+<li><em>URL EndPoint</em> del token</li>
+<li><em>URL EndPoint</em> del usuario</li>
+</ul>
+</li>
+</ul>
+<p>Con esto ya hemos terminado con <strong>PocketID</strong>. Ahora pasamos a <strong>Memos</strong>.</p>
+<h3 id="-configurando-memos">◈ Configurando Memos</h3>
+<p>Para configurar <strong>Memos</strong>, tenemos que seguir estos pasos:</p>
+<ul>
+<li>Accedemos a <strong>Memos</strong> con la cuenta del <em>administrador</em>.</li>
+<li>Vamos a <em>Settings</em> → <em>SSO</em> → Hacemos <em>Create</em>.</li>
+<li>En la opción <em>Template</em> seleccionamos <em>Custom</em>.</li>
+</ul>
+<p>Y hasta aquí podemos llegar, porque no nos deja modificar esta opción ni continuar con el proceso de configuración.</p>
+<p>Después de esta decepción, me puse a buscar información sobre cómo continuar con el proceso para tener disponible <strong>PocketID</strong> con <strong>Memos</strong>. Según <em>ChatGPT</em> y la documentación de <strong>Memos</strong>, la única opción es mediante el archivo <code>memos-idp-pocket-id.json</code>, pero, para ello, antes tenemos que hacer una modificación en nuestro archivo <code>compose.yml</code> de <strong>Memos</strong>.</p>
+<p>Tenemos que añadir la opción:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${PODMAN_STORAGE_PATH}/.config/memos/secrets:/etc/secrets:ro</span>
+</span></span></code></pre></div><p>Y este fichero tiene que contener la siguiente información:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;uid&#34;</span>: <span style="color:#e6db74">&#34;pocket-id&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Pocket ID&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;OAUTH2&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;identifierFilter&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;config&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;oauth2Config&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;clientId&#34;</span>: <span style="color:#e6db74">&#34;CLIENT_ID&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;clientSecret&#34;</span>: <span style="color:#e6db74">&#34;CLIENT_SECRET&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;authUrl&#34;</span>: <span style="color:#e6db74">&#34;URL_AUTHORIZATION&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;tokenUrl&#34;</span>: <span style="color:#e6db74">&#34;URL TOKEN&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;userInfoUrl&#34;</span>: <span style="color:#e6db74">&#34;URL_USER_INFO&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;scopes&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;openid&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;profile&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;email&#34;</span>
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;fieldMapping&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;identifier&#34;</span>: <span style="color:#e6db74">&#34;sub&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;displayName&#34;</span>: <span style="color:#e6db74">&#34;name&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;email&#34;</span>: <span style="color:#e6db74">&#34;email&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;avatarUrl&#34;</span>: <span style="color:#e6db74">&#34;picture&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Ponemos este archivo dentro de, en mi caso, <code>.config/memos/secrets</code> y reiniciamos el container. Con ello ya tenemos la integración de <strong>Memos</strong> con <strong>PocketID</strong>. Pero esto no me parece muy seguro: tener un archivo con la información de conexión entre <strong>Memos</strong> y <strong>PocketID</strong>. Y, por lo que parece, no hay otra manera de hacerlo.</p>
+<p>Pero no me podía creer que la configuración se hiciera de esta manera. Busqué más información al respecto, pero no encontré nada. Así que se me ocurrió una locura 😈 y funcionó.</p>
+<p>¿Y si usamos una versión anterior a la que estamos utilizando (<strong>0.30.0</strong>)?</p>
+<p>Para ello, detenemos el contenedor, borramos la base de datos, modificamos la versión del contenedor a la versión <strong>0.29.1</strong> y volvemos a iniciar el contenedor con esta versión.</p>
+<p>Tendremos que reiniciar el proceso de creación de usuario y todo lo demás, pero, a la hora de llegar a la creación del <em>SSO</em>, todo funcionó tal como indica la documentación de <strong>PocketID</strong>. Podía modificar el <em>Template</em> y seleccionar <em>Custom</em>.</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-09-10-instalar-memos/image_02_hu_3370ea2c84069acc.webp 400w,
+      /posts/2026-09-10-instalar-memos/image_02_hu_b5c1542971831c87.webp 700w,
+      /posts/2026-09-10-instalar-memos/image_02_hu_5267e003cb3a04d7.webp 900w
+    "
+    sizes="
+      (max-width: 700px) 100vw,
+      700px
+    "
+  >
+
+  <img
+    src="/posts/2026-09-10-instalar-memos/image_02_hu_3d63fb5f6adc6ec.jpg"
+    alt=""
+    width="900"
+    height="668"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<p>Reiniciamos el proceso que viene en la documentación de <strong>PocketID</strong>:</p>
+<ul>
+<li>Accedemos a <strong>Memos</strong> con la cuenta del <em>administrador</em>.</li>
+<li>Vamos a <em>Settings</em> → <em>SSO</em> → Hacemos <em>Create</em>.</li>
+<li>En la opción <em>Template</em> seleccionamos <em>Custom</em>.</li>
+<li>Introducimos el <em>ClientID</em>.</li>
+<li>Introducimos el <em>ClientSecret</em>.</li>
+<li>Introducimos el <em>Authorization EndPoint</em>.</li>
+<li>Introducimos el <em>Token URL</em>.</li>
+<li>Introducimos el <em>Userinfo URL</em>.</li>
+<li>Establecemos los <em>Scopes</em> que nos indican: <em>openid email profile</em>.</li>
+<li>Establecemos el <em>Identifier</em> como <em>preferred_username</em>.</li>
+<li>En <em>Display</em> ponemos <em>profile</em>.</li>
+<li>En <em>Email</em> ponemos <em>email</em>.</li>
+</ul>
+<p>Solamente nos queda guardar la configuración y probar que todo ha ido bien. Y así fue. Desde <strong>PocketID</strong> podía acceder a <strong>Memos</strong>.</p>
+<p>Lo único que hice después fue desactivar la opción de:</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-09-10-instalar-memos/image_03_hu_69a9fc264aba11a7.webp 400w,
+      /posts/2026-09-10-instalar-memos/image_03_hu_563057ae902dffa4.webp 700w,
+      /posts/2026-09-10-instalar-memos/image_03_hu_f739d6917c701576.webp 900w
+    "
+    sizes="
+      (max-width: 700px) 100vw,
+      700px
+    "
+  >
+
+  <img
+    src="/posts/2026-09-10-instalar-memos/image_03_hu_739f81ca80ce5561.jpg"
+    alt=""
+    width="900"
+    height="86"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<p>En mi caso lo hago porque voy a ser el único usuario que utilice <strong>Memos</strong>.</p>
+<p>Lo que no he hecho yo ha sido desactivar la opción <em>Disallow password auth</em>:</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+<figure class="article-image">
+
+<picture>
+
+  <source
+    type="image/webp"
+    srcset="
+      /posts/2026-09-10-instalar-memos/image_04_hu_b76bacb976408077.webp 400w,
+      /posts/2026-09-10-instalar-memos/image_04_hu_b90bc5af2922fbf8.webp 700w,
+      /posts/2026-09-10-instalar-memos/image_04_hu_33097038fa13450c.webp 900w
+    "
+    sizes="
+      (max-width: 700px) 100vw,
+      700px
+    "
+  >
+
+  <img
+    src="/posts/2026-09-10-instalar-memos/image_04_hu_c9328efc3499c649.jpg"
+    alt=""
+    width="900"
+    height="109"
+    loading="lazy"
+    decoding="async"
+  >
+
+</picture>
+
+
+
+</figure>
+
+
+</p>
+<p>Porque, en el caso de que quisiéramos acceder con el usuario <em>administrador</em>, no podríamos. Eso ya os lo dejo a vuestra libre elección.</p>
+<h2 id="-actualización">◇ Actualización</h2>
+<p>Una vez que ya tenía todo en funcionamiento, lo que me preocupaba era que estaba utilizando una versión antigua, la <em>0.29.1</em>, cuando la actual es la <em>0.30.0</em>. Asimismo, también me preocupaba que, a la hora de hacer la actualización a la nueva versión, perdiéramos la configuración, porque, tal como hemos visto, en la nueva versión la opción de configurar <em>Template</em> como <em>Custom</em> no es posible en el caso de querer añadir más usuarios.</p>
+<p>Pero quien no se arriesga, no gana. Así que actualicé el container a la versión <em>stable</em>, tal como habíamos puesto al principio:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">memos</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">neosmemo/memos:stable</span>
+</span></span></code></pre></div><p>Después de modificar la versión, actualizamos el container y todo sigue funcionando sin ningún problema. Se mantenía la configuración <em>Custom</em> y podía acceder a <strong>Memos</strong>, pero eso sí, tal como he dicho antes, si quiero añadir un nuevo <em>Custom</em>, no se podrá hacer.</p>
+<p>Pero, de momento, como soy el único usuario, no tengo ningún problema y, además, estoy en la última versión. Espero que con la siguiente versión esto siga funcionando igual de bien. 🤞</p>
+<p>Pues con esto ya hemos llegado al final de este artículo. Espero que os sirva de ayuda, tal como a mí me ha servido.</p>
+<p>Tengo en mente hacer 2 artículos más aparte de este, en los que quiero explicar:</p>
+<ul>
+<li>Configuración y uso del token para enviar notas desde la aplicación de <strong>Android</strong></li>
+<li>Configuración de todo lo necesario para que, desde mi web, se vean las notas que quiero que aparezcan, que serían ideas locas, pensamientos cortos. Estilo <strong>Mastodon</strong> o <strong>Bluesky</strong>.</li>
+</ul>
+<p><strong>Lorenzo</strong>, si lo quieres para añadir a tu web, ningún problema. No te olvides de mencionarme 😅</p>
 <h4 id="-referencia">◇ Referencia</h4>
 <ul>
+<li><a href="https://www.youtube.com/watch?v=OTFACA_6byQ">Memos. Tus notas o diario en la nube autoalojadas.</a></li>
 <li><a href="https://www.youtube.com/watch?v=OTFACA_6byQ">Controla TODO desde tu Android - Video</a></li>
 <li><a href="https://atareao.es/podcast/controla-todo-desde-tu-android">Controla TODO desde tu Android - Notas</a></li>
+<li><a href="https://pocket-id.org/docs/client-examples/memos">Configure PocketID - Memos</a></li>
 <li><a href="https://usememos.com">Memos</a></li>
 </ul>
 
