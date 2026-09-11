@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Drafts on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/draft/</link>
+    <link>https://vctrsnts.codeberg.page/draft/</link>
     <description>Recent content in Drafts on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Thu, 10 Sep 2026 00:00:00 +0200</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/draft/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.codeberg.page/draft/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mi flujo de trabajo con Memos y Android</title>
-      <link>https://vctrsnts.github.io/draft/2026-09-11-memos-android/</link>
+      <link>https://vctrsnts.codeberg.page/draft/2026-09-11-memos-android/</link>
       <pubDate>Thu, 10 Sep 2026 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/draft/2026-09-11-memos-android/</guid>
+      <guid>https://vctrsnts.codeberg.page/draft/2026-09-11-memos-android/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;h4 id=&#34;-referencia&#34;&gt;◇ Referencia&lt;/h4&gt;</description>
     </item>
     <item>
       <title>Mis notas en la web</title>
-      <link>https://vctrsnts.github.io/draft/2026-09-12-notas-web/</link>
+      <link>https://vctrsnts.codeberg.page/draft/2026-09-12-notas-web/</link>
       <pubDate>Thu, 10 Sep 2026 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/draft/2026-09-12-notas-web/</guid>
+      <guid>https://vctrsnts.codeberg.page/draft/2026-09-12-notas-web/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;h4 id=&#34;-referencia&#34;&gt;◇ Referencia&lt;/h4&gt;</description>
     </item>
     <item>
       <title>Mejorando seguridad en VPS</title>
-      <link>https://vctrsnts.github.io/draft/2026-09-23-mejorando-seguridad/</link>
+      <link>https://vctrsnts.codeberg.page/draft/2026-09-23-mejorando-seguridad/</link>
       <pubDate>Sun, 23 Aug 2026 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/draft/2026-09-23-mejorando-seguridad/</guid>
+      <guid>https://vctrsnts.codeberg.page/draft/2026-09-23-mejorando-seguridad/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;h4 id=&#34;-referencia&#34;&gt;◇ Referencia&lt;/h4&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://atareao.es/tutorial/seguridad-esencial-en-self-hosted/blindaje-ssh-la-primera-linea-de-defensa/&#34;&gt;https://atareao.es/tutorial/seguridad-esencial-en-self-hosted/blindaje-ssh-la-primera-linea-de-defensa/&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>https://vctrsnts.github.io/draft/2026-09-20-traefik-cup-homepage/</link>
+      <link>https://vctrsnts.codeberg.page/draft/2026-09-20-traefik-cup-homepage/</link>
       <pubDate>Thu, 20 Aug 2026 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/draft/2026-09-20-traefik-cup-homepage/</guid>
+      <guid>https://vctrsnts.codeberg.page/draft/2026-09-20-traefik-cup-homepage/</guid>
       <description>&lt;p&gt;services:&#xA;cup:&#xA;image: ghcr.io/sergi0g/cup:latest&#xA;container_name: cup # Optional&#xA;restart: unless-stopped&#xA;networks:&#xA;- proxy&#xA;command: -c /config/cup.json serve&#xA;volumes:&#xA;- /run/user/1002/podman/podman.sock:/var/run/docker.sock:ro&#xA;- ${PODMAN_STORAGE_PATH}/.config/cup/cup.json:/config/cup.json&#xA;healthcheck:&#xA;test:&#xA;- CMD&#xA;- /cup&#xA;- &amp;ndash;version&#xA;interval: 60s&#xA;timeout: 10s&#xA;retries: 3&#xA;start_period: 20s&#xA;labels:&#xA;- traefik.enable=true&#xA;- traefik.http.services.cup.loadbalancer.server.port=8000&#xA;- traefik.http.routers.cup.rule=Host(&lt;code&gt;${FQDN}&lt;/code&gt;)&#xA;- traefik.http.routers.cup.entrypoints=websecure&#xA;- traefik.http.routers.cup.tls.certresolver=myresolver&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;labels:&#xA;  - traefik.enable=true&#xA;&#xA;  - traefik.http.services.cup.loadbalancer.server.port=8000&#xA;&#xA;  # Router normal de Cup&#xA;  - traefik.http.routers.cup.rule=Host(`${FQDN}`)&#xA;  - traefik.http.routers.cup.entrypoints=websecure&#xA;  - traefik.http.routers.cup.tls.certresolver=myresolver&#xA;&#xA;  # Router protegido de la API&#xA;  - traefik.http.routers.cup-api.rule=Host(`${FQDN}`) &amp;amp;&amp;amp; Path(`/api/v3/json`)&#xA;  - traefik.http.routers.cup-api.entrypoints=websecure&#xA;  - traefik.http.routers.cup-api.tls.certresolver=myresolver&#xA;  - traefik.http.routers.cup-api.middlewares=cup-api-auth@file&#xA;  - traefik.http.routers.cup-api.service=cup&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;networks:&#xA;proxy:&#xA;external: true&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>https://vctrsnts.github.io/draft/2026-09-28-usando-nftables/</link>
+      <link>https://vctrsnts.codeberg.page/draft/2026-09-28-usando-nftables/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://vctrsnts.github.io/draft/2026-09-28-usando-nftables/</guid>
+      <guid>https://vctrsnts.codeberg.page/draft/2026-09-28-usando-nftables/</guid>
       <description>&lt;p&gt;7777/tcp                   ALLOW       Anywhere       SSH&#xA;7777/tcp (v6)              ALLOW       Anywhere (v6)  SSH&#xA;80/tcp                     ALLOW       Anywhere       WEB ( HTTP )&#xA;80/tcp (v6)                ALLOW       Anywhere (v6)  WEB ( HTTP )&#xA;443/tcp                    ALLOW       Anywhere       WEB ( HTTPS )&#xA;443/tcp (v6)               ALLOW       Anywhere (v6)  WEB ( HTTPS )&#xA;443/udp                    ALLOW       Anywhere       WEB ( HTTPS )&#xA;443/udp (v6)               ALLOW       Anywhere (v6)  WEB ( HTTPS )&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;#!/usr/sbin/nft -f&lt;/p&gt;&#xA;&lt;p&gt;flush ruleset&lt;/p&gt;&#xA;&lt;p&gt;table inet filter {&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;chain input {&#xA;    type filter hook input priority 0; policy drop;&#xA;&#xA;    # Loopback&#xA;    iif &amp;quot;lo&amp;quot; accept&#xA;&#xA;    # Conexiones existentes&#xA;    ct state established,related accept&#xA;&#xA;    # Tráfico inválido&#xA;    ct state invalid drop&#xA;&#xA;    # Bloquear nuevas conexiones TCP cuando una IP&#xA;    # supera 10 SYN por segundo, con una ráfaga inicial de 20&#xA;    ct state new tcp flags syn \&#xA;        meter flood { ip saddr limit rate over 10/second burst 20 packets } \&#xA;        log prefix &amp;quot;NF-RATE-LIMIT: &amp;quot; counter drop&#xA;&#xA;    # Servicios permitidos&#xA;    tcp dport 7777 accept&#xA;    tcp dport 80 accept&#xA;    tcp dport 443 accept&#xA;&#xA;    # HTTP/3 / QUIC&#xA;    udp dport 443 accept&#xA;&#xA;    # ICMP IPv4&#xA;    icmp type {&#xA;        echo-request,&#xA;        echo-reply,&#xA;        destination-unreachable,&#xA;        time-exceeded,&#xA;        parameter-problem&#xA;    } accept&#xA;&#xA;    # ICMPv6&#xA;    icmpv6 type {&#xA;        echo-request,&#xA;        echo-reply,&#xA;        destination-unreachable,&#xA;        time-exceeded,&#xA;        parameter-problem,&#xA;        nd-router-solicit,&#xA;        nd-router-advert,&#xA;        nd-neighbor-solicit,&#xA;        nd-neighbor-advert&#xA;    } accept&#xA;&#xA;    # Todo lo demás se registra y se contabiliza&#xA;    log prefix &amp;quot;NF-DROP: &amp;quot; limit rate 5/minute&#xA;    counter drop&#xA;}&#xA;&#xA;chain forward {&#xA;    type filter hook forward priority 0; policy drop;&#xA;&#xA;    counter drop&#xA;}&#xA;&#xA;chain output {&#xA;    type filter hook output priority 0; policy accept;&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;}&lt;/p&gt;</description>
     </item>
   </channel>
