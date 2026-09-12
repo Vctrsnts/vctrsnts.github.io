@@ -2,102 +2,102 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hardware on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/tags/hardware/</link>
+    <link>https://vctrsnts.codeberg.page/tags/hardware/</link>
     <description>Recent content in Hardware on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Thu, 05 Mar 2026 00:00:00 +0100</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/tags/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.codeberg.page/tags/hardware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tengo hard-hopping</title>
-      <link>https://vctrsnts.github.io/posts/2026-03-05-hard-hopping/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2026-03-05-hard-hopping/</link>
       <pubDate>Thu, 05 Mar 2026 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2026-03-05-hard-hopping/</guid>
+      <guid>https://vctrsnts.codeberg.page/posts/2026-03-05-hard-hopping/</guid>
       <description>&lt;p&gt;Os preguntaréis a qué viene este artículo, porque ¿qué es eso de &lt;strong&gt;hard hopping&lt;/strong&gt;?&lt;/p&gt;&#xA;&lt;p&gt;Seguramente solo conocéis el &lt;strong&gt;distro hopping&lt;/strong&gt;, que se conoce como el impulso de cambiar frecuentemente entre distintas distribuciones de GNU/Linux. Pero eso de &lt;strong&gt;hard hopping&lt;/strong&gt; ¿qué es?&lt;/p&gt;&#xA;&lt;p&gt;Como tal, esta palabra seguramente no existe, me la acabo de inventar, pero yo lo describo como el &lt;em&gt;impulso de cambiar frecuentemente de hardware o equipo informático sin llegar a estar contento con lo que se tiene&lt;/em&gt;, y eso es lo que me ha sucedido últimamente, hasta conseguir lo que tengo actualmente y que cumplimenta todas mis expectativas; aún se podría mejorar un poco, pero el ansia ya no es tan grande.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Modificaciones en el servidor - 3</title>
-      <link>https://vctrsnts.github.io/posts/2025-04-20-modificaciones-servidor-3/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2025-04-20-modificaciones-servidor-3/</link>
       <pubDate>Sun, 20 Apr 2025 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2025-04-20-modificaciones-servidor-3/</guid>
-      <description>&lt;p&gt;Este nuevo artículo no sabía si llamarlo &lt;strong&gt;Modificaciones en el servidor - 3&lt;/strong&gt; o &lt;strong&gt;La imaginación humana no tiene límites&lt;/strong&gt;, porque una vez que hayáis leído este artículo pensaréis lo mismo que yo.&lt;/p&gt;&#xA;&lt;p&gt;Como recordaréis, en este &lt;a href=&#34;https://vctrsnts.github.io/posts/2024-10-19-modificando-servidor-2&#34;&gt;artículo&lt;/a&gt; os comentaba que después de los últimos cambios, mi servidor había quedado de la siguiente manera:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Intel Xeon e2286M&lt;/li&gt;&#xA;&lt;li&gt;32Gb de RAM&lt;/li&gt;&#xA;&lt;li&gt;4 HDD&amp;rsquo;s&#xA;&lt;ul&gt;&#xA;&lt;li&gt;1 HDD de 18Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 16Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 12Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 1Tb&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Este lo uso para copias de seguridad.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Lo más importante es saber el porqué de este cambio. Al principio todo iba correctamente, aunque había momentos en que notaba que los discos duros me hacían el tonto, como si se desconectasen o se reiniciasen, pero como me lo hacía pocas veces, pues no le hacía mucho caso, porque como pasaba poco, pues nada.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/posts/2025-04-20-modificaciones-servidor-3/</guid>
+      <description>&lt;p&gt;Este nuevo artículo no sabía si llamarlo &lt;strong&gt;Modificaciones en el servidor - 3&lt;/strong&gt; o &lt;strong&gt;La imaginación humana no tiene límites&lt;/strong&gt;, porque una vez que hayáis leído este artículo pensaréis lo mismo que yo.&lt;/p&gt;&#xA;&lt;p&gt;Como recordaréis, en este &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2024-10-19-modificando-servidor-2&#34;&gt;artículo&lt;/a&gt; os comentaba que después de los últimos cambios, mi servidor había quedado de la siguiente manera:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Intel Xeon e2286M&lt;/li&gt;&#xA;&lt;li&gt;32Gb de RAM&lt;/li&gt;&#xA;&lt;li&gt;4 HDD&amp;rsquo;s&#xA;&lt;ul&gt;&#xA;&lt;li&gt;1 HDD de 18Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 16Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 12Tb&lt;/li&gt;&#xA;&lt;li&gt;1 HDD de 1Tb&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Este lo uso para copias de seguridad.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Lo más importante es saber el porqué de este cambio. Al principio todo iba correctamente, aunque había momentos en que notaba que los discos duros me hacían el tonto, como si se desconectasen o se reiniciasen, pero como me lo hacía pocas veces, pues no le hacía mucho caso, porque como pasaba poco, pues nada.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Controlando la temperatura del servidor</title>
-      <link>https://vctrsnts.github.io/posts/2024-10-20-controlado-temperatura-servidor/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2024-10-20-controlado-temperatura-servidor/</link>
       <pubDate>Sun, 20 Oct 2024 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2024-10-20-controlado-temperatura-servidor/</guid>
-      <description>&lt;p&gt;Como ya comenté en el anterior &lt;a href=&#34;https://vctrsnts.github.io/posts/2024-10-19-modificando-servidor-2&#34;&gt;articulo&lt;/a&gt;, donde explicaba que había puesto un &lt;strong&gt;Xeon&lt;/strong&gt; en mi servidor y todo lo referente a la temperatura.&lt;/p&gt;&#xA;&lt;p&gt;Pero claro, eso me gustaría verlo reflejado en &lt;strong&gt;unRAID&lt;/strong&gt;, porque hasta ahora, solamente había podido visualizar la temperatura de la CPU; de la placa base era imposible, cuando teóricamente los Tiny son equipos con componentes muy normales y comunes.&lt;/p&gt;&#xA;&lt;p&gt;Pues en este caso, de comunes lo tienen todo menos los sensores de control de la temperatura. Además, &lt;strong&gt;unRAID&lt;/strong&gt; no ayudaba mucho con ello. Seguramente muchos diréis: ¿y por qué no instalas el plugin &lt;strong&gt;Dynamix System Temperature&lt;/strong&gt; y problema solucionado?&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/posts/2024-10-20-controlado-temperatura-servidor/</guid>
+      <description>&lt;p&gt;Como ya comenté en el anterior &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2024-10-19-modificando-servidor-2&#34;&gt;articulo&lt;/a&gt;, donde explicaba que había puesto un &lt;strong&gt;Xeon&lt;/strong&gt; en mi servidor y todo lo referente a la temperatura.&lt;/p&gt;&#xA;&lt;p&gt;Pero claro, eso me gustaría verlo reflejado en &lt;strong&gt;unRAID&lt;/strong&gt;, porque hasta ahora, solamente había podido visualizar la temperatura de la CPU; de la placa base era imposible, cuando teóricamente los Tiny son equipos con componentes muy normales y comunes.&lt;/p&gt;&#xA;&lt;p&gt;Pues en este caso, de comunes lo tienen todo menos los sensores de control de la temperatura. Además, &lt;strong&gt;unRAID&lt;/strong&gt; no ayudaba mucho con ello. Seguramente muchos diréis: ¿y por qué no instalas el plugin &lt;strong&gt;Dynamix System Temperature&lt;/strong&gt; y problema solucionado?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Modificaciones en el servidor - 2</title>
-      <link>https://vctrsnts.github.io/posts/2024-10-19-modificando-servidor-2/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2024-10-19-modificando-servidor-2/</link>
       <pubDate>Sat, 19 Oct 2024 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2024-10-19-modificando-servidor-2/</guid>
+      <guid>https://vctrsnts.codeberg.page/posts/2024-10-19-modificando-servidor-2/</guid>
       <description>&lt;p&gt;Se ha venido una nueva modificación en el servidor, y una más, pero esta vez, ha sido más a nivel de hardware que de software.&lt;/p&gt;&#xA;&lt;p&gt;Como sabréis, si no os habéis dado cuenta leyendo algunos de mis artículos, estoy subscrito al canal de telegram de &lt;a href=&#34;https://homelabs.club&#34;&gt;HomeLabs.club&lt;/a&gt;, donde siempre tienen alguna nueva cosa para liarte la manta a la cabeza.&lt;/p&gt;&#xA;&lt;p&gt;Una de estas cosas, fue un sorteo que hicieron entre los miembros VIP del canal y como nunca tengo muchas esperanzas en este tipo de sorteos, pues me apunté. Nunca se sabe lo que puede pasar.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Modificaciones en el servidor - 1</title>
-      <link>https://vctrsnts.github.io/posts/2024-09-18-modificando-servidor-1/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2024-09-18-modificando-servidor-1/</link>
       <pubDate>Wed, 18 Sep 2024 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2024-09-18-modificando-servidor-1/</guid>
-      <description>&lt;p&gt;Durante estas vacaciones he modificado un poco el aspecto de mi servidor con la finalidad de que todo estuviera un poco más ordenado y más homogéneo, porque por una parte, tenía mi &lt;a href=&#34;https://vctrsnts.github.io/posts/2024-03-07-cambiando-unraid&#34;&gt;servidor&lt;/a&gt; por un lado y, por otro, en un caddy metálico de discos comprado en AliExpress, los HDD, al que le había puesto este &lt;a href=&#34;https://www.amazon.es/dp/B09SLPRYYZ&#34;&gt;ventilador&lt;/a&gt; para bajar la temperatura de los mismos.&lt;/p&gt;&#xA;&lt;p&gt;Esto viene como consecuencia de que durante buena parte del verano habían estado a unos agradables 45º - 50º y, que yo sepa, estas temperaturas no son muy buenas para un HDD, aunque sean HDDs para servidores, que ya de por sí tendrían que estar preparados para el calor, pero es una cosa que no quería comprobar.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/posts/2024-09-18-modificando-servidor-1/</guid>
+      <description>&lt;p&gt;Durante estas vacaciones he modificado un poco el aspecto de mi servidor con la finalidad de que todo estuviera un poco más ordenado y más homogéneo, porque por una parte, tenía mi &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2024-03-07-cambiando-unraid&#34;&gt;servidor&lt;/a&gt; por un lado y, por otro, en un caddy metálico de discos comprado en AliExpress, los HDD, al que le había puesto este &lt;a href=&#34;https://www.amazon.es/dp/B09SLPRYYZ&#34;&gt;ventilador&lt;/a&gt; para bajar la temperatura de los mismos.&lt;/p&gt;&#xA;&lt;p&gt;Esto viene como consecuencia de que durante buena parte del verano habían estado a unos agradables 45º - 50º y, que yo sepa, estas temperaturas no son muy buenas para un HDD, aunque sean HDDs para servidores, que ya de por sí tendrían que estar preparados para el calor, pero es una cosa que no quería comprobar.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Equipo en la recámara</title>
-      <link>https://vctrsnts.github.io/posts/2023-09-11-substitutos-portatil/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2023-09-11-substitutos-portatil/</link>
       <pubDate>Mon, 11 Sep 2023 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2023-09-11-substitutos-portatil/</guid>
-      <description>&lt;p&gt;Como ya decía en el anterior &lt;a href=&#34;https://vctrsnts.github.io/posts/2023-08-01-de-nuevo-cambiando-servidor&#34;&gt;articulo&lt;/a&gt;, donde hablaba sobre el nuevo cambio de servidor que había hecho, el canal de &lt;a href=&#34;https://homelabs.club&#34;&gt;HomeLabs.Club&lt;/a&gt; es una mala influencia, tenéis que hacerme caso y ahora lo entenderéis mejor.&lt;/p&gt;&#xA;&lt;p&gt;Muchas de las personas, después de comprar el &lt;strong&gt;m910x&lt;/strong&gt;, le hacen un &lt;strong&gt;mod&lt;/strong&gt;, que consiste en sobreescribir la BIOS del &lt;strong&gt;ThinkCentre&lt;/strong&gt;. Con esta modificación de la BIOS, a parte de permitir más memoria RAM, también te permite añadir CPU&amp;rsquo;s de otras generaciones, para obtener más información puedes visualizar este &lt;a href=&#34;https://www.youtube.com/watch?v=ZDUWrwq1PXE&#34;&gt;video&lt;/a&gt; creado por uno de los miembros del canal.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/posts/2023-09-11-substitutos-portatil/</guid>
+      <description>&lt;p&gt;Como ya decía en el anterior &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2023-08-01-de-nuevo-cambiando-servidor&#34;&gt;articulo&lt;/a&gt;, donde hablaba sobre el nuevo cambio de servidor que había hecho, el canal de &lt;a href=&#34;https://homelabs.club&#34;&gt;HomeLabs.Club&lt;/a&gt; es una mala influencia, tenéis que hacerme caso y ahora lo entenderéis mejor.&lt;/p&gt;&#xA;&lt;p&gt;Muchas de las personas, después de comprar el &lt;strong&gt;m910x&lt;/strong&gt;, le hacen un &lt;strong&gt;mod&lt;/strong&gt;, que consiste en sobreescribir la BIOS del &lt;strong&gt;ThinkCentre&lt;/strong&gt;. Con esta modificación de la BIOS, a parte de permitir más memoria RAM, también te permite añadir CPU&amp;rsquo;s de otras generaciones, para obtener más información puedes visualizar este &lt;a href=&#34;https://www.youtube.com/watch?v=ZDUWrwq1PXE&#34;&gt;video&lt;/a&gt; creado por uno de los miembros del canal.&lt;/p&gt;</description>
     </item>
     <item>
       <title>De nuevo, cambiando de servidor local</title>
-      <link>https://vctrsnts.github.io/posts/2023-08-01-de-nuevo-cambiando-servidor/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2023-08-01-de-nuevo-cambiando-servidor/</link>
       <pubDate>Tue, 01 Aug 2023 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2023-08-01-de-nuevo-cambiando-servidor/</guid>
-      <description>&lt;p&gt;Tal como avisé en este &lt;a href=&#34;https://vctrsnts.github.io/posts/2023-01-19-mis-nuevos-juguetes&#34;&gt;articulo&lt;/a&gt; o en este otro &lt;a href=&#34;https://vctrsnts.github.io/posts/2022-05-26-nuevo-servidor&#34;&gt;articulo&lt;/a&gt;, decía que había cambiado de servidor y que, a parte, tenía unos juguetes nuevos. Pero queréis un consejo: alejaros de los canales de Telegram, en especial de &lt;a href=&#34;https://homelabs.club&#34;&gt;este&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Que conste que estoy dentro del canal y es un grupo muy querido por mí, porque aconsejan, te ayudan en todo lo que pueden, pero son como el diablo, te llevan por el mal camino.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/posts/2023-08-01-de-nuevo-cambiando-servidor/</guid>
+      <description>&lt;p&gt;Tal como avisé en este &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2023-01-19-mis-nuevos-juguetes&#34;&gt;articulo&lt;/a&gt; o en este otro &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2022-05-26-nuevo-servidor&#34;&gt;articulo&lt;/a&gt;, decía que había cambiado de servidor y que, a parte, tenía unos juguetes nuevos. Pero queréis un consejo: alejaros de los canales de Telegram, en especial de &lt;a href=&#34;https://homelabs.club&#34;&gt;este&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Que conste que estoy dentro del canal y es un grupo muy querido por mí, porque aconsejan, te ayudan en todo lo que pueden, pero son como el diablo, te llevan por el mal camino.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mis nuevos juguetes</title>
-      <link>https://vctrsnts.github.io/posts/2023-01-19-mis-nuevos-juguetes/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2023-01-19-mis-nuevos-juguetes/</link>
       <pubDate>Mon, 23 Jan 2023 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2023-01-19-mis-nuevos-juguetes/</guid>
+      <guid>https://vctrsnts.codeberg.page/posts/2023-01-19-mis-nuevos-juguetes/</guid>
       <description>&lt;p&gt;A través de este &lt;a href=&#34;https://podcastlinux.com/posts/podcastlinux/129-Podcast-Linux&#34;&gt;podcast&lt;/a&gt; que escuché hace algún tiempo, siempre me quedó el gusanillo de tener uno, y eso que estoy muy contento con mi &lt;strong&gt;Lenovo Ideapad Y700&lt;/strong&gt;, pero siempre me quedó esa espina clavada&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;A parte de que también me apunté a este canal de &lt;a href=&#34;https://t.me/Thinkpad_es&#34;&gt;Thinkpads&lt;/a&gt; de Telegram y eso ya fue lo definitivo. Te tengo que avisar de que si a mí me llaman friki, los que forman parte de este canal lo son a un nivel que no te puedes imaginar; para que veáis el nivel que tienen, hay miembros de este canal que tienen casi todos los modelos de Thinkpads habidos y por haber, solo por el mero hecho de tenerlos 😲 Algunos sí que los utilizan, pero no todos.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Funcionamiento extraño con mi portátil (Ideapad Y700 - 17ISK)</title>
-      <link>https://vctrsnts.github.io/posts/2023-01-12-problemas-y700-17isk/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2023-01-12-problemas-y700-17isk/</link>
       <pubDate>Thu, 12 Jan 2023 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2023-01-12-problemas-y700-17isk/</guid>
+      <guid>https://vctrsnts.codeberg.page/posts/2023-01-12-problemas-y700-17isk/</guid>
       <description>&lt;p&gt;Desde hace un par de días, no se si desde que actualicé la BIOS al portátil (Lenovo Ideapad Y700 17ISK, versión &lt;strong&gt;CDCN54WW&lt;/strong&gt;), y me ha pasado una cosa muy extraña. El teclado en el momento de iniciarse el sistema ha dejado de funcionar.&lt;/p&gt;&#xA;&lt;p&gt;Así de repente, el teclado ha dejado de funcionar, sin razón aparente, pero también con un funcionamiento raro, porque las teclas de función (F1, etc&amp;hellip;) sí que funcionaban o hacer un &lt;code&gt;ctrl+alt+sup&lt;/code&gt; también funcionaba.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mi nuevo mediacenter - ThinkCenter m710q</title>
-      <link>https://vctrsnts.github.io/posts/2022-11-08-cambiando-mediacenter/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2022-11-08-cambiando-mediacenter/</link>
       <pubDate>Tue, 08 Nov 2022 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2022-11-08-cambiando-mediacenter/</guid>
-      <description>&lt;p&gt;Como ya mencione en el articulo que hablaba sobre el cambio de servidor &lt;a href=&#34;https://vctrsnts.github.io/posts/2022-05-26-nuevo-servidor&#34;&gt;Mi nuevo servidor&lt;/a&gt;, me di cuenta de que me quedaba con la RPI4 de 4Gb sin utilizar.&lt;/p&gt;&#xA;&lt;p&gt;Así que decidí cambiar la antigua RPI3, donde empezaba ya a tener problemas con los nuevos codecs con que venían las películas (HEVC 10b-AC3), y cambiarla por la RPI4 con soporte para estos nuevos codecs y que no usaba por haberla sustituido por el Dell.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/posts/2022-11-08-cambiando-mediacenter/</guid>
+      <description>&lt;p&gt;Como ya mencione en el articulo que hablaba sobre el cambio de servidor &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2022-05-26-nuevo-servidor&#34;&gt;Mi nuevo servidor&lt;/a&gt;, me di cuenta de que me quedaba con la RPI4 de 4Gb sin utilizar.&lt;/p&gt;&#xA;&lt;p&gt;Así que decidí cambiar la antigua RPI3, donde empezaba ya a tener problemas con los nuevos codecs con que venían las películas (HEVC 10b-AC3), y cambiarla por la RPI4 con soporte para estos nuevos codecs y que no usaba por haberla sustituido por el Dell.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mi nuevo servidor</title>
-      <link>https://vctrsnts.github.io/posts/2022-05-26-nuevo-servidor/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2022-05-26-nuevo-servidor/</link>
       <pubDate>Thu, 26 May 2022 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2022-05-26-nuevo-servidor/</guid>
+      <guid>https://vctrsnts.codeberg.page/posts/2022-05-26-nuevo-servidor/</guid>
       <description>&lt;p&gt;Sé que llevo mucho tiempo sin publicar nada, pero he estado liado haciendo cambios en el servidor (RPI4).&lt;/p&gt;&#xA;&lt;p&gt;Como sabéis, antes tenía una Raspberry Pi 4 de 4Gb, pero para algunas cosas se me quedaba pillado y pensé que podía usarla como mediacenter, y cambiar la RPI3 que tenía por esta.&lt;/p&gt;&#xA;&lt;p&gt;Como estoy en el grupo de Telegram de Thinkpads (unos frikis de cuidado), pues a un compañero del canal que tenía un Dell a la venta se lo compré. Y como siempre, cuando me llegó, me sentí como un niño con zapatos nuevos.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Solucionar error i915 en gráfica Intel</title>
-      <link>https://vctrsnts.github.io/posts/2021-06-09-solucionar-error-i915/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2021-06-09-solucionar-error-i915/</link>
       <pubDate>Wed, 09 Jun 2021 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2021-06-09-solucionar-error-i915/</guid>
+      <guid>https://vctrsnts.codeberg.page/posts/2021-06-09-solucionar-error-i915/</guid>
       <description>&lt;p&gt;Desde que &lt;strong&gt;Debian GNU/Linux&lt;/strong&gt; sacó la versión del kernel 5.4 en mi portátil fue recurrente los flashes en la pantalla y el siguiente error:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;drm:intel_cpu_fifo_underrun_irq_handler &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;i915&lt;span style=&#34;color:#f92672&#34;&gt;]]&lt;/span&gt; *ERROR* CPU pipe A FIFO underrun&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;La solución que todo el mundo me decía era eliminar el paquete del driver de &lt;em&gt;xserver-xorg-video-intel&lt;/em&gt; y usar el por defecto del kernel. Pero lo entendía que significaba eso (realmente era así), no sabía como se tenía que hacer, porque si hacía eso perdía todo el &lt;strong&gt;XORG&lt;/strong&gt;, al final en este &lt;a href=&#34;https://forums.debian.net/viewtopic.php?f=7&amp;amp;t=149472&amp;amp;p=737807#p737807&#34;&gt;hilo&lt;/a&gt; me indicaron que si hacía esto, solo se borraba el metapaquete de &lt;strong&gt;xserver-xorg-video-all&lt;/strong&gt; pero nada más.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raspberry Pi. Mi pequeño nuevo juguete</title>
-      <link>https://vctrsnts.github.io/posts/2013-11-25-rpi-peque%C3%B1o-juguete/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2013-11-25-rpi-peque%C3%B1o-juguete/</link>
       <pubDate>Mon, 25 Nov 2013 00:00:00 +0100</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2013-11-25-rpi-peque%C3%B1o-juguete/</guid>
-      <description>&lt;p&gt;Pues nada. Desde hace un par de meses, tengo a mi disposición un nuevo juguete. La Raspberry modelo B, con las siguientes características:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Un procesador ARM11 a 700 MHz&lt;/li&gt;&#xA;&lt;li&gt;Procesador gráfico a medida que acelera por hardware el vídeo H264 (mpeg4)&lt;/li&gt;&#xA;&lt;li&gt;512 MB de memoria RAM&lt;/li&gt;&#xA;&lt;li&gt;2 puertos USB&lt;/li&gt;&#xA;&lt;li&gt;Una salida de audio y vídeo HDMI&lt;/li&gt;&#xA;&lt;li&gt;Conector de red Ethernet RJ45 (10/100 mbps)&lt;/li&gt;&#xA;&lt;li&gt;Entrada de corriente microUSB&lt;/li&gt;&#xA;&lt;li&gt;Lector de tarjetas SD&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&#xA;  &#xA;  &#xA;  &#xA;&#xA;  &#xA;&#xA;&lt;figure class=&#34;article-image&#34;&gt;&#xA;&#xA;&lt;picture&gt;&#xA;&#xA;  &lt;source&#xA;    type=&#34;image/webp&#34;&#xA;    srcset=&#34;&#xA;      /posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_884bd757b79f5953.webp 400w,&#xA;      /posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_f43118234ebef90c.webp 700w,&#xA;      /posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_e9e6e4d199ca75a5.webp 900w&#xA;    &#34;&#xA;    sizes=&#34;&#xA;      (max-width: 700px) 100vw,&#xA;      700px&#xA;    &#34;&#xA;  &gt;&#xA;&#xA;  &lt;img&#xA;    src=&#34;https://vctrsnts.github.io/posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_cc69fd9a76a53ac2.jpg&#34;&#xA;    alt=&#34;&#34;&#xA;    width=&#34;900&#34;&#xA;    height=&#34;900&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    decoding=&#34;async&#34;&#xA;  &gt;&#xA;&#xA;&lt;/picture&gt;&#xA;&#xA;&#xA;&#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/posts/2013-11-25-rpi-peque%C3%B1o-juguete/</guid>
+      <description>&lt;p&gt;Pues nada. Desde hace un par de meses, tengo a mi disposición un nuevo juguete. La Raspberry modelo B, con las siguientes características:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Un procesador ARM11 a 700 MHz&lt;/li&gt;&#xA;&lt;li&gt;Procesador gráfico a medida que acelera por hardware el vídeo H264 (mpeg4)&lt;/li&gt;&#xA;&lt;li&gt;512 MB de memoria RAM&lt;/li&gt;&#xA;&lt;li&gt;2 puertos USB&lt;/li&gt;&#xA;&lt;li&gt;Una salida de audio y vídeo HDMI&lt;/li&gt;&#xA;&lt;li&gt;Conector de red Ethernet RJ45 (10/100 mbps)&lt;/li&gt;&#xA;&lt;li&gt;Entrada de corriente microUSB&lt;/li&gt;&#xA;&lt;li&gt;Lector de tarjetas SD&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&#xA;  &#xA;  &#xA;  &#xA;&#xA;  &#xA;&#xA;&lt;figure class=&#34;article-image&#34;&gt;&#xA;&#xA;&lt;picture&gt;&#xA;&#xA;  &lt;source&#xA;    type=&#34;image/webp&#34;&#xA;    srcset=&#34;&#xA;      /posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_884bd757b79f5953.webp 400w,&#xA;      /posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_f43118234ebef90c.webp 700w,&#xA;      /posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_e9e6e4d199ca75a5.webp 900w&#xA;    &#34;&#xA;    sizes=&#34;&#xA;      (max-width: 700px) 100vw,&#xA;      700px&#xA;    &#34;&#xA;  &gt;&#xA;&#xA;  &lt;img&#xA;    src=&#34;https://vctrsnts.codeberg.page/posts/2013-11-25-rpi-peque%C3%B1o-juguete/imagen_hu_cc69fd9a76a53ac2.jpg&#34;&#xA;    alt=&#34;&#34;&#xA;    width=&#34;900&#34;&#xA;    height=&#34;900&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    decoding=&#34;async&#34;&#xA;  &gt;&#xA;&#xA;&lt;/picture&gt;&#xA;&#xA;&#xA;&#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
