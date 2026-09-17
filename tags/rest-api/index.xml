@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>REST API on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/tags/rest-api/</link>
+    <link>https://vctrsnts.codeberg.page/tags/rest-api/</link>
     <description>Recent content in REST API on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Fri, 11 Sep 2026 00:00:00 +0200</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/tags/rest-api/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.codeberg.page/tags/rest-api/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Integrando Memos con Android</title>
-      <link>https://vctrsnts.github.io/posts/2026-09-11-memos-android/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2026-09-11-memos-android/</link>
       <pubDate>Fri, 11 Sep 2026 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2026-09-11-memos-android/</guid>
-      <description>&lt;p&gt;El anterior &lt;a href=&#34;https://vctrsnts.github.io/posts/2026-09-10-instalar-memos&#34;&gt;artículo&lt;/a&gt; explicaba cómo instalar y securizar &lt;strong&gt;Memos&lt;/strong&gt;, pero claro, falta usarlo, que es donde podremos ver todo el potencial que tiene. Y eso es lo que vamos a hacer ahora, en este nuevo artículo, el segundo de la serie sobre &lt;strong&gt;Memos&lt;/strong&gt;, integrándolo con &lt;strong&gt;Android&lt;/strong&gt;, exactamente con mi móvil.&lt;/p&gt;&#xA;&lt;p&gt;Hasta hoy, cuando quería guardar una nota, tenía que ir al canal de &lt;em&gt;WhatsApp&lt;/em&gt; que me había creado para estas notas, pero ahora, con &lt;strong&gt;Memos&lt;/strong&gt;, ya puedo enviar estas mismas notas a mi VPS y tenerlas ahí a mi disposición. Seguramente muchos diréis: «Es lo mismo que estabas haciendo hasta ahora, ¿en qué ha cambiado?». Pues el gran cambio es que ahora soy yo el que controla la información y no &lt;em&gt;Facebook&lt;/em&gt;. Y este artículo se basa en esta nueva funcionalidad.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/posts/2026-09-11-memos-android/</guid>
+      <description>&lt;p&gt;El anterior &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2026-09-10-instalar-memos&#34;&gt;artículo&lt;/a&gt; explicaba cómo instalar y securizar &lt;strong&gt;Memos&lt;/strong&gt;, pero claro, falta usarlo, que es donde podremos ver todo el potencial que tiene. Y eso es lo que vamos a hacer ahora, en este nuevo artículo, el segundo de la serie sobre &lt;strong&gt;Memos&lt;/strong&gt;, integrándolo con &lt;strong&gt;Android&lt;/strong&gt;, exactamente con mi móvil.&lt;/p&gt;&#xA;&lt;p&gt;Hasta hoy, cuando quería guardar una nota, tenía que ir al canal de &lt;em&gt;WhatsApp&lt;/em&gt; que me había creado para estas notas, pero ahora, con &lt;strong&gt;Memos&lt;/strong&gt;, ya puedo enviar estas mismas notas a mi VPS y tenerlas ahí a mi disposición. Seguramente muchos diréis: «Es lo mismo que estabas haciendo hasta ahora, ¿en qué ha cambiado?». Pues el gran cambio es que ahora soy yo el que controla la información y no &lt;em&gt;Facebook&lt;/em&gt;. Y este artículo se basa en esta nueva funcionalidad.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
