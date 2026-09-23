@@ -1,4 +1,5 @@
 /*
+/*
 ------------------------------------------------------------------------
 Purpose: Complete visual system.
 
@@ -253,6 +254,7 @@ hr {
   color: var(--fg);
 }
 .taxonomy-items a:hover { color: var(--accent); }
+/*
 picture {
   display: block;
   margin: 1.5rem 0;
@@ -262,6 +264,19 @@ picture img {
   width: 100%;
   height: auto;
   display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+*/
+picture {
+  display: block;
+  margin: 1.5rem 0;
+}
+
+picture img {
+  display: block;
+  max-width: 100%;
+  height: auto;
   margin: 0 auto;
   border-radius: 12px;
 }

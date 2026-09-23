@@ -14,7 +14,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-10-05-i3wm-sway-2/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-10-05-i3wm-sway-2/">
 
 
 
@@ -57,7 +57,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Seguimos con el salto entre I3wm i Sway, espero no hacerme daño">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2025-10-05-i3wm-sway-2/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2025-10-05-i3wm-sway-2/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Seguimos con el salto entre I3wm i Sway, espero no hacerme daño">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -263,27 +263,27 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
   </tbody>
 </table>
 <p>Las cosas que para mí son más importantes en la configuración de <strong>sway</strong> son las siguientes (aquí os muestro el fichero de configuración inicial):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span># ~/.config/sway/config
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># ~/.config/sway/config</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span># Definimos la terminal
-</span></span><span style="display:flex;"><span>set $term wezterm
-</span></span><span style="display:flex;"><span># Definimos la tecla especial de sway (es igual que en i3wm)
-</span></span><span style="display:flex;"><span>set $mod Mod4
-</span></span><span style="display:flex;"><span># Definir el lanzador de aplicaciones con wofi
-</span></span><span style="display:flex;"><span>set $menu wofi -c ~/.config/wofi/config -s ~/.config/wofi/style.css -S drun  -i | xargs swaymsg exec --
-</span></span><span style="display:flex;"><span># Incluir configuración modular (inputs, keybindings, workspaces, etc.)
-</span></span><span style="display:flex;"><span>include ~/.config/sway/config.d/*
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Definimos la terminal</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">set $term wezterm</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Definimos la tecla especial de sway (es igual que en i3wm)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">set $mod Mod4</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Definir el lanzador de aplicaciones con wofi</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">set $menu wofi -c ~/.config/wofi/config -s ~/.config/wofi/style.css -S drun  -i | xargs swaymsg exec --</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Incluir configuración modular (inputs, keybindings, workspaces, etc.)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">include ~/.config/sway/config.d/*</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span># ~/.config/sway/config.d/00-theme
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ~/.config/sway/config.d/00-theme</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span># se encarga de importar el tema a las aplicaciones GTK cuando se inicia sway
-</span></span><span style="display:flex;"><span>exec_always ~/.config/sway/scripts/import-gsettings.sh
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># se encarga de importar el tema a las aplicaciones GTK cuando se inicia sway</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">exec_always ~/.config/sway/scripts/import-gsettings.sh</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span># ~/.config/sway/config.d/01-inputs
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ~/.config/sway/config.d/01-inputs</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span># Layout del teclado
-</span></span><span style="display:flex;"><span>input * {
-</span></span><span style="display:flex;"><span>  xkb_layout &#34;es&#34;
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Layout del teclado</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">input * {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">xkb_layout &#34;es&#34;</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span># ~/.config/sway/config.d/03-keybinding
 </span></span><span style="display:flex;"><span>
@@ -320,37 +320,37 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 
   
 
-<figure class="article-image">
+  <figure class="article-image">
 
-<picture>
+  <picture>
 
-  <source
-    type="image/webp"
-    srcset="
-      /posts/2025-10-05-i3wm-sway-2/image_01_hu_a81449dd3cfda23e.webp 400w,
-      /posts/2025-10-05-i3wm-sway-2/image_01_hu_358a2b1329624a6d.webp 700w,
-      /posts/2025-10-05-i3wm-sway-2/image_01_hu_5eccced9faffeba7.webp 900w
-    "
-    sizes="
-      (max-width: 700px) 100vw,
-      700px
-    "
-  >
+    <source
+      type="image/webp"
+      srcset="
+        /posts/2025-10-05-i3wm-sway-2/image_01_hu_be5d7c32106ee8dc.webp 400w,
+        /posts/2025-10-05-i3wm-sway-2/image_01_hu_2c72aeface2eba3b.webp 700w,
+        /posts/2025-10-05-i3wm-sway-2/image_01_hu_e1a77932ace7679c.webp 900w
+      "
+      sizes="
+        (max-width: 700px) 100vw,
+        700px
+      "
+    >
 
-  <img
-    src="/posts/2025-10-05-i3wm-sway-2/image_01_hu_5575e316b8168315.jpg"
-    alt=""
-    width="900"
-    height="17"
-    loading="lazy"
-    decoding="async"
-  >
+    <img
+      src="/posts/2025-10-05-i3wm-sway-2/image_01_hu_59fc3559be251cdf.jpg"
+      alt=""
+      width="900"
+      height="17"
+      loading="lazy"
+      decoding="async"
+    >
 
-</picture>
+  </picture>
 
+  
 
-
-</figure>
+  </figure>
 
 
 </p>
@@ -365,37 +365,37 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 
   
 
-<figure class="article-image">
+  <figure class="article-image">
 
-<picture>
+  <picture>
 
-  <source
-    type="image/webp"
-    srcset="
-      /posts/2025-10-05-i3wm-sway-2/image_02_hu_fb0e6081cb0f6ca5.webp 400w,
-      /posts/2025-10-05-i3wm-sway-2/image_02_hu_d10308c4743cd934.webp 700w,
-      /posts/2025-10-05-i3wm-sway-2/image_02_hu_3cf4b3802eac9522.webp 900w
-    "
-    sizes="
-      (max-width: 700px) 100vw,
-      700px
-    "
-  >
+    <source
+      type="image/webp"
+      srcset="
+        /posts/2025-10-05-i3wm-sway-2/image_02_hu_dfa59803e1b5e0d0.webp 400w,
+        /posts/2025-10-05-i3wm-sway-2/image_02_hu_47fd25dfcf885f98.webp 700w,
+        /posts/2025-10-05-i3wm-sway-2/image_02_hu_37d705771e0c6409.webp 900w
+      "
+      sizes="
+        (max-width: 700px) 100vw,
+        700px
+      "
+    >
 
-  <img
-    src="/posts/2025-10-05-i3wm-sway-2/image_02_hu_d6ca17a74f381983.jpg"
-    alt=""
-    width="900"
-    height="18"
-    loading="lazy"
-    decoding="async"
-  >
+    <img
+      src="/posts/2025-10-05-i3wm-sway-2/image_02_hu_3ea3c2802977982.jpg"
+      alt=""
+      width="900"
+      height="18"
+      loading="lazy"
+      decoding="async"
+    >
 
-</picture>
+  </picture>
 
+  
 
-
-</figure>
+  </figure>
 
 
 </p>
@@ -466,21 +466,21 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
   </tbody>
 </table>
 <p>El fichero de configuración de <strong>waybar</strong> sería el siguiente (pongo la sección de la distribución, el completo lo podéis encontrar en <a href="https://github.com/vctrsnts/sway-config">github</a>):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#960050;background-color:#1e0010">~/.config/waybar/config</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># ~/.config/waybar/config</span>
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;layer&#34;</span>: <span style="color:#e6db74">&#34;top&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;position&#34;</span>: <span style="color:#e6db74">&#34;top&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;height&#34;</span>: <span style="color:#ae81ff">28</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;spacing&#34;</span>: <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;layer&#34;: </span><span style="color:#e6db74">&#34;top&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;position&#34;: </span><span style="color:#e6db74">&#34;top&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;height&#34;: </span><span style="color:#ae81ff">28</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;spacing&#34;: </span><span style="color:#ae81ff">4</span>,
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Orden de módulos
-</span></span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;modules-left&#34;</span>: [
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">// Orden de módulos</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;modules-left&#34;: </span>[
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;network&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;custom/resources&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;custom/thermal&#34;</span>,
 </span></span><span style="display:flex;"><span>  ],
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;modules-center&#34;</span>: [<span style="color:#e6db74">&#34;sway/workspaces&#34;</span>, <span style="color:#e6db74">&#34;sway/mode&#34;</span>],
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;modules-right&#34;</span>: [
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;modules-center&#34;: </span>[<span style="color:#e6db74">&#34;sway/workspaces&#34;</span>, <span style="color:#e6db74">&#34;sway/mode&#34;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;modules-right&#34;: </span>[
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;custom/bluetooth&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;custom/updates&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;custom/trash&#34;</span>,
@@ -488,7 +488,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;tray&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;custom/notifications&#34;</span>
 </span></span><span style="display:flex;"><span>  ]
-</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#960050;background-color:#1e0010">Aquí</span> <span style="color:#960050;background-color:#1e0010">vendría</span> <span style="color:#960050;background-color:#1e0010">el</span> <span style="color:#960050;background-color:#1e0010">código</span> <span style="color:#960050;background-color:#1e0010">de</span> <span style="color:#960050;background-color:#1e0010">cada</span> <span style="color:#960050;background-color:#1e0010">sección</span> <span style="color:#960050;background-color:#1e0010">que</span> <span style="color:#960050;background-color:#1e0010">visualizo</span> <span style="color:#960050;background-color:#1e0010">y</span> <span style="color:#960050;background-color:#1e0010">que</span> <span style="color:#960050;background-color:#1e0010">son</span> <span style="color:#e6db74">&#34;custom&#34;</span> <span style="color:#960050;background-color:#1e0010">(propios).</span> <span style="color:#960050;background-color:#1e0010">Los</span> <span style="color:#960050;background-color:#1e0010">que</span> <span style="color:#960050;background-color:#1e0010">no</span> <span style="color:#960050;background-color:#1e0010">vienen</span> <span style="color:#960050;background-color:#1e0010">con</span> <span style="color:#960050;background-color:#1e0010">el</span> <span style="color:#960050;background-color:#1e0010">sistema</span> <span style="color:#960050;background-color:#1e0010">como</span> <span style="color:#960050;background-color:#1e0010">network</span>, <span style="color:#960050;background-color:#1e0010">clock,</span> <span style="color:#960050;background-color:#1e0010">tray</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Aquí vendría el código de cada sección que visualizo y que son &#34;custom&#34; (propios). Los que no vienen con el sistema como network, clock, tray</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Los scripts que uso para la información que visualizo en la barra de <strong>waybar</strong> son los siguientes:</p>
 <h3 id="-configwaybarscriptsbt-statussh">◈ ~/.config/waybar/scripts/bt-status.sh</h3>
@@ -665,46 +665,46 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 2 · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;{\&#34;text\&#34;: \&#34;</span>$text<span style="color:#e6db74">\&#34;, \&#34;class\&#34;: \&#34;</span>$class<span style="color:#e6db74">\&#34;}&#34;</span>
 </span></span></code></pre></div><h3 id="-configwoficonfig">◈ ~/.config/wofi/config</h3>
 <p>Aquí os pongo la configuración del gestor de menús, que en este caso es <strong>wofi</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">allow_images=</span><span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">image_size=</span><span style="color:#ae81ff">32</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">width=</span><span style="color:#ae81ff">800</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">height=</span><span style="color:#ae81ff">1000</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">insensitive=</span><span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">mode=drun,run</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">columns=</span><span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">padding:</span><span style="color:#ae81ff">5</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">lines=</span><span style="color:#ae81ff">10</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">allow_images=true</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">image_size=32</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">width=800</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">height=1000</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">insensitive=true</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">mode=drun,run</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">columns=1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">padding:5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">lines=10</span>
 </span></span></code></pre></div><h3 id="-configmakoconfig">◈ ~/.config/mako/config</h3>
 <p><strong>Mako</strong> es la aplicación de notificaciones que uso. Sé que se podría usar <strong>sway-notification-center</strong>, pero es mucha cosa para lo que yo quiero. Algo simple y sencillo y <strong>mako</strong> me viene perfecto.</p>
 <p>Aquí tenéis la configuración que tengo actualmente. Lo único que hay que tener en cuenta es que el tiempo que permanecen las notificaciones es <strong>0</strong> <code>default-timeout=0</code> para así tenerlas activas y ser yo el que las desactive. No quita que más adelante me canse de esta funcionalidad y ponga un tiempo para su visualización, pero de momento me gusta verlas.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">sort=-time</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">layer=overlay</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">background-color=#</span><span style="color:#ae81ff">88</span><span style="color:#960050;background-color:#1e0010">C</span><span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">D</span><span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">text-color=#</span><span style="color:#ae81ff">2E3440</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">border-color=#</span><span style="color:#ae81ff">5E81</span><span style="color:#960050;background-color:#1e0010">AC</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">border-size=</span><span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">border-radius=</span><span style="color:#ae81ff">10</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">padding=</span><span style="color:#ae81ff">10</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">margin=</span><span style="color:#ae81ff">10</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">width=</span><span style="color:#ae81ff">300</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">height=</span><span style="color:#ae81ff">110</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">font=FiraCode</span> <span style="color:#ae81ff">10</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">icons=</span><span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">max-icon-size=</span><span style="color:#ae81ff">48</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">default-timeout=</span><span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">ignore-timeout=</span><span style="color:#ae81ff">0</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">sort=-time</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">layer=overlay</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">background-color=#88C0D0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">text-color=#2E3440</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">border-color=#5E81AC</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">border-size=2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">border-radius=10</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">padding=10</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">margin=10</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">width=300</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">height=110</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">font=FiraCode 10</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">icons=1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">max-icon-size=48</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">default-timeout=0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">ignore-timeout=0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>[<span style="color:#960050;background-color:#1e0010">urgency=low</span>]
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">border-color=#</span><span style="color:#ae81ff">8</span><span style="color:#960050;background-color:#1e0010">FBCBB</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">urgency=low]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">border-color=#8FBCBB</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>[<span style="color:#960050;background-color:#1e0010">urgency=normal</span>]
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">border-color=#</span><span style="color:#ae81ff">81</span><span style="color:#960050;background-color:#1e0010">A</span><span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">C</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">urgency=normal]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">border-color=#81A1C1</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>[<span style="color:#960050;background-color:#1e0010">urgency=high</span>]
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">background-color=#BF</span><span style="color:#ae81ff">616</span><span style="color:#960050;background-color:#1e0010">A</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">text-color=#ECEFF</span><span style="color:#ae81ff">4</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">border-color=#BF</span><span style="color:#ae81ff">616</span><span style="color:#960050;background-color:#1e0010">A</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">default-timeout=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">urgency=high]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">background-color=#BF616A</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">text-color=#ECEFF4</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">border-color=#BF616A</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">default-timeout=0</span>
 </span></span></code></pre></div><h2 id="-gestor-de-inicio-de-sesión">◇ Gestor de inicio de sesión</h2>
 <p>Aquí fue donde tuve muchos problemas, por no decir el único, porque entre que <strong>wayland</strong> es nuevo y <strong>sway</strong> también, no hay muchos gestores de inicio que funcionen al 100%.</p>
 <blockquote>
