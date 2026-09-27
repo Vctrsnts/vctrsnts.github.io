@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Memos on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/tags/memos/</link>
+    <link>https://vctrsnts.codeberg.page/tags/memos/</link>
     <description>Recent content in Memos on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Fri, 11 Sep 2026 00:00:00 +0200</lastBuildDate>
-    <atom:link href="https://vctrsnts.github.io/tags/memos/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vctrsnts.codeberg.page/tags/memos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Integrando Memos con Android</title>
-      <link>https://vctrsnts.github.io/posts/2026-09-11-memos-android/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2026-09-11-memos-android/</link>
       <pubDate>Fri, 11 Sep 2026 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2026-09-11-memos-android/</guid>
-      <description>&lt;p&gt;El anterior &lt;a href=&#34;https://vctrsnts.github.io/posts/2026-09-10-instalar-memos&#34;&gt;artículo&lt;/a&gt; explicaba cómo instalar y securizar &lt;strong&gt;Memos&lt;/strong&gt;, pero claro, falta usarlo, que es donde podremos ver todo el potencial que tiene. Y eso es lo que vamos a hacer ahora, en este nuevo artículo, el segundo de la serie sobre &lt;strong&gt;Memos&lt;/strong&gt;, integrándolo con &lt;strong&gt;Android&lt;/strong&gt;, exactamente con mi móvil.&lt;/p&gt;&#xA;&lt;p&gt;Hasta hoy, cuando quería guardar una nota, tenía que ir al canal de &lt;em&gt;WhatsApp&lt;/em&gt; que me había creado para estas notas, pero ahora, con &lt;strong&gt;Memos&lt;/strong&gt;, ya puedo enviar estas mismas notas a mi VPS y tenerlas ahí a mi disposición. Seguramente muchos diréis: «Es lo mismo que estabas haciendo hasta ahora, ¿en qué ha cambiado?». Pues el gran cambio es que ahora soy yo el que controla la información y no &lt;em&gt;Facebook&lt;/em&gt;. Y este artículo se basa en esta nueva funcionalidad.&lt;/p&gt;</description>
+      <guid>https://vctrsnts.codeberg.page/posts/2026-09-11-memos-android/</guid>
+      <description>&lt;p&gt;El anterior &lt;a href=&#34;https://vctrsnts.codeberg.page/posts/2026-09-10-instalar-memos&#34;&gt;artículo&lt;/a&gt; explicaba cómo instalar y securizar &lt;strong&gt;Memos&lt;/strong&gt;, pero claro, falta usarlo, que es donde podremos ver todo el potencial que tiene. Y eso es lo que vamos a hacer ahora, en este nuevo artículo, el segundo de la serie sobre &lt;strong&gt;Memos&lt;/strong&gt;, integrándolo con &lt;strong&gt;Android&lt;/strong&gt;, exactamente con mi móvil.&lt;/p&gt;&#xA;&lt;p&gt;Hasta hoy, cuando quería guardar una nota, tenía que ir al canal de &lt;em&gt;WhatsApp&lt;/em&gt; que me había creado para estas notas, pero ahora, con &lt;strong&gt;Memos&lt;/strong&gt;, ya puedo enviar estas mismas notas a mi VPS y tenerlas ahí a mi disposición. Seguramente muchos diréis: «Es lo mismo que estabas haciendo hasta ahora, ¿en qué ha cambiado?». Pues el gran cambio es que ahora soy yo el que controla la información y no &lt;em&gt;Facebook&lt;/em&gt;. Y este artículo se basa en esta nueva funcionalidad.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Instalar y proteger Memos</title>
-      <link>https://vctrsnts.github.io/posts/2026-09-10-instalar-memos/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2026-09-10-instalar-memos/</link>
       <pubDate>Thu, 10 Sep 2026 00:00:00 +0200</pubDate>
-      <guid>https://vctrsnts.github.io/posts/2026-09-10-instalar-memos/</guid>
+      <guid>https://vctrsnts.codeberg.page/posts/2026-09-10-instalar-memos/</guid>
       <description>&lt;p&gt;Tenemos nuevo artículo, y el culpable, como no podía ser otro, es &lt;strong&gt;atareao&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Escuchando un podcast, no me acuerdo de cuál, &lt;strong&gt;Lorenzo&lt;/strong&gt; explicaba que había instalado &lt;a href=&#34;https://usememos.com&#34;&gt;memos&lt;/a&gt;, un gestor de notas que últimamente está muy de moda, y que lo había enlazado con su móvil &lt;strong&gt;Android&lt;/strong&gt;. 😱&lt;/p&gt;&#xA;&lt;p&gt;Eso mismo pensé yo.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Doctor, venga rápido, tenemos un paciente en estado crítico.&lt;/em&gt;&lt;br /&gt;&#xA;&lt;em&gt;¿Qué síntomas presenta?&lt;/em&gt;&lt;br /&gt;&#xA;&lt;em&gt;Solo habla de informática, tecnología, Android y Docker.&lt;/em&gt;&lt;br /&gt;&#xA;&lt;em&gt;Lléveme a él 😉&lt;/em&gt;&lt;/p&gt;</description>
     </item>
   </channel>
