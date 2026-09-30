@@ -1,0 +1,242 @@
+Otro artículo más con respecto a **Memos**, pero, en este caso, uno que no pensaba que iba a necesitar.
+Pero cuando te pones a investigar, el «hasta aquí» nunca acaba cumpliéndose y lo entenderéis al leer esta nueva entrada. Pero antes de continuar, tengo que hacer un pequeño inciso.
+Si recordáis, en el anterior [artículo](/posts/2026-09-11-memos-android) explicaba la integración de Memos con **Android**, junto con la aplicación [HTTP Request Shortcuts](https://f-droid.org/en/packages/ch.rmy.android.http_shortcuts), que tengo que decir que funciona de fábula. Pero claro, cuando vas grabando las ideas que te pasan por la cabeza, quieres asegurarte de lo que grabas. Eso no es ningún problema si estás en casa y puedes revisar la web o accedes desde tu móvil a la web, pero claro, ya tienes que acordarte del usuario y password, o usar **Bitwarden**, o lo que he hecho yo en mi caso, que es instalar la aplicación [MoeMemos](https://f-droid.org/en/packages/me.mudkip.moememos). Y eso es lo que he hecho: instalar la aplicación y listo. Ya tengo un acceso más rápido y ágil a mis notas.
+Después de este pequeño inciso, seguimos con este nuevo artículo, donde hablaré de la integración de **Memos** con **Homepage** y de cómo surgió esta idea.
+¿Sabes esa sensación que tienes cuando acabas una cosa y dices, *pues ya está, lo he conseguido*, pero tu cabeza te dice *aquí falta algo* y no sabes muy bien qué es, hasta que lo empiezas a usar y, en el primer minuto, te das cuenta de que piensas: «¿Y cómo consulto las notas sin tener que estar accediendo todo el rato a la aplicación de **Memos**?». 🤔
+![](image_01.jpg "")
+
+Además, si eso lo juntas con que tienes como dashboard a **Homepage** y que es lo primero que ves cuando accedes a tu navegador, pues, *¿y por qué no hago que pueda visualizar las notas a través de Homepage?*. Y a eso me puse.
+Lo primero era saber si **Homepage** tiene algún widget para comunicarse con **Memos**, pero no lo tiene 😧. Pero sí que tiene **CustomApi**, que podemos utilizar para hacernos nosotros mismos nuestro propio widget.
+Aquí sí que tengo que reconocer que tiré de *IA* para saber cómo se tenía que hacer y tengo que decir que el resultado fue muy positivo.
+## ◇ Visualizar las notas
+Lo primero que pensé era cómo visualizar la información de mis notas y, aprovechando que en **Homepage** puedes poner *tabs* (que ya tenía una creada para visualizar las gráficas de mi VPS), aproveché ese mismo espacio para añadir tres secciones para las notas, porque yo iba a separar mis notas en tres secciones:
+* **#now**: Donde visualizar las notas que son públicas.
+* **#links**: Donde visualizar los enlaces que he añadido para su posterior revisión.
+* **#inbox**: Donde visualizar las mejoras o ideas que quiero procesar más adelante.
+
+> **Nota**:
+>
+> Tengo que decir que **Memos** solamente lo usaré yo, así que decir *públicas* es redundante, pero me sirve para diferenciar el origen de las mismas.
+
+Así que tenía que pensar cómo visualizar estas tres secciones o qué código tenía que utilizar para esa necesidad y así mejorar mi flujo de trabajo para este caso.
+## ◇ La idea inicial: utilizar RSS
+La idea inicial había sido la de usar los *feeds* que podía generar **Memos** y añadirlos a **Homepage** a través del *widget* de RSS que viene ya implementado y que quedaría de la siguiente manera:
+```text
+Memos
+  ↓
+RSS
+  ↓
+Homepage
+  ↓
+Últimas notas
+```
+Pero resulta que esta funcionalidad ya no está disponible en las nuevas versiones de **Memos**, así que me di con un canto en los dientes, porque una opción sencilla se me iba por el sumidero. Por tanto, lo único que me quedaba era utilizar directamente la API de **Memos**.
+Además, utilizando la **API** podría acceder directamente a las notas tanto públicas como privadas de mi instancia siempre que estuviera autenticado. Que, además, eso ya lo tenía, porque me había creado un **Personal Access Token** para ello.
+## ◇ Comprobar la API de Memos
+Pero antes de nada, tenía que validar que tenía acceso a la **API** sin problemas.
+> **Nota**
+>
+> Informar que estaba usando la versión `0.30.0`, aunque ahora ha salido una nueva versión `0.31.0`.
+
+Lo último que nos queda es probar si el acceso a la *API* de **Memos** funciona correctamente y eso, en mi caso, lo hice a través de `curl` de la siguiente manera:
+```bash
+apps@debian ~> curl "https://memos.servidor.org/api/v1/memos" -H "Authorization: Bearer memos_pat_TU_TOKEN"
+```
+La respuesta que obtuve, y que demuestra que todo funciona correctamente, fue la siguiente (he simplificado la respuesta):
+```json
+{
+  "memos": [
+    {
+      "name": "memos/...",
+      "createTime": "2026-09-11T16:36:15Z",
+      "content": "Mi nota de prueba\n\n#now",
+      "visibility": "PUBLIC",
+      "tags": ["now"],
+      "snippet": "Mi nota de prueba #now"
+    }
+  ],
+  "nextPageToken": ""
+}
+```
+Dentro de esta respuesta que obtenemos, lo que más me interesaba eran los siguientes campos:
+```text
+memos
+├── content
+├── createTime
+├── visibility
+├── tags
+└── snippet
+```
+Eso sí, hay que tener en cuenta que la información está dentro de un `memo[]`. Esto es importante tenerlo presente para más adelante.
+## ◇ Probar el filtrado por tags
+Una vez validado que tenemos acceso sin ningún problema a la *API*, lo que hice fue verificar si podía filtrar por `tags`. Lo que más me interesaba era poder filtrar por los tres `tags` que iba a usar, que eran:
+* **#now**
+* **#inbox**
+* **#links**
+
+Para ello, utilicé también `curl`. En este caso, únicamente pido las notas del tag `#inbox`:
+```bash
+apps@debian ~> curl "https://memos.servidor.org/api/v1/memos?pageSize=5&filter=tags.exists(t%2C%20t%20%3D%3D%20%22inbox%22)"   -H "Authorization: Bearer memos_pat_TU_TOKEN"
+```
+La *API* me devolvió el siguiente contenido:
+```json
+{
+  "memos": [
+    {
+      "content": "privado\n\n#inbox",
+      "visibility": "PRIVATE",
+      "tags": ["inbox"],
+      "snippet": "privado #inbox"
+    }
+  ]
+}
+```
+Lo mismo hice con el resto de `tags`, pero añadiendo el tag correcto. De esta forma comprobé que **Memos** podía realizar directamente el filtrado que necesitaba.
+## ◇ Homepage y Custom API
+Como ya había avanzado al principio, visto que **Homepage** no tenía ningún widget para poder comunicarme con **Memos** y aprovechando que sí que dispone del widget **CustomApi**, con el que podemos realizar consultas a *API's* externas, me decidí a usar esta opción.
+> **Nota**
+>
+> Informar que estaba usando la versión `v2.4.0`, pero las pruebas las hice con la versión `v2.3.0` y todo sigue funcionando correctamente.
+
+La idea básica es que **Homepage** realice las peticiones directamente a la *API* de **Memos**. Más o menos sería de la siguiente manera:
+```text
+Homepage
+   ↓
+GET /api/v1/memos
+   ↓
+Memos
+```
+Y para ello, utilizaríamos el **Personal Access Token** para autenticarnos, con lo que no tendríamos ningún problema a la hora de obtener las notas de **Memos**.
+## ◇ Primera prueba con Homepage
+Lo que hice, y os aconsejo que hagáis, es una prueba inicial simple para ver cómo se integra esta idea y, sobre todo, comprobar que funciona sin problemas. Aunque ya hemos visto que, a través de la *API*, mediante `curl`, podemos visualizar la información, hacerlo a través de **Homepage** puede ser más complicado o no.
+La idea inicial para realizar la consulta a la *API* a través de **Homepage**, mediante el widget de **CustomApi**, es la siguiente:
+Primero probé simplemente a consultar todos los memos.
+```yaml
+- Mis notas:
+    - Memos:
+        widget:
+          type: customapi
+          url: https://memos.servidor.org/api/v1/memos
+          method: GET
+          headers:
+            Authorization: Bearer memos_pat_TU_TOKEN
+          display: dynamic-list
+          mappings:
+            items: memos
+            name: content
+            label: createTime
+            limit: 5
+```
+Lo más importante de este código es la sección del `mapping`:
+```yaml
+mappings:
+  items: memos
+  name: content
+  label: createTime
+  limit: 5
+```
+Porque es aquí donde definimos los campos que nos devuelve la *API* de **Memos** con la información que nosotros necesitamos, recordar que **Memos** nos devuelve un `array`:
+* **items**: Le indicamos a **Homepage** que los elementos que queremos mostrar están dentro del campo `memos` del resultado de la consulta a la *API*.
+* **name**: En este caso, nosotros utilizamos `content`, porque es el valor que queremos mostrar.
+* **label**: En este caso, utilizamos la opción `createTime` porque así indicamos que nos muestre cuándo se creó la nota.
+* **limit**: La cantidad de notas que queremos visualizar. En mi caso, solo quiero visualizar cinco.
+## ◇ Crear una vista específica para las notas
+También, como he dicho anteriormente, como **Homepage** ya lo utilizaba para visualizar la información del *VPS*, me creé una nueva pestaña independiente debajo de esas gráficas para visualizar las notas, que quedaría de la siguiente manera:
+```text
+Homepage
+├── Servidor
+│   ├── CPU
+│   ├── RAM
+│   ├── Disco
+│   └── ...
+│
+└── Notas
+    ├── 📥 Inbox
+    ├── 🔗 Links
+    └── 💭 Ideas
+```
+De esta forma, cuando quiero consultar las notas, solo tengo que acceder a esa pestaña.
+## ◇ Widget para #inbox
+Tranquilos, que ya nos estamos llegando al final de este artículo. Lo único que nos falta es crear los widgets para cada `#tag` y, para **Homepage**, en mi caso, lo hago de la siguiente manera (os muestro solo el de `#inbox` porque el resto es un *copy / paste* de este):
+```yaml
+- Notas:
+    - 📥 Inbox:
+        widget:
+          type: customapi
+          url: "https://memos.servidor.org/api/v1/memos?pageSize=5&filter=tags.exists(t%2C%20t%20%3D%3D%20%22inbox%22)"
+          method: GET
+          headers:
+            Authorization: Bearer memos_pat_TU_TOKEN
+          display: dynamic-list
+          mappings:
+            items: memos
+            name: snippet
+            label: createTime
+            limit: 5
+```
+Lo importante es que en la `URL` hay que incluir también el `tag` que queremos visualizar, con lo que conseguimos que **Memos** únicamente nos devuelva las notas y, como resultado final, obtenemos:
+```text
+📥 Inbox
+privado #inbox
+otra cosa pendiente #inbox
+revisar esto #inbox
+```
+## ◇ El resultado final
+Al final, si tuviéramos que hacer una foto de cómo queda mi flujo de trabajo, sería el siguiente:
+El sistema queda de esta manera:
+```text
+                   📱 Android
+                       │
+          HTTP Request Shortcuts
+                       │
+                       ▼
+                     Memos
+                       │
+        ┌──────────────┼──────────────┐
+        │              │              │
+      #now           #inbox         #links
+     PUBLIC          PRIVATE        PRIVATE
+        │              │              │
+        ▼              └──────┬───────┘
+      Hugo                    │
+        │                     │
+        ▼                     ▼
+       /now                Homepage
+                              │
+                     ┌────────┴────────┐
+                     │                 │
+                   Inbox             Links
+                     │                 │
+                     └────────┬────────┘
+                              │
+                          💭 Ideas
+```
+En realidad, **Homepage** termina convirtiéndose en una especie de pequeño panel de consulta para **Memos** y así no tengo necesidad de abrir todo el rato **Memos** cada vez que quiero consultar mis notas. Sí que lo abriré en caso de una revisión más profunda o para eliminar notas antiguas.
+Con solo acceder a la página principal de **Homepage** ya tengo a mi disposición y puedo consultar:
+```text
+📥 Inbox
+🔗 Links
+💭 Ideas
+```
+O, en una imagen real de cómo queda, sería la siguiente:
+![](image_02.jpg "")
+
+## ◇ Un pequeño detalle pendiente
+Si os habéis fijado, en las pruebas con `curl` estaba utilizando el campo `snippet`, que es donde **Memos** incluye el *hashtag*, pero claro, eso da como resultado que visualmente quede de la siguiente manera:
+```text
+privado #inbox
+www.google.cat #links
+Mi nota de prueba #now
+```
+
+En lugar de como me gustaría a mí:
+```text
+privado
+www.google.cat
+Mi nota de prueba
+```
+
+Pero, como es una cosa que no me molesta mucho, he decidido dejarlo así. No afecta ni molesta mucho a la hora de visualizar las notas y, además, es una verificación de que todo el proceso funciona correctamente, porque las notas están donde les toca.
+En el caso de que me llegara a cansar, lo que sí que haría sería estudiar la manera de eliminar los *hashtags*, pero creo que eso será un poco más complicado. Pero el futuro dirá.
+Pues hasta aquí este artículo sobre la conexión, no esperada, entre **Memos** y **Homepage**, que ha venido por una necesidad no pensada, pero que, gracias a ello, ha resultado beneficiosa, porque hemos conseguido que, de un simple vistazo y sin tener que entrar en **Memos**, podamos visualizar las notas que tengo disponibles.
+Lo único que me quedaría, y que también quiero dedicarle una entrada, es unir **Memos** con mi página web, porque así las pequeñas ideas, mejoras, etc., que quiera implementar en la web estarían disponibles también, por si a alguien le interesa, y se vería que la web está viva y en constante movimiento.
