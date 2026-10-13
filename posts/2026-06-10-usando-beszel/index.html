@@ -14,7 +14,7 @@ Instalando y usando Beszel · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2026-06-10-usando-beszel/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-06-10-usando-beszel/">
 
 
 
@@ -57,7 +57,7 @@ Instalando y usando Beszel · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Instalando y usando Beszel · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Instalando y usando Beszel">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2026-06-10-usando-beszel/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-06-10-usando-beszel/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ Instalando y usando Beszel · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ Instalando y usando Beszel · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Instalando y usando Beszel">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -299,8 +299,7 @@ Instalando y usando Beszel · Si lo haces, hazlo bien!
 </blockquote>
 <h2 id="-configuración-de-beszel">◇ Configuración de Beszel</h2>
 <p>Antes de acceder tenemos que crear un superusuario (root), pero esto se hace desde el propio container de la siguiente manera:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>podman exec -it beszel sh
-</span></span><span style="display:flex;"><span>beszel superuser upsert admin@localhost.com password
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>podman exec -it beszel /beszel superuser upsert admin@localhost.com password
 </span></span></code></pre></div><p>Ahora procedemos a realizar la configuración de <strong>Beszel</strong>.</p>
 <p>Para ello accedemos a:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://beszel.tudominio.com/_/#/settings
@@ -429,7 +428,7 @@ Instalando y usando Beszel · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/run/user/&lt;UID&gt;/podman/podman.sock:/run/podman/podman.sock:ro</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">environment</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">LISTEN</span>: <span style="color:#ae81ff">/beszel_socket/beszel.sock</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">HUB_URL</span>: <span style="color:#ae81ff">http://localhost:8090</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">HUB_URL</span>: <span style="color:#ae81ff">http://beszel:8090</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">TOKEN</span>: <span style="color:#ae81ff">${TOKEN}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">KEY</span>: <span style="color:#ae81ff">${KEY}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">DOCKER_HOST</span>: <span style="color:#ae81ff">unix:///run/podman/podman.sock</span>
