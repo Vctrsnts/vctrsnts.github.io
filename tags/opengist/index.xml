@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenGist on Si lo haces, hazlo bien!</title>
+    <link>http://192.6.0.40:1313/tags/opengist/</link>
+    <description>Recent content in OpenGist on Si lo haces, hazlo bien!</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    
+    
+    
+    <lastBuildDate>Thu, 15 Oct 2026 00:00:00 +0200</lastBuildDate><atom:link href="http://192.6.0.40:1313/tags/opengist/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Instalando y usando OpenGist</title>
+      <link>http://192.6.0.40:1313/posts/2026-10-15-opengist/</link>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 +0200</pubDate>
+      
+      <guid>http://192.6.0.40:1313/posts/2026-10-15-opengist/</guid>
+      <description>&lt;p&gt;Ultimamente estoy tirando mucho de la necesidad de ayuda de &lt;strong&gt;atareao&lt;/strong&gt; para diversos temas. En pocas palabras, lo tengo copado :) entre mis dudas, esta la configuración de &lt;em&gt;traefik&lt;/em&gt; en mi VPS para tener una configuración general y asi poder hacerlo funcionar correctamente, y para ello necesito a &lt;strong&gt;atareao&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Atareao&lt;/strong&gt; siempre que puede me hecha un cable o, una cosa que me ha sorprendido mucho, a traves de su &lt;a href=&#34;https://opengist.io&#34;&gt;gist&lt;/a&gt; me muestra el codigo y eso me ha hecho reflexionar, de porque yo no puedo tener lo mismo para asi, compartir mi codigo, configuraciones que uso o que enlazo en mi web (actualmente lo hago a codeberg o a github).&lt;/p&gt;</description>
+      <category>OpenGist</category>
+      <category>Podman</category>
+      <category>VPS</category>
+    </item>
+    
+  </channel>
+</rss>

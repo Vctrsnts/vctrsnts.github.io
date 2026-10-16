@@ -14,7 +14,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 1 · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2025-09-15-i3wm-sway-1/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2025-09-15-i3wm-sway-1/">
 
 
 
@@ -57,7 +57,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 1 · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="De i3WM ( X11 ) a Sway ( Wayland ) - 1 · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Damos un salto de fe hacia Sway">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2025-09-15-i3wm-sway-1/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2025-09-15-i3wm-sway-1/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -78,7 +78,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 1 · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -88,7 +88,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 1 · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Damos un salto de fe hacia Sway">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -134,7 +134,7 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 1 · Si lo haces, hazlo bien!
       <time class="dt-published" datetime="2025-09-12">
         2025-09-12
       </time>
-      · 6 min
+      · 4 min
       
       
         · <a class="p-category" href="/categories/linux/">@Linux</a>
@@ -185,75 +185,8 @@ De i3WM ( X11 ) a Sway ( Wayland ) - 1 · Si lo haces, hazlo bien!
 <p>Como ya he comentado, a partir de la idea que había visto en el vídeo de <strong>@JustAGuy Linux</strong>, creé mi propio script para la instalación y configuración de <strong>sway</strong>. Este procedimiento, está dividido en <code>3 script</code>, donde cada uno se encarga de una parte del proceso:</p>
 <h3 id="-00-preparaciosh">◈ 00-preparacio.sh</h3>
 <p>Este es el que se encarga desde una instalación básica de <em>Debian GNU/Linux testing</em>, eliminar los paquetes que no son necesarios, procedimiento que siempre sigo después de cada instalación personal de Debian, y luego, salto a la rama <strong>unstable</strong> (que vengo usando desde hace unos 20 años sin ningún problema).</p>
-<p>Os voy a poner las partes más importantes del script para que veáis un poco cómo va. Si queréis el script al completo o el procedimiento de instalación, lo podéis encontrar <a href="https://github.com/Vctrsnts/debian-installer-sway">aquí</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1. Desactivar la instalacion de paquetes sugeridos y recomendados</span>
-</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Configurando APT para evitar la instalacion de paquetes recomendados y sugeridos...&#34;</span>
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;APT::Install-Recommends &#34;false&#34;;&#39;</span> | sudo tee /etc/apt/apt.conf.d/99-no-recommends.conf
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;APT::Install-Suggests &#34;false&#34;;&#39;</span> | sudo tee -a /etc/apt/apt.conf.d/99-no-recommends.conf
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2. Instalar localepurge (es un paquete que considero basico en cualquier instalación de Debian GNU/Linux)</span>
-</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Instalando localepurge para limpiar idiomas no deseados...&#34;</span>
-</span></span><span style="display:flex;"><span>sudo apt install -y localepurge
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 3. Preguntar por la version de Debian actual y modificar sources.list</span>
-</span></span><span style="display:flex;"><span>read -p <span style="color:#e6db74">&#34;Por favor, introduce el nombre de la version actual de Debian (ej. &#39;forky&#39;): &#34;</span> current_version
-</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Modificando /etc/apt/sources.list para apuntar a &#39;testing&#39;...&#34;</span>
-</span></span><span style="display:flex;"><span>sudo sed -i <span style="color:#e6db74">&#34;s/</span>$current_version<span style="color:#e6db74">/testing/g&#34;</span> /etc/apt/sources.list
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Actualizando e instalando paquetes del repositorio &#39;testing&#39;...&#34;</span>
-</span></span><span style="display:flex;"><span>sudo apt -y update <span style="color:#f92672">&amp;&amp;</span> sudo apt -y upgrade
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 4. Modificar sources.list para usar &#39;unstable&#39; (sid) y actualizar</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Reemplaza &#39;testing&#39; por &#39;unstable&#39;.</span>
-</span></span><span style="display:flex;"><span>sudo sed -i <span style="color:#e6db74">&#39;s/testing/unstable/g&#39;</span> /etc/apt/sources.list
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Actualizando e instalando paquetes del repositorio &#39;unstable&#39; (full-upgrade)...&#34;</span>
-</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;¡ADVERTENCIA! El siguiente paso podría eliminar paquetes. Revisa la salida de la consola cuidadosamente antes de confirmar.&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Nota: Se ha quitado el flag -y para que el usuario pueda revisar los cambios.</span>
-</span></span><span style="display:flex;"><span>sudo apt -y update <span style="color:#f92672">&amp;&amp;</span> sudo apt -y full-upgrade
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Eliminamos paquetes conocidos, en mi caso, son estos</span>
-</span></span><span style="display:flex;"><span>pkgs<span style="color:#f92672">=(</span>
-</span></span><span style="display:flex;"><span>  bluez bluetooth debian-faq debian-reference-common 
-</span></span><span style="display:flex;"><span>  debian-reference-es doc-debian manpages manpages-es nano 
-</span></span><span style="display:flex;"><span>  emacsen-common aspell aspell-es dictionaries-common 
-</span></span><span style="display:flex;"><span>  ispanish ispell wspanish task-spanish laptop-detect
-</span></span><span style="display:flex;"><span>  apt-listchanges reportbug python3-reportbug
-</span></span><span style="display:flex;"><span>  python3-apt distro-info-data iso-codes libpython3.13-minimal
-</span></span><span style="display:flex;"><span>  python3-requests python3-debian python3-charset-normalizer 
-</span></span><span style="display:flex;"><span>  python3-urllib3 python3-idna lsb-release python-apt-common
-</span></span><span style="display:flex;"><span>  python3-certifi python3-chardet python3-debconf 
-</span></span><span style="display:flex;"><span>  python3-debianbts python3 libpython3-stdlib python3.13
-</span></span><span style="display:flex;"><span>  libpython3.13-stdlib python3-minimal python3.13-minimal
-</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>sudo apt purge -y <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>pkgs[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> sudo apt -y autoremove
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># =========================================================================</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Descargamos el ZIP con el resto de archivos / configuraciones necesarias</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># =========================================================================</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Nombre del repositorio en formato usuario/repositorio</span>
-</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Iniciem la descarrega dels script&#34;</span>
-</span></span><span style="display:flex;"><span>REPO<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Vctrsnts/debian-installer-sway&#34;</span>
-</span></span><span style="display:flex;"><span>ZIP_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;debian-installer-sway.zip&#34;</span>
-</span></span><span style="display:flex;"><span>TARGET_FOLDER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;debian-installer-sway&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Descargar el ZIP con nombre personalizado</span>
-</span></span><span style="display:flex;"><span>wget -O <span style="color:#e6db74">&#34;</span>$ZIP_FILE<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$ZIP_URL<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Se ejecuta la actualización del funcionamiento de los sources&#34;</span>
-</span></span><span style="display:flex;"><span>sudo apt -y modernize-sources
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Eliminamos aplicacion aptitude&#34;</span>
-</span></span><span style="display:flex;"><span>sudo apt purge -y aptitude w3m task-laptop task-spanish <span style="color:#f92672">&amp;&amp;</span> sudo apt -y autoremove
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>log_success <span style="color:#e6db74">&#34;Instalem aplicacions wireless&#34;</span>
-</span></span><span style="display:flex;"><span>sudo apt install -y iw wireless-tools wpasupplicant wireless-regdb
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>exit <span style="color:#ae81ff">0</span>
-</span></span></code></pre></div><p>Una vez finaliza este primer script, nos ha dejado el fichero <em>zip</em> donde está el resto de scripts para seguir. Únicamente, nosotros tenemos que hacer un simple <code>unzip debian-installer-sway.zip</code> y listo.</p>
+<p>El script al completo o el procedimiento de instalación, lo podéis encontrar <a href="https://gist.ahnenerbe.duckdns.org/vsantos/preparacio">aquí</a></p>
+<p>Una vez finaliza este primer script, nos ha dejado el fichero <em>zip</em> donde está el resto de scripts para seguir. Únicamente, nosotros tenemos que hacer un simple <code>unzip debian-installer-sway.zip</code> y listo.</p>
 <p>Aquí lo dejamos para un siguiente artículo, porque si no, se puede extender mucho y hacerse pesado.</p>
 <p>Hasta la próxima, donde explicaré la instalación de <strong>Wayland</strong> junto con <strong>Sway</strong> y todos los paquetes que he instalado para mis necesidades.</p>
 <h4 id="-referencia">◇ Referencia</h4>
