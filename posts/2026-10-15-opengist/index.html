@@ -14,7 +14,7 @@ Instalando y usando OpenGist · Si lo haces, hazlo bien!
 
 </title>
 
-<link rel="canonical" href="https://vctrsnts.codeberg.page/posts/2026-10-15-opengist/">
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-10-15-opengist/">
 
 
 
@@ -57,7 +57,7 @@ Instalando y usando OpenGist · Si lo haces, hazlo bien!
 
 <meta property="og:title" content="Instalando y usando OpenGist · Si lo haces, hazlo bien!">
 <meta property="og:description" content="Instalando y usando OpenGist en mi VPS">
-<meta property="og:url" content="https://vctrsnts.codeberg.page/posts/2026-10-15-opengist/">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-10-15-opengist/">
 <meta property="og:site_name" content="Si lo haces, hazlo bien!">
 
 
@@ -80,7 +80,7 @@ Instalando y usando OpenGist · Si lo haces, hazlo bien!
 
 
 
-<meta property="og:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -90,7 +90,7 @@ Instalando y usando OpenGist · Si lo haces, hazlo bien!
 <meta name="twitter:description" content="Instalando y usando OpenGist en mi VPS">
 
 
-<meta name="twitter:image" content="https://vctrsnts.codeberg.page/logo_post.jpg">
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
 
 
 
@@ -152,24 +152,25 @@ Instalando y usando OpenGist · Si lo haces, hazlo bien!
   </header>
 
   <section class="e-content">
-    <p>Últimamente tengo a <strong>atareao</strong> bastante liado con unas dudas sobre este magnífico mundo del <strong>self-hosting</strong>.</p>
+    <h1 id="instalando-y-configurando-opengist-con-pocketid">Instalando y configurando OpenGist con PocketID</h1>
+<p>Últimamente tengo a <strong>atareao</strong> bastante liado con unas dudas sobre este magnífico mundo del <strong>self-hosting</strong>.</p>
 <blockquote>
 <p><strong>Nota</strong></p>
 <p>Para que veáis que soy amable, mañana le he dado fiesta 😁</p>
 </blockquote>
-<p>Una de las dudas y que más me quita el sueño, es encontrar la mejor configuración para utilizar <em>Traefik</em> en mi <em>VPS</em>. El motivo es que me gustaría usar alguna de las últimas aplicaciones que ha creado <strong>atareao</strong>. En especial <a href="https://atareao.es/podcast/la-alternativa-a-watchtower-para-docker">esta</a>.</p>
+<p>Una de las dudas que más me quita el sueño es encontrar la mejor configuración para utilizar <em>Traefik</em> en mi <em>VPS</em>. El motivo es que me gustaría utilizar algunas de las últimas aplicaciones que ha creado <strong>atareao</strong>, en especial <a href="https://atareao.es/podcast/la-alternativa-a-watchtower-para-docker">esta</a>.</p>
 <blockquote>
 <p><strong>Nota</strong></p>
 <p>Tengo que decir que <strong>atareao</strong>, siempre que puede, me echa un cable.</p>
 </blockquote>
-<p>Mientras hablaba con <strong>atareao</strong>, él me iba aclarando las dudas que tenia, veia que lo iba haciendo a traves de su propio <a href="https://opengist.io">OpenGist</a>.</p>
-<p>Eso me ha hecho reflexionar: ¿por qué no puedo tener yo lo mismo para compartir mi código y asi no depender de terceros —actualmente lo hago a través de Codeberg o GitHub— y además, podria enlazar algunas cosas en mi web?</p>
+<p>Mientras hablaba con <strong>atareao</strong>, me iba aclarando las dudas que tenía y veía que lo hacía a través de su propio <a href="https://opengist.io">OpenGist</a>.</p>
+<p>Eso me hizo reflexionar: ¿por qué no puedo tener yo lo mismo para compartir mi código y así no depender de terceros —actualmente lo hago a través de Codeberg o GitHub— y, además, poder enlazar algunas cosas desde mi web?</p>
 <blockquote>
 <p><strong>Nota</strong></p>
 <p>Propia, propia, todavía no es, porque la tengo alojada en <strong>Codeberg</strong>, pero lo de tener un dominio propio, ya sé que soy pesado con este tema, es algo que me supera.</p>
 </blockquote>
 <p>Y a eso me he puesto: a tener mi propio <em>OpenGist</em>. Pero, como marca la <em>biblia de atareao</em>, la seguridad es fundamental y, de eso, se va a encargar <a href="/posts/2026-06-06-usando-podman-3">PocketID</a>. Sé que no se puede decir que uno está protegido al 100 %, pero sí al 99 %.</p>
-<p>En resumen, mi objetivo es desplegar mi pequeño <em>OpenGist</em> mediante <strong>Podman</strong>, <strong>Dockge</strong> y <strong>PocketID</strong>; este ultimo, sera el encargado de llevar el control de los usuarios, aunque, de momento, solo seré yo.</p>
+<p>En resumen, mi objetivo es desplegar mi pequeño <em>OpenGist</em> mediante <strong>Podman</strong>, <strong>Dockge</strong> y <strong>PocketID</strong>. Este último será el encargado de gestionar el acceso de los usuarios, aunque, de momento, solo seré yo.</p>
 <h2 id="-despliegue-de-opengist">◇ Despliegue de OpenGist</h2>
 <p>En sí, esta es la parte más fácil de todo. En mi caso, accedo a <strong>Dockge</strong>, añado el siguiente archivo <code>compose.yml</code> y este se encarga de realizar el despliegue y la configuración:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
@@ -225,8 +226,8 @@ Instalando y usando OpenGist · Si lo haces, hazlo bien!
 </ul>
 <p>Estas variables las explicaré más detalladamente cuando llegue el momento de hablar sobre la integración de <strong>OpenGist</strong> con <strong>PocketID</strong>.</p>
 <h2 id="-integración-con-pocketid">◇ Integración con PocketID</h2>
-<p>Una vez desplegado el <em>container</em>, vamos a realizar la integración con <strong>PocketID</strong>, algo que a veces resulta más fácil de decir que de hacer. Todo depende de cómo vaya la cosa y de cuánto lo quieras complicar, porque ya te digo que se puede complicar mucho. Lo entenderás a continuación por qué digo esto.</p>
-<p>Lo que no voy a hacer es volver a explicar la parte de <strong>PocketID</strong>, porque el procedimiento es el mismo que ya he explicado tanto para <a href="/posts/2026-06-10-usando-beszel">Beszel</a> como para <a href="/posts/2026-09-10-instalar-memos">Memos</a>. Así que este punto me lo salto, pero recordad que hay un par de datos importantes que debemos guardar, porque los necesitaremos a continuación.</p>
+<p>Una vez desplegado el <em>container</em>, vamos a realizar la integración con <strong>PocketID</strong>, algo que a veces resulta más fácil de decir que de hacer. Todo depende de cómo vaya la cosa y de cuánto lo quieras complicar, porque ya te digo que se puede complicar mucho. Ahora entenderéis por qué digo esto.</p>
+<p>No voy a volver a explicar la parte de <strong>PocketID</strong>, porque el procedimiento es el mismo que ya he explicado tanto para <a href="/posts/2026-06-10-usando-beszel">Beszel</a> como para <a href="/posts/2026-09-10-instalar-memos">Memos</a>. Así que este punto me lo salto, pero recordad que hay un par de datos importantes que debemos guardar, porque los necesitaremos a continuación.</p>
 <p>Esos datos son:</p>
 <ul>
 <li><strong>Client ID</strong></li>
@@ -257,7 +258,7 @@ Instalando y usando OpenGist · Si lo haces, hazlo bien!
 <li><strong><code>OG_SSH_GIT_ENABLED</code></strong>: desactiva el acceso a través de <em>SSH</em>. Lo explicaré más adelante.</li>
 </ul>
 <p>Podríamos incluir esta configuración en el propio archivo <code>config.yml</code> de <strong>OpenGist</strong>, pero, como se trata de datos sensibles, prefiero mantenerlos un poco más protegidos. Sé que esa protección puede ser más una sensación que otra cosa, pero 😁.</p>
-<p>Una vez que lo tenemos todo configurado, recreamos el contenedor y accedo a mi <strong>OpenGist</strong> a traves de <strong>PocketID</strong>. Todo fue perfecto, hasta que lo vi 👀.</p>
+<p>Una vez que lo tenemos todo configurado, recreamos el contenedor y accedo a mi <strong>OpenGist</strong> a través de <strong>PocketID</strong>. Todo fue perfecto, hasta que lo vi 👀.</p>
 <h3 id="-el-problema-con-los-permisos-de-administrador">◈ El problema con los permisos de administrador</h3>
 <p>De lo que sí me di cuenta es de que, cuando accedemos por primera vez con el usuario de <strong>PocketID</strong>, no se crea ningún usuario <strong>admin</strong> o no tenemos acceso al panel de administración de <strong>OpenGist</strong>. Esto nos impide configurar algunas cosas que, para mí, son importantes:</p>
 <ul>
@@ -285,14 +286,14 @@ Instalando y usando OpenGist · Si lo haces, hazlo bien!
 <p>Como dice el refrán, no todo lo que reluce es oro. Y eso fue precisamente lo que pasó.</p>
 <h3 id="-la-pieza-que-faltaba">◈ La pieza que faltaba</h3>
 <p>Siento decir esto, pero <strong>Claude</strong> le da mil vueltas a <strong>ChatGPT</strong> en algunos casos, y este fue uno de ellos.</p>
-<p>¿Por qué digo esto? Porque realicé la misma consulta a <strong>Claude</strong> para solucionar mi problema. La primera respuesta fue la misma que me había dado <strong>ChatGPT</strong>, pero con una salvedad: me dio una pista de donde podria venir el problema, y es que en <strong>Traefik</strong>, además de los <em>scopes</em> que ya tenia definidos, también había que incluir <code>groups</code>. De lo contrario, ¿qué sentido tiene configurar un grupo en <strong>PocketID</strong> si luego esa información no llega a <strong>OpenGist</strong>?</p>
-<p>Para solucionarlo, solo tenia que modificar el archivo <code>dynamic/dashboard-auth.yml</code> y añadir <code>groups</code> a los <em>scopes</em> existentes:</p>
+<p>¿Por qué digo esto? Porque realicé la misma consulta a <strong>Claude</strong> para solucionar mi problema. La primera respuesta fue la misma que me había dado <strong>ChatGPT</strong>, pero con una salvedad: me dio una pista de dónde podía venir el problema. En <strong>Traefik</strong>, además de los <em>scopes</em> que ya tenía definidos, también había que incluir <code>groups</code>. De lo contrario, ¿qué sentido tiene configurar un grupo en <strong>PocketID</strong> si luego esa información no llega a <strong>OpenGist</strong>?</p>
+<p>Para solucionarlo, solo tenía que modificar el archivo <code>dynamic/dashboard-auth.yml</code> y añadir <code>groups</code> a los <em>scopes</em> existentes:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>   <span style="color:#f92672">Scopes</span>:
 </span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">openid</span>
 </span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">profile</span>
 </span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">email</span>
 </span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">groups</span>
-</span></span></code></pre></div><p>Como podemos ver, lo único que hemos tenido que añadir a la configuración de <em>scopes</em> es <code>groups</code>. Después de aplicar el cambio, se sobre-entiende que hay que reiniciar el container. Comprobe que todo seguia funcionando correctamente. Y con esto, ya habia solucionado la primera parte del problema.</p>
+</span></span></code></pre></div><p>Como podemos ver, lo único que hemos tenido que añadir a la configuración de los <em>scopes</em> es <code>groups</code>. Después de aplicar el cambio, se sobreentiende que hay que reiniciar el <em>container</em>. Comprobé que todo seguía funcionando correctamente y, con esto, ya había solucionado la primera parte del problema.</p>
 <h3 id="-ya-casi-lo-tenemos">◈ Ya casi lo tenemos</h3>
 <p>Lo único que nos queda es añadir un par de cosas en <strong>PocketID</strong>:</p>
 <ul>
@@ -449,7 +450,7 @@ Instalando y usando OpenGist · Si lo haces, hazlo bien!
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_GROUP_CLAIM_NAME</span>: <span style="color:#ae81ff">groups</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_ADMIN_GROUP</span>: <span style="color:#ae81ff">opengist_admins</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_EXTERNAL_URL</span>: <span style="color:#ae81ff">https://${FQDN}</span>
-</span></span></code></pre></div><p>Y con esto, reiniciamos el <em>container</em> y, cuando accedemos a través de <strong>PocketID</strong>, podemos ver lo siguiente 🍾</p>
+</span></span></code></pre></div><p>Y con esto, reiniciamos el <em>container</em> y, cuando accedemos a través de <strong>PocketID</strong>, podemos ver lo siguiente 🍾.</p>
 <p>
 
 
@@ -494,7 +495,7 @@ Instalando y usando OpenGist · Si lo haces, hazlo bien!
 
 
 </p>
-<p>Ya tenemos acceso al panel de <strong>Admin</strong>. Solo nos falta acceder a <code>Admin &gt; Configuration</code>. Allí desactivamos las opciones que están marcadas en azul (ahora explicaré por qué):</p>
+<p>Ya tenemos acceso al panel de <strong>Admin</strong>. Solo nos falta acceder a <code>Admin &gt; Configuration</code>. Allí desactivamos las opciones que están marcadas en azul. Ahora explicaré por qué:</p>
 <p>
 
 
@@ -626,8 +627,8 @@ Instalando y usando OpenGist · Si lo haces, hazlo bien!
 <li>Gestionar el despliegue y los secretos mediante <strong>Dockge</strong>.</li>
 </ul>
 <h2 id="-conclusión">◇ Conclusión</h2>
-<p>Con este ultimo punto, damos por concluido este artículo, en el que, como podéis ver, he conseguido tener mi propio <strong>OpenGist</strong> en mi servidor.</p>
-<p>Como veis, he estado muy ocupado últimamente, y más que lo voy a estar, porque tengo pensadas muchas modificaciones en mi VPS. Algunas se basan en aplicaciones de <strong>atareao</strong>, como he comentado al principio. Ya os ire comentado como me van.</p>
+<p>Con este último punto, damos por concluido este artículo, en el que, como podéis ver, he conseguido tener mi propio <strong>OpenGist</strong> en mi servidor.</p>
+<p>Como veis, he estado muy ocupado últimamente, y más que lo voy a estar, porque tengo pensadas muchas modificaciones en mi VPS. Algunas se basan en aplicaciones de <strong>atareao</strong>, como he comentado al principio. Ya os iré contando cómo me van.</p>
 <p>Espero que todo esto le sirva a alguien. La esperanza es lo último que se pierde&hellip;</p>
 <h4 id="-referencia">◇ Referencia</h4>
 <ul>
