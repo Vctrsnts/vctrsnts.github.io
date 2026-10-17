@@ -1,0 +1,657 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+
+Instalando y usando OpenGist · Si lo haces, hazlo bien!
+
+</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-10-15-opengist/">
+
+
+
+
+
+
+<meta name="description" content="Instalando y usando OpenGist en mi VPS">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
+
+
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+
+<meta property="og:title" content="Instalando y usando OpenGist · Si lo haces, hazlo bien!">
+<meta property="og:description" content="Instalando y usando OpenGist en mi VPS">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-10-15-opengist/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
+
+
+<meta property="og:type" content="article">
+
+
+<meta property="article:published_time" content="2026-10-15T00:00:00&#43;02:00">
+
+
+
+
+<meta property="article:tag" content="OpenGist">
+
+<meta property="article:tag" content="Podman">
+
+<meta property="article:tag" content="VPS">
+
+
+
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Instalando y usando OpenGist · Si lo haces, hazlo bien!">
+<meta name="twitter:description" content="Instalando y usando OpenGist en mi VPS">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="6608b7e7-8981-44c1-965f-4266bfc3bab5">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/index.xml">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Instalando y usando OpenGist</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-10-15">
+        2026-10-15
+      </time>
+      · 9 min
+      
+      
+        · <a class="p-category" href="/categories/self-hosting/">@Self-Hosting</a>
+      
+
+      
+        ·
+        <a href="/tags/opengist/">#OpenGist</a> <a href="/tags/podman/">#Podman</a> <a href="/tags/vps/">#VPS</a>
+      
+
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Últimamente tengo a <strong>atareao</strong> bastante liado con unas dudas sobre este magnífico mundo del <strong>self-hosting</strong>.</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Para que veáis que soy amable, mañana le he dado fiesta 😁</p>
+</blockquote>
+<p>Una de las dudas y que más me quita el sueño, es encontrar la mejor configuración para utilizar <em>Traefik</em> en mi <em>VPS</em>. El motivo es que me gustaría usar alguna de las últimas aplicaciones que ha creado <strong>atareao</strong>. En especial <a href="https://atareao.es/podcast/la-alternativa-a-watchtower-para-docker">esta</a>.</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Tengo que decir que <strong>atareao</strong>, siempre que puede, me echa un cable.</p>
+</blockquote>
+<p>Mientras hablaba con <strong>atareao</strong>, él me iba aclarando las dudas que tenia, veia que lo iba haciendo a traves de su propio <a href="https://opengist.io">OpenGist</a>.</p>
+<p>Eso me ha hecho reflexionar: ¿por qué no puedo tener yo lo mismo para compartir mi código y asi no depender de terceros —actualmente lo hago a través de Codeberg o GitHub— y además, podria enlazar algunas cosas en mi web?</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Propia, propia, todavía no es, porque la tengo alojada en <strong>Codeberg</strong>, pero lo de tener un dominio propio, ya sé que soy pesado con este tema, es algo que me supera.</p>
+</blockquote>
+<p>Y a eso me he puesto: a tener mi propio <em>OpenGist</em>. Pero, como marca la <em>biblia de atareao</em>, la seguridad es fundamental y, de eso, se va a encargar <a href="/posts/2026-06-06-usando-podman-3">PocketID</a>. Sé que no se puede decir que uno está protegido al 100 %, pero sí al 99 %.</p>
+<p>En resumen, mi objetivo es desplegar mi pequeño <em>OpenGist</em> mediante <strong>Podman</strong>, <strong>Dockge</strong> y <strong>PocketID</strong>; este ultimo, sera el encargado de llevar el control de los usuarios, aunque, de momento, solo seré yo.</p>
+<h2 id="-despliegue-de-opengist">◇ Despliegue de OpenGist</h2>
+<p>En sí, esta es la parte más fácil de todo. En mi caso, accedo a <strong>Dockge</strong>, añado el siguiente archivo <code>compose.yml</code> y este se encarga de realizar el despliegue y la configuración:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">opengist</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">ghcr.io/thomiceli/opengist:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">opengist</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">proxy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${PODMAN_STORAGE_PATH}/.config/opengist:/opengist:rw</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">UID</span>: <span style="color:#ae81ff">$UID</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">GID</span>: <span style="color:#ae81ff">$GID</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_PROVIDER_NAME</span>: <span style="color:#ae81ff">PocketID</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_CLIENT_KEY</span>: <span style="color:#ae81ff">${CLIENT_ID}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_SECRET</span>: <span style="color:#ae81ff">${CLIENT_SECRET}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_DISCOVERY_URL</span>: <span style="color:#ae81ff">${DISCOVER_URL}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_GROUP_CLAIM_NAME</span>: <span style="color:#ae81ff">groups</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_ADMIN_GROUP</span>: <span style="color:#ae81ff">opengist_admins</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_EXTERNAL_URL</span>: <span style="color:#ae81ff">https://${FQDN}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_CUSTOM_NAME</span>: <span style="color:#ae81ff">${HOST_NAME}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_SSH_GIT_ENABLED</span>: <span style="color:#ae81ff">disabled</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">CMD-SHELL</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">curl -I http://localhost:6157/healthcheck || exit 1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">30s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">10s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.enable=true</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.services.opengist.loadbalancer.server.port=6157</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.routers.opengist.entrypoints=websecure</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.routers.opengist.tls.certresolver=myresolver</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">traefik.http.routers.opengist.rule=Host(`${FQDN}`)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">proxy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">x-dockge</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">urls</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">https://{FQDN}</span>
+</span></span></code></pre></div><p>Hay que tener en cuenta las siguientes variables:</p>
+<ul>
+<li><strong><code>OG_OIDC_PROVIDER_NAME</code></strong></li>
+<li><strong><code>OG_OIDC_CLIENT_KEY</code></strong></li>
+<li><strong><code>OG_OIDC_SECRET</code></strong></li>
+<li><strong><code>OG_OIDC_DISCOVERY_URL</code></strong></li>
+<li><strong><code>OG_OIDC_GROUP_CLAIM_NAME</code></strong></li>
+<li><strong><code>OG_OIDC_ADMIN_GROUP</code></strong></li>
+<li><strong><code>OG_CUSTOM_NAME</code></strong></li>
+<li><strong><code>OG_SSH_GIT_ENABLED</code></strong></li>
+</ul>
+<p>Estas variables las explicaré más detalladamente cuando llegue el momento de hablar sobre la integración de <strong>OpenGist</strong> con <strong>PocketID</strong>.</p>
+<h2 id="-integración-con-pocketid">◇ Integración con PocketID</h2>
+<p>Una vez desplegado el <em>container</em>, vamos a realizar la integración con <strong>PocketID</strong>, algo que a veces resulta más fácil de decir que de hacer. Todo depende de cómo vaya la cosa y de cuánto lo quieras complicar, porque ya te digo que se puede complicar mucho. Lo entenderás a continuación por qué digo esto.</p>
+<p>Lo que no voy a hacer es volver a explicar la parte de <strong>PocketID</strong>, porque el procedimiento es el mismo que ya he explicado tanto para <a href="/posts/2026-06-10-usando-beszel">Beszel</a> como para <a href="/posts/2026-09-10-instalar-memos">Memos</a>. Así que este punto me lo salto, pero recordad que hay un par de datos importantes que debemos guardar, porque los necesitaremos a continuación.</p>
+<p>Esos datos son:</p>
+<ul>
+<li><strong>Client ID</strong></li>
+<li><strong>Client Secret</strong></li>
+<li><strong>Discovery URL</strong></li>
+</ul>
+<p>Y digo que son importantes porque, en mi caso, los he incluido en el archivo <code>compose.yml</code> de <strong>Dockge</strong>.</p>
+<p>Una vez que los tenemos, hay que incluirlos de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">opengist</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_PROVIDER_NAME</span>: <span style="color:#ae81ff">PocketID</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_CLIENT_KEY</span>: <span style="color:#ae81ff">${CLIENT_ID}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_SECRET</span>: <span style="color:#ae81ff">${CLIENT_SECRET}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_DISCOVERY_URL</span>: <span style="color:#ae81ff">${DISCOVER_URL}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_GROUP_CLAIM_NAME</span>: <span style="color:#ae81ff">groups</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_ADMIN_GROUP</span>: <span style="color:#ae81ff">opengist_admins</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_EXTERNAL_URL</span>: <span style="color:#ae81ff">https://${FQDN}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_CUSTOM_NAME</span>: <span style="color:#ae81ff">${HOST_NAME}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_SSH_GIT_ENABLED</span>: <span style="color:#ae81ff">disabled</span>
+</span></span></code></pre></div><p>Donde:</p>
+<ul>
+<li><strong><code>OG_OIDC_PROVIDER_NAME</code></strong>: es el nombre del proveedor, que en nuestro caso es <strong>PocketID</strong>.</li>
+<li><strong><code>OG_OIDC_CLIENT_KEY</code></strong>: es el <strong>Client ID</strong> que hemos obtenido de <strong>PocketID</strong>.</li>
+<li><strong><code>OG_OIDC_SECRET</code></strong>: es el <strong>Client Secret</strong> que hemos obtenido de <strong>PocketID</strong>.</li>
+<li><strong><code>OG_OIDC_DISCOVERY_URL</code></strong>: es la <strong>Discovery URL</strong> que hemos obtenido de <strong>PocketID</strong>.</li>
+<li><strong><code>OG_CUSTOM_NAME</code></strong>: es el nombre de la instancia que aparece en la web.</li>
+<li><strong><code>OG_SSH_GIT_ENABLED</code></strong>: desactiva el acceso a través de <em>SSH</em>. Lo explicaré más adelante.</li>
+</ul>
+<p>Podríamos incluir esta configuración en el propio archivo <code>config.yml</code> de <strong>OpenGist</strong>, pero, como se trata de datos sensibles, prefiero mantenerlos un poco más protegidos. Sé que esa protección puede ser más una sensación que otra cosa, pero 😁.</p>
+<p>Una vez que lo tenemos todo configurado, recreamos el contenedor y accedo a mi <strong>OpenGist</strong> a traves de <strong>PocketID</strong>. Todo fue perfecto, hasta que lo vi 👀.</p>
+<h3 id="-el-problema-con-los-permisos-de-administrador">◈ El problema con los permisos de administrador</h3>
+<p>De lo que sí me di cuenta es de que, cuando accedemos por primera vez con el usuario de <strong>PocketID</strong>, no se crea ningún usuario <strong>admin</strong> o no tenemos acceso al panel de administración de <strong>OpenGist</strong>. Esto nos impide configurar algunas cosas que, para mí, son importantes:</p>
+<ul>
+<li>Bloquear la posibilidad de crear más usuarios.</li>
+<li>Bloquear el acceso mediante <em>usuario/contraseña</em>.
+<ul>
+<li>Solo quiero que se pueda acceder a través de <strong>PocketID</strong>.</li>
+</ul>
+</li>
+</ul>
+<p>Así que, en primera instancia, pregunté a la <strong>IA</strong> para ver qué solución podía encontrar. Me propuso crear un <em>grupo</em> en <strong>PocketID</strong> y vincular mi usuario a ese grupo. De esta manera, al acceder a mi <strong>OpenGist</strong>, tendría los mismos permisos que un administrador. Así que lo probé porque, de perdidos al río.</p>
+<p>Uno de los objetivos era conseguir que el usuario de <strong>PocketID</strong>, al estar vinculado al grupo <code>opengist_admins</code>, obtuviera automáticamente los permisos de administrador.</p>
+<p>Para ello, configuré las variables <code>OG_OIDC_GROUP_CLAIM_NAME</code> y <code>OG_OIDC_ADMIN_GROUP</code>, siguiendo la documentación de integración y utilizando la siguiente configuración:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">opengist</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_PROVIDER_NAME</span>: <span style="color:#ae81ff">PocketID</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_CLIENT_KEY</span>: <span style="color:#ae81ff">${CLIENT_ID}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_SECRET</span>: <span style="color:#ae81ff">${CLIENT_SECRET}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_DISCOVERY_URL</span>: <span style="color:#ae81ff">${DISCOVER_URL}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_GROUP_CLAIM_NAME</span>: <span style="color:#ae81ff">groups</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_ADMIN_GROUP</span>: <span style="color:#ae81ff">opengist_admins</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_EXTERNAL_URL</span>: <span style="color:#ae81ff">https://${FQDN}</span>
+</span></span></code></pre></div><p>Sin embargo, el resultado esperado no se produjo: el usuario podía autenticarse, pero no aparecía el panel <code>Admin</code>.</p>
+<p>Como dice el refrán, no todo lo que reluce es oro. Y eso fue precisamente lo que pasó.</p>
+<h3 id="-la-pieza-que-faltaba">◈ La pieza que faltaba</h3>
+<p>Siento decir esto, pero <strong>Claude</strong> le da mil vueltas a <strong>ChatGPT</strong> en algunos casos, y este fue uno de ellos.</p>
+<p>¿Por qué digo esto? Porque realicé la misma consulta a <strong>Claude</strong> para solucionar mi problema. La primera respuesta fue la misma que me había dado <strong>ChatGPT</strong>, pero con una salvedad: me dio una pista de donde podria venir el problema, y es que en <strong>Traefik</strong>, además de los <em>scopes</em> que ya tenia definidos, también había que incluir <code>groups</code>. De lo contrario, ¿qué sentido tiene configurar un grupo en <strong>PocketID</strong> si luego esa información no llega a <strong>OpenGist</strong>?</p>
+<p>Para solucionarlo, solo tenia que modificar el archivo <code>dynamic/dashboard-auth.yml</code> y añadir <code>groups</code> a los <em>scopes</em> existentes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>   <span style="color:#f92672">Scopes</span>:
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">openid</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">profile</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">email</span>
+</span></span><span style="display:flex;"><span>     - <span style="color:#ae81ff">groups</span>
+</span></span></code></pre></div><p>Como podemos ver, lo único que hemos tenido que añadir a la configuración de <em>scopes</em> es <code>groups</code>. Después de aplicar el cambio, se sobre-entiende que hay que reiniciar el container. Comprobe que todo seguia funcionando correctamente. Y con esto, ya habia solucionado la primera parte del problema.</p>
+<h3 id="-ya-casi-lo-tenemos">◈ Ya casi lo tenemos</h3>
+<p>Lo único que nos queda es añadir un par de cosas en <strong>PocketID</strong>:</p>
+<ul>
+<li>Crear el grupo <code>opengist_admins</code>.</li>
+<li>Asignar ese grupo a nuestro usuario.</li>
+</ul>
+<p>Para hacerlo, dentro de <strong>PocketID</strong>, nos vamos a <code>Administration &gt; User Groups</code> y seleccionamos <code>Add Groups</code>:</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+  <figure class="article-image">
+
+  <picture>
+
+    <source
+      type="image/webp"
+      srcset="
+        /posts/2026-10-15-opengist/image_01_hu_b94e851e20bc92c9.webp 400w,
+        /posts/2026-10-15-opengist/image_01_hu_efee539e5884ecf6.webp 700w,
+        /posts/2026-10-15-opengist/image_01_hu_2066b926ea127637.webp 900w
+      "
+      sizes="
+        (max-width: 700px) 100vw,
+        700px
+      "
+    >
+
+    <img
+      src="/posts/2026-10-15-opengist/image_01_hu_fccca2ad4f12277b.jpg"
+      alt=""
+      width="900"
+      height="56"
+      loading="lazy"
+      decoding="async"
+    >
+
+  </picture>
+
+  
+
+  </figure>
+
+
+</p>
+<p>Cuando accedemos, tenemos que poner lo siguiente:</p>
+<ul>
+<li><strong><code>Friendly Name</code></strong>: podemos poner el que queramos, pero, en mi caso, he puesto el mismo en los dos campos: <code>opengist_admins</code>.</li>
+<li><strong><code>Name</code></strong>: el mismo que antes, <code>opengist_admins</code>.</li>
+</ul>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+  <figure class="article-image">
+
+  <picture>
+
+    <source
+      type="image/webp"
+      srcset="
+        /posts/2026-10-15-opengist/image_02_hu_c1bca6d4d89724af.webp 400w,
+        /posts/2026-10-15-opengist/image_02_hu_80ba3c32accab664.webp 700w,
+        /posts/2026-10-15-opengist/image_02_hu_fad2a38d40eb3f01.webp 900w
+      "
+      sizes="
+        (max-width: 700px) 100vw,
+        700px
+      "
+    >
+
+    <img
+      src="/posts/2026-10-15-opengist/image_02_hu_ed4c37c858ff3e36.jpg"
+      alt=""
+      width="900"
+      height="149"
+      loading="lazy"
+      decoding="async"
+    >
+
+  </picture>
+
+  
+
+  </figure>
+
+
+</p>
+<p>Luego, tenemos que ir a nuestro usuario y añadirlo al grupo que acabamos de crear:</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+  <figure class="article-image">
+
+  <picture>
+
+    <source
+      type="image/webp"
+      srcset="
+        /posts/2026-10-15-opengist/image_03_hu_d9767ca5068ae2a6.webp 400w,
+        /posts/2026-10-15-opengist/image_03_hu_b0a0e5d3eb67b51d.webp 700w,
+        /posts/2026-10-15-opengist/image_03_hu_7852963e6b81e85f.webp 900w
+      "
+      sizes="
+        (max-width: 700px) 100vw,
+        700px
+      "
+    >
+
+    <img
+      src="/posts/2026-10-15-opengist/image_03_hu_18a7e4a0af093027.jpg"
+      alt=""
+      width="900"
+      height="179"
+      loading="lazy"
+      decoding="async"
+    >
+
+  </picture>
+
+  
+
+  </figure>
+
+
+</p>
+<p>Una vez realizadas estas modificaciones, recordad que tenemos que añadir <code>OG_OIDC_GROUP_CLAIM_NAME</code> y <code>OG_OIDC_ADMIN_GROUP</code> a nuestro <code>compose.yml</code>, que quedaría de esta manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">opengist</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_PROVIDER_NAME</span>: <span style="color:#ae81ff">PocketID</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_CLIENT_KEY</span>: <span style="color:#ae81ff">${CLIENT_ID}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_SECRET</span>: <span style="color:#ae81ff">${CLIENT_SECRET}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_DISCOVERY_URL</span>: <span style="color:#ae81ff">${DISCOVER_URL}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_GROUP_CLAIM_NAME</span>: <span style="color:#ae81ff">groups</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_OIDC_ADMIN_GROUP</span>: <span style="color:#ae81ff">opengist_admins</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_EXTERNAL_URL</span>: <span style="color:#ae81ff">https://${FQDN}</span>
+</span></span></code></pre></div><p>Y con esto, reiniciamos el <em>container</em> y, cuando accedemos a través de <strong>PocketID</strong>, podemos ver lo siguiente 🍾</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+  <figure class="article-image">
+
+  <picture>
+
+    <source
+      type="image/webp"
+      srcset="
+        /posts/2026-10-15-opengist/image_04_hu_daccd24b2ca79c80.webp 400w,
+        /posts/2026-10-15-opengist/image_04_hu_f175bc09d5f48b97.webp 700w,
+        /posts/2026-10-15-opengist/image_04_hu_a32a2e9f9ed7bfa0.webp 900w
+      "
+      sizes="
+        (max-width: 700px) 100vw,
+        700px
+      "
+    >
+
+    <img
+      src="/posts/2026-10-15-opengist/image_04_hu_9f0841b7118f53fd.jpg"
+      alt=""
+      width="192"
+      height="78"
+      loading="lazy"
+      decoding="async"
+    >
+
+  </picture>
+
+  
+
+  </figure>
+
+
+</p>
+<p>Ya tenemos acceso al panel de <strong>Admin</strong>. Solo nos falta acceder a <code>Admin &gt; Configuration</code>. Allí desactivamos las opciones que están marcadas en azul (ahora explicaré por qué):</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+  <figure class="article-image">
+
+  <picture>
+
+    <source
+      type="image/webp"
+      srcset="
+        /posts/2026-10-15-opengist/image_05_hu_902ac4e592bee6ff.webp 400w,
+        /posts/2026-10-15-opengist/image_05_hu_cb95db09beef072c.webp 700w,
+        /posts/2026-10-15-opengist/image_05_hu_6656946282a54f92.webp 900w
+      "
+      sizes="
+        (max-width: 700px) 100vw,
+        700px
+      "
+    >
+
+    <img
+      src="/posts/2026-10-15-opengist/image_05_hu_4ebf6b4ce994d5b3.jpg"
+      alt=""
+      width="436"
+      height="374"
+      loading="lazy"
+      decoding="async"
+    >
+
+  </picture>
+
+  
+
+  </figure>
+
+
+</p>
+<h3 id="-mejorando-la-seguridad">◈ Mejorando la seguridad</h3>
+<p>Yo desactivo las siguientes opciones:</p>
+<ul>
+<li><strong>Disable signup</strong>: desactiva la posibilidad de crear nuevos usuarios.</li>
+<li><strong>Disable login form</strong>: desactiva el formulario de inicio de sesión con usuario y contraseña.</li>
+<li><strong>Require login</strong>: la dejo desactivada porque, si no, en caso de querer publicar código para todo el mundo, solamente los usuarios registrados tendrían acceso a él.</li>
+</ul>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+  <figure class="article-image">
+
+  <picture>
+
+    <source
+      type="image/webp"
+      srcset="
+        /posts/2026-10-15-opengist/image_06_hu_d35a8227377d049b.webp 400w,
+        /posts/2026-10-15-opengist/image_06_hu_1c0e4ddb951c574b.webp 700w,
+        /posts/2026-10-15-opengist/image_06_hu_109253fbb2b30611.webp 900w
+      "
+      sizes="
+        (max-width: 700px) 100vw,
+        700px
+      "
+    >
+
+    <img
+      src="/posts/2026-10-15-opengist/image_06_hu_846df0f1c94d7d5a.jpg"
+      alt=""
+      width="486"
+      height="234"
+      loading="lazy"
+      decoding="async"
+    >
+
+  </picture>
+
+  
+
+  </figure>
+
+
+</p>
+<h2 id="-desactivar-el-acceso-git-mediante-ssh">◇ Desactivar el acceso Git mediante SSH</h2>
+<p>Otra de las cosas que también quería desactivar era el acceso a través de <strong>SSH</strong> que incorpora <strong>OpenGist</strong>. Para ello, podemos utilizar el archivo <code>config.yml</code>, que encontraréis dentro del <em>container</em>.</p>
+<p>Hay que cambiar la siguiente opción:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">ssh.git-enabled</span>: <span style="color:#ae81ff">builtin</span>
+</span></span></code></pre></div><p>Por esta otra:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">ssh.git-enabled</span>: <span style="color:#ae81ff">disabled</span>
+</span></span></code></pre></div><p>Aunque también lo hice a través del archivo <code>compose.yml</code>, de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">opengist</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">OG_SSH_GIT_ENABLED</span>: <span style="color:#ae81ff">disabled</span>
+</span></span></code></pre></div><p>Con ello, se desactiva el acceso Git mediante <strong>SSH</strong>.</p>
+<p>Recordad que, después de realizar esta modificación en el archivo de configuración, hay que reiniciar el contenedor para que los cambios se apliquen. Si se utiliza la variable de entorno en <code>compose.yml</code>, hay que recrear el contenedor para aplicar la nueva configuración.</p>
+<h2 id="-gestión-de-la-configuración-y-los-secretos">◇ Gestión de la configuración y los secretos</h2>
+<p>En cuanto a la gestión de la configuración, sé que existe la posibilidad de configurarlo todo a través del archivo <code>config.yml</code>. Sin embargo, como ya he comentado, no me parece adecuado guardar este tipo de información sensible dentro del <em>container</em>, porque puede pasar cualquier cosa y luego vienen los problemas.</p>
+<p>Así que he organizado toda la instalación de <strong>OpenGist</strong> de la siguiente manera:</p>
+<ul>
+<li><strong><code>compose.yml</code></strong>: imagen, redes, volúmenes, variables de entorno, comprobación de salud y etiquetas de Traefik.</li>
+<li><strong><code>config.yml</code></strong>: opciones avanzadas de <strong>OpenGist</strong> que necesiten configurarse mediante el archivo YAML.</li>
+<li><strong>Volumen persistente</strong>: datos y base de datos de <strong>OpenGist</strong>.</li>
+</ul>
+<p>No es necesario duplicar en <code>config.yml</code> los parámetros <em>OIDC</em> que ya se gestionan mediante las variables de entorno.</p>
+<h2 id="-resultado-final">◇ Resultado final</h2>
+<p>Después de las pruebas que he realizado, todo ha quedado de la siguiente manera:</p>
+<ul>
+<li>Acceder a OpenGist mediante HTTPS a través de Traefik.</li>
+<li>Utilizar PocketID como proveedor de autenticación.</li>
+<li>Disponer de una cuenta con acceso al panel <code>Admin</code>.</li>
+<li>Impedir la creación indiscriminada de nuevas cuentas.</li>
+<li>Deshabilitar el formulario de inicio de sesión local.</li>
+<li>Mantener los <em>gists</em> públicos accesibles sin iniciar sesión.</li>
+<li>Mantener los <em>gists</em> privados protegidos por autenticación y autorización.</li>
+<li>Desactivar el acceso Git por SSH.</li>
+<li>Gestionar el despliegue y los secretos mediante <strong>Dockge</strong>.</li>
+</ul>
+<h2 id="-conclusión">◇ Conclusión</h2>
+<p>Con este ultimo punto, damos por concluido este artículo, en el que, como podéis ver, he conseguido tener mi propio <strong>OpenGist</strong> en mi servidor.</p>
+<p>Como veis, he estado muy ocupado últimamente, y más que lo voy a estar, porque tengo pensadas muchas modificaciones en mi VPS. Algunas se basan en aplicaciones de <strong>atareao</strong>, como he comentado al principio. Ya os ire comentado como me van.</p>
+<p>Espero que todo esto le sirva a alguien. La esperanza es lo último que se pierde&hellip;</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://atareao.es/podcast/la-alternativa-a-watchtower-para-docker">La alternativa a WatchTower para Docker</a></li>
+<li><a href="https://opengist.io">OpenGist</a></li>
+<li><a href="https://atareao.es/podcast/gist-y-pastebin-autoalojados">Gist y Pastebin autoalojados</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+  
+  <p class="footer-right">
+    <a href="/licence/">licencia</a>
+  </p>
+  
+</footer>
+
+</body>
+</html>
