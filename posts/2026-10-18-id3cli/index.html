@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+
+ID3CLI. Gracias Atareao 👏 · Si lo haces, hazlo bien!
+
+</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-10-18-id3cli/">
+
+
+
+
+
+
+<meta name="description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
+
+
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+
+<meta property="og:title" content="ID3CLI. Gracias Atareao 👏 · Si lo haces, hazlo bien!">
+<meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-10-18-id3cli/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
+
+
+<meta property="og:type" content="article">
+
+
+<meta property="article:published_time" content="2026-10-18T00:00:00&#43;02:00">
+
+
+
+
+<meta property="article:tag" content="Podman">
+
+<meta property="article:tag" content="bash">
+
+<meta property="article:tag" content="systemd">
+
+<meta property="article:tag" content="podcast">
+
+<meta property="article:tag" content="ntfy">
+
+
+
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ID3CLI. Gracias Atareao 👏 · Si lo haces, hazlo bien!">
+<meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="6608b7e7-8981-44c1-965f-4266bfc3bab5">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/index.xml">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">ID3CLI. Gracias Atareao 👏</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-10-18">
+        2026-10-18
+      </time>
+      · 10 min
+      
+      
+        · <a class="p-category" href="/categories/self-hosting/">@Self-Hosting</a>
+      
+
+      
+        ·
+        <a href="/tags/podman/">#Podman</a> <a href="/tags/bash/">#bash</a> <a href="/tags/systemd/">#systemd</a> <a href="/tags/podcast/">#podcast</a> <a href="/tags/ntfy/">#ntfy</a>
+      
+
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Hay aplicaciones que descubres casi por casualidad y que terminan convirtiéndose en una pieza importante de tu flujo de trabajo. Eso es precisamente lo que me ha pasado con <strong>id3cli</strong>, una aplicación creada por <a href="https://atareao.es">atareao</a> que me ha permitido simplificar el manejo y la conservación de los podcasts que <a href="/posts/2024-10-21-podcast-escucho">sigo</a>.</p>
+<p>Todo empezó con una necesidad bastante concreta: gestionar los metadatos de los archivos que descargo con <strong>Flexget</strong> sin tener que depender de aplicaciones con más requisitos de los que realmente necesito. Lo que no esperaba era que, a partir de ahí, terminaría probando nuevas funciones, encontrándome con algún que otro muro y hasta montando un sistema para automatizar las actualizaciones.</p>
+<p>Así que, en este artículo, os voy a contar todo el proceso, incluidos los problemas que me he encontrado por el camino y cómo he conseguido resolverlos.</p>
+<p>Y, por supuesto, este artículo también es una forma de dar las gracias a <strong>atareao</strong> por su trabajo y por compartir sus conocimientos con todos nosotros. Al final, cuando una aplicación te facilita tanto las cosas, lo mínimo que puedes hacer es contarlo. 😁</p>
+<h2 id="-de-flexget-a-ffmpeg-el-punto-de-partida">◇ De Flexget a ffmpeg: el punto de partida</h2>
+<p>Como ya expliqué en este <a href="/posts/2021-05-30-flexget-podcast">artículo</a>, utilizo <a href="https://flexget.com">Flexget</a> para descargar automáticamente los podcasts que más me gustan y que quiero volver a escuchar más adelante. Normalmente, son los que tienen que ver con la historia.</p>
+<p>En este otro <a href="/posts/2021-06-07-flexget-podcast-annexo">artículo</a> expliqué qué hacía después con los archivos descargados: los renombraba y organizaba correctamente, incluyendo la fecha, el autor, el título y demás información.</p>
+<p>Para ello utilizaba <a href="https://eyed3.readthedocs.io/en/latest">Eyed3</a>, una aplicación escrita en <strong>Python</strong>. El problema era que, además de mantener el propio contenedor, tenía que estar pendiente de las actualizaciones de la aplicación y de sus dependencias. Al final, algo que debería ser sencillo acababa complicando un poco más de la cuenta el mantenimiento.</p>
+<p>Así que, cuando descubrí el <a href="https://atareao.es/podcast/automatizacion-total-etiqueta-tus-mp3-desde-la-terminal-como-un-profesional">artículo</a> de <strong>atareao</strong> sobre la automatización del etiquetado de archivos MP3, empecé a replantearme mi forma de trabajar. La idea era encontrar una alternativa que necesitara menos mantenimiento y que pudiera utilizar en cualquier distribución de GNU/Linux, incluida <strong>Alpine Linux</strong>.</p>
+<p>Y ahí apareció <strong>ffmpeg</strong>.</p>
+<p>Con esta herramienta me preparé el siguiente <a href="https://gist.ahnenerbe.duckdns.org/vsantos/ebe2a8cb24ba4201b66d2767f5cb2552">script</a>, que integré con <strong>Flexget</strong> para que, una vez terminada la descarga, se ejecutara automáticamente, dejara el archivo preparado y actualizara el feed.</p>
+<p>Pero el artículo de <strong>atareao</strong> seguía rondándome por la cabeza. Él también se había encontrado con una necesidad similar y había creado una aplicación en <em>Rust</em> para resolverla. Y eso me hizo pensar que quizá todavía podía mejorar un poco más mi sistema.</p>
+<h2 id="-probando-id3cli">◇ Probando id3cli</h2>
+<p>Asi que me decidi probar la aplicación que habia creado <strong>atareao</strong>. Y esa aplicación, no era otra que <a href="https://github.com/atareao/id3cli">id3cli</a>.</p>
+<p>Se que no se puede ser muy exigente, cuando alguien hace una aplicación de manera altruista, pero, creo que si a esa persona, le das feedback sobre la aplicación que acaba de crear, ve que hay más gente que la usa. Y una de esas personas era yo, porque la aplicación, como ya he dicho, tiene mucho potencial, pero faltaba pulirla un poco. Y ese algo, era poder eliminar todos los <em>tags</em> del archivo <strong>mp3</strong>.</p>
+<p>En mi caso y por mi uso, solamente utilizo estos <strong>tags</strong>:</p>
+<ul>
+<li><em>Album</em></li>
+<li><em>Artist</em></li>
+<li><em>Title</em></li>
+<li><em>Genre</em></li>
+<li><em>Year</em></li>
+</ul>
+<p>Asi que le comente a <strong>atareao</strong> que en vez de permitir borrar los 4 <em>tags</em> de siempre, podria hacer un nuevo parametro con el que poder <strong>eliminar todos los tags</strong> del archivo. Nunca se sabe, a alguien más a parte de a mi le puede servir.</p>
+<p>Tengo que decir que lo recibio con ilusión, porque, primero tenia sentido la petición, y segundo, porque veia que alguien más utiliza; yo al menos asi me sentiria.</p>
+<p>Realizo las modifiaciones oportunas y saco una nueva versión, pero se quedo a medias. En mi caso, queria eliminar todos los <strong>tags</strong>, no solo los más importantes; perdona <strong>atareao</strong> por pedir, pero creo, que con ello se mejoran las aplicaciones y las abres a más gente.</p>
+<h2 id="-el-primer-obstáculo-los-archivos-m4a">◇ El primer obstáculo: los archivos M4A</h2>
+<p>Mientras iba utilizando la aplicación, veia que cada vez me gustaba más, porque simplificaba mucho todo lo que habia automatizado en el <em>container</em> de <strong>Flexget</strong> y que resultaria más facil el mantenimiento del mismo, pero 🤯 me encontre con el mayor de los problemas y no sabia si iba a tener solución 😭.</p>
+<p>En mi caso, no solo tengo archivos <strong>mp3</strong>, sino que tambien tengo archivos <strong>m4a</strong>, haciendo que la aplicación no funcionase, porque solamente estaba preparada para los archivos <strong>mp3</strong>.</p>
+<p>Le volvi a escribirle explicando el problema que me habia encontrado y preguntando si habia solución o si tenia pensado implementar, también, la edición de los archivos <strong>m4a</strong> y la respuesta que me dio, fue la mejor que podia haberme dado 🥳</p>
+<blockquote>
+<p>Pues me pillas en el mejor momento, porque estoy haciendo algunas modificaciones</p>
+</blockquote>
+<p>Os podeis imaginar como me quede, <strong>atareao</strong> iba a implementar el soporte para archivos <strong>m4a</strong>. Eso iba a hacer que la aplicación si ya era buena de por si, ahora seria la mejor.</p>
+<h2 id="-id3cli-también-funciona-con-m4a">◇ id3cli también funciona con M4A</h2>
+<p>Después del ultimo mensaje que me envio <strong>atareao</strong> me quede atonito y más que me quede, cuando en la versión <strong>0.6.0</strong> ya incorporaba esta mejora. Asi que me puse a probarla, pero eso si, primero en local, no sea que&hellip;</p>
+<p>Y tengo que decir que todo funciono perfectamente. Tanto los archivos <strong>mp3</strong> como los archivos <strong>m4a</strong> los podia editar con la aplicación que habia creado <strong>atareao</strong>. Que más se podia pedir.</p>
+<p>Para que os hagais una idea, a traves de estas simples instrucciones:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>user@archlinux:~$ ./id3cli remove --all This_Is_My_M4A_Music.m4a <span style="color:#f92672">&amp;&amp;</span> ./id3cli edit --title <span style="color:#e6db74">&#34;This_Is_My_M4A_Music&#34;</span> --artist <span style="color:#e6db74">&#34;Varios&#34;</span> --genre <span style="color:#e6db74">&#34;Trance&#34;</span> --album <span style="color:#e6db74">&#34;Varios&#34;</span> --track <span style="color:#ae81ff">1</span> --year <span style="color:#ae81ff">2025</span> --cover folder.jpg This_Is_My_M4A_Music.m4a
+</span></span></code></pre></div><p>Podia:</p>
+<ul>
+<li><strong><code>remove</code></strong> eliminar todos los tags del archivo, tanto <strong>mp3</strong> como <strong>m4a</strong></li>
+<li><strong><code>edit</code></strong> editar todos los tags del archivo</li>
+<li><strong><code>cover</code></strong> añadir la caratula al archivo.</li>
+</ul>
+<blockquote>
+<p><strong>Nota</strong>:</p>
+<p>Después ha sacado más versiones, ahora estamos en la versión <strong>0.10</strong>. Y tengo que decir que tambien ha incorporado soporte para archivos <strong>ogg</strong>. Que más se puede pedir.</p>
+</blockquote>
+<h2 id="-alpine-linux-un-nuevo-obstáculo">◇ Alpine Linux: un nuevo obstáculo</h2>
+<p>Pero lo que si me paso fue un problema que no sabia si tendria solución.</p>
+<p>El container donde queria utilizar <code>id3cli</code> es un poco especial. Cuando me refiero a especial, me refiero a que la base no es <strong>GNU/Debian</strong> ni <strong>Ubuntu</strong>, sino que es <strong>Alpine Linux</strong>, con lo que <code>id3cli</code> no funciona correctamente, por no decir nada. Asi que a ver ahora, como lidiaba con este problema 😥.</p>
+<p>Ahora que todo funcionaba correctamente, tenia el problema que no podia utilizarlo porque el container de <strong>Flexget</strong> usa <strong>Alpine</strong>.</p>
+<p>Todo viene, porque <code>id3cli</code> es un binario compilado en Rust con glibc; <strong>atareao</strong> esto no es culpa tuya, que quede claro.</p>
+<p>El container de <strong>Flexget</strong> usa <strong>Alpine Linux</strong>, que utiliza <strong>musl</strong> en lugar de glibc. Esto provoca que al intentar ejecutar el binario descargado directamente aparezca el error:</p>
+<pre tabindex="0"><code>./id3cli: not found
+</code></pre><p>Aunque el archivo existe físicamente. El sistema operativo (del container) no encuentra el intérprete dinámico que necesita.</p>
+<h2 id="-compilar-id3cli-para-alpine-linux">◇ Compilar id3cli para Alpine Linux</h2>
+<p>Al final, gracias a la <em>IA</em> encontre la solución al problema. Y no es otra, que, porque no compilo yo mismo el binario, pero para <strong>Alpine Linux</strong> con el target <code>x86_64-unknown-linux-musl</code>, que genera un binario <strong>estático</strong> sin dependencias externas, compatible con <strong>Alpine Linux</strong>.</p>
+<p>Pero claro, no queria instalar <strong>Rust</strong> en mi VPS. Se podria hacer todo el proceso desde un contenedor?? Y la respuesta fue que si; a traves del container <strong>Rust/Alpine</strong>. El procedimiento seria el siguiente:</p>
+<ul>
+<li>Compilar el binario dentro del container.</li>
+<li>Dejar el binario en un directorio, por ejemplo en el <code>/tmp</code> del host.</li>
+</ul>
+<p>Todo esto se podia hacer a traves del siguiente comando de <strong>Podman</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>podman run --rm <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -v /tmp:/output <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  rust:alpine <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  sh -c <span style="color:#e6db74">&#34;apk add --no-cache git musl-dev &amp;&amp; \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         git clone https://github.com/atareao/id3cli.git /src &amp;&amp; \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         cd /src &amp;&amp; \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         cargo build --release --target x86_64-unknown-linux-musl &amp;&amp; \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         cp target/x86_64-unknown-linux-musl/release/id3cli /output/&#34;</span>
+</span></span></code></pre></div><p>Una vez terminado, el binario está en <code>/tmp/id3cli</code> en el host. Se mueve a la carpeta de <strong>Flexget</strong> y ya es accesible desde dentro del contenedor.</p>
+<h3 id="-como-funciona">◈ Como funciona</h3>
+<ul>
+<li><code>--rm</code> elimina el contenedor temporal al terminar</li>
+<li><code>-v /tmp:/output</code> monta <code>/tmp</code> del host como <code>/output</code> dentro del contenedor, donde deja el binario compilado</li>
+<li>El target <code>musl</code> produce un binario estático que no depende de ninguna librería del sistema</li>
+<li>La imagen <code>rust:alpine</code> se elimina después con <code>podman rmi rust:alpine</code></li>
+</ul>
+<p>Ya lo tenemos todo preparado para que cada vez que <strong>atareao</strong> haga una actualización de la aplicación, yo solamente tengo que ejecutar esta simple instrucción, después eliminar el container y tengo a mi disposición la nueva versión de la aplicación, pero para funcionar en <strong>Alpine Linux</strong>.</p>
+<p>Pero todo el mundo sabe que los informaticos somos unos vagos y que no nos gusta trabajar más de la cuenta o no 😆</p>
+<h2 id="-automatizando-las-actualizaciones-de-id3cli">◇ Automatizando las actualizaciones de id3cli</h2>
+<p>Entonces, pense, porque no automatizar la actualización de la aplicación? Tiene que ser facil de hacer no? Asi que volvi a tirar de IA para crear el script que haga esto mismo y que además me avise cuando se actualize.</p>
+<h3 id="-check_id3clish">◈ <code>check_id3cli.sh</code></h3>
+<p>El script que podeis encontrar <a href="https://gist.ahnenerbe.duckdns.org/vsantos/ad201a32e1734751bd3c6ba8a75083be">aqui</a> se puede resumir donde se pueden destacar los <strong>siguientes puntos</strong>:</p>
+<ul>
+<li><code>VERSION_FILE</code> guarda la versión instalada para evitar compilaciones innecesarias.</li>
+<li>La compilación se hace dentro del container <code>rust:alpine</code> temporal (<code>--rm</code> lo elimina al terminar).</li>
+<li><code>podman rmi rust:alpine</code> elimina la imagen una vez compilado, tanto si todo ha ido bien como si ha fallado.</li>
+<li><a href="/posts/2026-06-24-usando-ntfy-1">NTFY</a> lo usamos para enviar las notificaciones.</li>
+<li><code>|| true</code> en las llamadas secundarias evita que el script se detenga por errores no críticos.</li>
+</ul>
+<p>En pocas palabras, <em>el script hace cuatro cosas siguiendo este orden</em>:</p>
+<ul>
+<li>Comprueba si hay versión nueva</li>
+<li>Compila el binario</li>
+<li>Lo instala.</li>
+<li>Elimina la imagen temporal.</li>
+</ul>
+<p>Ya tenemos el script y ahora como lo hacemos funcionar 🤔</p>
+<h2 id="-configurando-el-servicio-y-el-timer">◇ Configurando el servicio y el timer</h2>
+<p>Pues a traves de nuestro querido <strong>timer</strong> de <strong>systemd</strong> y que muy amablemente <strong>atareao</strong> nos ha explicado en este interesante <a href="https://atareao.es/tutorial/scripts-en-bash/automatizacion-con-cron-y-systemd">articulo</a> y por eso mismo, en vez de usar <strong>cron</strong>, voy a usar el <strong>timer</strong> de usuario de <strong>systemd</strong>.</p>
+<p>Las ventajas, las podeis leer más detalladamente en el articulo de <strong>atareao</strong>, pero un resumen de estas serian:</p>
+<ul>
+<li>Los logs van directamente a <code>journalctl</code></li>
+<li>Con <code>Persistent=true</code> se ejecuta en el próximo arranque si el equipo estaba apagado a la hora programada.</li>
+</ul>
+<h3 id="-los-ficheros-que-vamos-a-utilizar">◈ Los ficheros que vamos a utilizar</h3>
+<p>Como sabemos, para tener un <strong>timer</strong> en <strong>systemd</strong>, necesitaremos 2 ficheros que estaran ubicados en <code>~/.config/systemd/user/</code> y que son:</p>
+<p><strong><code>check-id3cli.service</code></strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Comprueba y actualiza id3cli</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Type</span><span style="color:#f92672">=</span><span style="color:#e6db74">oneshot</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/home/user/.config/flexget/check_id3cli.sh</span>
+</span></span></code></pre></div><p><strong><code>check-id3cli.timer</code></strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Comprueba id3cli semanalmente</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Timer]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">OnCalendar</span><span style="color:#f92672">=</span><span style="color:#e6db74">weekly</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Persistent</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Install]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">timers.target</span>
+</span></span></code></pre></div><p><code>OnCalendar=weekly</code> equivale a cada lunes a las 00:00.</p>
+<h2 id="-activar-y-comprobar-el-timer">◇ Activar y comprobar el timer</h2>
+<p><strong>Activación inicial:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@ubuntu:~$ systemctl --user daemon-reload
+</span></span><span style="display:flex;"><span>user@ubuntu:~$ systemctl --user enable --now check-id3cli.timer
+</span></span></code></pre></div><p><strong>Ejecución manual</strong> (para probar o forzar una comprobación):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@ubuntu:~$ systemctl --user start check-id3cli.service
+</span></span></code></pre></div><p><strong>Consultar los logs:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@ubuntu:~$ journalctl --user -u check-id3cli.service
+</span></span></code></pre></div><p><strong>Ver cuándo se ejecutará la próxima vez:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@ubuntu:~$ systemctl --user status check-id3cli.timer
+</span></span></code></pre></div><h2 id="-conclusión">◇ Conclusión</h2>
+<p>Con este sistema, <code>id3cli</code> se mantiene actualizado sin intervención manual. El timer se ejecuta cada semana, compila el binario solo si hay versión nueva y avisa via <strong>Ntfy</strong> con el estado del proceso. Si el equipo estaba apagado en el momento programado, <code>Persistent=true</code> garantiza que se ejecutará en el próximo arranque.</p>
+<p>El binario resultante es estático y no tiene dependencias externas, de manera que funciona directamente en cualquier contenedor <strong>Alpine Linux</strong> sin dependencias adicionales.</p>
+<p>Con esto, hemos acabado este extenso articulo, lo siento, pero pensaba que no lo seria, pero que es como resultado, de la increible aplicació de <strong>atareao</strong>.</p>
+<h2 id="-gracias-atareao">◇ Gracias, atareao</h2>
+<p>Si habéis llegado hasta aquí, ya os habréis dado cuenta de que he mencionado a <strong>atareao</strong> unas cuantas veces. Y no es para menos.</p>
+<p>Su aplicación <strong>id3cli</strong> me ha permitido simplificar una parte de mi flujo de trabajo que llevaba tiempo queriendo mejorar. Pero, además, durante este proceso he podido compartir con él los problemas que me he encontrado y ver cómo la aplicación iba evolucionando para incorporar nuevas mejoras.</p>
+<p>Por eso, creo que también es importante contar estas experiencias. Detrás de cada aplicación hay un trabajo que muchas veces no vemos, y cuando alguien comparte lo que hace, prueba su herramienta y aporta sugerencias, también está contribuyendo, a su manera, a que siga mejorando.</p>
+<p>Así que, <strong>muchas gracias, atareao, por el trabajo que haces, por compartir tus conocimientos y por dedicar tu tiempo a crear herramientas que nos facilitan la vida a los demás</strong>.</p>
+<p>Es un trabajo que no tiene precio. ¡Muchas gracias! 👏</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://atareao.es/podcast/automatizacion-total-etiqueta-tus-mp3-desde-la-terminal-como-un-profesional">Automatización Total. Etiqueta tus MP3 como un profesional</a></li>
+<li><a href="https://flexget.com">Flexget</a></li>
+<li><a href="https://github.com/atareao/id3cli">Id3Cli</a></li>
+<li><a href="https://atareao.es/tutorial/scripts-en-bash/automatizacion-con-cron-y-systemd">Automatización con Cron y Systemd</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+  
+  <p class="footer-right">
+    <a href="/licence/">licencia</a>
+  </p>
+  
+</footer>
+
+</body>
+</html>
