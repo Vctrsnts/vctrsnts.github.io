@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+
+Probando la IA en local: expectativas y realidad · Si lo haces, hazlo bien!
+
+</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-10-24-mi-propia-ia/">
+
+
+
+
+
+
+<meta name="description" content="Aqui vamos a explicar como construi mi propia IA y al final la opinión que tengo de ella.">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
+
+
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+
+<meta property="og:title" content="Probando la IA en local: expectativas y realidad · Si lo haces, hazlo bien!">
+<meta property="og:description" content="Aqui vamos a explicar como construi mi propia IA y al final la opinión que tengo de ella.">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-10-24-mi-propia-ia/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
+
+
+<meta property="og:type" content="article">
+
+
+<meta property="article:published_time" content="2026-10-24T00:00:00&#43;02:00">
+
+
+
+
+<meta property="article:tag" content="unraid">
+
+<meta property="article:tag" content="docker">
+
+<meta property="article:tag" content="ia">
+
+<meta property="article:tag" content="hardware">
+
+
+
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Probando la IA en local: expectativas y realidad · Si lo haces, hazlo bien!">
+<meta name="twitter:description" content="Aqui vamos a explicar como construi mi propia IA y al final la opinión que tengo de ella.">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.jpg">
+
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="6608b7e7-8981-44c1-965f-4266bfc3bab5">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/index.xml">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Probando la IA en local: expectativas y realidad</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-10-24">
+        2026-10-24
+      </time>
+      · 10 min
+      
+      
+        · <a class="p-category" href="/categories/self-hosting/">@Self-Hosting</a>
+      
+
+      
+        ·
+        <a href="/tags/unraid/">#unraid</a> <a href="/tags/docker/">#docker</a> <a href="/tags/ia/">#ia</a> <a href="/tags/hardware/">#hardware</a>
+      
+
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Después de leer este <a href="https://atareao.es/podcast/no-necesitas-una-gpu-de-3000e-para-ia-local">artículo de atareao</a>, en el que explica que no hace falta tener una <strong>GPU</strong> de 3000 € para utilizar tu propia <strong>IA</strong> en local y que, con ciertas limitaciones, puedes sacarle un buen partido, me entraron ganas de investigar el tema y ver qué podía conseguir con mi propio servidor.</p>
+<p>Lo más importante era tener en cuenta el hardware del que disponía y cómo quería montarlo: en mi <a href="/posts/2025-04-20-modificaciones-servidor-3">servidor</a>, que está funcionando con <strong>unRAID</strong> y tiene el siguiente hardware:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><strong>Hardware</strong></th>
+          <th style="text-align: left"><strong>Marca / Modelo</strong></th>
+          <th style="text-align: right"><strong>Capacidad</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">CPU</td>
+          <td style="text-align: left">Intel Xeon E-2286M</td>
+          <td style="text-align: right">—</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">RAM</td>
+          <td style="text-align: left">—</td>
+          <td style="text-align: right">32 GB</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Almacenamiento</td>
+          <td style="text-align: left">Toshiba MG09</td>
+          <td style="text-align: right">18 TB</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Almacenamiento</td>
+          <td style="text-align: left">Seagate Exos X20</td>
+          <td style="text-align: right">12 TB</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Almacenamiento</td>
+          <td style="text-align: left">Seagate IronWolf</td>
+          <td style="text-align: right">16 TB</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Almacenamiento</td>
+          <td style="text-align: left">Western Digital Ultrastar</td>
+          <td style="text-align: right">16 TB</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Almacenamiento</td>
+          <td style="text-align: left">Western Digital Caviar</td>
+          <td style="text-align: right">1 TB</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Almacenamiento</td>
+          <td style="text-align: left">Western Digital NVMe</td>
+          <td style="text-align: right">4 TB</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Almacenamiento</td>
+          <td style="text-align: left">Samsung SSD 860 EVO</td>
+          <td style="text-align: right">250 GB</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p><strong>Nota:</strong></p>
+<p>Este último SSD es el que voy a utilizar para todo lo relacionado con la <strong>IA</strong>, porque así gano velocidad frente a si lo pongo en un HDD mecánico.</p>
+</blockquote>
+<p>Así que, viendo el hardware que tenía, pensaba que podría tener una <strong>IA</strong> un poco decente. No una bestia parda, pero sí algo que me pudiera ayudar a corregir los artículos que voy creando para mi blog o a preparar los pequeños scripts en <code>Bash</code> o <code>Python</code> que utilizo. No la quería para nada más. Si necesitaba algo más serio, ya recurriría a <strong>IA</strong> externas, como hago normalmente.</p>
+<p>Yo sé que <em>no puedo pedirle peras al olmo</em>, porque mi equipo da para lo que da, pero al menos algo mínimamente decente sí que me gustaria tener. Pobre iluso de mí.</p>
+<h2 id="-preparando-el-entorno">◇ Preparando el entorno</h2>
+<p>Para empezar, lo más importante era tener un buen <code>compose.yml</code> para definir todo lo que iba a necesitar. En mi caso, utilizaría lo siguiente:</p>
+<ul>
+<li><strong><a href="https://ollama.com">Ollama</a></strong>: para gestionar los modelos de lenguaje.</li>
+<li><strong><a href="https://openwebui.com">Open-WebUI</a></strong>: para utilizar esos modelos de lenguaje.</li>
+</ul>
+<h3 id="-el-archivo-composeyml">◈ El archivo <code>compose.yml</code></h3>
+<p>Aquí podéis ver el <code>compose.yml</code> que iba a utilizar. También podéis encontrarlo <a href="https://gist.ahnenerbe.duckdns.org/vsantos/aaed9e3044124cc29dd97d40eadbbeb8">aquí</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>  <span style="color:#f92672">ollama</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">ollama/ollama:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">ollama</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">ollama</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ia-local</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># API REST de Ollama</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;11434:11434&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Persistencia de modelos descargados</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/mnt/user/lab-ia/modelos:/root/.ollama</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Mantener el modelo en memoria para respuestas más rápidas</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">OLLAMA_KEEP_ALIVE=5m</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Número máximo de modelos cargados simultáneamente</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">OLLAMA_NUM_PARALLEL=1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Límite de contexto (ventana de tokens)</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">OLLAMA_CONTEXT_LENGTH=8192</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>: <span style="color:#ae81ff">kill -0 1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">60s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">start_period</span>: <span style="color:#ae81ff">120s</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># ---------------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Open WebUI — Interfaz gráfica para chatear con modelos</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># ---------------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">open-webui</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">ghcr.io/open-webui/open-webui:main</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">open-webui</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ia-local</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Interfaz web</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;3000:8080&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ollama</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_healthy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Persistencia de conversaciones, configuraciones, archivos subidos</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/mnt/user/lab-ia/open-webui:/app/backend/data</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># URL del servicio Ollama (nombre del contenedor, no localhost)</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">OLLAMA_BASE_URL=http://ollama:11434</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Tiempo máximo de espera para respuestas largas</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">WEBUI_TIMEOUT=300</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Descomenta para requerir autenticación:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># - WEBUI_AUTH=true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>: [<span style="color:#e6db74">&#34;CMD&#34;</span>, <span style="color:#e6db74">&#34;curl&#34;</span>, <span style="color:#e6db74">&#34;-f&#34;</span>, <span style="color:#e6db74">&#34;http://localhost:8080/health&#34;</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">30s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">10s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">start_period</span>: <span style="color:#ae81ff">60s</span>
+</span></span></code></pre></div><p>Una vez que tenemos todo preparado, recordad que, en mi caso, estoy utilizando <strong>unRAID</strong>.</p>
+<h3 id="-cómo-quería-utilizarla">◈ Cómo quería utilizarla</h3>
+<p>El uso que quería darle a mi <strong>IA</strong> local era el siguiente:</p>
+<ul>
+<li>Crear un agente para corregir artículos.</li>
+<li>Crear un agente para generar pequeños scripts, tanto en <code>Bash</code> como en <code>Python</code>, para las pequeñas cosas que voy necesitando. Pero nada de <em>mega-scripts</em>.</li>
+</ul>
+<p>Pero claro, el consejo que veía en todos los sitios era que primero me asegurara de que todo funcionaba correctamente y que después ya pensara en los agentes. Como dice el refrán, <em>no construyas la casa por el tejado</em>.</p>
+<p>Y a eso que me fui.</p>
+<h2 id="-empezando-a-utilizar-mi-ia-local">◇ Empezando a utilizar mi IA local</h2>
+<p>Cuando tenemos todo en marcha —me refiero a <strong>Ollama</strong> y <strong>Open-WebUI</strong> funcionando—, antes de hacer nada más, lo primero es instalar nuestro primer <strong>LLM</strong>, o más conocido como <em>modelo de lenguaje</em>.</p>
+<p>Para tomar esta decisión, podéis consultar la tabla de <strong>atareao</strong>, donde hace un listado de las opciones que tenemos a nuestra disposición en función de la RAM disponible. A grandes rasgos, se podría resumir de la siguiente manera:</p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Modelo</strong></th>
+          <th style="text-align: right"><strong>Parámetros</strong></th>
+          <th style="text-align: right"><strong>Tamaño (Q4)</strong></th>
+          <th style="text-align: right"><strong>RAM mínima</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Phi-3.5-mini (Microsoft)</td>
+          <td style="text-align: right">3.8B</td>
+          <td style="text-align: right">~2.5 GB</td>
+          <td style="text-align: right">8 GB</td>
+      </tr>
+      <tr>
+          <td>Qwen2.5-Coder-1.5B (Alibaba)</td>
+          <td style="text-align: right">1.5B</td>
+          <td style="text-align: right">~1 GB</td>
+          <td style="text-align: right">8 GB</td>
+      </tr>
+      <tr>
+          <td>Llama 3.2 3B (Meta)</td>
+          <td style="text-align: right">3B</td>
+          <td style="text-align: right">~2 GB</td>
+          <td style="text-align: right">8-16 GB</td>
+      </tr>
+      <tr>
+          <td>Qwen2.5 7B (Alibaba)</td>
+          <td style="text-align: right">7B</td>
+          <td style="text-align: right">~4.5 GB</td>
+          <td style="text-align: right">16 GB</td>
+      </tr>
+      <tr>
+          <td>DeepSeek-Coder-V2-Lite</td>
+          <td style="text-align: right">16B</td>
+          <td style="text-align: right">~9 GB</td>
+          <td style="text-align: right">16 GB</td>
+      </tr>
+      <tr>
+          <td>Llama 3.1 8B (Meta)</td>
+          <td style="text-align: right">8B</td>
+          <td style="text-align: right">~5 GB</td>
+          <td style="text-align: right">16-32 GB</td>
+      </tr>
+  </tbody>
+</table>
+<p>Teniendo en cuenta esta tabla y la RAM de la que disponía (32 GB), decidí utilizar el modelo <strong>Qwen2.5 7B</strong>. Para instalarlo, basta con ejecutar esta sencilla instrucción desde la consola:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>user@unRAID:~#: docker exec -it ollama sh
+</span></span><span style="display:flex;"><span># ollama pull qwen2.5:7b
+</span></span></code></pre></div><p>Con esta sencilla instrucción ya tenemos nuestro primer modelo a nuestra disposición. Y, como consejo que también da <strong>atareao</strong>, y para comprobar que todo funciona correctamente, podemos hacer una consulta sencilla a nuestro modelo desde la consola:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span># ollama run qwen2.5:7b &#34;Hola. Como va todo&#34;
+</span></span></code></pre></div><p>Aquí fue donde tuve mi primera alegría, porque ves que funciona y que funciona muy bien. Eso sí, las primeras pruebas eran muy simples, del estilo <code>Hola. Como va todo</code>, cosas así. Y ves que te responde y, claro, es un subidón de energía: piensas que ya lo tienes, pero esto no es del todo cierto. 😒</p>
+<h3 id="-probando-open-webui">◈ Probando Open-WebUI</h3>
+<p>Una vez comprobado que mi propia <strong>IA</strong> funcionaba bien, di el siguiente paso: probar mi modelo con <strong>Open-WebUI</strong>. Y aquí fue donde me llevé mi primera sorpresa, porque la velocidad no era la misma que había visto y comprobado en la consola. 😢</p>
+<p>No entendía el motivo de semejante consumo con preguntas tan sencillas. Después de investigar bastante y hacer muchas consultas a <strong>IA</strong> externas, descubrí que el problema estaba en <strong>Open-WebUI</strong>. Además de realizar la consulta, añadía más información que también tenía que procesar la <strong>IA</strong>, con el consiguiente gasto de tokens.</p>
+<h3 id="-encontrando-la-solución">◈ Encontrando la solución</h3>
+<p>Como he dicho, al final encontré la solución, pero dependía directamente de <strong>Open-WebUI</strong>. Para acceder a las opciones que necesitaba, tenemos que ir a <code>Settings &gt; Models &gt; Advanced Params</code> y modificar estas dos opciones:</p>
+<ul>
+<li><strong><code>Function Calling</code></strong>: <code>Legacy</code></li>
+<li><strong><code>think (Ollama)</code></strong>: <code>Off</code></li>
+</ul>
+<p>Al modificarlas, el consumo de tokens se redujo una barbaridad. Por poner un ejemplo, con ambas opciones activadas, el consumo era el siguiente:</p>
+<ul>
+<li><strong>input_tokens</strong>: 3120 tokens</li>
+<li><strong>output_token</strong>: 4089 tokens</li>
+<li><strong>total_token</strong>: 7209 tokens</li>
+</ul>
+<p>Pero, al desactivar esas dos opciones, el consumo pasaba a ser el siguiente:</p>
+<ul>
+<li><strong>input_tokens</strong>: 3120 tokens</li>
+<li><strong>output_token</strong>: 258 tokens</li>
+<li><strong>total_token</strong>: 3378 tokens</li>
+</ul>
+<p>Podéis ver la diferencia con solo modificar estas dos opciones. Además, una consulta que antes tardaba entre <em>3 y 5 minutos</em> pasó a tardar entre <em>30 segundos y 1 minuto</em>.</p>
+<h2 id="-poniendo-a-prueba-la-ia">◇ Poniendo a prueba la IA</h2>
+<p>Después de solucionar este problema, tenía la sensación de que ya disponía de una <strong>IA</strong> a la que podía recurrir para hacer lo que necesitaba. Sé que no puedo pedirle mucho, pero entendía que para corregir mis artículos serviría.</p>
+<h3 id="-puliendo-el-prompt">◈ Puliendo el prompt</h3>
+<p>Lo importante era tener un <strong>prompt</strong> adecuado para obtener un buen resultado y, posteriormente, poder pasar a cosas mayores. Pero fue aquí donde me di de bruces con la cruda realidad.</p>
+<p>También recurrí a una <strong>IA</strong> externa para que me ayudara a preparar un <strong>prompt</strong> adaptado a mis necesidades. Y lo obtuvo, o eso creo. Utilicé este en concreto:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Eres un corrector y editor de textos en español.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Corrige el texto que te proporcione el usuario respetando su intención, personalidad, estilo y formato original.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## CORRIGE
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- Errores ortográficos, gramaticales y sintácticos.
+</span></span><span style="display:flex;"><span>- Errores de acentuación y puntuación.
+</span></span><span style="display:flex;"><span>- Problemas de concordancia y tiempos verbales.
+</span></span><span style="display:flex;"><span>- Tiempos verbales incorrectos, especialmente en narraciones en pasado.
+</span></span><span style="display:flex;"><span>- Confusión entre &#34;sino&#34; y &#34;si no&#34;, y entre &#34;si&#34; y &#34;sí&#34;.
+</span></span><span style="display:flex;"><span>- Construcción de frases incorrectas.
+</span></span><span style="display:flex;"><span>- Claridad únicamente cuando una frase sea confusa o difícil de entender.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## NO HAGAS
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- No reescribas frases correctas.
+</span></span><span style="display:flex;"><span>- No cambies la persona gramatical, el tono ni la voz narrativa del autor.
+</span></span><span style="display:flex;"><span>- No añadas ni elimines información.
+</span></span><span style="display:flex;"><span>- No cambies opiniones, ideas ni argumentos del autor.
+</span></span><span style="display:flex;"><span>- No reformules frases para que suenen más elegantes, naturales o profesionales.
+</span></span><span style="display:flex;"><span>- No modifiques código, comandos, rutas, URLs, nombres propios ni términos técnicos.
+</span></span><span style="display:flex;"><span>- No alteres la estructura visual del texto: párrafos, saltos de línea, listas, títulos.
+</span></span><span style="display:flex;"><span>- No modifiques enlaces Markdown ni su estructura.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## REGLA PRINCIPAL
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>La intervención debe ser mínima. Corrige solo los errores reales. Si una frase es correcta, déjala como está. Si dudas de que un cambio sea necesario, no lo hagas.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## RESPUESTA
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Devuelve únicamente el texto corregido, en el mismo formato Markdown del original, sin explicaciones, comentarios ni introducciones.
+</span></span></code></pre></div><p>Al principio, con textos cortos y algunas mejoras, iba obteniendo buenos resultados. Pero, cuando le pasaba el artículo completo, la cosa se descontrolaba de manera excesiva:</p>
+<ul>
+<li>Reescribía partes del texto.</li>
+<li>No corregía faltas.</li>
+<li>Cambiaba el sentido de algunas frases, dando lugar a errores, y así un largo etcétera&hellip;</li>
+</ul>
+<p>Siento decirlo, pero volví a recurrir a la <strong>IA</strong> externa para mejorar el prompt o para que me aconsejara un <strong>LLM</strong> diferente, teniendo en cuenta las limitaciones de mi hardware. Probé todos los habidos y por haber, incluso modelos de <strong>14B</strong>, con los que obtener la corrección del artículo tardaba seis minutos. Pero ni aun así conseguía evitar los errores que he mencionado antes.</p>
+<p>Incluso indicándole en el prompt los errores que no debía cometer, los cometía igualmente. Una desesperación total. 😭 Pensaba que iba a tener una <strong>IA</strong> que me serviría para cubrir esas pequeñas necesidades, pero al final no obtuve lo que buscaba.</p>
+<p>Como dice el refrán, <em>no es oro todo lo que reluce</em>.</p>
+<h2 id="-conclusión">◇ Conclusión</h2>
+<p>Al final, después de muchas consultas a <strong>IA</strong> externas, llegué a la conclusión de que, con el hardware del que disponía, no me permitía hacer lo que quería. El motivo era bastante sencillo y se resume fácilmente: necesitas una <strong>GPU</strong> sí o sí.</p>
+<p>Con la <strong>CPU</strong>, el resultado era muy decepcionante, ya fuera porque las respuestas eran demasiado lentas —hablamos de muchos minutos para obtener una respuesta que se pudiera considerar aceptable— o porque la calidad de las respuestas y la corrección de los artículos era muy deficiente. Al final, tendría que recurrir a una <strong>IA</strong> externa para comprobar que la corrección se había hecho correctamente. Así que&hellip;</p>
+<p>Pero lo que sí descubrí fue que existen <strong>LLM</strong> que puedes utilizar a través de <strong>Open-WebUI</strong> y que ofrecen un rendimiento muy aceptable para lo que yo queria hacer. Uno de ellos es <a href="https://console.groq.com/home">Groq</a>, que tiene un plan <strong>Free Tier</strong> con modelos como <strong>GPT OSS 120B</strong>. Para la tarea que necesito, funciona perfectamente. Y, como además se puede utilizar a través de <strong>Open-WebUI</strong>, ¿qué más se puede pedir?</p>
+<p>Ya sé que no es lo mismo que tener tu propia <strong>IA</strong> en local, pero es lo máximo a lo que puedo aspirar con los medios de los que dispongo.</p>
+<p>Eso sí, tengo que hacer una corrección: sí que tengo mi propia <strong>IA</strong>, pero utilizando el modelo <strong>qwen2.5-coder:7b</strong>, que se desenvuelve perfectamente a la hora de crear pequeños scripts tanto en <code>Bash</code> como en <code>Python</code>. Esta era una de las cosas para las que quería tener mi propia <strong>IA</strong>, así que, de momento, estoy contento. Me habría gustado tener mi propia <strong>IA</strong> en local y poder utilizarla con normalidad, pero, si no puede ser&hellip;</p>
+<h2 id="-reflexión-final">◇ Reflexión final</h2>
+<p>Como punto final a este artículo, quiero compartir la reflexión a la que he llegado después de las distintas pruebas, en las que he obtenido resultados tanto positivos como negativos, aunque más de estos últimos.</p>
+<p>La conclusión es que, si quieres tener tu propia <strong>IA</strong> en local y utilizarla con cierta fluidez, necesitas un equipo medianamente actualizado y potente, sobre todo en lo que respecta a la <strong>GPU</strong>. De lo contrario, puedes encontrarte con tiempos de espera demasiado largos o con resultados que no estén a la altura de lo que necesitas. Se requiere una potencia de procesamiento que, en estos momentos, depende en gran medida de disponer de una <strong>GPU</strong> adecuada y de la cual yo no dispongo.</p>
+<p>Nos vemos en el siguiente artículo, donde posiblemente explique la resurrección de una aplicación que tenía totalmente descartada, pero que ahora, en parte gracias a <strong>atareao</strong>, me ha vuelto a interesar porque posiblemente le pueda sacar mayor partido&hellip;</p>
+<p>Ya os mantendré informados&hellip;</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://atareao.es/podcast/no-necesitas-una-gpu-de-3000e-para-ia-local">No Necesitas una GPU de 3000€ para IA Local</a></li>
+<li><a href="https://ollama.com">Ollama</a></li>
+<li><a href="https://openwebui.com">Open-WebUI</a></li>
+<li><a href="https://console.groq.com/home">Groq</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+  
+  <p class="footer-right">
+    <a href="/licence/">licencia</a>
+  </p>
+  
+</footer>
+
+</body>
+</html>

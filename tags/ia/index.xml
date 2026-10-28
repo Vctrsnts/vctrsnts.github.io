@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ia on Si lo haces, hazlo bien!</title>
+    <link>https://vctrsnts.github.io/tags/ia/</link>
+    <description>Recent content in Ia on Si lo haces, hazlo bien!</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    
+    
+    
+    <lastBuildDate>Sat, 24 Oct 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://vctrsnts.github.io/tags/ia/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Probando la IA en local: expectativas y realidad</title>
+      <link>https://vctrsnts.github.io/posts/2026-10-24-mi-propia-ia/</link>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://vctrsnts.github.io/posts/2026-10-24-mi-propia-ia/</guid>
+      <description>&lt;p&gt;Después de leer este &lt;a href=&#34;https://atareao.es/podcast/no-necesitas-una-gpu-de-3000e-para-ia-local&#34;&gt;artículo de atareao&lt;/a&gt;, en el que explica que no hace falta tener una &lt;strong&gt;GPU&lt;/strong&gt; de 3000 € para utilizar tu propia &lt;strong&gt;IA&lt;/strong&gt; en local y que, con ciertas limitaciones, puedes sacarle un buen partido, me entraron ganas de investigar el tema y ver qué podía conseguir con mi propio servidor.&lt;/p&gt;&#xA;&lt;p&gt;Lo más importante era tener en cuenta el hardware del que disponía y cómo quería montarlo: en mi &lt;a href=&#34;https://vctrsnts.github.io/posts/2025-04-20-modificaciones-servidor-3&#34;&gt;servidor&lt;/a&gt;, que está funcionando con &lt;strong&gt;unRAID&lt;/strong&gt; y tiene el siguiente hardware:&lt;/p&gt;</description>
+      <category>unraid</category>
+      <category>docker</category>
+      <category>ia</category>
+      <category>hardware</category>
+    </item>
+    
+  </channel>
+</rss>
