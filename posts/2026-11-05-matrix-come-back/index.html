@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+
+Matrix: He vuelto 😁 · Si lo haces, hazlo bien!
+
+</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-11-05-matrix-come-back/">
+
+
+
+
+
+
+<meta name="description" content="Esto no es ntfy, no es Gotify, no es Pushbits, pero hablaremos de todos ellos antes de volver a Matrix">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
+
+
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<link rel="me" href="https://app.wafrn.net/blog/vctrsnts">
+
+
+
+
+<meta property="og:title" content="Matrix: He vuelto 😁 · Si lo haces, hazlo bien!">
+<meta property="og:description" content="Esto no es ntfy, no es Gotify, no es Pushbits, pero hablaremos de todos ellos antes de volver a Matrix">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-11-05-matrix-come-back/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
+
+
+<meta property="og:type" content="article">
+
+
+<meta property="article:published_time" content="2026-11-04T00:00:00&#43;01:00">
+
+
+
+
+<meta property="article:tag" content="Matrix">
+
+<meta property="article:tag" content="Ntfy">
+
+<meta property="article:tag" content="VPS">
+
+<meta property="article:tag" content="unraid">
+
+
+
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.png">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Matrix: He vuelto 😁 · Si lo haces, hazlo bien!">
+<meta name="twitter:description" content="Esto no es ntfy, no es Gotify, no es Pushbits, pero hablaremos de todos ellos antes de volver a Matrix">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.png">
+
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="6608b7e7-8981-44c1-965f-4266bfc3bab5">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍>_ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/index.xml">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Matrix: He vuelto 😁</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-11-04">
+        2026-11-04
+      </time>
+      · 6 min
+      
+      
+        · <a class="p-category" href="/categories/self-hosting/">@Self-Hosting</a>
+      
+
+      
+        ·
+        <a href="/tags/matrix/">#Matrix</a> <a href="/tags/ntfy/">#Ntfy</a> <a href="/tags/vps/">#VPS</a> <a href="/tags/unraid/">#unraid</a>
+      
+
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Este va a ser, y espero que así sea, un punto y final a mi periplo buscando un centro de notificaciones que me dé todo lo que necesito.</p>
+<p>En este <a href="/posts/2025-03-25-instal-config-matrix">artículo</a>, os empecé a hablar de mis pinitos con Matrix en mi VPS. Llegué a escribir cuatro artículos sobre el tema, pero al final, tal como explico en este otro <a href="/posts/2026-06-24-usando-ntfy-1">artículo</a>, lo cambié por el servicio NTFY, porque era más compatible con mi servidor unRAID a la hora de enviar las notificaciones. Y esto es algo importante para mí.</p>
+<h2 id="-introducción">◇ Introducción</h2>
+<p>No sé por qué, pero Matrix siempre me ha fascinado. Es uno de esos servicios a los que, de vez en cuando, se pasea por mi cabeza. Y si, además, le sumas que <a href="https://atareao.es/podcast/la-alternativa-a-watchtower-para-docker">atareao</a> está desarrollando una aplicación para sustituir a WatchTower, CUPS, etc., y que utilizará Matrix para enviar las notificaciones, pues ya tenía la excusa perfecta para volver a encender la llama de Matrix.</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Alloy, que es como se llama esta nueva aplicación, no me está funcionando del todo bien. Tengo que comentárselo a <strong>atareao</strong>.</p>
+</blockquote>
+<p>Pero esta vez quería empezar bien. Quería conocer las aplicaciones y configuraciones que utiliza el maestro, así que a eso me fui: de nuevo, a pedir ayuda a <strong>atareao</strong>, que muy amablemente me facilitó el <a href="https://gist.atareao.es/atareao/1808d8e58d424f6c9105ae04b79538de">compose</a> que estaba utilizando para su servicio de Matrix.</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Sí, digo que estaba utilizando, porque hace pocos días me dejó caer que estaba empezando a dejar de usar Matrix para pasarse a otro servicio que, por lo visto, está implementando.</p>
+<p><strong>atareao</strong>, ¡me tienes en un sinvivir! 🫣 Así no podemos continuar. El público no puede seguirte el ritmo.</p>
+</blockquote>
+<p>Después de esta pequeña berborrea de presentación, vamos directamente al <em>rovell de l&rsquo;ou</em>. Al tema importante: mi instalación, configuración y los usos que le estoy dando a Matrix, que os explicaré a continuación.</p>
+<h2 id="-instalación-y-configuración">◇ Instalación y configuración</h2>
+<p>Lo primero y más importante es el <code>compose</code> que estoy utilizando actualmente, que podéis encontrar <a href="https://gist.ahnenerbe.duckdns.org/vsantos/7582e1ade0214ac8a4bb2e1da43dc8a5">aquí</a>. Es muy parecido al que comparte <strong>atareao</strong>, aunque tiene algunas pequeñas diferencias que os detallo a continuación:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#75715e"># El único cambio es que, por defecto, tengo desactivada la opción de permitir el registro de más usuarios.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># La activo para dar de alta los usuarios que voy a utilizar y después la desactivo por seguridad.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># También he configurado el icono que se añade a los nuevos usuarios, que en mi caso es tux.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">CONTINUWUITY_ALLOW_REGISTRATION</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">CONTINUWUITY_ALLOW_FEDERATION</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">CONTINUWUITY_ALLOW_CHECK_FOR_UPDATES</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">CONTINUWUITY_NEW_USER_DISPLAYNAME_SUFFIX</span>: <span style="color:#e6db74">&#34; 🐧&#34;</span>
+</span></span></code></pre></div><p>Aparte de estos cambios, el resto es exactamente igual.</p>
+<p>Como habéis podido observar, en el mismo <code>compose</code> también está el cliente que voy a utilizar, que no es otro que nuestro querido Element, por ser uno de los más compatibles con Matrix. Además, si os fijáis, ya no utilizo Conduit, como hacía anteriormente, sino un fork llamado Continuwuity, ya que Conduit parece estar abandonado. Y si, además, lo está utilizando <strong>atareao</strong>, malo no tiene que ser</p>
+<p>Una vez preparado el <code>compose</code>, solo hace falta desplegarlo desde Dockge y ya tengo mi nuevo servicio de Matrix en funcionamiento. Pero tenía claro que, como mínimo, necesitaba dos usuarios para que todo funcionara: uno que sería el administrador del sistema y otro, el usuario que disfrutaría del servicio. Pero aquí añadí una cosa más: creé un tercer usuario, que sería el encargado de enviar los mensajes. Es decir, un usuario <strong>bot</strong>.</p>
+<p>Con esto ya tenía instalado y configurado mi servidor de Matrix. Ahora me quedaba definir qué usos quería darle y qué salas iba a necesitar. Y aquí es donde entraba en juego unRAID, ya que quería que también pudiera enviar notificaciones a Matrix y así darle un uso más práctico.</p>
+<h2 id="-integración-de-matrix-con-unraid">◇ Integración de Matrix con unRAID</h2>
+<p>El problema estaba en cómo integrar Matrix con unRAID. Tampoco quería volver a utilizar <a href="/posts/2025-03-27-pushbits">Pushbits</a>, como había hecho anteriormente, porque su funcionamiento no acababa de convencerme. De hecho, este fue uno de los motivos que me llevaron a abandonar Matrix.</p>
+<p>Me puse a investigar para ver si la integración había mejorado y tengo que decir que sí. Encontré un <strong>plugin</strong>, una aplicación propia de unRAID, que facilita esta tarea sin necesidad de recurrir a ninguna aplicación externa. Y esa aplicación no es otra que Apprise-Go, que me ha sorprendido gratamente.</p>
+<h2 id="-instalación-y-configuración-de-apprise-go">◇ Instalación y configuración de Apprise-Go</h2>
+<p>Esta es, probablemente, la parte más sencilla de todo el proceso. Lo único que tienes que hacer es buscar la aplicación en <strong>Applications</strong>, dentro de unRAID:</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+  <figure class="article-image">
+
+  <picture>
+
+    <source
+      type="image/webp"
+      srcset="
+        /posts/2026-11-05-matrix-come-back/image_01_hu_7bf2a59a08160cb.webp 400w,
+        /posts/2026-11-05-matrix-come-back/image_01_hu_c544eb1330b9dc6d.webp 700w,
+        /posts/2026-11-05-matrix-come-back/image_01_hu_1cadc35dbb6b77b6.webp 900w
+      "
+      sizes="
+        (max-width: 700px) 100vw,
+        700px
+      "
+    >
+
+    <img
+      src="/posts/2026-11-05-matrix-come-back/image_01_hu_901816332b4f39ae.jpg"
+      alt=""
+      width="312"
+      height="216"
+      loading="lazy"
+      decoding="async"
+    >
+
+  </picture>
+
+  
+
+  </figure>
+
+
+</p>
+<p>Una vez encontrada, solo nos queda <em>instalarla</em>. Con este sencillo paso, añadimos Apprise-Go a las opciones de notificación de unRAID, desde donde podremos configurarlo para que envíe los avisos a través de Matrix.</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+  <figure class="article-image">
+
+  <picture>
+
+    <source
+      type="image/webp"
+      srcset="
+        /posts/2026-11-05-matrix-come-back/image_02_hu_9e218b9e44b78d2c.webp 400w,
+        /posts/2026-11-05-matrix-come-back/image_02_hu_687d30474d26b163.webp 700w,
+        /posts/2026-11-05-matrix-come-back/image_02_hu_396582e8d6d1efa6.webp 900w
+      "
+      sizes="
+        (max-width: 700px) 100vw,
+        700px
+      "
+    >
+
+    <img
+      src="/posts/2026-11-05-matrix-come-back/image_02_hu_f527e3c0721dfba.jpg"
+      alt=""
+      width="900"
+      height="162"
+      loading="lazy"
+      decoding="async"
+    >
+
+  </picture>
+
+  
+
+  </figure>
+
+
+</p>
+<p>Hay que tener en cuenta lo siguiente:</p>
+<ul>
+<li><strong>Agent Function</strong>: Activa el funcionamiento del plugin.</li>
+<li><strong>Apprise url(s)</strong>: Aquí tenemos que introducir la URL de nuestro servidor de Matrix, junto con el alias de la sala en la que queremos recibir las alertas:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>matrixs://sala_matrix@matrix.servidor.org/unraid:matrix.servidor.org?hsreq=no&amp;e2ee=no
+</span></span></code></pre></div><blockquote>
+<p><strong>Nota</strong></p>
+<p>Para utilizar esta URL, necesitamos asignar previamente un alias a la sala de Matrix. Más adelante explico cómo hacerlo.</p>
+</blockquote>
+<p>Y ya tenemos integrado unRAID con Matrix. Puedo decir que me está funcionando perfectamente.</p>
+<h2 id="-creación-de-salas-en-matrix">◇ Creación de salas en Matrix</h2>
+<p>La creación de las salas es la parte más sencilla de todo el proceso. Solo tienes que acceder a Element y crearlas. Les asignas un <em>nombre</em>, una <em>descripción</em> y un <em>logo</em>, y configuras los <em>permisos</em>. ¡Y ya las tienes funcionando!</p>
+<p>En cuanto a los permisos, en mi caso he configurado los siguientes:</p>
+<ul>
+<li>Permitir que cualquier usuario pueda borrar mensajes.</li>
+</ul>
+<p>Me di cuenta que usar Apprise-Go con Matrix no iba a resultar tan facil como pensaba. Al introducir el identificador de la sala de Matrix en el plugin de notificaciones de unRAID, es decir, en Apprise-Go, no lo aceptaba.</p>
+<p>Así que, después de investigar y hacer algunas pruebas, descubrí que necesitaba asignarle un alias a la sala para que todo funcionara correctamente.</p>
+<p>Esto se hace directamente desde Element, en la configuración de la sala, a través de esta opción:</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+  <figure class="article-image">
+
+  <picture>
+
+    <source
+      type="image/webp"
+      srcset="
+        /posts/2026-11-05-matrix-come-back/image_03_hu_b7fc57f2932288cd.webp 400w,
+        /posts/2026-11-05-matrix-come-back/image_03_hu_c64546928d8fc253.webp 700w,
+        /posts/2026-11-05-matrix-come-back/image_03_hu_d420393eaa726b.webp 900w
+      "
+      sizes="
+        (max-width: 700px) 100vw,
+        700px
+      "
+    >
+
+    <img
+      src="/posts/2026-11-05-matrix-come-back/image_03_hu_871739df3efdf0e4.jpg"
+      alt=""
+      width="683"
+      height="140"
+      loading="lazy"
+      decoding="async"
+    >
+
+  </picture>
+
+  
+
+  </figure>
+
+
+</p>
+<p>Creamos un <em>alias</em> que tendremos que utilizar al introducir la <em>URL</em> de nuestro servidor de Matrix. Quedando de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>matrixs://alias_sala_matrix@matrix.servidor.org/unraid:matrix.servidor.org?hsreq=no&amp;e2ee=no
+</span></span></code></pre></div><p>¡Y ahora sí! Todo funciona a las mil maravillas y podemos recibir mensajes de unRAID como este:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>enigma 🤖
+</span></span><span style="display:flex;"><span># Notice [UNRAID] - Version update b7ea..a639
+</span></span><span style="display:flex;"><span>A new version of jellyfin is available
+</span></span></code></pre></div><h2 id="-conclusión">◇ Conclusión</h2>
+<p>Y de esta manera finalizamos, de nuevo, la instalación de mi propio servidor de Matrix. Y espero que sea la ultima</p>
+<h4 id="-referencias">◆ Referencias</h4>
+<ul>
+<li><a href="https://atareao.es/podcast/la-alternativa-a-watchtower-para-docker">La alternativa a WatchTower para Docker</a></li>
+<li><a href="https://gist.atareao.es/atareao/1808d8e58d424f6c9105ae04b79538de"><code>matrixCompose.yml</code></a></li>
+<li><a href="https://continuwuity.org/index.html">Continuwuity</a></li>
+<li><a href="https://github.com/unraid/apprise-go">Apprise-Go</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+  
+  <p class="footer-right">
+    <a href="/licence/">licencia</a>
+  </p>
+  
+</footer>
+
+</body>
+</html>
