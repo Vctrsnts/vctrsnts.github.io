@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OpenGist on Si lo haces, hazlo bien!</title>
-    <link>https://vctrsnts.github.io/tags/opengist/</link>
+    <link>https://vctrsnts.codeberg.page/tags/opengist/</link>
     <description>Recent content in OpenGist on Si lo haces, hazlo bien!</description>
     <generator>Hugo</generator>
     <language>es</language>
     
     
     
-    <lastBuildDate>Thu, 15 Oct 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://vctrsnts.github.io/tags/opengist/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Oct 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://vctrsnts.codeberg.page/tags/opengist/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Instalando y usando OpenGist</title>
-      <link>https://vctrsnts.github.io/posts/2026-10-15-opengist/</link>
+      <link>https://vctrsnts.codeberg.page/posts/2026-10-15-opengist/</link>
       <pubDate>Thu, 15 Oct 2026 00:00:00 +0200</pubDate>
       
-      <guid>https://vctrsnts.github.io/posts/2026-10-15-opengist/</guid>
+      <guid>https://vctrsnts.codeberg.page/posts/2026-10-15-opengist/</guid>
       <description>&lt;h1 id=&#34;instalando-y-configurando-opengist-con-pocketid&#34;&gt;Instalando y configurando OpenGist con PocketID&lt;/h1&gt;&#xA;&lt;p&gt;Últimamente tengo a &lt;strong&gt;atareao&lt;/strong&gt; bastante liado con unas dudas sobre este magnífico mundo del &lt;strong&gt;self-hosting&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Para que veáis que soy amable, mañana le he dado fiesta 😁&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Una de las dudas que más me quita el sueño es encontrar la mejor configuración para utilizar &lt;em&gt;Traefik&lt;/em&gt; en mi &lt;em&gt;VPS&lt;/em&gt;. El motivo es que me gustaría utilizar algunas de las últimas aplicaciones que ha creado &lt;strong&gt;atareao&lt;/strong&gt;, en especial &lt;a href=&#34;https://atareao.es/podcast/la-alternativa-a-watchtower-para-docker&#34;&gt;esta&lt;/a&gt;.&lt;/p&gt;</description>
       <category>OpenGist</category>
       <category>Podman</category>
