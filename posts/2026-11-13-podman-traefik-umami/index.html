@@ -1,0 +1,372 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+
+Podman rootless: recuperando las IP reales con Traefik
+
+</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-11-13-podman-traefik-umami/">
+
+
+
+
+
+
+<meta name="description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
+
+
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<link rel="me" href="https://app.wafrn.net/blog/vctrsnts">
+
+
+
+
+<meta property="og:title" content="Podman rootless: recuperando las IP reales con Traefik">
+<meta property="og:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-11-13-podman-traefik-umami/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
+
+
+<meta property="og:type" content="article">
+
+
+<meta property="article:published_time" content="2026-11-13T00:00:00&#43;01:00">
+
+
+
+
+<meta property="article:tag" content="Podman">
+
+<meta property="article:tag" content="Traefik">
+
+<meta property="article:tag" content="VPS">
+
+<meta property="article:tag" content="Quadlets">
+
+
+
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.png">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Podman rootless: recuperando las IP reales con Traefik">
+<meta name="twitter:description" content="Blog personal sobre Linux, self-hosting, informatica y la web abierta">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.png">
+
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="6608b7e7-8981-44c1-965f-4266bfc3bab5">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍>_ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/index.xml">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Podman rootless: recuperando las IP reales con Traefik</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-11-13">
+        2026-11-13
+      </time>
+      · 10 min
+      
+      
+        · <a class="p-category" href="/categories/self-hosting/">@Self-Hosting</a>
+      
+
+      
+        ·
+        <a href="/tags/podman/">#Podman</a> <a href="/tags/traefik/">#Traefik</a> <a href="/tags/vps/">#VPS</a> <a href="/tags/quadlets/">#Quadlets</a>
+      
+
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Sabes ese problema que viene a buscarte y que piensas que va a ser muy fácil de solucionar, que en un <em>plis-plas</em> lo habrás resuelto. Que tocas aquí, modificas allá y listo. Pues ya te puedo decir que este no es de esos que puedes resolver en 5 minutos. Para este necesitas, como mínimo, un mes, que es lo que he tardado yo en dar con la solución y llegar hasta aquí.</p>
+<p>He sufrido sangre, dolor y lágrimas hasta límites insospechados, pero, al final, cuando encuentras la solución, te sientes como una persona nueva, renovada. En pocas palabras, como el amo del mundo. 😁</p>
+<h2 id="-introducción">◇ Introducción</h2>
+<p>Como sabéis, o al menos eso espero, tengo dos webs. Una es esta, donde estáis leyendo este artículo, y la <a href="https://vsantos.envs.net">otra</a> es donde voy publicando los libros que leo y mi opinión sobre ellos.</p>
+<p>Como buen amante, aunque no obsesivo, de las gráficas, tengo ambas webs monitorizadas a través de <a href="https://umami.is">Umami</a>. Todo funcionaba sin ningún problema hasta que me fijé en que, en la sección donde se tendrían que visualizar los países desde los que se originaban las visitas, no aparecía nada. 😤</p>
+<p>Al principio no le di demasiada importancia. Pensé que sería un problema pasajero que se solucionaría después de alguna actualización. Además, no había tenido ningún problema cuando utilizaba Docker, así que no esperaba encontrarme con dificultades en mi nuevo setup:</p>
+<ul>
+<li>Podman - Rootless.</li>
+<li>Traefik con reverse proxy, desplegado con Quadlets.</li>
+<li>PocketID como proveedor de autenticación OIDC, desplegado con Quadlets.</li>
+<li>Dockge como centro de despliegue de los contenedores que no quiero gestionar a través de Quadlets.</li>
+<li>Umami, Memos, OpenGist y Beszel como servicios, desplegados a través de Dockge.</li>
+<li>Y todos los servicios que necesitan tener acceso al exterior conectados a través de una red de Podman llamada <strong>Proxy</strong>.</li>
+</ul>
+<p>No tendría que haber ningún problema. Solo había cambiado Docker por Podman.</p>
+<p>Ya conocéis mi setup básico, al que le he dedicado algunos artículos que podéis encontrar por aquí. Pero ¿y el problema? Tranquilos, que ahora viene. ¿No lo veis venir a lo lejos? 👀</p>
+<p>Pues el problema era que, al estar en la misma red y con la versión actual de <strong>Podman (5.7)</strong> y el driver <strong>pasta</strong>, lo único que estaba llegando a Umami era la IP interna de Traefik.</p>
+<p>Este es el comportamiento actual y, en teoría, se solucionará en próximas versiones. De hecho, en la versión 6 de Podman ya está solucionado. Con ello, en lugar de pasar la IP interna de Traefik, se podrá visualizar en los logs de Traefik la IP externa. Todo esto es importante para solucionar los problemas que pueden aparecer con aplicaciones similares a Umami, que registran las visitas.</p>
+<p>En pocas palabras, las IP que recibía Umami eran todas internas (10.89.x.x). No se veía ninguna IP externa real.</p>
+<h2 id="-el-diagnóstico">◇ El diagnóstico</h2>
+<p>Revisando los logs de Umami y de Traefik, en concreto el <code>access.log</code>, podía ver lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&#34;ClientAddr&#34;: &#34;10.89.0.28:60998&#34;,
+</span></span><span style="display:flex;"><span>&#34;request_X-Real-Ip&#34;: &#34;10.89.0.28&#34;
+</span></span></code></pre></div><p>Como podéis ver, las IP que recibía Traefik ya eran internas y no había rastro de las externas. Con esta sencilla prueba confirmaba que el problema no estaba en Traefik, sino que venía de mucho antes. Así que podíamos exculpar a Traefik de cualquier culpabilidad.</p>
+<p>Seguí investigando, preguntando y haciendo consultas. Lo siento, pero para estos temas tiro mucho de IA porque facilita la búsqueda de información.</p>
+<p>Encontré que el problema estaba en Podman, más concretamente en la implementación que tenía de <strong>Podman rootless</strong>. Al utilizar <code>slirp4netns</code> o <code>pasta</code> como stack de red, se realiza <em>NAT</em> internamente y, en consecuencia, la IP real del cliente se pierde antes de llegar a Traefik.</p>
+<p>No es un fallo de configuración ni de instalación, sino una limitación del networking de rootless.</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Seguro que no sufriría este problema si, en vez de rootless, hubiera instalado Podman como rootful, pero entonces perdería una capa extra de seguridad.</p>
+</blockquote>
+<h2 id="-las-soluciones">◇ Las soluciones</h2>
+<p>Aquí os puedo adelantar que hay muchas y muy variopintas. Y, como dice el refrán, <strong>un paso para adelante y luego dos pasos para atrás</strong>.</p>
+<p>Pero, sobre todo, partíamos de dos premisas que no quería cambiar y que eran muros infranqueables:</p>
+<ul>
+<li>No quería pasar a rootful; para eso me quedaba en Docker, donde estaba. Cambié a Podman rootless por la <em>seguridad</em> que me aporta este modo de funcionamiento.</li>
+<li>Actualizar la versión de Podman y de pasta/passt no era viable, porque todavía no estaban disponibles en los repositorios de Ubuntu 26.04 LTS y no quería hacer experimentos con repositorios externos a la distribución.</li>
+</ul>
+<p>Así que me puse a investigar y a probar todo tipo de soluciones, a ver si alguna me hacía tocar el premio gordo.</p>
+<h3 id="-socket-activation-primera-solución">◈ Socket activation: primera solución</h3>
+<p>Buscando y buscando, encontré esta solución, que parecía que iba a resolver mis problemas y de la que <strong>atareao</strong> ya había comentado alguna cosa en artículos anteriores.</p>
+<p>Todo se basa en que, en vez de mantener Traefik siempre activo, lo que hace es dejarlo en reposo, si se puede decir así, y activarlo únicamente cuando <code>systemd</code> se lo requiere por alguna conexión externa que quiere acceder al VPS.</p>
+<p>La solución, en principio, era bastante sencilla. Únicamente había que hacer algunas modificaciones en el archivo <code>traefik.container</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Añadir en [Unit]:</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">After=traefik-web.socket traefik-websecure.socket</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Requires=traefik-web.socket traefik-websecure.socket</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Añadir en [Service]:</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Sockets=network.socket traefik-web.socket traefik-websecure.socket</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Eliminar los PublishPort:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#PublishPort=80:80</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#PublishPort=443:443/tcp</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#PublishPort=443:443/udp</span>
+</span></span></code></pre></div><p>También tenemos que crear dos archivos nuevos. El primero, <code>~/.config/systemd/user/traefik-web.socket</code>, con la siguiente información:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>[<span style="color:#ae81ff">Socket]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">ListenStream=80</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">FileDescriptorName=web</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Service=traefik.service</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">Install]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">WantedBy=sockets.target</span>
+</span></span></code></pre></div><p>Y otro llamado <code>~/.config/systemd/user/traefik-websecure.socket</code>, con esta información:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>[<span style="color:#ae81ff">Socket]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">ListenStream=443</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">ListenDatagram=443</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">FileDescriptorName=websecure</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Service=traefik.service</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">Install]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">WantedBy=sockets.target</span>
+</span></span></code></pre></div><blockquote>
+<p><strong>Nota</strong></p>
+<ul>
+<li>
+<p>Lo que sí es importante es que <code>web</code> y <code>websecure</code> sean los mismos nombres que se utilizan como <strong>entrypoints</strong> en el archivo de configuración <code>~/.config/traefik/traefik.yml</code>.</p>
+</li>
+<li>
+<p>También hay que tener presente que debemos parar Traefik antes de activar los sockets. Si Traefik ya está iniciado con <code>PublishPort</code>, el socket no podrá iniciarse porque el puerto ya estará ocupado.</p>
+</li>
+</ul>
+</blockquote>
+<p>Y con esto todo volvió a funcionar. 🎉 O eso parecía, porque, en el momento en que intentaba acceder a los servicios que tenía en PocketID, nada funcionaba. Aparecían varios errores, como si no pudieran acceder al <strong>callback</strong> de PocketID. Por más que intentaba solucionar el problema, no había manera, ni siquiera con ayuda de la IA.</p>
+<p>Umami sí registraba los países de las visitas que recibían las webs, pero PocketID no funcionaba y, con ello, tampoco podía acceder a las aplicaciones que dependían de él.</p>
+<p>El problema en sí se podía observar en el siguiente mensaje de error:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>dial tcp &lt;ip-publica&gt;:443: connect: connection refused
+</span></span></code></pre></div><p>El problema venía motivado porque Traefik intentaba alcanzar PocketID utilizando el dominio público, que a su vez resolvía a la IP pública del servidor. Con <code>PublishPort</code>, esto funcionaba porque el NAT de Podman resolvía el <em>loopback</em> internamente. Con <code>socket activation</code>, esto ya no sucedía.</p>
+<p>Y a esto, amigos, se le llama <em>hairpin NAT</em>, que significa que un contenedor está intentando alcanzarse a sí mismo a través de la IP pública.</p>
+<p>O, como diría <a href="https://ca.wikipedia.org/wiki/Carles_Porta_i_Gaset">Carles Porta</a>, «recordeu això, perquè més endavant serà important».</p>
+<h3 id="-haproxy-otra-alternativa">◈ HAProxy: otra alternativa</h3>
+<p>Y aquí entra mi querido maestro <strong>atareao</strong>, con su larga experiencia en estas batallas.</p>
+<p>Le expliqué lo que me estaba pasando y le pregunté si a él también le ocurría o si podía hacer alguna prueba al respecto. Y resultó que también tenía el mismo problema. De ahí viene este <a href="https://atareao.es/podcast/podman-ips-reales-y-la-liga">artículo</a> y <a href="https://www.youtube.com/watch?v=--BMhrrvkqQ">vídeo</a>, por los que tengo que agradecerle que me hiciera partícipe.</p>
+<p>En el artículo explicaba que, por casualidad y gracias al <a href="https://www.poderjudicial.es/search/AN/openDocument/766326fb999ba14aa0a8778d75e36f0d/20250331">Sr. Tebas</a>, había encontrado una incidencia en el funcionamiento conjunto de Podman, Traefik y Umami.</p>
+<p>Entonces se puso a investigar y encontró la aplicación <a href="https://www.haproxy.org">HAProxy</a>, que, en principio —y digo en principio—, parecía solucionar el problema, porque enviaba la IP externa a Umami y esta la recibía sin problemas.</p>
+<p>Así que me lancé como un león hacia su presa. Y sí, funcionaba.</p>
+<p>Pero, amigo, cuando intentabas utilizar PocketID, todos los problemas y errores que había observado desde el principio volvían a aparecer, impidiéndome utilizar PocketID con mis aplicaciones. Se lo hice saber a <strong>atareao</strong> para ver si a él también le pasaba y, por lo que parece, así era, porque me indicó que iba a seguir investigando. 👏</p>
+<p>Pero, claro, yo no me iba a quedar de brazos cruzados esperando a que <strong>atareao</strong> me resolviera la papeleta, así que seguí investigando hasta que&hellip;</p>
+<h3 id="-pidiendo-ayuda-en-el-repositorio-de-github-de-podman">◈ Pidiendo ayuda en el repositorio de GitHub de Podman</h3>
+<p>Sé que tendría que acostumbrarme más a pedir ayuda a los creadores de las diferentes aplicaciones que utilizo. Pero, a veces, no sé muy bien cómo explicar el problema que tengo y, por otro lado, pienso que los creadores tienen cosas más importantes que hacer que resolver las dudas y los problemas de los demás. 🫣</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Eso sí, aquí tengo que agradecer a la IA que me aconsejara sobre cómo formular las preguntas para tener más posibilidades de éxito.</p>
+</blockquote>
+<p>Lo intenté, porque el <strong>no</strong> ya lo tenía, y me lancé a la piscina e hice la <a href="https://github.com/podman-container-tools/podman/discussions/30141">pregunta</a> en el repositorio de Podman.</p>
+<p>Me fui a la sección <em>Discussion - Q&amp;A</em> y expliqué lo que me estaba pasando, detallando el problema, todo lo que había probado e incluyendo los logs. Es decir, todo lo que podía ayudar a encontrar una solución. Y esta fue la clave para dar respuesta a un problema que llevaba arrastrando desde hacía un mes.</p>
+<h2 id="-la-solución-socket-activation--extra_hosts">◇ La solución: socket activation + extra_hosts</h2>
+<p>Y aquí me tenéis de nuevo con mis queridos <strong>socket activation</strong>. Os preguntaréis: ¿por qué vuelvo a algo que ya había probado y que, además, había visto que no funcionaba?</p>
+<p>Pues aquí está el quid de la cuestión. Las respuestas que me iban dando se acercaban cada vez más a la solución, hasta que la última me abrió las puertas al Valhalla:</p>
+<p>
+
+
+
+  
+  
+  
+
+  
+
+  <figure class="article-image">
+
+  <picture>
+
+    <source
+      type="image/webp"
+      srcset="
+        /posts/2026-11-13-podman-traefik-umami/image_01_hu_789e57264c845747.webp 400w,
+        /posts/2026-11-13-podman-traefik-umami/image_01_hu_b3c37f4f4de8a884.webp 700w,
+        /posts/2026-11-13-podman-traefik-umami/image_01_hu_e24813f1fd57ecb5.webp 900w
+      "
+      sizes="
+        (max-width: 700px) 100vw,
+        700px
+      "
+    >
+
+    <img
+      src="/posts/2026-11-13-podman-traefik-umami/image_01_hu_dbf4aeef262a1d05.jpg"
+      alt=""
+      width="412"
+      height="275"
+      loading="lazy"
+      decoding="async"
+    >
+
+  </picture>
+
+  
+
+  </figure>
+
+
+</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Sé que me repito, pero, si no fuera por la IA, muchos errores no sabría cómo solucionarlos. Me dio justo lo que me faltaba para hacer funcionar todo mi setup.</p>
+</blockquote>
+<p>La solución se consigue a través de <strong>extra_hosts</strong>. Parece una palabra de lo más sencilla, pero me ha llevado por el camino de la amargura durante un mes entero.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">AddHost=auth.example.com:host-gateway</span>
+</span></span></code></pre></div><p>En los Quadlets de los contenedores, esto significa, explicado de manera sencilla, decirle a cada servicio que resuelva directamente al host el dominio de PocketID. Así no tiene que salir al exterior para después volver a entrar a Traefik, que es donde estaba el problema.</p>
+<p>En el caso de los contenedores gestionados mediante Quadlets, añadimos lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">AddHost=auth.example.com:host-gateway</span>
+</span></span></code></pre></div><p>Y, para los <code>compose</code> que utilizaba con Dockge, añadimos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">extra_hosts</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">${AUTH_FQDN}:host-gateway</span>
+</span></span></code></pre></div><p>Además, en el archivo <code>.env</code> de estos últimos, tenemos que añadir lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">AUTH_FQDN=auth.example.com</span>
+</span></span></code></pre></div><p>Con estas simples líneas, todo tendría que funcionar. 🤔</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Además, al contenedor de PocketID no tenemos que hacerle ninguna modificación.</p>
+</blockquote>
+<h2 id="-resultado-final">◇ Resultado final</h2>
+<p>Pues al final sí que funcionó, y mejor de lo que me esperaba, porque empecé a hacer las mismas pruebas que en las ocasiones anteriores me habían fallado y ahora todas funcionaban perfectamente:</p>
+<ul>
+<li>Traefik recibe la IP real de los clientes. ✅</li>
+<li>Umami muestra los países y las IP reales. ✅</li>
+<li>PocketID y todos los servicios que dependen de él funcionan correctamente. ✅</li>
+<li>El setup sigue siendo rootless. ✅</li>
+</ul>
+<p>Y llevaba un mes con este problema, pero solo un día para solucionarlo desde que empezaron a ayudarme en el repositorio de <strong>Podman</strong>. 🥳 Tendré que hacer más preguntas a los creadores de las aplicaciones y, a lo mejor, así tardo menos en solucionar los diferentes problemas que me van surgiendo.</p>
+<p>Pero, a lo mejor, de esta manera aprendo menos que haciéndolo por mi cuenta. Lo tendré que probar. 😃</p>
+<h2 id="-conclusión">◇ Conclusión</h2>
+<p>A veces, los problemas más simples tienen las soluciones más difíciles. La clave fue preguntar en el lugar correcto —el apartado <em>Discussion</em> de GitHub de Podman— y no rendirse después de descartar las primeras opciones.</p>
+<p>Si tienes un setup similar con Podman rootless y Traefik y te encuentras con el mismo problema, espero que este artículo te ahorre el mes que me costó a mí. 😅</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://atareao.es/podcast/podman-ips-reales-y-la-liga">Podman, IPs reales y La Liga</a></li>
+<li><a href="https://www.youtube.com/watch?v=--BMhrrvkqQ">Video - Podman, IPs realies y La Liga</a></li>
+<li><a href="https://www.poderjudicial.es/search/AN/openDocument/766326fb999ba14aa0a8778d75e36f0d/20250331">Sentencia 310/2024 (CENDOJ, identificador público)</a></li>
+<li><a href="https://www.haproxy.org">HAProxy</a></li>
+<li><a href="https://github.com/podman-container-tools/podman/discussions/30141">How to preserve real client IP with rootless Podman + PublishPort + Traefik?</a></li>
+<li><a href="https://github.com/eriksjolund/podman-traefik-socket-activation">podman-traefik-socket-activation</a></li>
+<li><a href="https://blog.devenphillips.dev/posts/getting-started-with-traefik-and-podman.html">Getting Started With Traefik &amp; Podman</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+  
+  <p class="footer-right">
+    <a href="/licence/">licencia</a>
+  </p>
+  
+</footer>
+
+</body>
+</html>

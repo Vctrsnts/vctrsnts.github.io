@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quadlets on Si lo haces, hazlo bien!</title>
+    <link>https://vctrsnts.github.io/tags/quadlets/</link>
+    <description>Recent content in Quadlets on Si lo haces, hazlo bien!</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    
+    
+    
+    <lastBuildDate>Fri, 13 Nov 2026 00:00:00 +0100</lastBuildDate><atom:link href="https://vctrsnts.github.io/tags/quadlets/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Podman rootless: recuperando las IP reales con Traefik</title>
+      <link>https://vctrsnts.github.io/posts/2026-11-13-podman-traefik-umami/</link>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 +0100</pubDate>
+      
+      <guid>https://vctrsnts.github.io/posts/2026-11-13-podman-traefik-umami/</guid>
+      <description>&lt;p&gt;Sabes ese problema que viene a buscarte y que piensas que va a ser muy fácil de solucionar, que en un &lt;em&gt;plis-plas&lt;/em&gt; lo habrás resuelto. Que tocas aquí, modificas allá y listo. Pues ya te puedo decir que este no es de esos que puedes resolver en 5 minutos. Para este necesitas, como mínimo, un mes, que es lo que he tardado yo en dar con la solución y llegar hasta aquí.&lt;/p&gt;</description>
+      <category>Podman</category>
+      <category>Traefik</category>
+      <category>VPS</category>
+      <category>Quadlets</category>
+    </item>
+    
+  </channel>
+</rss>
