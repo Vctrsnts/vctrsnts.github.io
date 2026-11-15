@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dockge on Si lo haces, hazlo bien!</title>
+    <link>https://vctrsnts.github.io/tags/dockge/</link>
+    <description>Recent content in Dockge on Si lo haces, hazlo bien!</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    
+    
+    
+    <lastBuildDate>Sun, 15 Nov 2026 00:00:00 +0100</lastBuildDate><atom:link href="https://vctrsnts.github.io/tags/dockge/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mejorando mis containers con healthchecks</title>
+      <link>https://vctrsnts.github.io/posts/2026-11-15-containers-healthy/</link>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 +0100</pubDate>
+      
+      <guid>https://vctrsnts.github.io/posts/2026-11-15-containers-healthy/</guid>
+      <description>&lt;p&gt;Aquí tenemos otro artículo nuevo, aunque no lo considero como un artículo más, sino como un añadido que podría incluirse en &lt;a href=&#34;https://vctrsnts.github.io/posts/2026-06-06-usando-podman-3&#34;&gt;este&lt;/a&gt; o en &lt;a href=&#34;https://vctrsnts.github.io/posts/2026-06-01-usando-podman-2&#34;&gt;este otro&lt;/a&gt;, porque son mejoras o información adicional que siempre viene bien tener disponible cuando trabajamos con nuestros contenedores.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-añadiendo-healthchecks-a-los-contenedores&#34;&gt;◇ Añadiendo healthchecks a los contenedores&lt;/h2&gt;&#xA;&lt;p&gt;Antes de ponerme con la configuración de las notificaciones de &lt;strong&gt;Beszel&lt;/strong&gt;, de la que ya hablaré en otro artículo, quería dar un paso más en la supervisión de los servicios que tengo funcionando en mi VPS.&lt;/p&gt;</description>
+      <category>Podman</category>
+      <category>Dockge</category>
+      <category>VPS</category>
+    </item>
+    
+  </channel>
+</rss>

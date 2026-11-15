@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+
+Mejorando mis containers con healthchecks
+
+</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-11-15-containers-healthy/">
+
+
+
+
+
+
+<meta name="description" content="Cómo añadir healthchecks a nuestros contenedores Podman para comprobar que los servicios funcionan correctamente y detectar posibles problemas">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
+
+
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<link rel="me" href="https://app.wafrn.net/blog/vctrsnts">
+
+
+
+
+<meta property="og:title" content="Mejorando mis containers con healthchecks">
+<meta property="og:description" content="Cómo añadir healthchecks a nuestros contenedores Podman para comprobar que los servicios funcionan correctamente y detectar posibles problemas">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-11-15-containers-healthy/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
+
+
+<meta property="og:type" content="article">
+
+
+<meta property="article:published_time" content="2026-11-15T00:00:00&#43;01:00">
+
+
+
+
+<meta property="article:tag" content="Podman">
+
+<meta property="article:tag" content="Dockge">
+
+<meta property="article:tag" content="VPS">
+
+
+
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/logo_post.png">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mejorando mis containers con healthchecks">
+<meta name="twitter:description" content="Cómo añadir healthchecks a nuestros contenedores Podman para comprobar que los servicios funcionan correctamente y detectar posibles problemas">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/logo_post.png">
+
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="6608b7e7-8981-44c1-965f-4266bfc3bab5">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍>_ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/index.xml">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Mejorando mis containers con healthchecks</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-11-15">
+        2026-11-15
+      </time>
+      · 7 min
+      
+      
+        · <a class="p-category" href="/categories/self-hosting/">@Self-Hosting</a>
+      
+
+      
+        ·
+        <a href="/tags/podman/">#Podman</a> <a href="/tags/dockge/">#Dockge</a> <a href="/tags/vps/">#VPS</a>
+      
+
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Aquí tenemos otro artículo nuevo, aunque no lo considero como un artículo más, sino como un añadido que podría incluirse en <a href="/posts/2026-06-06-usando-podman-3">este</a> o en <a href="/posts/2026-06-01-usando-podman-2">este otro</a>, porque son mejoras o información adicional que siempre viene bien tener disponible cuando trabajamos con nuestros contenedores.</p>
+<h2 id="-añadiendo-healthchecks-a-los-contenedores">◇ Añadiendo healthchecks a los contenedores</h2>
+<p>Antes de ponerme con la configuración de las notificaciones de <strong>Beszel</strong>, de la que ya hablaré en otro artículo, quería dar un paso más en la supervisión de los servicios que tengo funcionando en mi VPS.</p>
+<p>Una cosa es que un contenedor esté en ejecución y otra muy distinta es que el servicio que contiene esté funcionando correctamente. Un contenedor puede aparecer como iniciado (<code>running</code>), pero, si la aplicación que ejecuta tiene algún problema, nosotros seguiremos viendo que el contenedor está en marcha.</p>
+<p>Para solucionar esto existen los <em>healthchecks</em>, que son comprobaciones periódicas que permiten verificar si un servicio responde correctamente y asignarle un estado de salud.</p>
+<p>Lo mejor de todo es que <strong>Podman</strong> permite definir estas comprobaciones directamente en el archivo <code>compose</code>, sin necesidad de instalar herramientas adicionales de supervisión.</p>
+<p>En mi caso, quería añadirlas a cinco servicios: Memos, Element, Continuwuity, Nginx y FlexGet.</p>
+<p>Para hacer estas comprobaciones podemos utilizar dos aplicaciones:</p>
+<ul>
+<li><code>wget</code></li>
+<li><code>curl</code></li>
+</ul>
+<p>No son obligatorias, pero son las más aconsejables. Y, si ya tienes alguna de ellas instalada, no hace falta añadir nada más.</p>
+<h2 id="-memos">◇ Memos</h2>
+<p>Empecé por Memos, que fue uno de los casos más sencillos.</p>
+<p>La imagen de Memos ya incluye <code>wget</code>, así que lo utilizaremos para comprobar que el servicio web responde correctamente.</p>
+<p>Pero, antes de empezar a modificar el <code>compose</code>, lo primero que hice fue realizar una prueba desde el propio contenedor para verificar que funcionaría correctamente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@ares ~&gt; podman exec memos wget -q -O /dev/null http://127.0.0.1:5230/
+</span></span></code></pre></div><p>Si el comando devuelve un código de salida <code>0</code>, significa que la petición se ha realizado correctamente.</p>
+<p>Una vez comprobado que todo funcionaba, solamente faltaba añadir el siguiente bloque al servicio <code>memos</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>: [<span style="color:#e6db74">&#34;CMD&#34;</span>, <span style="color:#e6db74">&#34;wget&#34;</span>, <span style="color:#e6db74">&#34;-q&#34;</span>, <span style="color:#e6db74">&#34;-O&#34;</span>, <span style="color:#e6db74">&#34;/dev/null&#34;</span>, <span style="color:#e6db74">&#34;http://127.0.0.1:5230/&#34;</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">30s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">10s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">start_period</span>: <span style="color:#ae81ff">40s</span>
+</span></span></code></pre></div><blockquote>
+<p><strong>Nota</strong></p>
+<p>Este bloque lo voy a utilizar en más servicios, porque es el que recomienda la documentación de Podman.</p>
+</blockquote>
+<p>Con esta configuración, Podman comprueba cada 30 segundos que Memos responde a través de su servidor HTTP. Si falla tres veces consecutivas, el contenedor pasará al estado <code>unhealthy</code>.</p>
+<h2 id="-element">◇ Element</h2>
+<p>El siguiente fue Element, que comparte el archivo <code>compose</code> con Continuwuity.</p>
+<p>En este caso, la imagen también incluye <code>wget</code>, así que podemos utilizar el mismo procedimiento. Lo único que cambia es el puerto: Element sirve su contenido a través del puerto 80.</p>
+<p>Primero comprobé que respondía correctamente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@ares ~&gt; podman exec element wget -q -O /dev/null http://127.0.0.1:80/
+</span></span></code></pre></div><p>Una vez confirmado que la petición funcionaba, añadí el <em>healthcheck</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>: [<span style="color:#e6db74">&#34;CMD&#34;</span>, <span style="color:#e6db74">&#34;wget&#34;</span>, <span style="color:#e6db74">&#34;-q&#34;</span>, <span style="color:#e6db74">&#34;-O&#34;</span>, <span style="color:#e6db74">&#34;/dev/null&#34;</span>, <span style="color:#e6db74">&#34;http://127.0.0.1:80/&#34;</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">30s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">10s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">start_period</span>: <span style="color:#ae81ff">40s</span>
+</span></span></code></pre></div><p>Hasta aquí todo había sido bastante sencillo. Pero el siguiente servicio iba a ser un poco diferente.</p>
+<h2 id="-continuwuity">◇ Continuwuity</h2>
+<p>Aquí me encontré con el primer inconveniente.</p>
+<p>La imagen oficial de Continuwuity es extremadamente minimalista. Está construida a partir de <code>scratch</code> y no incluye herramientas habituales como <code>wget</code>, <code>curl</code> o incluso una shell.</p>
+<p>Por tanto, aunque el servidor dispone de una API HTTP que podemos consultar, no tenemos ninguna herramienta dentro del contenedor para realizar esa petición.</p>
+<p>Así que decidí utilizar el endpoint que tenemos disponible:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/_matrix/client/versions
+</span></span></code></pre></div><p>Esta es una dirección de la API de Matrix que devuelve información sobre las versiones compatibles del servidor.</p>
+<p>La solución que encontré fue aprovechar <strong>BusyBox</strong>, que ya tenía instalado en el VPS. BusyBox incluye una versión reducida de <code>wget</code> y permite realizar la comprobación sin modificar la imagen original de Continuwuity.</p>
+<p>Primero comprobé que BusyBox estaba disponible:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@ares ~&gt; /usr/bin/busybox wget --help
+</span></span></code></pre></div><p>Después añadí un volumen al servicio <code>continuwuity</code> para que el contenedor pudiera utilizar ese ejecutable. Lo importante es que el montaje sea de solo lectura (<code>:ro</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${PODMAN_STORAGE_PATH}/matrix:/var/lib/continuwuity</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/usr/bin/busybox:/usr/local/bin/busybox:ro</span>
+</span></span></code></pre></div><p>Una vez recreado el contenedor, podemos verificar que ya es posible utilizar BusyBox desde dentro del propio contenedor:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@ares ~&gt; podman exec continuwuity /usr/local/bin/busybox wget -q -O /dev/null http://127.0.0.1:8008/_matrix/client/versions
+</span></span></code></pre></div><p>La prueba devolvió un código <code>0</code>, así que ya tenía todo lo necesario para configurar el <em>healthcheck</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">CMD</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">/usr/local/bin/busybox</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">wget</span>
+</span></span><span style="display:flex;"><span>        - -<span style="color:#ae81ff">q</span>
+</span></span><span style="display:flex;"><span>        - -<span style="color:#ae81ff">O</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">/dev/null</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">http://127.0.0.1:8008/_matrix/client/versions</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">30s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">10s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">start_period</span>: <span style="color:#ae81ff">40s</span>
+</span></span></code></pre></div><p>De esta manera, seguimos utilizando la imagen original de Continuwuity. Simplemente le proporcionamos un ejecutable externo mediante un volumen de solo lectura.</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Es importante que el montaje sea únicamente de lectura (<code>ro</code>). De esta manera, si se produjera algún acceso no deseado a ese contenedor, no podría modificar el ejecutable original del host.</p>
+</blockquote>
+<h2 id="-nginx">◇ Nginx</h2>
+<p>El siguiente servicio fue Nginx, que utilizo para servir los archivos relacionados con los podcasts que sigo.</p>
+<p>En este caso, la imagen <code>nginx:stable-alpine</code> ya incluye <code>wget</code>, así que no necesitamos montar ninguna herramienta adicional.</p>
+<p>Sin embargo, al realizar la primera prueba me encontré con un pequeño problema:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>user@ares ~&gt; podman exec nginx /usr/local/bin/busybox wget: server returned error: HTTP/1.1 403 Forbidden
+</span></span></code></pre></div><p>No era un problema de Nginx. Mi configuración está preparada para permitir el acceso a determinados archivos, como imágenes y feeds RSS, mientras que el resto de las direcciones están bloqueadas.</p>
+<p>Por tanto, consultar la raíz del servidor (<code>/</code>) no era una buena opción para el <em>healthcheck</em>.</p>
+<p>Decidí crear una ruta específica para estas comprobaciones: <code>/healthz</code>.</p>
+<p>Dentro del bloque <code>server</code> de mi <code>nginx.conf</code>, añadí lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span>        <span style="color:#75715e"># Healthcheck interno
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">location</span> = <span style="color:#e6db74">/healthz</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">allow</span> 127.0.0.1;
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">deny</span> <span style="color:#e6db74">all</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">access_log</span> <span style="color:#66d9ef">off</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">auth_basic</span> <span style="color:#66d9ef">off</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">return</span> <span style="color:#ae81ff">200</span> <span style="color:#e6db74">&#34;OK&#34;</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><p>Esta ruta devuelve una respuesta HTTP 200 y evita que tengamos que utilizar uno de los archivos protegidos para comprobar el funcionamiento de Nginx.</p>
+<p>Después de reiniciar el contenedor, comprobé que funcionaba:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@ares ~&gt; podman exec nginxPodcast wget -q -O /dev/null http://127.0.0.1:50080/healthz
+</span></span></code></pre></div><p>Una vez verificado, añadí el <em>healthcheck</em> al servicio:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>: [<span style="color:#e6db74">&#34;CMD&#34;</span>, <span style="color:#e6db74">&#34;wget&#34;</span>, <span style="color:#e6db74">&#34;-q&#34;</span>, <span style="color:#e6db74">&#34;-O&#34;</span>, <span style="color:#e6db74">&#34;/dev/null&#34;</span>, <span style="color:#e6db74">&#34;http://127.0.0.1:50080/healthz&#34;</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">30s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">10s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">start_period</span>: <span style="color:#ae81ff">10s</span>
+</span></span></code></pre></div><p>Con esto ya teníamos otro servicio preparado para que Podman pueda verificar periódicamente su estado.</p>
+<h2 id="-flexget">◇ FlexGet</h2>
+<p>Por último, quedaba FlexGet. Mi servicio para descargar archivos de los podcasts que más me gustan y que me gusta conservar para poder revisarlos con más calma.</p>
+<p>Este servicio es algo diferente de los anteriores. No lo utilizo como un servidor web convencional, sino que funciona como un <em>daemon</em> que se encarga de ejecutar las tareas programadas para gestionar mis feeds y descargas.</p>
+<p>Por eso, en lugar de comprobar una dirección HTTP, preferí utilizar el propio comando de FlexGet para consultar el estado del <em>daemon</em>.</p>
+<p>La imagen dispone de <code>wget</code>, <code>curl</code> y <code>python3</code>, pero lo más interesante es que también podemos ejecutar directamente FlexGet.</p>
+<p>Primero comprobé la versión instalada:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@ares ~&gt; podman exec flexget flexget --version
+</span></span></code></pre></div><p>Y después consulté el estado del <em>daemon</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@ares ~&gt; podman exec flexget flexget daemon status
+</span></span></code></pre></div><p>La respuesta fue:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>There is a FlexGet process already running for this config, sending execution
+</span></span><span style="display:flex;"><span>there.
+</span></span><span style="display:flex;"><span>Daemon running. (PID: 169)
+</span></span></code></pre></div><p>Además, el comando devolvió un código de salida <code>0</code>.</p>
+<p>Así que utilicé esa misma comprobación para el <em>healthcheck</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>: [<span style="color:#e6db74">&#34;CMD&#34;</span>, <span style="color:#e6db74">&#34;/usr/bin/flexget&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;/config/config.yml&#34;</span>, <span style="color:#e6db74">&#34;daemon&#34;</span>, <span style="color:#e6db74">&#34;status&#34;</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">60s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">15s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">start_period</span>: <span style="color:#ae81ff">60s</span>
+</span></span></code></pre></div><p>De esta manera, no nos limitamos a comprobar que el contenedor está en ejecución, sino que preguntamos al propio FlexGet si su <em>daemon</em> está funcionando.</p>
+<h2 id="-comprobando-los-resultados">◇ Comprobando los resultados</h2>
+<p>Una vez añadidos los <em>healthchecks</em> y recreados los contenedores, podemos consultar su estado directamente desde Podman.</p>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@ares ~&gt; podman inspect nginxPodcast --format <span style="color:#e6db74">&#39;{{.State.Health.Status}}&#39;</span>
+</span></span></code></pre></div><p>Si todo funciona correctamente, obtendremos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>healthy
+</span></span></code></pre></div><p>Los estados que podemos encontrar son:</p>
+<ul>
+<li><code>starting</code>: el contenedor todavía está dentro del periodo inicial de comprobación.</li>
+<li><code>healthy</code>: las comprobaciones se están realizando correctamente.</li>
+<li><code>unhealthy</code>: se han producido suficientes comprobaciones fallidas.</li>
+</ul>
+<h2 id="-conclusión">◇ Conclusión</h2>
+<p>Con esto ya tengo cinco servicios de mi VPS con sus respectivos <em>healthchecks</em>:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Servicio</th>
+          <th>Comprobación</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Memos</td>
+          <td>Petición HTTP al puerto 5230</td>
+      </tr>
+      <tr>
+          <td>Element</td>
+          <td>Petición HTTP al puerto 80</td>
+      </tr>
+      <tr>
+          <td>Continuwuity</td>
+          <td>Consulta a la API de Matrix</td>
+      </tr>
+      <tr>
+          <td>Nginx</td>
+          <td>Ruta específica <code>/healthz</code></td>
+      </tr>
+      <tr>
+          <td>FlexGet</td>
+          <td>Estado del daemon</td>
+      </tr>
+  </tbody>
+</table>
+<p>Cada servicio necesita una comprobación diferente, dependiendo de cómo funciona y de las herramientas que incluye su imagen.</p>
+<p>Lo que más me ha gustado de este proceso es que he podido añadir estas comprobaciones sin tener que modificar las imágenes originales de los contenedores. Aparte de lo que voy aprendiendo poco a poco sobre Podman, el funcionamiento de los contenedores y todo lo que les rodea, siempre está bien descubrir nuevas formas de mejorar nuestro setup.</p>
+<p>Incluso en el caso de Continuwuity, que no incluye ni una shell, hemos encontrado una solución utilizando BusyBox.</p>
+<p>Ahora que los contenedores pueden informar de su estado de salud, ya tengo preparada la base para el siguiente paso: configurar <strong>Beszel</strong> para que supervise estos estados y me avise cuando alguno de los servicios tenga problemas.</p>
+<p>Pero eso será en otro artículo.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+  
+  <p class="footer-right">
+    <a href="/licence/">licencia</a>
+  </p>
+  
+</footer>
+
+</body>
+</html>
