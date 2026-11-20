@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Beszel on Si lo haces, hazlo bien!</title>
+    <link>https://vctrsnts.github.io/tags/beszel/</link>
+    <description>Recent content in Beszel on Si lo haces, hazlo bien!</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    
+    
+    
+    <lastBuildDate>Fri, 20 Nov 2026 00:00:00 +0100</lastBuildDate><atom:link href="https://vctrsnts.github.io/tags/beszel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Integrar las notificaciones de Beszel con Matrix</title>
+      <link>https://vctrsnts.github.io/posts/2026-11-20-beszel-matrix/</link>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 +0100</pubDate>
+      
+      <guid>https://vctrsnts.github.io/posts/2026-11-20-beszel-matrix/</guid>
+      <description>&lt;p&gt;Otro artículo más que nos permite ver el poder que puede llegar a tener Matrix en nuestro flujo de trabajo, o al menos en mi caso. Le estoy empezando a coger el gusanillo, aunque todavía estoy lejos del nivel de &lt;strong&gt;atareao&lt;/strong&gt; y sus &lt;a href=&#34;https://atareao.es/podcast/integra-tus-notificaciones-con-tu-ia&#34;&gt;notificaciones&lt;/a&gt;. Seguramente, ese será el siguiente paso natural, siempre que mi equipo me lo permita.&lt;/p&gt;&#xA;&lt;p&gt;Mi idea original era disponer de alguna aplicación que me avisara de cómo se encuentra mi VPS, sin llegar a niveles obsesivos, pero que me alertara si estaba utilizando demasiada RAM, mucha CPU, etc. Lo que tenía claro es que no quería tener otra aplicación para eso, siempre que las que ya utilizo me pudieran proporcionar esa información.&lt;/p&gt;</description>
+      <category>Podman</category>
+      <category>Beszel</category>
+      <category>VPS</category>
+      <category>Matrix&#34;</category>
+    </item>
+    
+  </channel>
+</rss>

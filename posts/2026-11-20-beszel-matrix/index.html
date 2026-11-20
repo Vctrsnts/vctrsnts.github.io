@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+
+Integrar las notificaciones de Beszel con Matrix
+
+</title>
+
+<link rel="canonical" href="https://vctrsnts.github.io/posts/2026-11-20-beszel-matrix/">
+
+
+
+
+
+
+<meta name="description" content="Integrando las notificaciones de Beszel con Matrix. Que puede salir mal">
+
+
+
+
+
+<meta name="author" content="Vctrsnts">
+<meta property="article:author" content="Vctrsnts">
+
+
+
+
+
+<link rel="me" href="https://mastodon.online/@vsantos">
+
+
+
+<link rel="me" href="https://codeberg.org/vctrsnts">
+
+
+
+<link rel="me" href="https://github.com/vctrsnts">
+
+
+
+<link rel="me" href="https://bsky.app/profile/vctrsnts.bsky.social">
+
+
+
+<meta name="fediverse:creator" content="@vsantos@mastodon.online">
+
+
+
+<link rel="me" href="https://app.wafrn.net/blog/vctrsnts">
+
+
+
+
+<meta property="og:title" content="Integrar las notificaciones de Beszel con Matrix">
+<meta property="og:description" content="Integrando las notificaciones de Beszel con Matrix. Que puede salir mal">
+<meta property="og:url" content="https://vctrsnts.github.io/posts/2026-11-20-beszel-matrix/">
+<meta property="og:site_name" content="Si lo haces, hazlo bien!">
+
+
+<meta property="og:type" content="article">
+
+
+<meta property="article:published_time" content="2026-11-20T00:00:00&#43;01:00">
+
+
+
+
+<meta property="article:tag" content="Podman">
+
+<meta property="article:tag" content="Beszel">
+
+<meta property="article:tag" content="VPS">
+
+<meta property="article:tag" content="Matrix&#34;">
+
+
+
+
+
+
+<meta property="og:image" content="https://vctrsnts.github.io/images/logo_post.png">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Integrar las notificaciones de Beszel con Matrix">
+<meta name="twitter:description" content="Integrando las notificaciones de Beszel con Matrix. Que puede salir mal">
+
+
+<meta name="twitter:image" content="https://vctrsnts.github.io/images/logo_post.png">
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<script defer
+        src="https://umami.ahnenerbe.duckdns.org/script.js"
+        data-website-id="6608b7e7-8981-44c1-965f-4266bfc3bab5">
+</script>
+
+
+</head>
+<body>
+  
+
+<header class="site-header">
+  <a class="site-title" href="/">
+    ▍>_ Si lo haces, hazlo bien!
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="/posts/">Posts</a>
+    <a href="/colophon/">Colophon</a>
+    <a href="/search/">Search</a>
+    <a href="/index.xml">Feed</a>
+  </nav>
+</header>
+
+  <main>
+    
+
+<article class="h-entry">
+  <header class="post-header">
+    <h1 class="p-name">Integrar las notificaciones de Beszel con Matrix</h1>
+    <p class="meta">
+      <time class="dt-published" datetime="2026-11-20">
+        2026-11-20
+      </time>
+      · 6 min
+      
+      
+        · <a class="p-category" href="/categories/self-hosting/">@Self-Hosting</a>
+      
+
+      
+        ·
+        <a href="/tags/podman/">#Podman</a> <a href="/tags/beszel/">#Beszel</a> <a href="/tags/vps/">#VPS</a> <a href="/tags/matrix/">#Matrix&#34;</a>
+      
+
+      
+    </p>
+  </header>
+
+  <section class="e-content">
+    <p>Otro artículo más que nos permite ver el poder que puede llegar a tener Matrix en nuestro flujo de trabajo, o al menos en mi caso. Le estoy empezando a coger el gusanillo, aunque todavía estoy lejos del nivel de <strong>atareao</strong> y sus <a href="https://atareao.es/podcast/integra-tus-notificaciones-con-tu-ia">notificaciones</a>. Seguramente, ese será el siguiente paso natural, siempre que mi equipo me lo permita.</p>
+<p>Mi idea original era disponer de alguna aplicación que me avisara de cómo se encuentra mi VPS, sin llegar a niveles obsesivos, pero que me alertara si estaba utilizando demasiada RAM, mucha CPU, etc. Lo que tenía claro es que no quería tener otra aplicación para eso, siempre que las que ya utilizo me pudieran proporcionar esa información.</p>
+<p>Y tengo que decir que así era. Una de mis aplicaciones podía mostrarme toda esa información. No era otra que <a href="/posts/2026-06-10-usando-beszel">Beszel</a>, a la que hasta ahora utilizaba únicamente como supervisora de los recursos del VPS y poco más. Seguramente podía sacarle mucho más partido y, a partir de ahora, así será.</p>
+<h2 id="heading">◇</h2>
+<p>Ya tenía <strong>Beszel</strong> funcionando, así que el siguiente paso era integrar sus notificaciones con <strong>Matrix</strong>, de manera que pudiera recibir los avisos directamente en una de mis salas acondicionada para ello. 😄</p>
+<p>Como ya he explicado en anteriores artículos, utilizo Matrix como centro de notificaciones. Una de las cosas que me interesa actualmente es tenerlas todas centralizadas, incluidos los avisos de Beszel, y no tener que consultar continuamente su panel web.</p>
+<p>Tengo que decir que la integración ha sido sencilla, aunque me he encontrado con un par de problemas relacionados con la comunicación entre contenedores y los permisos de Beszel.</p>
+<h2 id="-configurar-la-conexión-con-matrix">◇ Configurar la conexión con Matrix</h2>
+<p>Mi instalación utiliza <strong>Podman rootless</strong> y tengo tanto Beszel como Continuwuity (mi servidor Matrix) conectados a la red <code>proxy</code>, que también utiliza Traefik.</p>
+<p>Esto es importante porque, al estar los dos contenedores en la misma red, no necesitamos que Beszel acceda a Matrix utilizando su dominio público y pasando por Traefik. Podemos comunicarlos directamente mediante el nombre del contenedor y el puerto interno.</p>
+<p>En mi instalación, los datos son los siguientes:</p>
+<ul>
+<li>Contenedor de Beszel: <code>beszel</code>.</li>
+<li>Contenedor de Continuwuity: <code>continuwuity</code>.</li>
+<li>Red compartida: <code>proxy</code>.</li>
+<li>Puerto interno de Continuwuity: <code>8008</code>.</li>
+</ul>
+<p>La primera prueba que hice fue utilizar el dominio público de Matrix:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://matrix.servidor.org/_matrix/client/versions
+</span></span></code></pre></div><p>Desde el propio VPS funcionaba correctamente, pero desde un contenedor conectado a la red <code>proxy</code>, la conexión al puerto 443 era rechazada.</p>
+<p>Esto se debía a que, al intentar acceder al dominio público desde dentro de la red de contenedores, la conexión tenía que salir hacia la IP pública y volver a entrar. En mi caso, este recorrido no funcionaba.</p>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>Es un error con el que me he ido encontrando en muchas de mis aplicaciones y que no termino de entender. ¿Por qué no se puede utilizar esta conexión cuando en Docker no había tenido este tipo de problemas?</p>
+</blockquote>
+<p>Para comprobar que la comunicación interna sí era posible, utilicé un contenedor temporal de curl:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@ares ~&gt; podman run --rm --network proxy docker.io/curlimages/curl:latest http://continuwuity:8008/_matrix/client/versions
+</span></span></code></pre></div><p>La respuesta fue mejor de lo que esperaba. Por no decir que era precisamente la que necesitaba para que todo lo demás pudiera funcionar correctamente.</p>
+<p>Con esto comprobé que Beszel podía comunicarse directamente con Continuwuity.</p>
+<h2 id="-configurar-el-webhook-de-matrix-en-beszel">◇ Configurar el webhook de Matrix en Beszel</h2>
+<p>Una vez comprobada la comunicación entre los contenedores, solo me quedaba configurar el destino de las notificaciones.</p>
+<p>En Beszel entramos en:</p>
+<p><strong>Settings → Notifications</strong></p>
+<p>Y añadimos una nueva URL de notificación utilizando el siguiente formato:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>matrix://:TOKEN@continuwuity:8008/?rooms=sala:matrix.servidor.org&amp;disableTLS=yes
+</span></span></code></pre></div><p>Donde:</p>
+<ul>
+<li><code>TOKEN</code>: el token de acceso de nuestro usuario bot de Matrix.</li>
+<li><code>matrix-continuwuity</code>: nombre del contenedor de Continuwuity.</li>
+<li><code>8008</code>: puerto interno del servidor Matrix.</li>
+<li><code>sala:matrix.servidor.org</code>: alias de la sala donde queremos recibir las notificaciones.</li>
+<li><code>disableTLS=yes</code>: indica que la conexión interna se realiza sin TLS, ya que utilizamos HTTP dentro de la red privada de contenedores.</li>
+</ul>
+<blockquote>
+<p><strong>Nota</strong></p>
+<p>En esta URL utilizamos el alias de la sala, no su ID interno.</p>
+</blockquote>
+<p>Una vez guardada la configuración, podemos utilizar la opción de prueba de Beszel para comprobar que el mensaje llega correctamente a Matrix.</p>
+<h3 id="-el-problema-de-los-permisos">◈ El problema de los permisos</h3>
+<p>¿A que todo tendría que haber ido perfectamente? Ya tenemos configurado Beszel, la URL es correcta y la sala es la que tiene que ser. ¿Qué puede salir mal? 🤔</p>
+<p>Pues eso fue precisamente lo que pasó. A la hora de hacer la prueba de envío, me apareció el siguiente mensaje de error:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Only admin can send to internal destinations
+</span></span></code></pre></div><p>Al principio no tenía claro qué estaba sucediendo. La conexión entre los contenedores funcionaba, pero Beszel no permitía enviar mensajes a una dirección interna.</p>
+<p>Al final descubrí que el motivo era que el usuario con el que accedía a Beszel tenía un rol normal. Y resulta que el envío de mensajes a URL internas está reservado a los administradores.</p>
+<p>Para comprobarlo, tuve que acceder al panel de administrador de PocketBase, que es el gestor de usuarios de Beszel y que está disponible en:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://beszel.servidor.org/_/
+</span></span></code></pre></div><p>Una vez dentro del panel, recuerda acceder con tu <em>usuario y contraseña</em> de administrador. Después, tienes que ir a:</p>
+<p><strong>Collections → users</strong></p>
+<p>Solamente tienes que localizar tu usuario y modificar el campo <code>role</code>, cambiándolo de usuario normal a <code>admin</code>. Una vez realizado el cambio, guardas los ajustes y vuelves a entrar en Beszel mediante PocketID, utilizando tu usuario de siempre.</p>
+<p>Volví a realizar la prueba de las notificaciones con Matrix y esta vez todo funcionó correctamente. ¡Ahora sí que lo tenía todo!</p>
+<p>Pero hay que tener en cuenta una cosa respecto a la modificación que hemos realizado: el rol <code>admin</code> de Beszel y el acceso de superusuario de PocketBase son conceptos diferentes. No pienses que tu usuario puede entrar en PocketBase y empezar a crear usuarios como si no hubiera un mañana. Por esa parte, puedes estar tranquilo.</p>
+<h2 id="-resultado">◇ Resultado</h2>
+<p>Después de estos cambios, las notificaciones de Beszel empezaron a llegar perfectamente a Matrix. Ahora puedo consultarlas tanto desde Element (equipo local) como desde FluffyChat (móvil).</p>
+<p>Gracias a este cambio, la comunicación entre Beszel y Matrix se realiza directamente entre los contenedores, sin necesidad de que la información pase por Traefik ni salga del VPS.</p>
+<h3 id="-activando-notificaciones">◈ Activando notificaciones</h3>
+<p>Una vez que ya tenemos todo esto en funcionamiento, falta decidir qué alertas me interesa tener controladas.</p>
+<p>En mi caso, lo he dejado así y con estos umbrales:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Alerta</th>
+          <th style="text-align: right">Umbral</th>
+          <th style="text-align: right">Tiempo</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Status</td>
+          <td style="text-align: right">—</td>
+          <td style="text-align: right">5 minutos</td>
+      </tr>
+      <tr>
+          <td>CPU Usage</td>
+          <td style="text-align: right">90 %</td>
+          <td style="text-align: right">5 minutos</td>
+      </tr>
+      <tr>
+          <td>Memory Usage</td>
+          <td style="text-align: right">90 %</td>
+          <td style="text-align: right">5 minutos</td>
+      </tr>
+      <tr>
+          <td>Disk Usage</td>
+          <td style="text-align: right">85 %</td>
+          <td style="text-align: right">5 minutos</td>
+      </tr>
+      <tr>
+          <td>Containers Health</td>
+          <td style="text-align: right">—</td>
+          <td style="text-align: right">5 minutos</td>
+      </tr>
+      <tr>
+          <td>Failed Service</td>
+          <td style="text-align: right">—</td>
+          <td style="text-align: right">5 minutos</td>
+      </tr>
+  </tbody>
+</table>
+<p>De esta manera, Beszel se encarga de supervisar los recursos y el estado de los servicios, mientras que Matrix se convierte en el lugar donde recibiré todas las alertas.</p>
+<h4 id="-referencia">◇ Referencia</h4>
+<ul>
+<li><a href="https://www.beszel.dev">Beszel</a></li>
+<li><a href="https://www.beszel.dev/guide/notifications">Beszel Notifications</a></li>
+</ul>
+
+  </section>
+</article>
+
+  </main>
+  
+
+<footer class="site-footer">
+  <p class="footer-left">
+    2008 - 2026 Vctrsnts
+  </p>
+  
+  <p class="footer-right">
+    <a href="/licence/">
+      <img src="/images/LRD-80x15.svg" alt="Licencia" width="80" height="15">
+    </a>
+  </p>
+  
+</footer>
+
+</body>
+</html>
